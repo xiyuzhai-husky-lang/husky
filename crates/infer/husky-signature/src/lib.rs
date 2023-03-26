@@ -96,7 +96,7 @@ pub struct SignatureJar(
     trai_for_ty_associated_form_fn_signature,
     TypeAsTraitAssociatedFnSignature,
     trai_for_ty_method_signature,
-    TypeAsTraitMethodSignature,
+    TraitForTypeMethodSignature,
     trai_for_ty_associated_ty_signature,
     TypeAsTraitAssociatedTypeSignature,
     trai_for_ty_associated_value_signature,

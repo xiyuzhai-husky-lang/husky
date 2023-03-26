@@ -940,7 +940,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::Type(
                         TypeImplBlockId {
                             module_path: `core::num`,
@@ -951,7 +951,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Impl(
-                        ImplDecl::Type(
+                        ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 32,
                                 impl_block: TypeImplBlock {
@@ -979,7 +979,7 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                ty: TypeExpr {
+                                ty_expr: TypeExpr {
                                     expr: 0,
                                 },
                                 eol_colon: Ok(
@@ -993,7 +993,7 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Impl(
+                                            DeclRegionPath::ImplBlock(
                                                 ImplBlockId::Type(
                                                     TypeImplBlockId {
                                                         module_path: `core::num`,
@@ -1101,7 +1101,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`core::num::i8`, `Extern`),
                                             ident: `abs`,
-                                            ty_item_kind: MethodFn,
+                                            item_kind: MethodFn,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -1120,7 +1120,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`core::num::i8`, `Extern`),
                                                     ident: `abs`,
-                                                    ty_item_kind: MethodFn,
+                                                    item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -1159,7 +1159,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
                                                                         module_path: `core::num`,
@@ -1358,7 +1358,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::IllFormed(
                         IllFormedImplBlockId {
                             module: `core::num`,
@@ -1373,7 +1373,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::Type(
                         TypeImplBlockId {
                             module_path: `core::num`,
@@ -1384,7 +1384,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Impl(
-                        ImplDecl::Type(
+                        ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 37,
                                 impl_block: TypeImplBlock {
@@ -1412,7 +1412,7 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                ty: TypeExpr {
+                                ty_expr: TypeExpr {
                                     expr: 0,
                                 },
                                 eol_colon: Ok(
@@ -1426,7 +1426,7 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Impl(
+                                            DeclRegionPath::ImplBlock(
                                                 ImplBlockId::Type(
                                                     TypeImplBlockId {
                                                         module_path: `core::num`,
@@ -1534,7 +1534,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`core::num::i16`, `Extern`),
                                             ident: `abs`,
-                                            ty_item_kind: MethodFn,
+                                            item_kind: MethodFn,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -1553,7 +1553,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`core::num::i16`, `Extern`),
                                                     ident: `abs`,
-                                                    ty_item_kind: MethodFn,
+                                                    item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -1592,7 +1592,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
                                                                         module_path: `core::num`,
@@ -1791,7 +1791,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::IllFormed(
                         IllFormedImplBlockId {
                             module: `core::num`,
@@ -1806,7 +1806,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::Type(
                         TypeImplBlockId {
                             module_path: `core::num`,
@@ -1817,7 +1817,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Impl(
-                        ImplDecl::Type(
+                        ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 42,
                                 impl_block: TypeImplBlock {
@@ -1845,7 +1845,7 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                ty: TypeExpr {
+                                ty_expr: TypeExpr {
                                     expr: 0,
                                 },
                                 eol_colon: Ok(
@@ -1859,7 +1859,7 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Impl(
+                                            DeclRegionPath::ImplBlock(
                                                 ImplBlockId::Type(
                                                     TypeImplBlockId {
                                                         module_path: `core::num`,
@@ -1967,7 +1967,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`core::num::i32`, `Extern`),
                                             ident: `abs`,
-                                            ty_item_kind: MethodFn,
+                                            item_kind: MethodFn,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -1986,7 +1986,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`core::num::i32`, `Extern`),
                                                     ident: `abs`,
-                                                    ty_item_kind: MethodFn,
+                                                    item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -2025,7 +2025,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
                                                                         module_path: `core::num`,
@@ -2224,7 +2224,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::IllFormed(
                         IllFormedImplBlockId {
                             module: `core::num`,
@@ -2239,7 +2239,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::Type(
                         TypeImplBlockId {
                             module_path: `core::num`,
@@ -2250,7 +2250,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Impl(
-                        ImplDecl::Type(
+                        ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 47,
                                 impl_block: TypeImplBlock {
@@ -2278,7 +2278,7 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                ty: TypeExpr {
+                                ty_expr: TypeExpr {
                                     expr: 0,
                                 },
                                 eol_colon: Ok(
@@ -2292,7 +2292,7 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Impl(
+                                            DeclRegionPath::ImplBlock(
                                                 ImplBlockId::Type(
                                                     TypeImplBlockId {
                                                         module_path: `core::num`,
@@ -2400,7 +2400,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`core::num::i64`, `Extern`),
                                             ident: `abs`,
-                                            ty_item_kind: MethodFn,
+                                            item_kind: MethodFn,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -2419,7 +2419,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`core::num::i64`, `Extern`),
                                                     ident: `abs`,
-                                                    ty_item_kind: MethodFn,
+                                                    item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -2458,7 +2458,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
                                                                         module_path: `core::num`,
@@ -2657,7 +2657,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::IllFormed(
                         IllFormedImplBlockId {
                             module: `core::num`,
@@ -2672,7 +2672,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::Type(
                         TypeImplBlockId {
                             module_path: `core::num`,
@@ -2683,7 +2683,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Impl(
-                        ImplDecl::Type(
+                        ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 52,
                                 impl_block: TypeImplBlock {
@@ -2711,7 +2711,7 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                ty: TypeExpr {
+                                ty_expr: TypeExpr {
                                     expr: 0,
                                 },
                                 eol_colon: Ok(
@@ -2725,7 +2725,7 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Impl(
+                                            DeclRegionPath::ImplBlock(
                                                 ImplBlockId::Type(
                                                     TypeImplBlockId {
                                                         module_path: `core::num`,
@@ -2833,7 +2833,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`core::num::i128`, `Extern`),
                                             ident: `abs`,
-                                            ty_item_kind: MethodFn,
+                                            item_kind: MethodFn,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -2852,7 +2852,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`core::num::i128`, `Extern`),
                                                     ident: `abs`,
-                                                    ty_item_kind: MethodFn,
+                                                    item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -2891,7 +2891,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
                                                                         module_path: `core::num`,
@@ -3090,7 +3090,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::IllFormed(
                         IllFormedImplBlockId {
                             module: `core::num`,
@@ -3105,7 +3105,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::Type(
                         TypeImplBlockId {
                             module_path: `core::num`,
@@ -3116,7 +3116,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Impl(
-                        ImplDecl::Type(
+                        ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 57,
                                 impl_block: TypeImplBlock {
@@ -3144,7 +3144,7 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                ty: TypeExpr {
+                                ty_expr: TypeExpr {
                                     expr: 0,
                                 },
                                 eol_colon: Ok(
@@ -3158,7 +3158,7 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Impl(
+                                            DeclRegionPath::ImplBlock(
                                                 ImplBlockId::Type(
                                                     TypeImplBlockId {
                                                         module_path: `core::num`,
@@ -3266,7 +3266,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`core::num::isize`, `Extern`),
                                             ident: `abs`,
-                                            ty_item_kind: MethodFn,
+                                            item_kind: MethodFn,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -3285,7 +3285,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`core::num::isize`, `Extern`),
                                                     ident: `abs`,
-                                                    ty_item_kind: MethodFn,
+                                                    item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -3324,7 +3324,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
                                                                         module_path: `core::num`,
@@ -3523,7 +3523,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::IllFormed(
                         IllFormedImplBlockId {
                             module: `core::num`,
@@ -3538,7 +3538,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::Type(
                         TypeImplBlockId {
                             module_path: `core::num`,
@@ -3549,7 +3549,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Impl(
-                        ImplDecl::Type(
+                        ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 62,
                                 impl_block: TypeImplBlock {
@@ -3577,7 +3577,7 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                ty: TypeExpr {
+                                ty_expr: TypeExpr {
                                     expr: 0,
                                 },
                                 eol_colon: Ok(
@@ -3591,7 +3591,7 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Impl(
+                                            DeclRegionPath::ImplBlock(
                                                 ImplBlockId::Type(
                                                     TypeImplBlockId {
                                                         module_path: `core::num`,
@@ -3699,7 +3699,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`core::num::u8`, `Extern`),
                                             ident: `abs`,
-                                            ty_item_kind: MethodFn,
+                                            item_kind: MethodFn,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -3718,7 +3718,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`core::num::u8`, `Extern`),
                                                     ident: `abs`,
-                                                    ty_item_kind: MethodFn,
+                                                    item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -3757,7 +3757,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
                                                                         module_path: `core::num`,
@@ -3956,7 +3956,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::IllFormed(
                         IllFormedImplBlockId {
                             module: `core::num`,
@@ -3971,7 +3971,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::Type(
                         TypeImplBlockId {
                             module_path: `core::num`,
@@ -3982,7 +3982,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Impl(
-                        ImplDecl::Type(
+                        ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 67,
                                 impl_block: TypeImplBlock {
@@ -4010,7 +4010,7 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                ty: TypeExpr {
+                                ty_expr: TypeExpr {
                                     expr: 0,
                                 },
                                 eol_colon: Ok(
@@ -4024,7 +4024,7 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Impl(
+                                            DeclRegionPath::ImplBlock(
                                                 ImplBlockId::Type(
                                                     TypeImplBlockId {
                                                         module_path: `core::num`,
@@ -4132,7 +4132,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`core::num::u16`, `Extern`),
                                             ident: `abs`,
-                                            ty_item_kind: MethodFn,
+                                            item_kind: MethodFn,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -4151,7 +4151,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`core::num::u16`, `Extern`),
                                                     ident: `abs`,
-                                                    ty_item_kind: MethodFn,
+                                                    item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -4190,7 +4190,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
                                                                         module_path: `core::num`,
@@ -4389,7 +4389,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::IllFormed(
                         IllFormedImplBlockId {
                             module: `core::num`,
@@ -4404,7 +4404,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::Type(
                         TypeImplBlockId {
                             module_path: `core::num`,
@@ -4415,7 +4415,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Impl(
-                        ImplDecl::Type(
+                        ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 72,
                                 impl_block: TypeImplBlock {
@@ -4443,7 +4443,7 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                ty: TypeExpr {
+                                ty_expr: TypeExpr {
                                     expr: 0,
                                 },
                                 eol_colon: Ok(
@@ -4457,7 +4457,7 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Impl(
+                                            DeclRegionPath::ImplBlock(
                                                 ImplBlockId::Type(
                                                     TypeImplBlockId {
                                                         module_path: `core::num`,
@@ -4565,7 +4565,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`core::num::u32`, `Extern`),
                                             ident: `abs`,
-                                            ty_item_kind: MethodFn,
+                                            item_kind: MethodFn,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -4584,7 +4584,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`core::num::u32`, `Extern`),
                                                     ident: `abs`,
-                                                    ty_item_kind: MethodFn,
+                                                    item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -4623,7 +4623,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
                                                                         module_path: `core::num`,
@@ -4822,7 +4822,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::IllFormed(
                         IllFormedImplBlockId {
                             module: `core::num`,
@@ -4837,7 +4837,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::Type(
                         TypeImplBlockId {
                             module_path: `core::num`,
@@ -4848,7 +4848,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Impl(
-                        ImplDecl::Type(
+                        ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 77,
                                 impl_block: TypeImplBlock {
@@ -4876,7 +4876,7 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                ty: TypeExpr {
+                                ty_expr: TypeExpr {
                                     expr: 0,
                                 },
                                 eol_colon: Ok(
@@ -4890,7 +4890,7 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Impl(
+                                            DeclRegionPath::ImplBlock(
                                                 ImplBlockId::Type(
                                                     TypeImplBlockId {
                                                         module_path: `core::num`,
@@ -4998,7 +4998,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`core::num::u64`, `Extern`),
                                             ident: `abs`,
-                                            ty_item_kind: MethodFn,
+                                            item_kind: MethodFn,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -5017,7 +5017,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`core::num::u64`, `Extern`),
                                                     ident: `abs`,
-                                                    ty_item_kind: MethodFn,
+                                                    item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -5056,7 +5056,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
                                                                         module_path: `core::num`,
@@ -5255,7 +5255,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::IllFormed(
                         IllFormedImplBlockId {
                             module: `core::num`,
@@ -5270,7 +5270,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::Type(
                         TypeImplBlockId {
                             module_path: `core::num`,
@@ -5281,7 +5281,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Impl(
-                        ImplDecl::Type(
+                        ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 82,
                                 impl_block: TypeImplBlock {
@@ -5309,7 +5309,7 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                ty: TypeExpr {
+                                ty_expr: TypeExpr {
                                     expr: 0,
                                 },
                                 eol_colon: Ok(
@@ -5323,7 +5323,7 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Impl(
+                                            DeclRegionPath::ImplBlock(
                                                 ImplBlockId::Type(
                                                     TypeImplBlockId {
                                                         module_path: `core::num`,
@@ -5431,7 +5431,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`core::num::u128`, `Extern`),
                                             ident: `abs`,
-                                            ty_item_kind: MethodFn,
+                                            item_kind: MethodFn,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -5450,7 +5450,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`core::num::u128`, `Extern`),
                                                     ident: `abs`,
-                                                    ty_item_kind: MethodFn,
+                                                    item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -5489,7 +5489,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
                                                                         module_path: `core::num`,
@@ -5688,7 +5688,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::IllFormed(
                         IllFormedImplBlockId {
                             module: `core::num`,
@@ -5703,7 +5703,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::Type(
                         TypeImplBlockId {
                             module_path: `core::num`,
@@ -5714,7 +5714,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Impl(
-                        ImplDecl::Type(
+                        ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 87,
                                 impl_block: TypeImplBlock {
@@ -5742,7 +5742,7 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                ty: TypeExpr {
+                                ty_expr: TypeExpr {
                                     expr: 0,
                                 },
                                 eol_colon: Ok(
@@ -5756,7 +5756,7 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Impl(
+                                            DeclRegionPath::ImplBlock(
                                                 ImplBlockId::Type(
                                                     TypeImplBlockId {
                                                         module_path: `core::num`,
@@ -5864,7 +5864,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`core::num::usize`, `Extern`),
                                             ident: `abs`,
-                                            ty_item_kind: MethodFn,
+                                            item_kind: MethodFn,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -5883,7 +5883,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`core::num::usize`, `Extern`),
                                                     ident: `abs`,
-                                                    ty_item_kind: MethodFn,
+                                                    item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -5922,7 +5922,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
                                                                         module_path: `core::num`,
@@ -6121,7 +6121,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::IllFormed(
                         IllFormedImplBlockId {
                             module: `core::num`,
@@ -6136,7 +6136,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::Type(
                         TypeImplBlockId {
                             module_path: `core::num`,
@@ -6147,7 +6147,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Impl(
-                        ImplDecl::Type(
+                        ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 92,
                                 impl_block: TypeImplBlock {
@@ -6175,7 +6175,7 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                ty: TypeExpr {
+                                ty_expr: TypeExpr {
                                     expr: 0,
                                 },
                                 eol_colon: Ok(
@@ -6189,7 +6189,7 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Impl(
+                                            DeclRegionPath::ImplBlock(
                                                 ImplBlockId::Type(
                                                     TypeImplBlockId {
                                                         module_path: `core::num`,
@@ -6297,7 +6297,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`core::num::f32`, `Extern`),
                                             ident: `abs`,
-                                            ty_item_kind: MethodFn,
+                                            item_kind: MethodFn,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -6316,7 +6316,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`core::num::f32`, `Extern`),
                                                     ident: `abs`,
-                                                    ty_item_kind: MethodFn,
+                                                    item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -6355,7 +6355,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
                                                                         module_path: `core::num`,
@@ -6554,7 +6554,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::IllFormed(
                         IllFormedImplBlockId {
                             module: `core::num`,
@@ -6569,7 +6569,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::Type(
                         TypeImplBlockId {
                             module_path: `core::num`,
@@ -6580,7 +6580,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Impl(
-                        ImplDecl::Type(
+                        ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 97,
                                 impl_block: TypeImplBlock {
@@ -6608,7 +6608,7 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                ty: TypeExpr {
+                                ty_expr: TypeExpr {
                                     expr: 0,
                                 },
                                 eol_colon: Ok(
@@ -6622,7 +6622,7 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Impl(
+                                            DeclRegionPath::ImplBlock(
                                                 ImplBlockId::Type(
                                                     TypeImplBlockId {
                                                         module_path: `core::num`,
@@ -6730,7 +6730,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`core::num::f64`, `Extern`),
                                             ident: `abs`,
-                                            ty_item_kind: MethodFn,
+                                            item_kind: MethodFn,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -6749,7 +6749,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`core::num::f64`, `Extern`),
                                                     ident: `abs`,
-                                                    ty_item_kind: MethodFn,
+                                                    item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -6788,7 +6788,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
                                                                         module_path: `core::num`,
@@ -6987,7 +6987,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::IllFormed(
                         IllFormedImplBlockId {
                             module: `core::num`,

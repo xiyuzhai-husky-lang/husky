@@ -4,7 +4,7 @@ use super::*;
 pub struct TypeItemPath {
     pub parent_ty: TypePath,
     pub ident: Ident,
-    pub ty_item_kind: TypeItemKind,
+    pub item_kind: TypeItemKind,
 }
 
 impl TypeItemPath {

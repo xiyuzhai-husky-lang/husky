@@ -12,7 +12,7 @@ impl From<u8> for TermUniverse {
 const UNIVERSE_MAX: u8 = 100;
 
 impl TermUniverse {
-    pub fn new(i: u8) -> Self {
+    pub const fn new(i: u8) -> Self {
         assert!(i < UNIVERSE_MAX);
         TermUniverse(i)
     }

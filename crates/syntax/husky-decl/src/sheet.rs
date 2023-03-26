@@ -14,7 +14,6 @@ pub fn decl_sheet<'a>(db: &'a dyn DeclDb, path: ModulePath) -> EntityTreeResult<
 
 #[test]
 fn decl_sheet_works() {
-    
     use tests::*;
 
     DB::default().ast_expect_test_debug_with_db("decl_sheet", DeclDb::decl_sheet);
@@ -35,8 +34,8 @@ impl<'a> DeclSheet<'a> {
         for impl_block in entity_tree_sheet.impl_blocks().iter().copied() {
             decls
                 .insert_new((
-                    DeclRegionPath::Impl(impl_block.id(db)),
-                    db.impl_decl(impl_block).map(|decl| decl.into()),
+                    DeclRegionPath::ImplBlock(impl_block.id(db)),
+                    db.impl_block_decl(impl_block).map(|decl| decl.into()),
                 ))
                 .unwrap();
             for (_, associated_item) in db.impl_block_items(impl_block).iter().copied() {

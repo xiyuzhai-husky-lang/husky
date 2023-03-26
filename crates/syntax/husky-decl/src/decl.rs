@@ -21,7 +21,7 @@ pub enum Decl {
     Type(TypeDecl),
     Form(FormDecl),
     Trait(TraitDecl),
-    Impl(ImplDecl),
+    Impl(ImplBlockDecl),
     AssociatedItem(AssociatedItemDecl),
     Variant(VariantDecl),
 }

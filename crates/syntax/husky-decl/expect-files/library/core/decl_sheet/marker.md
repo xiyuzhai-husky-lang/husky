@@ -132,7 +132,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::TypeAsTrait(
                         TraitForTypeImplBlockId {
                             module_path: `core::marker`,
@@ -144,7 +144,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Impl(
-                        ImplDecl::TypeAsTrait(
+                        ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
                                 ast_idx: 1,
                                 impl_block: TraitForTypeImplBlock {
@@ -177,7 +177,7 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                trai: TraitExpr {
+                                trai_expr: TraitExpr {
                                     expr: 0,
                                 },
                                 for_token: ConnectionForToken {
@@ -185,7 +185,7 @@ Ok(
                                         6,
                                     ),
                                 },
-                                ty: TypeExpr {
+                                ty_expr: TypeExpr {
                                     expr: 1,
                                 },
                                 eol_colon: Err(
@@ -201,7 +201,7 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Impl(
+                                            DeclRegionPath::ImplBlock(
                                                 ImplBlockId::TypeAsTrait(
                                                     TraitForTypeImplBlockId {
                                                         module_path: `core::marker`,
@@ -304,7 +304,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::TypeAsTrait(
                         TraitForTypeImplBlockId {
                             module_path: `core::marker`,
@@ -316,7 +316,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Impl(
-                        ImplDecl::TypeAsTrait(
+                        ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
                                 ast_idx: 2,
                                 impl_block: TraitForTypeImplBlock {
@@ -349,7 +349,7 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                trai: TraitExpr {
+                                trai_expr: TraitExpr {
                                     expr: 0,
                                 },
                                 for_token: ConnectionForToken {
@@ -357,7 +357,7 @@ Ok(
                                         10,
                                     ),
                                 },
-                                ty: TypeExpr {
+                                ty_expr: TypeExpr {
                                     expr: 1,
                                 },
                                 eol_colon: Err(
@@ -373,7 +373,7 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Impl(
+                                            DeclRegionPath::ImplBlock(
                                                 ImplBlockId::TypeAsTrait(
                                                     TraitForTypeImplBlockId {
                                                         module_path: `core::marker`,
@@ -476,7 +476,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::TypeAsTrait(
                         TraitForTypeImplBlockId {
                             module_path: `core::marker`,
@@ -488,7 +488,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Impl(
-                        ImplDecl::TypeAsTrait(
+                        ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
                                 ast_idx: 3,
                                 impl_block: TraitForTypeImplBlock {
@@ -521,7 +521,7 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                trai: TraitExpr {
+                                trai_expr: TraitExpr {
                                     expr: 0,
                                 },
                                 for_token: ConnectionForToken {
@@ -529,7 +529,7 @@ Ok(
                                         14,
                                     ),
                                 },
-                                ty: TypeExpr {
+                                ty_expr: TypeExpr {
                                     expr: 1,
                                 },
                                 eol_colon: Err(
@@ -545,7 +545,7 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Impl(
+                                            DeclRegionPath::ImplBlock(
                                                 ImplBlockId::TypeAsTrait(
                                                     TraitForTypeImplBlockId {
                                                         module_path: `core::marker`,
@@ -648,7 +648,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::TypeAsTrait(
                         TraitForTypeImplBlockId {
                             module_path: `core::marker`,
@@ -660,7 +660,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Impl(
-                        ImplDecl::TypeAsTrait(
+                        ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
                                 ast_idx: 4,
                                 impl_block: TraitForTypeImplBlock {
@@ -693,7 +693,7 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                trai: TraitExpr {
+                                trai_expr: TraitExpr {
                                     expr: 0,
                                 },
                                 for_token: ConnectionForToken {
@@ -701,7 +701,7 @@ Ok(
                                         18,
                                     ),
                                 },
-                                ty: TypeExpr {
+                                ty_expr: TypeExpr {
                                     expr: 1,
                                 },
                                 eol_colon: Err(
@@ -717,7 +717,7 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Impl(
+                                            DeclRegionPath::ImplBlock(
                                                 ImplBlockId::TypeAsTrait(
                                                     TraitForTypeImplBlockId {
                                                         module_path: `core::marker`,
@@ -820,7 +820,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::TypeAsTrait(
                         TraitForTypeImplBlockId {
                             module_path: `core::marker`,
@@ -832,7 +832,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Impl(
-                        ImplDecl::TypeAsTrait(
+                        ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
                                 ast_idx: 5,
                                 impl_block: TraitForTypeImplBlock {
@@ -865,7 +865,7 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                trai: TraitExpr {
+                                trai_expr: TraitExpr {
                                     expr: 0,
                                 },
                                 for_token: ConnectionForToken {
@@ -873,7 +873,7 @@ Ok(
                                         22,
                                     ),
                                 },
-                                ty: TypeExpr {
+                                ty_expr: TypeExpr {
                                     expr: 1,
                                 },
                                 eol_colon: Err(
@@ -889,7 +889,7 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Impl(
+                                            DeclRegionPath::ImplBlock(
                                                 ImplBlockId::TypeAsTrait(
                                                     TraitForTypeImplBlockId {
                                                         module_path: `core::marker`,
@@ -992,7 +992,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::TypeAsTrait(
                         TraitForTypeImplBlockId {
                             module_path: `core::marker`,
@@ -1004,7 +1004,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Impl(
-                        ImplDecl::TypeAsTrait(
+                        ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
                                 ast_idx: 6,
                                 impl_block: TraitForTypeImplBlock {
@@ -1037,7 +1037,7 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                trai: TraitExpr {
+                                trai_expr: TraitExpr {
                                     expr: 0,
                                 },
                                 for_token: ConnectionForToken {
@@ -1045,7 +1045,7 @@ Ok(
                                         26,
                                     ),
                                 },
-                                ty: TypeExpr {
+                                ty_expr: TypeExpr {
                                     expr: 1,
                                 },
                                 eol_colon: Err(
@@ -1061,7 +1061,7 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Impl(
+                                            DeclRegionPath::ImplBlock(
                                                 ImplBlockId::TypeAsTrait(
                                                     TraitForTypeImplBlockId {
                                                         module_path: `core::marker`,

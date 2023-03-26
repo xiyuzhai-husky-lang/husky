@@ -10116,7 +10116,7 @@ Ok(
                                                                 TypeItemPath {
                                                                     parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                                     ident: `new`,
-                                                                    ty_item_kind: AssociatedFn,
+                                                                    item_kind: AssociatedFn,
                                                                 },
                                                             ),
                                                         ),
@@ -10519,7 +10519,7 @@ Ok(
                                                                 TypeItemPath {
                                                                     parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                                     ident: `new`,
-                                                                    ty_item_kind: AssociatedFn,
+                                                                    item_kind: AssociatedFn,
                                                                 },
                                                             ),
                                                         ),
@@ -10785,7 +10785,7 @@ Ok(
                                                                 TypeItemPath {
                                                                     parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                                     ident: `new`,
-                                                                    ty_item_kind: AssociatedFn,
+                                                                    item_kind: AssociatedFn,
                                                                 },
                                                             ),
                                                         ),
@@ -11393,7 +11393,7 @@ Ok(
                                                                 TypeItemPath {
                                                                     parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                                     ident: `new`,
-                                                                    ty_item_kind: AssociatedFn,
+                                                                    item_kind: AssociatedFn,
                                                                 },
                                                             ),
                                                         ),
@@ -11967,7 +11967,7 @@ Ok(
                                                                 TypeItemPath {
                                                                     parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                                     ident: `new`,
-                                                                    ty_item_kind: AssociatedFn,
+                                                                    item_kind: AssociatedFn,
                                                                 },
                                                             ),
                                                         ),
@@ -12232,7 +12232,7 @@ Ok(
                                                                 TypeItemPath {
                                                                     parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                                     ident: `new`,
-                                                                    ty_item_kind: AssociatedFn,
+                                                                    item_kind: AssociatedFn,
                                                                 },
                                                             ),
                                                         ),
@@ -12270,7 +12270,7 @@ Ok(
                                                                 TypeItemPath {
                                                                     parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                                     ident: `new`,
-                                                                    ty_item_kind: AssociatedFn,
+                                                                    item_kind: AssociatedFn,
                                                                 },
                                                             ),
                                                         ),
@@ -12319,7 +12319,7 @@ Ok(
                                                                 TypeItemPath {
                                                                     parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                                     ident: `new`,
-                                                                    ty_item_kind: AssociatedFn,
+                                                                    item_kind: AssociatedFn,
                                                                 },
                                                             ),
                                                         ),
@@ -12357,7 +12357,7 @@ Ok(
                                                                 TypeItemPath {
                                                                     parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                                     ident: `new`,
-                                                                    ty_item_kind: AssociatedFn,
+                                                                    item_kind: AssociatedFn,
                                                                 },
                                                             ),
                                                         ),
@@ -12395,7 +12395,7 @@ Ok(
                                                                 TypeItemPath {
                                                                     parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                                     ident: `new`,
-                                                                    ty_item_kind: AssociatedFn,
+                                                                    item_kind: AssociatedFn,
                                                                 },
                                                             ),
                                                         ),
@@ -13932,7 +13932,7 @@ Ok(
                 ),
                 Ok(
                     Defn::Impl(
-                        ImplDecl::Type(
+                        ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 170,
                                 impl_block: TypeImplBlock {
@@ -13960,7 +13960,7 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                ty: TypeExpr {
+                                ty_expr: TypeExpr {
                                     expr: 0,
                                 },
                                 eol_colon: Ok(
@@ -13974,7 +13974,7 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Impl(
+                                            DeclRegionPath::ImplBlock(
                                                 ImplBlockId::Type(
                                                     TypeImplBlockId {
                                                         module_path: `mnist_classifier::line_segment_sketch`,
@@ -14093,7 +14093,7 @@ Ok(
                                             TypeItemPath {
                                                 parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                 ident: `new`,
-                                                ty_item_kind: AssociatedFn,
+                                                item_kind: AssociatedFn,
                                             },
                                         ),
                                         ast_idx: 3,
@@ -14104,7 +14104,7 @@ Ok(
                                                         data: ExprRegionData {
                                                             parent: None,
                                                             path: RegionPath::Decl(
-                                                                DeclRegionPath::Impl(
+                                                                DeclRegionPath::ImplBlock(
                                                                     ImplBlockId::Type(
                                                                         TypeImplBlockId {
                                                                             module_path: `mnist_classifier::line_segment_sketch`,
@@ -14528,7 +14528,7 @@ Ok(
                                                                 data: ExprRegionData {
                                                                     parent: None,
                                                                     path: RegionPath::Decl(
-                                                                        DeclRegionPath::Impl(
+                                                                        DeclRegionPath::ImplBlock(
                                                                             ImplBlockId::Type(
                                                                                 TypeImplBlockId {
                                                                                     module_path: `mnist_classifier::line_segment_sketch`,
@@ -15145,7 +15145,7 @@ Ok(
                                             TypeItemPath {
                                                 parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                 ident: `displacement`,
-                                                ty_item_kind: MethodFn,
+                                                item_kind: MethodFn,
                                             },
                                         ),
                                         associated_item: AssociatedItem {
@@ -15164,7 +15164,7 @@ Ok(
                                                     TypeItemPath {
                                                         parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                         ident: `displacement`,
-                                                        ty_item_kind: MethodFn,
+                                                        item_kind: MethodFn,
                                                     },
                                                 ),
                                             ),
@@ -15205,7 +15205,7 @@ Ok(
                                                         data: ExprRegionData {
                                                             parent: None,
                                                             path: RegionPath::Decl(
-                                                                DeclRegionPath::Impl(
+                                                                DeclRegionPath::ImplBlock(
                                                                     ImplBlockId::Type(
                                                                         TypeImplBlockId {
                                                                             module_path: `mnist_classifier::line_segment_sketch`,
@@ -15406,7 +15406,7 @@ Ok(
                                                                 data: ExprRegionData {
                                                                     parent: None,
                                                                     path: RegionPath::Decl(
-                                                                        DeclRegionPath::Impl(
+                                                                        DeclRegionPath::ImplBlock(
                                                                             ImplBlockId::Type(
                                                                                 TypeImplBlockId {
                                                                                     module_path: `mnist_classifier::line_segment_sketch`,
@@ -15693,7 +15693,7 @@ Ok(
                 ),
                 Ok(
                     Defn::Impl(
-                        ImplDecl::Type(
+                        ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 172,
                                 impl_block: TypeImplBlock {
@@ -15721,7 +15721,7 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                ty: TypeExpr {
+                                ty_expr: TypeExpr {
                                     expr: 0,
                                 },
                                 eol_colon: Ok(
@@ -15735,7 +15735,7 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Impl(
+                                            DeclRegionPath::ImplBlock(
                                                 ImplBlockId::Type(
                                                     TypeImplBlockId {
                                                         module_path: `mnist_classifier::line_segment_sketch`,
@@ -15833,7 +15833,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                             ident: `concave_components`,
-                                            ty_item_kind: Memo,
+                                            item_kind: Memo,
                                         },
                                     ),
                                     decl: TypeMemoDecl {
@@ -15841,7 +15841,7 @@ Ok(
                                             TypeItemPath {
                                                 parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                 ident: `concave_components`,
-                                                ty_item_kind: Memo,
+                                                item_kind: Memo,
                                             },
                                         ),
                                         associated_item: AssociatedItem {
@@ -15860,7 +15860,7 @@ Ok(
                                                     TypeItemPath {
                                                         parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                         ident: `concave_components`,
-                                                        ty_item_kind: Memo,
+                                                        item_kind: Memo,
                                                     },
                                                 ),
                                             ),
@@ -15901,7 +15901,7 @@ Ok(
                                                         data: ExprRegionData {
                                                             parent: None,
                                                             path: RegionPath::Decl(
-                                                                DeclRegionPath::Impl(
+                                                                DeclRegionPath::ImplBlock(
                                                                     ImplBlockId::Type(
                                                                         TypeImplBlockId {
                                                                             module_path: `mnist_classifier::line_segment_sketch`,
@@ -16093,7 +16093,7 @@ Ok(
                                                                 data: ExprRegionData {
                                                                     parent: None,
                                                                     path: RegionPath::Decl(
-                                                                        DeclRegionPath::Impl(
+                                                                        DeclRegionPath::ImplBlock(
                                                                             ImplBlockId::Type(
                                                                                 TypeImplBlockId {
                                                                                     module_path: `mnist_classifier::line_segment_sketch`,
@@ -16390,7 +16390,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                             ident: `bounding_box`,
-                                            ty_item_kind: Memo,
+                                            item_kind: Memo,
                                         },
                                     ),
                                     decl: TypeMemoDecl {
@@ -16398,7 +16398,7 @@ Ok(
                                             TypeItemPath {
                                                 parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                 ident: `bounding_box`,
-                                                ty_item_kind: Memo,
+                                                item_kind: Memo,
                                             },
                                         ),
                                         associated_item: AssociatedItem {
@@ -16417,7 +16417,7 @@ Ok(
                                                     TypeItemPath {
                                                         parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                         ident: `bounding_box`,
-                                                        ty_item_kind: Memo,
+                                                        item_kind: Memo,
                                                     },
                                                 ),
                                             ),
@@ -16458,7 +16458,7 @@ Ok(
                                                         data: ExprRegionData {
                                                             parent: None,
                                                             path: RegionPath::Decl(
-                                                                DeclRegionPath::Impl(
+                                                                DeclRegionPath::ImplBlock(
                                                                     ImplBlockId::Type(
                                                                         TypeImplBlockId {
                                                                             module_path: `mnist_classifier::line_segment_sketch`,
@@ -16635,7 +16635,7 @@ Ok(
                                                                 data: ExprRegionData {
                                                                     parent: None,
                                                                     path: RegionPath::Decl(
-                                                                        DeclRegionPath::Impl(
+                                                                        DeclRegionPath::ImplBlock(
                                                                             ImplBlockId::Type(
                                                                                 TypeImplBlockId {
                                                                                     module_path: `mnist_classifier::line_segment_sketch`,
@@ -18058,7 +18058,7 @@ Ok(
                                             TypeItemPath {
                                                 parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                 ident: `new`,
-                                                ty_item_kind: AssociatedFn,
+                                                item_kind: AssociatedFn,
                                             },
                                         ),
                                         ast_idx: 23,
@@ -18069,7 +18069,7 @@ Ok(
                                                         data: ExprRegionData {
                                                             parent: None,
                                                             path: RegionPath::Decl(
-                                                                DeclRegionPath::Impl(
+                                                                DeclRegionPath::ImplBlock(
                                                                     ImplBlockId::Type(
                                                                         TypeImplBlockId {
                                                                             module_path: `mnist_classifier::line_segment_sketch`,
@@ -18422,7 +18422,7 @@ Ok(
                                                                 data: ExprRegionData {
                                                                     parent: None,
                                                                     path: RegionPath::Decl(
-                                                                        DeclRegionPath::Impl(
+                                                                        DeclRegionPath::ImplBlock(
                                                                             ImplBlockId::Type(
                                                                                 TypeImplBlockId {
                                                                                     module_path: `mnist_classifier::line_segment_sketch`,

@@ -24,7 +24,7 @@ pub fn ty_method_signature(
         signature_term_region,
         raw_term_menu,
     );
-    let parameters =
+    let nonself_regular_parameters =
         RegularParameterSignatures::from_decl(decl.regular_parameters(db)?, signature_term_region)?;
     let return_ty = match decl.return_ty(db) {
         Ok(return_ty) => match signature_term_region.expr_term(return_ty.expr()) {
@@ -37,7 +37,7 @@ pub fn ty_method_signature(
         db,
         implicit_parameters,
         self_parameter,
-        parameters,
+        nonself_regular_parameters,
         return_ty,
     ))
 }

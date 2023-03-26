@@ -1589,7 +1589,7 @@ Ok(
                 ),
                 Ok(
                     Defn::Impl(
-                        ImplDecl::Type(
+                        ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 23,
                                 impl_block: TypeImplBlock {
@@ -1617,7 +1617,7 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                ty: TypeExpr {
+                                ty_expr: TypeExpr {
                                     expr: 0,
                                 },
                                 eol_colon: Ok(
@@ -1631,7 +1631,7 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Impl(
+                                            DeclRegionPath::ImplBlock(
                                                 ImplBlockId::Type(
                                                     TypeImplBlockId {
                                                         module_path: `mnist_classifier::fermi`,
@@ -1729,7 +1729,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                             ident: `norm`,
-                                            ty_item_kind: Memo,
+                                            item_kind: Memo,
                                         },
                                     ),
                                     decl: TypeMemoDecl {
@@ -1737,7 +1737,7 @@ Ok(
                                             TypeItemPath {
                                                 parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                                 ident: `norm`,
-                                                ty_item_kind: Memo,
+                                                item_kind: Memo,
                                             },
                                         ),
                                         associated_item: AssociatedItem {
@@ -1756,7 +1756,7 @@ Ok(
                                                     TypeItemPath {
                                                         parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                                         ident: `norm`,
-                                                        ty_item_kind: Memo,
+                                                        item_kind: Memo,
                                                     },
                                                 ),
                                             ),
@@ -1797,7 +1797,7 @@ Ok(
                                                         data: ExprRegionData {
                                                             parent: None,
                                                             path: RegionPath::Decl(
-                                                                DeclRegionPath::Impl(
+                                                                DeclRegionPath::ImplBlock(
                                                                     ImplBlockId::Type(
                                                                         TypeImplBlockId {
                                                                             module_path: `mnist_classifier::fermi`,
@@ -1974,7 +1974,7 @@ Ok(
                                                                 data: ExprRegionData {
                                                                     parent: None,
                                                                     path: RegionPath::Decl(
-                                                                        DeclRegionPath::Impl(
+                                                                        DeclRegionPath::ImplBlock(
                                                                             ImplBlockId::Type(
                                                                                 TypeImplBlockId {
                                                                                     module_path: `mnist_classifier::fermi`,
@@ -2529,7 +2529,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                             ident: `rel_norm`,
-                                            ty_item_kind: Memo,
+                                            item_kind: Memo,
                                         },
                                     ),
                                     decl: TypeMemoDecl {
@@ -2537,7 +2537,7 @@ Ok(
                                             TypeItemPath {
                                                 parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                                 ident: `rel_norm`,
-                                                ty_item_kind: Memo,
+                                                item_kind: Memo,
                                             },
                                         ),
                                         associated_item: AssociatedItem {
@@ -2556,7 +2556,7 @@ Ok(
                                                     TypeItemPath {
                                                         parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                                         ident: `rel_norm`,
-                                                        ty_item_kind: Memo,
+                                                        item_kind: Memo,
                                                     },
                                                 ),
                                             ),
@@ -2597,7 +2597,7 @@ Ok(
                                                         data: ExprRegionData {
                                                             parent: None,
                                                             path: RegionPath::Decl(
-                                                                DeclRegionPath::Impl(
+                                                                DeclRegionPath::ImplBlock(
                                                                     ImplBlockId::Type(
                                                                         TypeImplBlockId {
                                                                             module_path: `mnist_classifier::fermi`,
@@ -2774,7 +2774,7 @@ Ok(
                                                                 data: ExprRegionData {
                                                                     parent: None,
                                                                     path: RegionPath::Decl(
-                                                                        DeclRegionPath::Impl(
+                                                                        DeclRegionPath::ImplBlock(
                                                                             ImplBlockId::Type(
                                                                                 TypeImplBlockId {
                                                                                     module_path: `mnist_classifier::fermi`,
@@ -3329,7 +3329,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                             ident: `angle_change_norm`,
-                                            ty_item_kind: Memo,
+                                            item_kind: Memo,
                                         },
                                     ),
                                     decl: TypeMemoDecl {
@@ -3337,7 +3337,7 @@ Ok(
                                             TypeItemPath {
                                                 parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                                 ident: `angle_change_norm`,
-                                                ty_item_kind: Memo,
+                                                item_kind: Memo,
                                             },
                                         ),
                                         associated_item: AssociatedItem {
@@ -3356,7 +3356,7 @@ Ok(
                                                     TypeItemPath {
                                                         parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                                         ident: `angle_change_norm`,
-                                                        ty_item_kind: Memo,
+                                                        item_kind: Memo,
                                                     },
                                                 ),
                                             ),
@@ -3397,7 +3397,7 @@ Ok(
                                                         data: ExprRegionData {
                                                             parent: None,
                                                             path: RegionPath::Decl(
-                                                                DeclRegionPath::Impl(
+                                                                DeclRegionPath::ImplBlock(
                                                                     ImplBlockId::Type(
                                                                         TypeImplBlockId {
                                                                             module_path: `mnist_classifier::fermi`,
@@ -3574,7 +3574,7 @@ Ok(
                                                                 data: ExprRegionData {
                                                                     parent: None,
                                                                     path: RegionPath::Decl(
-                                                                        DeclRegionPath::Impl(
+                                                                        DeclRegionPath::ImplBlock(
                                                                             ImplBlockId::Type(
                                                                                 TypeImplBlockId {
                                                                                     module_path: `mnist_classifier::fermi`,

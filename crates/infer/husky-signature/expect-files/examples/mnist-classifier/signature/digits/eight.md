@@ -19,7 +19,7 @@
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
                                         Id {
-                                            value: 11,
+                                            value: 22,
                                         },
                                     ),
                                 ),

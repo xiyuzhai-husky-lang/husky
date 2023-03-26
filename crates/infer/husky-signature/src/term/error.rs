@@ -31,6 +31,10 @@ pub enum DerivedSignatureRawTermError {
     RawTermAbortion,
     CannotInferArgumentRawTermInBoxList,
     CannotInferArrayLength,
+    // should have been reported as syntax error
+    SelfTypeNotAllowedInThisRegion,
+    // should have been reported as syntax error
+    SelfValueNotAllowedInThisRegion,
 }
 
 pub type SignatureRawTermResult<T> = Result<T, SignatureRawTermError>;

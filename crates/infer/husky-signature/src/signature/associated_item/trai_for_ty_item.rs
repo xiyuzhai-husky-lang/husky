@@ -15,7 +15,7 @@ use super::*;
 #[enum_class::from_variants]
 pub enum TypeAsTraitItemSignature {
     AssociatedFn(TypeAsTraitAssociatedFnSignature),
-    MethodFn(TypeAsTraitMethodSignature),
+    MethodFn(TraitForTypeMethodSignature),
     AssociatedType(TypeAsTraitAssociatedTypeSignature),
     AssociatedValue(TypeAsTraitAssociatedValueSignature),
 }

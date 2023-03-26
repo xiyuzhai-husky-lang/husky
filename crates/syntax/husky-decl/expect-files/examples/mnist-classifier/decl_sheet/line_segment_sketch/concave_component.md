@@ -459,7 +459,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::Type(
                         TypeImplBlockId {
                             module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -470,7 +470,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Impl(
-                        ImplDecl::Type(
+                        ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 75,
                                 impl_block: TypeImplBlock {
@@ -498,7 +498,7 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                ty: TypeExpr {
+                                ty_expr: TypeExpr {
                                     expr: 0,
                                 },
                                 eol_colon: Ok(
@@ -512,7 +512,7 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Impl(
+                                            DeclRegionPath::ImplBlock(
                                                 ImplBlockId::Type(
                                                     TypeImplBlockId {
                                                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -610,7 +610,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ident: `norm`,
-                                            ty_item_kind: Memo,
+                                            item_kind: Memo,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -629,7 +629,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ident: `norm`,
-                                                    ty_item_kind: Memo,
+                                                    item_kind: Memo,
                                                 },
                                             ),
                                         ),
@@ -670,7 +670,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
                                                                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -864,7 +864,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ident: `rel_norm`,
-                                            ty_item_kind: Memo,
+                                            item_kind: Memo,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -883,7 +883,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ident: `rel_norm`,
-                                                    ty_item_kind: Memo,
+                                                    item_kind: Memo,
                                                 },
                                             ),
                                         ),
@@ -924,7 +924,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
                                                                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -1118,7 +1118,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ident: `hausdorff_norm`,
-                                            ty_item_kind: Memo,
+                                            item_kind: Memo,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -1137,7 +1137,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ident: `hausdorff_norm`,
-                                                    ty_item_kind: Memo,
+                                                    item_kind: Memo,
                                                 },
                                             ),
                                         ),
@@ -1178,7 +1178,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
                                                                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -1372,7 +1372,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ident: `angle_change`,
-                                            ty_item_kind: Memo,
+                                            item_kind: Memo,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -1391,7 +1391,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ident: `angle_change`,
-                                                    ty_item_kind: Memo,
+                                                    item_kind: Memo,
                                                 },
                                             ),
                                         ),
@@ -1432,7 +1432,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
                                                                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -1626,7 +1626,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ident: `bounding_box`,
-                                            ty_item_kind: Memo,
+                                            item_kind: Memo,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -1645,7 +1645,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ident: `bounding_box`,
-                                                    ty_item_kind: Memo,
+                                                    item_kind: Memo,
                                                 },
                                             ),
                                         ),
@@ -1686,7 +1686,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
                                                                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -1880,7 +1880,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ident: `relative_bounding_box`,
-                                            ty_item_kind: Memo,
+                                            item_kind: Memo,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -1899,7 +1899,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ident: `relative_bounding_box`,
-                                                    ty_item_kind: Memo,
+                                                    item_kind: Memo,
                                                 },
                                             ),
                                         ),
@@ -1940,7 +1940,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
                                                                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -2144,7 +2144,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ident: `line_segment`,
-                                            ty_item_kind: MethodFn,
+                                            item_kind: MethodFn,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -2163,7 +2163,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ident: `line_segment`,
-                                                    ty_item_kind: MethodFn,
+                                                    item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -2204,7 +2204,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
                                                                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -2432,7 +2432,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ident: `start`,
-                                            ty_item_kind: MethodFn,
+                                            item_kind: MethodFn,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -2451,7 +2451,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ident: `start`,
-                                                    ty_item_kind: MethodFn,
+                                                    item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -2492,7 +2492,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
                                                                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -2720,7 +2720,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ident: `end`,
-                                            ty_item_kind: MethodFn,
+                                            item_kind: MethodFn,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -2739,7 +2739,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ident: `end`,
-                                                    ty_item_kind: MethodFn,
+                                                    item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -2780,7 +2780,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
                                                                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -3008,7 +3008,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ident: `displacement`,
-                                            ty_item_kind: MethodFn,
+                                            item_kind: MethodFn,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -3027,7 +3027,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ident: `displacement`,
-                                                    ty_item_kind: MethodFn,
+                                                    item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -3068,7 +3068,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
                                                                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -3296,7 +3296,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ident: `start_tangent`,
-                                            ty_item_kind: MethodFn,
+                                            item_kind: MethodFn,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -3315,7 +3315,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ident: `start_tangent`,
-                                                    ty_item_kind: MethodFn,
+                                                    item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -3356,7 +3356,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
                                                                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -3584,7 +3584,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ident: `end_tangent`,
-                                            ty_item_kind: MethodFn,
+                                            item_kind: MethodFn,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -3603,7 +3603,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ident: `end_tangent`,
-                                                    ty_item_kind: MethodFn,
+                                                    item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -3644,7 +3644,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::Type(
                                                                     TypeImplBlockId {
                                                                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,

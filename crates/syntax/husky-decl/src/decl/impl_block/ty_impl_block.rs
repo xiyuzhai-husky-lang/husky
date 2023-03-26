@@ -8,7 +8,7 @@ pub struct TypeImplBlockDecl {
     pub impl_token: ImplToken,
     #[return_ref]
     implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
-    pub ty: TypeExpr,
+    pub ty_expr: TypeExpr,
     #[return_ref]
     pub eol_colon: DeclExprResult<EolColonToken>,
     pub expr_region: ExprRegion,
@@ -64,7 +64,7 @@ impl<'a> DeclParser<'a> {
         impl_block: TypeImplBlock,
     ) -> DeclResult<TypeImplBlockDecl> {
         let mut parser = self.expr_parser(
-            DeclRegionPath::Impl(impl_block.id(self.db()).into()),
+            DeclRegionPath::ImplBlock(impl_block.id(self.db()).into()),
             None,
             AllowSelfType::True,
             AllowSelfValue::False,

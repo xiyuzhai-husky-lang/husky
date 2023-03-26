@@ -203,7 +203,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::Type(
                         TypeImplBlockId {
                             module_path: `natural_number_game`,
@@ -214,7 +214,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Impl(
-                        ImplDecl::Type(
+                        ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 6,
                                 impl_block: TypeImplBlock {
@@ -242,7 +242,7 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                ty: TypeExpr {
+                                ty_expr: TypeExpr {
                                     expr: 0,
                                 },
                                 eol_colon: Ok(
@@ -256,7 +256,7 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Impl(
+                                            DeclRegionPath::ImplBlock(
                                                 ImplBlockId::Type(
                                                     TypeImplBlockId {
                                                         module_path: `natural_number_game`,

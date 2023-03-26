@@ -1,3 +1,5 @@
+use husky_print_utils::p;
+
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -7,7 +9,7 @@ pub enum AllowSelfValue {
 }
 
 impl AllowSelfValue {
-    fn to_bool(self) -> bool {
+    pub fn to_bool(self) -> bool {
         match self {
             AllowSelfValue::True => true,
             AllowSelfValue::False => false,
@@ -22,7 +24,7 @@ pub enum AllowSelfType {
 }
 
 impl AllowSelfType {
-    fn to_bool(self) -> bool {
+    pub fn to_bool(self) -> bool {
         match self {
             AllowSelfType::True => true,
             AllowSelfType::False => false,
@@ -188,7 +190,7 @@ impl SymbolRegion {
         inherited_symbol_arena
     }
 
-    pub fn allow_self_type(&self) -> AllowSelfType {
+    pub fn allow_self_ty(&self) -> AllowSelfType {
         self.allow_self_type
     }
 

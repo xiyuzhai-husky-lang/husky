@@ -53,7 +53,7 @@ impl HasTypeGivenDisambiguation for AssociatedItemPath {
         match self {
             AssociatedItemPath::TypeItem(path) => path.ty(db, disambiguation),
             AssociatedItemPath::TraitItem(path) => path.ty(db, disambiguation),
-            AssociatedItemPath::TypeAsTraitItem(path) => path.ty(db, disambiguation),
+            AssociatedItemPath::TraitForTypeItem(path) => path.ty(db, disambiguation),
         }
     }
 }

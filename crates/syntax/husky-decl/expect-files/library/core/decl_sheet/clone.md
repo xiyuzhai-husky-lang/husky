@@ -67,7 +67,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::TypeAsTrait(
                         TraitForTypeImplBlockId {
                             module_path: `core::clone`,
@@ -79,7 +79,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Impl(
-                        ImplDecl::TypeAsTrait(
+                        ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
                                 ast_idx: 8,
                                 impl_block: TraitForTypeImplBlock {
@@ -112,7 +112,7 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                trai: TraitExpr {
+                                trai_expr: TraitExpr {
                                     expr: 0,
                                 },
                                 for_token: ConnectionForToken {
@@ -120,7 +120,7 @@ Ok(
                                         13,
                                     ),
                                 },
-                                ty: TypeExpr {
+                                ty_expr: TypeExpr {
                                     expr: 1,
                                 },
                                 eol_colon: Ok(
@@ -134,7 +134,7 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Impl(
+                                            DeclRegionPath::ImplBlock(
                                                 ImplBlockId::TypeAsTrait(
                                                     TraitForTypeImplBlockId {
                                                         module_path: `core::clone`,
@@ -260,7 +260,7 @@ Ok(
                                             parent_ty: TypePath(`core::num::i8`, `Extern`),
                                             trai: TraitPath(`core::clone::Clone`),
                                             ident: `clone`,
-                                            trai_for_ty_item_kind: MethodFn,
+                                            item_kind: MethodFn,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -276,12 +276,12 @@ Ok(
                                             ident: `clone`,
                                         },
                                         path: Some(
-                                            AssociatedItemPath::TypeAsTraitItem(
+                                            AssociatedItemPath::TraitForTypeItem(
                                                 TraitForTypeItemPath {
                                                     parent_ty: TypePath(`core::num::i8`, `Extern`),
                                                     trai: TraitPath(`core::clone::Clone`),
                                                     ident: `clone`,
-                                                    trai_for_ty_item_kind: MethodFn,
+                                                    item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -327,7 +327,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::TypeAsTrait(
                                                                     TraitForTypeImplBlockId {
                                                                         module_path: `core::clone`,
@@ -536,7 +536,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::TypeAsTrait(
                         TraitForTypeImplBlockId {
                             module_path: `core::clone`,
@@ -548,7 +548,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Impl(
-                        ImplDecl::TypeAsTrait(
+                        ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
                                 ast_idx: 9,
                                 impl_block: TraitForTypeImplBlock {
@@ -581,7 +581,7 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                trai: TraitExpr {
+                                trai_expr: TraitExpr {
                                     expr: 0,
                                 },
                                 for_token: ConnectionForToken {
@@ -589,7 +589,7 @@ Ok(
                                         25,
                                     ),
                                 },
-                                ty: TypeExpr {
+                                ty_expr: TypeExpr {
                                     expr: 1,
                                 },
                                 eol_colon: Ok(
@@ -603,7 +603,7 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Impl(
+                                            DeclRegionPath::ImplBlock(
                                                 ImplBlockId::TypeAsTrait(
                                                     TraitForTypeImplBlockId {
                                                         module_path: `core::clone`,
@@ -729,7 +729,7 @@ Ok(
                                             parent_ty: TypePath(`core::num::i16`, `Extern`),
                                             trai: TraitPath(`core::clone::Clone`),
                                             ident: `clone`,
-                                            trai_for_ty_item_kind: MethodFn,
+                                            item_kind: MethodFn,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -745,12 +745,12 @@ Ok(
                                             ident: `clone`,
                                         },
                                         path: Some(
-                                            AssociatedItemPath::TypeAsTraitItem(
+                                            AssociatedItemPath::TraitForTypeItem(
                                                 TraitForTypeItemPath {
                                                     parent_ty: TypePath(`core::num::i16`, `Extern`),
                                                     trai: TraitPath(`core::clone::Clone`),
                                                     ident: `clone`,
-                                                    trai_for_ty_item_kind: MethodFn,
+                                                    item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -796,7 +796,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::TypeAsTrait(
                                                                     TraitForTypeImplBlockId {
                                                                         module_path: `core::clone`,
@@ -1005,7 +1005,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::TypeAsTrait(
                         TraitForTypeImplBlockId {
                             module_path: `core::clone`,
@@ -1017,7 +1017,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Impl(
-                        ImplDecl::TypeAsTrait(
+                        ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
                                 ast_idx: 10,
                                 impl_block: TraitForTypeImplBlock {
@@ -1050,7 +1050,7 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                trai: TraitExpr {
+                                trai_expr: TraitExpr {
                                     expr: 0,
                                 },
                                 for_token: ConnectionForToken {
@@ -1058,7 +1058,7 @@ Ok(
                                         37,
                                     ),
                                 },
-                                ty: TypeExpr {
+                                ty_expr: TypeExpr {
                                     expr: 1,
                                 },
                                 eol_colon: Ok(
@@ -1072,7 +1072,7 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Impl(
+                                            DeclRegionPath::ImplBlock(
                                                 ImplBlockId::TypeAsTrait(
                                                     TraitForTypeImplBlockId {
                                                         module_path: `core::clone`,
@@ -1198,7 +1198,7 @@ Ok(
                                             parent_ty: TypePath(`core::num::i32`, `Extern`),
                                             trai: TraitPath(`core::clone::Clone`),
                                             ident: `clone`,
-                                            trai_for_ty_item_kind: MethodFn,
+                                            item_kind: MethodFn,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -1214,12 +1214,12 @@ Ok(
                                             ident: `clone`,
                                         },
                                         path: Some(
-                                            AssociatedItemPath::TypeAsTraitItem(
+                                            AssociatedItemPath::TraitForTypeItem(
                                                 TraitForTypeItemPath {
                                                     parent_ty: TypePath(`core::num::i32`, `Extern`),
                                                     trai: TraitPath(`core::clone::Clone`),
                                                     ident: `clone`,
-                                                    trai_for_ty_item_kind: MethodFn,
+                                                    item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -1265,7 +1265,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::TypeAsTrait(
                                                                     TraitForTypeImplBlockId {
                                                                         module_path: `core::clone`,
@@ -1474,7 +1474,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::TypeAsTrait(
                         TraitForTypeImplBlockId {
                             module_path: `core::clone`,
@@ -1486,7 +1486,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Impl(
-                        ImplDecl::TypeAsTrait(
+                        ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
                                 ast_idx: 11,
                                 impl_block: TraitForTypeImplBlock {
@@ -1519,7 +1519,7 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                trai: TraitExpr {
+                                trai_expr: TraitExpr {
                                     expr: 0,
                                 },
                                 for_token: ConnectionForToken {
@@ -1527,7 +1527,7 @@ Ok(
                                         49,
                                     ),
                                 },
-                                ty: TypeExpr {
+                                ty_expr: TypeExpr {
                                     expr: 1,
                                 },
                                 eol_colon: Ok(
@@ -1541,7 +1541,7 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Impl(
+                                            DeclRegionPath::ImplBlock(
                                                 ImplBlockId::TypeAsTrait(
                                                     TraitForTypeImplBlockId {
                                                         module_path: `core::clone`,
@@ -1667,7 +1667,7 @@ Ok(
                                             parent_ty: TypePath(`core::num::i64`, `Extern`),
                                             trai: TraitPath(`core::clone::Clone`),
                                             ident: `clone`,
-                                            trai_for_ty_item_kind: MethodFn,
+                                            item_kind: MethodFn,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -1683,12 +1683,12 @@ Ok(
                                             ident: `clone`,
                                         },
                                         path: Some(
-                                            AssociatedItemPath::TypeAsTraitItem(
+                                            AssociatedItemPath::TraitForTypeItem(
                                                 TraitForTypeItemPath {
                                                     parent_ty: TypePath(`core::num::i64`, `Extern`),
                                                     trai: TraitPath(`core::clone::Clone`),
                                                     ident: `clone`,
-                                                    trai_for_ty_item_kind: MethodFn,
+                                                    item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -1734,7 +1734,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::TypeAsTrait(
                                                                     TraitForTypeImplBlockId {
                                                                         module_path: `core::clone`,
@@ -1943,7 +1943,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::TypeAsTrait(
                         TraitForTypeImplBlockId {
                             module_path: `core::clone`,
@@ -1955,7 +1955,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Impl(
-                        ImplDecl::TypeAsTrait(
+                        ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
                                 ast_idx: 12,
                                 impl_block: TraitForTypeImplBlock {
@@ -1988,7 +1988,7 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                trai: TraitExpr {
+                                trai_expr: TraitExpr {
                                     expr: 0,
                                 },
                                 for_token: ConnectionForToken {
@@ -1996,7 +1996,7 @@ Ok(
                                         61,
                                     ),
                                 },
-                                ty: TypeExpr {
+                                ty_expr: TypeExpr {
                                     expr: 1,
                                 },
                                 eol_colon: Ok(
@@ -2010,7 +2010,7 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Impl(
+                                            DeclRegionPath::ImplBlock(
                                                 ImplBlockId::TypeAsTrait(
                                                     TraitForTypeImplBlockId {
                                                         module_path: `core::clone`,
@@ -2136,7 +2136,7 @@ Ok(
                                             parent_ty: TypePath(`core::num::i128`, `Extern`),
                                             trai: TraitPath(`core::clone::Clone`),
                                             ident: `clone`,
-                                            trai_for_ty_item_kind: MethodFn,
+                                            item_kind: MethodFn,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -2152,12 +2152,12 @@ Ok(
                                             ident: `clone`,
                                         },
                                         path: Some(
-                                            AssociatedItemPath::TypeAsTraitItem(
+                                            AssociatedItemPath::TraitForTypeItem(
                                                 TraitForTypeItemPath {
                                                     parent_ty: TypePath(`core::num::i128`, `Extern`),
                                                     trai: TraitPath(`core::clone::Clone`),
                                                     ident: `clone`,
-                                                    trai_for_ty_item_kind: MethodFn,
+                                                    item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -2203,7 +2203,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::TypeAsTrait(
                                                                     TraitForTypeImplBlockId {
                                                                         module_path: `core::clone`,
@@ -2412,7 +2412,7 @@ Ok(
                 ),
             ),
             (
-                DeclRegionPath::Impl(
+                DeclRegionPath::ImplBlock(
                     ImplBlockId::TypeAsTrait(
                         TraitForTypeImplBlockId {
                             module_path: `core::clone`,
@@ -2424,7 +2424,7 @@ Ok(
                 ),
                 Ok(
                     Decl::Impl(
-                        ImplDecl::TypeAsTrait(
+                        ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
                                 ast_idx: 13,
                                 impl_block: TraitForTypeImplBlock {
@@ -2457,7 +2457,7 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                trai: TraitExpr {
+                                trai_expr: TraitExpr {
                                     expr: 0,
                                 },
                                 for_token: ConnectionForToken {
@@ -2465,7 +2465,7 @@ Ok(
                                         73,
                                     ),
                                 },
-                                ty: TypeExpr {
+                                ty_expr: TypeExpr {
                                     expr: 1,
                                 },
                                 eol_colon: Ok(
@@ -2479,7 +2479,7 @@ Ok(
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            DeclRegionPath::Impl(
+                                            DeclRegionPath::ImplBlock(
                                                 ImplBlockId::TypeAsTrait(
                                                     TraitForTypeImplBlockId {
                                                         module_path: `core::clone`,
@@ -2605,7 +2605,7 @@ Ok(
                                             parent_ty: TypePath(`core::num::isize`, `Extern`),
                                             trai: TraitPath(`core::clone::Clone`),
                                             ident: `clone`,
-                                            trai_for_ty_item_kind: MethodFn,
+                                            item_kind: MethodFn,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -2621,12 +2621,12 @@ Ok(
                                             ident: `clone`,
                                         },
                                         path: Some(
-                                            AssociatedItemPath::TypeAsTraitItem(
+                                            AssociatedItemPath::TraitForTypeItem(
                                                 TraitForTypeItemPath {
                                                     parent_ty: TypePath(`core::num::isize`, `Extern`),
                                                     trai: TraitPath(`core::clone::Clone`),
                                                     ident: `clone`,
-                                                    trai_for_ty_item_kind: MethodFn,
+                                                    item_kind: MethodFn,
                                                 },
                                             ),
                                         ),
@@ -2672,7 +2672,7 @@ Ok(
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            DeclRegionPath::Impl(
+                                                            DeclRegionPath::ImplBlock(
                                                                 ImplBlockId::TypeAsTrait(
                                                                     TraitForTypeImplBlockId {
                                                                         module_path: `core::clone`,

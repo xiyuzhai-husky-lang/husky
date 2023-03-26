@@ -39,7 +39,7 @@ pub(crate) fn entity_variance_reprs(
         EntityPath::AssociatedItem(path) => match path {
             AssociatedItemPath::TypeItem(path) => ty_item_entity_variance_reprs(db, path),
             AssociatedItemPath::TraitItem(_) => todo!(),
-            AssociatedItemPath::TypeAsTraitItem(_) => todo!(),
+            AssociatedItemPath::TraitForTypeItem(_) => todo!(),
         },
         EntityPath::Variant(_) => todo!(),
     }
