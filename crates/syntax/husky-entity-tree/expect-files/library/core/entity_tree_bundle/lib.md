@@ -519,6 +519,19 @@ Ok(
                                 ),
                             ),
                         },
+                        EntitySymbolEntry {
+                            ident: `Add`,
+                            visibility: Visibility::PublicUnder(
+                                `core::num`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 31,
+                                    },
+                                ),
+                            ),
+                        },
                     ],
                 ),
                 impl_blocks: [
@@ -541,32 +554,27 @@ Ok(
                             ),
                         },
                     ),
-                    ImplBlock::IllFormed(
-                        IllFormedImplBlock {
-                            id: IllFormedImplBlockId {
-                                module: `core::num`,
+                    ImplBlock::TraitForType(
+                        TraitForTypeImplBlock {
+                            id: TraitForTypeImplBlockId {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_path: TypePath(`core::num::i8`, `Extern`),
                                 disambiguator: 0,
                             },
+                            ast_idx: 33,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     41,
                                 ),
                             },
-                            ast_idx: 33,
+                            trai_expr: 1,
+                            for_token: TokenIdx(
+                                44,
+                            ),
+                            ty_expr: 2,
                             body: ArenaIdxRange(
                                 1..2,
-                            ),
-                            ill_form: ImplBlockIllForm::MajorPath(
-                                MajorPathExprError::Original(
-                                    OriginalMajorPathExprError::UnrecognizedIdent(
-                                        IdentToken {
-                                            ident: `Add`,
-                                            token_idx: TokenIdx(
-                                                42,
-                                            ),
-                                        },
-                                    ),
-                                ),
                             ),
                         },
                     ),
@@ -583,38 +591,33 @@ Ok(
                                     82,
                                 ),
                             },
-                            ty_expr: 1,
+                            ty_expr: 3,
                             body: ArenaIdxRange(
                                 2..3,
                             ),
                         },
                     ),
-                    ImplBlock::IllFormed(
-                        IllFormedImplBlock {
-                            id: IllFormedImplBlockId {
-                                module: `core::num`,
-                                disambiguator: 1,
+                    ImplBlock::TraitForType(
+                        TraitForTypeImplBlock {
+                            id: TraitForTypeImplBlockId {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_path: TypePath(`core::num::i16`, `Extern`),
+                                disambiguator: 0,
                             },
+                            ast_idx: 38,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     93,
                                 ),
                             },
-                            ast_idx: 38,
+                            trai_expr: 4,
+                            for_token: TokenIdx(
+                                96,
+                            ),
+                            ty_expr: 5,
                             body: ArenaIdxRange(
                                 3..4,
-                            ),
-                            ill_form: ImplBlockIllForm::MajorPath(
-                                MajorPathExprError::Original(
-                                    OriginalMajorPathExprError::UnrecognizedIdent(
-                                        IdentToken {
-                                            ident: `Add`,
-                                            token_idx: TokenIdx(
-                                                94,
-                                            ),
-                                        },
-                                    ),
-                                ),
                             ),
                         },
                     ),
@@ -631,38 +634,33 @@ Ok(
                                     134,
                                 ),
                             },
-                            ty_expr: 2,
+                            ty_expr: 6,
                             body: ArenaIdxRange(
                                 4..5,
                             ),
                         },
                     ),
-                    ImplBlock::IllFormed(
-                        IllFormedImplBlock {
-                            id: IllFormedImplBlockId {
-                                module: `core::num`,
-                                disambiguator: 2,
+                    ImplBlock::TraitForType(
+                        TraitForTypeImplBlock {
+                            id: TraitForTypeImplBlockId {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_path: TypePath(`core::num::i32`, `Extern`),
+                                disambiguator: 0,
                             },
+                            ast_idx: 43,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     145,
                                 ),
                             },
-                            ast_idx: 43,
+                            trai_expr: 7,
+                            for_token: TokenIdx(
+                                148,
+                            ),
+                            ty_expr: 8,
                             body: ArenaIdxRange(
                                 5..6,
-                            ),
-                            ill_form: ImplBlockIllForm::MajorPath(
-                                MajorPathExprError::Original(
-                                    OriginalMajorPathExprError::UnrecognizedIdent(
-                                        IdentToken {
-                                            ident: `Add`,
-                                            token_idx: TokenIdx(
-                                                146,
-                                            ),
-                                        },
-                                    ),
-                                ),
                             ),
                         },
                     ),
@@ -679,38 +677,33 @@ Ok(
                                     185,
                                 ),
                             },
-                            ty_expr: 3,
+                            ty_expr: 9,
                             body: ArenaIdxRange(
                                 6..7,
                             ),
                         },
                     ),
-                    ImplBlock::IllFormed(
-                        IllFormedImplBlock {
-                            id: IllFormedImplBlockId {
-                                module: `core::num`,
-                                disambiguator: 3,
+                    ImplBlock::TraitForType(
+                        TraitForTypeImplBlock {
+                            id: TraitForTypeImplBlockId {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_path: TypePath(`core::num::i64`, `Extern`),
+                                disambiguator: 0,
                             },
+                            ast_idx: 48,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     196,
                                 ),
                             },
-                            ast_idx: 48,
+                            trai_expr: 10,
+                            for_token: TokenIdx(
+                                199,
+                            ),
+                            ty_expr: 11,
                             body: ArenaIdxRange(
                                 7..8,
-                            ),
-                            ill_form: ImplBlockIllForm::MajorPath(
-                                MajorPathExprError::Original(
-                                    OriginalMajorPathExprError::UnrecognizedIdent(
-                                        IdentToken {
-                                            ident: `Add`,
-                                            token_idx: TokenIdx(
-                                                197,
-                                            ),
-                                        },
-                                    ),
-                                ),
                             ),
                         },
                     ),
@@ -727,38 +720,33 @@ Ok(
                                     237,
                                 ),
                             },
-                            ty_expr: 4,
+                            ty_expr: 12,
                             body: ArenaIdxRange(
                                 8..9,
                             ),
                         },
                     ),
-                    ImplBlock::IllFormed(
-                        IllFormedImplBlock {
-                            id: IllFormedImplBlockId {
-                                module: `core::num`,
-                                disambiguator: 4,
+                    ImplBlock::TraitForType(
+                        TraitForTypeImplBlock {
+                            id: TraitForTypeImplBlockId {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_path: TypePath(`core::num::i128`, `Extern`),
+                                disambiguator: 0,
                             },
+                            ast_idx: 53,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     248,
                                 ),
                             },
-                            ast_idx: 53,
+                            trai_expr: 13,
+                            for_token: TokenIdx(
+                                251,
+                            ),
+                            ty_expr: 14,
                             body: ArenaIdxRange(
                                 9..10,
-                            ),
-                            ill_form: ImplBlockIllForm::MajorPath(
-                                MajorPathExprError::Original(
-                                    OriginalMajorPathExprError::UnrecognizedIdent(
-                                        IdentToken {
-                                            ident: `Add`,
-                                            token_idx: TokenIdx(
-                                                249,
-                                            ),
-                                        },
-                                    ),
-                                ),
                             ),
                         },
                     ),
@@ -775,38 +763,33 @@ Ok(
                                     289,
                                 ),
                             },
-                            ty_expr: 5,
+                            ty_expr: 15,
                             body: ArenaIdxRange(
                                 10..11,
                             ),
                         },
                     ),
-                    ImplBlock::IllFormed(
-                        IllFormedImplBlock {
-                            id: IllFormedImplBlockId {
-                                module: `core::num`,
-                                disambiguator: 5,
+                    ImplBlock::TraitForType(
+                        TraitForTypeImplBlock {
+                            id: TraitForTypeImplBlockId {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_path: TypePath(`core::num::isize`, `Extern`),
+                                disambiguator: 0,
                             },
+                            ast_idx: 58,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     300,
                                 ),
                             },
-                            ast_idx: 58,
+                            trai_expr: 16,
+                            for_token: TokenIdx(
+                                303,
+                            ),
+                            ty_expr: 17,
                             body: ArenaIdxRange(
                                 11..12,
-                            ),
-                            ill_form: ImplBlockIllForm::MajorPath(
-                                MajorPathExprError::Original(
-                                    OriginalMajorPathExprError::UnrecognizedIdent(
-                                        IdentToken {
-                                            ident: `Add`,
-                                            token_idx: TokenIdx(
-                                                301,
-                                            ),
-                                        },
-                                    ),
-                                ),
                             ),
                         },
                     ),
@@ -823,38 +806,33 @@ Ok(
                                     341,
                                 ),
                             },
-                            ty_expr: 6,
+                            ty_expr: 18,
                             body: ArenaIdxRange(
                                 12..13,
                             ),
                         },
                     ),
-                    ImplBlock::IllFormed(
-                        IllFormedImplBlock {
-                            id: IllFormedImplBlockId {
-                                module: `core::num`,
-                                disambiguator: 6,
+                    ImplBlock::TraitForType(
+                        TraitForTypeImplBlock {
+                            id: TraitForTypeImplBlockId {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_path: TypePath(`core::num::u8`, `Extern`),
+                                disambiguator: 0,
                             },
+                            ast_idx: 63,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     352,
                                 ),
                             },
-                            ast_idx: 63,
+                            trai_expr: 19,
+                            for_token: TokenIdx(
+                                355,
+                            ),
+                            ty_expr: 20,
                             body: ArenaIdxRange(
                                 13..14,
-                            ),
-                            ill_form: ImplBlockIllForm::MajorPath(
-                                MajorPathExprError::Original(
-                                    OriginalMajorPathExprError::UnrecognizedIdent(
-                                        IdentToken {
-                                            ident: `Add`,
-                                            token_idx: TokenIdx(
-                                                353,
-                                            ),
-                                        },
-                                    ),
-                                ),
                             ),
                         },
                     ),
@@ -871,38 +849,33 @@ Ok(
                                     393,
                                 ),
                             },
-                            ty_expr: 7,
+                            ty_expr: 21,
                             body: ArenaIdxRange(
                                 14..15,
                             ),
                         },
                     ),
-                    ImplBlock::IllFormed(
-                        IllFormedImplBlock {
-                            id: IllFormedImplBlockId {
-                                module: `core::num`,
-                                disambiguator: 7,
+                    ImplBlock::TraitForType(
+                        TraitForTypeImplBlock {
+                            id: TraitForTypeImplBlockId {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_path: TypePath(`core::num::u16`, `Extern`),
+                                disambiguator: 0,
                             },
+                            ast_idx: 68,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     404,
                                 ),
                             },
-                            ast_idx: 68,
+                            trai_expr: 22,
+                            for_token: TokenIdx(
+                                407,
+                            ),
+                            ty_expr: 23,
                             body: ArenaIdxRange(
                                 15..16,
-                            ),
-                            ill_form: ImplBlockIllForm::MajorPath(
-                                MajorPathExprError::Original(
-                                    OriginalMajorPathExprError::UnrecognizedIdent(
-                                        IdentToken {
-                                            ident: `Add`,
-                                            token_idx: TokenIdx(
-                                                405,
-                                            ),
-                                        },
-                                    ),
-                                ),
                             ),
                         },
                     ),
@@ -919,38 +892,33 @@ Ok(
                                     445,
                                 ),
                             },
-                            ty_expr: 8,
+                            ty_expr: 24,
                             body: ArenaIdxRange(
                                 16..17,
                             ),
                         },
                     ),
-                    ImplBlock::IllFormed(
-                        IllFormedImplBlock {
-                            id: IllFormedImplBlockId {
-                                module: `core::num`,
-                                disambiguator: 8,
+                    ImplBlock::TraitForType(
+                        TraitForTypeImplBlock {
+                            id: TraitForTypeImplBlockId {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_path: TypePath(`core::num::u32`, `Extern`),
+                                disambiguator: 0,
                             },
+                            ast_idx: 73,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     456,
                                 ),
                             },
-                            ast_idx: 73,
+                            trai_expr: 25,
+                            for_token: TokenIdx(
+                                459,
+                            ),
+                            ty_expr: 26,
                             body: ArenaIdxRange(
                                 17..18,
-                            ),
-                            ill_form: ImplBlockIllForm::MajorPath(
-                                MajorPathExprError::Original(
-                                    OriginalMajorPathExprError::UnrecognizedIdent(
-                                        IdentToken {
-                                            ident: `Add`,
-                                            token_idx: TokenIdx(
-                                                457,
-                                            ),
-                                        },
-                                    ),
-                                ),
                             ),
                         },
                     ),
@@ -967,38 +935,33 @@ Ok(
                                     497,
                                 ),
                             },
-                            ty_expr: 9,
+                            ty_expr: 27,
                             body: ArenaIdxRange(
                                 18..19,
                             ),
                         },
                     ),
-                    ImplBlock::IllFormed(
-                        IllFormedImplBlock {
-                            id: IllFormedImplBlockId {
-                                module: `core::num`,
-                                disambiguator: 9,
+                    ImplBlock::TraitForType(
+                        TraitForTypeImplBlock {
+                            id: TraitForTypeImplBlockId {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_path: TypePath(`core::num::u64`, `Extern`),
+                                disambiguator: 0,
                             },
+                            ast_idx: 78,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     508,
                                 ),
                             },
-                            ast_idx: 78,
+                            trai_expr: 28,
+                            for_token: TokenIdx(
+                                511,
+                            ),
+                            ty_expr: 29,
                             body: ArenaIdxRange(
                                 19..20,
-                            ),
-                            ill_form: ImplBlockIllForm::MajorPath(
-                                MajorPathExprError::Original(
-                                    OriginalMajorPathExprError::UnrecognizedIdent(
-                                        IdentToken {
-                                            ident: `Add`,
-                                            token_idx: TokenIdx(
-                                                509,
-                                            ),
-                                        },
-                                    ),
-                                ),
                             ),
                         },
                     ),
@@ -1015,38 +978,33 @@ Ok(
                                     549,
                                 ),
                             },
-                            ty_expr: 10,
+                            ty_expr: 30,
                             body: ArenaIdxRange(
                                 20..21,
                             ),
                         },
                     ),
-                    ImplBlock::IllFormed(
-                        IllFormedImplBlock {
-                            id: IllFormedImplBlockId {
-                                module: `core::num`,
-                                disambiguator: 10,
+                    ImplBlock::TraitForType(
+                        TraitForTypeImplBlock {
+                            id: TraitForTypeImplBlockId {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_path: TypePath(`core::num::u128`, `Extern`),
+                                disambiguator: 0,
                             },
+                            ast_idx: 83,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     560,
                                 ),
                             },
-                            ast_idx: 83,
+                            trai_expr: 31,
+                            for_token: TokenIdx(
+                                563,
+                            ),
+                            ty_expr: 32,
                             body: ArenaIdxRange(
                                 21..22,
-                            ),
-                            ill_form: ImplBlockIllForm::MajorPath(
-                                MajorPathExprError::Original(
-                                    OriginalMajorPathExprError::UnrecognizedIdent(
-                                        IdentToken {
-                                            ident: `Add`,
-                                            token_idx: TokenIdx(
-                                                561,
-                                            ),
-                                        },
-                                    ),
-                                ),
                             ),
                         },
                     ),
@@ -1063,38 +1021,33 @@ Ok(
                                     601,
                                 ),
                             },
-                            ty_expr: 11,
+                            ty_expr: 33,
                             body: ArenaIdxRange(
                                 22..23,
                             ),
                         },
                     ),
-                    ImplBlock::IllFormed(
-                        IllFormedImplBlock {
-                            id: IllFormedImplBlockId {
-                                module: `core::num`,
-                                disambiguator: 11,
+                    ImplBlock::TraitForType(
+                        TraitForTypeImplBlock {
+                            id: TraitForTypeImplBlockId {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_path: TypePath(`core::num::usize`, `Extern`),
+                                disambiguator: 0,
                             },
+                            ast_idx: 88,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     612,
                                 ),
                             },
-                            ast_idx: 88,
+                            trai_expr: 34,
+                            for_token: TokenIdx(
+                                615,
+                            ),
+                            ty_expr: 35,
                             body: ArenaIdxRange(
                                 23..24,
-                            ),
-                            ill_form: ImplBlockIllForm::MajorPath(
-                                MajorPathExprError::Original(
-                                    OriginalMajorPathExprError::UnrecognizedIdent(
-                                        IdentToken {
-                                            ident: `Add`,
-                                            token_idx: TokenIdx(
-                                                613,
-                                            ),
-                                        },
-                                    ),
-                                ),
                             ),
                         },
                     ),
@@ -1111,38 +1064,33 @@ Ok(
                                     653,
                                 ),
                             },
-                            ty_expr: 12,
+                            ty_expr: 36,
                             body: ArenaIdxRange(
                                 24..25,
                             ),
                         },
                     ),
-                    ImplBlock::IllFormed(
-                        IllFormedImplBlock {
-                            id: IllFormedImplBlockId {
-                                module: `core::num`,
-                                disambiguator: 12,
+                    ImplBlock::TraitForType(
+                        TraitForTypeImplBlock {
+                            id: TraitForTypeImplBlockId {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                disambiguator: 0,
                             },
+                            ast_idx: 93,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     664,
                                 ),
                             },
-                            ast_idx: 93,
+                            trai_expr: 37,
+                            for_token: TokenIdx(
+                                667,
+                            ),
+                            ty_expr: 38,
                             body: ArenaIdxRange(
                                 25..26,
-                            ),
-                            ill_form: ImplBlockIllForm::MajorPath(
-                                MajorPathExprError::Original(
-                                    OriginalMajorPathExprError::UnrecognizedIdent(
-                                        IdentToken {
-                                            ident: `Add`,
-                                            token_idx: TokenIdx(
-                                                665,
-                                            ),
-                                        },
-                                    ),
-                                ),
                             ),
                         },
                     ),
@@ -1159,38 +1107,33 @@ Ok(
                                     704,
                                 ),
                             },
-                            ty_expr: 13,
+                            ty_expr: 39,
                             body: ArenaIdxRange(
                                 26..27,
                             ),
                         },
                     ),
-                    ImplBlock::IllFormed(
-                        IllFormedImplBlock {
-                            id: IllFormedImplBlockId {
-                                module: `core::num`,
-                                disambiguator: 13,
+                    ImplBlock::TraitForType(
+                        TraitForTypeImplBlock {
+                            id: TraitForTypeImplBlockId {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_path: TypePath(`core::num::f64`, `Extern`),
+                                disambiguator: 0,
                             },
+                            ast_idx: 98,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     715,
                                 ),
                             },
-                            ast_idx: 98,
+                            trai_expr: 40,
+                            for_token: TokenIdx(
+                                718,
+                            ),
+                            ty_expr: 41,
                             body: ArenaIdxRange(
                                 27..28,
-                            ),
-                            ill_form: ImplBlockIllForm::MajorPath(
-                                MajorPathExprError::Original(
-                                    OriginalMajorPathExprError::UnrecognizedIdent(
-                                        IdentToken {
-                                            ident: `Add`,
-                                            token_idx: TokenIdx(
-                                                716,
-                                            ),
-                                        },
-                                    ),
-                                ),
                             ),
                         },
                     ),
@@ -1206,9 +1149,8 @@ Ok(
                                 ),
                             },
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `core`,
+                                parent_name_token: NameToken::Crate(
+                                    CrateToken {
                                         token_idx: TokenIdx(
                                             1,
                                         ),
@@ -1219,25 +1161,89 @@ Ok(
                                 ),
                             },
                             parent: None,
-                            state: UseExprRuleState::Erroneous,
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: CrateRoot {
+                                    root_module: ModulePath(
+                                        Id {
+                                            value: 1,
+                                        },
+                                    ),
+                                },
+                            },
+                        },
+                        UseExprRule {
+                            ast_idx: 28,
+                            use_expr_idx: 1,
+                            accessibility: VisibilityProgress::Done {
+                                accessibility: Visibility::PublicUnder(
+                                    `core::num`,
+                                ),
+                            },
+                            variant: UseExprRuleVariant::Parent {
+                                parent_name_token: NameToken::Ident(
+                                    IdentToken {
+                                        ident: `ops`,
+                                        token_idx: TokenIdx(
+                                            3,
+                                        ),
+                                    },
+                                ),
+                                children: ArenaIdxRange(
+                                    0..1,
+                                ),
+                            },
+                            parent: Some(
+                                EntityPath::Module(
+                                    `core`,
+                                ),
+                            ),
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: Submodule(
+                                    SubmoduleSymbol(
+                                        Id {
+                                            value: 6,
+                                        },
+                                    ),
+                                ),
+                            },
+                        },
+                        UseExprRule {
+                            ast_idx: 28,
+                            use_expr_idx: 0,
+                            accessibility: VisibilityProgress::Done {
+                                accessibility: Visibility::PublicUnder(
+                                    `core::num`,
+                                ),
+                            },
+                            variant: UseExprRuleVariant::Leaf {
+                                ident_token: IdentToken {
+                                    ident: `Add`,
+                                    token_idx: TokenIdx(
+                                        5,
+                                    ),
+                                },
+                            },
+                            parent: Some(
+                                EntityPath::Module(
+                                    `core::ops`,
+                                ),
+                            ),
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: ModuleItem(
+                                    ModuleItemSymbol(
+                                        Id {
+                                            value: 26,
+                                        },
+                                    ),
+                                ),
+                            },
                         },
                     ],
                 ),
                 use_all_rules: UseAllRules(
                     [],
                 ),
-                errors: [
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `core`,
-                                token_idx: TokenIdx(
-                                    1,
-                                ),
-                            },
-                        ),
-                    ),
-                ],
+                errors: [],
             },
             EntityTreeSheet {
                 module_path: `core::ops`,
@@ -1429,7 +1435,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 29,
+                                        value: 32,
                                     },
                                 ),
                             ),
@@ -1440,7 +1446,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 30,
+                                        value: 33,
                                     },
                                 ),
                             ),
@@ -1451,7 +1457,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 31,
+                                        value: 34,
                                     },
                                 ),
                             ),
@@ -1462,7 +1468,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 32,
+                                        value: 35,
                                     },
                                 ),
                             ),
@@ -1473,7 +1479,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 33,
+                                        value: 36,
                                     },
                                 ),
                             ),
@@ -1484,7 +1490,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 34,
+                                        value: 37,
                                     },
                                 ),
                             ),
@@ -1495,7 +1501,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 35,
+                                        value: 38,
                                     },
                                 ),
                             ),
@@ -1506,7 +1512,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 36,
+                                        value: 39,
                                     },
                                 ),
                             ),
@@ -1517,7 +1523,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 37,
+                                        value: 40,
                                     },
                                 ),
                             ),
@@ -1528,7 +1534,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 38,
+                                        value: 41,
                                     },
                                 ),
                             ),
@@ -1539,7 +1545,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 39,
+                                        value: 42,
                                     },
                                 ),
                             ),
@@ -1550,7 +1556,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 40,
+                                        value: 43,
                                     },
                                 ),
                             ),
@@ -1561,7 +1567,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 41,
+                                        value: 44,
                                     },
                                 ),
                             ),
@@ -1572,7 +1578,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 42,
+                                        value: 45,
                                     },
                                 ),
                             ),
@@ -1583,7 +1589,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 43,
+                                        value: 46,
                                     },
                                 ),
                             ),
@@ -1594,7 +1600,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 44,
+                                        value: 47,
                                     },
                                 ),
                             ),
@@ -1605,7 +1611,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 45,
+                                        value: 48,
                                     },
                                 ),
                             ),
@@ -1616,7 +1622,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 46,
+                                        value: 49,
                                     },
                                 ),
                             ),
@@ -1627,7 +1633,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 47,
+                                        value: 50,
                                     },
                                 ),
                             ),
@@ -1638,7 +1644,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 48,
+                                        value: 52,
                                     },
                                 ),
                             ),
@@ -1649,7 +1655,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 49,
+                                        value: 53,
                                     },
                                 ),
                             ),
@@ -1660,7 +1666,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 50,
+                                        value: 54,
                                     },
                                 ),
                             ),
@@ -1671,7 +1677,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 51,
+                                        value: 55,
                                     },
                                 ),
                             ),
@@ -1682,7 +1688,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 52,
+                                        value: 56,
                                     },
                                 ),
                             ),
@@ -1693,7 +1699,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 53,
+                                        value: 57,
                                     },
                                 ),
                             ),
@@ -1704,7 +1710,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 54,
+                                        value: 58,
                                     },
                                 ),
                             ),
@@ -1715,7 +1721,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 55,
+                                        value: 59,
                                     },
                                 ),
                             ),
@@ -1726,7 +1732,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 56,
+                                        value: 60,
                                     },
                                 ),
                             ),
@@ -2201,7 +2207,7 @@ Ok(
                             ast_idx: 1,
                             use_expr_idx: 3,
                             accessibility: Public,
-                            progress: 14,
+                            progress: 15,
                         },
                         UseAllRule {
                             parent: ModulePath(
@@ -2346,11 +2352,11 @@ Ok(
                                     11,
                                 ),
                             },
-                            trai_expr: 14,
+                            trai_expr: 42,
                             for_token: TokenIdx(
                                 13,
                             ),
-                            ty_expr: 15,
+                            ty_expr: 43,
                             body: ArenaIdxRange(
                                 1..2,
                             ),
@@ -2370,11 +2376,11 @@ Ok(
                                     23,
                                 ),
                             },
-                            trai_expr: 16,
+                            trai_expr: 44,
                             for_token: TokenIdx(
                                 25,
                             ),
-                            ty_expr: 17,
+                            ty_expr: 45,
                             body: ArenaIdxRange(
                                 2..3,
                             ),
@@ -2394,11 +2400,11 @@ Ok(
                                     35,
                                 ),
                             },
-                            trai_expr: 18,
+                            trai_expr: 46,
                             for_token: TokenIdx(
                                 37,
                             ),
-                            ty_expr: 19,
+                            ty_expr: 47,
                             body: ArenaIdxRange(
                                 3..4,
                             ),
@@ -2418,11 +2424,11 @@ Ok(
                                     47,
                                 ),
                             },
-                            trai_expr: 20,
+                            trai_expr: 48,
                             for_token: TokenIdx(
                                 49,
                             ),
-                            ty_expr: 21,
+                            ty_expr: 49,
                             body: ArenaIdxRange(
                                 4..5,
                             ),
@@ -2442,11 +2448,11 @@ Ok(
                                     59,
                                 ),
                             },
-                            trai_expr: 22,
+                            trai_expr: 50,
                             for_token: TokenIdx(
                                 61,
                             ),
-                            ty_expr: 23,
+                            ty_expr: 51,
                             body: ArenaIdxRange(
                                 5..6,
                             ),
@@ -2466,11 +2472,11 @@ Ok(
                                     71,
                                 ),
                             },
-                            trai_expr: 24,
+                            trai_expr: 52,
                             for_token: TokenIdx(
                                 73,
                             ),
-                            ty_expr: 25,
+                            ty_expr: 53,
                             body: ArenaIdxRange(
                                 6..7,
                             ),
@@ -2528,11 +2534,11 @@ Ok(
                                     4,
                                 ),
                             },
-                            trai_expr: 26,
+                            trai_expr: 54,
                             for_token: TokenIdx(
                                 6,
                             ),
-                            ty_expr: 27,
+                            ty_expr: 55,
                             body: ArenaIdxRange(
                                 0..0,
                             ),
@@ -2552,11 +2558,11 @@ Ok(
                                     8,
                                 ),
                             },
-                            trai_expr: 28,
+                            trai_expr: 56,
                             for_token: TokenIdx(
                                 10,
                             ),
-                            ty_expr: 29,
+                            ty_expr: 57,
                             body: ArenaIdxRange(
                                 0..0,
                             ),
@@ -2576,11 +2582,11 @@ Ok(
                                     12,
                                 ),
                             },
-                            trai_expr: 30,
+                            trai_expr: 58,
                             for_token: TokenIdx(
                                 14,
                             ),
-                            ty_expr: 31,
+                            ty_expr: 59,
                             body: ArenaIdxRange(
                                 0..0,
                             ),
@@ -2600,11 +2606,11 @@ Ok(
                                     16,
                                 ),
                             },
-                            trai_expr: 32,
+                            trai_expr: 60,
                             for_token: TokenIdx(
                                 18,
                             ),
-                            ty_expr: 33,
+                            ty_expr: 61,
                             body: ArenaIdxRange(
                                 0..0,
                             ),
@@ -2624,11 +2630,11 @@ Ok(
                                     20,
                                 ),
                             },
-                            trai_expr: 34,
+                            trai_expr: 62,
                             for_token: TokenIdx(
                                 22,
                             ),
-                            ty_expr: 35,
+                            ty_expr: 63,
                             body: ArenaIdxRange(
                                 0..0,
                             ),
@@ -2648,11 +2654,11 @@ Ok(
                                     24,
                                 ),
                             },
-                            trai_expr: 36,
+                            trai_expr: 64,
                             for_token: TokenIdx(
                                 26,
                             ),
-                            ty_expr: 37,
+                            ty_expr: 65,
                             body: ArenaIdxRange(
                                 0..0,
                             ),
@@ -2833,9 +2839,61 @@ Ok(
                 },
                 MajorPathExpr::Root {
                     ident_token: IdentToken {
+                        ident: `Add`,
+                        token_idx: TokenIdx(
+                            42,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::ops::Add`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `i8`,
+                        token_idx: TokenIdx(
+                            45,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i8`, `Extern`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
                         ident: `i16`,
                         token_idx: TokenIdx(
                             83,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i16`, `Extern`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `Add`,
+                        token_idx: TokenIdx(
+                            94,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::ops::Add`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `i16`,
+                        token_idx: TokenIdx(
+                            97,
                         ),
                     },
                     entity_path: EntityPath::ModuleItem(
@@ -2859,9 +2917,61 @@ Ok(
                 },
                 MajorPathExpr::Root {
                     ident_token: IdentToken {
+                        ident: `Add`,
+                        token_idx: TokenIdx(
+                            146,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::ops::Add`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `i32`,
+                        token_idx: TokenIdx(
+                            149,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i32`, `Extern`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
                         ident: `i64`,
                         token_idx: TokenIdx(
                             186,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i64`, `Extern`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `Add`,
+                        token_idx: TokenIdx(
+                            197,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::ops::Add`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `i64`,
+                        token_idx: TokenIdx(
+                            200,
                         ),
                     },
                     entity_path: EntityPath::ModuleItem(
@@ -2885,9 +2995,61 @@ Ok(
                 },
                 MajorPathExpr::Root {
                     ident_token: IdentToken {
+                        ident: `Add`,
+                        token_idx: TokenIdx(
+                            249,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::ops::Add`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `i128`,
+                        token_idx: TokenIdx(
+                            252,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i128`, `Extern`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
                         ident: `isize`,
                         token_idx: TokenIdx(
                             290,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::isize`, `Extern`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `Add`,
+                        token_idx: TokenIdx(
+                            301,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::ops::Add`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `isize`,
+                        token_idx: TokenIdx(
+                            304,
                         ),
                     },
                     entity_path: EntityPath::ModuleItem(
@@ -2911,9 +3073,61 @@ Ok(
                 },
                 MajorPathExpr::Root {
                     ident_token: IdentToken {
+                        ident: `Add`,
+                        token_idx: TokenIdx(
+                            353,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::ops::Add`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `u8`,
+                        token_idx: TokenIdx(
+                            356,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::u8`, `Extern`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
                         ident: `u16`,
                         token_idx: TokenIdx(
                             394,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::u16`, `Extern`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `Add`,
+                        token_idx: TokenIdx(
+                            405,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::ops::Add`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `u16`,
+                        token_idx: TokenIdx(
+                            408,
                         ),
                     },
                     entity_path: EntityPath::ModuleItem(
@@ -2937,9 +3151,61 @@ Ok(
                 },
                 MajorPathExpr::Root {
                     ident_token: IdentToken {
+                        ident: `Add`,
+                        token_idx: TokenIdx(
+                            457,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::ops::Add`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `u32`,
+                        token_idx: TokenIdx(
+                            460,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::u32`, `Extern`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
                         ident: `u64`,
                         token_idx: TokenIdx(
                             498,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::u64`, `Extern`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `Add`,
+                        token_idx: TokenIdx(
+                            509,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::ops::Add`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `u64`,
+                        token_idx: TokenIdx(
+                            512,
                         ),
                     },
                     entity_path: EntityPath::ModuleItem(
@@ -2963,9 +3229,61 @@ Ok(
                 },
                 MajorPathExpr::Root {
                     ident_token: IdentToken {
+                        ident: `Add`,
+                        token_idx: TokenIdx(
+                            561,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::ops::Add`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `u128`,
+                        token_idx: TokenIdx(
+                            564,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::u128`, `Extern`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
                         ident: `usize`,
                         token_idx: TokenIdx(
                             602,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::usize`, `Extern`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `Add`,
+                        token_idx: TokenIdx(
+                            613,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::ops::Add`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `usize`,
+                        token_idx: TokenIdx(
+                            616,
                         ),
                     },
                     entity_path: EntityPath::ModuleItem(
@@ -2989,9 +3307,61 @@ Ok(
                 },
                 MajorPathExpr::Root {
                     ident_token: IdentToken {
+                        ident: `Add`,
+                        token_idx: TokenIdx(
+                            665,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::ops::Add`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `f32`,
+                        token_idx: TokenIdx(
+                            668,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::f32`, `Extern`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
                         ident: `f64`,
                         token_idx: TokenIdx(
                             705,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::f64`, `Extern`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `Add`,
+                        token_idx: TokenIdx(
+                            716,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::ops::Add`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `f64`,
+                        token_idx: TokenIdx(
+                            719,
                         ),
                     },
                     entity_path: EntityPath::ModuleItem(

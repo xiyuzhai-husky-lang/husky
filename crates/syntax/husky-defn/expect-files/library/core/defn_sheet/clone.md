@@ -98,11 +98,11 @@ Ok(
                                             11,
                                         ),
                                     },
-                                    trai_expr: 14,
+                                    trai_expr: 42,
                                     for_token: TokenIdx(
                                         13,
                                     ),
-                                    ty_expr: 15,
+                                    ty_expr: 43,
                                     body: ArenaIdxRange(
                                         1..2,
                                     ),
@@ -311,11 +311,11 @@ Ok(
                                                             11,
                                                         ),
                                                     },
-                                                    trai_expr: 14,
+                                                    trai_expr: 42,
                                                     for_token: TokenIdx(
                                                         13,
                                                     ),
-                                                    ty_expr: 15,
+                                                    ty_expr: 43,
                                                     body: ArenaIdxRange(
                                                         1..2,
                                                     ),
@@ -798,11 +798,11 @@ Ok(
                                             23,
                                         ),
                                     },
-                                    trai_expr: 16,
+                                    trai_expr: 44,
                                     for_token: TokenIdx(
                                         25,
                                     ),
-                                    ty_expr: 17,
+                                    ty_expr: 45,
                                     body: ArenaIdxRange(
                                         2..3,
                                     ),
@@ -1011,11 +1011,11 @@ Ok(
                                                             23,
                                                         ),
                                                     },
-                                                    trai_expr: 16,
+                                                    trai_expr: 44,
                                                     for_token: TokenIdx(
                                                         25,
                                                     ),
-                                                    ty_expr: 17,
+                                                    ty_expr: 45,
                                                     body: ArenaIdxRange(
                                                         2..3,
                                                     ),
@@ -1498,11 +1498,11 @@ Ok(
                                             35,
                                         ),
                                     },
-                                    trai_expr: 18,
+                                    trai_expr: 46,
                                     for_token: TokenIdx(
                                         37,
                                     ),
-                                    ty_expr: 19,
+                                    ty_expr: 47,
                                     body: ArenaIdxRange(
                                         3..4,
                                     ),
@@ -1711,11 +1711,11 @@ Ok(
                                                             35,
                                                         ),
                                                     },
-                                                    trai_expr: 18,
+                                                    trai_expr: 46,
                                                     for_token: TokenIdx(
                                                         37,
                                                     ),
-                                                    ty_expr: 19,
+                                                    ty_expr: 47,
                                                     body: ArenaIdxRange(
                                                         3..4,
                                                     ),
@@ -2198,11 +2198,11 @@ Ok(
                                             47,
                                         ),
                                     },
-                                    trai_expr: 20,
+                                    trai_expr: 48,
                                     for_token: TokenIdx(
                                         49,
                                     ),
-                                    ty_expr: 21,
+                                    ty_expr: 49,
                                     body: ArenaIdxRange(
                                         4..5,
                                     ),
@@ -2411,11 +2411,11 @@ Ok(
                                                             47,
                                                         ),
                                                     },
-                                                    trai_expr: 20,
+                                                    trai_expr: 48,
                                                     for_token: TokenIdx(
                                                         49,
                                                     ),
-                                                    ty_expr: 21,
+                                                    ty_expr: 49,
                                                     body: ArenaIdxRange(
                                                         4..5,
                                                     ),
@@ -2898,11 +2898,11 @@ Ok(
                                             59,
                                         ),
                                     },
-                                    trai_expr: 22,
+                                    trai_expr: 50,
                                     for_token: TokenIdx(
                                         61,
                                     ),
-                                    ty_expr: 23,
+                                    ty_expr: 51,
                                     body: ArenaIdxRange(
                                         5..6,
                                     ),
@@ -3111,11 +3111,11 @@ Ok(
                                                             59,
                                                         ),
                                                     },
-                                                    trai_expr: 22,
+                                                    trai_expr: 50,
                                                     for_token: TokenIdx(
                                                         61,
                                                     ),
-                                                    ty_expr: 23,
+                                                    ty_expr: 51,
                                                     body: ArenaIdxRange(
                                                         5..6,
                                                     ),
@@ -3598,11 +3598,11 @@ Ok(
                                             71,
                                         ),
                                     },
-                                    trai_expr: 24,
+                                    trai_expr: 52,
                                     for_token: TokenIdx(
                                         73,
                                     ),
-                                    ty_expr: 25,
+                                    ty_expr: 53,
                                     body: ArenaIdxRange(
                                         6..7,
                                     ),
@@ -3811,11 +3811,11 @@ Ok(
                                                             71,
                                                         ),
                                                     },
-                                                    trai_expr: 24,
+                                                    trai_expr: 52,
                                                     for_token: TokenIdx(
                                                         73,
                                                     ),
-                                                    ty_expr: 25,
+                                                    ty_expr: 53,
                                                     body: ArenaIdxRange(
                                                         6..7,
                                                     ),

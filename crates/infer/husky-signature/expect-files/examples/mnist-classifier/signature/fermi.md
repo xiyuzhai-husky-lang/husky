@@ -9,11 +9,11 @@
                     fields: [
                         RegularStructFieldSignature {
                             ident: `matches`,
-                            ty: RawTerm(`core::list::List core::option::Option ~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                            ty: RawTerm(`[] core::option::Option ~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                         },
                         RegularStructFieldSignature {
                             ident: `others`,
-                            ty: RawTerm(`core::list::List ~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                            ty: RawTerm(`[] ~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                         },
                     ],
                 },
@@ -34,7 +34,7 @@
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
                                         Id {
-                                            value: 27,
+                                            value: 40,
                                         },
                                     ),
                                 ),

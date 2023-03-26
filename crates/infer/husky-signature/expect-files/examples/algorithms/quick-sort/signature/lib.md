@@ -36,7 +36,7 @@
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
                                         Id {
-                                            value: 15,
+                                            value: 28,
                                         },
                                     ),
                                 ),

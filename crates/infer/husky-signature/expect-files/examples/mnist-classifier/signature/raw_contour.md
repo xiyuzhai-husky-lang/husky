@@ -13,7 +13,7 @@
                         },
                         RegularStructFieldSignature {
                             ident: `points`,
-                            ty: RawTerm(`core::list::List mnist_classifier::geom2d::Point2d`),
+                            ty: RawTerm(`[] mnist_classifier::geom2d::Point2d`),
                         },
                     ],
                 },
@@ -342,7 +342,7 @@
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
                                         Id {
-                                            value: 31,
+                                            value: 51,
                                         },
                                     ),
                                 ),
@@ -368,14 +368,14 @@
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
                                         Id {
-                                            value: 30,
+                                            value: 49,
                                         },
                                     ),
                                 ),
                             },
                         ],
                     },
-                    return_ty: RawTerm(`core::list::List mnist_classifier::raw_contour::RawContour`),
+                    return_ty: RawTerm(`[] mnist_classifier::raw_contour::RawContour`),
                 },
             ),
         ),

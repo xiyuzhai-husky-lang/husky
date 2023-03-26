@@ -16,7 +16,7 @@
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
                                         Id {
-                                            value: 22,
+                                            value: 35,
                                         },
                                     ),
                                 ),
@@ -51,7 +51,7 @@
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
                                         Id {
-                                            value: 22,
+                                            value: 35,
                                         },
                                     ),
                                 ),
@@ -77,7 +77,7 @@
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
                                         Id {
-                                            value: 22,
+                                            value: 35,
                                         },
                                     ),
                                 ),

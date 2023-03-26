@@ -96,7 +96,7 @@
             ),
         ),
         Ok(
-            RawTerm(`Fp(core::list::List mnist_classifier::geom2d::Point2d) -> mnist_classifier::geom2d::Point2d`),
+            RawTerm(`Fp([] mnist_classifier::geom2d::Point2d) -> mnist_classifier::geom2d::Point2d`),
         ),
     ),
     (
@@ -106,7 +106,7 @@
             ),
         ),
         Ok(
-            RawTerm(`Fp(core::mem::Ref mnist_classifier::connected_component::ConnectedComponent) -> core::list::List mnist_classifier::raw_contour::RawContour`),
+            RawTerm(`Fp(core::mem::Ref mnist_classifier::connected_component::ConnectedComponent) -> [] mnist_classifier::raw_contour::RawContour`),
         ),
     ),
 ]
