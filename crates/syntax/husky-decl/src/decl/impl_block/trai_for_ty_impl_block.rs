@@ -105,3 +105,11 @@ impl<'a> DeclParser<'a> {
         ))
     }
 }
+
+impl HasDecl for TraitForTypeImplBlock {
+    type Decl = TraitForTypeImplBlockDecl;
+
+    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
+        trai_for_ty_impl_block_decl(db, self)
+    }
+}

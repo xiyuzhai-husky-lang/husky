@@ -92,7 +92,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                 ident: `norm`,
-                                ty_item_kind: Memo,
+                                item_kind: Memo,
                             },
                         ),
                     ),
@@ -194,7 +194,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                 ident: `rel_norm`,
-                                ty_item_kind: Memo,
+                                item_kind: Memo,
                             },
                         ),
                     ),
@@ -296,7 +296,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                 ident: `angle_change_norm`,
-                                ty_item_kind: Memo,
+                                item_kind: Memo,
                             },
                         ),
                     ),

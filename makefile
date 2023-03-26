@@ -26,7 +26,9 @@ count-todo:
 	scripts/pattern_statistics.py "todo!()" crates 2 10
 
 update-expect:
-	UPDATE_EXPECT=1 cargo test --features "allow-print" -- --test-threads 1 --nocapture
+	UPDATE_EXPECT=1 cargo test --features "allow-print" -- --test-threads 1 --nocapture\
+		|| scripts/play_update_expect_failure_music.sh
+	scripts/play_update_expect_success_music.sh
 
 ubuntu-setup:
 	scripts/ubuntu_setup.sh

@@ -96,4 +96,5 @@ pub struct TermJar(
     // trai
     trai_side_trai_for_ty_impl_blocks_aux,
     ty_side_trai_for_ty_impl_blocks_aux,
+    trai_for_type_impl_block_card_from_impl_block,
 );
