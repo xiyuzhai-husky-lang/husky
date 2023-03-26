@@ -44,6 +44,8 @@ pub enum TermError {
     TypePathApplicationMethodDeclError,
     #[error("SignatureError")]
     SignatureError(#[from] SignatureError),
+    #[error("EntityTreeBundleError")]
+    EntityTreeBundleError,
 }
 
 impl From<EntityPathError> for TermError {
@@ -66,6 +68,12 @@ impl From<&EntityTreeBundleError> for TermError {
 
 impl From<&DeclExprError> for TermError {
     fn from(value: &DeclExprError) -> Self {
+        todo!()
+    }
+}
+
+impl From<EntityTreeBundleError> for TermError {
+    fn from(value: EntityTreeBundleError) -> Self {
         todo!()
     }
 }

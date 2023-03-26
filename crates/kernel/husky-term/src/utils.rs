@@ -22,6 +22,20 @@ impl Term {
     pub(crate) fn term_menu(self, db: &dyn TermDb) -> Option<&TermMenu> {
         Some(db.term_menu(self.toolchain(db)?))
     }
+
+    pub(crate) fn leading_ty_path(self, db: &dyn TermDb) -> Option<TypePath> {
+        match self.application_expansion(db).function() {
+            TermFunctionReduced::TypeOntology(path) => Some(path),
+            _ => None,
+        }
+    }
+
+    pub(crate) fn leading_trai_path(self, db: &dyn TermDb) -> Option<TraitPath> {
+        match self.application_expansion(db).function() {
+            TermFunctionReduced::Trait(path) => Some(path),
+            _ => None,
+        }
+    }
 }
 
 impl TermSymbol {

@@ -1,22 +1,26 @@
 use super::*;
 
-pub(crate) fn application_expansion(db: &dyn TermDb, term: Term) -> ApplicationExpansion {
-    application_expansion_aux(db, term)
-}
-
-fn application_expansion_aux(db: &dyn TermDb, term: Term) -> ApplicationExpansion {
-    match term {
-        Term::Application(term) => application_expansion_salsa(db, term),
-        Term::EntityPath(path) => match path {
-            TermEntityPath::Form(_) => todo!(),
-            TermEntityPath::Trait(_) => todo!(),
-            TermEntityPath::TypeOntology(path) => ApplicationExpansion {
-                function: TermFunctionReduced::TypeOntology(path),
+impl Term {
+    pub fn application_expansion(self, db: &dyn TermDb) -> ApplicationExpansion {
+        match self {
+            Term::Application(term) => application_expansion_salsa(db, term),
+            Term::EntityPath(path) => match path {
+                TermEntityPath::Form(_) => todo!(),
+                TermEntityPath::Trait(path) => ApplicationExpansion {
+                    function: TermFunctionReduced::Trait(path),
+                    arguments: None,
+                },
+                TermEntityPath::TypeOntology(path) => ApplicationExpansion {
+                    function: TermFunctionReduced::TypeOntology(path),
+                    arguments: None,
+                },
+                TermEntityPath::TypeConstructor(_) => todo!(),
+            },
+            _ => ApplicationExpansion {
+                function: TermFunctionReduced::Other(self),
                 arguments: None,
             },
-            TermEntityPath::TypeConstructor(_) => todo!(),
-        },
-        _ => todo!(),
+        }
     }
 }
 
@@ -27,7 +31,7 @@ pub(crate) fn application_expansion_salsa(
 ) -> ApplicationExpansion {
     let function = term.function(db);
     let argument = term.argument(db);
-    application_expansion_aux(db, function).apply(db, argument)
+    function.application_expansion(db).apply(db, argument)
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -40,6 +44,8 @@ pub struct ApplicationExpansion {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum TermFunctionReduced {
     TypeOntology(TypePath),
+    Trait(TraitPath),
+    Other(Term),
 }
 
 #[salsa::tracked(db = TermDb, jar = TermJar)]

@@ -22,6 +22,7 @@ pub use self::error::*;
 pub use self::menu::*;
 pub use self::rewrite::*;
 pub use self::term::*;
+pub use self::trai::*;
 pub use self::ty::*;
 
 use either::*;
@@ -92,4 +93,7 @@ pub struct TermJar(
     utils::curry_term_toolchain,
     utils::application_term_toolchain,
     utils::ritchie_term_toolchain,
+    // trai
+    trai_side_trai_for_ty_impl_blocks_aux,
+    ty_side_trai_for_ty_impl_blocks_aux,
 );

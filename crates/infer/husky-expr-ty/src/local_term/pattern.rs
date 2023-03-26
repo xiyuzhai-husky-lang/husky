@@ -85,7 +85,7 @@ impl LocalTermPattern {
             },
             Term::Abstraction(_) => todo!(),
             Term::Application(term_application) => {
-                let expansion = db.term_application_expansion(term);
+                let expansion = term.application_expansion(db);
                 match expansion.function() {
                     TermFunctionReduced::TypeOntology(path) => LocalTermPattern::TypeOntology {
                         path,
@@ -97,6 +97,8 @@ impl LocalTermPattern {
                             .map(Into::into)
                             .collect(),
                     },
+                    TermFunctionReduced::Trait(_) => todo!(),
+                    TermFunctionReduced::Other(_) => todo!(),
                 }
             }
             Term::Subentity(_) => todo!(),

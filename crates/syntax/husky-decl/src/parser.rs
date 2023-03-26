@@ -79,7 +79,7 @@ impl<'a> DeclParser<'a> {
             token_sheet_data: db.token_sheet_data(path)?,
             ast_sheet: db.ast_sheet(path)?,
             module_entity_tree: db.entity_tree_sheet(path)?,
-            entity_tree_crate_bundle: db.entity_tree_crate_bundle(path.crate_path(db))?,
+            entity_tree_crate_bundle: db.entity_tree_bundle(path.crate_path(db))?,
         })
     }
 

@@ -63,6 +63,22 @@ impl EntityTreeCrateBundle {
             .flatten()
     }
 
+    pub fn trai_for_ty_impl_blocks_filtered<'a>(
+        &'a self,
+        db: &'a dyn EntityTreeDb,
+        trai_path: TraitPath,
+        ty_path: TypePath,
+    ) -> impl Iterator<Item = TraitForTypeImplBlock> + 'a {
+        self.sheets
+            .iter()
+            .map(|sheet| sheet.all_trai_for_ty_impl_blocks())
+            .flatten()
+            .filter(move |impl_block| {
+                let id = impl_block.id(db);
+                id.trai_path() == trai_path && id.ty_path() == ty_path
+            })
+    }
+
     pub(crate) fn get_sheet(&self, module_path: ModulePath) -> Option<&EntityTreeSheet> {
         self.sheets.get_entry(module_path)
     }
