@@ -11,10 +11,10 @@ pub(crate) struct RawTermShowContext {
 }
 
 impl RawTermShowContext {
-    pub(crate) fn fmt_symbol(
+    pub(crate) fn fmt_contextual_symbol(
         &mut self,
         db: &dyn RawTermDb,
-        symbol: RawTermSymbol,
+        symbol: RawTermConcreteSymbol,
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
         if let Some(entry) = self.entries.get_entry(symbol) {
@@ -30,7 +30,7 @@ impl RawTermShowContext {
     pub(crate) fn fmt_with_symbol(
         &mut self,
         db: &dyn RawTermDb,
-        symbol: RawTermSymbol,
+        symbol: RawTermConcreteSymbol,
         f: impl FnOnce(&mut Self) -> std::fmt::Result,
     ) -> std::fmt::Result {
         self.enter_block(db, symbol);

@@ -21,7 +21,8 @@ use husky_word::*;
 
 #[salsa::jar(db =  RawTermDb)]
 pub struct RawTermJar(
-    RawTermSymbol,
+    RawTermConcreteSymbol,
+    RawTermAbstractSymbol,
     RawTermCurry,
     total_number_of_curry_parameters,
     RawTermRitchie,

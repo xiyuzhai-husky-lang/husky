@@ -38,7 +38,7 @@ impl Term {
     }
 }
 
-impl TermSymbol {
+impl TermConcreteSymbol {
     fn toolchain(self, db: &dyn TermDb) -> Option<Toolchain> {
         self.ty(db).toolchain(db)
     }

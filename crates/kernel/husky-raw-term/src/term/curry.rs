@@ -8,7 +8,7 @@ pub struct RawTermCurry {
     pub curry_kind: CurryKind,
     pub variance: Variance,
     /// a
-    pub parameter_symbol: Option<RawTermSymbol>,
+    pub parameter_symbol: Option<RawTermConcreteSymbol>,
     /// X
     pub parameter_ty: RawTerm,
     /// Y
@@ -29,7 +29,7 @@ impl RawTermCurry {
         f.write_str(self.variance(db).as_str())?;
         if let Some(parameter_symbol) = parameter_symbol {
             ctx.fmt_with_symbol(db, parameter_symbol, |ctx| {
-                ctx.fmt_symbol(db, parameter_symbol, f);
+                ctx.fmt_contextual_symbol(db, parameter_symbol, f);
                 f.write_str(": ")?;
                 self.parameter_ty(db).show_with_db_fmt(f, db, ctx)?;
                 f.write_str(") -> ")?;

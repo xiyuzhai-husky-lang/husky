@@ -139,8 +139,8 @@ impl From<TermLiteral> for LocalTerm {
         LocalTerm::Resolved(value.into())
     }
 }
-impl From<TermSymbol> for LocalTerm {
-    fn from(value: TermSymbol) -> Self {
+impl From<TermConcreteSymbol> for LocalTerm {
+    fn from(value: TermConcreteSymbol) -> Self {
         LocalTerm::Resolved(value.into())
     }
 }

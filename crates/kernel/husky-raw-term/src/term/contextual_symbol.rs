@@ -1,22 +1,22 @@
-use crate::*;
+use super::*;
 use thiserror::Error;
 
 #[salsa::interned(db = RawTermDb, jar = RawTermJar)]
-pub struct RawTermSymbol {
+pub struct RawTermConcreteSymbol {
     pub ty: RawTermSymbolTypeResult<RawTerm>,
     /// this is the index for all symbols with the same type
     /// so that we have better cache hits
     pub idx: u8,
 }
 
-impl RawTermSymbol {
+impl RawTermConcreteSymbol {
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &dyn RawTermDb,
         ctx: &mut RawTermShowContext,
     ) -> std::fmt::Result {
-        ctx.fmt_symbol(db, self, f)
+        ctx.fmt_contextual_symbol(db, self, f)
     }
 }
 
@@ -41,7 +41,7 @@ impl TermSymbolRegistry {
         &mut self,
         db: &dyn RawTermDb,
         ty: RawTermSymbolTypeResult<RawTerm>,
-    ) -> RawTermSymbol {
+    ) -> RawTermConcreteSymbol {
         let idx_usize = self
             .ty_final_destinations
             .iter()
@@ -52,11 +52,11 @@ impl TermSymbolRegistry {
             Err(_) => todo!(),
         };
         self.ty_final_destinations.push(ty);
-        RawTermSymbol::new(db, ty, idx)
+        RawTermConcreteSymbol::new(db, ty, idx)
     }
 }
 
-impl<Db: RawTermDb + ?Sized> salsa::DisplayWithDb<Db> for RawTermSymbol {
+impl<Db: RawTermDb + ?Sized> salsa::DisplayWithDb<Db> for RawTermConcreteSymbol {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,

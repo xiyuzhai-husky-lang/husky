@@ -18,7 +18,7 @@
                         data: [
                             ImplicitParameterSignature {
                                 annotated_variance: None,
-                                symbol: RawTermSymbol(
+                                symbol: RawTermConcreteSymbol(
                                     Id {
                                         value: 1,
                                     },
@@ -34,7 +34,7 @@
                             },
                             ImplicitParameterSignature {
                                 annotated_variance: None,
-                                symbol: RawTermSymbol(
+                                symbol: RawTermConcreteSymbol(
                                     Id {
                                         value: 8,
                                     },
@@ -62,7 +62,7 @@
                         data: [
                             ImplicitParameterSignature {
                                 annotated_variance: None,
-                                symbol: RawTermSymbol(
+                                symbol: RawTermConcreteSymbol(
                                     Id {
                                         value: 1,
                                     },
@@ -78,7 +78,7 @@
                             },
                             ImplicitParameterSignature {
                                 annotated_variance: None,
-                                symbol: RawTermSymbol(
+                                symbol: RawTermConcreteSymbol(
                                     Id {
                                         value: 8,
                                     },

@@ -1,6 +1,8 @@
+mod abstract_symbol;
 mod abstraction;
 mod as_trai_subentity;
 mod constraint;
+mod contextual_symbol;
 mod curry;
 mod entity_path;
 mod explicit_application;
@@ -9,20 +11,20 @@ mod list;
 mod literal;
 mod ritchie;
 mod subentity;
-mod symbol;
 
-pub use self::abstraction::RawTermAbstraction;
+pub use self::abstract_symbol::*;
+pub use self::abstraction::*;
 pub use self::as_trai_subentity::*;
 pub use self::constraint::*;
+pub use self::contextual_symbol::*;
 pub use self::curry::*;
 pub use self::entity_path::*;
-pub use self::explicit_application::RawTermExplicitApplication;
+pub use self::explicit_application::*;
 pub use self::explicit_application_or_ritchie_call::*;
 pub use self::list::*;
 pub use self::literal::*;
 pub use self::ritchie::*;
 pub use self::subentity::*;
-pub use self::symbol::*;
 
 use crate::*;
 use std::fmt::Debug;
@@ -34,7 +36,8 @@ pub enum RawTerm {
     ///
     /// literal: 1,1.0, true, false; variable, entityPath
     Literal(RawTermLiteral),
-    Symbol(RawTermSymbol),
+    ConcreteSymbol(RawTermConcreteSymbol),
+    AbstractSymbol(RawTermAbstractSymbol),
     EntityPath(RawTermEntityPath),
     Category(TermCategory),
     Universe(TermUniverse),
@@ -118,7 +121,8 @@ impl RawTerm {
     ) -> std::fmt::Result {
         match self {
             RawTerm::Literal(term) => term.show_with_db_fmt(f, db, ctx),
-            RawTerm::Symbol(term) => term.show_with_db_fmt(f, db, ctx),
+            RawTerm::ConcreteSymbol(term) => term.show_with_db_fmt(f, db, ctx),
+            RawTerm::AbstractSymbol(term) => term.show_with_db_fmt(f, db, ctx),
             RawTerm::EntityPath(term) => term.show_with_db_fmt(f, db, ctx),
             RawTerm::Category(term) => f.write_str(&term.to_string()),
             RawTerm::Universe(term) => f.write_str(&term.to_string()),
