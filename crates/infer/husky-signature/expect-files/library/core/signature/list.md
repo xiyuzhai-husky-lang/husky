@@ -9,7 +9,7 @@
                                 annotated_variance: Some(
                                     Covariant,
                                 ),
-                                symbol: RawTermConcreteSymbol(
+                                symbol: RawTermOriginalSymbol(
                                     Id {
                                         value: 1,
                                     },

@@ -5,7 +5,7 @@ use super::*;
 
 #[derive(Debug, Hash, PartialEq, Eq)]
 pub(crate) struct TermSymbolShowEntry {
-    symbol: TermConcreteSymbol,
+    symbol: TermOriginalVariable,
     show_kind: TermSymbolShowKind,
     idx: u8,
     /// number of lambdas using this symbol
@@ -86,7 +86,7 @@ impl TermSymbolShowEntry {
 }
 
 impl AsVecMapEntry for TermSymbolShowEntry {
-    type K = TermConcreteSymbol;
+    type K = TermOriginalVariable;
 
     fn key(&self) -> Self::K
     where
@@ -114,7 +114,7 @@ impl TermShowContext {
     pub(super) fn new_external_entry(
         &self,
         db: &dyn TermDb,
-        symbol: TermConcreteSymbol,
+        symbol: TermOriginalVariable,
         external_symbol_ident: Option<Ident>,
     ) -> TermSymbolShowEntry {
         self.new_entry(db, symbol, 0, external_symbol_ident)
@@ -123,7 +123,7 @@ impl TermShowContext {
     pub(super) fn new_internal_entry(
         &self,
         db: &dyn TermDb,
-        symbol: TermConcreteSymbol,
+        symbol: TermOriginalVariable,
     ) -> TermSymbolShowEntry {
         self.new_entry(db, symbol, 1, None)
     }
@@ -131,7 +131,7 @@ impl TermShowContext {
     fn new_entry(
         &self,
         db: &dyn TermDb,
-        symbol: TermConcreteSymbol,
+        symbol: TermOriginalVariable,
         level: u8,
         external_symbol_ident: Option<Ident>,
     ) -> TermSymbolShowEntry {
@@ -161,7 +161,7 @@ impl TermShowContext {
     }
 
     // todo: put this into an internal table struct
-    pub(super) fn enter_block(&mut self, db: &dyn TermDb, symbol: TermConcreteSymbol) {
+    pub(super) fn enter_block(&mut self, db: &dyn TermDb, symbol: TermOriginalVariable) {
         if let Some(entry) = self.entries.get_entry_mut(symbol) {
             entry.level += 1
         } else {
@@ -170,12 +170,12 @@ impl TermShowContext {
         }
     }
 
-    pub(super) fn exit_block(&mut self, symbol: TermConcreteSymbol) {
+    pub(super) fn exit_block(&mut self, symbol: TermOriginalVariable) {
         self.entries.get_entry_mut(symbol).unwrap().level -= 1
     }
 }
 
-fn symbol_show_kind(symbol: TermConcreteSymbol, db: &dyn TermDb) -> TermSymbolShowKind {
+fn symbol_show_kind(symbol: TermOriginalVariable, db: &dyn TermDb) -> TermSymbolShowKind {
     match symbol.ty(db) {
         Term::EntityPath(TermEntityPath::TypeOntology(path)) if path.eqs_lifetime_ty_path(db) => {
             TermSymbolShowKind::Lifetime

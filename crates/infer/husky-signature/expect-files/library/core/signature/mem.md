@@ -9,7 +9,7 @@
                                 annotated_variance: Some(
                                     Covariant,
                                 ),
-                                symbol: RawTermConcreteSymbol(
+                                symbol: RawTermOriginalSymbol(
                                     Id {
                                         value: 9,
                                     },
@@ -29,7 +29,7 @@
                                 annotated_variance: Some(
                                     Covariant,
                                 ),
-                                symbol: RawTermConcreteSymbol(
+                                symbol: RawTermOriginalSymbol(
                                     Id {
                                         value: 1,
                                     },
@@ -59,7 +59,7 @@
                                 annotated_variance: Some(
                                     Covariant,
                                 ),
-                                symbol: RawTermConcreteSymbol(
+                                symbol: RawTermOriginalSymbol(
                                     Id {
                                         value: 9,
                                     },
@@ -79,7 +79,7 @@
                                 annotated_variance: Some(
                                     Invariant,
                                 ),
-                                symbol: RawTermConcreteSymbol(
+                                symbol: RawTermOriginalSymbol(
                                     Id {
                                         value: 1,
                                     },
@@ -109,7 +109,7 @@
                                 annotated_variance: Some(
                                     Covariant,
                                 ),
-                                symbol: RawTermConcreteSymbol(
+                                symbol: RawTermOriginalSymbol(
                                     Id {
                                         value: 1,
                                     },

@@ -32,7 +32,7 @@ impl SignatureTermRegion {
     pub fn current_symbol_term(
         &self,
         current_symbol_idx: CurrentSymbolIdx,
-    ) -> Option<RawTermConcreteSymbol> {
+    ) -> Option<RawTermOriginalSymbol> {
         self.term_symbol_region
             .current_symbol_term(current_symbol_idx)
     }
@@ -62,10 +62,10 @@ pub(crate) fn signature_term_region(
 #[salsa::derive_debug_with_db(db = SignatureDb)]
 pub struct RawTermSymbolRegion {
     registry: TermSymbolRegistry,
-    inherited_symbol_terms: Vec<RawTermConcreteSymbol>,
-    current_symbol_terms: Vec<RawTermConcreteSymbol>,
+    inherited_symbol_terms: Vec<RawTermOriginalSymbol>,
+    current_symbol_terms: Vec<RawTermOriginalSymbol>,
     self_ty_term: Option<RawTerm>,
-    self_value_term: Option<RawTermConcreteSymbol>,
+    self_value_term: Option<RawTermOriginalSymbol>,
 }
 
 fn merge_with_at_most_one_some_and_expected_is_some<T>(
@@ -151,7 +151,7 @@ impl RawTermSymbolRegion {
         self_ty
     }
 
-    fn parent_symbol_term(&self, parent_symbol_idx: ParentSymbolIdx) -> RawTermConcreteSymbol {
+    fn parent_symbol_term(&self, parent_symbol_idx: ParentSymbolIdx) -> RawTermOriginalSymbol {
         match parent_symbol_idx {
             ParentSymbolIdx::Inherited(inherited_symbol_idx) => {
                 self.inherited_symbol_term(inherited_symbol_idx)
@@ -165,14 +165,14 @@ impl RawTermSymbolRegion {
     pub fn inherited_symbol_term(
         &self,
         inherited_symbol_idx: InheritedSymbolIdx,
-    ) -> RawTermConcreteSymbol {
+    ) -> RawTermOriginalSymbol {
         self.inherited_symbol_terms[inherited_symbol_idx.raw()]
     }
 
     pub fn current_symbol_term(
         &self,
         current_symbol_idx: CurrentSymbolIdx,
-    ) -> Option<RawTermConcreteSymbol> {
+    ) -> Option<RawTermOriginalSymbol> {
         self.current_symbol_terms
             .get(current_symbol_idx.raw())
             .copied()
@@ -191,7 +191,7 @@ impl RawTermSymbolRegion {
         self.self_ty_term
     }
 
-    pub fn self_value_term(&self) -> Option<RawTermConcreteSymbol> {
+    pub fn self_value_term(&self) -> Option<RawTermOriginalSymbol> {
         self.self_value_term
     }
 }
