@@ -54,8 +54,8 @@ impl TermVariable {
 #[salsa::tracked(jar = TermJar)]
 pub(crate) fn curry_term_toolchain(db: &dyn TermDb, term: TermCurry) -> Option<Toolchain> {
     let mut merger = ToolchainMerger::default();
-    if let Some(parameter_symbol) = term.parameter_symbol(db) {
-        merger.accept(parameter_symbol.toolchain(db))
+    if let Some(parameter_variable) = term.parameter_variable(db) {
+        merger.accept(parameter_variable.toolchain(db))
     }
     merger.accept(term.parameter_ty(db).toolchain(db));
     merger.accept(term.return_ty(db).toolchain(db));

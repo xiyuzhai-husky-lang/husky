@@ -246,7 +246,7 @@ impl UnresolvedTerms {
             LocalTermPattern::Curry {
                 curry_kind,
                 variance,
-                parameter_symbol,
+                parameter_variable: parameter_symbol,
                 parameter_ty,
                 return_ty,
             } => todo!(),

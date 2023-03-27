@@ -1,7 +1,7 @@
-mod entry;
+mod symbol;
 
 use crate::*;
-use entry::*;
+use symbol::*;
 
 use vec_like::VecMap;
 
@@ -11,7 +11,7 @@ pub(crate) struct RawTermShowContext {
 }
 
 impl RawTermShowContext {
-    pub(crate) fn fmt_contextual_symbol(
+    pub(crate) fn fmt_symbol(
         &mut self,
         db: &dyn RawTermDb,
         symbol: RawTermSymbol,
@@ -33,9 +33,29 @@ impl RawTermShowContext {
         symbol: RawTermSymbol,
         f: impl FnOnce(&mut Self) -> std::fmt::Result,
     ) -> std::fmt::Result {
-        self.enter_block(db, symbol);
+        self.with_symbol(db, symbol);
         f(self)?;
-        self.exit_block(symbol);
+        self.without_symbol(symbol);
         Ok(())
+    }
+
+    pub(crate) fn fmt_variable(
+        &mut self,
+        db: &dyn RawTermDb,
+        variable: RawTermVariable,
+        f: &mut std::fmt::Formatter<'_>,
+    ) -> std::fmt::Result {
+        // ad hoc
+        f.write_fmt(format_args!("v{}", variable.idx(db)))
+    }
+
+    pub(crate) fn fmt_with_variable(
+        &mut self,
+        db: &dyn RawTermDb,
+        variable: RawTermVariable,
+        f: impl FnOnce(&mut Self) -> std::fmt::Result,
+    ) -> std::fmt::Result {
+        // ad hoc
+        f(self)
     }
 }

@@ -161,7 +161,7 @@ impl RawTermShowContext {
     }
 
     // todo: put this into an internal table struct
-    pub(super) fn enter_block(&mut self, db: &dyn RawTermDb, symbol: RawTermSymbol) {
+    pub(super) fn with_symbol(&mut self, db: &dyn RawTermDb, symbol: RawTermSymbol) {
         if let Some(entry) = self.entries.get_entry_mut(symbol) {
             entry.level += 1
         } else {
@@ -170,7 +170,7 @@ impl RawTermShowContext {
         }
     }
 
-    pub(super) fn exit_block(&mut self, symbol: RawTermSymbol) {
+    pub(super) fn without_symbol(&mut self, symbol: RawTermSymbol) {
         self.entries.get_entry_mut(symbol).unwrap().level -= 1
     }
 }

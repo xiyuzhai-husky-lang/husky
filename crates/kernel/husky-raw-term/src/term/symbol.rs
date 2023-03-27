@@ -1,5 +1,12 @@
+mod registry;
+mod set;
+
+pub use self::registry::*;
+pub use self::set::*;
+
 use super::*;
 use thiserror::Error;
+use vec_like::VecSet;
 
 #[salsa::interned(db = RawTermDb, jar = RawTermJar)]
 pub struct RawTermSymbol {
@@ -16,7 +23,7 @@ impl RawTermSymbol {
         db: &dyn RawTermDb,
         ctx: &mut RawTermShowContext,
     ) -> std::fmt::Result {
-        ctx.fmt_contextual_symbol(db, self, f)
+        ctx.fmt_symbol(db, self, f)
     }
 }
 
@@ -28,33 +35,6 @@ pub enum RawTermSymbolTypeErrorKind {
     SketchRawTermError,
 }
 pub type RawTermSymbolTypeResult<T> = Result<T, RawTermSymbolTypeErrorKind>;
-
-// todo: change to ty_final_destinations: Vec<RawTermSymbolTypeResult<TypeFinalDestination>>,
-// RawTerm won't work
-#[derive(Default, Debug, PartialEq, Eq, Clone)]
-pub struct TermSymbolRegistry {
-    ty_final_destinations: Vec<RawTermSymbolTypeResult<RawTerm>>,
-}
-
-impl TermSymbolRegistry {
-    pub fn new_symbol(
-        &mut self,
-        db: &dyn RawTermDb,
-        ty: RawTermSymbolTypeResult<RawTerm>,
-    ) -> RawTermSymbol {
-        let idx_usize = self
-            .ty_final_destinations
-            .iter()
-            .filter(|ty1| **ty1 == ty)
-            .count();
-        let idx = match idx_usize.try_into() {
-            Ok(idx) => idx,
-            Err(_) => todo!(),
-        };
-        self.ty_final_destinations.push(ty);
-        RawTermSymbol::new(db, ty, idx)
-    }
-}
 
 impl<Db: RawTermDb + ?Sized> salsa::DisplayWithDb<Db> for RawTermSymbol {
     fn display_with_db_fmt(
