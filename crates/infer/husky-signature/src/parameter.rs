@@ -6,7 +6,7 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct ImplicitParameterSignature {
     annotated_variance: Option<Variance>,
-    symbol: RawTermConcreteSymbol,
+    symbol: RawTermOriginalSymbol,
     ty: RawTerm,
     traits: Vec<RawTerm>,
 }
@@ -48,7 +48,7 @@ impl ImplicitParameterSignature {
         }
     }
 
-    pub fn symbol(&self) -> RawTermConcreteSymbol {
+    pub fn symbol(&self) -> RawTermOriginalSymbol {
         self.symbol
     }
 

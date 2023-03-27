@@ -5,7 +5,7 @@ impl Term {
     pub(crate) fn toolchain(self, db: &dyn TermDb) -> Option<Toolchain> {
         match self {
             Term::Literal(_) => None,
-            Term::Symbol(term) => term.toolchain(db),
+            Term::OriginalVariable(term) => term.toolchain(db),
             Term::EntityPath(path) => Some(path.toolchain(db)),
             Term::Category(_) => todo!(),
             Term::Universe(_) => None,
@@ -38,7 +38,7 @@ impl Term {
     }
 }
 
-impl TermConcreteSymbol {
+impl TermOriginalVariable {
     fn toolchain(self, db: &dyn TermDb) -> Option<Toolchain> {
         self.ty(db).toolchain(db)
     }

@@ -31,7 +31,7 @@ pub struct SignatureRawTermCurry {
     pub curry_kind: CurryKind,
     pub variance: Variance,
     /// a
-    pub parameter_symbol: Option<RawTermConcreteSymbol>,
+    pub parameter_symbol: Option<RawTermOriginalSymbol>,
     /// X
     pub parameter_ty: RawTerm,
     /// Y

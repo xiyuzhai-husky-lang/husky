@@ -42,7 +42,7 @@ impl LocalTerm {
 fn curry_destination(db: &dyn ExprTypeDb, term: Term) -> Term {
     match term {
         Term::Literal(_) => todo!(),
-        Term::Symbol(_) => todo!(),
+        Term::OriginalVariable(_) => todo!(),
         Term::EntityPath(path) => match path {
             TermEntityPath::Form(_) => todo!(),
             TermEntityPath::Trait(_)

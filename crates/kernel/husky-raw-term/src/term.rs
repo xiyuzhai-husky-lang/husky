@@ -1,28 +1,28 @@
-mod abstract_symbol;
 mod abstraction;
 mod as_trai_subentity;
 mod constraint;
-mod contextual_symbol;
 mod curry;
+mod derived_variable;
 mod entity_path;
 mod explicit_application;
 mod explicit_application_or_ritchie_call;
 mod list;
 mod literal;
+mod original_variable;
 mod ritchie;
 mod subentity;
 
-pub use self::abstract_symbol::*;
 pub use self::abstraction::*;
 pub use self::as_trai_subentity::*;
 pub use self::constraint::*;
-pub use self::contextual_symbol::*;
 pub use self::curry::*;
+pub use self::derived_variable::*;
 pub use self::entity_path::*;
 pub use self::explicit_application::*;
 pub use self::explicit_application_or_ritchie_call::*;
 pub use self::list::*;
 pub use self::literal::*;
+pub use self::original_variable::*;
 pub use self::ritchie::*;
 pub use self::subentity::*;
 
@@ -36,8 +36,8 @@ pub enum RawTerm {
     ///
     /// literal: 1,1.0, true, false; variable, entityPath
     Literal(RawTermLiteral),
-    ConcreteSymbol(RawTermConcreteSymbol),
-    AbstractSymbol(RawTermAbstractSymbol),
+    ConcreteSymbol(RawTermOriginalSymbol),
+    AbstractSymbol(RawTermDerivedVariable),
     EntityPath(RawTermEntityPath),
     Category(TermCategory),
     Universe(TermUniverse),

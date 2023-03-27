@@ -1,9 +1,9 @@
 mod abstraction;
 mod application;
 mod as_trai_subentity;
-mod concrete_symbol;
 mod constraint;
 mod curry;
+mod original_variable;
 mod ritchie;
 mod subentity;
 
@@ -12,9 +12,9 @@ use std::fmt::{Debug, Display};
 pub use self::abstraction::*;
 pub use self::application::*;
 pub use self::as_trai_subentity::*;
-pub use self::concrete_symbol::*;
 pub use self::constraint::*;
 pub use self::curry::*;
+pub use self::original_variable::*;
 pub use self::ritchie::*;
 pub use self::subentity::*;
 
@@ -33,7 +33,7 @@ pub enum Term {
     ///
     /// literal: 1,1.0, true, false; variable, entityPath
     Literal(TermLiteral),
-    Symbol(TermConcreteSymbol),
+    OriginalVariable(TermOriginalVariable),
     EntityPath(TermEntityPath),
     Category(TermCategory),
     Universe(TermUniverse),
@@ -93,7 +93,7 @@ impl Term {
     fn check(self, db: &dyn TermDb) -> TermResult<()> {
         match self {
             Term::Literal(_) => Ok(()),
-            Term::Symbol(term) => term.check(db),
+            Term::OriginalVariable(term) => term.check(db),
             Term::EntityPath(path) => Ok(()),
             Term::Category(_) => Ok(()),
             Term::Universe(_) => Ok(()),
@@ -129,7 +129,7 @@ impl Term {
                 //  TermLiteral::from_raw_unchecked(db, raw_term, ty_expectation)?.into()
             }
             RawTerm::ConcreteSymbol(raw_term) => {
-                TermConcreteSymbol::from_raw_unchecked(db, raw_term)?.into()
+                TermOriginalVariable::from_raw_unchecked(db, raw_term)?.into()
             }
             RawTerm::AbstractSymbol(_) => todo!(),
             RawTerm::EntityPath(raw_term) => match raw_term {
@@ -217,7 +217,7 @@ impl Term {
     fn reduce(self, db: &dyn TermDb) -> Self {
         match self {
             Term::Literal(_)
-            | Term::Symbol(_)
+            | Term::OriginalVariable(_)
             | Term::EntityPath(
                 TermEntityPath::Trait(_)
                 | TermEntityPath::TypeOntology(_)
@@ -391,7 +391,7 @@ impl Term {
     ) -> std::fmt::Result {
         match self {
             Term::Literal(term) => term.show_with_db_fmt(f, db),
-            Term::Symbol(term) => term.show_with_db_fmt(f, db, ctx),
+            Term::OriginalVariable(term) => term.show_with_db_fmt(f, db, ctx),
             Term::EntityPath(term) => term.show_with_db_fmt(f, db),
             Term::Category(term) => f.write_str(&term.to_string()),
             Term::Universe(term) => f.write_str(&term.to_string()),

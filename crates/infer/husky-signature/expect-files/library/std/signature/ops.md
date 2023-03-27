@@ -6,7 +6,7 @@
                     data: [
                         ImplicitParameterSignature {
                             annotated_variance: None,
-                            symbol: RawTermConcreteSymbol(
+                            symbol: RawTermOriginalSymbol(
                                 Id {
                                     value: 1,
                                 },
