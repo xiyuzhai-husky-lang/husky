@@ -5,7 +5,7 @@ use super::*;
 
 #[derive(Debug, Hash, PartialEq, Eq)]
 pub(crate) struct RawTermSymbolShowEntry {
-    symbol: RawTermSymbol,
+    symbol: RawTermConcreteSymbol,
     show_kind: RawTermSymbolShowKind,
     idx: u8,
     /// number of lambdas using this symbol
@@ -86,7 +86,7 @@ impl RawTermSymbolShowEntry {
 }
 
 impl AsVecMapEntry for RawTermSymbolShowEntry {
-    type K = RawTermSymbol;
+    type K = RawTermConcreteSymbol;
 
     fn key(&self) -> Self::K
     where
@@ -114,7 +114,7 @@ impl RawTermShowContext {
     pub(super) fn new_external_entry(
         &self,
         db: &dyn RawTermDb,
-        symbol: RawTermSymbol,
+        symbol: RawTermConcreteSymbol,
         external_symbol_ident: Option<Ident>,
     ) -> RawTermSymbolShowEntry {
         self.new_entry(db, symbol, 0, external_symbol_ident)
@@ -123,7 +123,7 @@ impl RawTermShowContext {
     pub(super) fn new_internal_entry(
         &self,
         db: &dyn RawTermDb,
-        symbol: RawTermSymbol,
+        symbol: RawTermConcreteSymbol,
     ) -> RawTermSymbolShowEntry {
         self.new_entry(db, symbol, 1, None)
     }
@@ -131,7 +131,7 @@ impl RawTermShowContext {
     fn new_entry(
         &self,
         db: &dyn RawTermDb,
-        symbol: RawTermSymbol,
+        symbol: RawTermConcreteSymbol,
         level: u8,
         external_symbol_ident: Option<Ident>,
     ) -> RawTermSymbolShowEntry {
@@ -161,7 +161,7 @@ impl RawTermShowContext {
     }
 
     // todo: put this into an internal table struct
-    pub(super) fn enter_block(&mut self, db: &dyn RawTermDb, symbol: RawTermSymbol) {
+    pub(super) fn enter_block(&mut self, db: &dyn RawTermDb, symbol: RawTermConcreteSymbol) {
         if let Some(entry) = self.entries.get_entry_mut(symbol) {
             entry.level += 1
         } else {
@@ -170,12 +170,12 @@ impl RawTermShowContext {
         }
     }
 
-    pub(super) fn exit_block(&mut self, symbol: RawTermSymbol) {
+    pub(super) fn exit_block(&mut self, symbol: RawTermConcreteSymbol) {
         self.entries.get_entry_mut(symbol).unwrap().level -= 1
     }
 }
 
-fn symbol_show_kind(symbol: RawTermSymbol, db: &dyn RawTermDb) -> RawTermSymbolShowKind {
+fn symbol_show_kind(symbol: RawTermConcreteSymbol, db: &dyn RawTermDb) -> RawTermSymbolShowKind {
     match symbol.ty(db) {
         Ok(RawTerm::EntityPath(RawTermEntityPath::Type(ty))) if ty.eqs_lifetime_ty_path(db) => {
             RawTermSymbolShowKind::Lifetime

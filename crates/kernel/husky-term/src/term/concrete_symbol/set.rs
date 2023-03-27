@@ -4,11 +4,11 @@ use vec_like::VecSet;
 #[salsa::tracked(db = TermDb, jar = TermJar)]
 pub struct TermSymbols {
     #[return_ref]
-    data: VecSet<TermSymbol>,
+    data: VecSet<TermConcreteSymbol>,
 }
 
 impl TermSymbols {
-    pub(crate) fn contains(self, db: &dyn TermDb, symbol: TermSymbol) -> bool {
+    pub(crate) fn contains(self, db: &dyn TermDb, symbol: TermConcreteSymbol) -> bool {
         self.data(db).has(symbol)
     }
 
@@ -25,7 +25,7 @@ impl TermSymbols {
 
     fn remove(
         symbols: impl Into<Option<Self>>,
-        symbol: impl Into<Option<TermSymbol>>,
+        symbol: impl Into<Option<TermConcreteSymbol>>,
     ) -> Option<Self> {
         let symbols = symbols.into()?;
         todo!()

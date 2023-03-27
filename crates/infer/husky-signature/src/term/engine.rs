@@ -326,7 +326,7 @@ impl<'a> SignatureRawTermEngine<'a> {
     pub(crate) fn current_symbol_term_symbol(
         &self,
         symbol: CurrentSymbolIdx,
-    ) -> Option<RawTermSymbol> {
+    ) -> Option<RawTermConcreteSymbol> {
         self.raw_term_symbol_region.current_symbol_term(symbol)
     }
 

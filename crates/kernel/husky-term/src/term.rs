@@ -1,22 +1,22 @@
 mod abstraction;
 mod application;
 mod as_trai_subentity;
+mod concrete_symbol;
 mod constraint;
 mod curry;
 mod ritchie;
 mod subentity;
-mod symbol;
 
 use std::fmt::{Debug, Display};
 
 pub use self::abstraction::*;
 pub use self::application::*;
 pub use self::as_trai_subentity::*;
+pub use self::concrete_symbol::*;
 pub use self::constraint::*;
 pub use self::curry::*;
 pub use self::ritchie::*;
 pub use self::subentity::*;
-pub use self::symbol::*;
 
 use crate::*;
 use husky_entity_path::EntityPath;
@@ -33,7 +33,7 @@ pub enum Term {
     ///
     /// literal: 1,1.0, true, false; variable, entityPath
     Literal(TermLiteral),
-    Symbol(TermSymbol),
+    Symbol(TermConcreteSymbol),
     EntityPath(TermEntityPath),
     Category(TermCategory),
     Universe(TermUniverse),
@@ -128,7 +128,10 @@ impl Term {
                 }
                 //  TermLiteral::from_raw_unchecked(db, raw_term, ty_expectation)?.into()
             }
-            RawTerm::Symbol(raw_term) => TermSymbol::from_raw_unchecked(db, raw_term)?.into(),
+            RawTerm::ConcreteSymbol(raw_term) => {
+                TermConcreteSymbol::from_raw_unchecked(db, raw_term)?.into()
+            }
+            RawTerm::AbstractSymbol(_) => todo!(),
             RawTerm::EntityPath(raw_term) => match raw_term {
                 RawTermEntityPath::Form(path) => TermEntityPath::Form(path).into(),
                 RawTermEntityPath::Trait(path) => TermEntityPath::Trait(path).into(),
@@ -266,7 +269,8 @@ pub(crate) fn term_from_raw_term_explicit_application_or_ritchie_call_unchecked(
     match function.raw_ty(db)? {
         Left(raw_ty) => match raw_ty {
             RawTerm::Literal(_) => todo!(),
-            RawTerm::Symbol(_) => todo!(),
+            RawTerm::ConcreteSymbol(_) => todo!(),
+            RawTerm::AbstractSymbol(_) => todo!(),
             RawTerm::EntityPath(_) => todo!(),
             RawTerm::Category(_) => todo!(),
             RawTerm::Universe(_) => todo!(),
