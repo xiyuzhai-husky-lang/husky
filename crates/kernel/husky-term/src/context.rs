@@ -14,7 +14,7 @@ impl TermShowContext {
     pub(crate) fn fmt_symbol(
         &mut self,
         db: &dyn TermDb,
-        symbol: TermOriginalVariable,
+        symbol: TermSymbol,
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
         if let Some(entry) = self.entries.get_entry(symbol) {
@@ -27,15 +27,33 @@ impl TermShowContext {
         }
     }
 
+    pub(crate) fn fmt_variable(
+        &mut self,
+        db: &dyn TermDb,
+        variable: TermVariable,
+        f: &mut std::fmt::Formatter<'_>,
+    ) -> std::fmt::Result {
+        todo!()
+    }
+
     pub(crate) fn fmt_with_symbol(
         &mut self,
         db: &dyn TermDb,
-        symbol: TermOriginalVariable,
+        symbol: TermSymbol,
         f: impl FnOnce(&mut Self) -> std::fmt::Result,
     ) -> std::fmt::Result {
         self.enter_block(db, symbol);
         f(self)?;
         self.exit_block(symbol);
         Ok(())
+    }
+
+    pub(crate) fn fmt_with_variable(
+        &mut self,
+        db: &dyn TermDb,
+        variable: TermVariable,
+        f: impl FnOnce(&mut Self) -> std::fmt::Result,
+    ) -> std::fmt::Result {
+        todo!()
     }
 }

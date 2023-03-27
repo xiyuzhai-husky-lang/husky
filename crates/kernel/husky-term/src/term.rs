@@ -3,9 +3,10 @@ mod application;
 mod as_trai_subentity;
 mod constraint;
 mod curry;
-mod original_variable;
 mod ritchie;
 mod subentity;
+mod symbol;
+mod variable;
 
 use std::fmt::{Debug, Display};
 
@@ -14,9 +15,10 @@ pub use self::application::*;
 pub use self::as_trai_subentity::*;
 pub use self::constraint::*;
 pub use self::curry::*;
-pub use self::original_variable::*;
 pub use self::ritchie::*;
 pub use self::subentity::*;
+pub use self::symbol::*;
+pub use self::variable::*;
 
 use crate::*;
 use husky_entity_path::EntityPath;
@@ -33,7 +35,8 @@ pub enum Term {
     ///
     /// literal: 1,1.0, true, false; variable, entityPath
     Literal(TermLiteral),
-    OriginalVariable(TermOriginalVariable),
+    Symbol(TermSymbol),
+    Variable(TermVariable),
     EntityPath(TermEntityPath),
     Category(TermCategory),
     Universe(TermUniverse),
@@ -93,7 +96,8 @@ impl Term {
     fn check(self, db: &dyn TermDb) -> TermResult<()> {
         match self {
             Term::Literal(_) => Ok(()),
-            Term::OriginalVariable(term) => term.check(db),
+            Term::Symbol(term) => term.check(db),
+            Term::Variable(term) => term.check(db),
             Term::EntityPath(path) => Ok(()),
             Term::Category(_) => Ok(()),
             Term::Universe(_) => Ok(()),
@@ -128,10 +132,8 @@ impl Term {
                 }
                 //  TermLiteral::from_raw_unchecked(db, raw_term, ty_expectation)?.into()
             }
-            RawTerm::ConcreteSymbol(raw_term) => {
-                TermOriginalVariable::from_raw_unchecked(db, raw_term)?.into()
-            }
-            RawTerm::AbstractSymbol(_) => todo!(),
+            RawTerm::Symbol(raw_term) => TermSymbol::from_raw_unchecked(db, raw_term)?.into(),
+            RawTerm::Variable(_) => todo!(),
             RawTerm::EntityPath(raw_term) => match raw_term {
                 RawTermEntityPath::Form(path) => TermEntityPath::Form(path).into(),
                 RawTermEntityPath::Trait(path) => TermEntityPath::Trait(path).into(),
@@ -217,7 +219,8 @@ impl Term {
     fn reduce(self, db: &dyn TermDb) -> Self {
         match self {
             Term::Literal(_)
-            | Term::OriginalVariable(_)
+            | Term::Symbol(_)
+            | Term::Variable(_)
             | Term::EntityPath(
                 TermEntityPath::Trait(_)
                 | TermEntityPath::TypeOntology(_)
@@ -269,8 +272,8 @@ pub(crate) fn term_from_raw_term_explicit_application_or_ritchie_call_unchecked(
     match function.raw_ty(db)? {
         Left(raw_ty) => match raw_ty {
             RawTerm::Literal(_) => todo!(),
-            RawTerm::ConcreteSymbol(_) => todo!(),
-            RawTerm::AbstractSymbol(_) => todo!(),
+            RawTerm::Symbol(_) => todo!(),
+            RawTerm::Variable(_) => todo!(),
             RawTerm::EntityPath(_) => todo!(),
             RawTerm::Category(_) => todo!(),
             RawTerm::Universe(_) => todo!(),
@@ -391,7 +394,8 @@ impl Term {
     ) -> std::fmt::Result {
         match self {
             Term::Literal(term) => term.show_with_db_fmt(f, db),
-            Term::OriginalVariable(term) => term.show_with_db_fmt(f, db, ctx),
+            Term::Symbol(term) => term.show_with_db_fmt(f, db, ctx),
+            Term::Variable(term) => term.show_with_db_fmt(f, db, ctx),
             Term::EntityPath(term) => term.show_with_db_fmt(f, db),
             Term::Category(term) => f.write_str(&term.to_string()),
             Term::Universe(term) => f.write_str(&term.to_string()),

@@ -24,11 +24,11 @@ where
 impl RawTermRewriteCopy for RawTerm {
     fn substitute(self, db: &dyn RawTermDb, substitution: &RawTermSubstitution) -> Self {
         match self {
-            RawTerm::AbstractSymbol(symbol) => match symbol == substitution.src() {
+            RawTerm::Variable(symbol) => match symbol == substitution.src() {
                 true => substitution.dst(),
                 false => self,
             },
-            RawTerm::ConcreteSymbol(_)
+            RawTerm::Symbol(_)
             | RawTerm::Literal(_)
             | RawTerm::EntityPath(_)
             | RawTerm::Category(_)

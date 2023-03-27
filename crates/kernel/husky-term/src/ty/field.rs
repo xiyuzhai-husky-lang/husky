@@ -4,7 +4,8 @@ use husky_raw_ty::ty_path_field_raw_ty;
 pub(crate) fn field_ty(db: &dyn TermDb, owner_ty: Term, ident: Ident) -> TermResult<Option<Term>> {
     match owner_ty {
         Term::Literal(_) => todo!(),
-        Term::OriginalVariable(_) => todo!(),
+        Term::Symbol(_) => todo!(),
+        Term::Variable(_) => todo!(),
         Term::EntityPath(path) => match path {
             TermEntityPath::Form(_) => todo!(),
             TermEntityPath::Trait(_) => todo!(),

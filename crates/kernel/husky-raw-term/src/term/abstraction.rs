@@ -2,7 +2,7 @@ use crate::*;
 
 #[salsa::interned(db = RawTermDb, jar = RawTermJar)]
 pub struct RawTermAbstraction {
-    x: RawTermOriginalSymbol,
+    x: RawTermSymbol,
     m: RawTerm,
 }
 

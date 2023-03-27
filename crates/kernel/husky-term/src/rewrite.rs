@@ -2,12 +2,12 @@ use super::*;
 use husky_word::Ident;
 
 pub struct TermSubstitution {
-    src: TermOriginalVariable,
+    src: TermSymbol,
     dst: Term,
 }
 
 impl TermSubstitution {
-    pub fn src(&self) -> TermOriginalVariable {
+    pub fn src(&self) -> TermSymbol {
         self.src
     }
 

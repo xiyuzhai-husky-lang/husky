@@ -11,8 +11,8 @@ pub fn raw_term_raw_ty(
 ) -> RawTypeResult<RawTerm> {
     match raw_term {
         RawTerm::Literal(_) => todo!(),
-        RawTerm::ConcreteSymbol(_) => todo!(),
-        RawTerm::AbstractSymbol(_) => todo!(),
+        RawTerm::Symbol(_) => todo!(),
+        RawTerm::Variable(_) => todo!(),
         RawTerm::EntityPath(path) => raw_term_entity_path_raw_ty(db, path),
         RawTerm::Category(cat) => cat.ty().map(Into::into).map_err(|_e| todo!()),
         RawTerm::Universe(_) => todo!(),

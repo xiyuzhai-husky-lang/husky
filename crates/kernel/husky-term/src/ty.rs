@@ -21,7 +21,8 @@ impl Term {
         Ok(match self {
             Term::Literal(literal) => Right(literal.ty()),
             // term.raw_ty(db),
-            Term::OriginalVariable(_) => todo!(),
+            Term::Symbol(symbol) => todo!(),
+            Term::Variable(_) => todo!(),
             Term::EntityPath(path) => match path {
                 TermEntityPath::Form(_) => todo!(),
                 TermEntityPath::Trait(_) => todo!(),

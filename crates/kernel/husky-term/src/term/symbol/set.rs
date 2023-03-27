@@ -4,11 +4,11 @@ use vec_like::VecSet;
 #[salsa::tracked(db = TermDb, jar = TermJar)]
 pub struct TermSymbols {
     #[return_ref]
-    data: VecSet<TermOriginalVariable>,
+    data: VecSet<TermSymbol>,
 }
 
 impl TermSymbols {
-    pub(crate) fn contains(self, db: &dyn TermDb, symbol: TermOriginalVariable) -> bool {
+    pub(crate) fn contains(self, db: &dyn TermDb, symbol: TermSymbol) -> bool {
         self.data(db).has(symbol)
     }
 
@@ -25,7 +25,7 @@ impl TermSymbols {
 
     fn remove(
         symbols: impl Into<Option<Self>>,
-        symbol: impl Into<Option<TermOriginalVariable>>,
+        symbol: impl Into<Option<TermSymbol>>,
     ) -> Option<Self> {
         let symbols = symbols.into()?;
         todo!()
@@ -43,18 +43,9 @@ impl TermSymbols {
 
 pub(crate) fn calc_term_symbols(db: &dyn TermDb, term: Term) -> Option<TermSymbols> {
     match term {
-        Term::Literal(_) => todo!(),
-        Term::OriginalVariable(symbol) => {
-            Some(TermSymbols::new(db, VecSet::new_one_elem_set(symbol)))
-        }
-        Term::EntityPath(path) => match path {
-            TermEntityPath::Form(_) => todo!(),
-            TermEntityPath::Trait(_)
-            | TermEntityPath::TypeOntology(_)
-            | TermEntityPath::TypeConstructor(_) => None,
-        },
-        Term::Category(_) => None,
-        Term::Universe(_) => None,
+        Term::Literal(_) | Term::Variable(_) | Term::EntityPath(_) | Term::Category(_) => None,
+        Term::Universe(_) => None, // ad hoc
+        Term::Symbol(symbol) => Some(TermSymbols::new(db, VecSet::new_one_elem_set(symbol))),
         Term::Curry(term) => term_curry_symbols(db, term),
         Term::Ritchie(term) => term_ritchie_symbols(db, term),
         Term::Abstraction(_) => todo!(),

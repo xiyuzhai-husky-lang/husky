@@ -40,12 +40,14 @@ use tests::*;
 #[salsa::jar(db = TermDb)]
 pub struct TermJar(
     // symbol
-    TermOriginalVariable,
+    TermSymbol,
     // - symbols
     TermSymbols,
     term_curry_symbols,
     term_ritchie_symbols,
     term_application_symbols,
+    // variable
+    TermVariable,
     // curry
     TermCurry,
     term_curry_from_raw_unchecked,
