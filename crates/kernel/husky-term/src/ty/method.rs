@@ -29,7 +29,7 @@ pub struct TypeAsTraitMethodFnCard {
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct MethodTypeInfo {
-    implicit_parameters: Vec<TermOriginalVariable>,
+    implicit_parameters: Vec<TermSymbol>,
     self_liasoned_ty: TermRitchieParameterLiasonedType,
     nonself_parameter_liasoned_tys: Vec<TermRitchieParameterLiasonedType>,
     return_ty: Term,
@@ -62,7 +62,7 @@ impl MethodTypeInfo {
         }
     }
 
-    pub fn implicit_parameters(&self) -> &[TermOriginalVariable] {
+    pub fn implicit_parameters(&self) -> &[TermSymbol] {
         self.implicit_parameters.as_ref()
     }
 

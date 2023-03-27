@@ -2,14 +2,14 @@ use super::*;
 use thiserror::Error;
 
 #[salsa::interned(db = RawTermDb, jar = RawTermJar)]
-pub struct RawTermOriginalSymbol {
+pub struct RawTermSymbol {
     pub ty: RawTermSymbolTypeResult<RawTerm>,
     /// this is the index for all symbols with the same type
     /// so that we have better cache hits
     pub idx: u8,
 }
 
-impl RawTermOriginalSymbol {
+impl RawTermSymbol {
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
@@ -41,7 +41,7 @@ impl TermSymbolRegistry {
         &mut self,
         db: &dyn RawTermDb,
         ty: RawTermSymbolTypeResult<RawTerm>,
-    ) -> RawTermOriginalSymbol {
+    ) -> RawTermSymbol {
         let idx_usize = self
             .ty_final_destinations
             .iter()
@@ -52,11 +52,11 @@ impl TermSymbolRegistry {
             Err(_) => todo!(),
         };
         self.ty_final_destinations.push(ty);
-        RawTermOriginalSymbol::new(db, ty, idx)
+        RawTermSymbol::new(db, ty, idx)
     }
 }
 
-impl<Db: RawTermDb + ?Sized> salsa::DisplayWithDb<Db> for RawTermOriginalSymbol {
+impl<Db: RawTermDb + ?Sized> salsa::DisplayWithDb<Db> for RawTermSymbol {
     fn display_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
