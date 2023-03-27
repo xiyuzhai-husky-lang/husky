@@ -7,7 +7,7 @@ use crate::*;
 pub struct RawTermRitchie {
     pub ritchie_kind: TermRitchieKind,
     #[return_ref]
-    pub parameter_tys: Vec<RawTermRitchieParameter>,
+    pub parameter_tys: Vec<RawTermRitchieParameterLiasonedType>,
     pub return_ty: RawTerm,
     // ty: RawTerm,
 }
@@ -64,11 +64,11 @@ where
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 #[salsa::derive_debug_with_db(db = RawTermDb)]
-pub struct RawTermRitchieParameter {
+pub struct RawTermRitchieParameterLiasonedType {
     ty: RawTerm,
 }
 
-impl RawTermRitchieParameter {
+impl RawTermRitchieParameterLiasonedType {
     fn show_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -79,7 +79,7 @@ impl RawTermRitchieParameter {
     }
 }
 
-impl<Db> salsa::DisplayWithDb<Db> for RawTermRitchieParameter
+impl<Db> salsa::DisplayWithDb<Db> for RawTermRitchieParameterLiasonedType
 where
     Db: RawTermDb + ?Sized,
 {
@@ -94,7 +94,7 @@ where
     }
 }
 
-impl RawTermRitchieParameter {
+impl RawTermRitchieParameterLiasonedType {
     pub fn new(ty: RawTerm) -> Self {
         Self { ty }
     }

@@ -1,5 +1,5 @@
 use super::*;
-
+// deprecated
 fn application_expansion_aux(db: &dyn RawTypeDb, raw_term: RawTerm) -> ApplicationExpansion {
     match raw_term {
         RawTerm::ExplicitApplication(raw_term) => application_expansion_salsa(db, raw_term),

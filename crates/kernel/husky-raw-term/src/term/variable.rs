@@ -1,8 +1,14 @@
+mod set;
+mod turn;
+
+pub use self::set::*;
+pub use self::turn::*;
+
 use super::*;
 use thiserror::Error;
 
 /// variables are derived from symbols
-#[salsa::interned(db = RawTermDb, jar = RawTermJar)]
+#[salsa::interned(db = RawTermDb, jar = RawTermJar, constructor = new)]
 pub struct RawTermVariable {
     pub ty: RawTermSymbolTypeResult<RawTerm>,
     /// this is the index for all symbols with the same type
@@ -17,7 +23,7 @@ impl RawTermVariable {
         db: &dyn RawTermDb,
         ctx: &mut RawTermShowContext,
     ) -> std::fmt::Result {
-        todo!()
-        // ctx.fmt_abstract_symbol(db, self, f)
+        // ad hoc
+        f.write_fmt(format_args!("v{}", self.idx(db)))
     }
 }

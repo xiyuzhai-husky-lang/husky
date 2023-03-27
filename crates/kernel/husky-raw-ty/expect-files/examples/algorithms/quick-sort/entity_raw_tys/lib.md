@@ -30,7 +30,7 @@
             ),
         ),
         Ok(
-            RawTerm(`(independent t: Type) -> Fp(core::slice::Slice t, core::num::isize, core::num::isize) -> core::num::isize`),
+            RawTerm(`(independent v0: Type) -> Fp(core::slice::Slice v0, core::num::isize, core::num::isize) -> core::num::isize`),
         ),
     ),
     (

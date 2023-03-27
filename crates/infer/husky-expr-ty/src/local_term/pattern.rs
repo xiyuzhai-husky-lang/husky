@@ -12,7 +12,7 @@ pub enum LocalTermPattern {
     Curry {
         curry_kind: CurryKind,
         variance: Variance,
-        parameter_symbol: Option<LocalTerm>,
+        parameter_variable: Option<LocalTerm>,
         parameter_ty: LocalTerm,
         return_ty: LocalTerm,
     },
@@ -71,7 +71,7 @@ impl LocalTermPattern {
             Term::Curry(term) => LocalTermPattern::Curry {
                 curry_kind: term.curry_kind(db),
                 variance: term.variance(db),
-                parameter_symbol: term.parameter_symbol(db).map(Into::into),
+                parameter_variable: term.parameter_variable(db).map(Into::into),
                 parameter_ty: term.parameter_ty(db).into(),
                 return_ty: term.return_ty(db).into(),
             },

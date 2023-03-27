@@ -189,7 +189,7 @@ pub(crate) fn term_application_raw_ty(
         Left(RawTerm::Curry(function_raw_ty)) => function_raw_ty,
         _ => return Err(todo!()),
     };
-    Ok(match function_raw_ty.parameter_symbol(db) {
+    Ok(match function_raw_ty.parameter_variable(db) {
         Some(_) => todo!(),
         None => function_raw_ty.return_ty(db),
     })

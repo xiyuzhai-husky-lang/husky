@@ -60,10 +60,7 @@ pub(crate) fn calc_term_symbols(db: &dyn TermDb, term: Term) -> Option<TermSymbo
 pub(crate) fn term_curry_symbols(db: &dyn TermDb, term: TermCurry) -> Option<TermSymbols> {
     let parameter_ty_symbols = calc_term_symbols(db, term.parameter_ty(db));
     let return_ty_symbols = calc_term_symbols(db, term.return_ty(db));
-    TermSymbols::merge(
-        parameter_ty_symbols,
-        TermSymbols::remove(return_ty_symbols, term.parameter_symbol(db)),
-    )
+    TermSymbols::merge(parameter_ty_symbols, return_ty_symbols)
 }
 
 #[salsa::tracked(jar = TermJar)]

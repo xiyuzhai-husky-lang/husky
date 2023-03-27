@@ -1,16 +1,14 @@
-use vec_like::VecSet;
-
 use super::*;
 
-#[salsa::tracked(db = RawTypeDb, jar = RawTypeJar)]
+#[salsa::interned(db = RawTermDb, jar = RawTermJar)]
 pub struct RawTermSymbols {
     #[return_ref]
-    data: VecSet<RawTermSymbol>,
+    symbols: VecSet<RawTermSymbol>,
 }
 
 impl RawTermSymbols {
-    pub(crate) fn contains(self, db: &dyn RawTypeDb, symbol: RawTermSymbol) -> bool {
-        self.data(db).has(symbol)
+    pub(crate) fn contains(self, db: &dyn RawTermDb, symbol: RawTermSymbol) -> bool {
+        self.symbols(db).has(symbol)
     }
 
     fn merge(fst: impl Into<Option<Self>>, snd: impl Into<Option<Self>>) -> Option<Self> {
@@ -23,28 +21,16 @@ impl RawTermSymbols {
             (Some(_fst), Some(_snd)) => todo!(),
         }
     }
-
-    fn remove(
-        symbols: impl Into<Option<Self>>,
-        _symbol: impl Into<Option<RawTermSymbol>>,
-    ) -> Option<Self> {
-        let _symbols = symbols.into()?;
-        todo!()
-    }
 }
-impl<'a> dyn RawTypeDb + 'a {
-    pub(crate) fn raw_term_contains_symbol(
-        &self,
-        raw_term: RawTerm,
-        symbol: RawTermSymbol,
-    ) -> bool {
-        calc_raw_term_symbols(self, raw_term)
-            .map(|raw_term_symbols| raw_term_symbols.contains(self, symbol))
+impl RawTerm {
+    pub fn contains_symbol(self, db: &dyn RawTermDb, symbol: RawTermSymbol) -> bool {
+        calc_raw_term_symbols(db, self)
+            .map(|raw_term_symbols| raw_term_symbols.contains(db, symbol))
             .unwrap_or_default()
     }
 }
 
-fn calc_raw_term_symbols(db: &dyn RawTypeDb, raw_term: RawTerm) -> Option<RawTermSymbols> {
+fn calc_raw_term_symbols(db: &dyn RawTermDb, raw_term: RawTerm) -> Option<RawTermSymbols> {
     match raw_term {
         RawTerm::Literal(_) => todo!(),
         RawTerm::Symbol(symbol) => Some(RawTermSymbols::new(db, VecSet::new_one_elem_set(symbol))),
@@ -68,22 +54,19 @@ fn calc_raw_term_symbols(db: &dyn RawTypeDb, raw_term: RawTerm) -> Option<RawTer
     }
 }
 
-#[salsa::tracked(jar = RawTypeJar)]
+#[salsa::tracked(jar = RawTermJar)]
 pub(crate) fn raw_term_curry_symbols(
-    db: &dyn RawTypeDb,
+    db: &dyn RawTermDb,
     raw_term: RawTermCurry,
 ) -> Option<RawTermSymbols> {
     let parameter_ty_symbols = calc_raw_term_symbols(db, raw_term.parameter_ty(db));
     let return_ty_symbols = calc_raw_term_symbols(db, raw_term.return_ty(db));
-    RawTermSymbols::merge(
-        parameter_ty_symbols,
-        RawTermSymbols::remove(return_ty_symbols, raw_term.parameter_symbol(db)),
-    )
+    RawTermSymbols::merge(parameter_ty_symbols, return_ty_symbols)
 }
 
-#[salsa::tracked(jar = RawTypeJar)]
+#[salsa::tracked(jar = RawTermJar)]
 pub(crate) fn raw_term_ritchie_symbols(
-    db: &dyn RawTypeDb,
+    db: &dyn RawTermDb,
     raw_term: RawTermRitchie,
 ) -> Option<RawTermSymbols> {
     let mut symbols: Option<RawTermSymbols> = None;
@@ -93,9 +76,9 @@ pub(crate) fn raw_term_ritchie_symbols(
     RawTermSymbols::merge(symbols, calc_raw_term_symbols(db, raw_term.return_ty(db)))
 }
 
-#[salsa::tracked(jar = RawTypeJar)]
+#[salsa::tracked(jar = RawTermJar)]
 pub(crate) fn raw_term_application_symbols(
-    db: &dyn RawTypeDb,
+    db: &dyn RawTermDb,
     raw_term: RawTermExplicitApplication,
 ) -> Option<RawTermSymbols> {
     RawTermSymbols::merge(

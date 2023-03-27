@@ -30,7 +30,7 @@ pub(crate) fn form_fn_entity_raw_ty(
     let param_raw_tys = signature
         .parameters(db)
         .iter()
-        .map(|param| RawTermRitchieParameter::new(param.ty()))
+        .map(|param| RawTermRitchieParameterLiasonedType::new(param.ty()))
         .collect();
     let return_raw_ty = signature.return_ty(db);
     Ok(curry_from_implicit_parameters(
