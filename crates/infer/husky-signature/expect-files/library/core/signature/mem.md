@@ -11,7 +11,7 @@
                                 ),
                                 symbol: RawTermSymbol(
                                     Id {
-                                        value: 9,
+                                        value: 3,
                                     },
                                 ),
                                 ty: EntityPath(
@@ -61,7 +61,7 @@
                                 ),
                                 symbol: RawTermSymbol(
                                     Id {
-                                        value: 9,
+                                        value: 3,
                                     },
                                 ),
                                 ty: EntityPath(

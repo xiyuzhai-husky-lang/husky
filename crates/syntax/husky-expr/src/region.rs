@@ -177,6 +177,7 @@ impl ExprRegion {
                 DefnRegionPath::Impl(impl_block) => impl_block.module().toolchain(db),
                 DefnRegionPath::AssociatedItem(item) => item.module_path().toolchain(db),
             },
+            RegionPath::Decr(id) => id.toolchain(db),
         }
     }
 }

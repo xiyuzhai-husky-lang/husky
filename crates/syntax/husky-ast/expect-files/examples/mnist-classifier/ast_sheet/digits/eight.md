@@ -300,5 +300,61 @@ Ok(
         top_level_asts: ArenaIdxRange(
             17..31,
         ),
+        siblings: [
+            ArenaIdxRange(
+                0..0,
+            ),
+            ArenaIdxRange(
+                0..1,
+            ),
+            ArenaIdxRange(
+                1..1,
+            ),
+            ArenaIdxRange(
+                1..1,
+            ),
+            ArenaIdxRange(
+                1..1,
+            ),
+            ArenaIdxRange(
+                1..1,
+            ),
+            ArenaIdxRange(
+                1..1,
+            ),
+            ArenaIdxRange(
+                1..1,
+            ),
+            ArenaIdxRange(
+                1..2,
+            ),
+            ArenaIdxRange(
+                3..3,
+            ),
+            ArenaIdxRange(
+                3..5,
+            ),
+            ArenaIdxRange(
+                6..6,
+            ),
+            ArenaIdxRange(
+                6..13,
+            ),
+            ArenaIdxRange(
+                13..13,
+            ),
+            ArenaIdxRange(
+                13..14,
+            ),
+            ArenaIdxRange(
+                15..15,
+            ),
+            ArenaIdxRange(
+                15..17,
+            ),
+            ArenaIdxRange(
+                17..31,
+            ),
+        ],
     },
 )

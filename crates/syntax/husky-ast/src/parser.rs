@@ -20,6 +20,7 @@ pub(crate) struct AstParser<'a> {
     token_groups: TokenGroupIter<'a>,
     ast_arena: AstArena,
     disambiguator_registry: DisambiguatorRegistry,
+    siblings: Vec<AstIdxRange>,
 }
 
 impl<'a> AstParser<'a> {
@@ -32,12 +33,13 @@ impl<'a> AstParser<'a> {
             token_groups: token_sheet.token_group_iter(),
             ast_arena: Default::default(),
             disambiguator_registry: Default::default(),
+            siblings: Default::default(),
         })
     }
 
     pub(crate) fn parse_all(mut self) -> AstSheet {
         let top_level_asts = self.parse_asts(Context::new_module());
-        AstSheet::new(self.ast_arena, top_level_asts)
+        AstSheet::new(self.ast_arena, top_level_asts, self.siblings)
     }
 
     fn parse_asts(&mut self, context: Context) -> AstIdxRange {
@@ -46,7 +48,9 @@ impl<'a> AstParser<'a> {
         while let Some(ast) = self.parse_ast(&context) {
             asts.push(ast)
         }
-        self.alloc_asts(asts)
+        let ast_idx_range = self.alloc_asts(asts);
+        self.siblings.push(ast_idx_range);
+        ast_idx_range
     }
 
     fn alloc_asts(&mut self, asts: Vec<Ast>) -> AstIdxRange {
@@ -58,16 +62,16 @@ impl<'a> AstParser<'a> {
     }
 
     fn parse_ast(&mut self, context: &Context) -> Option<Ast> {
-        let (token_group_idx, token_group, first_noncomment_token) = self
+        let (token_group_idx, token_group, first_token) = self
             .token_groups
-            .next_token_group_of_equal_or_more_indent_with_its_first_token(context.indent())?;
+            .next_token_group_of_no_less_indent_with_its_first_token(context.indent())?;
         if token_group.indent() > context.indent() {
             return Some(Ast::Err {
                 token_group_idx,
                 error: OriginalAstError::ExcessiveIndent.into(),
             });
         }
-        Some(match first_noncomment_token {
+        Some(match first_token {
             Token::Keyword(kw) => match kw {
                 Keyword::Stmt(kw) => {
                     match context.kind().allow_stmt() {
@@ -141,8 +145,14 @@ impl<'a> AstParser<'a> {
                 Keyword::Pub | Keyword::Static => self.parse_defn_or_use(token_group_idx, context),
                 Keyword::Async => todo!(),
             },
-            Token::Punctuation(Punctuation::PoundSign) => Ast::Decr { token_group_idx },
-            Token::Punctuation(Punctuation::At) => Ast::Decr { token_group_idx },
+            Token::Punctuation(Punctuation::PoundSign) => Ast::Attr { token_group_idx },
+            Token::Punctuation(Punctuation::At) => match token_group.second() {
+                Some(Token::Ident(ident)) => Ast::Decr {
+                    token_group_idx,
+                    ident,
+                },
+                _ => todo!(),
+            },
             Token::Punctuation(_)
             | Token::Ident(_)
             | Token::Label(_)

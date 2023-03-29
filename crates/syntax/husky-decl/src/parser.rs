@@ -102,7 +102,6 @@ impl<'a> DeclParser<'a> {
 "#, path.display(self.db))
             };
         let module_item_symbol = entity_symbol.module_item_symbol().unwrap();
-
         let ast_idx: AstIdx = module_item_symbol.ast_idx(self.db);
         match self.ast_sheet[ast_idx] {
             Ast::Defn {
@@ -205,7 +204,6 @@ impl<'a> DeclParser<'a> {
             Ast::Defn {
                 token_group_idx,
                 ref body,
-
                 saved_stream_state,
                 ..
             } => self.parse_trai_decl_aux(ast_idx, path, token_group_idx, body, saved_stream_state),

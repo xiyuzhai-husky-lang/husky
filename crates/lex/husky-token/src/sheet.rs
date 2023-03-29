@@ -362,7 +362,7 @@ impl<'a> TokenGroupIter<'a> {
         Some((idx, token_group, first_noncomment))
     }
 
-    pub fn next_token_group_of_equal_or_more_indent_with_its_first_token(
+    pub fn next_token_group_of_no_less_indent_with_its_first_token(
         &mut self,
         indent: u32,
     ) -> Option<(TokenGroupIdx, TokenGroup<'a>, Token)> {
@@ -396,6 +396,10 @@ pub struct TokenGroup<'a> {
 impl<'a> TokenGroup<'a> {
     pub fn first(&self) -> Token {
         *self.tokens.first().unwrap()
+    }
+
+    pub fn second(&self) -> Option<Token> {
+        self.tokens.get(1).copied()
     }
 
     pub fn last(&self) -> Token {

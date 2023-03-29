@@ -31,11 +31,11 @@ Ok(
                                 TraitPath(`core::marker::Sized`),
                             ),
                             visibility: Visibility::Public,
-                            ast_idx: 7,
+                            ast_idx: 1,
                             ident_token: IdentToken {
                                 ident: `Sized`,
                                 token_idx: TokenIdx(
-                                    30,
+                                    6,
                                 ),
                             },
                         },

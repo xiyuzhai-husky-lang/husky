@@ -42,5 +42,10 @@ Ok(
         top_level_asts: ArenaIdxRange(
             0..7,
         ),
+        siblings: [
+            ArenaIdxRange(
+                0..7,
+            ),
+        ],
     },
 )

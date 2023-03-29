@@ -58,7 +58,7 @@ Ok(
                         17,
                     ),
                 },
-                Ast::Decr {
+                Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
@@ -101,5 +101,19 @@ Ok(
         top_level_asts: ArenaIdxRange(
             2..4,
         ),
+        siblings: [
+            ArenaIdxRange(
+                0..0,
+            ),
+            ArenaIdxRange(
+                0..0,
+            ),
+            ArenaIdxRange(
+                0..2,
+            ),
+            ArenaIdxRange(
+                2..4,
+            ),
+        ],
     },
 )

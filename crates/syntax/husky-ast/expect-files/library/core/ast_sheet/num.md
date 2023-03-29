@@ -739,7 +739,7 @@ Ok(
                         0,
                     ),
                 },
-                Ast::Decr {
+                Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
@@ -748,6 +748,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
+                    ident: `derive`,
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -798,7 +799,7 @@ Ok(
                         1..2,
                     ),
                 },
-                Ast::Decr {
+                Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         8,
                     ),
@@ -807,6 +808,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         9,
                     ),
+                    ident: `derive`,
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -857,7 +859,7 @@ Ok(
                         3..4,
                     ),
                 },
-                Ast::Decr {
+                Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         15,
                     ),
@@ -866,6 +868,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         16,
                     ),
+                    ident: `derive`,
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -916,7 +919,7 @@ Ok(
                         5..6,
                     ),
                 },
-                Ast::Decr {
+                Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         22,
                     ),
@@ -925,6 +928,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         23,
                     ),
+                    ident: `derive`,
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -975,7 +979,7 @@ Ok(
                         7..8,
                     ),
                 },
-                Ast::Decr {
+                Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         29,
                     ),
@@ -984,6 +988,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         30,
                     ),
+                    ident: `derive`,
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -1034,7 +1039,7 @@ Ok(
                         9..10,
                     ),
                 },
-                Ast::Decr {
+                Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         36,
                     ),
@@ -1043,6 +1048,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         37,
                     ),
+                    ident: `derive`,
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -1093,7 +1099,7 @@ Ok(
                         11..12,
                     ),
                 },
-                Ast::Decr {
+                Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         43,
                     ),
@@ -1102,6 +1108,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         44,
                     ),
+                    ident: `derive`,
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -1152,7 +1159,7 @@ Ok(
                         13..14,
                     ),
                 },
-                Ast::Decr {
+                Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         50,
                     ),
@@ -1161,6 +1168,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         51,
                     ),
+                    ident: `derive`,
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -1211,7 +1219,7 @@ Ok(
                         15..16,
                     ),
                 },
-                Ast::Decr {
+                Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         57,
                     ),
@@ -1220,6 +1228,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         58,
                     ),
+                    ident: `derive`,
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -1270,7 +1279,7 @@ Ok(
                         17..18,
                     ),
                 },
-                Ast::Decr {
+                Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         64,
                     ),
@@ -1279,6 +1288,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         65,
                     ),
+                    ident: `derive`,
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -1329,7 +1339,7 @@ Ok(
                         19..20,
                     ),
                 },
-                Ast::Decr {
+                Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         71,
                     ),
@@ -1338,6 +1348,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         72,
                     ),
+                    ident: `derive`,
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -1388,7 +1399,7 @@ Ok(
                         21..22,
                     ),
                 },
-                Ast::Decr {
+                Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         78,
                     ),
@@ -1397,6 +1408,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         79,
                     ),
+                    ident: `derive`,
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -1447,7 +1459,7 @@ Ok(
                         23..24,
                     ),
                 },
-                Ast::Decr {
+                Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         85,
                     ),
@@ -1456,6 +1468,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         86,
                     ),
+                    ident: `derive`,
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -1506,7 +1519,7 @@ Ok(
                         25..26,
                     ),
                 },
-                Ast::Decr {
+                Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         92,
                     ),
@@ -1515,6 +1528,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         93,
                     ),
+                    ident: `derive`,
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -1570,5 +1584,220 @@ Ok(
         top_level_asts: ArenaIdxRange(
             28..99,
         ),
+        siblings: [
+            ArenaIdxRange(
+                0..0,
+            ),
+            ArenaIdxRange(
+                0..0,
+            ),
+            ArenaIdxRange(
+                0..1,
+            ),
+            ArenaIdxRange(
+                1..1,
+            ),
+            ArenaIdxRange(
+                1..2,
+            ),
+            ArenaIdxRange(
+                2..2,
+            ),
+            ArenaIdxRange(
+                2..2,
+            ),
+            ArenaIdxRange(
+                2..3,
+            ),
+            ArenaIdxRange(
+                3..3,
+            ),
+            ArenaIdxRange(
+                3..4,
+            ),
+            ArenaIdxRange(
+                4..4,
+            ),
+            ArenaIdxRange(
+                4..4,
+            ),
+            ArenaIdxRange(
+                4..5,
+            ),
+            ArenaIdxRange(
+                5..5,
+            ),
+            ArenaIdxRange(
+                5..6,
+            ),
+            ArenaIdxRange(
+                6..6,
+            ),
+            ArenaIdxRange(
+                6..6,
+            ),
+            ArenaIdxRange(
+                6..7,
+            ),
+            ArenaIdxRange(
+                7..7,
+            ),
+            ArenaIdxRange(
+                7..8,
+            ),
+            ArenaIdxRange(
+                8..8,
+            ),
+            ArenaIdxRange(
+                8..8,
+            ),
+            ArenaIdxRange(
+                8..9,
+            ),
+            ArenaIdxRange(
+                9..9,
+            ),
+            ArenaIdxRange(
+                9..10,
+            ),
+            ArenaIdxRange(
+                10..10,
+            ),
+            ArenaIdxRange(
+                10..10,
+            ),
+            ArenaIdxRange(
+                10..11,
+            ),
+            ArenaIdxRange(
+                11..11,
+            ),
+            ArenaIdxRange(
+                11..12,
+            ),
+            ArenaIdxRange(
+                12..12,
+            ),
+            ArenaIdxRange(
+                12..12,
+            ),
+            ArenaIdxRange(
+                12..13,
+            ),
+            ArenaIdxRange(
+                13..13,
+            ),
+            ArenaIdxRange(
+                13..14,
+            ),
+            ArenaIdxRange(
+                14..14,
+            ),
+            ArenaIdxRange(
+                14..14,
+            ),
+            ArenaIdxRange(
+                14..15,
+            ),
+            ArenaIdxRange(
+                15..15,
+            ),
+            ArenaIdxRange(
+                15..16,
+            ),
+            ArenaIdxRange(
+                16..16,
+            ),
+            ArenaIdxRange(
+                16..16,
+            ),
+            ArenaIdxRange(
+                16..17,
+            ),
+            ArenaIdxRange(
+                17..17,
+            ),
+            ArenaIdxRange(
+                17..18,
+            ),
+            ArenaIdxRange(
+                18..18,
+            ),
+            ArenaIdxRange(
+                18..18,
+            ),
+            ArenaIdxRange(
+                18..19,
+            ),
+            ArenaIdxRange(
+                19..19,
+            ),
+            ArenaIdxRange(
+                19..20,
+            ),
+            ArenaIdxRange(
+                20..20,
+            ),
+            ArenaIdxRange(
+                20..20,
+            ),
+            ArenaIdxRange(
+                20..21,
+            ),
+            ArenaIdxRange(
+                21..21,
+            ),
+            ArenaIdxRange(
+                21..22,
+            ),
+            ArenaIdxRange(
+                22..22,
+            ),
+            ArenaIdxRange(
+                22..22,
+            ),
+            ArenaIdxRange(
+                22..23,
+            ),
+            ArenaIdxRange(
+                23..23,
+            ),
+            ArenaIdxRange(
+                23..24,
+            ),
+            ArenaIdxRange(
+                24..24,
+            ),
+            ArenaIdxRange(
+                24..24,
+            ),
+            ArenaIdxRange(
+                24..25,
+            ),
+            ArenaIdxRange(
+                25..25,
+            ),
+            ArenaIdxRange(
+                25..26,
+            ),
+            ArenaIdxRange(
+                26..26,
+            ),
+            ArenaIdxRange(
+                26..26,
+            ),
+            ArenaIdxRange(
+                26..27,
+            ),
+            ArenaIdxRange(
+                27..27,
+            ),
+            ArenaIdxRange(
+                27..28,
+            ),
+            ArenaIdxRange(
+                28..99,
+            ),
+        ],
     },
 )

@@ -7,7 +7,7 @@ pub use self::field::*;
 pub use self::method::*;
 
 use crate::*;
-use husky_raw_ty::{ty_constructor_path_raw_ty, ty_ontology_path_raw_ty};
+use husky_raw_ty::{trai_path_raw_ty, ty_constructor_path_raw_ty, ty_ontology_path_raw_ty};
 
 impl Term {
     pub fn ty(self, db: &dyn TermDb, toolchain: Toolchain) -> TermResult<Term> {
@@ -25,7 +25,7 @@ impl Term {
             Term::Variable(_) => todo!(),
             Term::EntityPath(path) => match path {
                 TermEntityPath::Form(_) => todo!(),
-                TermEntityPath::Trait(_) => todo!(),
+                TermEntityPath::Trait(path) => Left(trai_path_raw_ty(db, path)?),
                 TermEntityPath::TypeOntology(path) => Left(ty_ontology_path_raw_ty(db, path)?),
                 TermEntityPath::TypeConstructor(path) => {
                     Left(ty_constructor_path_raw_ty(db, path)?)

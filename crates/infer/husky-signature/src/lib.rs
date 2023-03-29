@@ -101,4 +101,7 @@ pub struct SignatureJar(
     TypeAsTraitAssociatedTypeSignature,
     trai_for_ty_associated_value_signature,
     TypeAsTraitAssociatedValueSignature,
+    // decr
+    DeriveDecrSignature,
+    derive_decr_signature,
 );

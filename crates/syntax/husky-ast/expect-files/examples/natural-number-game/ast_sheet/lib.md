@@ -180,5 +180,28 @@ Ok(
         top_level_asts: ArenaIdxRange(
             3..11,
         ),
+        siblings: [
+            ArenaIdxRange(
+                0..0,
+            ),
+            ArenaIdxRange(
+                0..0,
+            ),
+            ArenaIdxRange(
+                0..0,
+            ),
+            ArenaIdxRange(
+                0..3,
+            ),
+            ArenaIdxRange(
+                3..3,
+            ),
+            ArenaIdxRange(
+                3..3,
+            ),
+            ArenaIdxRange(
+                3..11,
+            ),
+        ],
     },
 )

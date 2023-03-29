@@ -9,6 +9,7 @@ pub struct WordMenu {
     unit_ident: Ident,
     never_ident: Ident,
     bool_ident: Ident,
+    derive_ident: Ident,
     i8_ident: Ident,
     i16_ident: Ident,
     i32_ident: Ident,
@@ -45,6 +46,7 @@ impl WordMenu {
             unit_ident: db.it_ident_borrowed("unit").unwrap(),
             never_ident: db.it_ident_borrowed("never").unwrap(),
             bool_ident: db.it_ident_borrowed("bool").unwrap(),
+            derive_ident: db.it_ident_borrowed("derive").unwrap(),
             i8_ident: db.it_ident_borrowed("i8").unwrap(),
             i16_ident: db.it_ident_borrowed("i16").unwrap(),
             i32_ident: db.it_ident_borrowed("i32").unwrap(),
@@ -194,6 +196,10 @@ impl WordMenu {
 
     pub fn never_ident(&self) -> Ident {
         self.never_ident
+    }
+
+    pub fn derive_ident(&self) -> Ident {
+        self.derive_ident
     }
 }
 

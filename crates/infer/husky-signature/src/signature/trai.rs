@@ -1,5 +1,13 @@
 use crate::*;
 
+#[salsa::interned(db = SignatureDb, jar = SignatureJar)]
+pub struct TraitSignature {
+    #[return_ref]
+    pub implicit_parameters: ImplicitParameterSignatures,
+}
+
+impl TraitSignature {}
+
 #[salsa::tracked(jar = SignatureJar)]
 pub fn trai_signature_from_decl(
     db: &dyn SignatureDb,
@@ -15,11 +23,3 @@ pub fn trai_signature_from_decl(
     );
     Ok(TraitSignature::new(db, implicit_parameters))
 }
-
-#[salsa::interned(db = SignatureDb, jar = SignatureJar)]
-pub struct TraitSignature {
-    #[return_ref]
-    pub implicit_parameters: ImplicitParameterSignatures,
-}
-
-impl TraitSignature {}

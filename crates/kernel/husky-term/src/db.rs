@@ -1,12 +1,13 @@
 use std::sync::Arc;
 
 use crate::*;
+use husky_decr::DecrDb;
 use husky_entity_path::EntityPathDb;
 use husky_raw_ty::RawTypeDb;
 use husky_ty_expectation::TypePathDisambiguation;
 use salsa::DbWithJar;
 
-pub trait TermDb: DbWithJar<TermJar> + RawTypeDb {
+pub trait TermDb: DbWithJar<TermJar> + RawTypeDb + DecrDb {
     fn term_menu(&self, toolchain: Toolchain) -> &TermMenu;
     fn term_contains_symbol(&self, term: Term, symbol: TermSymbol) -> bool;
     fn ty_path_ty(
@@ -22,7 +23,7 @@ pub trait TermDb: DbWithJar<TermJar> + RawTypeDb {
 
 impl<Db> TermDb for Db
 where
-    Db: DbWithJar<TermJar> + RawTypeDb,
+    Db: DbWithJar<TermJar> + RawTypeDb + DecrDb,
 {
     fn term_menu(&self, toolchain: Toolchain) -> &TermMenu {
         term_menu(self, toolchain)

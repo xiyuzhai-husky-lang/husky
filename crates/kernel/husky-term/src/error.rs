@@ -1,7 +1,8 @@
 use crate::*;
 use husky_decl::DeclExprError;
+use husky_decr::DecrError;
 use husky_entity_path::{EntityPath, EntityPathError};
-use husky_entity_tree::EntityTreeBundleError;
+use husky_entity_tree::{EntityTreeBundleError, EntityTreeError};
 use husky_raw_ty::RawTypeError;
 use husky_signature::SignatureError;
 use std::sync::Arc;
@@ -60,6 +61,12 @@ impl From<&EntityPathError> for TermError {
     }
 }
 
+impl From<EntityTreeError> for TermError {
+    fn from(value: EntityTreeError) -> Self {
+        todo!()
+    }
+}
+
 impl From<&EntityTreeBundleError> for TermError {
     fn from(value: &EntityTreeBundleError) -> Self {
         todo!()
@@ -74,6 +81,12 @@ impl From<&DeclExprError> for TermError {
 
 impl From<EntityTreeBundleError> for TermError {
     fn from(value: EntityTreeBundleError) -> Self {
+        todo!()
+    }
+}
+
+impl From<&DecrError> for TermError {
+    fn from(value: &DecrError) -> Self {
         todo!()
     }
 }

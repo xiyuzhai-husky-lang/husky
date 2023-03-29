@@ -42,5 +42,6 @@ husky-toml-ast = { path = "../../syntax/husky-toml-ast" }
 husky-manifest-ast = { path = "../../syntax/husky-manifest-ast" }
 husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
 husky-decl = { path = "../../syntax/husky-decl" }
+husky-decr = { path = "../../syntax/husky-decr" }
 husky-expr = { path = "../../syntax/husky-expr" }
 husky-corgi-config-ast = { path = "../../syntax/husky-corgi-config-ast" }
