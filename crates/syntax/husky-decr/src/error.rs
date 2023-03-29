@@ -46,7 +46,10 @@ impl OriginalError for OriginalDecrError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-pub enum DerivedDecrError {}
+pub enum DerivedDecrError {
+    #[error("InvalidParent")]
+    InvalidParent,
+}
 
 pub type DecrResult<T> = Result<T, DecrError>;
 pub type DecrResultRef<'a, T> = Result<T, &'a DecrError>;

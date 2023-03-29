@@ -39,6 +39,12 @@ impl From<&ExprError> for SignatureError {
     }
 }
 
+impl From<&SignatureRawTermError> for SignatureError {
+    fn from(value: &SignatureRawTermError) -> Self {
+        todo!()
+    }
+}
+
 impl<DB: ?Sized + SignatureDb> salsa::DebugWithDb<DB> for SignatureError {
     fn fmt(
         &self,

@@ -7,39 +7,26 @@ use husky_entity_tree::*;
 use husky_print_utils::p;
 use husky_token::*;
 
+use husky_word::Ident;
 use parsec::*;
-
-pub(crate) fn module_item_decl(db: &dyn DeclDb, path: ModuleItemPath) -> DeclResultRef<Decl> {
-    match path {
-        ModuleItemPath::Type(path) => ty_decl(db, path).as_ref().map(|decl| (*decl).into()),
-        ModuleItemPath::Trait(path) => trai_decl(db, path).as_ref().map(|decl| (*decl).into()),
-        ModuleItemPath::Form(path) => form_decl(db, path).as_ref().map(|decl| (*decl).into()),
-    }
-}
-
-#[salsa::tracked(jar = DeclJar, return_ref)]
-pub(crate) fn ty_decl(db: &dyn DeclDb, path: TypePath) -> DeclResult<TypeDecl> {
-    let parser = DeclParser::new(db, path.module_path(db))?;
-    parser.parse_ty_decl(path)
-}
 
 #[test]
 fn ty_decl_works() {
     let db = DB::default();
     let toolchain = db.dev_toolchain().unwrap();
     let menu = db.entity_path_menu(toolchain);
-    assert!(db.ty_decl(menu.never_ty_path()).is_ok());
+    assert!(menu.never_ty_path().decl(&db).is_ok());
 }
 
 #[salsa::tracked(jar = DeclJar, return_ref)]
 pub(crate) fn form_decl(db: &dyn DeclDb, path: FormPath) -> DeclResult<FormDecl> {
-    let parser = DeclParser::new(db, path.module_path(db))?;
+    let parser = DeclParseContext::new(db, path.module_path(db))?;
     parser.parse_form_decl(path)
 }
 
 #[salsa::tracked(jar = DeclJar,return_ref)]
 pub(crate) fn trai_decl(db: &dyn DeclDb, path: TraitPath) -> DeclResult<TraitDecl> {
-    let parser = DeclParser::new(db, path.module_path(db))?;
+    let parser = DeclParseContext::new(db, path.module_path(db))?;
     parser.parse_trai_decl(path)
 }
 
@@ -61,11 +48,11 @@ pub(crate) fn associated_item_decl(
     db: &dyn DeclDb,
     associated_item: AssociatedItem,
 ) -> DeclResult<AssociatedItemDecl> {
-    let parser = DeclParser::new(db, associated_item.module_path(db))?;
+    let parser = DeclParseContext::new(db, associated_item.module_path(db))?;
     parser.parse_associated_item_decl(associated_item)
 }
 
-pub(crate) struct DeclParser<'a> {
+pub(crate) struct DeclParseContext<'a> {
     db: &'a dyn DeclDb,
     module_symbol_context: ModuleSymbolContext<'a>,
     token_sheet_data: &'a TokenSheetData,
@@ -74,7 +61,7 @@ pub(crate) struct DeclParser<'a> {
     entity_tree_crate_bundle: &'a EntityTreeCrateBundle,
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> DeclParseContext<'a> {
     pub(crate) fn new(db: &'a dyn DeclDb, path: ModulePath) -> EntityTreeResult<Self> {
         let module_symbol_context = db.module_symbol_context(path)?;
         Ok(Self {
@@ -87,8 +74,12 @@ impl<'a> DeclParser<'a> {
         })
     }
 
-    // MOM
-    fn parse_ty_decl(&self, path: TypePath) -> DeclResult<TypeDecl> {
+    #[inline(always)]
+    pub(crate) fn resolve_module_item_symbol(
+        &self,
+        path: impl Into<EntityPath>,
+    ) -> ModuleItemSymbol {
+        let path = path.into();
         let ident = path.ident(self.db);
         let Some(entity_symbol) = self
             .module_entity_tree
@@ -99,90 +90,9 @@ impl<'a> DeclParser<'a> {
                 panic!(r#"
     Path `{}` is invalid!
     This is very likely caused by expect item in standard library.
-"#, path.display(self.db))
+"#, path.display(self.db()))
             };
-        let module_item_symbol = entity_symbol.module_item_symbol().unwrap();
-        let ast_idx: AstIdx = module_item_symbol.ast_idx(self.db);
-        match self.ast_sheet[ast_idx] {
-            Ast::Defn {
-                token_group_idx,
-                ref body,
-
-                entity_kind,
-
-                saved_stream_state,
-                ..
-            } => self.parse_ty_decl_aux(
-                ast_idx,
-                path.ty_kind(self.db),
-                path,
-                entity_kind,
-                token_group_idx,
-                body,
-                saved_stream_state,
-            ),
-            _ => unreachable!(),
-        }
-    }
-    fn parse_ty_decl_aux(
-        &self,
-        ast_idx: AstIdx,
-        type_kind: TypeKind,
-        path: TypePath,
-        _entity_kind: EntityKind,
-        token_group_idx: TokenGroupIdx,
-        body: &AstIdxRange,
-        saved_stream_state: TokenIdx,
-    ) -> DeclResult<TypeDecl> {
-        match type_kind {
-            TypeKind::Enum => {
-                self.parse_enum_ty_decl(ast_idx, path, token_group_idx, body, saved_stream_state)
-            }
-            TypeKind::Inductive => self.parse_inductive_ty_decl(
-                ast_idx,
-                path,
-                token_group_idx,
-                body,
-                saved_stream_state,
-            ),
-            TypeKind::Record => todo!(),
-            TypeKind::Struct => {
-                self.parse_struct_ty_decl(ast_idx, path, token_group_idx, body, saved_stream_state)
-            }
-            TypeKind::Structure => self.parse_structure_ty_decl(
-                ast_idx,
-                path,
-                token_group_idx,
-                body,
-                saved_stream_state,
-            ),
-            TypeKind::Extern => {
-                self.parse_foreign_ty_decl(ast_idx, path, token_group_idx, body, saved_stream_state)
-            }
-        }
-    }
-
-    fn parse_enum_ty_decl(
-        &self,
-        ast_idx: AstIdx,
-        path: TypePath,
-        token_group_idx: TokenGroupIdx,
-        _body: &AstIdxRange,
-        saved_stream_state: TokenIdx,
-    ) -> DeclResult<TypeDecl> {
-        let mut parser = self.expr_parser(
-            DeclRegionPath::Entity(path.into()),
-            None,
-            AllowSelfType::True,
-            AllowSelfValue::False,
-        );
-        let mut ctx = parser.ctx(
-            None,
-            self.token_sheet_data
-                .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
-        );
-        let implicit_parameters = ctx.parse();
-        Ok(EnumTypeDecl::new(self.db, path, ast_idx, parser.finish(), implicit_parameters).into())
+        entity_symbol.module_item_symbol().unwrap()
     }
 
     fn parse_trai_decl(&self, path: TraitPath) -> DeclResult<TraitDecl> {
@@ -225,11 +135,7 @@ impl<'a> DeclParser<'a> {
             AllowSelfType::True,
             AllowSelfValue::False,
         );
-        let mut ctx = parser.ctx(
-            None,
-            self.token_sheet_data
-                .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
-        );
+        let mut ctx = parser.ctx2(None, token_group_idx, Some(saved_stream_state));
         let implicit_parameters = ctx.parse();
         Ok(TraitDecl::new(
             self.db,
@@ -238,77 +144,6 @@ impl<'a> DeclParser<'a> {
             parser.finish(),
             implicit_parameters,
         ))
-    }
-
-    fn parse_inductive_ty_decl(
-        &self,
-        ast_idx: AstIdx,
-        path: TypePath,
-        token_group_idx: TokenGroupIdx,
-        _body: &AstIdxRange,
-        saved_stream_state: TokenIdx,
-    ) -> DeclResult<TypeDecl> {
-        let mut parser = self.expr_parser(
-            DeclRegionPath::Entity(path.into()),
-            None,
-            AllowSelfType::True,
-            AllowSelfValue::False,
-        );
-        let mut ctx = parser.ctx(
-            None,
-            self.token_sheet_data
-                .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
-        );
-        let implicit_parameters = ctx.parse();
-        Ok(
-            InductiveTypeDecl::new(self.db, path, ast_idx, parser.finish(), implicit_parameters)
-                .into(),
-        )
-    }
-
-    fn parse_struct_ty_decl(
-        &self,
-        ast_idx: AstIdx,
-        path: TypePath,
-        token_group_idx: TokenGroupIdx,
-        _body: &AstIdxRange,
-        saved_stream_state: TokenIdx,
-    ) -> DeclResult<TypeDecl> {
-        let mut parser = self.expr_parser(
-            DeclRegionPath::Entity(path.into()),
-            None,
-            AllowSelfType::True,
-            AllowSelfValue::False,
-        );
-        let mut ctx = parser.ctx(
-            None,
-            self.token_sheet_data
-                .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
-        );
-        let implicit_parameters = ctx.parse();
-        if let Some(lcurl) = ctx.parse::<LeftCurlyBraceToken>()? {
-            let (parameters, commas, field_comma_list_result) = parse_separated_list(&mut ctx);
-            let rcurl = ctx.parse_expected(OriginalDeclExprError::ExpectRightCurlyBrace);
-            Ok(RegularStructTypeDecl::new(
-                self.db,
-                path,
-                ast_idx,
-                parser.finish(),
-                implicit_parameters,
-                lcurl,
-                (
-                    parameters,
-                    commas,
-                    field_comma_list_result.map_err(Into::into),
-                ),
-                rcurl,
-            )
-            .into())
-        } else if let Some(_lbox) = ctx.parse::<LeftBoxBracketToken>()? {
-            todo!()
-        } else {
-            Err(OriginalDeclError::ExpectLCurlOrLParOrSemicolon(ctx.save_state()).into())
-        }
     }
 
     pub(crate) fn expr_parser(
@@ -326,67 +161,6 @@ impl<'a> DeclParser<'a> {
             parent_expr_region,
             allow_self_type,
             allow_self_value,
-        )
-    }
-
-    fn parse_structure_ty_decl(
-        &self,
-        ast_idx: AstIdx,
-        path: TypePath,
-        token_group_idx: TokenGroupIdx,
-        _body: &AstIdxRange,
-        saved_stream_state: TokenIdx,
-    ) -> DeclResult<TypeDecl> {
-        let _token_iter = self
-            .token_sheet_data
-            .token_group_token_stream(token_group_idx, Some(saved_stream_state));
-
-        let mut parser = self.expr_parser(
-            DeclRegionPath::Entity(path.into()),
-            None,
-            AllowSelfType::True,
-            AllowSelfValue::False,
-        );
-        let mut ctx = parser.ctx(
-            None,
-            self.token_sheet_data
-                .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
-        );
-        let implicit_parameters = ctx.parse();
-        Ok(
-            StructureTypeDecl::new(self.db, path, ast_idx, parser.finish(), implicit_parameters)
-                .into(),
-        )
-    }
-
-    // get declaration from tokens
-    fn parse_foreign_ty_decl(
-        &self,
-        ast_idx: AstIdx,
-        path: TypePath,
-        token_group_idx: TokenGroupIdx,
-        _body: &AstIdxRange,
-        saved_stream_state: TokenIdx,
-    ) -> DeclResult<TypeDecl> {
-        let _token_iter = self
-            .token_sheet_data
-            .token_group_token_stream(token_group_idx, Some(saved_stream_state));
-
-        let mut parser = self.expr_parser(
-            DeclRegionPath::Entity(path.into()),
-            None,
-            AllowSelfType::True,
-            AllowSelfValue::False,
-        );
-        let mut ctx = parser.ctx(
-            None,
-            self.token_sheet_data
-                .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
-        );
-        let implicit_parameters = ctx.parse();
-        Ok(
-            ExternTypeDecl::new(self.db, path, ast_idx, parser.finish(), implicit_parameters)
-                .into(),
         )
     }
 
@@ -456,11 +230,7 @@ impl<'a> DeclParser<'a> {
             AllowSelfType::False,
             AllowSelfValue::False,
         );
-        let mut ctx = parser.ctx(
-            None,
-            self.token_sheet_data
-                .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
-        );
+        let mut ctx = parser.ctx2(None, token_group_idx, Some(saved_stream_state));
         let curry_token = ctx.parse_expected(OriginalDeclExprError::ExpectCurry);
         let return_ty = ctx.parse_expected(OriginalDeclExprError::ExpectOutputType);
         let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon);
@@ -489,11 +259,7 @@ impl<'a> DeclParser<'a> {
             AllowSelfType::False,
             AllowSelfValue::False,
         );
-        let mut ctx = parser.ctx(
-            None,
-            self.token_sheet_data
-                .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
-        );
+        let mut ctx = parser.ctx2(None, token_group_idx, Some(saved_stream_state));
         let implicit_parameter_decl_list = ctx.parse();
         let parameter_decl_list =
             ctx.parse_expected(OriginalDeclExprError::ExpectParameterDeclList);
@@ -527,11 +293,7 @@ impl<'a> DeclParser<'a> {
             AllowSelfType::False,
             AllowSelfValue::False,
         );
-        let mut ctx = parser.ctx(
-            None,
-            self.token_sheet_data
-                .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
-        );
+        let mut ctx = parser.ctx2(None, token_group_idx, Some(saved_stream_state));
         let implicit_parameter_decl_list = ctx.parse();
         let parameter_decl_list =
             ctx.parse_expected(OriginalDeclExprError::ExpectParameterDeclList);

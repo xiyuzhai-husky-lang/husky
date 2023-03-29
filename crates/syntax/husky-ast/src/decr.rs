@@ -11,15 +11,14 @@ pub struct DecrId {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum DecrParent {
-    Defn(Either<EntityPath, AstIdx>),
+    Defn(EntityPath),
 }
 
 impl DecrId {
     pub fn module_path(self, db: &dyn AstDb) -> ModulePath {
-        todo!()
-        // match self {
-        //     DecrId::Derive(_) => todo!(),
-        // }
+        match self.parent {
+            DecrParent::Defn(path) => path.module_path(db),
+        }
     }
 
     pub fn toolchain(self, db: &dyn AstDb) -> Toolchain {
@@ -73,11 +72,12 @@ impl AstSheet {
         &self,
         target: AstIdx,
         f: impl Fn(AstIdx, TokenGroupIdx, DecrId) -> Result<D, E>,
+        invalid_parent: impl FnOnce() -> E,
     ) -> Result<Vec<D>, E> {
         let decr_parent = match self.ast_arena[target] {
             Ast::Defn { entity_path, .. } => DecrParent::Defn(match entity_path {
-                Some(entity_path) => Left(entity_path),
-                None => Right(target),
+                Some(entity_path) => entity_path,
+                None => return Err(invalid_parent()),
             }),
             _ => todo!(),
         };

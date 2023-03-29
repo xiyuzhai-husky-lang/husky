@@ -10,6 +10,7 @@ mod unit_struct_ty;
 
 pub use enum_ty::*;
 pub use extern_ty::*;
+use husky_entity_taxonomy::{EntityKind, TypeKind};
 pub use inductive_ty::*;
 pub use record_ty::*;
 pub use regular_struct_ty::*;
@@ -97,5 +98,89 @@ impl TypeDecl {
 
     pub fn entity_path(self, db: &dyn DeclDb) -> EntityPath {
         self.path(db).into()
+    }
+}
+
+impl HasDecl for TypePath {
+    type Decl = TypeDecl;
+
+    #[inline(always)]
+    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
+        ty_decl(db, self)
+    }
+}
+
+pub(crate) fn ty_decl(db: &dyn DeclDb, path: TypePath) -> DeclResultRef<TypeDecl> {
+    ty_decl_aux(db, path).as_ref().copied()
+}
+
+#[salsa::tracked(jar = DeclJar, return_ref)]
+pub(crate) fn ty_decl_aux(db: &dyn DeclDb, path: TypePath) -> DeclResult<TypeDecl> {
+    DeclParseContext::new(db, path.module_path(db))?.parse_ty_decl(path)
+}
+
+impl<'a> DeclParseContext<'a> {
+    // MOM
+    fn parse_ty_decl(&self, path: TypePath) -> DeclResult<TypeDecl> {
+        let module_item_symbol = self.resolve_module_item_symbol(path);
+        let ast_idx: AstIdx = module_item_symbol.ast_idx(self.db());
+        match self.ast_sheet()[ast_idx] {
+            Ast::Defn {
+                token_group_idx,
+                ref body,
+
+                entity_kind,
+
+                saved_stream_state,
+                ..
+            } => self.parse_ty_decl_aux(
+                ast_idx,
+                path.ty_kind(self.db()),
+                path,
+                entity_kind,
+                token_group_idx,
+                body,
+                saved_stream_state,
+            ),
+            _ => unreachable!(),
+        }
+    }
+
+    fn parse_ty_decl_aux(
+        &self,
+        ast_idx: AstIdx,
+        type_kind: TypeKind,
+        path: TypePath,
+        _entity_kind: EntityKind,
+        token_group_idx: TokenGroupIdx,
+        body: &AstIdxRange,
+        saved_stream_state: TokenIdx,
+    ) -> DeclResult<TypeDecl> {
+        match type_kind {
+            TypeKind::Enum => {
+                self.parse_enum_ty_decl(ast_idx, path, token_group_idx, body, saved_stream_state)
+            }
+            TypeKind::Inductive => self.parse_inductive_ty_decl(
+                ast_idx,
+                path,
+                token_group_idx,
+                body,
+                saved_stream_state,
+            ),
+            TypeKind::Record => todo!(),
+            TypeKind::Struct => {
+                self.parse_struct_ty_decl(ast_idx, path, token_group_idx, body, saved_stream_state)
+            }
+            TypeKind::Structure => self.parse_structure_ty_decl(
+                ast_idx,
+                path,
+                token_group_idx,
+                body,
+                saved_stream_state,
+            ),
+            TypeKind::Extern => {
+                self.parse_foreign_ty_decl(ast_idx, path, token_group_idx, body, saved_stream_state)
+            }
+        }
     }
 }

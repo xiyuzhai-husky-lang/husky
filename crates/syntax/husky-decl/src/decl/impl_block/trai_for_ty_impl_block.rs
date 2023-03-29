@@ -46,11 +46,11 @@ pub(crate) fn trai_for_ty_impl_block_decl_aux(
     db: &dyn DeclDb,
     impl_block: TraitForTypeImplBlock,
 ) -> DeclResult<TraitForTypeImplBlockDecl> {
-    let parser = DeclParser::new(db, impl_block.module_path(db))?;
+    let parser = DeclParseContext::new(db, impl_block.module_path(db))?;
     Ok(parser.parse_trai_for_ty_impl_block_decl(impl_block)?.into())
 }
 
-impl<'a> DeclParser<'a> {
+impl<'a> DeclParseContext<'a> {
     fn parse_trai_for_ty_impl_block_decl(
         &self,
         impl_block: TraitForTypeImplBlock,

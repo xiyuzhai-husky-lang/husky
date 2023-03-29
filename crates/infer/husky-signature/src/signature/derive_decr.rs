@@ -2,13 +2,15 @@ use super::*;
 use husky_decr::DeriveDecr;
 
 #[salsa::interned(db = SignatureDb, jar = SignatureJar)]
-pub struct DeriveDecrSignature {}
+pub struct DeriveDecrSignature {
+    pub traits: Vec<RawTerm>,
+}
 
 impl HasSignature for DeriveDecr {
     type Signature = DeriveDecrSignature;
 
     fn signature(self, db: &dyn SignatureDb) -> SignatureResult<Self::Signature> {
-        todo!()
+        derive_decr_signature(db, self)
     }
 }
 
@@ -20,6 +22,11 @@ pub fn derive_decr_signature(
     let expr_region = decr.expr_region(db);
     let signature_term_region = signature_term_region(db, expr_region);
     let raw_term_menu = db.raw_term_menu(expr_region.toolchain(db)).unwrap();
-    todo!();
-    Ok(DeriveDecrSignature::new(db))
+    let traits = decr
+        .traits(db)
+        .iter()
+        .copied()
+        .map(|trai_expr| signature_term_region.expr_term(trai_expr.expr()))
+        .collect::<SignatureRawTermResultBorrowed<Vec<_>>>()?;
+    Ok(DeriveDecrSignature::new(db, traits))
 }
