@@ -349,6 +349,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         25,
                     ),
+                    ident: `test`,
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -389,6 +390,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         30,
                     ),
+                    ident: `test`,
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -430,5 +432,109 @@ Ok(
         top_level_asts: ArenaIdxRange(
             30..37,
         ),
+        siblings: [
+            ArenaIdxRange(
+                0..0,
+            ),
+            ArenaIdxRange(
+                0..0,
+            ),
+            ArenaIdxRange(
+                0..2,
+            ),
+            ArenaIdxRange(
+                2..2,
+            ),
+            ArenaIdxRange(
+                2..2,
+            ),
+            ArenaIdxRange(
+                2..2,
+            ),
+            ArenaIdxRange(
+                2..5,
+            ),
+            ArenaIdxRange(
+                6..7,
+            ),
+            ArenaIdxRange(
+                7..7,
+            ),
+            ArenaIdxRange(
+                7..7,
+            ),
+            ArenaIdxRange(
+                7..7,
+            ),
+            ArenaIdxRange(
+                7..7,
+            ),
+            ArenaIdxRange(
+                7..7,
+            ),
+            ArenaIdxRange(
+                7..8,
+            ),
+            ArenaIdxRange(
+                8..8,
+            ),
+            ArenaIdxRange(
+                8..8,
+            ),
+            ArenaIdxRange(
+                8..9,
+            ),
+            ArenaIdxRange(
+                9..9,
+            ),
+            ArenaIdxRange(
+                9..10,
+            ),
+            ArenaIdxRange(
+                11..11,
+            ),
+            ArenaIdxRange(
+                11..12,
+            ),
+            ArenaIdxRange(
+                13..18,
+            ),
+            ArenaIdxRange(
+                18..18,
+            ),
+            ArenaIdxRange(
+                18..18,
+            ),
+            ArenaIdxRange(
+                18..24,
+            ),
+            ArenaIdxRange(
+                24..24,
+            ),
+            ArenaIdxRange(
+                24..24,
+            ),
+            ArenaIdxRange(
+                24..24,
+            ),
+            ArenaIdxRange(
+                24..27,
+            ),
+            ArenaIdxRange(
+                27..27,
+            ),
+            ArenaIdxRange(
+                27..27,
+            ),
+            ArenaIdxRange(
+                27..27,
+            ),
+            ArenaIdxRange(
+                27..30,
+            ),
+            ArenaIdxRange(
+                30..37,
+            ),
+        ],
     },
 )

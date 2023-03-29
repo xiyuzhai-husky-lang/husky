@@ -208,5 +208,67 @@ Ok(
         top_level_asts: ArenaIdxRange(
             19..23,
         ),
+        siblings: [
+            ArenaIdxRange(
+                0..0,
+            ),
+            ArenaIdxRange(
+                0..0,
+            ),
+            ArenaIdxRange(
+                0..0,
+            ),
+            ArenaIdxRange(
+                0..0,
+            ),
+            ArenaIdxRange(
+                0..0,
+            ),
+            ArenaIdxRange(
+                0..0,
+            ),
+            ArenaIdxRange(
+                0..0,
+            ),
+            ArenaIdxRange(
+                0..0,
+            ),
+            ArenaIdxRange(
+                0..2,
+            ),
+            ArenaIdxRange(
+                2..2,
+            ),
+            ArenaIdxRange(
+                2..2,
+            ),
+            ArenaIdxRange(
+                2..2,
+            ),
+            ArenaIdxRange(
+                2..2,
+            ),
+            ArenaIdxRange(
+                2..4,
+            ),
+            ArenaIdxRange(
+                4..4,
+            ),
+            ArenaIdxRange(
+                4..11,
+            ),
+            ArenaIdxRange(
+                12..12,
+            ),
+            ArenaIdxRange(
+                12..13,
+            ),
+            ArenaIdxRange(
+                14..19,
+            ),
+            ArenaIdxRange(
+                19..23,
+            ),
+        ],
     },
 )

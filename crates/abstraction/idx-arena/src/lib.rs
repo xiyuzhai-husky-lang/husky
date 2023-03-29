@@ -248,6 +248,10 @@ impl<T> ArenaIdxRange<T> {
         self.end
     }
 
+    pub fn contains(&self, idx: ArenaIdx<T>) -> bool {
+        self.start <= idx && self.end > idx
+    }
+
     pub fn last(&self) -> Option<ArenaIdx<T>> {
         if self.start < self.end {
             Some(self.end - 1)

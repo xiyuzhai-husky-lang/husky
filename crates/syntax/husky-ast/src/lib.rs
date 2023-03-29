@@ -1,5 +1,6 @@
 #![feature(trait_upcasting)]
 mod db;
+mod decr;
 mod error;
 mod parser;
 mod range;
@@ -10,15 +11,17 @@ pub mod test_utils;
 mod tests;
 
 pub use self::db::AstDb;
+pub use self::decr::*;
+pub use self::error::*;
 pub use self::range::*;
-pub use crate::error::*;
-pub use specs::*;
+pub use self::specs::*;
 
 use self::parser::*;
+use either::*;
 use husky_accessibility::Visibility;
 use husky_entity_path::{EntityPath, VariantPath};
 use husky_entity_taxonomy::EntityKind;
-use husky_token::{IdentToken, TokenGroupIdx, TokenIdx};
+use husky_token::{DecrIdentToken, IdentToken, TokenGroupIdx, TokenIdx};
 use husky_vfs::*;
 use husky_word::*;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
@@ -46,6 +49,7 @@ pub enum Ast {
     /// needs to be processed before inference
     Decr {
         token_group_idx: TokenGroupIdx,
+        ident: Ident,
     },
     BasicStmtOrBranch {
         token_group_idx: TokenGroupIdx,
@@ -121,6 +125,9 @@ pub(crate) fn ast_sheet(db: &dyn AstDb, module_path: ModulePath) -> VfsResult<As
 pub struct AstSheet {
     ast_arena: AstArena,
     top_level_asts: AstIdxRange,
+    // a list of siblings indices
+    // list index has nothing to do with ast idx
+    siblings: Vec<AstIdxRange>,
 }
 
 impl std::ops::Index<AstIdx> for AstSheet {
@@ -132,10 +139,15 @@ impl std::ops::Index<AstIdx> for AstSheet {
 }
 
 impl AstSheet {
-    pub(crate) fn new(ast_arena: AstArena, top_level_asts: AstIdxRange) -> Self {
+    pub(crate) fn new(
+        ast_arena: AstArena,
+        top_level_asts: AstIdxRange,
+        siblings: Vec<AstIdxRange>,
+    ) -> Self {
         Self {
             ast_arena,
             top_level_asts,
+            siblings,
         }
     }
 

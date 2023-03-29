@@ -42,6 +42,35 @@ where
     (elements, separators, result)
 }
 
+pub fn parse_separated_list2<Context, Element, Separator, E1, E2>(
+    ctx: &mut Context,
+    f: impl FnOnce(E1) -> E2,
+) -> Result<(Vec<Element>, Vec<Separator>), E2>
+where
+    Context: ParseContext,
+    Element: ParseFrom<Context, Error = E1>,
+    Separator: ParseFrom<Context>,
+    E1: From<<Separator as ParseFrom<Context>>::Error>,
+{
+    let mut elements = vec![];
+    let mut separators = vec![];
+    loop {
+        match ctx.parse::<Element>() {
+            Ok(Some(element)) => {
+                elements.push(element);
+                match ctx.parse::<Separator>() {
+                    Ok(Some(separator)) => separators.push(separator),
+                    Ok(None) => break,
+                    Err(error) => return Err(f(error.into())),
+                }
+            }
+            Ok(None) => break,
+            Err(error) => return Err(f(error)),
+        }
+    }
+    Ok((elements, separators))
+}
+
 #[test]
 fn parse_separated_list_works() {
     fn t(input: &str) -> (Vec<A>, Vec<Comma>, Result<(), ()>) {

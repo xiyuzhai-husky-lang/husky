@@ -44,3 +44,14 @@ where
 fn ident_token_works() {
     // todo
 }
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = TokenDb)]
+pub enum DecrIdentToken {
+    Derive(DeriveToken),
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct DeriveToken {
+    token_idx: TokenIdx,
+}

@@ -5,6 +5,7 @@ use husky_ast::AstJar;
 use husky_corgi_config::CorgiConfigJar;
 use husky_corgi_config_ast::CorgiConfigAstJar;
 use husky_decl::{DeclDb, DeclJar};
+use husky_decr::DecrJar;
 use husky_entity_path::{EntityPathJar, ModuleItemPath, TypePath};
 use husky_entity_tree::{EntityTreeDb, EntityTreeJar};
 use husky_expr::ExprJar;
@@ -37,6 +38,7 @@ use husky_word::WordJar;
     ManifestJar,
     ExprJar,
     DefnJar,
+    DecrJar,
     DeclJar,
     TermPreludeJar,
     RawTermJar,

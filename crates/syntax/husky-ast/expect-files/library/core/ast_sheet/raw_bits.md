@@ -2,7 +2,7 @@ Ok(
     AstSheet {
         ast_arena: Arena {
             data: [
-                Ast::Decr {
+                Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
@@ -11,6 +11,7 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
+                    ident: `derive`,
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -50,5 +51,13 @@ Ok(
         top_level_asts: ArenaIdxRange(
             0..3,
         ),
+        siblings: [
+            ArenaIdxRange(
+                0..0,
+            ),
+            ArenaIdxRange(
+                0..3,
+            ),
+        ],
     },
 )

@@ -1,0 +1,52 @@
+use husky_entity_tree::EntityTreeError;
+use husky_expr::ExprError;
+use husky_token::{TokenError, TokenIdx};
+use husky_vfs::VfsError;
+use parsec::OriginalError;
+use thiserror::Error;
+
+#[derive(Debug, Error, PartialEq, Eq)]
+pub enum DecrError {
+    #[error("{0}")]
+    Original(#[from] OriginalDecrError),
+    #[error("{0}")]
+    Derived(#[from] DerivedDecrError),
+}
+
+impl From<VfsError> for DecrError {
+    fn from(value: VfsError) -> Self {
+        todo!()
+    }
+}
+
+impl From<EntityTreeError> for DecrError {
+    fn from(value: EntityTreeError) -> Self {
+        todo!()
+    }
+}
+
+impl From<TokenError> for DecrError {
+    fn from(value: TokenError) -> Self {
+        todo!()
+    }
+}
+
+#[derive(Debug, Error, PartialEq, Eq)]
+pub enum OriginalDecrError {
+    #[error("ExpectLeftBracketInDerive")]
+    ExpectLeftBracketInDerive(TokenIdx),
+    #[error("ExpectClosingBracket")]
+    ExpectRightBracketInDerive(TokenIdx),
+    #[error("")]
+    ExprError(ExprError), // ad hoc
+}
+
+impl OriginalError for OriginalDecrError {
+    type Error = DecrError;
+}
+
+#[derive(Debug, Error, PartialEq, Eq)]
+pub enum DerivedDecrError {}
+
+pub type DecrResult<T> = Result<T, DecrError>;
+pub type DecrResultRef<'a, T> = Result<T, &'a DecrError>;

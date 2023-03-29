@@ -80,3 +80,16 @@ pub trait HasDecl: Copy {
 
     fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl>;
 }
+
+impl HasDecl for EntityPath {
+    type Decl = Decl;
+
+    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
+        match self {
+            EntityPath::Module(_) => todo!(),
+            EntityPath::ModuleItem(path) => db.module_item_decl(path), // change this to trait method
+            EntityPath::AssociatedItem(_) => todo!(),
+            EntityPath::Variant(_) => todo!(),
+        }
+    }
+}

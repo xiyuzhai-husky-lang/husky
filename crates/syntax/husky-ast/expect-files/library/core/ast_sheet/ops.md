@@ -702,7 +702,7 @@ Ok(
                         395,
                     ),
                 },
-                Ast::Decr {
+                Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
@@ -738,7 +738,7 @@ Ok(
                         10,
                     ),
                 },
-                Ast::Decr {
+                Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
@@ -774,7 +774,7 @@ Ok(
                         39,
                     ),
                 },
-                Ast::Decr {
+                Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         8,
                     ),
@@ -810,7 +810,7 @@ Ok(
                         68,
                     ),
                 },
-                Ast::Decr {
+                Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         12,
                     ),
@@ -846,7 +846,7 @@ Ok(
                         97,
                     ),
                 },
-                Ast::Decr {
+                Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         15,
                     ),
@@ -882,7 +882,7 @@ Ok(
                         122,
                     ),
                 },
-                Ast::Decr {
+                Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         19,
                     ),
@@ -918,7 +918,7 @@ Ok(
                         151,
                     ),
                 },
-                Ast::Decr {
+                Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         22,
                     ),
@@ -954,7 +954,7 @@ Ok(
                         176,
                     ),
                 },
-                Ast::Decr {
+                Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         26,
                     ),
@@ -990,7 +990,7 @@ Ok(
                         205,
                     ),
                 },
-                Ast::Decr {
+                Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         29,
                     ),
@@ -1026,7 +1026,7 @@ Ok(
                         230,
                     ),
                 },
-                Ast::Decr {
+                Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         33,
                     ),
@@ -1062,7 +1062,7 @@ Ok(
                         259,
                     ),
                 },
-                Ast::Decr {
+                Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         36,
                     ),
@@ -1098,7 +1098,7 @@ Ok(
                         284,
                     ),
                 },
-                Ast::Decr {
+                Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         40,
                     ),
@@ -1134,7 +1134,7 @@ Ok(
                         313,
                     ),
                 },
-                Ast::Decr {
+                Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         43,
                     ),
@@ -1170,7 +1170,7 @@ Ok(
                         338,
                     ),
                 },
-                Ast::Decr {
+                Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         47,
                     ),
@@ -1206,7 +1206,7 @@ Ok(
                         362,
                     ),
                 },
-                Ast::Decr {
+                Ast::Attr {
                     token_group_idx: TokenGroupIdx(
                         51,
                     ),
@@ -1247,5 +1247,130 @@ Ok(
         top_level_asts: ArenaIdxRange(
             25..55,
         ),
+        siblings: [
+            ArenaIdxRange(
+                0..0,
+            ),
+            ArenaIdxRange(
+                0..0,
+            ),
+            ArenaIdxRange(
+                0..2,
+            ),
+            ArenaIdxRange(
+                2..2,
+            ),
+            ArenaIdxRange(
+                2..2,
+            ),
+            ArenaIdxRange(
+                2..4,
+            ),
+            ArenaIdxRange(
+                4..4,
+            ),
+            ArenaIdxRange(
+                4..4,
+            ),
+            ArenaIdxRange(
+                4..6,
+            ),
+            ArenaIdxRange(
+                6..6,
+            ),
+            ArenaIdxRange(
+                6..7,
+            ),
+            ArenaIdxRange(
+                7..7,
+            ),
+            ArenaIdxRange(
+                7..7,
+            ),
+            ArenaIdxRange(
+                7..9,
+            ),
+            ArenaIdxRange(
+                9..9,
+            ),
+            ArenaIdxRange(
+                9..10,
+            ),
+            ArenaIdxRange(
+                10..10,
+            ),
+            ArenaIdxRange(
+                10..10,
+            ),
+            ArenaIdxRange(
+                10..12,
+            ),
+            ArenaIdxRange(
+                12..12,
+            ),
+            ArenaIdxRange(
+                12..13,
+            ),
+            ArenaIdxRange(
+                13..13,
+            ),
+            ArenaIdxRange(
+                13..13,
+            ),
+            ArenaIdxRange(
+                13..15,
+            ),
+            ArenaIdxRange(
+                15..15,
+            ),
+            ArenaIdxRange(
+                15..16,
+            ),
+            ArenaIdxRange(
+                16..16,
+            ),
+            ArenaIdxRange(
+                16..16,
+            ),
+            ArenaIdxRange(
+                16..18,
+            ),
+            ArenaIdxRange(
+                18..18,
+            ),
+            ArenaIdxRange(
+                18..19,
+            ),
+            ArenaIdxRange(
+                19..19,
+            ),
+            ArenaIdxRange(
+                19..19,
+            ),
+            ArenaIdxRange(
+                19..21,
+            ),
+            ArenaIdxRange(
+                21..21,
+            ),
+            ArenaIdxRange(
+                21..21,
+            ),
+            ArenaIdxRange(
+                21..23,
+            ),
+            ArenaIdxRange(
+                23..23,
+            ),
+            ArenaIdxRange(
+                23..23,
+            ),
+            ArenaIdxRange(
+                23..25,
+            ),
+            ArenaIdxRange(
+                25..55,
+            ),
+        ],
     },
 )
