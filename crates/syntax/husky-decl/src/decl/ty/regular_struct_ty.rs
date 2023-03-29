@@ -35,3 +35,45 @@ impl RegularStructTypeDecl {
         Ok(self.field_comma_list(db).0.as_ref())
     }
 }
+impl<'a> DeclParseContext<'a> {
+    pub(super) fn parse_struct_ty_decl(
+        &self,
+        ast_idx: AstIdx,
+        path: TypePath,
+        token_group_idx: TokenGroupIdx,
+        _body: &AstIdxRange,
+        saved_stream_state: TokenIdx,
+    ) -> DeclResult<TypeDecl> {
+        let mut parser = self.expr_parser(
+            DeclRegionPath::Entity(path.into()),
+            None,
+            AllowSelfType::True,
+            AllowSelfValue::False,
+        );
+        let mut ctx = parser.ctx2(None, token_group_idx, Some(saved_stream_state));
+        let implicit_parameters = ctx.parse();
+        if let Some(lcurl) = ctx.parse::<LeftCurlyBraceToken>()? {
+            let (parameters, commas, field_comma_list_result) = parse_separated_list(&mut ctx);
+            let rcurl = ctx.parse_expected(OriginalDeclExprError::ExpectRightCurlyBrace);
+            Ok(RegularStructTypeDecl::new(
+                self.db(),
+                path,
+                ast_idx,
+                parser.finish(),
+                implicit_parameters,
+                lcurl,
+                (
+                    parameters,
+                    commas,
+                    field_comma_list_result.map_err(Into::into),
+                ),
+                rcurl,
+            )
+            .into())
+        } else if let Some(_lbox) = ctx.parse::<LeftBoxBracketToken>()? {
+            todo!()
+        } else {
+            Err(OriginalDeclError::ExpectLCurlOrLParOrSemicolon(ctx.save_state()).into())
+        }
+    }
+}

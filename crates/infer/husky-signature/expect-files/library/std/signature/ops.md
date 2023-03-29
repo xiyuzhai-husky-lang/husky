@@ -11,13 +11,6 @@
                                     value: 1,
                                 },
                             ),
-                            ty: Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
                             traits: [],
                         },
                     ],

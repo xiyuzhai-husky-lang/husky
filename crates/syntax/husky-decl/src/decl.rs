@@ -13,6 +13,7 @@ pub use ty::*;
 pub use variant::*;
 
 use crate::*;
+use parsec::{parse_separated_list, HasParseState};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
@@ -91,5 +92,13 @@ impl HasDecl for EntityPath {
             EntityPath::AssociatedItem(_) => todo!(),
             EntityPath::Variant(_) => todo!(),
         }
+    }
+}
+
+pub(crate) fn module_item_decl(db: &dyn DeclDb, path: ModuleItemPath) -> DeclResultRef<Decl> {
+    match path {
+        ModuleItemPath::Type(path) => path.decl(db).map(Into::into),
+        ModuleItemPath::Trait(path) => trai_decl(db, path).as_ref().map(|decl| (*decl).into()),
+        ModuleItemPath::Form(path) => form_decl(db, path).as_ref().map(|decl| (*decl).into()),
     }
 }

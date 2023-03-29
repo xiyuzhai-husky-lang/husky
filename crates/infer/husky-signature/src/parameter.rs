@@ -7,7 +7,6 @@ use crate::*;
 pub struct ImplicitParameterSignature {
     annotated_variance: Option<Variance>,
     symbol: RawTermSymbol,
-    ty: RawTerm,
     traits: Vec<RawTerm>,
 }
 
@@ -28,7 +27,6 @@ impl ImplicitParameterSignature {
             ImplicitParameterDeclPatternVariant::Type0 { .. } => {
                 ImplicitParameterSignature {
                     symbol: region.current_symbol_term(symbol).expect("not none"),
-                    ty: raw_term_menu.ty0().into(),
                     // ad hoc
                     traits: vec![],
                     annotated_variance,
@@ -38,7 +36,6 @@ impl ImplicitParameterSignature {
             ImplicitParameterDeclPatternVariant::Lifetime { .. } => {
                 ImplicitParameterSignature {
                     symbol: region.current_symbol_term(symbol).expect("not none"),
-                    ty: raw_term_menu.lifetime_ty().into(),
                     // ad hoc
                     traits: vec![],
                     annotated_variance,
@@ -52,8 +49,8 @@ impl ImplicitParameterSignature {
         self.symbol
     }
 
-    pub fn ty(&self) -> RawTerm {
-        self.ty
+    pub fn ty(&self, db: &dyn RawTermDb) -> RawTerm {
+        self.symbol.ty(db).expect("should be okay")
     }
 
     pub fn traits(&self) -> &[RawTerm] {

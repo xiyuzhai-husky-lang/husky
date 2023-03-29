@@ -22,3 +22,30 @@ impl StructureTypeDecl {
             .unwrap_or(Ok(&[]))
     }
 }
+impl<'a> DeclParseContext<'a> {
+    pub(super) fn parse_structure_ty_decl(
+        &self,
+        ast_idx: AstIdx,
+        path: TypePath,
+        token_group_idx: TokenGroupIdx,
+        _body: &AstIdxRange,
+        saved_stream_state: TokenIdx,
+    ) -> DeclResult<TypeDecl> {
+        let mut parser = self.expr_parser(
+            DeclRegionPath::Entity(path.into()),
+            None,
+            AllowSelfType::True,
+            AllowSelfValue::False,
+        );
+        let mut ctx = parser.ctx2(None, token_group_idx, Some(saved_stream_state));
+        let implicit_parameters = ctx.parse();
+        Ok(StructureTypeDecl::new(
+            self.db(),
+            path,
+            ast_idx,
+            parser.finish(),
+            implicit_parameters,
+        )
+        .into())
+    }
+}

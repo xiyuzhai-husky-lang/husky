@@ -23,13 +23,12 @@ pub use self::term::*;
 #[cfg(test)]
 use self::tests::*;
 use self::variance::*;
+use husky_decl::HasDecl;
 use husky_entity_path::*;
-
 use husky_raw_term::*;
 use husky_signature::*;
 use husky_term_prelude::*;
 use husky_ty_expectation::TypePathDisambiguation;
-
 use husky_word::*;
 use map_collect::*;
 

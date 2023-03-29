@@ -1,7 +1,7 @@
 use crate::*;
 use husky_decr::{Decr, HasDecrs};
 use husky_entity_tree::TraitForTypeImplBlock;
-use husky_signature::HasSignature;
+use husky_signature::{HasSignature, TypeSignature};
 use smallvec::SmallVec;
 
 impl Term {
@@ -103,8 +103,9 @@ pub(crate) fn ty_side_trai_for_ty_impl_blocks_aux<'a>(
     ty_path: TypePath,
 ) -> TermResult<Vec<TraitForTypeImplCard>> {
     let mut cards = vec![];
+    let ty_signature = ty_path.signature(db)?;
     for decr in ty_path.decrs(db)?.iter().copied() {
-        TraitForTypeImplCard::collect_from_decr(db, decr, &mut cards)?
+        TraitForTypeImplCard::collect_from_decr(db, ty_path, ty_signature, decr, &mut cards)?
     }
     for impl_block in db
         .entity_tree_bundle(ty_path.crate_path(db))?
@@ -151,7 +152,7 @@ pub struct TraitForTypeImplCard {
 #[salsa::derive_debug_with_db(db = TermDb, jar = TermJar)]
 pub enum TraitForTypeImplCardSource {
     ImplBlock(TraitForTypeImplBlock),
-    Decr,
+    DeriveDecr,
 }
 impl TraitForTypeImplCard {
     fn from_impl_block(db: &dyn TermDb, impl_block: TraitForTypeImplBlock) -> TermResult<Self> {
@@ -160,13 +161,23 @@ impl TraitForTypeImplCard {
 
     fn collect_from_decr<'a>(
         db: &'a dyn TermDb,
+        ty_path: TypePath,
+        ty_signature: TypeSignature,
         decr: Decr,
         cards: &mut Vec<Self>,
     ) -> TermResult<()> {
         match decr {
             Decr::Derive(derive_decr) => {
-                derive_decr.signature(db);
-                todo!()
+                for trai in derive_decr.signature(db)?.traits(db) {
+                    cards.push(TraitForTypeImplCard {
+                        trai_path: todo!(),
+                        ty_path: Some(ty_path),
+                        trai: todo!(),
+                        ty: todo!(),
+                        src: TraitForTypeImplCardSource::DeriveDecr,
+                    })
+                }
+                Ok(())
             }
         }
     }

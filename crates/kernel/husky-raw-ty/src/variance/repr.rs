@@ -53,7 +53,7 @@ pub(crate) fn ty_entity_variance_reprs(
     path: TypePath,
 ) -> VarianceResult<Vec<VarianceRepr>> {
     let _raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
-    let decl = match db.ty_decl(path) {
+    let decl = match path.decl(db) {
         Ok(decl) => decl,
         Err(_) => return Err(DerivedVarianceError::DeclError.into()),
     };

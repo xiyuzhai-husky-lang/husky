@@ -23,13 +23,6 @@
                                         value: 1,
                                     },
                                 ),
-                                ty: Category(
-                                    TermCategory {
-                                        universe: TermUniverse(
-                                            1,
-                                        ),
-                                    },
-                                ),
                                 traits: [],
                             },
                             ImplicitParameterSignature {
@@ -37,13 +30,6 @@
                                 symbol: RawTermSymbol(
                                     Id {
                                         value: 2,
-                                    },
-                                ),
-                                ty: Category(
-                                    TermCategory {
-                                        universe: TermUniverse(
-                                            1,
-                                        ),
                                     },
                                 ),
                                 traits: [],
@@ -67,13 +53,6 @@
                                         value: 1,
                                     },
                                 ),
-                                ty: Category(
-                                    TermCategory {
-                                        universe: TermUniverse(
-                                            1,
-                                        ),
-                                    },
-                                ),
                                 traits: [],
                             },
                             ImplicitParameterSignature {
@@ -81,13 +60,6 @@
                                 symbol: RawTermSymbol(
                                     Id {
                                         value: 2,
-                                    },
-                                ),
-                                ty: Category(
-                                    TermCategory {
-                                        universe: TermUniverse(
-                                            1,
-                                        ),
                                     },
                                 ),
                                 traits: [],

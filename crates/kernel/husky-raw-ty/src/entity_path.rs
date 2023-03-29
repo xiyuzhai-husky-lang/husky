@@ -12,6 +12,7 @@ pub use self::ty_constructor::*;
 pub use self::ty_ontology::*;
 
 use crate::*;
+use husky_decl::HasDecl;
 #[cfg(test)]
 use salsa::assert_eq_with_db;
 use utils::*;
@@ -207,7 +208,7 @@ fn entity_path_raw_ty_works() {
 #[salsa::tracked(jar = RawTypeJar)]
 pub fn ty_ontology_path_raw_ty(db: &dyn RawTypeDb, path: TypePath) -> RawTypeResult<RawTerm> {
     let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
-    let decl = match db.ty_decl(path) {
+    let decl = match path.decl(db) {
         Ok(decl) => decl,
         Err(_e) => {
             return Err(DerivedRawTypeError::TypeOntologyDeclError { path }.into());

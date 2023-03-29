@@ -9,6 +9,7 @@ mod error;
 pub mod has_ty;
 mod menu;
 mod rewrite;
+mod template;
 mod term;
 #[cfg(test)]
 mod tests;
@@ -25,6 +26,9 @@ pub use self::term::*;
 pub use self::trai::*;
 pub use self::ty::*;
 
+use self::template::*;
+#[cfg(test)]
+use self::tests::*;
 use either::*;
 use husky_entity_path::*;
 use husky_print_utils::p;
@@ -34,8 +38,6 @@ use husky_ty_expectation::TermTypeExpectation;
 use husky_vfs::*;
 use husky_word::Ident;
 use salsa::DebugWithDb;
-#[cfg(test)]
-use tests::*;
 
 #[salsa::jar(db = TermDb)]
 pub struct TermJar(

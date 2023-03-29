@@ -3,10 +3,10 @@ use crate::*;
 #[salsa::tracked(jar = RawTypeJar)]
 pub fn ty_path_ty_method_raw_ty(
     db: &dyn RawTypeDb,
-    raw_ty_path: TypePath,
+    path: TypePath,
     _ident: Ident,
 ) -> RawTypeResult<Option<RawTerm>> {
-    let decl = match db.ty_decl(raw_ty_path) {
+    let decl = match path.decl(db) {
         Ok(decl) => decl,
         Err(_) => return Err(DerivedRawTypeError::TypePathMethodDeclError.into()),
     };

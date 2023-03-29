@@ -14,15 +14,6 @@
                                         value: 3,
                                     },
                                 ),
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 66,
-                                            },
-                                        ),
-                                    ),
-                                ),
                                 traits: [],
                             },
                             ImplicitParameterSignature {
@@ -32,13 +23,6 @@
                                 symbol: RawTermSymbol(
                                     Id {
                                         value: 1,
-                                    },
-                                ),
-                                ty: Category(
-                                    TermCategory {
-                                        universe: TermUniverse(
-                                            1,
-                                        ),
                                     },
                                 ),
                                 traits: [],
@@ -64,15 +48,6 @@
                                         value: 3,
                                     },
                                 ),
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 66,
-                                            },
-                                        ),
-                                    ),
-                                ),
                                 traits: [],
                             },
                             ImplicitParameterSignature {
@@ -82,13 +57,6 @@
                                 symbol: RawTermSymbol(
                                     Id {
                                         value: 1,
-                                    },
-                                ),
-                                ty: Category(
-                                    TermCategory {
-                                        universe: TermUniverse(
-                                            1,
-                                        ),
                                     },
                                 ),
                                 traits: [],
@@ -112,13 +80,6 @@
                                 symbol: RawTermSymbol(
                                     Id {
                                         value: 1,
-                                    },
-                                ),
-                                ty: Category(
-                                    TermCategory {
-                                        universe: TermUniverse(
-                                            1,
-                                        ),
                                     },
                                 ),
                                 traits: [],

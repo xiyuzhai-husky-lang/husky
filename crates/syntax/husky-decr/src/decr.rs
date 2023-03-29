@@ -65,7 +65,11 @@ This is very likely caused by expect item in standard library.
         };
     let module_item_symbol = entity_symbol.module_item_symbol().unwrap();
     let ast_idx: AstIdx = module_item_symbol.ast_idx(db);
-    ast_sheet.decrs(ast_idx, |ast_idx, token_group_idx, decr_id| {
-        Decr::new(db, path.into(), ast_idx, token_group_idx, decr_id)
-    })
+    ast_sheet.decrs(
+        ast_idx,
+        |ast_idx, token_group_idx, decr_id| {
+            Decr::new(db, path.into(), ast_idx, token_group_idx, decr_id)
+        },
+        || DerivedDecrError::InvalidParent.into(),
+    )
 }

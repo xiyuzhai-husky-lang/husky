@@ -36,13 +36,10 @@ impl<'a> DecrParserFactory<'a> {
         allow_self_value: AllowSelfValue,
     ) -> ExprParser<'a> {
         let parent_expr_region = match decr_id.parent() {
-            DecrParent::Defn(path) => match path {
-                Either::Left(path) => path
-                    .decl(self.db)
-                    .ok()
-                    .map(|decl| decl.expr_region(self.db)),
-                Either::Right(_) => None,
-            },
+            DecrParent::Defn(path) => path
+                .decl(self.db)
+                .ok()
+                .map(|decl| decl.expr_region(self.db)),
         };
         ExprParser::new(
             self.db,

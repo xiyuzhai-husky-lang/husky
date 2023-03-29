@@ -15,7 +15,6 @@ pub(super) fn curry_from_implicit_parameters(
         std::iter::zip(variances.iter(), implicit_parameters.iter()).rev()
     {
         let symbol = implicit_parameter.symbol();
-        assert_eq!(symbol.ty(db), Ok(implicit_parameter.ty()));
         term = {
             let (term, variable) = term.turn_symbol_into_variable(db, symbol);
             RawTermCurry::new(
@@ -23,7 +22,7 @@ pub(super) fn curry_from_implicit_parameters(
                 term_curry_kind,
                 *variance,
                 variable,
-                implicit_parameter.ty(),
+                implicit_parameter.ty(db),
                 term,
             )
         }

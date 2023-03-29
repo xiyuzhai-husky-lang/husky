@@ -8,7 +8,6 @@ use vec_like::VecMapGetEntry;
 
 pub trait DeclDb: DbWithJar<DeclJar> + ExprDb {
     fn module_item_decl(&self, module_path: ModuleItemPath) -> DeclResultRef<Decl>;
-    fn ty_decl(&self, path: TypePath) -> DeclResultRef<TypeDecl>;
     fn trai_decl(&self, path: TraitPath) -> DeclResultRef<TraitDecl>;
     fn form_decl(&self, path: FormPath) -> DeclResultRef<FormDecl>;
     fn impl_block_decl(&self, impl_block: ImplBlock) -> DeclResultRef<ImplBlockDecl>;
@@ -30,10 +29,6 @@ where
 {
     fn module_item_decl(&self, module_path: ModuleItemPath) -> DeclResultRef<Decl> {
         module_item_decl(self, module_path)
-    }
-
-    fn ty_decl(&self, path: TypePath) -> DeclResultRef<TypeDecl> {
-        ty_decl(self, path).as_ref().copied()
     }
 
     fn trai_decl(&self, path: TraitPath) -> DeclResultRef<TraitDecl> {
