@@ -47,6 +47,8 @@ pub enum TermError {
     SignatureError(#[from] SignatureError),
     #[error("EntityTreeBundleError")]
     EntityTreeBundleError,
+    #[error("ForDeriveArgument")]
+    ExpectTraitForDeriveArgument,
 }
 
 impl From<EntityPathError> for TermError {

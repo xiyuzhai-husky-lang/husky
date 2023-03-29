@@ -13,31 +13,31 @@ impl Term {
         self,
         db: &'a dyn TermDb,
         trai: Term,
-    ) -> TermResult<Option<&'a TraitForTypeImplCard>> {
+    ) -> TermResult<Option<&'a TraitForTypeImplTemplate>> {
         let Some(trai_path) = trai.leading_trai_path(db) else {
             todo!()
         };
         let ty_path = self.leading_ty_path(db);
-        if let Some(card) = search_among_impl_blocks(
+        if let Some(template) = search_among_impl_blocks(
             db,
             trai_path,
             ty_path,
             trai,
             self,
-            trai_side_trai_for_ty_impl_block_cards(db, trai_path)?,
+            trai_side_trai_for_ty_impl_block_templates(db, trai_path)?,
         )? {
-            return Ok(Some(card));
+            return Ok(Some(template));
         }
         if let Some(ty_path) = ty_path {
-            if let Some(card) = search_among_impl_blocks(
+            if let Some(template) = search_among_impl_blocks(
                 db,
                 trai_path,
                 Some(ty_path),
                 trai,
                 self,
-                ty_side_trai_for_ty_impl_block_cards(db, trai_path, ty_path)?,
+                ty_side_trai_for_ty_impl_block_templates(db, trai_path, ty_path)?,
             )? {
-                return Ok(Some(card));
+                return Ok(Some(template));
             }
         }
         // todo: trait from context
@@ -64,10 +64,10 @@ impl Term {
     }
 }
 
-pub(crate) fn trai_side_trai_for_ty_impl_block_cards<'a>(
+pub(crate) fn trai_side_trai_for_ty_impl_block_templates<'a>(
     db: &'a dyn TermDb,
     trai_path: TraitPath,
-) -> TermResult<&'a [TraitForTypeImplCard]> {
+) -> TermResult<&'a [TraitForTypeImplTemplate]> {
     match trai_side_trai_for_ty_impl_blocks_aux(db, trai_path) {
         Ok(impl_blocks) => Ok(impl_blocks),
         Err(e) => Err(e.clone()),
@@ -78,21 +78,21 @@ pub(crate) fn trai_side_trai_for_ty_impl_block_cards<'a>(
 pub(crate) fn trai_side_trai_for_ty_impl_blocks_aux<'a>(
     db: &'a dyn TermDb,
     trai_path: TraitPath,
-) -> TermResult<SmallVec<[TraitForTypeImplCard; 2]>> {
+) -> TermResult<SmallVec<[TraitForTypeImplTemplate; 2]>> {
     db.entity_tree_bundle(trai_path.crate_path(db))?
         .trai_for_ty_impl_blocks_filtered_by_trai_path(db, trai_path)
-        .map(|impl_block| TraitForTypeImplCard::from_impl_block(db, impl_block))
+        .map(|impl_block| impl_block.template(db))
         .collect()
 }
 
 #[inline(always)]
-pub(crate) fn ty_side_trai_for_ty_impl_block_cards<'a>(
+pub(crate) fn ty_side_trai_for_ty_impl_block_templates<'a>(
     db: &'a dyn TermDb,
     trai_path: TraitPath,
     ty_path: TypePath,
-) -> TermResult<&'a [TraitForTypeImplCard]> {
+) -> TermResult<&'a [TraitForTypeImplTemplate]> {
     match ty_side_trai_for_ty_impl_blocks_aux(db, ty_path) {
-        Ok(cards) => Ok(cards),
+        Ok(templates) => Ok(templates),
         Err(e) => Err(e.clone()),
     }
 }
@@ -101,19 +101,18 @@ pub(crate) fn ty_side_trai_for_ty_impl_block_cards<'a>(
 pub(crate) fn ty_side_trai_for_ty_impl_blocks_aux<'a>(
     db: &'a dyn TermDb,
     ty_path: TypePath,
-) -> TermResult<Vec<TraitForTypeImplCard>> {
-    let mut cards = vec![];
-    let ty_signature = ty_path.signature(db)?;
+) -> TermResult<Vec<TraitForTypeImplTemplate>> {
+    let mut templates = vec![];
     for decr in ty_path.decrs(db)?.iter().copied() {
-        TraitForTypeImplCard::collect_from_decr(db, ty_path, ty_signature, decr, &mut cards)?
+        TraitForTypeImplTemplate::collect_from_decr(db, ty_path, decr, &mut templates)?
     }
     for impl_block in db
         .entity_tree_bundle(ty_path.crate_path(db))?
         .trai_for_ty_impl_blocks_filtered_by_ty_path(db, ty_path)
     {
-        cards.push(TraitForTypeImplCard::from_impl_block(db, impl_block)?)
+        templates.push(impl_block.template(db)?)
     }
-    Ok(cards)
+    Ok(templates)
 }
 
 #[inline(always)]
@@ -123,81 +122,19 @@ fn search_among_impl_blocks<'a>(
     ty_path: Option<TypePath>,
     trai: Term,
     ty: Term,
-    impl_block_cards: &'a [TraitForTypeImplCard],
-) -> TermResult<Option<&'a TraitForTypeImplCard>> {
-    for card in impl_block_cards.iter() {
-        if trai == card.trai && ty == card.ty {
-            return Ok(Some(card));
+    impl_block_templates: &'a [TraitForTypeImplTemplate],
+) -> TermResult<Option<&'a TraitForTypeImplTemplate>> {
+    for template in impl_block_templates.iter() {
+        if trai == template.trai() && ty == template.ty() {
+            return Ok(Some(template));
         }
-        if trai_path != card.trai_path || ty_path != card.ty_path {
+        if trai_path != template.trai_path() || ty_path != template.ty_path() {
             continue;
         }
-        p!(trai.debug(db), ty.debug(db), card.debug(db));
+        p!(trai.debug(db), ty.debug(db), template.debug(db));
         todo!()
     }
     Ok(None)
-}
-
-#[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::derive_debug_with_db(db = TermDb, jar = TermJar)]
-pub struct TraitForTypeImplCard {
-    trai_path: TraitPath,
-    ty_path: Option<TypePath>,
-    trai: Term,
-    ty: Term,
-    src: TraitForTypeImplCardSource,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = TermDb, jar = TermJar)]
-pub enum TraitForTypeImplCardSource {
-    ImplBlock(TraitForTypeImplBlock),
-    DeriveDecr,
-}
-impl TraitForTypeImplCard {
-    fn from_impl_block(db: &dyn TermDb, impl_block: TraitForTypeImplBlock) -> TermResult<Self> {
-        trai_for_type_impl_card_from_impl_block(db, impl_block)
-    }
-
-    fn collect_from_decr<'a>(
-        db: &'a dyn TermDb,
-        ty_path: TypePath,
-        ty_signature: TypeSignature,
-        decr: Decr,
-        cards: &mut Vec<Self>,
-    ) -> TermResult<()> {
-        match decr {
-            Decr::Derive(derive_decr) => {
-                for trai in derive_decr.signature(db)?.traits(db) {
-                    cards.push(TraitForTypeImplCard {
-                        trai_path: todo!(),
-                        ty_path: Some(ty_path),
-                        trai: todo!(),
-                        ty: todo!(),
-                        src: TraitForTypeImplCardSource::DeriveDecr,
-                    })
-                }
-                Ok(())
-            }
-        }
-    }
-}
-
-#[salsa::tracked(jar = TermJar)]
-pub(crate) fn trai_for_type_impl_card_from_impl_block(
-    db: &dyn TermDb,
-    impl_block: TraitForTypeImplBlock,
-) -> TermResult<TraitForTypeImplCard> {
-    let signature = impl_block.signature(db)?;
-    let trai = Term::from_raw_unchecked(db, signature.trai(db), TermTypeExpectation::Any)?;
-    let ty = Term::ty_from_raw_unchecked(db, signature.ty(db))?;
-    Ok(TraitForTypeImplCard {
-        trai_path: trai.leading_trai_path(db).expect("should be valid trait"),
-        ty_path: ty.leading_ty_path(db),
-        trai,
-        ty,
-        src: TraitForTypeImplCardSource::ImplBlock(impl_block),
-    })
 }
 
 #[test]

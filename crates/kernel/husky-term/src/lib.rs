@@ -1,7 +1,8 @@
 #![feature(result_flattening)]
-#![doc = include_str!("../README.md")]
+#![doc = include_str ! ("../README.md")]
 #![feature(trait_upcasting)]
 #![feature(let_chains)]
+
 // #![deny(unsafe_code, missing_docs, clippy::unwrap_used)]
 mod context;
 mod db;
@@ -100,5 +101,8 @@ pub struct TermJar(
     // trai
     trai_side_trai_for_ty_impl_blocks_aux,
     ty_side_trai_for_ty_impl_blocks_aux,
-    trai_for_type_impl_card_from_impl_block,
+    trai_for_type_impl_template_from_impl_block,
+    // template
+    TemplateParameters,
+    ty_path_template_parameters,
 );

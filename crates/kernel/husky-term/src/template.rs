@@ -1,41 +1,18 @@
+mod parameter;
+mod term;
+mod trai_for_ty_impl;
+
+pub(crate) use self::parameter::*;
+pub(crate) use self::trai_for_ty_impl::*;
+
+use self::term::*;
 use crate::*;
-use husky_signature::ImplicitParameterSignature;
+use husky_decr::Decr;
+use husky_entity_tree::TraitForTypeImplBlock;
+use husky_signature::{HasSignature, ImplicitParameterSignature, TypeSignature};
 
-#[derive(Debug, PartialEq, Eq)]
-pub(crate) struct TemplateParameters {
-    data: Vec<TemplateParameter>,
-}
+pub(crate) trait HasTemplate: Copy {
+    type Template;
 
-impl std::ops::Deref for TemplateParameters {
-    type Target = [TemplateParameter];
-
-    fn deref(&self) -> &Self::Target {
-        &self.data
-    }
-}
-
-#[derive(Debug, PartialEq, Eq)]
-pub(crate) struct TemplateParameter {
-    symbol: TermSymbol,
-    /// variable turned from the symbol
-    variable: TermVariable,
-}
-
-impl TemplateParameters {
-    fn new(
-        db: &dyn TermDb,
-        implicit_parameters: &[ImplicitParameterSignature],
-    ) -> TermResult<Self> {
-        Ok(Self {
-            data: implicit_parameters
-                .iter()
-                .map(|implicit_parameter| {
-                    Ok(TemplateParameter {
-                        symbol: TermSymbol::from_raw_unchecked(db, implicit_parameter.symbol())?,
-                        variable: todo!(),
-                    })
-                })
-                .collect::<TermResult<Vec<_>>>()?,
-        })
-    }
+    fn template(self, db: &dyn TermDb) -> TermResult<Self::Template>;
 }
