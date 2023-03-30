@@ -43,3 +43,5 @@ impl TypeMethodFnDecl {
         self.return_ty_inner(db).as_ref().copied()
     }
 }
+
+impl<'a> DeclParseContext<'a> {}

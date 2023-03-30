@@ -7,3 +7,5 @@ pub struct TypeAliasDecl {
     pub ast_idx: AstIdx,
     pub expr_region: ExprRegion,
 }
+
+impl<'a> DeclParseContext<'a> {}

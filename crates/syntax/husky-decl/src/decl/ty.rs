@@ -184,3 +184,11 @@ impl<'a> DeclParseContext<'a> {
         }
     }
 }
+
+#[test]
+fn ty_decl_works() {
+    let db = DB::default();
+    let toolchain = db.dev_toolchain().unwrap();
+    let menu = db.entity_path_menu(toolchain);
+    assert!(menu.never_ty_path().decl(&db).is_ok());
+}

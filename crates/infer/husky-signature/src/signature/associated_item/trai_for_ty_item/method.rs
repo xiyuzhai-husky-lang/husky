@@ -10,9 +10,7 @@ pub(crate) fn trai_for_ty_method_signature(
     let impl_block = decl.associated_item(db).impl_block(db);
     let self_parameter = match impl_block {
         ImplBlock::TraitForType(impl_block) => {
-            let impl_block_signature =
-                trai_for_ty_impl_block_signature(db, trai_for_ty_impl_block_decl(db, impl_block)?)?;
-            RegularParameterSignature::new_self_parameter(impl_block_signature.ty(db))
+            RegularParameterSignature::new_self_parameter(impl_block.signature(db)?.ty(db))
         }
         ImplBlock::Type(_) | ImplBlock::IllFormed(_) => unreachable!(),
     };

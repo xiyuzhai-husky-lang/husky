@@ -32,7 +32,7 @@ impl TraitForTypeImplBlockDecl {
     }
 }
 
-pub fn trai_for_ty_impl_block_decl(
+pub(super) fn trai_for_ty_impl_block_decl(
     db: &dyn DeclDb,
     impl_block: TraitForTypeImplBlock,
 ) -> DeclResultRef<TraitForTypeImplBlockDecl> {
@@ -48,6 +48,14 @@ pub(crate) fn trai_for_ty_impl_block_decl_aux(
 ) -> DeclResult<TraitForTypeImplBlockDecl> {
     let parser = DeclParseContext::new(db, impl_block.module_path(db))?;
     Ok(parser.parse_trai_for_ty_impl_block_decl(impl_block)?.into())
+}
+
+impl HasDecl for TraitForTypeImplBlock {
+    type Decl = TraitForTypeImplBlockDecl;
+
+    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
+        trai_for_ty_impl_block_decl(db, self)
+    }
 }
 
 impl<'a> DeclParseContext<'a> {
@@ -103,13 +111,5 @@ impl<'a> DeclParseContext<'a> {
             eol_colon,
             parser.finish(),
         ))
-    }
-}
-
-impl HasDecl for TraitForTypeImplBlock {
-    type Decl = TraitForTypeImplBlockDecl;
-
-    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
-        trai_for_ty_impl_block_decl(db, self)
     }
 }

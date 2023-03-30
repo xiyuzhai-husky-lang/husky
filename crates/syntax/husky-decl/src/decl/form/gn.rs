@@ -37,3 +37,5 @@ impl GnDecl {
         self.parameter_decl_list(db).as_ref()?.parameters()
     }
 }
+
+impl<'a> DeclParseContext<'a> {}

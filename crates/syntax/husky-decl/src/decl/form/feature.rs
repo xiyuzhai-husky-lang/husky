@@ -13,3 +13,5 @@ pub struct FeatureDecl {
     pub eol_colon: DeclExprResult<EolColonToken>,
     pub expr_region: ExprRegion,
 }
+
+impl<'a> DeclParseContext<'a> {}
