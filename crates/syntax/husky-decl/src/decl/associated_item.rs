@@ -15,7 +15,7 @@ use super::*;
 pub enum AssociatedItemDecl {
     TypeItem(TypeItemDecl),
     TraitItem(TraitItemDecl),
-    TraitForTypeItem(TypeAsTraitItemDecl),
+    TraitForTypeItem(TraitForTypeItemDecl),
 }
 
 impl AssociatedItemDecl {

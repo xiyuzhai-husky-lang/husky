@@ -7,3 +7,8 @@ pub struct TraitMethodDefn {
     pub decl: TraitMethodDecl,
     pub expr_region: ExprRegion,
 }
+
+#[salsa::tracked(jar = DefnJar)]
+pub(crate) fn trai_method_defn(_db: &dyn DefnDb, _decl: TraitMethodDecl) -> TraitMethodDefn {
+    todo!()
+}

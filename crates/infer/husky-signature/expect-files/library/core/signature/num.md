@@ -196,7 +196,7 @@
     ),
     Ok(
         Signature::Impl(
-            ImplSignature::TypeAsTraitImpl(
+            ImplSignature::TraitForTypeImpl(
                 TraitForTypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
@@ -209,8 +209,8 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemSignature::TypeAsTraitItem(
-                TypeAsTraitItemSignature::MethodFn(
+            AssociatedItemSignature::TraitForTypeItem(
+                TraitForTypeItemSignature::MethodFn(
                     TraitForTypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
@@ -292,7 +292,7 @@
     ),
     Ok(
         Signature::Impl(
-            ImplSignature::TypeAsTraitImpl(
+            ImplSignature::TraitForTypeImpl(
                 TraitForTypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
@@ -305,8 +305,8 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemSignature::TypeAsTraitItem(
-                TypeAsTraitItemSignature::MethodFn(
+            AssociatedItemSignature::TraitForTypeItem(
+                TraitForTypeItemSignature::MethodFn(
                     TraitForTypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
@@ -388,7 +388,7 @@
     ),
     Ok(
         Signature::Impl(
-            ImplSignature::TypeAsTraitImpl(
+            ImplSignature::TraitForTypeImpl(
                 TraitForTypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
@@ -401,8 +401,8 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemSignature::TypeAsTraitItem(
-                TypeAsTraitItemSignature::MethodFn(
+            AssociatedItemSignature::TraitForTypeItem(
+                TraitForTypeItemSignature::MethodFn(
                     TraitForTypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
@@ -484,7 +484,7 @@
     ),
     Ok(
         Signature::Impl(
-            ImplSignature::TypeAsTraitImpl(
+            ImplSignature::TraitForTypeImpl(
                 TraitForTypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
@@ -497,8 +497,8 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemSignature::TypeAsTraitItem(
-                TypeAsTraitItemSignature::MethodFn(
+            AssociatedItemSignature::TraitForTypeItem(
+                TraitForTypeItemSignature::MethodFn(
                     TraitForTypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
@@ -580,7 +580,7 @@
     ),
     Ok(
         Signature::Impl(
-            ImplSignature::TypeAsTraitImpl(
+            ImplSignature::TraitForTypeImpl(
                 TraitForTypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
@@ -593,8 +593,8 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemSignature::TypeAsTraitItem(
-                TypeAsTraitItemSignature::MethodFn(
+            AssociatedItemSignature::TraitForTypeItem(
+                TraitForTypeItemSignature::MethodFn(
                     TraitForTypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
@@ -676,7 +676,7 @@
     ),
     Ok(
         Signature::Impl(
-            ImplSignature::TypeAsTraitImpl(
+            ImplSignature::TraitForTypeImpl(
                 TraitForTypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
@@ -689,8 +689,8 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemSignature::TypeAsTraitItem(
-                TypeAsTraitItemSignature::MethodFn(
+            AssociatedItemSignature::TraitForTypeItem(
+                TraitForTypeItemSignature::MethodFn(
                     TraitForTypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
@@ -772,7 +772,7 @@
     ),
     Ok(
         Signature::Impl(
-            ImplSignature::TypeAsTraitImpl(
+            ImplSignature::TraitForTypeImpl(
                 TraitForTypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
@@ -785,8 +785,8 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemSignature::TypeAsTraitItem(
-                TypeAsTraitItemSignature::MethodFn(
+            AssociatedItemSignature::TraitForTypeItem(
+                TraitForTypeItemSignature::MethodFn(
                     TraitForTypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
@@ -868,7 +868,7 @@
     ),
     Ok(
         Signature::Impl(
-            ImplSignature::TypeAsTraitImpl(
+            ImplSignature::TraitForTypeImpl(
                 TraitForTypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
@@ -881,8 +881,8 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemSignature::TypeAsTraitItem(
-                TypeAsTraitItemSignature::MethodFn(
+            AssociatedItemSignature::TraitForTypeItem(
+                TraitForTypeItemSignature::MethodFn(
                     TraitForTypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
@@ -964,7 +964,7 @@
     ),
     Ok(
         Signature::Impl(
-            ImplSignature::TypeAsTraitImpl(
+            ImplSignature::TraitForTypeImpl(
                 TraitForTypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
@@ -977,8 +977,8 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemSignature::TypeAsTraitItem(
-                TypeAsTraitItemSignature::MethodFn(
+            AssociatedItemSignature::TraitForTypeItem(
+                TraitForTypeItemSignature::MethodFn(
                     TraitForTypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
@@ -1060,7 +1060,7 @@
     ),
     Ok(
         Signature::Impl(
-            ImplSignature::TypeAsTraitImpl(
+            ImplSignature::TraitForTypeImpl(
                 TraitForTypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
@@ -1073,8 +1073,8 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemSignature::TypeAsTraitItem(
-                TypeAsTraitItemSignature::MethodFn(
+            AssociatedItemSignature::TraitForTypeItem(
+                TraitForTypeItemSignature::MethodFn(
                     TraitForTypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
@@ -1156,7 +1156,7 @@
     ),
     Ok(
         Signature::Impl(
-            ImplSignature::TypeAsTraitImpl(
+            ImplSignature::TraitForTypeImpl(
                 TraitForTypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
@@ -1169,8 +1169,8 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemSignature::TypeAsTraitItem(
-                TypeAsTraitItemSignature::MethodFn(
+            AssociatedItemSignature::TraitForTypeItem(
+                TraitForTypeItemSignature::MethodFn(
                     TraitForTypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
@@ -1252,7 +1252,7 @@
     ),
     Ok(
         Signature::Impl(
-            ImplSignature::TypeAsTraitImpl(
+            ImplSignature::TraitForTypeImpl(
                 TraitForTypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
@@ -1265,8 +1265,8 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemSignature::TypeAsTraitItem(
-                TypeAsTraitItemSignature::MethodFn(
+            AssociatedItemSignature::TraitForTypeItem(
+                TraitForTypeItemSignature::MethodFn(
                     TraitForTypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
@@ -1348,7 +1348,7 @@
     ),
     Ok(
         Signature::Impl(
-            ImplSignature::TypeAsTraitImpl(
+            ImplSignature::TraitForTypeImpl(
                 TraitForTypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
@@ -1361,8 +1361,8 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemSignature::TypeAsTraitItem(
-                TypeAsTraitItemSignature::MethodFn(
+            AssociatedItemSignature::TraitForTypeItem(
+                TraitForTypeItemSignature::MethodFn(
                     TraitForTypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
@@ -1444,7 +1444,7 @@
     ),
     Ok(
         Signature::Impl(
-            ImplSignature::TypeAsTraitImpl(
+            ImplSignature::TraitForTypeImpl(
                 TraitForTypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
@@ -1457,8 +1457,8 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemSignature::TypeAsTraitItem(
-                TypeAsTraitItemSignature::MethodFn(
+            AssociatedItemSignature::TraitForTypeItem(
+                TraitForTypeItemSignature::MethodFn(
                     TraitForTypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],

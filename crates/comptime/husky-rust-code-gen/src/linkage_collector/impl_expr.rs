@@ -42,7 +42,7 @@ impl<'a> LinkageCollector<'a> {
     //     //             },
     //     //             EagerOpnVariant::MethodCall { method_route, .. } => {
     //     //                 match method_route.variant {
-    //     //                     EntityRouteVariant::TypeAsTraitMember { .. } => {
+    //     //                     EntityRouteVariant::TraitForTypeMember { .. } => {
     //     //                         self.insert(*method_route)
     //     //                     }
     //     //                     _ => self.insert(*method_route),

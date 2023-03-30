@@ -346,7 +346,7 @@ impl<'a> FeatureExprBuilder<'a> {
         //     //     }
         //     //     EntityRouteVariant::Any { .. } => todo!(),
         //     //     EntityRouteVariant::ThisType { .. } => todo!(),
-        //     //     EntityRouteVariant::TypeAsTraitMember { .. } => todo!(),
+        //     //     EntityRouteVariant::TraitForTypeMember { .. } => todo!(),
         //     //     EntityRouteVariant::TargetOutputType => todo!(),
         //     // },
         //     LazyExprVariant::BePattern { ref this, ref patt } => {

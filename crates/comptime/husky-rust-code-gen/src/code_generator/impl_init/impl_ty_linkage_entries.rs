@@ -53,7 +53,7 @@ impl<'a> RustCodeGenerator<'a> {
                 } => self.gen_struct_field_linkages(field_variant, member, liason, ty, field_ty),
                 _ => {
                     let member_entity_route = match member.base_route.variant {
-                        EntityRouteVariant::TypeAsTraitMember { trai, ident, .. } => {
+                        EntityRouteVariant::TraitForTypeMember { trai, ident, .. } => {
                             if trai.variant
                                 == self.db.entity_route_menu().std_ops_index_trai.variant
                             {

@@ -94,13 +94,13 @@ pub struct SignatureJar(
     TraitAssociatedValueSignature,
     // type as trait item
     trai_for_ty_associated_form_fn_signature,
-    TypeAsTraitAssociatedFnSignature,
+    TraitForTypeAssociatedFnSignature,
     trai_for_ty_method_signature,
     TraitForTypeMethodSignature,
     trai_for_ty_associated_ty_signature,
-    TypeAsTraitAssociatedTypeSignature,
+    TraitForTypeAssociatedTypeSignature,
     trai_for_ty_associated_value_signature,
-    TypeAsTraitAssociatedValueSignature,
+    TraitForTypeAssociatedValueSignature,
     // decr
     DeriveDecrSignature,
     derive_decr_signature,

@@ -16,7 +16,7 @@ pub(super) enum AstContextKind {
     /// inside function, method or inline block or main or config
     InsideForm,
     InsideTypeImplBlock,
-    InsideTypeAsTraitImplBlock,
+    InsideTraitForTypeImplBlock,
     /// module level
     InsideModule,
     /// ```python
@@ -86,7 +86,7 @@ impl AstContextKind {
             }
             AstContextKind::InsideEnumLikeType { module_item_path } => todo!(),
             AstContextKind::InsideForm => Ok(()),
-            AstContextKind::InsideTypeImplBlock | AstContextKind::InsideTypeAsTraitImplBlock => {
+            AstContextKind::InsideTypeImplBlock | AstContextKind::InsideTraitForTypeImplBlock => {
                 Err(OriginalAstError::UnexpectedStmtInsideImplBlock)?
             }
             AstContextKind::InsideModule => Ok(()),
@@ -122,7 +122,7 @@ impl Context {
             AstContextKind::InsideTrait { .. }
             | AstContextKind::InsideForm
             | AstContextKind::InsideTypeImplBlock
-            | AstContextKind::InsideTypeAsTraitImplBlock
+            | AstContextKind::InsideTraitForTypeImplBlock
             | AstContextKind::InsideModule
             | AstContextKind::InsideNoChild => self.indent + INDENT_INCR,
         };

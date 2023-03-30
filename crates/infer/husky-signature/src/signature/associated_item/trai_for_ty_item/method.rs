@@ -5,7 +5,7 @@ use crate::*;
 #[salsa::tracked(jar = SignatureJar)]
 pub(crate) fn trai_for_ty_method_signature(
     db: &dyn SignatureDb,
-    decl: TypeAsTraitMethodDecl,
+    decl: TraitForTypeMethodDecl,
 ) -> SignatureResult<TraitForTypeMethodSignature> {
     let impl_block = decl.associated_item(db).impl_block(db);
     let self_parameter = match impl_block {

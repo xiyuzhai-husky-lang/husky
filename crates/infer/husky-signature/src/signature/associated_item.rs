@@ -30,12 +30,12 @@ pub(crate) fn associated_item_signature_from_decl(
 pub enum AssociatedItemSignature {
     TypeItem(TypeItemSignature),
     TraitItem(TraitItemSignature),
-    TypeAsTraitItem(TypeAsTraitItemSignature),
+    TraitForTypeItem(TraitForTypeItemSignature),
 }
 
-impl From<TypeAsTraitItemSignature> for AssociatedItemSignature {
-    fn from(v: TypeAsTraitItemSignature) -> Self {
-        Self::TypeAsTraitItem(v)
+impl From<TraitForTypeItemSignature> for AssociatedItemSignature {
+    fn from(v: TraitForTypeItemSignature) -> Self {
+        Self::TraitForTypeItem(v)
     }
 }
 
@@ -56,7 +56,7 @@ impl AssociatedItemSignature {
         match self {
             AssociatedItemSignature::TypeItem(decl) => decl.implicit_parameters(db),
             AssociatedItemSignature::TraitItem(decl) => decl.implicit_parameters(db),
-            AssociatedItemSignature::TypeAsTraitItem(_) => todo!(),
+            AssociatedItemSignature::TraitForTypeItem(_) => todo!(),
         }
     }
 }

@@ -12,7 +12,7 @@ impl<'a> LinkageCollector<'a> {
     pub(crate) fn insert(&mut self, _entity_path: Term) {
         todo!()
         // match entity_path.variant {
-        //     EntityRouteVariant::TypeAsTraitMember { trai, .. } => {
+        //     EntityRouteVariant::TraitForTypeMember { trai, .. } => {
         //         if trai == self.db.entity_route_menu().clone_trait {
         //             return;
         //         }

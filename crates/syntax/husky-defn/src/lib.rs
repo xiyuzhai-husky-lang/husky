@@ -85,13 +85,13 @@ pub struct DefnJar(
     TraitAssociatedValueDefn,
     trai_associated_value_defn,
     // type as trait item
-    TypeAsTraitAssociatedFunctionDefn,
+    TraitForTypeAssociatedFunctionDefn,
     trai_for_ty_associated_function_defn,
-    TypeAsTraitMethodDefn,
+    TraitForTypeMethodDefn,
     trai_for_ty_method_defn,
-    TypeAsTraitAssociatedTypeDefn,
+    TraitForTypeAssociatedTypeDefn,
     trai_for_ty_associated_ty_defn,
-    TypeAsTraitAssociatedValueDefn,
+    TraitForTypeAssociatedValueDefn,
     trai_for_ty_associated_value_defn,
 );
 

@@ -43,7 +43,7 @@
         path: RegionPath::Defn(
             DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_block_id: ImplBlockId::TypeAsTrait(
+                    impl_block_id: ImplBlockId::TraitForType(
                         TraitForTypeImplBlockId {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
@@ -126,7 +126,7 @@
         path: RegionPath::Defn(
             DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_block_id: ImplBlockId::TypeAsTrait(
+                    impl_block_id: ImplBlockId::TraitForType(
                         TraitForTypeImplBlockId {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
@@ -209,7 +209,7 @@
         path: RegionPath::Defn(
             DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_block_id: ImplBlockId::TypeAsTrait(
+                    impl_block_id: ImplBlockId::TraitForType(
                         TraitForTypeImplBlockId {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
@@ -292,7 +292,7 @@
         path: RegionPath::Defn(
             DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_block_id: ImplBlockId::TypeAsTrait(
+                    impl_block_id: ImplBlockId::TraitForType(
                         TraitForTypeImplBlockId {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
@@ -375,7 +375,7 @@
         path: RegionPath::Defn(
             DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_block_id: ImplBlockId::TypeAsTrait(
+                    impl_block_id: ImplBlockId::TraitForType(
                         TraitForTypeImplBlockId {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
@@ -458,7 +458,7 @@
         path: RegionPath::Defn(
             DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_block_id: ImplBlockId::TypeAsTrait(
+                    impl_block_id: ImplBlockId::TraitForType(
                         TraitForTypeImplBlockId {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
@@ -541,7 +541,7 @@
         path: RegionPath::Defn(
             DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_block_id: ImplBlockId::TypeAsTrait(
+                    impl_block_id: ImplBlockId::TraitForType(
                         TraitForTypeImplBlockId {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
@@ -624,7 +624,7 @@
         path: RegionPath::Defn(
             DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_block_id: ImplBlockId::TypeAsTrait(
+                    impl_block_id: ImplBlockId::TraitForType(
                         TraitForTypeImplBlockId {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
@@ -707,7 +707,7 @@
         path: RegionPath::Defn(
             DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_block_id: ImplBlockId::TypeAsTrait(
+                    impl_block_id: ImplBlockId::TraitForType(
                         TraitForTypeImplBlockId {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
@@ -790,7 +790,7 @@
         path: RegionPath::Defn(
             DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_block_id: ImplBlockId::TypeAsTrait(
+                    impl_block_id: ImplBlockId::TraitForType(
                         TraitForTypeImplBlockId {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
@@ -873,7 +873,7 @@
         path: RegionPath::Defn(
             DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_block_id: ImplBlockId::TypeAsTrait(
+                    impl_block_id: ImplBlockId::TraitForType(
                         TraitForTypeImplBlockId {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
@@ -956,7 +956,7 @@
         path: RegionPath::Defn(
             DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_block_id: ImplBlockId::TypeAsTrait(
+                    impl_block_id: ImplBlockId::TraitForType(
                         TraitForTypeImplBlockId {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
@@ -1039,7 +1039,7 @@
         path: RegionPath::Defn(
             DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_block_id: ImplBlockId::TypeAsTrait(
+                    impl_block_id: ImplBlockId::TraitForType(
                         TraitForTypeImplBlockId {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
@@ -1122,7 +1122,7 @@
         path: RegionPath::Defn(
             DefnRegionPath::AssociatedItem(
                 AssociatedItemId {
-                    impl_block_id: ImplBlockId::TypeAsTrait(
+                    impl_block_id: ImplBlockId::TraitForType(
                         TraitForTypeImplBlockId {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),

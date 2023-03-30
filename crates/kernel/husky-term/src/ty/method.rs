@@ -17,11 +17,11 @@ use husky_word::IdentPairMap;
 #[enum_class::from_variants]
 pub enum MethodCard {
     TypeMethodFn(TypeMethodFnCard),
-    TypeAsTraitMethodFn(TypeAsTraitMethodFnCard),
+    TraitForTypeMethodFn(TraitForTypeMethodFnCard),
 }
 
 #[salsa::tracked(db = TermDb, jar = TermJar, constructor = new_inner)]
-pub struct TypeAsTraitMethodFnCard {
+pub struct TraitForTypeMethodFnCard {
     #[id]
     id: AssociatedItemId,
     method_ty: TermResult<Term>,

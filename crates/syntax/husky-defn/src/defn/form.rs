@@ -49,3 +49,16 @@ impl FormDefn {
         }
     }
 }
+
+impl HasDefn for FormDecl {
+    type Defn = FormDefn;
+
+    fn defn(self, db: &dyn DefnDb) -> Self::Defn {
+        match self {
+            FormDecl::Fn(decl) => function_defn(db, decl).into(),
+            FormDecl::Feature(decl) => feature_defn(db, decl).into(),
+            FormDecl::Gn(_) => todo!(),
+            FormDecl::Value(_) => todo!(),
+        }
+    }
+}
