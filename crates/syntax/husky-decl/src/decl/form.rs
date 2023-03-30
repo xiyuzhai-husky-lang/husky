@@ -69,7 +69,7 @@ impl HasDecl for FormPath {
     type Decl = FormDecl;
 
     fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
-        todo!()
+        form_decl(db, self).as_ref().copied()
     }
 }
 
@@ -81,8 +81,7 @@ pub(crate) fn form_decl(db: &dyn DeclDb, path: FormPath) -> DeclResult<FormDecl>
 
 impl<'a> DeclParseContext<'a> {
     fn parse_form_decl(&self, path: FormPath) -> DeclResult<FormDecl> {
-        let ident = path.ident(self.db());
-        let ast_idx: AstIdx = self.resolve_module_item_symbol(path).ast_idx(self.db());
+        let ast_idx: AstIdx = self.resolve_module_item_ast_idx(path);
         match self.ast_sheet()[ast_idx] {
             Ast::Defn {
                 token_group_idx,

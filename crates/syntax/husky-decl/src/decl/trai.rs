@@ -26,6 +26,27 @@ impl HasDecl for TraitPath {
     type Decl = TraitDecl;
 
     fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
-        todo!()
+        trai_decl(db, self).as_ref().copied()
+    }
+}
+
+#[salsa::tracked(jar = DeclJar,return_ref)]
+pub(crate) fn trai_decl(db: &dyn DeclDb, path: TraitPath) -> DeclResult<TraitDecl> {
+    let parser = DeclParseContext::new(db, path.module_path(db))?;
+    parser.parse_trai_decl(path)
+}
+
+impl<'a> DeclParseContext<'a> {
+    fn parse_trai_decl(&self, path: TraitPath) -> DeclResult<TraitDecl> {
+        let ast_idx = self.resolve_module_item_ast_idx(path);
+        match self.ast_sheet()[ast_idx] {
+            Ast::Defn {
+                token_group_idx,
+                ref body,
+                saved_stream_state,
+                ..
+            } => self.parse_trai_decl_aux(ast_idx, path, token_group_idx, body, saved_stream_state),
+            _ => unreachable!(),
+        }
     }
 }
