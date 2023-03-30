@@ -69,11 +69,7 @@ impl<'a> DeclParseContext<'a> {
             AllowSelfType::True,
             AllowSelfValue::False,
         );
-        let mut ctx = parser.ctx(
-            None,
-            self.token_sheet_data()
-                .token_group_token_stream(token_group_idx, None),
-        );
+        let mut ctx = parser.ctx2(None, token_group_idx, None);
         let impl_token = ctx.parse().unwrap().unwrap();
         let implicit_parameter_decl_list = ctx.parse();
         let ty = ctx.parse().unwrap().unwrap();

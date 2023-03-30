@@ -24,7 +24,7 @@ impl ExternTypeDecl {
 }
 impl<'a> DeclParseContext<'a> {
     // get declaration from tokens
-    pub(super) fn parse_foreign_ty_decl(
+    pub(super) fn parse_extern_ty_decl(
         &self,
         ast_idx: AstIdx,
         path: TypePath,

@@ -178,7 +178,7 @@ impl<'a> DeclParseContext<'a> {
                 saved_stream_state,
             ),
             TypeKind::Extern => {
-                self.parse_foreign_ty_decl(ast_idx, path, token_group_idx, body, saved_stream_state)
+                self.parse_extern_ty_decl(ast_idx, path, token_group_idx, body, saved_stream_state)
             }
         }
     }

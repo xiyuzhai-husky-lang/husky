@@ -49,4 +49,29 @@ impl<'a> DeclParseContext<'a> {
             _ => unreachable!(),
         }
     }
+
+    fn parse_trai_decl_aux(
+        &self,
+        ast_idx: AstIdx,
+        path: TraitPath,
+        token_group_idx: TokenGroupIdx,
+        _body: &AstIdxRange,
+        saved_stream_state: TokenIdx,
+    ) -> DeclResult<TraitDecl> {
+        let mut parser = self.expr_parser(
+            DeclRegionPath::Entity(path.into()),
+            None,
+            AllowSelfType::True,
+            AllowSelfValue::False,
+        );
+        let mut ctx = parser.ctx2(None, token_group_idx, Some(saved_stream_state));
+        let implicit_parameters = ctx.parse();
+        Ok(TraitDecl::new(
+            self.db(),
+            path,
+            ast_idx,
+            parser.finish(),
+            implicit_parameters,
+        ))
+    }
 }
