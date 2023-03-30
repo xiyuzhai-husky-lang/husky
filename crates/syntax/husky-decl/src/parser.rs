@@ -10,12 +10,6 @@ use husky_token::*;
 use husky_word::Ident;
 use parsec::*;
 
-#[salsa::tracked(jar = DeclJar, return_ref)]
-pub(crate) fn form_decl(db: &dyn DeclDb, path: FormPath) -> DeclResult<FormDecl> {
-    let parser = DeclParseContext::new(db, path.module_path(db))?;
-    parser.parse_form_decl(path)
-}
-
 #[salsa::tracked(jar = DeclJar,return_ref)]
 pub(crate) fn trai_decl(db: &dyn DeclDb, path: TraitPath) -> DeclResult<TraitDecl> {
     let parser = DeclParseContext::new(db, path.module_path(db))?;
@@ -65,7 +59,7 @@ impl<'a> DeclParseContext<'a> {
         entity_symbol.module_item_symbol().unwrap()
     }
 
-    fn parse_trai_decl(&self, path: TraitPath) -> DeclResult<TraitDecl> {
+    pub(super) fn parse_trai_decl(&self, path: TraitPath) -> DeclResult<TraitDecl> {
         let ident = path.ident(self.db);
         let Some(entity_symbol) = self
             .module_entity_tree
@@ -91,7 +85,7 @@ impl<'a> DeclParseContext<'a> {
         }
     }
 
-    fn parse_trai_decl_aux(
+    pub(super) fn parse_trai_decl_aux(
         &self,
         ast_idx: AstIdx,
         path: TraitPath,
@@ -134,60 +128,7 @@ impl<'a> DeclParseContext<'a> {
         )
     }
 
-    fn parse_form_decl(&self, path: FormPath) -> DeclResult<FormDecl> {
-        let ident = path.ident(self.db);
-        let module_item = self
-            .module_entity_tree
-            .module_symbols()
-            .resolve_ident(ident)
-            .unwrap()
-            .module_item_symbol()
-            .unwrap();
-        let ast_idx: AstIdx = module_item.ast_idx(self.db);
-        match self.ast_sheet[ast_idx] {
-            Ast::Defn {
-                token_group_idx,
-                ref body,
-
-                entity_kind,
-
-                saved_stream_state,
-                ..
-            } => self.parse_form_decl_aux(
-                ast_idx,
-                path,
-                entity_kind,
-                token_group_idx,
-                body,
-                saved_stream_state,
-            ),
-            _ => unreachable!(),
-        }
-    }
-
-    fn parse_form_decl_aux(
-        &self,
-        ast_idx: AstIdx,
-        path: FormPath,
-        _entity_kind: EntityKind,
-        token_group_idx: TokenGroupIdx,
-        _body: &AstIdxRange,
-        saved_stream_state: TokenIdx,
-    ) -> Result<FormDecl, DeclError> {
-        match path.form_kind(self.db) {
-            FormKind::Feature => {
-                self.parse_feature_decl(ast_idx, token_group_idx, saved_stream_state, path)
-            }
-            FormKind::Fn => self.parse_fn_decl(ast_idx, token_group_idx, saved_stream_state, path),
-            FormKind::Value => todo!(),
-            FormKind::TypeAlias => {
-                todo!()
-            }
-            FormKind::Gn => self.parse_gn_decl(ast_idx, token_group_idx, saved_stream_state, path),
-        }
-    }
-
-    fn parse_feature_decl(
+    pub(super) fn parse_feature_decl(
         &self,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
@@ -216,7 +157,7 @@ impl<'a> DeclParseContext<'a> {
         .into())
     }
 
-    fn parse_fn_decl(
+    pub(super) fn parse_fn_decl(
         &self,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
@@ -237,40 +178,6 @@ impl<'a> DeclParseContext<'a> {
         let return_ty = ctx.parse_expected(OriginalDeclExprError::ExpectOutputType);
         let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon);
         Ok(FnDecl::new(
-            self.db,
-            path,
-            ast_idx,
-            parser.finish(),
-            implicit_parameter_decl_list,
-            parameter_decl_list,
-            curry_token,
-            return_ty,
-            eol_colon,
-        )
-        .into())
-    }
-
-    fn parse_gn_decl(
-        &self,
-        ast_idx: AstIdx,
-        token_group_idx: TokenGroupIdx,
-        saved_stream_state: TokenIdx,
-        path: FormPath,
-    ) -> Result<FormDecl, DeclError> {
-        let mut parser = self.expr_parser(
-            DeclRegionPath::Entity(path.into()),
-            None,
-            AllowSelfType::False,
-            AllowSelfValue::False,
-        );
-        let mut ctx = parser.ctx2(None, token_group_idx, Some(saved_stream_state));
-        let implicit_parameter_decl_list = ctx.parse();
-        let parameter_decl_list =
-            ctx.parse_expected(OriginalDeclExprError::ExpectParameterDeclList);
-        let curry_token = ctx.parse_expected(OriginalDeclExprError::ExpectCurry);
-        let return_ty = ctx.parse_expected(OriginalDeclExprError::ExpectOutputType);
-        let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon);
-        Ok(GnDecl::new(
             self.db,
             path,
             ast_idx,

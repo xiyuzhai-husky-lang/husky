@@ -21,3 +21,11 @@ impl TraitDecl {
         }
     }
 }
+
+impl HasDecl for TraitPath {
+    type Decl = TraitDecl;
+
+    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
+        todo!()
+    }
+}

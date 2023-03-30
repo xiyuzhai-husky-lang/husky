@@ -7,6 +7,7 @@ mod method_fn;
 pub use associated_fn::*;
 pub use associated_ty::*;
 pub use associated_value::*;
+use husky_entity_taxonomy::TypeItemKind;
 use husky_word::{Ident, IdentPairMap};
 pub use memo::*;
 pub use method_fn::*;
@@ -93,4 +94,40 @@ impl TypeItemDecl {
     }
 }
 
-impl<'a> DeclParseContext<'a> {}
+impl<'a> DeclParseContext<'a> {
+    pub(super) fn parse_ty_item_decl(
+        &self,
+        ty_item_kind: TypeItemKind,
+        ast_idx: AstIdx,
+        token_group_idx: TokenGroupIdx,
+        associated_item: AssociatedItem,
+        saved_stream_state: TokenIdx,
+    ) -> Result<AssociatedItemDecl, DeclError> {
+        Ok(AssociatedItemDecl::TypeItem(match ty_item_kind {
+            TypeItemKind::MethodFn => self
+                .parse_ty_method_decl(
+                    ast_idx,
+                    token_group_idx,
+                    associated_item,
+                    saved_stream_state,
+                )?
+                .into(),
+            TypeItemKind::AssociatedFn => self
+                .parse_ty_associated_fn_decl(
+                    ast_idx,
+                    token_group_idx,
+                    associated_item,
+                    saved_stream_state,
+                )?
+                .into(),
+            TypeItemKind::Memo => self
+                .parse_ty_memo_decl(
+                    ast_idx,
+                    token_group_idx,
+                    associated_item,
+                    saved_stream_state,
+                )?
+                .into(),
+        }))
+    }
+}
