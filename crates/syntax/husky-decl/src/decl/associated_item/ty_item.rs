@@ -11,6 +11,7 @@ use husky_entity_taxonomy::TypeItemKind;
 use husky_word::{Ident, IdentPairMap};
 pub use memo::*;
 pub use method_fn::*;
+use vec_like::VecMapGetEntry;
 
 use crate::*;
 use husky_ast::*;
@@ -24,6 +25,20 @@ pub enum TypeItemDecl {
     AssociatedType(TypeAssociatedTypeDecl),
     AssociatedValue(TypeAssociatedValueDecl),
     Memo(TypeMemoDecl),
+}
+
+impl HasDecl for TypeItemPath {
+    type Decl = TypeItemDecl;
+
+    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
+        self.parent_ty(db)
+            .item_decls(db)
+            .map_err(|_| todo!())?
+            .get_entry(self.ident(db))
+            .ok_or(&DeclError::Original(OriginalDeclError::NoSuchItem))?
+            .1
+            .map_err(|_| todo!())
+    }
 }
 
 #[salsa::tracked(jar = DeclJar, return_ref)]

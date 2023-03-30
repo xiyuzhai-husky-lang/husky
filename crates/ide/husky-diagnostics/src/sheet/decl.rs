@@ -42,9 +42,9 @@ impl Diagnose for OriginalDeclError {
     type Context<'a> = SheetDiagnosticsContext<'a>;
 
     fn message(&self, _db: &Self::Context<'_>) -> String {
-        // chatgpt wrote this
         match self {
             OriginalDeclError::ExpectLCurlOrLParOrSemicolon(_) => todo!(),
+            OriginalDeclError::NoSuchItem => todo!(),
         }
     }
 

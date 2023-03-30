@@ -52,8 +52,8 @@ impl<'a> DeclParseContext<'a> {
         associated_item: AssociatedItem,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeMethodFnDecl> {
-        let Ok(impl_block_decl) = self.db().impl_block_decl(
-            associated_item.impl_block(self.db())
+        let Ok(impl_block_decl) = associated_item.impl_block(self.db()).decl(
+            self.db()
         ) else {
             return Err(DerivedDeclError::UnableToParseImplDeclForTyMethodDecl.into())
         };

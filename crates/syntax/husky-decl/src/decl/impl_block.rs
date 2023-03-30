@@ -16,6 +16,14 @@ pub enum ImplBlockDecl {
     TraitForType(TraitForTypeImplBlockDecl),
 }
 
+impl HasDecl for ImplBlock {
+    type Decl = ImplBlockDecl;
+
+    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
+        impl_block_decl(db, self)
+    }
+}
+
 impl ImplBlockDecl {
     pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
         match self {

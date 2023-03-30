@@ -5,10 +5,7 @@ pub(crate) fn ty_item_path_raw_ty(
     db: &dyn RawTypeDb,
     path: TypeItemPath,
 ) -> RawTypeResult<RawTerm> {
-    let decl = match db.ty_item_decl(path) {
-        Some(decl) => decl,
-        None => return Err(DerivedRawTypeError::TypeItemNotFound.into()),
-    };
+    let decl = path.decl(db)?;
     let signature = decl
         .signature(db)
         .map_err(|_| DerivedRawTypeError::SignatureError)?;

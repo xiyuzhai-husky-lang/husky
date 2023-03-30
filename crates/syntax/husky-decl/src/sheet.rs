@@ -32,7 +32,7 @@ impl<'a> DeclSheet<'a> {
             decls
                 .insert_new((
                     DeclRegionPath::ImplBlock(impl_block.id(db)),
-                    db.impl_block_decl(impl_block).map(|decl| decl.into()),
+                    impl_block.decl(db).map(|decl| decl.into()),
                 ))
                 .unwrap();
             for (_, associated_item) in db.impl_block_items(impl_block).iter().copied() {

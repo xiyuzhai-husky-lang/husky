@@ -25,8 +25,9 @@ impl<'a> DeclParseContext<'a> {
         associated_item: AssociatedItem,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeMemoDecl> {
-        let Ok(impl_decl) = self.db().impl_block_decl(associated_item.impl_block(self.db()))
-        else { todo!() };
+        let Ok(impl_decl) = associated_item.impl_block(self.db()).decl(
+            self.db()
+        ) else { todo!() };
         let mut parser = self.expr_parser(
             DeclRegionPath::AssociatedItem(associated_item.id(self.db())),
             Some(impl_decl.expr_region(self.db())),
