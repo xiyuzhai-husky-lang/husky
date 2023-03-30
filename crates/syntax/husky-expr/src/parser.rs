@@ -100,17 +100,6 @@ impl<'a> ExprParser<'a> {
     pub fn ctx<'b>(
         &'b mut self,
         env: Option<ExprEnvironment>,
-        token_stream: TokenStream<'a>,
-    ) -> ExprParseContext<'a, 'b>
-    where
-        'a: 'b,
-    {
-        ExprParseContext::new(self, env, token_stream)
-    }
-
-    pub fn ctx2<'b>(
-        &'b mut self,
-        env: Option<ExprEnvironment>,
         token_group_idx: TokenGroupIdx,
         state: impl Into<Option<TokenIdx>>,
     ) -> ExprParseContext<'a, 'b>

@@ -50,7 +50,7 @@ impl<'a> DeclParseContext<'a> {
             AllowSelfType::True,
             AllowSelfValue::False,
         );
-        let mut ctx = parser.ctx2(None, token_group_idx, Some(saved_stream_state));
+        let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
         let implicit_parameters = ctx.parse();
         if let Some(lcurl) = ctx.parse::<LeftCurlyBraceToken>()? {
             let (parameters, commas, field_comma_list_result) = parse_separated_list(&mut ctx);

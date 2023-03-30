@@ -9,8 +9,6 @@ pub(crate) fn parse_expr_from_snippet(
     snippet: Snippet,
 ) -> PreludeResult<(ExprRegion, Option<ExprIdx>)> {
     let token_sheet_data = db.snippet_token_sheet_data(snippet);
-    let token_iter = token_sheet_data
-        .token_group_token_stream(token_sheet_data.token_group_iter().next().unwrap().0, None);
     let mut expr_parser = ExprParser::new(
         db,
         RegionPath::Snippet(crate_path.toolchain(db)),
@@ -20,6 +18,12 @@ pub(crate) fn parse_expr_from_snippet(
         AllowSelfType::False,
         AllowSelfValue::False,
     );
-    let expr = expr_parser.ctx(None, token_iter).parse_expr(None);
+    let expr = expr_parser
+        .ctx(
+            None,
+            token_sheet_data.token_group_iter().next().unwrap().0,
+            None,
+        )
+        .parse_expr(None);
     Ok((expr_parser.finish(), expr))
 }
