@@ -70,8 +70,9 @@ impl<'a> DeclParseContext<'a> {
         associated_item: AssociatedItem,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TraitForTypeMethodDecl> {
-        let Ok(impl_decl) = self.db().impl_block_decl(associated_item.impl_block(self.db()))
-        else {
+        let Ok(impl_decl) = associated_item.impl_block(self.db()).decl(
+            self.db()
+        ) else {
             return Err(
                 DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodDecl.into()
             )

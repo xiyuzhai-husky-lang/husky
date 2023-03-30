@@ -38,6 +38,8 @@ impl From<TokenError> for DeclError {
 pub enum OriginalDeclError {
     #[error("expect `{{` or `(` or `;`")]
     ExpectLCurlOrLParOrSemicolon(TokenIdx),
+    #[error("NoSuchItem")]
+    NoSuchItem,
 }
 
 impl OriginalError for OriginalDeclError {

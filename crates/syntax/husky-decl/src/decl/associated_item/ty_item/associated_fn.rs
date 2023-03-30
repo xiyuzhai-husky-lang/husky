@@ -49,7 +49,7 @@ impl<'a> DeclParseContext<'a> {
         associated_item: AssociatedItem,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeAssociatedFnDecl> {
-        let Ok(impl_decl) = self.db().impl_block_decl(associated_item.impl_block(self.db()))
+        let Ok(impl_decl) = associated_item.impl_block(self.db()).decl(self.db())
         else { return Err(DerivedDeclError::UnableToParseImplDeclForTyMethodDecl.into()) };
         let mut parser = self.expr_parser(
             DeclRegionPath::AssociatedItem(associated_item.id(self.db())),

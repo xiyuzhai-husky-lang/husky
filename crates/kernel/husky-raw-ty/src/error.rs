@@ -1,4 +1,5 @@
 use crate::*;
+use husky_decl::DeclError;
 use thiserror::Error;
 
 pub type RawTypeResult<T> = Result<T, RawTypeError>;
@@ -10,6 +11,12 @@ pub enum RawTypeError {
     Original(#[from] OriginalRawTypeError),
     #[error("derived `{0}`")]
     Derived(#[from] DerivedRawTypeError),
+}
+
+impl From<&DeclError> for RawTypeError {
+    fn from(value: &DeclError) -> Self {
+        todo!()
+    }
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]

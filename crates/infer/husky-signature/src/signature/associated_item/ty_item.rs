@@ -27,7 +27,7 @@ pub(crate) fn ty_item_signature(
     db: &dyn SignatureDb,
     path: TypeItemPath,
 ) -> SignatureResult<TypeItemSignature> {
-    let decl = db.ty_item_decl(path).ok_or(SignatureError::DeclError)?;
+    let decl = path.decl(db)?;
     ty_item_signature_from_decl(db, decl)
 }
 
