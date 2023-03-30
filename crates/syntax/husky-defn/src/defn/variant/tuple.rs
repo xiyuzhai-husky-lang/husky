@@ -6,3 +6,8 @@ pub struct TupleVariantDefn {
     pub path: VariantPath,
     pub decl: TupleVariantDecl,
 }
+
+#[salsa::tracked(jar = DefnJar)]
+pub(crate) fn tuple_variant_defn(_db: &dyn DefnDb, _decl: TupleVariantDecl) -> TupleVariantDefn {
+    todo!()
+}

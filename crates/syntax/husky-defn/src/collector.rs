@@ -36,56 +36,6 @@ impl<'a> DefnCollector<'a> {
     }
 }
 
-#[salsa::tracked(jar = DefnJar)]
-pub(crate) fn regular_struct_ty_defn(
-    db: &dyn DefnDb,
-    decl: RegularStructTypeDecl,
-) -> RegularStructTypeDefn {
-    let path = decl.path(db);
-    RegularStructTypeDefn::new(db, path, decl)
-}
-
-#[salsa::tracked(jar = DefnJar)]
-pub(crate) fn unit_struct_ty_defn(db: &dyn DefnDb, decl: UnitStructTypeDecl) -> UnitStructTypeDefn {
-    let path = decl.path(db);
-    UnitStructTypeDefn::new(db, path, decl)
-}
-
-#[salsa::tracked(jar = DefnJar)]
-pub(crate) fn inductive_ty_defn(db: &dyn DefnDb, decl: InductiveTypeDecl) -> InductiveTypeDefn {
-    let path = decl.path(db);
-    InductiveTypeDefn::new(db, path, decl)
-}
-
-#[salsa::tracked(jar = DefnJar)]
-pub(crate) fn structure_ty_defn(db: &dyn DefnDb, decl: StructureTypeDecl) -> StructureTypeDefn {
-    let path = decl.path(db);
-    StructureTypeDefn::new(db, path, decl)
-}
-
-#[salsa::tracked(jar = DefnJar)]
-pub(crate) fn alien_ty_defn(db: &dyn DefnDb, decl: ExternTypeDecl) -> ExternTypeDefn {
-    let path = decl.path(db);
-    ExternTypeDefn::new(db, path, decl)
-}
-
-#[salsa::tracked(jar = DefnJar)]
-pub(crate) fn record_ty_defn(db: &dyn DefnDb, decl: RecordTypeDecl) -> RecordTypeDefn {
-    let path = decl.path(db);
-    RecordTypeDefn::new(db, path, decl)
-}
-
-#[salsa::tracked(jar = DefnJar)]
-pub(crate) fn union_ty_defn(db: &dyn DefnDb, decl: UnionTypeDecl) -> UnionTypeDefn {
-    let path = decl.path(db);
-    UnionTypeDefn::new(db, path, decl)
-}
-
-#[salsa::tracked(jar = DefnJar)]
-pub(crate) fn tuple_variant_defn(_db: &dyn DefnDb, _decl: TupleVariantDecl) -> TupleVariantDefn {
-    todo!()
-}
-
 pub(crate) fn expr_parser<'a>(
     db: &'a dyn DefnDb,
     expr_path: DefnRegionPath,
