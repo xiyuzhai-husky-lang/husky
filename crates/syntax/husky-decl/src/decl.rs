@@ -88,17 +88,21 @@ impl HasDecl for EntityPath {
     fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
         match self {
             EntityPath::Module(_) => todo!(),
-            EntityPath::ModuleItem(path) => db.module_item_decl(path), // change this to trait method
+            EntityPath::ModuleItem(path) => path.decl(db), // change this to trait method
             EntityPath::AssociatedItem(_) => todo!(),
             EntityPath::Variant(_) => todo!(),
         }
     }
 }
 
-pub(crate) fn module_item_decl(db: &dyn DeclDb, path: ModuleItemPath) -> DeclResultRef<Decl> {
-    match path {
-        ModuleItemPath::Type(path) => path.decl(db).map(Into::into),
-        ModuleItemPath::Trait(path) => path.decl(db).map(Into::into),
-        ModuleItemPath::Form(path) => path.decl(db).map(Into::into),
+impl HasDecl for ModuleItemPath {
+    type Decl = Decl;
+
+    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
+        match self {
+            ModuleItemPath::Type(path) => path.decl(db).map(Into::into),
+            ModuleItemPath::Trait(path) => path.decl(db).map(Into::into),
+            ModuleItemPath::Form(path) => path.decl(db).map(Into::into),
+        }
     }
 }

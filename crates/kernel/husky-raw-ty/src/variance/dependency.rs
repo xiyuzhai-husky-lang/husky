@@ -91,7 +91,7 @@ pub(crate) fn form_entity_variance_crate_dependencies(
     path: FormPath,
     _idx: u8,
 ) -> VarianceResult<VecSet<VarianceId>> {
-    let decl = match db.form_decl(path) {
+    let decl = match path.decl(db) {
         Ok(decl) => decl,
         Err(_) => return Err(DerivedVarianceError::DeclError.into()),
     };

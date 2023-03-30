@@ -1,3 +1,4 @@
+use husky_decl::HasItemDecls;
 use husky_entity_tree::EntityTreeBundleResultRef;
 use husky_signature::{ty_method_signature, RegularParameterSignature};
 use vec_like::VecMapGetEntry;
@@ -86,8 +87,8 @@ pub(crate) fn ty_path_ty_method_cards_aux(
     db: &dyn TermDb,
     path: TypePath,
 ) -> EntityTreeBundleResult<IdentPairMap<Result<TypeMethodFnCard, ()>>> {
-    let ty_item_decls = db.ty_item_decls(path)?;
-    Ok(ty_item_decls
+    Ok(path
+        .item_decls(db)?
         .iter()
         .copied()
         .filter_map(|(ident, decl)| {

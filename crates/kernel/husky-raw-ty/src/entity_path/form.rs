@@ -2,7 +2,7 @@ use super::*;
 
 #[salsa::tracked(jar = RawTypeJar)]
 pub fn form_path_raw_ty(db: &dyn RawTypeDb, path: FormPath) -> RawTypeResult<RawTerm> {
-    let decl = match db.form_decl(path) {
+    let decl = match path.decl(db) {
         Ok(decl) => decl,
         Err(_) => return Err(DerivedRawTypeError::FormDeclError.into()),
     };

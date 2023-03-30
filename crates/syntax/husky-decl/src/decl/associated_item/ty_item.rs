@@ -131,3 +131,17 @@ impl<'a> DeclParseContext<'a> {
         }))
     }
 }
+
+impl HasItemDecls for TypePath {
+    type ItemDecl = TypeItemDecl;
+
+    fn item_decls<'a>(
+        self,
+        db: &'a dyn DeclDb,
+    ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, Result<TypeItemDecl, ()>)]> {
+        match ty_item_decls(db, self) {
+            Ok(ty_item_decls) => Ok(ty_item_decls),
+            Err(e) => Err(e),
+        }
+    }
+}
