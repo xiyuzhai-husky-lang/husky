@@ -25,10 +25,7 @@ impl<'a> DeclSheet<'a> {
         let mut decls: VecPairMap<DeclRegionPath, DeclResultRef<'a, Decl>> = Default::default();
         for path in entity_tree_sheet.module_item_path_iter(db) {
             decls
-                .insert_new((
-                    DeclRegionPath::Entity(path.into()),
-                    db.module_item_decl(path),
-                ))
+                .insert_new((DeclRegionPath::Entity(path.into()), path.decl(db)))
                 .unwrap()
         }
         for impl_block in entity_tree_sheet.impl_blocks().iter().copied() {
@@ -42,8 +39,7 @@ impl<'a> DeclSheet<'a> {
                 decls
                     .insert_new((
                         DeclRegionPath::AssociatedItem(associated_item.id(db)),
-                        db.associated_item_decl(associated_item)
-                            .map(|decl| decl.into()),
+                        associated_item.decl(db).map(|decl| decl.into()),
                     ))
                     .unwrap()
             }

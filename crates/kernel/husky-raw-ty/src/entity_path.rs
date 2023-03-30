@@ -233,7 +233,7 @@ pub fn ty_ontology_path_raw_ty(db: &dyn RawTypeDb, path: TypePath) -> RawTypeRes
 #[salsa::tracked(jar = RawTypeJar)]
 pub fn trai_path_raw_ty(db: &dyn RawTypeDb, path: TraitPath) -> RawTypeResult<RawTerm> {
     let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
-    let decl = match db.trai_decl(path) {
+    let decl = match path.decl(db) {
         Ok(decl) => decl,
         Err(_) => return Err(DerivedRawTypeError::TraitDeclError.into()),
     };

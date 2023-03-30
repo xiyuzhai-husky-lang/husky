@@ -3,6 +3,7 @@ mod trai_item;
 mod ty_item;
 
 use husky_entity_taxonomy::{AssociatedItemKind, EntityKind, TraitItemKind, TypeItemKind};
+use husky_word::Ident;
 pub use trai_for_ty_item::*;
 pub use trai_item::*;
 pub use ty_item::*;
@@ -109,5 +110,22 @@ impl<'a> DeclParseContext<'a> {
             },
             _ => unreachable!(),
         })
+    }
+}
+
+pub trait HasItemDecls {
+    type ItemDecl;
+
+    fn item_decls<'a>(
+        self,
+        db: &'a dyn DeclDb,
+    ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, Result<TypeItemDecl, ()>)]>;
+}
+
+impl HasDecl for AssociatedItem {
+    type Decl = AssociatedItemDecl;
+
+    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
+        associated_item_decl(db, self).as_ref().copied()
     }
 }

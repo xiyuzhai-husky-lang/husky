@@ -101,7 +101,7 @@ pub(crate) fn trai_entity_variance_reprs(
     path: TraitPath,
 ) -> VarianceResult<Vec<VarianceRepr>> {
     let _raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
-    let decl = match db.trai_decl(path) {
+    let decl = match path.decl(db) {
         Ok(decl) => decl,
         Err(_) => return Err(DerivedVarianceError::DeclError.into()),
     };
@@ -131,7 +131,7 @@ pub(crate) fn form_entity_variance_reprs(
     db: &dyn RawTypeDb,
     path: FormPath,
 ) -> VarianceResult<Vec<VarianceRepr>> {
-    let decl = match db.form_decl(path) {
+    let decl = match path.decl(db) {
         Ok(decl) => decl,
         Err(_) => return Err(DerivedVarianceError::DeclError.into()),
     };
