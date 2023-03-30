@@ -7,3 +7,11 @@ pub struct TraitAssociatedValueDefn {
     pub expr_region: ExprRegion,
     pub decl: TraitAssociatedValueDecl,
 }
+
+#[salsa::tracked(jar = DefnJar)]
+pub(crate) fn trai_associated_value_defn(
+    _db: &dyn DefnDb,
+    _decl: TraitAssociatedValueDecl,
+) -> TraitAssociatedValueDefn {
+    todo!()
+}

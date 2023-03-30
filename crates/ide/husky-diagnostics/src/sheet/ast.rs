@@ -68,13 +68,13 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             OriginalAstError::UnexpectedTokenForTypeImplItem(_) => {
                 format!("Syntax Error: unexpected token for type implementation item")
             }
-            OriginalAstError::UnexpectedPunctuationForTypeAsTraitImplItem(
+            OriginalAstError::UnexpectedPunctuationForTraitForTypeImplItem(
                 _,
                 unexpected_punctuation,
             ) => {
                 format!("Syntax Error: unexpected punctuation `{unexpected_punctuation}` for trait implementation item")
             }
-            OriginalAstError::UnexpectedTokenForTypeAsTraitImplItem(_) => {
+            OriginalAstError::UnexpectedTokenForTraitForTypeImplItem(_) => {
                 format!("Syntax Error: unexpected token for trait implementation item")
             }
             OriginalAstError::UnexpectedPunctuationForConnectedModuleItem(
@@ -110,8 +110,8 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             OriginalAstError::UnexpectedEndAfterFormKeywordInsideTypeImplBlock => {
                 format!("Syntax Error: UnexpectedEndAfterFormKeywordInsideTypeImplBlock")
             }
-            OriginalAstError::UnexpectedEndAfterFormKeywordInsideTypeAsTraitImplBlock => {
-                format!("Syntax Error: UnexpectedEndAfterFormKeywordInsideTypeAsTraitImplBlock")
+            OriginalAstError::UnexpectedEndAfterFormKeywordInsideTraitForTypeImplBlock => {
+                format!("Syntax Error: UnexpectedEndAfterFormKeywordInsideTraitForTypeImplBlock")
             }
             OriginalAstError::UnexpectedStmtInsideTrait => {
                 format!("Syntax Error: UnexpectedStmtInsideTrait")
@@ -180,7 +180,7 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             | OriginalAstError::UnexpectedEndAfterFormKeywordInsideModule
             | OriginalAstError::UnexpectedEndAfterFormKeywordInsideTrait
             | OriginalAstError::UnexpectedEndAfterFormKeywordInsideTypeImplBlock
-            | OriginalAstError::UnexpectedEndAfterFormKeywordInsideTypeAsTraitImplBlock
+            | OriginalAstError::UnexpectedEndAfterFormKeywordInsideTraitForTypeImplBlock
             | OriginalAstError::UnexpectedStmtInsideTrait
             | OriginalAstError::UnexpectedMainInsideTrait
             | OriginalAstError::UnexpectedUseInsideTrait
@@ -204,8 +204,8 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             | OriginalAstError::UnexpectedPunctuationForTraitItem(token_idx, _)
             | OriginalAstError::UnexpectedTokenForTypeImplItem(token_idx)
             | OriginalAstError::UnexpectedPunctuationForTypeImplItem(token_idx, _)
-            | OriginalAstError::UnexpectedTokenForTypeAsTraitImplItem(token_idx)
-            | OriginalAstError::UnexpectedPunctuationForTypeAsTraitImplItem(token_idx, _)
+            | OriginalAstError::UnexpectedTokenForTraitForTypeImplItem(token_idx)
+            | OriginalAstError::UnexpectedPunctuationForTraitForTypeImplItem(token_idx, _)
             | OriginalAstError::UnexpectedTokenForConnectedModuleItem(token_idx)
             | OriginalAstError::UnexpectedPunctuationForConnectedModuleItem(token_idx, _)
             | OriginalAstError::UnexpectedTokenForDisconnectedModuleItem(token_idx)

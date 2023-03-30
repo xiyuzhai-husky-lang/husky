@@ -185,7 +185,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         //                 }
         //             }
         //         }
-        //         EntityRouteVariant::TypeAsTraitMember { ty, trai, .. } => {
+        //         EntityRouteVariant::TraitForTypeMember { ty, trai, .. } => {
         //             if trai.variant == self.db.entity_route_menu().std_ops_index_trai.variant {
         //                 let this_ty_decl = self.db.ty_decl(ty).unwrap();
         //                 let trai_impl = this_ty_decl.trait_impl(trai).unwrap();

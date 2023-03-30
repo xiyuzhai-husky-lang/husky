@@ -7,7 +7,7 @@ pub(crate) fn is_defn_static(_db: &dyn RustTranspileDb, _entity_path: Term) -> b
     //     EntityRouteVariant::Root { .. } => true,
     //     EntityRouteVariant::Package { .. } => false,
     //     EntityRouteVariant::Child { parent, .. } => db.is_defn_static(parent),
-    //     EntityRouteVariant::TypeAsTraitMember { ty, .. } => {
+    //     EntityRouteVariant::TraitForTypeMember { ty, .. } => {
     //         msg_once!("ad hoc");
     //         db.is_defn_static(ty)
     //     }
@@ -28,7 +28,7 @@ pub(crate) fn contains_spatial_parameters(_db: &dyn RustTranspileDb, _entity_pat
     //     EntityRouteVariant::Root { .. } => false,
     //     EntityRouteVariant::Package { .. } => false,
     //     EntityRouteVariant::Child { parent, .. } => db.contains_spatial_parameters(parent),
-    //     EntityRouteVariant::TypeAsTraitMember { ty, .. } => db.contains_spatial_parameters(ty),
+    //     EntityRouteVariant::TraitForTypeMember { ty, .. } => db.contains_spatial_parameters(ty),
     //     EntityRouteVariant::TargetInputValue => todo!(),
     //     EntityRouteVariant::Any { .. } => todo!(),
     //     EntityRouteVariant::ThisType { .. } => todo!(),

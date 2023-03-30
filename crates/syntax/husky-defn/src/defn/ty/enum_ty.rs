@@ -6,3 +6,9 @@ pub struct EnumTypeDefn {
     pub path: TypePath,
     pub decl: EnumTypeDecl,
 }
+
+#[salsa::tracked(jar = DefnJar)]
+pub(crate) fn enum_ty_defn(db: &dyn DefnDb, decl: EnumTypeDecl) -> EnumTypeDefn {
+    let path = decl.path(db);
+    EnumTypeDefn::new(db, path, decl)
+}

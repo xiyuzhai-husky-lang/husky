@@ -149,7 +149,7 @@ impl ImplBlock {
 #[enum_class::from_variants]
 pub enum ImplBlockId {
     Type(TypeImplBlockId),
-    TypeAsTrait(TraitForTypeImplBlockId),
+    TraitForType(TraitForTypeImplBlockId),
     IllFormed(IllFormedImplBlockId),
 }
 
@@ -157,7 +157,7 @@ impl ImplBlockId {
     pub fn module(self) -> ModulePath {
         match self {
             ImplBlockId::Type(id) => id.module_path(),
-            ImplBlockId::TypeAsTrait(id) => id.module(),
+            ImplBlockId::TraitForType(id) => id.module(),
             ImplBlockId::IllFormed(id) => id.module(),
         }
     }

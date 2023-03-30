@@ -47,9 +47,9 @@ pub enum OriginalAstError {
     #[error("unexpected token for type implementation item")]
     UnexpectedTokenForTypeImplItem(TokenIdx),
     #[error("unexpected punctuation `{1}` for type as trait implementation item")]
-    UnexpectedPunctuationForTypeAsTraitImplItem(TokenIdx, Punctuation),
+    UnexpectedPunctuationForTraitForTypeImplItem(TokenIdx, Punctuation),
     #[error("unexpected token for type as trait implementation item")]
-    UnexpectedTokenForTypeAsTraitImplItem(TokenIdx),
+    UnexpectedTokenForTraitForTypeImplItem(TokenIdx),
     #[error("unexpected punctuation `{1}` for connected module item")]
     UnexpectedPunctuationForConnectedModuleItem(TokenIdx, Punctuation),
     #[error("unexpected token for connected module item")]
@@ -68,8 +68,8 @@ pub enum OriginalAstError {
     UnexpectedEndAfterFormKeywordInsideTrait,
     #[error("UnexpectedEndAfterFormKeywordInsideTypeImplBlock")]
     UnexpectedEndAfterFormKeywordInsideTypeImplBlock,
-    #[error("UnexpectedEndAfterFormKeywordInsideTypeAsTraitImplBlock")]
-    UnexpectedEndAfterFormKeywordInsideTypeAsTraitImplBlock,
+    #[error("UnexpectedEndAfterFormKeywordInsideTraitForTypeImplBlock")]
+    UnexpectedEndAfterFormKeywordInsideTraitForTypeImplBlock,
     #[error("UnexpectedStmtInsideTrait")]
     UnexpectedStmtInsideTrait,
     #[error("UnexpectedMainInsideTrait")]

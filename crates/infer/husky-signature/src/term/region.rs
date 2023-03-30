@@ -121,7 +121,7 @@ impl RawTermSymbolRegion {
                     ImplBlockId::Type(impl_block_id) => {
                         self.ty_self_ty_term(db, impl_block_id.ty_path())
                     }
-                    ImplBlockId::TypeAsTrait(impl_block_id) => {
+                    ImplBlockId::TraitForType(impl_block_id) => {
                         self.ty_self_ty_term(db, impl_block_id.ty_path())
                     }
                     ImplBlockId::IllFormed(_) => unreachable!(),

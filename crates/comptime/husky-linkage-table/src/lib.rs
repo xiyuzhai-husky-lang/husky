@@ -185,7 +185,7 @@ pub trait ResolveLinkage {
         //             _ => todo!(),
         //         },
         //         EntitySource::StaticTraitMember(_) => todo!(),
-        //         EntitySource::StaticTypeAsTraitMember => todo!(),
+        //         EntitySource::StaticTraitForTypeMember => todo!(),
         //         EntitySource::WithinBuiltinModule => todo!(),
         //         EntitySource::WithinModule { .. } => self
         //             .linkage_table()

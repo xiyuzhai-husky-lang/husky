@@ -163,7 +163,7 @@ impl<'a> BasicAuxAstParser<'a> {
             AstContextKind::InsideTypeImplBlock => {
                 self.determine_entity_kind_inside_ty_impl_block(entity_keyword_group)?
             }
-            AstContextKind::InsideTypeAsTraitImplBlock => match entity_keyword_group {
+            AstContextKind::InsideTraitForTypeImplBlock => match entity_keyword_group {
                 EntityKeywordGroup::Mod(_) => todo!(),
                 EntityKeywordGroup::Fn(_) => {
                     EntityKind::AssociatedItem {

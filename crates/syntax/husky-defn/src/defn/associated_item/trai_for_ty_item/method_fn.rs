@@ -1,23 +1,26 @@
 use crate::*;
 
 #[salsa::tracked(db = DefnDb, jar = DefnJar)]
-pub struct FunctionDefn {
+pub struct TraitForTypeMethodDefn {
     #[id]
-    pub path: FormPath,
-    pub decl: FnDecl,
+    pub path: Option<TraitForTypeItemPath>,
+    pub decl: TraitForTypeMethodDecl,
     pub expr_region: ExprRegion,
     pub body: DefnResult<ExprIdx>,
 }
 
 #[salsa::tracked(jar = DefnJar)]
-pub(crate) fn function_defn(db: &dyn DefnDb, decl: FnDecl) -> FunctionDefn {
+pub(crate) fn trai_for_ty_method_defn(
+    db: &dyn DefnDb,
+    decl: TraitForTypeMethodDecl,
+) -> TraitForTypeMethodDefn {
     let path = decl.path(db);
     let mut parser = expr_parser(
         db,
-        DefnRegionPath::Entity(path.into()),
+        DefnRegionPath::AssociatedItem(decl.associated_item(db).id(db)),
         Some(decl.expr_region(db)),
-        AllowSelfType::False,
-        AllowSelfValue::False,
+        AllowSelfType::True,
+        AllowSelfValue::True,
     );
     let ast_idx = decl.ast_idx(db);
     let body = match parser.ast_sheet()[ast_idx] {
@@ -27,5 +30,5 @@ pub(crate) fn function_defn(db: &dyn DefnDb, decl: FnDecl) -> FunctionDefn {
         _ => unreachable!(),
     };
     let expr_region = parser.finish();
-    FunctionDefn::new(db, path, decl, expr_region, body)
+    TraitForTypeMethodDefn::new(db, path, decl, expr_region, body)
 }

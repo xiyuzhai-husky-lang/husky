@@ -1,12 +1,12 @@
-mod assoc_ty;
-mod assoc_val;
-mod function;
-mod method;
+mod associated_fn;
+mod associated_ty;
+mod associated_value;
+mod method_fn;
 
-pub use assoc_ty::*;
-pub use assoc_val::*;
-pub use function::*;
-pub use method::*;
+pub use associated_fn::*;
+pub use associated_ty::*;
+pub use associated_value::*;
+pub use method_fn::*;
 
 use crate::*;
 use husky_entity_path::AssociatedItemPath;
@@ -31,5 +31,20 @@ impl TraitItemDefn {
     }
     pub fn expr_region(self, _db: &dyn DefnDb) -> ExprRegion {
         todo!()
+    }
+}
+
+impl HasDefn for TraitItemDecl {
+    type Defn = TraitItemDefn;
+
+    fn defn(self, db: &dyn DefnDb) -> Self::Defn {
+        match self {
+            TraitItemDecl::AssociatedFunction(decl) => {
+                trai_associated_function_defn(db, decl).into()
+            }
+            TraitItemDecl::Method(decl) => trai_method_defn(db, decl).into(),
+            TraitItemDecl::AssociatedType(_decl) => todo!(),
+            TraitItemDecl::Value(_decl) => todo!(),
+        }
     }
 }

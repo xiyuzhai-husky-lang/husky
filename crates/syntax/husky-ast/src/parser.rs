@@ -131,7 +131,7 @@ impl<'a> AstParser<'a> {
                     token_group_idx,
                     body: self.parse_asts(context.subcontext(
                         if self.is_trai_impl(token_group_idx) {
-                            AstContextKind::InsideTypeAsTraitImplBlock
+                            AstContextKind::InsideTraitForTypeImplBlock
                         } else {
                             AstContextKind::InsideTypeImplBlock
                         },

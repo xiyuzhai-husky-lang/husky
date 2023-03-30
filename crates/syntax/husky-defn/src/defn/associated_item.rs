@@ -14,7 +14,7 @@ use super::*;
 pub enum AssociatedItemDefn {
     TypeItem(TypeItemDefn),
     TraitItem(TraitItemDefn),
-    TypeAsTraitItem(TypeAsTraitItemDefn),
+    TraitForTypeItem(TraitForTypeItemDefn),
 }
 
 impl AssociatedItemDefn {
@@ -22,7 +22,7 @@ impl AssociatedItemDefn {
         match self {
             AssociatedItemDefn::TypeItem(defn) => defn.decl(db).into(),
             AssociatedItemDefn::TraitItem(_) => todo!(),
-            AssociatedItemDefn::TypeAsTraitItem(defn) => defn.decl(db).into(),
+            AssociatedItemDefn::TraitForTypeItem(defn) => defn.decl(db).into(),
         }
     }
 
@@ -30,7 +30,7 @@ impl AssociatedItemDefn {
         match self {
             AssociatedItemDefn::TypeItem(defn) => defn.expr_region(db),
             AssociatedItemDefn::TraitItem(_) => todo!(),
-            AssociatedItemDefn::TypeAsTraitItem(defn) => Some(defn.expr_region(db)),
+            AssociatedItemDefn::TraitForTypeItem(defn) => Some(defn.expr_region(db)),
         }
     }
 
@@ -38,7 +38,19 @@ impl AssociatedItemDefn {
         match self {
             AssociatedItemDefn::TypeItem(_) => todo!(),
             AssociatedItemDefn::TraitItem(_) => todo!(),
-            AssociatedItemDefn::TypeAsTraitItem(_) => todo!(),
+            AssociatedItemDefn::TraitForTypeItem(_) => todo!(),
+        }
+    }
+}
+
+impl HasDefn for AssociatedItemDecl {
+    type Defn = AssociatedItemDefn;
+
+    fn defn(self, db: &dyn DefnDb) -> Self::Defn {
+        match self {
+            AssociatedItemDecl::TypeItem(decl) => decl.defn(db).into(),
+            AssociatedItemDecl::TraitItem(decl) => decl.defn(db).into(),
+            AssociatedItemDecl::TraitForTypeItem(decl) => decl.defn(db).into(),
         }
     }
 }

@@ -14,20 +14,20 @@ use husky_ast::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
-pub enum TypeAsTraitItemDecl {
-    AssociatedFunction(TypeAsTraitAssociatedFunctionDecl),
-    Method(TypeAsTraitMethodDecl),
-    AssociatedType(TypeAsTraitAssociatedTypeDecl),
-    AssociatedValue(TypeAsTraitAssociatedValueDecl),
+pub enum TraitForTypeItemDecl {
+    AssociatedFunction(TraitForTypeAssociatedFunctionDecl),
+    Method(TraitForTypeMethodDecl),
+    AssociatedType(TraitForTypeAssociatedTypeDecl),
+    AssociatedValue(TraitForTypeAssociatedValueDecl),
 }
 
-impl TypeAsTraitItemDecl {
+impl TraitForTypeItemDecl {
     pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
         match self {
-            TypeAsTraitItemDecl::AssociatedFunction(decl) => decl.ast_idx(db),
-            TypeAsTraitItemDecl::Method(decl) => decl.ast_idx(db),
-            TypeAsTraitItemDecl::AssociatedType(decl) => decl.ast_idx(db),
-            TypeAsTraitItemDecl::AssociatedValue(decl) => decl.ast_idx(db),
+            TraitForTypeItemDecl::AssociatedFunction(decl) => decl.ast_idx(db),
+            TraitForTypeItemDecl::Method(decl) => decl.ast_idx(db),
+            TraitForTypeItemDecl::AssociatedType(decl) => decl.ast_idx(db),
+            TraitForTypeItemDecl::AssociatedValue(decl) => decl.ast_idx(db),
         }
     }
 
@@ -36,28 +36,28 @@ impl TypeAsTraitItemDecl {
         _db: &'a dyn DeclDb,
     ) -> DeclExprResultRef<'a, &'a [ImplicitParameterDecl]> {
         match self {
-            TypeAsTraitItemDecl::AssociatedFunction(_) => todo!(),
-            TypeAsTraitItemDecl::Method(_) => todo!(),
-            TypeAsTraitItemDecl::AssociatedType(_) => todo!(),
-            TypeAsTraitItemDecl::AssociatedValue(_) => todo!(),
+            TraitForTypeItemDecl::AssociatedFunction(_) => todo!(),
+            TraitForTypeItemDecl::Method(_) => todo!(),
+            TraitForTypeItemDecl::AssociatedType(_) => todo!(),
+            TraitForTypeItemDecl::AssociatedValue(_) => todo!(),
         }
     }
 
     pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
         match self {
-            TypeAsTraitItemDecl::AssociatedFunction(decl) => decl.expr_region(db),
-            TypeAsTraitItemDecl::Method(decl) => decl.expr_region(db),
-            TypeAsTraitItemDecl::AssociatedType(decl) => decl.expr_region(db),
-            TypeAsTraitItemDecl::AssociatedValue(decl) => decl.expr_region(db),
+            TraitForTypeItemDecl::AssociatedFunction(decl) => decl.expr_region(db),
+            TraitForTypeItemDecl::Method(decl) => decl.expr_region(db),
+            TraitForTypeItemDecl::AssociatedType(decl) => decl.expr_region(db),
+            TraitForTypeItemDecl::AssociatedValue(decl) => decl.expr_region(db),
         }
     }
 
     pub fn path(self, db: &dyn DeclDb) -> Option<TraitForTypeItemPath> {
         match self {
-            TypeAsTraitItemDecl::AssociatedFunction(_) => todo!(),
-            TypeAsTraitItemDecl::Method(decl) => decl.path(db),
-            TypeAsTraitItemDecl::AssociatedType(_) => todo!(),
-            TypeAsTraitItemDecl::AssociatedValue(_) => todo!(),
+            TraitForTypeItemDecl::AssociatedFunction(_) => todo!(),
+            TraitForTypeItemDecl::Method(decl) => decl.path(db),
+            TraitForTypeItemDecl::AssociatedType(_) => todo!(),
+            TraitForTypeItemDecl::AssociatedValue(_) => todo!(),
         }
     }
 }
@@ -69,7 +69,7 @@ impl<'a> DeclParseContext<'a> {
         token_group_idx: TokenGroupIdx,
         associated_item: AssociatedItem,
         saved_stream_state: TokenIdx,
-    ) -> DeclResult<TypeAsTraitMethodDecl> {
+    ) -> DeclResult<TraitForTypeMethodDecl> {
         let Ok(impl_decl) = self.db().impl_block_decl(associated_item.impl_block(self.db()))
         else {
             return Err(
@@ -94,7 +94,7 @@ impl<'a> DeclParseContext<'a> {
         let curry_token = ctx.parse_expected(OriginalDeclExprError::ExpectCurry);
         let return_ty = ctx.parse_expected(OriginalDeclExprError::ExpectOutputType);
         let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon);
-        Ok(TypeAsTraitMethodDecl::new(
+        Ok(TraitForTypeMethodDecl::new(
             self.db(),
             path,
             associated_item,

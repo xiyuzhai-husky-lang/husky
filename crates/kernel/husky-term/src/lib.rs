@@ -93,7 +93,7 @@ pub struct TermJar(
     term_application_ty_method_card,
     ty_path_ty_method_cards_aux,
     TypeMethodFnCard,
-    TypeAsTraitMethodFnCard,
+    TraitForTypeMethodFnCard,
     TypeAssociatedFnCard,
     utils::curry_term_toolchain,
     utils::application_term_toolchain,

@@ -22,12 +22,12 @@ pub(crate) fn impl_block_signature_from_decl(
 #[salsa::derive_debug_with_db(db = SignatureDb, jar = SignatureJar)]
 pub enum ImplSignature {
     TypeImpl(TypeImplSignature),
-    TypeAsTraitImpl(TraitForTypeImplBlockSignature),
+    TraitForTypeImpl(TraitForTypeImplBlockSignature),
 }
 
 impl From<TraitForTypeImplBlockSignature> for ImplSignature {
     fn from(v: TraitForTypeImplBlockSignature) -> Self {
-        Self::TypeAsTraitImpl(v)
+        Self::TraitForTypeImpl(v)
     }
 }
 

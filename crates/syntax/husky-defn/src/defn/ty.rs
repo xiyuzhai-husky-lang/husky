@@ -64,3 +64,21 @@ impl TypeDefn {
         }
     }
 }
+
+impl HasDefn for TypeDecl {
+    type Defn = TypeDefn;
+
+    fn defn(self, db: &dyn DefnDb) -> Self::Defn {
+        match self {
+            TypeDecl::Enum(decl) => enum_ty_defn(db, decl).into(),
+            TypeDecl::RegularStruct(decl) => regular_struct_ty_defn(db, decl).into(),
+            TypeDecl::TupleStruct(decl) => tuple_struct_ty_defn(db, decl).into(),
+            TypeDecl::UnitStruct(decl) => unit_struct_ty_defn(db, decl).into(),
+            TypeDecl::Record(decl) => record_ty_defn(db, decl).into(),
+            TypeDecl::Inductive(decl) => inductive_ty_defn(db, decl).into(),
+            TypeDecl::Structure(decl) => structure_ty_defn(db, decl).into(),
+            TypeDecl::Extern(decl) => alien_ty_defn(db, decl).into(),
+            TypeDecl::Union(decl) => union_ty_defn(db, decl).into(),
+        }
+    }
+}

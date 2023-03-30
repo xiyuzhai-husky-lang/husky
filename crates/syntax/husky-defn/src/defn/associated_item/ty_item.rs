@@ -48,3 +48,17 @@ impl TypeItemDefn {
         }
     }
 }
+
+impl HasDefn for TypeItemDecl {
+    type Defn = TypeItemDefn;
+
+    fn defn(self, db: &dyn DefnDb) -> Self::Defn {
+        match self {
+            TypeItemDecl::AssociatedFn(decl) => ty_associated_fn_defn(db, decl).into(),
+            TypeItemDecl::MethodFn(decl) => ty_method_fn_defn(db, decl).into(),
+            TypeItemDecl::AssociatedType(_) => todo!(),
+            TypeItemDecl::AssociatedValue(_) => todo!(),
+            TypeItemDecl::Memo(decl) => ty_memo_defn(db, decl).into(),
+        }
+    }
+}

@@ -207,7 +207,7 @@ impl<'a> InferEngine<'a> {
         match defn {
             AssociatedItemDefn::TypeItem(defn) => self.visit_ty_item(defn),
             AssociatedItemDefn::TraitItem(defn) => self.visit_trai_item(defn),
-            AssociatedItemDefn::TypeAsTraitItem(defn) => self.visit_trai_for_ty_item(defn),
+            AssociatedItemDefn::TraitForTypeItem(defn) => self.visit_trai_for_ty_item(defn),
         }
     }
 
@@ -219,7 +219,7 @@ impl<'a> InferEngine<'a> {
         // todo!()
     }
 
-    fn visit_trai_for_ty_item(&self, _defn: TypeAsTraitItemDefn) {
+    fn visit_trai_for_ty_item(&self, _defn: TraitForTypeItemDefn) {
         // todo!()
     }
 }

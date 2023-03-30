@@ -1,5 +1,6 @@
 mod associated_item;
 mod form;
+mod impl_block;
 mod trai;
 mod ty;
 mod variant;
@@ -68,6 +69,27 @@ impl Defn {
             Defn::AssociatedItem(defn) => defn.path(db).map(|path| path.into()),
             Defn::Variant(defn) => Some(defn.path(db).into()),
             Defn::Impl(_) => None,
+        }
+    }
+}
+
+pub trait HasDefn: Copy {
+    type Defn;
+
+    fn defn(self, db: &dyn DefnDb) -> Self::Defn;
+}
+
+impl HasDefn for Decl {
+    type Defn = Defn;
+
+    fn defn(self, db: &dyn DefnDb) -> Self::Defn {
+        match self {
+            Decl::Type(decl) => decl.defn(db).into(),
+            Decl::Form(decl) => decl.defn(db).into(),
+            Decl::Trait(decl) => decl.defn(db).into(),
+            Decl::Impl(decl) => decl.defn(db).into(),
+            Decl::AssociatedItem(decl) => decl.defn(db).into(),
+            Decl::Variant(_) => todo!(),
         }
     }
 }

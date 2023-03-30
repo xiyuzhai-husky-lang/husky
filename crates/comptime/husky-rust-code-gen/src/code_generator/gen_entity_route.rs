@@ -106,7 +106,7 @@ impl<'a> RustCodeGenerator<'a> {
         //             todo!()
         //         }
         //         EntityRouteVariant::ThisType { .. } => todo!(),
-        //         EntityRouteVariant::TypeAsTraitMember { .. } => todo!(),
+        //         EntityRouteVariant::TraitForTypeMember { .. } => todo!(),
         //         EntityRouteVariant::TargetOutputType => todo!(),
         //     }
         // }
