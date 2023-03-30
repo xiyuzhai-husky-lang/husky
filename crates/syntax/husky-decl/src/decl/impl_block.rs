@@ -38,3 +38,16 @@ impl ImplBlockDecl {
         }
     }
 }
+
+pub(crate) fn impl_block_decl(
+    db: &dyn DeclDb,
+    impl_block: ImplBlock,
+) -> DeclResultRef<ImplBlockDecl> {
+    match impl_block {
+        ImplBlock::Type(impl_block) => ty_impl_block_decl(db, impl_block).map(Into::into),
+        ImplBlock::TraitForType(impl_block) => {
+            trai_for_ty_impl_block_decl(db, impl_block).map(Into::into)
+        }
+        ImplBlock::IllFormed(_) => Err(&DeclError::Derived(DerivedDeclError::ImplErr)),
+    }
+}

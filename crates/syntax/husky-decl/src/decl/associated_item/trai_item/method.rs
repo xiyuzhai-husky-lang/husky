@@ -35,3 +35,5 @@ impl TraitMethodDecl {
         }
     }
 }
+
+impl<'a> DeclParseContext<'a> {}

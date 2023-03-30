@@ -61,3 +61,5 @@ impl TraitItemDecl {
         }
     }
 }
+
+impl<'a> DeclParseContext<'a> {}

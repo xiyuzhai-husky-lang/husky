@@ -22,3 +22,5 @@ impl ValueDecl {
             .unwrap_or(Ok(&[]))
     }
 }
+
+impl<'a> DeclParseContext<'a> {}

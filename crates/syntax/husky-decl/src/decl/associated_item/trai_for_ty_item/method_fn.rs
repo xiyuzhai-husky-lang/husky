@@ -38,3 +38,5 @@ impl TypeAsTraitMethodDecl {
         }
     }
 }
+
+impl<'a> DeclParseContext<'a> {}

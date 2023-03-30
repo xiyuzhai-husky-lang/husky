@@ -13,3 +13,5 @@ pub struct TypeAsTraitAssociatedFunctionDecl {
     #[return_ref]
     pub eol_colon: DeclExprResult<EolColonToken>,
 }
+
+impl<'a> DeclParseContext<'a> {}

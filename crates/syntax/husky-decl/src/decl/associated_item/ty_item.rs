@@ -92,3 +92,5 @@ impl TypeItemDecl {
         }
     }
 }
+
+impl<'a> DeclParseContext<'a> {}
