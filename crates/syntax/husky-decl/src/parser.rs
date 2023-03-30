@@ -10,12 +10,6 @@ use husky_token::*;
 use husky_word::Ident;
 use parsec::*;
 
-#[salsa::tracked(jar = DeclJar,return_ref)]
-pub(crate) fn trai_decl(db: &dyn DeclDb, path: TraitPath) -> DeclResult<TraitDecl> {
-    let parser = DeclParseContext::new(db, path.module_path(db))?;
-    parser.parse_trai_decl(path)
-}
-
 pub(crate) struct DeclParseContext<'a> {
     db: &'a dyn DeclDb,
     module_symbol_context: ModuleSymbolContext<'a>,
@@ -38,11 +32,12 @@ impl<'a> DeclParseContext<'a> {
         })
     }
 
+    pub(crate) fn resolve_module_item_ast_idx(&self, path: impl Into<EntityPath>) -> AstIdx {
+        self.resolve_module_item_symbol(path).ast_idx(self.db)
+    }
+
     #[inline(always)]
-    pub(crate) fn resolve_module_item_symbol(
-        &self,
-        path: impl Into<EntityPath>,
-    ) -> ModuleItemSymbol {
+    fn resolve_module_item_symbol(&self, path: impl Into<EntityPath>) -> ModuleItemSymbol {
         let path = path.into();
         let ident = path.ident(self.db);
         let Some(entity_symbol) = self
@@ -57,32 +52,6 @@ impl<'a> DeclParseContext<'a> {
 "#, path.display(self.db()))
             };
         entity_symbol.module_item_symbol().unwrap()
-    }
-
-    pub(super) fn parse_trai_decl(&self, path: TraitPath) -> DeclResult<TraitDecl> {
-        let ident = path.ident(self.db);
-        let Some(entity_symbol) = self
-            .module_entity_tree
-            .module_symbols()
-            .resolve_ident(ident)
-            else {
-                use salsa::DisplayWithDb;
-                panic!(r#"
-    Path `{}` is invalid!
-    This is very likely caused by expect item in standard library.
-"#, path.display(self.db))
-            };
-        let module_item = entity_symbol.module_item_symbol().unwrap();
-        let ast_idx: AstIdx = module_item.ast_idx(self.db);
-        match self.ast_sheet[ast_idx] {
-            Ast::Defn {
-                token_group_idx,
-                ref body,
-                saved_stream_state,
-                ..
-            } => self.parse_trai_decl_aux(ast_idx, path, token_group_idx, body, saved_stream_state),
-            _ => unreachable!(),
-        }
     }
 
     pub(super) fn parse_trai_decl_aux(

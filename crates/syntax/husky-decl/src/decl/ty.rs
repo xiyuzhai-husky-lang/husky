@@ -122,8 +122,7 @@ pub(crate) fn ty_decl_aux(db: &dyn DeclDb, path: TypePath) -> DeclResult<TypeDec
 impl<'a> DeclParseContext<'a> {
     // MOM
     fn parse_ty_decl(&self, path: TypePath) -> DeclResult<TypeDecl> {
-        let module_item_symbol = self.resolve_module_item_symbol(path);
-        let ast_idx: AstIdx = module_item_symbol.ast_idx(self.db());
+        let ast_idx: AstIdx = self.resolve_module_item_ast_idx(path);
         match self.ast_sheet()[ast_idx] {
             Ast::Defn {
                 token_group_idx,
