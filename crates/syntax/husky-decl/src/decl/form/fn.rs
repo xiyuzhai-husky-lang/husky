@@ -54,7 +54,7 @@ impl<'a> DeclParseContext<'a> {
             AllowSelfType::False,
             AllowSelfValue::False,
         );
-        let mut ctx = parser.ctx2(None, token_group_idx, Some(saved_stream_state));
+        let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
         let implicit_parameter_decl_list = ctx.parse();
         let parameter_decl_list =
             ctx.parse_expected(OriginalDeclExprError::ExpectParameterDeclList);

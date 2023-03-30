@@ -33,7 +33,7 @@ impl<'a> DeclParseContext<'a> {
             AllowSelfType::True,
             AllowSelfValue::True,
         );
-        let mut ctx = parser.ctx2(None, token_group_idx, saved_stream_state);
+        let mut ctx = parser.ctx(None, token_group_idx, saved_stream_state);
         let path = match associated_item.path(self.db()) {
             Some(AssociatedItemPath::TypeItem(path)) => Some(path),
             None => None,

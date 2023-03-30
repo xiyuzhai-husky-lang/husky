@@ -28,7 +28,7 @@ impl<'a> DeclParseContext<'a> {
             AllowSelfType::False,
             AllowSelfValue::False,
         );
-        let mut ctx = parser.ctx2(None, token_group_idx, Some(saved_stream_state));
+        let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
         let curry_token = ctx.parse_expected(OriginalDeclExprError::ExpectCurry);
         let return_ty = ctx.parse_expected(OriginalDeclExprError::ExpectOutputType);
         let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon);

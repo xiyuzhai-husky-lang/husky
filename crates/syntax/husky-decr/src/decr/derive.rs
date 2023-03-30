@@ -27,7 +27,7 @@ impl DeriveDecr {
         let parser_factory = DecrParserFactory::new(db, path.module_path(db))?;
         let mut expr_parser =
             parser_factory.expr_parser(decr_id, AllowSelfType::True, AllowSelfValue::False);
-        let mut ctx = expr_parser.ctx2(None, token_group_idx, None);
+        let mut ctx = expr_parser.ctx(None, token_group_idx, None);
         let at_token = ctx
             .parse()
             .expect("should be guaranteed")
