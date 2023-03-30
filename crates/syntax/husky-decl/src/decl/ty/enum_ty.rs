@@ -38,11 +38,7 @@ impl<'a> DeclParseContext<'a> {
             AllowSelfType::True,
             AllowSelfValue::False,
         );
-        let mut ctx = parser.ctx(
-            None,
-            self.token_sheet_data()
-                .token_group_token_stream(token_group_idx, Some(saved_stream_state)),
-        );
+        let mut ctx = parser.ctx2(None, token_group_idx, Some(saved_stream_state));
         let implicit_parameters = ctx.parse();
         Ok(EnumTypeDecl::new(
             self.db(),
