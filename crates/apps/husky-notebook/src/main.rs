@@ -21,12 +21,19 @@ fn main() -> Result<(), eframe::Error> {
 
 struct HuskyNotebookApp {
     config: HuskyNotebookConfig,
+    doctree: egui_dock::Tree<String>,
 }
 
 impl Default for HuskyNotebookApp {
     fn default() -> Self {
+        let tab1 = "tab1".to_string();
+        let tab2 = "tab2".to_string();
+
+        let mut doctree = egui_dock::Tree::new(vec![tab1]);
+        doctree.split_left(egui_dock::NodeIndex::root(), 0.20, vec![tab2]);
         Self {
             config: HuskyNotebookConfig::default(),
+            doctree,
         }
     }
 }

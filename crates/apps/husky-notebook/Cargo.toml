@@ -8,5 +8,8 @@ edition = "2021"
 tracing-subscriber = "0.3.16"
 eframe = "0.21.0"
 egui = "0.21.0"
-husky-unicode-symbols = { path = "../../utils/husky-unicode-symbols" }
+egui_dock = "0.4.2"
+# gui
 husky-code-edit = { path = "../../gui/husky-code-edit" }
+# utils
+husky-unicode-symbols = { path = "../../utils/husky-unicode-symbols" }
