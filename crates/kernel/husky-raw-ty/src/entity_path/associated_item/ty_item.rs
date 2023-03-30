@@ -5,8 +5,7 @@ pub(crate) fn ty_item_path_raw_ty(
     db: &dyn RawTypeDb,
     path: TypeItemPath,
 ) -> RawTypeResult<RawTerm> {
-    let decl = path.decl(db)?;
-    let signature = decl
+    let signature = path
         .signature(db)
         .map_err(|_| DerivedRawTypeError::SignatureError)?;
     let Ok(variances) = ty_item_entity_variances(db, path) else {
