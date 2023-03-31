@@ -42,7 +42,9 @@ pub(super) gn is_six -> ?MnistLabel:
                 upmost_match_dp_y
             )?
             MnistLabel::Six
-        let rel_upmost_match_end = major_line_segment_sketch.bounding_box.relative_point(upmost_match.end())
+        let rel_upmost_match_end = major_line_segment_sketch.bounding_box.relative_point(
+            upmost_match.end()
+        )
         narrow_down(
             MnistLabel::Six,
             15,
