@@ -391,7 +391,7 @@ impl<'a> InferContext<'a> {
                     match self.expr_region_data[pattern_expr_idx] {
                         PatternExpr::Ident {
                             ident_token,
-                            liason: _,
+                            modifier: _,
                         } => self.sheet.add(
                             ident_token.token_idx(),
                             TokenInfo::CurrentSymbol {

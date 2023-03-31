@@ -27,9 +27,9 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    parameters: RegularParameterSignatures {
+                    parameters: ExplicitParameterSignatures {
                         parameters: [
-                            RegularParameterSignature {
+                            ExplicitParameterSignature {
                                 pattern: ParameterSignaturePattern,
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
@@ -39,7 +39,7 @@
                                     ),
                                 ),
                             },
-                            RegularParameterSignature {
+                            ExplicitParameterSignature {
                                 pattern: ParameterSignaturePattern,
                                 ty: ExplicitApplicationOrRitchieCall(
                                     RawTermExplicitApplicationOrRitchieCall(
@@ -59,7 +59,7 @@
     Ok(
         Signature::Impl(
             ImplSignature::TypeImpl(
-                TypeImplSignature {
+                TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },

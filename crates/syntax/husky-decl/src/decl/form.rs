@@ -34,13 +34,10 @@ impl FormDecl {
         }
     }
 
-    pub fn implicit_parameters<'a>(
-        self,
-        db: &'a dyn DeclDb,
-    ) -> DeclExprResultRef<'a, &'a [ImplicitParameterDecl]> {
+    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDecl] {
         match self {
             FormDecl::Fn(decl) => decl.implicit_parameters(db),
-            FormDecl::Feature(_decl) => Ok(&[]),
+            FormDecl::Feature(_decl) => &[],
             FormDecl::Gn(decl) => decl.implicit_parameters(db),
             FormDecl::Value(decl) => decl.implicit_parameters(db),
         }

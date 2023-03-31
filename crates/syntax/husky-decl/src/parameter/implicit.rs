@@ -56,10 +56,8 @@ impl ImplicitParameterDeclList {
         self.langle
     }
 
-    pub fn implicit_parameters<'a>(&'a self) -> DeclExprResultRef<'a, &'a [ImplicitParameterDecl]> {
-        self.decl_list_result.as_ref()?;
-        self.rangle.as_ref()?;
-        Ok(self.implicit_parameters.as_ref())
+    pub fn implicit_parameters(&self) -> &[ImplicitParameterDecl] {
+        &self.implicit_parameters
     }
 
     pub fn commas(&self) -> &[CommaToken] {

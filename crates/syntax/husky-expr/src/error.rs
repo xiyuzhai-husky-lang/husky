@@ -51,7 +51,6 @@ pub enum OriginalExprError {
     NoLeftOperandForBinaryOperator { binary_token_idx: TokenIdx },
     #[error("no right operand for binary operator")]
     NoRightOperandForBinaryOperator {
-        lopd: ExprIdx,
         punctuation: BinaryOpr,
         punctuation_token_idx: TokenIdx,
     },
@@ -109,10 +108,7 @@ pub enum OriginalExprError {
     #[error("SelfValueNotAllowed")]
     SelfValueNotAllowed(TokenIdx),
     #[error("ExpectedIdentAfterDot")]
-    ExpectedIdentAfterDot {
-        self_expr: ExprIdx,
-        dot_token_idx: TokenIdx,
-    },
+    ExpectedIdentAfterDot { dot_token_idx: TokenIdx },
     #[error("ExpectedExprBeforeDot")]
     ExpectedExprBeforeDot { dot_token_idx: TokenIdx },
 }

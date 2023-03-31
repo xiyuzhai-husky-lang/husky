@@ -1031,7 +1031,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `start`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -1060,7 +1060,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `end`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -1202,7 +1202,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `row`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -1211,7 +1211,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `j`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -1294,7 +1294,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `row`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -1302,7 +1302,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `j`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -1382,7 +1382,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `row`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -1391,7 +1391,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `j`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -1513,7 +1513,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `row_above`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -1521,7 +1521,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 2,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `j`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -1549,7 +1549,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `row_below`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -1557,7 +1557,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 2,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `j`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -1755,7 +1755,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `outward`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -1776,7 +1776,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `inward`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -1966,7 +1966,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `row_above`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -1974,7 +1974,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 2,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `j`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -2002,7 +2002,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `row_below`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -2010,7 +2010,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 2,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `j`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -2311,7 +2311,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `points`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -2331,7 +2331,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `points`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -2358,7 +2358,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `points`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -2548,7 +2548,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `cc`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -2577,7 +2577,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `cc`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -2831,7 +2831,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `cc`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -2861,7 +2861,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `cc`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -3927,7 +3927,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `cc`,
                 },
                 expr_region: ExprRegionLeash(_),

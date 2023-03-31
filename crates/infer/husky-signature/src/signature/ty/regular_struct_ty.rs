@@ -11,11 +11,11 @@ pub fn regular_struct_ty_signature(
     Ok(RegularStructTypeSignature::new(
         db,
         ImplicitParameterSignatures::from_decl(
-            decl.implicit_parameters(db)?,
+            decl.implicit_parameters(db),
             signature_term_region,
             raw_term_menu,
         ),
-        decl.fields(db)?
+        decl.fields(db)
             .iter()
             .enumerate()
             .map(|(i, field)| {
@@ -53,6 +53,10 @@ pub struct RegularStructFieldSignature {
 }
 
 impl RegularStructFieldSignature {
+    pub fn into_ritchie_parameter_liasoned_ty(self) -> RawTermRitchieParameterLiasonedType {
+        RawTermRitchieParameterLiasonedType::new(Liason::Move, self.ty)
+    }
+
     pub fn ident(&self) -> Ident {
         self.ident
     }

@@ -1,4 +1,4 @@
-use husky_expr::{ExplicitParameterDeclPattern, ImplicitParameterDeclPatternVariant};
+use husky_expr::{ImplicitParameterDeclPatternVariant, RegularParameterDeclPattern};
 use husky_token::VarianceToken;
 
 use crate::*;
@@ -100,44 +100,44 @@ impl std::ops::Deref for ImplicitParameterSignatures {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct RegularParameterSignature {
-    pattern: ParameterSignaturePattern,
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub struct ExplicitParameterSignature {
+    liason: Liason,
     ty: RawTerm,
 }
 
-impl RegularParameterSignature {
+impl ExplicitParameterSignature {
+    pub fn into_ritchie_parameter_liasoned_ty(self) -> RawTermRitchieParameterLiasonedType {
+        RawTermRitchieParameterLiasonedType::new(self.liason, self.ty)
+    }
+}
+
+impl ExplicitParameterSignature {
     pub fn ty(&self) -> RawTerm {
         self.ty
     }
 
-    pub(crate) fn new_self_parameter(ty: RawTerm) -> Self {
-        Self {
-            pattern: ParameterSignaturePattern {},
-            ty,
-        }
+    pub(crate) fn new(liason: Liason, ty: RawTerm) -> Self {
+        Self { liason, ty }
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct ParameterSignaturePattern {}
-
-#[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct RegularParameterSignatures {
-    parameters: Vec<RegularParameterSignature>,
+pub struct ExplicitParameterSignatures {
+    parameters: Vec<ExplicitParameterSignature>,
 }
 
-impl std::ops::Deref for RegularParameterSignatures {
-    type Target = [RegularParameterSignature];
+impl std::ops::Deref for ExplicitParameterSignatures {
+    type Target = [ExplicitParameterSignature];
 
     fn deref(&self) -> &Self::Target {
         &self.parameters
     }
 }
 
-impl RegularParameterSignatures {
+impl ExplicitParameterSignatures {
     pub(crate) fn from_decl(
-        parameters: &[ExplicitParameterDeclPattern],
+        parameters: &[RegularParameterDeclPattern],
         sheet: &SignatureTermRegion,
     ) -> SignatureResult<Self> {
         Ok(Self {
@@ -154,12 +154,9 @@ impl RegularParameterSignatures {
                             ))
                         }
                     };
-                    Ok(RegularParameterSignature {
-                        pattern: ParameterSignaturePattern {},
-                        ty,
-                    })
+                    Ok(ExplicitParameterSignature::new(todo!(), ty))
                 })
-                .collect::<Result<Vec<RegularParameterSignature>, SignatureError>>()?,
+                .collect::<Result<Vec<ExplicitParameterSignature>, SignatureError>>()?,
         })
     }
 }

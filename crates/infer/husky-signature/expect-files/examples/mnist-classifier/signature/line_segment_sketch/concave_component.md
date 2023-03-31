@@ -11,9 +11,9 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    parameters: RegularParameterSignatures {
+                    parameters: ExplicitParameterSignatures {
                         parameters: [
-                            RegularParameterSignature {
+                            ExplicitParameterSignature {
                                 pattern: ParameterSignaturePattern,
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
@@ -33,7 +33,7 @@
     Ok(
         Signature::Impl(
             ImplSignature::TypeImpl(
-                TypeImplSignature {
+                TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
@@ -116,7 +116,7 @@
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        self_parameter: RegularParameterSignature {
+                        self_parameter: ExplicitParameterSignature {
                             pattern: ParameterSignaturePattern,
                             ty: EntityPath(
                                 Type(
@@ -128,7 +128,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: RegularParameterSignatures {
+                        nonself_regular_parameters: ExplicitParameterSignatures {
                             parameters: [],
                         },
                         return_ty: RawTerm(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
@@ -145,7 +145,7 @@
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        self_parameter: RegularParameterSignature {
+                        self_parameter: ExplicitParameterSignature {
                             pattern: ParameterSignaturePattern,
                             ty: EntityPath(
                                 Type(
@@ -157,7 +157,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: RegularParameterSignatures {
+                        nonself_regular_parameters: ExplicitParameterSignatures {
                             parameters: [],
                         },
                         return_ty: RawTerm(`mnist_classifier::geom2d::Point2d`),
@@ -174,7 +174,7 @@
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        self_parameter: RegularParameterSignature {
+                        self_parameter: ExplicitParameterSignature {
                             pattern: ParameterSignaturePattern,
                             ty: EntityPath(
                                 Type(
@@ -186,7 +186,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: RegularParameterSignatures {
+                        nonself_regular_parameters: ExplicitParameterSignatures {
                             parameters: [],
                         },
                         return_ty: RawTerm(`mnist_classifier::geom2d::Point2d`),
@@ -203,7 +203,7 @@
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        self_parameter: RegularParameterSignature {
+                        self_parameter: ExplicitParameterSignature {
                             pattern: ParameterSignaturePattern,
                             ty: EntityPath(
                                 Type(
@@ -215,7 +215,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: RegularParameterSignatures {
+                        nonself_regular_parameters: ExplicitParameterSignatures {
                             parameters: [],
                         },
                         return_ty: RawTerm(`mnist_classifier::geom2d::Vector2d`),
@@ -232,7 +232,7 @@
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        self_parameter: RegularParameterSignature {
+                        self_parameter: ExplicitParameterSignature {
                             pattern: ParameterSignaturePattern,
                             ty: EntityPath(
                                 Type(
@@ -244,7 +244,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: RegularParameterSignatures {
+                        nonself_regular_parameters: ExplicitParameterSignatures {
                             parameters: [],
                         },
                         return_ty: RawTerm(`mnist_classifier::geom2d::Vector2d`),
@@ -261,7 +261,7 @@
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        self_parameter: RegularParameterSignature {
+                        self_parameter: ExplicitParameterSignature {
                             pattern: ParameterSignaturePattern,
                             ty: EntityPath(
                                 Type(
@@ -273,7 +273,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: RegularParameterSignatures {
+                        nonself_regular_parameters: ExplicitParameterSignatures {
                             parameters: [],
                         },
                         return_ty: RawTerm(`mnist_classifier::geom2d::Vector2d`),

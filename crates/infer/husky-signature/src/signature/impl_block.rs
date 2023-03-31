@@ -10,7 +10,7 @@ use super::*;
 #[salsa::derive_debug_with_db(db = SignatureDb, jar = SignatureJar)]
 #[enum_class::from_variants]
 pub enum ImplSignature {
-    TypeImpl(TypeImplSignature),
+    TypeImpl(TypeImplBlockSignature),
     TraitForTypeImpl(TraitForTypeImplBlockSignature),
 }
 

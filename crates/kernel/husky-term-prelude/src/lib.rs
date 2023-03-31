@@ -4,6 +4,7 @@ mod curry;
 mod db;
 mod entity_path;
 mod error;
+mod liason;
 mod literal;
 mod universe;
 
@@ -12,6 +13,7 @@ pub use self::curry::*;
 pub use self::db::*;
 pub use self::entity_path::*;
 pub use self::error::*;
+pub use self::liason::*;
 pub use self::literal::*;
 pub use self::universe::*;
 

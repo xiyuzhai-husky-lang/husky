@@ -58,7 +58,6 @@ Ok(
                                                 Expr::Err(
                                                     ExprError::Original(
                                                         OriginalExprError::NoRightOperandForBinaryOperator {
-                                                            lopd: 2,
                                                             punctuation: Closed(
                                                                 RemEuclid,
                                                             ),
@@ -157,9 +156,7 @@ Ok(
                                         ],
                                     },
                                 },
-                                implicit_parameter_decl_list: Ok(
-                                    None,
-                                ),
+                                implicit_parameter_decl_list: None,
                                 lcurl: LeftCurlyBraceToken(
                                     TokenIdx(
                                         8,
@@ -212,15 +209,10 @@ Ok(
                                             ),
                                         ),
                                     ],
-                                    Ok(
-                                        (),
-                                    ),
                                 ),
-                                rcurl: Ok(
-                                    RightCurlyBraceToken(
-                                        TokenIdx(
-                                            21,
-                                        ),
+                                rcurl: RightCurlyBraceToken(
+                                    TokenIdx(
+                                        21,
                                     ),
                                 ),
                             },
@@ -265,17 +257,13 @@ Ok(
                                         22,
                                     ),
                                 },
-                                implicit_parameter_decl_list: Ok(
-                                    None,
-                                ),
+                                implicit_parameter_decl_list: None,
                                 ty_expr: TypeExpr {
                                     expr: 0,
                                 },
-                                eol_colon: Ok(
-                                    EolColonToken(
-                                        TokenIdx(
-                                            24,
-                                        ),
+                                eol_colon: EolColonToken(
+                                    TokenIdx(
+                                        24,
                                     ),
                                 ),
                                 expr_region: ExprRegion {

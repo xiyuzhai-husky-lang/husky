@@ -62,10 +62,32 @@ where
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Hash)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = RawTermDb)]
 pub struct RawTermRitchieParameterLiasonedType {
+    liason: Liason,
     ty: RawTerm,
+}
+
+impl RawTermRitchieParameterLiasonedType {
+    pub fn new(liason: Liason, ty: RawTerm) -> Self {
+        Self { liason, ty }
+    }
+
+    pub(crate) fn substitute_ty(self, f: impl FnOnce(RawTerm) -> RawTerm) -> Self {
+        Self {
+            liason: self.liason,
+            ty: f(self.ty),
+        }
+    }
+
+    pub fn liason(&self) -> Liason {
+        self.liason
+    }
+
+    pub fn ty(&self) -> RawTerm {
+        self.ty
+    }
 }
 
 impl RawTermRitchieParameterLiasonedType {
@@ -91,16 +113,6 @@ where
     ) -> std::fmt::Result {
         let db = <Db as salsa::DbWithJar<RawTermJar>>::as_jar_db(db);
         self.ty.show_with_db_fmt(f, db, &mut Default::default())
-    }
-}
-
-impl RawTermRitchieParameterLiasonedType {
-    pub fn new(ty: RawTerm) -> Self {
-        Self { ty }
-    }
-
-    pub fn ty(&self) -> RawTerm {
-        self.ty
     }
 }
 

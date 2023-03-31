@@ -5,12 +5,9 @@ pub struct FeatureDecl {
     #[id]
     pub path: FormPath,
     pub ast_idx: AstIdx,
-    #[return_ref]
-    pub curry_token: DeclExprResult<CurryToken>,
-    #[return_ref]
-    pub return_ty: DeclExprResult<OutputTypeExpr>,
-    #[return_ref]
-    pub eol_colon: DeclExprResult<EolColonToken>,
+    pub curry_token: Option<CurryToken>,
+    pub return_ty: Option<ReturnTypeExpr>,
+    pub eol_colon: EolColonToken,
     pub expr_region: ExprRegion,
 }
 
@@ -29,9 +26,14 @@ impl<'a> DeclParseContext<'a> {
             AllowSelfValue::False,
         );
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
-        let curry_token = ctx.parse_expected(OriginalDeclExprError::ExpectCurry);
-        let return_ty = ctx.parse_expected(OriginalDeclExprError::ExpectOutputType);
-        let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon);
+
+        let curry_token = ctx.parse()?;
+        let return_ty = if curry_token.is_some() {
+            Some(ctx.parse_expected(OriginalDeclExprError::ExpectOutputType)?)
+        } else {
+            None
+        };
+        let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon)?;
         Ok(FeatureDecl::new(
             self.db(),
             path,

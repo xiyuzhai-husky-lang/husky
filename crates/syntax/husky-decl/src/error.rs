@@ -15,6 +15,18 @@ pub enum DeclError {
     Derived(#[from] DerivedDeclError),
 }
 
+pub type DeclResult<T> = Result<T, DeclError>;
+pub type DeclResultRef<'a, T> = Result<T, &'a DeclError>;
+
+impl From<DeclExprError> for DeclError {
+    fn from(value: DeclExprError) -> Self {
+        match value {
+            DeclExprError::Original(e) => DeclError::Original(e.into()),
+            DeclExprError::Derived(e) => DeclError::Derived(e.into()),
+        }
+    }
+}
+
 impl From<EntityTreeError> for DeclError {
     fn from(value: EntityTreeError) -> Self {
         DeclError::Derived(value.into())
@@ -40,6 +52,8 @@ pub enum OriginalDeclError {
     ExpectLCurlOrLParOrSemicolon(TokenIdx),
     #[error("NoSuchItem")]
     NoSuchItem,
+    #[error("{0}")]
+    Expr(#[from] OriginalDeclExprError),
 }
 
 impl OriginalError for OriginalDeclError {
@@ -63,10 +77,9 @@ pub enum DerivedDeclError {
     UnableToParseImplDeclForTyMethodDecl,
     #[error("impl block error")]
     ImplErr,
+    #[error("{0}")]
+    Expr(#[from] DerivedDeclExprError),
 }
-
-pub type DeclResult<T> = Result<T, DeclError>;
-pub type DeclResultRef<'a, T> = Result<T, &'a DeclError>;
 
 #[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
@@ -77,14 +90,19 @@ pub enum DeclExprError {
     Derived(#[from] DerivedDeclExprError),
 }
 
+pub type DeclExprResult<T> = Result<T, DeclExprError>;
+
 impl From<TokenError> for DeclExprError {
     fn from(error: TokenError) -> Self {
         DeclExprError::Derived(error.into())
     }
 }
 
-pub type DeclExprResult<T> = Result<T, DeclExprError>;
-pub type DeclExprResultRef<'a, T> = Result<T, &'a DeclExprError>;
+impl From<ExprError> for DeclError {
+    fn from(value: ExprError) -> Self {
+        todo!()
+    }
+}
 
 impl From<ExprError> for DeclExprError {
     fn from(error: ExprError) -> Self {

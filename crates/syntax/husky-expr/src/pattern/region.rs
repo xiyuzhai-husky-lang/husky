@@ -63,7 +63,7 @@ fn collect_symbols(
         PatternExpr::Literal(_) => Default::default(),
         PatternExpr::Ident {
             ident_token,
-            liason,
+            modifier: liason,
         } => [(
             ident_token.ident(),
             pattern_symbol_arena.alloc_one(PatternSymbol::Atom(pattern_expr_idx)),

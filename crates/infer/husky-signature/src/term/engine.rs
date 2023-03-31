@@ -61,7 +61,7 @@ impl<'a> SignatureRawTermEngine<'a> {
                     }
                     _ => todo!(),
                 },
-                CurrentSymbolVariant::RegularParameter {
+                CurrentSymbolVariant::ExplicitParameter {
                     pattern_symbol_idx, ..
                 } => {
                     let pattern_symbol =

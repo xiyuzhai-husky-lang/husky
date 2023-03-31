@@ -187,10 +187,10 @@ impl<'a> ExprRangeCalculator<'a> {
             PatternExpr::Literal(_) => todo!(),
             PatternExpr::Ident {
                 ident_token,
-                liason,
+                modifier: liason,
             } => match liason {
-                PatternLiason::None => TokenIdxRange::new_single(ident_token.token_idx()),
-                PatternLiason::Mut => todo!(),
+                PatternModifier::None => TokenIdxRange::new_single(ident_token.token_idx()),
+                PatternModifier::Mut => todo!(),
             },
             PatternExpr::Entity(_) => todo!(),
             PatternExpr::Tuple { name, fields } => todo!(),

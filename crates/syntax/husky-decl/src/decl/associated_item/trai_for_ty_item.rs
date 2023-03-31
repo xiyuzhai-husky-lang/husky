@@ -31,10 +31,7 @@ impl TraitForTypeItemDecl {
         }
     }
 
-    pub fn implicit_parameters<'a>(
-        self,
-        _db: &'a dyn DeclDb,
-    ) -> DeclExprResultRef<'a, &'a [ImplicitParameterDecl]> {
+    pub fn implicit_parameters<'a>(self, _db: &'a dyn DeclDb) -> &'a [ImplicitParameterDecl] {
         match self {
             TraitForTypeItemDecl::AssociatedFunction(_) => todo!(),
             TraitForTypeItemDecl::Method(_) => todo!(),
@@ -84,17 +81,22 @@ impl<'a> DeclParseContext<'a> {
             AllowSelfValue::True,
         );
         let mut ctx = parser.ctx(None, token_group_idx, saved_stream_state);
-        let implicit_parameter_decl_list = ctx.parse();
+        let implicit_parameter_decl_list = ctx.parse()?;
         let path = match associated_item.path(self.db()) {
             Some(AssociatedItemPath::TraitForTypeItem(path)) => Some(path),
             None => None,
             _ => unreachable!(),
         };
         let parameter_decl_list =
-            ctx.parse_expected(OriginalDeclExprError::ExpectParameterDeclList);
-        let curry_token = ctx.parse_expected(OriginalDeclExprError::ExpectCurry);
-        let return_ty = ctx.parse_expected(OriginalDeclExprError::ExpectOutputType);
-        let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon);
+            ctx.parse_expected(OriginalDeclExprError::ExpectParameterDeclList)?;
+
+        let curry_token = ctx.parse()?;
+        let return_ty = if curry_token.is_some() {
+            Some(ctx.parse_expected(OriginalDeclExprError::ExpectOutputType)?)
+        } else {
+            None
+        };
+        let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon)?;
         Ok(TraitForTypeMethodDecl::new(
             self.db(),
             path,

@@ -123,11 +123,9 @@ impl RawTerm {
                 term.parameter_tys(db)
                     .iter()
                     .map(|parameter_ty| {
-                        RawTermRitchieParameterLiasonedType::new(
-                            parameter_ty
-                                .ty()
-                                .substitute_symbol_with_variable(db, symbol, variable),
-                        )
+                        parameter_ty.substitute_ty(|ty| {
+                            ty.substitute_symbol_with_variable(db, symbol, variable)
+                        })
                     })
                     .collect(),
                 term.return_ty(db)

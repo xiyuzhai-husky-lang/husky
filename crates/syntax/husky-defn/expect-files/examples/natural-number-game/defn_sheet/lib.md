@@ -62,9 +62,7 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    implicit_parameter_decl_list: Ok(
-                                        None,
-                                    ),
+                                    implicit_parameter_decl_list: None,
                                 },
                             },
                         ),
@@ -132,9 +130,7 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    implicit_parameter_decl_list: Ok(
-                                        None,
-                                    ),
+                                    implicit_parameter_decl_list: None,
                                 },
                             },
                         ),
@@ -202,9 +198,7 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    implicit_parameter_decl_list: Ok(
-                                        None,
-                                    ),
+                                    implicit_parameter_decl_list: None,
                                 },
                             },
                         ),
@@ -248,17 +242,13 @@ Ok(
                                         9,
                                     ),
                                 },
-                                implicit_parameter_decl_list: Ok(
-                                    None,
-                                ),
+                                implicit_parameter_decl_list: None,
                                 ty_expr: TypeExpr {
                                     expr: 0,
                                 },
-                                eol_colon: Ok(
-                                    EolColonToken(
-                                        TokenIdx(
-                                            11,
-                                        ),
+                                eol_colon: EolColonToken(
+                                    TokenIdx(
+                                        11,
                                     ),
                                 ),
                                 expr_region: ExprRegion {

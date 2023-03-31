@@ -32,10 +32,7 @@ impl ImplBlockDecl {
         }
     }
 
-    pub fn implicit_parameters<'a>(
-        self,
-        _db: &'a dyn DeclDb,
-    ) -> DeclExprResultRef<'a, &'a [ImplicitParameterDecl]> {
+    pub fn implicit_parameters<'a>(self, _db: &'a dyn DeclDb) -> &'a [ImplicitParameterDecl] {
         todo!()
     }
 
@@ -52,10 +49,8 @@ pub(crate) fn impl_block_decl(
     impl_block: ImplBlock,
 ) -> DeclResultRef<ImplBlockDecl> {
     match impl_block {
-        ImplBlock::Type(impl_block) => ty_impl_block_decl(db, impl_block).map(Into::into),
-        ImplBlock::TraitForType(impl_block) => {
-            trai_for_ty_impl_block_decl(db, impl_block).map(Into::into)
-        }
+        ImplBlock::Type(impl_block) => impl_block.decl(db).map(Into::into),
+        ImplBlock::TraitForType(impl_block) => impl_block.decl(db).map(Into::into),
         ImplBlock::IllFormed(_) => Err(&DeclError::Derived(DerivedDeclError::ImplErr)),
     }
 }

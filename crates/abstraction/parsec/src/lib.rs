@@ -76,6 +76,7 @@ where
         P::parse_from_with_rollback_when_no_error(self)
     }
 
+    /// deprecated
     fn try_parse<P: ParseFrom<Self>>(&mut self) -> Option<P> {
         P::try_parse_from_with_rollback(self)
     }

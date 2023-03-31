@@ -7,17 +7,14 @@ pub struct TraitDecl {
     pub ast_idx: AstIdx,
     pub expr_region: ExprRegion,
     #[return_ref]
-    implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
+    implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
 }
 
 impl TraitDecl {
-    pub fn implicit_parameters<'a>(
-        self,
-        db: &'a dyn DeclDb,
-    ) -> DeclExprResultRef<'a, &'a [ImplicitParameterDecl]> {
-        match self.implicit_parameter_decl_list(db).as_ref()? {
+    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDecl] {
+        match self.implicit_parameter_decl_list(db) {
             Some(list) => list.implicit_parameters(),
-            None => Ok(&[]),
+            None => &[],
         }
     }
 }
@@ -65,7 +62,7 @@ impl<'a> DeclParseContext<'a> {
             AllowSelfValue::False,
         );
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
-        let implicit_parameters = ctx.parse();
+        let implicit_parameters = ctx.parse()?;
         Ok(TraitDecl::new(
             self.db(),
             path,
