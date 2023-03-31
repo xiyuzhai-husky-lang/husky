@@ -645,6 +645,11 @@ Ok(
             Token::Ident(
                 `Zero`,
             ),
+            Token::Keyword(
+                Keyword::Stmt(
+                    Let,
+                ),
+            ),
             Token::Ident(
                 `simp_zero_match`,
             ),
@@ -856,6 +861,11 @@ Ok(
             Token::Ident(
                 `some`,
             ),
+            Token::Keyword(
+                Keyword::Stmt(
+                    Let,
+                ),
+            ),
             Token::Ident(
                 `major_hole`,
             ),
@@ -892,6 +902,11 @@ Ok(
                     Box,
                 ),
             ),
+            Token::Keyword(
+                Keyword::Stmt(
+                    Let,
+                ),
+            ),
             Token::Ident(
                 `a`,
             ),
@@ -955,6 +970,11 @@ Ok(
                     Par,
                 ),
             ),
+            Token::Keyword(
+                Keyword::Stmt(
+                    Let,
+                ),
+            ),
             Token::Ident(
                 `b`,
             ),
@@ -1016,6 +1036,11 @@ Ok(
             Token::Punctuation(
                 Punctuation::Ket(
                     Par,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Stmt(
+                    Let,
                 ),
             ),
             Token::Ident(
@@ -1051,6 +1076,11 @@ Ok(
             Token::Literal(
                 Literal::Float(
                     Unspecified,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Stmt(
+                    Let,
                 ),
             ),
             Token::Ident(
@@ -1103,17 +1133,17 @@ Ok(
             171,
             175,
             178,
-            187,
-            209,
-            215,
-            226,
-            237,
-            247,
-            264,
-            281,
-            286,
-            290,
+            188,
+            210,
+            216,
+            227,
+            238,
+            249,
+            267,
+            285,
+            291,
             295,
+            301,
         ],
         indents: [
             0,

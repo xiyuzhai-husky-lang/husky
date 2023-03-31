@@ -40,7 +40,12 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [30:13, 30:20),
+                range: [29:13, 29:20),
+            },
+            Diagnostic {
+                message: "Syntax Error: unrecognized identifier",
+                severity: Error,
+                range: [30:13, 30:21),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
@@ -50,22 +55,17 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [32:13, 32:21),
+                range: [33:13, 33:20),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [34:13, 34:20),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [35:13, 35:19),
+                range: [34:13, 34:19),
             },
             Diagnostic {
                 message: "entity tree error EntityTreeError::Original(OriginalEntityTreeError::NoSubentity)",
                 severity: Error,
-                range: [80:17, 80:20),
+                range: [78:17, 78:20),
             },
         ],
     },

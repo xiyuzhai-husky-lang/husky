@@ -1,11 +1,11 @@
 Ok(
     [
         FoldingRange {
-            start_line: 51,
+            start_line: 49,
             start_character: Some(
                 4,
             ),
-            end_line: 69,
+            end_line: 67,
             end_character: Some(
                 41,
             ),
@@ -14,11 +14,11 @@ Ok(
             ),
         },
         FoldingRange {
-            start_line: 73,
+            start_line: 71,
             start_character: Some(
                 4,
             ),
-            end_line: 78,
+            end_line: 76,
             end_character: Some(
                 36,
             ),
@@ -83,7 +83,7 @@ Ok(
             start_character: Some(
                 0,
             ),
-            end_line: 79,
+            end_line: 77,
             end_character: Some(
                 19,
             ),
