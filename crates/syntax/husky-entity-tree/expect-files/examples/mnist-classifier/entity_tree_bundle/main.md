@@ -97,7 +97,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `find_raw_contours`,
+                            ident: `MnistLabel`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
@@ -110,7 +110,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `connected_components`,
+                            ident: `find_raw_contours`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
@@ -123,7 +123,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `major_connected_component`,
+                            ident: `connected_components`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
@@ -136,7 +136,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `ignored_connected_components_row_span_sum_sum`,
+                            ident: `major_connected_component`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
@@ -149,7 +149,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `major_raw_contours`,
+                            ident: `ignored_connected_components_row_span_sum_sum`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
@@ -162,7 +162,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `major_raw_contour`,
+                            ident: `major_raw_contours`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
@@ -175,7 +175,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `major_line_segment_sketch`,
+                            ident: `major_raw_contour`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
@@ -188,7 +188,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `major_concave_components`,
+                            ident: `major_line_segment_sketch`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier`,
                             ),
@@ -201,6 +201,19 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `major_concave_components`,
+                            visibility: Visibility::PublicUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 69,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `fermi_match`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier`,
@@ -208,7 +221,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 80,
+                                        value: 81,
                                     },
                                 ),
                             ),
@@ -221,7 +234,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 85,
+                                        value: 86,
                                     },
                                 ),
                             ),
@@ -234,7 +247,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 86,
+                                        value: 87,
                                     },
                                 ),
                             ),
@@ -247,7 +260,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 207,
+                                        value: 214,
                                     },
                                 ),
                             ),
@@ -260,7 +273,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 232,
+                                        value: 240,
                                     },
                                 ),
                             ),
@@ -273,7 +286,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 233,
+                                        value: 241,
                                     },
                                 ),
                             ),
@@ -286,7 +299,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 234,
+                                        value: 242,
                                     },
                                 ),
                             ),
@@ -626,7 +639,19 @@ Ok(
                                     `mnist`,
                                 ),
                             ),
-                            state: UseExprRuleState::Erroneous,
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: PackageDependency {
+                                    entity_path: ModuleItem(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 79,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
                         },
                         UseExprRule {
                             ast_idx: 24,
@@ -664,31 +689,37 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 47,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 47,
+                                    },
+                                ),
+                            },
                             ast_idx: 21,
                             use_expr_idx: 4,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 40,
                                     },
                                 ),
                             ),
-                            progress: 27,
+                            progress: 28,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 46,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 46,
+                                    },
+                                ),
+                            },
                             ast_idx: 22,
                             use_expr_idx: 6,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 40,
@@ -698,31 +729,37 @@ Ok(
                             progress: 18,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 45,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 45,
+                                    },
+                                ),
+                            },
                             ast_idx: 23,
                             use_expr_idx: 8,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 40,
                                     },
                                 ),
                             ),
-                            progress: 23,
+                            progress: 24,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 44,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 44,
+                                    },
+                                ),
+                            },
                             ast_idx: 25,
                             use_expr_idx: 12,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 40,
@@ -732,21 +769,24 @@ Ok(
                             progress: 21,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 62,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Outside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 62,
+                                    },
+                                ),
+                            },
                             ast_idx: 27,
                             use_expr_idx: 19,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 40,
                                     },
                                 ),
                             ),
-                            progress: 0,
+                            progress: 1,
                         },
                     ],
                 ),
@@ -767,16 +807,6 @@ Ok(
                                 ident: `BinaryImage28`,
                                 token_idx: TokenIdx(
                                     24,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `MnistLabel`,
-                                token_idx: TokenIdx(
-                                    28,
                                 ),
                             },
                         ),
@@ -875,7 +905,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 92,
+                                        value: 94,
                                     },
                                 ),
                             ),
@@ -888,7 +918,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 93,
+                                        value: 95,
                                     },
                                 ),
                             ),
@@ -901,7 +931,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 94,
+                                        value: 96,
                                     },
                                 ),
                             ),
@@ -914,7 +944,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 95,
+                                        value: 97,
                                     },
                                 ),
                             ),
@@ -927,7 +957,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 96,
+                                        value: 98,
                                     },
                                 ),
                             ),
@@ -940,7 +970,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 97,
+                                        value: 99,
                                     },
                                 ),
                             ),
@@ -953,39 +983,13 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 98,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `find_raw_contours`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::connected_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 99,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `connected_components`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::connected_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
                                         value: 100,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `major_connected_component`,
+                            ident: `MnistLabel`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
@@ -998,7 +1002,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `ignored_connected_components_row_span_sum_sum`,
+                            ident: `find_raw_contours`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
@@ -1011,7 +1015,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `major_raw_contours`,
+                            ident: `connected_components`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
@@ -1024,7 +1028,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `major_raw_contour`,
+                            ident: `major_connected_component`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
@@ -1037,7 +1041,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `major_line_segment_sketch`,
+                            ident: `ignored_connected_components_row_span_sum_sum`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
@@ -1050,7 +1054,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `major_concave_components`,
+                            ident: `major_raw_contours`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
@@ -1063,7 +1067,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `fermi_match`,
+                            ident: `major_raw_contour`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
@@ -1076,7 +1080,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `LineSegmentStroke`,
+                            ident: `major_line_segment_sketch`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
@@ -1089,7 +1093,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `LineSegmentSketch`,
+                            ident: `major_concave_components`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
                             ),
@@ -1102,6 +1106,45 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `fermi_match`,
+                            visibility: Visibility::PublicUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 110,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegmentStroke`,
+                            visibility: Visibility::PublicUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 111,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegmentSketch`,
+                            visibility: Visibility::PublicUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 112,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `RawContour`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::connected_component`,
@@ -1109,7 +1152,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 235,
+                                        value: 243,
                                     },
                                 ),
                             ),
@@ -1122,7 +1165,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 836,
+                                        value: 862,
                                     },
                                 ),
                             ),
@@ -1135,7 +1178,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 837,
+                                        value: 863,
                                     },
                                 ),
                             ),
@@ -1148,7 +1191,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 838,
+                                        value: 864,
                                     },
                                 ),
                             ),
@@ -1161,7 +1204,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 839,
+                                        value: 865,
                                     },
                                 ),
                             ),
@@ -1318,31 +1361,37 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 40,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 40,
+                                    },
+                                ),
+                            },
                             ast_idx: 120,
                             use_expr_idx: 7,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 41,
                                     },
                                 ),
                             ),
-                            progress: 22,
+                            progress: 23,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 42,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 42,
+                                    },
+                                ),
+                            },
                             ast_idx: 119,
                             use_expr_idx: 4,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 41,
@@ -1519,7 +1568,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 246,
+                                        value: 254,
                                     },
                                 ),
                             ),
@@ -1532,7 +1581,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 247,
+                                        value: 255,
                                     },
                                 ),
                             ),
@@ -1545,7 +1594,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 248,
+                                        value: 256,
                                     },
                                 ),
                             ),
@@ -1558,7 +1607,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 249,
+                                        value: 257,
                                     },
                                 ),
                             ),
@@ -1571,7 +1620,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 250,
+                                        value: 258,
                                     },
                                 ),
                             ),
@@ -1584,7 +1633,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 251,
+                                        value: 259,
                                     },
                                 ),
                             ),
@@ -1597,7 +1646,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 252,
+                                        value: 260,
                                     },
                                 ),
                             ),
@@ -1610,7 +1659,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 253,
+                                        value: 261,
                                     },
                                 ),
                             ),
@@ -1623,7 +1672,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 255,
+                                        value: 263,
                                     },
                                 ),
                             ),
@@ -1636,7 +1685,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 257,
+                                        value: 265,
                                     },
                                 ),
                             ),
@@ -1649,7 +1698,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 281,
+                                        value: 290,
                                     },
                                 ),
                             ),
@@ -1662,7 +1711,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 282,
+                                        value: 291,
                                     },
                                 ),
                             ),
@@ -1675,7 +1724,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 288,
+                                        value: 297,
                                     },
                                 ),
                             ),
@@ -1688,7 +1737,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 289,
+                                        value: 298,
                                     },
                                 ),
                             ),
@@ -1701,7 +1750,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 290,
+                                        value: 299,
                                     },
                                 ),
                             ),
@@ -2017,14 +2066,17 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 43,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 43,
+                                    },
+                                ),
+                            },
                             ast_idx: 195,
                             use_expr_idx: 0,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 42,
@@ -2034,31 +2086,37 @@ Ok(
                             progress: 6,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 41,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 41,
+                                    },
+                                ),
+                            },
                             ast_idx: 196,
                             use_expr_idx: 3,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 42,
                                     },
                                 ),
                             ),
-                            progress: 29,
+                            progress: 30,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 44,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 44,
+                                    },
+                                ),
+                            },
                             ast_idx: 197,
                             use_expr_idx: 6,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 42,
@@ -2428,7 +2486,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 110,
+                                        value: 113,
                                     },
                                 ),
                             ),
@@ -2439,7 +2497,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 111,
+                                        value: 114,
                                     },
                                 ),
                             ),
@@ -2450,7 +2508,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 113,
+                                        value: 116,
                                     },
                                 ),
                             ),
@@ -2463,7 +2521,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 291,
+                                        value: 300,
                                     },
                                 ),
                             ),
@@ -2476,7 +2534,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 310,
+                                        value: 320,
                                     },
                                 ),
                             ),
@@ -2489,7 +2547,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 311,
+                                        value: 321,
                                     },
                                 ),
                             ),
@@ -2502,7 +2560,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 312,
+                                        value: 322,
                                     },
                                 ),
                             ),
@@ -2515,7 +2573,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 313,
+                                        value: 323,
                                     },
                                 ),
                             ),
@@ -2528,7 +2586,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 314,
+                                        value: 324,
                                     },
                                 ),
                             ),
@@ -2541,7 +2599,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 315,
+                                        value: 325,
                                     },
                                 ),
                             ),
@@ -2882,47 +2940,59 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 48,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 48,
+                                    },
+                                ),
+                            },
                             ast_idx: 163,
                             use_expr_idx: 0,
-                            accessibility: Public,
-                            progress: 39,
+                            visibility: Public,
+                            progress: 40,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 49,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 49,
+                                    },
+                                ),
+                            },
                             ast_idx: 164,
                             use_expr_idx: 2,
-                            accessibility: Public,
+                            visibility: Public,
                             progress: 22,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 51,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 51,
+                                    },
+                                ),
+                            },
                             ast_idx: 165,
                             use_expr_idx: 4,
-                            accessibility: Public,
+                            visibility: Public,
                             progress: 7,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 51,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 51,
+                                    },
+                                ),
+                            },
                             ast_idx: 168,
                             use_expr_idx: 12,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 44,
@@ -2932,14 +3002,17 @@ Ok(
                             progress: 7,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 43,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 43,
+                                    },
+                                ),
+                            },
                             ast_idx: 166,
                             use_expr_idx: 6,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 44,
@@ -2986,7 +3059,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 115,
+                                        value: 118,
                                     },
                                 ),
                             ),
@@ -2999,7 +3072,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 116,
+                                        value: 119,
                                     },
                                 ),
                             ),
@@ -3012,7 +3085,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 117,
+                                        value: 120,
                                     },
                                 ),
                             ),
@@ -3025,7 +3098,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 118,
+                                        value: 121,
                                     },
                                 ),
                             ),
@@ -3038,7 +3111,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 119,
+                                        value: 122,
                                     },
                                 ),
                             ),
@@ -3051,7 +3124,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 120,
+                                        value: 123,
                                     },
                                 ),
                             ),
@@ -3064,52 +3137,13 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 121,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `find_raw_contours`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::line_segment_sketch::concave_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 122,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `connected_components`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::line_segment_sketch::concave_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 123,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_connected_component`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::line_segment_sketch::concave_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
                                         value: 124,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `ignored_connected_components_row_span_sum_sum`,
+                            ident: `MnistLabel`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
@@ -3122,7 +3156,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `major_raw_contours`,
+                            ident: `find_raw_contours`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
@@ -3135,7 +3169,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `major_raw_contour`,
+                            ident: `connected_components`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
@@ -3148,7 +3182,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `major_line_segment_sketch`,
+                            ident: `major_connected_component`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
@@ -3161,7 +3195,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `major_concave_components`,
+                            ident: `ignored_connected_components_row_span_sum_sum`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
@@ -3174,7 +3208,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `fermi_match`,
+                            ident: `major_raw_contours`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
@@ -3187,7 +3221,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `LineSegmentStroke`,
+                            ident: `major_raw_contour`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
@@ -3200,7 +3234,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `LineSegmentSketch`,
+                            ident: `major_line_segment_sketch`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
@@ -3213,111 +3247,59 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `major_concave_components`,
+                            visibility: Visibility::PublicUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 133,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `fermi_match`,
+                            visibility: Visibility::PublicUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 134,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegmentStroke`,
+                            visibility: Visibility::PublicUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 135,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegmentSketch`,
+                            visibility: Visibility::PublicUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 136,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `concave_component`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::line_segment_sketch::concave_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 316,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `convex_component`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::line_segment_sketch::concave_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 317,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `convexity`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::line_segment_sketch::concave_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 318,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `line_segment`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::line_segment_sketch::concave_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 319,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `go_right`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::line_segment_sketch::concave_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 322,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `go_left`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::line_segment_sketch::concave_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 323,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `extend_end`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::line_segment_sketch::concave_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 324,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `extend_start`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::line_segment_sketch::concave_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 325,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `find_line_segments`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
@@ -3330,7 +3312,33 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `LineSegment`,
+                            ident: `convex_component`,
+                            visibility: Visibility::PublicUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 327,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `convexity`,
+                            visibility: Visibility::PublicUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 328,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `line_segment`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
@@ -3343,33 +3351,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `RawContour`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::line_segment_sketch::concave_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 330,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `Point2d`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::line_segment_sketch::concave_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 331,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `RelativePoint2d`,
+                            ident: `go_right`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
@@ -3382,7 +3364,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `Vector2d`,
+                            ident: `go_left`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
@@ -3395,7 +3377,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `ClosedRange`,
+                            ident: `extend_end`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
@@ -3408,7 +3390,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `BoundingBox`,
+                            ident: `extend_start`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
@@ -3421,7 +3403,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `RelativeBoundingBox`,
+                            ident: `find_line_segments`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
@@ -3434,6 +3416,110 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `LineSegment`,
+                            visibility: Visibility::PublicUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 339,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `RawContour`,
+                            visibility: Visibility::PublicUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 340,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `Point2d`,
+                            visibility: Visibility::PublicUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 341,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `RelativePoint2d`,
+                            visibility: Visibility::PublicUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 342,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `Vector2d`,
+                            visibility: Visibility::PublicUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 343,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ClosedRange`,
+                            visibility: Visibility::PublicUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 344,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `BoundingBox`,
+                            visibility: Visibility::PublicUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 345,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `RelativeBoundingBox`,
+                            visibility: Visibility::PublicUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 346,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `is_one`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
@@ -3441,7 +3527,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 912,
+                                        value: 938,
                                     },
                                 ),
                             ),
@@ -3454,7 +3540,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 923,
+                                        value: 949,
                                     },
                                 ),
                             ),
@@ -3860,31 +3946,37 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 40,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 40,
+                                    },
+                                ),
+                            },
                             ast_idx: 73,
                             use_expr_idx: 14,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 48,
                                     },
                                 ),
                             ),
-                            progress: 22,
+                            progress: 23,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 44,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 44,
+                                    },
+                                ),
+                            },
                             ast_idx: 69,
                             use_expr_idx: 0,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 48,
@@ -3894,14 +3986,17 @@ Ok(
                             progress: 21,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 43,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 43,
+                                    },
+                                ),
+                            },
                             ast_idx: 72,
                             use_expr_idx: 11,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 48,
@@ -3911,14 +4006,17 @@ Ok(
                             progress: 6,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 51,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 51,
+                                    },
+                                ),
+                            },
                             ast_idx: 70,
                             use_expr_idx: 3,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 48,
@@ -3928,14 +4026,17 @@ Ok(
                             progress: 7,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 50,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 50,
+                                    },
+                                ),
+                            },
                             ast_idx: 71,
                             use_expr_idx: 7,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 48,
@@ -3973,7 +4074,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 343,
+                                        value: 353,
                                     },
                                 ),
                             ),
@@ -3986,7 +4087,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 344,
+                                        value: 354,
                                     },
                                 ),
                             ),
@@ -3999,7 +4100,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 345,
+                                        value: 355,
                                     },
                                 ),
                             ),
@@ -4012,7 +4113,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 346,
+                                        value: 356,
                                     },
                                 ),
                             ),
@@ -4025,7 +4126,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 347,
+                                        value: 357,
                                     },
                                 ),
                             ),
@@ -4038,7 +4139,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 348,
+                                        value: 358,
                                     },
                                 ),
                             ),
@@ -4051,7 +4152,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 349,
+                                        value: 359,
                                     },
                                 ),
                             ),
@@ -4064,7 +4165,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 350,
+                                        value: 360,
                                     },
                                 ),
                             ),
@@ -4077,7 +4178,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 351,
+                                        value: 361,
                                     },
                                 ),
                             ),
@@ -4090,7 +4191,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 352,
+                                        value: 362,
                                     },
                                 ),
                             ),
@@ -4103,7 +4204,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 353,
+                                        value: 363,
                                     },
                                 ),
                             ),
@@ -4116,7 +4217,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 354,
+                                        value: 364,
                                     },
                                 ),
                             ),
@@ -4129,7 +4230,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 355,
+                                        value: 365,
                                     },
                                 ),
                             ),
@@ -4142,7 +4243,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 356,
+                                        value: 366,
                                     },
                                 ),
                             ),
@@ -4155,7 +4256,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 357,
+                                        value: 367,
                                     },
                                 ),
                             ),
@@ -4168,7 +4269,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 358,
+                                        value: 368,
                                     },
                                 ),
                             ),
@@ -4181,7 +4282,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 359,
+                                        value: 369,
                                     },
                                 ),
                             ),
@@ -4194,7 +4295,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 360,
+                                        value: 370,
                                     },
                                 ),
                             ),
@@ -4207,7 +4308,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 361,
+                                        value: 371,
                                     },
                                 ),
                             ),
@@ -4220,7 +4321,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 362,
+                                        value: 372,
                                     },
                                 ),
                             ),
@@ -4233,7 +4334,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 363,
+                                        value: 373,
                                     },
                                 ),
                             ),
@@ -4335,14 +4436,17 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 44,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 44,
+                                    },
+                                ),
+                            },
                             ast_idx: 2,
                             use_expr_idx: 0,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 49,
@@ -4378,7 +4482,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 364,
+                                        value: 374,
                                     },
                                 ),
                             ),
@@ -4391,7 +4495,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 365,
+                                        value: 375,
                                     },
                                 ),
                             ),
@@ -4404,7 +4508,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 366,
+                                        value: 376,
                                     },
                                 ),
                             ),
@@ -4417,7 +4521,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 367,
+                                        value: 377,
                                     },
                                 ),
                             ),
@@ -4430,7 +4534,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 368,
+                                        value: 378,
                                     },
                                 ),
                             ),
@@ -4443,7 +4547,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 369,
+                                        value: 379,
                                     },
                                 ),
                             ),
@@ -4456,7 +4560,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 370,
+                                        value: 380,
                                     },
                                 ),
                             ),
@@ -4469,7 +4573,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 371,
+                                        value: 381,
                                     },
                                 ),
                             ),
@@ -4482,7 +4586,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 372,
+                                        value: 382,
                                     },
                                 ),
                             ),
@@ -4495,7 +4599,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 373,
+                                        value: 383,
                                     },
                                 ),
                             ),
@@ -4508,7 +4612,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 374,
+                                        value: 384,
                                     },
                                 ),
                             ),
@@ -4521,7 +4625,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 375,
+                                        value: 385,
                                     },
                                 ),
                             ),
@@ -4534,7 +4638,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 376,
+                                        value: 386,
                                     },
                                 ),
                             ),
@@ -4547,7 +4651,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 377,
+                                        value: 387,
                                     },
                                 ),
                             ),
@@ -4560,7 +4664,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 378,
+                                        value: 388,
                                     },
                                 ),
                             ),
@@ -4573,7 +4677,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 379,
+                                        value: 389,
                                     },
                                 ),
                             ),
@@ -4586,7 +4690,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 380,
+                                        value: 390,
                                     },
                                 ),
                             ),
@@ -4599,7 +4703,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 381,
+                                        value: 391,
                                     },
                                 ),
                             ),
@@ -4612,7 +4716,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 382,
+                                        value: 392,
                                     },
                                 ),
                             ),
@@ -4625,7 +4729,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 383,
+                                        value: 393,
                                     },
                                 ),
                             ),
@@ -4638,7 +4742,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 384,
+                                        value: 394,
                                     },
                                 ),
                             ),
@@ -4854,14 +4958,17 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 44,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 44,
+                                    },
+                                ),
+                            },
                             ast_idx: 19,
                             use_expr_idx: 0,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 50,
@@ -4871,14 +4978,17 @@ Ok(
                             progress: 21,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 42,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 42,
+                                    },
+                                ),
+                            },
                             ast_idx: 20,
                             use_expr_idx: 3,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 50,
@@ -4888,14 +4998,17 @@ Ok(
                             progress: 26,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 43,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 43,
+                                    },
+                                ),
+                            },
                             ast_idx: 21,
                             use_expr_idx: 6,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 50,
@@ -4931,7 +5044,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 417,
+                                        value: 427,
                                     },
                                 ),
                             ),
@@ -4944,7 +5057,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 418,
+                                        value: 428,
                                     },
                                 ),
                             ),
@@ -4957,7 +5070,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 419,
+                                        value: 429,
                                     },
                                 ),
                             ),
@@ -4970,7 +5083,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 420,
+                                        value: 430,
                                     },
                                 ),
                             ),
@@ -4983,7 +5096,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 421,
+                                        value: 431,
                                     },
                                 ),
                             ),
@@ -4996,7 +5109,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 422,
+                                        value: 432,
                                     },
                                 ),
                             ),
@@ -5098,14 +5211,17 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 43,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 43,
+                                    },
+                                ),
+                            },
                             ast_idx: 15,
                             use_expr_idx: 0,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 51,
@@ -5154,7 +5270,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 133,
+                                        value: 137,
                                     },
                                 ),
                             ),
@@ -5167,7 +5283,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 134,
+                                        value: 138,
                                     },
                                 ),
                             ),
@@ -5180,7 +5296,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 135,
+                                        value: 139,
                                     },
                                 ),
                             ),
@@ -5193,7 +5309,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 136,
+                                        value: 140,
                                     },
                                 ),
                             ),
@@ -5206,7 +5322,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 137,
+                                        value: 141,
                                     },
                                 ),
                             ),
@@ -5219,7 +5335,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 138,
+                                        value: 142,
                                     },
                                 ),
                             ),
@@ -5232,65 +5348,13 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 139,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `find_raw_contours`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::fermi`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 140,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `connected_components`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::fermi`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 141,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_connected_component`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::fermi`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 142,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `ignored_connected_components_row_span_sum_sum`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::fermi`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
                                         value: 143,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `major_raw_contours`,
+                            ident: `MnistLabel`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::fermi`,
                             ),
@@ -5303,7 +5367,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `major_raw_contour`,
+                            ident: `find_raw_contours`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::fermi`,
                             ),
@@ -5316,7 +5380,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `major_line_segment_sketch`,
+                            ident: `connected_components`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::fermi`,
                             ),
@@ -5329,7 +5393,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `major_concave_components`,
+                            ident: `major_connected_component`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::fermi`,
                             ),
@@ -5342,7 +5406,20 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `LineSegmentStroke`,
+                            ident: `ignored_connected_components_row_span_sum_sum`,
+                            visibility: Visibility::PublicUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 148,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contours`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::fermi`,
                             ),
@@ -5355,7 +5432,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `LineSegmentSketch`,
+                            ident: `major_raw_contour`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::fermi`,
                             ),
@@ -5368,6 +5445,58 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `major_line_segment_sketch`,
+                            visibility: Visibility::PublicUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 151,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_concave_components`,
+                            visibility: Visibility::PublicUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 152,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegmentStroke`,
+                            visibility: Visibility::PublicUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 154,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegmentSketch`,
+                            visibility: Visibility::PublicUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 155,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `is_one`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::fermi`,
@@ -5375,7 +5504,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 945,
+                                        value: 971,
                                     },
                                 ),
                             ),
@@ -5388,7 +5517,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 946,
+                                        value: 972,
                                     },
                                 ),
                             ),
@@ -5401,7 +5530,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 947,
+                                        value: 973,
                                     },
                                 ),
                             ),
@@ -5414,7 +5543,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 948,
+                                        value: 974,
                                     },
                                 ),
                             ),
@@ -5480,21 +5609,24 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 40,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 40,
+                                    },
+                                ),
+                            },
                             ast_idx: 21,
                             use_expr_idx: 0,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 45,
                                     },
                                 ),
                             ),
-                            progress: 22,
+                            progress: 23,
                         },
                     ],
                 ),
@@ -5640,7 +5772,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 151,
+                                        value: 156,
                                     },
                                 ),
                             ),
@@ -5653,7 +5785,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 152,
+                                        value: 157,
                                     },
                                 ),
                             ),
@@ -5666,7 +5798,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 153,
+                                        value: 158,
                                     },
                                 ),
                             ),
@@ -5679,7 +5811,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 154,
+                                        value: 159,
                                     },
                                 ),
                             ),
@@ -5692,7 +5824,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 155,
+                                        value: 160,
                                     },
                                 ),
                             ),
@@ -5705,7 +5837,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 157,
+                                        value: 161,
                                     },
                                 ),
                             ),
@@ -5718,7 +5850,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 158,
+                                        value: 162,
                                     },
                                 ),
                             ),
@@ -5731,7 +5863,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 159,
+                                        value: 163,
                                     },
                                 ),
                             ),
@@ -5942,7 +6074,7 @@ Ok(
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
-                                        ident: `six`,
+                                        ident: `seven`,
                                         token_idx: TokenIdx(
                                             46,
                                         ),
@@ -5957,7 +6089,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 47,
+                                            value: 51,
                                         },
                                     ),
                                 ),
@@ -5974,7 +6106,7 @@ Ok(
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
-                                        ident: `seven`,
+                                        ident: `eight`,
                                         token_idx: TokenIdx(
                                             50,
                                         ),
@@ -5989,7 +6121,7 @@ Ok(
                                 original_symbol: Submodule(
                                     SubmoduleSymbol(
                                         Id {
-                                            value: 51,
+                                            value: 52,
                                         },
                                     ),
                                 ),
@@ -6006,7 +6138,7 @@ Ok(
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
-                                        ident: `eight`,
+                                        ident: `nine`,
                                         token_idx: TokenIdx(
                                             54,
                                         ),
@@ -6014,38 +6146,6 @@ Ok(
                                 ),
                                 children: ArenaIdxRange(
                                     16..17,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 52,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 19,
-                            use_expr_idx: 19,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits`,
-                                ),
-                            },
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `nine`,
-                                        token_idx: TokenIdx(
-                                            58,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    18..19,
                                 ),
                             },
                             parent: None,
@@ -6245,40 +6345,9 @@ Ok(
                             },
                             variant: UseExprRuleVariant::Leaf {
                                 ident_token: IdentToken {
-                                    ident: `is_six`,
-                                    token_idx: TokenIdx(
-                                        48,
-                                    ),
-                                },
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier::digits::six`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: ModuleItem(
-                                    ModuleItemSymbol(
-                                        Id {
-                                            value: 160,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 17,
-                            use_expr_idx: 14,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits`,
-                                ),
-                            },
-                            variant: UseExprRuleVariant::Leaf {
-                                ident_token: IdentToken {
                                     ident: `is_seven`,
                                     token_idx: TokenIdx(
-                                        52,
+                                        48,
                                     ),
                                 },
                             },
@@ -6298,8 +6367,8 @@ Ok(
                             },
                         },
                         UseExprRule {
-                            ast_idx: 18,
-                            use_expr_idx: 16,
+                            ast_idx: 17,
+                            use_expr_idx: 14,
                             accessibility: VisibilityProgress::Done {
                                 accessibility: Visibility::PublicUnder(
                                     `mnist_classifier::digits`,
@@ -6309,7 +6378,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `is_eight`,
                                     token_idx: TokenIdx(
-                                        56,
+                                        52,
                                     ),
                                 },
                             },
@@ -6329,8 +6398,8 @@ Ok(
                             },
                         },
                         UseExprRule {
-                            ast_idx: 19,
-                            use_expr_idx: 18,
+                            ast_idx: 18,
+                            use_expr_idx: 16,
                             accessibility: VisibilityProgress::Done {
                                 accessibility: Visibility::PublicUnder(
                                     `mnist_classifier::digits`,
@@ -6340,7 +6409,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `is_nine`,
                                     token_idx: TokenIdx(
-                                        60,
+                                        56,
                                     ),
                                 },
                             },
@@ -6418,7 +6487,7 @@ Ok(
                     EntityTreeError::Original(
                         OriginalEntityTreeError::SymbolExistsButNotAccessible(
                             IdentToken {
-                                ident: `is_six`,
+                                ident: `is_seven`,
                                 token_idx: TokenIdx(
                                     48,
                                 ),
@@ -6428,7 +6497,7 @@ Ok(
                     EntityTreeError::Original(
                         OriginalEntityTreeError::SymbolExistsButNotAccessible(
                             IdentToken {
-                                ident: `is_seven`,
+                                ident: `is_eight`,
                                 token_idx: TokenIdx(
                                     52,
                                 ),
@@ -6438,19 +6507,9 @@ Ok(
                     EntityTreeError::Original(
                         OriginalEntityTreeError::SymbolExistsButNotAccessible(
                             IdentToken {
-                                ident: `is_eight`,
-                                token_idx: TokenIdx(
-                                    56,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::SymbolExistsButNotAccessible(
-                            IdentToken {
                                 ident: `is_nine`,
                                 token_idx: TokenIdx(
-                                    60,
+                                    56,
                                 ),
                             },
                         ),
@@ -6508,7 +6567,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 423,
+                                        value: 433,
                                     },
                                 ),
                             ),
@@ -6521,7 +6580,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 424,
+                                        value: 434,
                                     },
                                 ),
                             ),
@@ -6534,7 +6593,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 425,
+                                        value: 435,
                                     },
                                 ),
                             ),
@@ -6547,7 +6606,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 426,
+                                        value: 436,
                                     },
                                 ),
                             ),
@@ -6560,7 +6619,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 427,
+                                        value: 437,
                                     },
                                 ),
                             ),
@@ -6573,7 +6632,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 428,
+                                        value: 438,
                                     },
                                 ),
                             ),
@@ -6586,7 +6645,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 429,
+                                        value: 439,
                                     },
                                 ),
                             ),
@@ -6599,7 +6658,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 442,
+                                        value: 453,
                                     },
                                 ),
                             ),
@@ -6612,7 +6671,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 957,
+                                        value: 983,
                                     },
                                 ),
                             ),
@@ -6625,7 +6684,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 958,
+                                        value: 984,
                                     },
                                 ),
                             ),
@@ -7032,55 +7091,64 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 47,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 47,
+                                    },
+                                ),
+                            },
                             ast_idx: 29,
                             use_expr_idx: 19,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 52,
                                     },
                                 ),
                             ),
-                            progress: 27,
+                            progress: 28,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 45,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 45,
+                                    },
+                                ),
+                            },
                             ast_idx: 30,
                             use_expr_idx: 22,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 52,
                                     },
                                 ),
                             ),
-                            progress: 23,
+                            progress: 24,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 48,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 48,
+                                    },
+                                ),
+                            },
                             ast_idx: 31,
                             use_expr_idx: 25,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 52,
                                     },
                                 ),
                             ),
-                            progress: 39,
+                            progress: 40,
                         },
                     ],
                 ),
@@ -7222,7 +7290,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 460,
+                                        value: 472,
                                     },
                                 ),
                             ),
@@ -7235,7 +7303,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 461,
+                                        value: 473,
                                     },
                                 ),
                             ),
@@ -7248,7 +7316,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 462,
+                                        value: 474,
                                     },
                                 ),
                             ),
@@ -7261,7 +7329,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 463,
+                                        value: 475,
                                     },
                                 ),
                             ),
@@ -7274,7 +7342,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 464,
+                                        value: 476,
                                     },
                                 ),
                             ),
@@ -7287,7 +7355,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 465,
+                                        value: 477,
                                     },
                                 ),
                             ),
@@ -7300,7 +7368,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 466,
+                                        value: 478,
                                     },
                                 ),
                             ),
@@ -7313,7 +7381,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 479,
+                                        value: 492,
                                     },
                                 ),
                             ),
@@ -7326,7 +7394,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1004,
+                                        value: 1031,
                                     },
                                 ),
                             ),
@@ -7339,7 +7407,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1005,
+                                        value: 1032,
                                     },
                                 ),
                             ),
@@ -7687,55 +7755,64 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 47,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 47,
+                                    },
+                                ),
+                            },
                             ast_idx: 65,
                             use_expr_idx: 19,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 53,
                                     },
                                 ),
                             ),
-                            progress: 27,
+                            progress: 28,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 45,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 45,
+                                    },
+                                ),
+                            },
                             ast_idx: 66,
                             use_expr_idx: 22,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 53,
                                     },
                                 ),
                             ),
-                            progress: 23,
+                            progress: 24,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 48,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 48,
+                                    },
+                                ),
+                            },
                             ast_idx: 67,
                             use_expr_idx: 25,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 53,
                                     },
                                 ),
                             ),
-                            progress: 39,
+                            progress: 40,
                         },
                     ],
                 ),
@@ -7869,7 +7946,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 497,
+                                        value: 511,
                                     },
                                 ),
                             ),
@@ -7882,7 +7959,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 498,
+                                        value: 512,
                                     },
                                 ),
                             ),
@@ -7895,7 +7972,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 499,
+                                        value: 513,
                                     },
                                 ),
                             ),
@@ -7908,7 +7985,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 500,
+                                        value: 514,
                                     },
                                 ),
                             ),
@@ -7921,7 +7998,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 501,
+                                        value: 515,
                                     },
                                 ),
                             ),
@@ -7934,7 +8011,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 502,
+                                        value: 516,
                                     },
                                 ),
                             ),
@@ -7947,7 +8024,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 503,
+                                        value: 517,
                                     },
                                 ),
                             ),
@@ -7960,7 +8037,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 516,
+                                        value: 531,
                                     },
                                 ),
                             ),
@@ -7973,7 +8050,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1051,
+                                        value: 1079,
                                     },
                                 ),
                             ),
@@ -7986,7 +8063,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1052,
+                                        value: 1080,
                                     },
                                 ),
                             ),
@@ -8393,55 +8470,64 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 47,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 47,
+                                    },
+                                ),
+                            },
                             ast_idx: 53,
                             use_expr_idx: 19,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 54,
                                     },
                                 ),
                             ),
-                            progress: 27,
+                            progress: 28,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 45,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 45,
+                                    },
+                                ),
+                            },
                             ast_idx: 54,
                             use_expr_idx: 22,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 54,
                                     },
                                 ),
                             ),
-                            progress: 23,
+                            progress: 24,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 48,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 48,
+                                    },
+                                ),
+                            },
                             ast_idx: 55,
                             use_expr_idx: 25,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 54,
                                     },
                                 ),
                             ),
-                            progress: 39,
+                            progress: 40,
                         },
                     ],
                 ),
@@ -8585,7 +8671,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 534,
+                                        value: 550,
                                     },
                                 ),
                             ),
@@ -8598,7 +8684,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 535,
+                                        value: 551,
                                     },
                                 ),
                             ),
@@ -8611,7 +8697,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 536,
+                                        value: 552,
                                     },
                                 ),
                             ),
@@ -8624,7 +8710,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 537,
+                                        value: 553,
                                     },
                                 ),
                             ),
@@ -8637,7 +8723,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 538,
+                                        value: 554,
                                     },
                                 ),
                             ),
@@ -8650,7 +8736,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 539,
+                                        value: 555,
                                     },
                                 ),
                             ),
@@ -8663,7 +8749,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 540,
+                                        value: 556,
                                     },
                                 ),
                             ),
@@ -8676,7 +8762,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 553,
+                                        value: 570,
                                     },
                                 ),
                             ),
@@ -8689,7 +8775,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1098,
+                                        value: 1127,
                                     },
                                 ),
                             ),
@@ -8702,7 +8788,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1099,
+                                        value: 1128,
                                     },
                                 ),
                             ),
@@ -9050,55 +9136,64 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 47,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 47,
+                                    },
+                                ),
+                            },
                             ast_idx: 31,
                             use_expr_idx: 21,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 55,
                                     },
                                 ),
                             ),
-                            progress: 27,
+                            progress: 28,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 45,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 45,
+                                    },
+                                ),
+                            },
                             ast_idx: 32,
                             use_expr_idx: 24,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 55,
                                     },
                                 ),
                             ),
-                            progress: 23,
+                            progress: 24,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 48,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 48,
+                                    },
+                                ),
+                            },
                             ast_idx: 33,
                             use_expr_idx: 27,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 55,
                                     },
                                 ),
                             ),
-                            progress: 39,
+                            progress: 40,
                         },
                     ],
                 ),
@@ -9258,7 +9353,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 571,
+                                        value: 589,
                                     },
                                 ),
                             ),
@@ -9271,7 +9366,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 572,
+                                        value: 590,
                                     },
                                 ),
                             ),
@@ -9284,7 +9379,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 573,
+                                        value: 591,
                                     },
                                 ),
                             ),
@@ -9297,7 +9392,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 574,
+                                        value: 592,
                                     },
                                 ),
                             ),
@@ -9310,7 +9405,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 575,
+                                        value: 593,
                                     },
                                 ),
                             ),
@@ -9323,7 +9418,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 576,
+                                        value: 594,
                                     },
                                 ),
                             ),
@@ -9336,7 +9431,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 577,
+                                        value: 595,
                                     },
                                 ),
                             ),
@@ -9349,7 +9444,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 590,
+                                        value: 609,
                                     },
                                 ),
                             ),
@@ -9362,7 +9457,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1145,
+                                        value: 1175,
                                     },
                                 ),
                             ),
@@ -9375,7 +9470,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1146,
+                                        value: 1176,
                                     },
                                 ),
                             ),
@@ -9723,55 +9818,64 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 47,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 47,
+                                    },
+                                ),
+                            },
                             ast_idx: 41,
                             use_expr_idx: 21,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 56,
                                     },
                                 ),
                             ),
-                            progress: 27,
+                            progress: 28,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 45,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 45,
+                                    },
+                                ),
+                            },
                             ast_idx: 42,
                             use_expr_idx: 24,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 56,
                                     },
                                 ),
                             ),
-                            progress: 23,
+                            progress: 24,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 48,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 48,
+                                    },
+                                ),
+                            },
                             ast_idx: 43,
                             use_expr_idx: 27,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 56,
                                     },
                                 ),
                             ),
-                            progress: 39,
+                            progress: 40,
                         },
                     ],
                 ),
@@ -9932,7 +10036,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 608,
+                                        value: 628,
                                     },
                                 ),
                             ),
@@ -9945,7 +10049,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 609,
+                                        value: 629,
                                     },
                                 ),
                             ),
@@ -9958,7 +10062,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 610,
+                                        value: 630,
                                     },
                                 ),
                             ),
@@ -9971,7 +10075,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 612,
+                                        value: 632,
                                     },
                                 ),
                             ),
@@ -9984,7 +10088,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 613,
+                                        value: 633,
                                     },
                                 ),
                             ),
@@ -9997,7 +10101,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 614,
+                                        value: 634,
                                     },
                                 ),
                             ),
@@ -10010,7 +10114,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 615,
+                                        value: 635,
                                     },
                                 ),
                             ),
@@ -10023,7 +10127,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 629,
+                                        value: 650,
                                     },
                                 ),
                             ),
@@ -10036,7 +10140,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 647,
+                                        value: 669,
                                     },
                                 ),
                             ),
@@ -10049,7 +10153,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 648,
+                                        value: 670,
                                     },
                                 ),
                             ),
@@ -10062,7 +10166,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 649,
+                                        value: 671,
                                     },
                                 ),
                             ),
@@ -10075,7 +10179,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 650,
+                                        value: 672,
                                     },
                                 ),
                             ),
@@ -10088,7 +10192,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 651,
+                                        value: 673,
                                     },
                                 ),
                             ),
@@ -10101,7 +10205,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 652,
+                                        value: 674,
                                     },
                                 ),
                             ),
@@ -10114,7 +10218,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 653,
+                                        value: 675,
                                     },
                                 ),
                             ),
@@ -10127,7 +10231,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 654,
+                                        value: 676,
                                     },
                                 ),
                             ),
@@ -10140,7 +10244,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 655,
+                                        value: 677,
                                     },
                                 ),
                             ),
@@ -10153,7 +10257,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 656,
+                                        value: 678,
                                     },
                                 ),
                             ),
@@ -10166,7 +10270,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 657,
+                                        value: 679,
                                     },
                                 ),
                             ),
@@ -10179,7 +10283,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 658,
+                                        value: 680,
                                     },
                                 ),
                             ),
@@ -10192,7 +10296,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 659,
+                                        value: 681,
                                     },
                                 ),
                             ),
@@ -10205,7 +10309,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 660,
+                                        value: 682,
                                     },
                                 ),
                             ),
@@ -10218,7 +10322,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 661,
+                                        value: 683,
                                     },
                                 ),
                             ),
@@ -10231,7 +10335,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 663,
+                                        value: 685,
                                     },
                                 ),
                             ),
@@ -10244,7 +10348,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 664,
+                                        value: 686,
                                     },
                                 ),
                             ),
@@ -10257,7 +10361,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1192,
+                                        value: 1223,
                                     },
                                 ),
                             ),
@@ -10270,7 +10374,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1193,
+                                        value: 1224,
                                     },
                                 ),
                             ),
@@ -10833,48 +10937,57 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 47,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 47,
+                                    },
+                                ),
+                            },
                             ast_idx: 43,
                             use_expr_idx: 17,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 58,
                                     },
                                 ),
                             ),
-                            progress: 27,
+                            progress: 28,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 45,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 45,
+                                    },
+                                ),
+                            },
                             ast_idx: 44,
                             use_expr_idx: 20,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 58,
                                     },
                                 ),
                             ),
-                            progress: 23,
+                            progress: 24,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 46,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 46,
+                                    },
+                                ),
+                            },
                             ast_idx: 46,
                             use_expr_idx: 27,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 58,
@@ -10884,21 +10997,24 @@ Ok(
                             progress: 18,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 48,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 48,
+                                    },
+                                ),
+                            },
                             ast_idx: 45,
                             use_expr_idx: 23,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 58,
                                     },
                                 ),
                             ),
-                            progress: 39,
+                            progress: 40,
                         },
                     ],
                 ),
@@ -10986,7 +11102,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 665,
+                                        value: 687,
                                     },
                                 ),
                             ),
@@ -10999,7 +11115,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 666,
+                                        value: 688,
                                     },
                                 ),
                             ),
@@ -11012,7 +11128,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 668,
+                                        value: 690,
                                     },
                                 ),
                             ),
@@ -11025,7 +11141,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 686,
+                                        value: 709,
                                     },
                                 ),
                             ),
@@ -11038,7 +11154,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1231,
+                                        value: 1263,
                                     },
                                 ),
                             ),
@@ -11051,7 +11167,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1232,
+                                        value: 1264,
                                     },
                                 ),
                             ),
@@ -11783,31 +11899,37 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 45,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 45,
+                                    },
+                                ),
+                            },
                             ast_idx: 26,
                             use_expr_idx: 33,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 59,
                                     },
                                 ),
                             ),
-                            progress: 23,
+                            progress: 24,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 42,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 42,
+                                    },
+                                ),
+                            },
                             ast_idx: 27,
                             use_expr_idx: 36,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 59,
@@ -11817,21 +11939,24 @@ Ok(
                             progress: 26,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 48,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 48,
+                                    },
+                                ),
+                            },
                             ast_idx: 25,
                             use_expr_idx: 29,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 59,
                                     },
                                 ),
                             ),
-                            progress: 39,
+                            progress: 40,
                         },
                     ],
                 ),
@@ -11985,7 +12110,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 712,
+                                        value: 735,
                                     },
                                 ),
                             ),
@@ -11998,7 +12123,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 713,
+                                        value: 736,
                                     },
                                 ),
                             ),
@@ -12011,7 +12136,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 714,
+                                        value: 737,
                                     },
                                 ),
                             ),
@@ -12024,7 +12149,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 715,
+                                        value: 738,
                                     },
                                 ),
                             ),
@@ -12037,7 +12162,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 716,
+                                        value: 739,
                                     },
                                 ),
                             ),
@@ -12050,7 +12175,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 717,
+                                        value: 740,
                                     },
                                 ),
                             ),
@@ -12063,7 +12188,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 718,
+                                        value: 741,
                                     },
                                 ),
                             ),
@@ -12076,7 +12201,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 731,
+                                        value: 755,
                                     },
                                 ),
                             ),
@@ -12089,7 +12214,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1278,
+                                        value: 1311,
                                     },
                                 ),
                             ),
@@ -12102,7 +12227,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1279,
+                                        value: 1312,
                                     },
                                 ),
                             ),
@@ -12568,55 +12693,64 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 47,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 47,
+                                    },
+                                ),
+                            },
                             ast_idx: 39,
                             use_expr_idx: 21,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 60,
                                     },
                                 ),
                             ),
-                            progress: 27,
+                            progress: 28,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 45,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 45,
+                                    },
+                                ),
+                            },
                             ast_idx: 40,
                             use_expr_idx: 24,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 60,
                                     },
                                 ),
                             ),
-                            progress: 23,
+                            progress: 24,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 48,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 48,
+                                    },
+                                ),
+                            },
                             ast_idx: 41,
                             use_expr_idx: 27,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 60,
                                     },
                                 ),
                             ),
-                            progress: 39,
+                            progress: 40,
                         },
                     ],
                 ),
@@ -12770,7 +12904,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 160,
+                                        value: 164,
                                     },
                                 ),
                             ),
@@ -12783,7 +12917,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 161,
+                                        value: 165,
                                     },
                                 ),
                             ),
@@ -12796,7 +12930,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 162,
+                                        value: 166,
                                     },
                                 ),
                             ),
@@ -12809,7 +12943,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 163,
+                                        value: 167,
                                     },
                                 ),
                             ),
@@ -12822,7 +12956,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 164,
+                                        value: 168,
                                     },
                                 ),
                             ),
@@ -12835,7 +12969,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 165,
+                                        value: 169,
                                     },
                                 ),
                             ),
@@ -12848,65 +12982,13 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 166,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `find_raw_contours`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::digits::two`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 167,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `connected_components`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::digits::two`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 168,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_connected_component`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::digits::two`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 169,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `ignored_connected_components_row_span_sum_sum`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::digits::two`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
                                         value: 170,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `major_raw_contours`,
+                            ident: `MnistLabel`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::digits::two`,
                             ),
@@ -12919,7 +13001,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `major_raw_contour`,
+                            ident: `find_raw_contours`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::digits::two`,
                             ),
@@ -12932,7 +13014,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `major_line_segment_sketch`,
+                            ident: `connected_components`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::digits::two`,
                             ),
@@ -12945,7 +13027,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `major_concave_components`,
+                            ident: `major_connected_component`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::digits::two`,
                             ),
@@ -12958,7 +13040,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `fermi_match`,
+                            ident: `ignored_connected_components_row_span_sum_sum`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::digits::two`,
                             ),
@@ -12971,7 +13053,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `LineSegmentStroke`,
+                            ident: `major_raw_contours`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::digits::two`,
                             ),
@@ -12984,7 +13066,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `LineSegmentSketch`,
+                            ident: `major_raw_contour`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::digits::two`,
                             ),
@@ -12997,6 +13079,71 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `major_line_segment_sketch`,
+                            visibility: Visibility::PublicUnder(
+                                `mnist_classifier::digits::two`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 178,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_concave_components`,
+                            visibility: Visibility::PublicUnder(
+                                `mnist_classifier::digits::two`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 179,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `fermi_match`,
+                            visibility: Visibility::PublicUnder(
+                                `mnist_classifier::digits::two`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 180,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegmentStroke`,
+                            visibility: Visibility::PublicUnder(
+                                `mnist_classifier::digits::two`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 181,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegmentSketch`,
+                            visibility: Visibility::PublicUnder(
+                                `mnist_classifier::digits::two`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 182,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `is_one`,
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::digits::two`,
@@ -13004,7 +13151,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1317,
+                                        value: 1351,
                                     },
                                 ),
                             ),
@@ -13017,7 +13164,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1318,
+                                        value: 1352,
                                     },
                                 ),
                             ),
@@ -13030,7 +13177,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1319,
+                                        value: 1353,
                                     },
                                 ),
                             ),
@@ -13043,7 +13190,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1320,
+                                        value: 1354,
                                     },
                                 ),
                             ),
@@ -13185,21 +13332,24 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 40,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 40,
+                                    },
+                                ),
+                            },
                             ast_idx: 53,
                             use_expr_idx: 21,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 61,
                                     },
                                 ),
                             ),
-                            progress: 22,
+                            progress: 23,
                         },
                     ],
                 ),
@@ -13335,7 +13485,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 178,
+                                        value: 183,
                                     },
                                 ),
                             ),
@@ -13348,7 +13498,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 179,
+                                        value: 184,
                                     },
                                 ),
                             ),
@@ -13361,7 +13511,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 180,
+                                        value: 185,
                                     },
                                 ),
                             ),
@@ -13374,7 +13524,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 181,
+                                        value: 186,
                                     },
                                 ),
                             ),
@@ -13387,7 +13537,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 182,
+                                        value: 187,
                                     },
                                 ),
                             ),
@@ -13400,7 +13550,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 183,
+                                        value: 188,
                                     },
                                 ),
                             ),
@@ -13413,7 +13563,20 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 184,
+                                        value: 189,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `MnistLabel`,
+                            visibility: Visibility::PublicUnder(
+                                `mnist_classifier::major`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 190,
                                     },
                                 ),
                             ),
@@ -13426,7 +13589,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 185,
+                                        value: 191,
                                     },
                                 ),
                             ),
@@ -13439,7 +13602,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 193,
+                                        value: 199,
                                     },
                                 ),
                             ),
@@ -13452,7 +13615,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 194,
+                                        value: 200,
                                     },
                                 ),
                             ),
@@ -13465,7 +13628,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 195,
+                                        value: 201,
                                     },
                                 ),
                             ),
@@ -13478,7 +13641,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 749,
+                                        value: 774,
                                     },
                                 ),
                             ),
@@ -13491,7 +13654,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 750,
+                                        value: 775,
                                     },
                                 ),
                             ),
@@ -13504,7 +13667,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 752,
+                                        value: 777,
                                     },
                                 ),
                             ),
@@ -13517,7 +13680,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 754,
+                                        value: 779,
                                     },
                                 ),
                             ),
@@ -13530,7 +13693,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 774,
+                                        value: 800,
                                     },
                                 ),
                             ),
@@ -13543,7 +13706,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 811,
+                                        value: 837,
                                     },
                                 ),
                             ),
@@ -13556,7 +13719,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 812,
+                                        value: 838,
                                     },
                                 ),
                             ),
@@ -13569,7 +13732,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 813,
+                                        value: 839,
                                     },
                                 ),
                             ),
@@ -13582,7 +13745,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1321,
+                                        value: 1355,
                                     },
                                 ),
                             ),
@@ -13932,48 +14095,57 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 40,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 40,
+                                    },
+                                ),
+                            },
                             ast_idx: 22,
                             use_expr_idx: 13,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 47,
                                     },
                                 ),
                             ),
-                            progress: 22,
+                            progress: 23,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 41,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 41,
+                                    },
+                                ),
+                            },
                             ast_idx: 18,
                             use_expr_idx: 0,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 47,
                                     },
                                 ),
                             ),
-                            progress: 29,
+                            progress: 30,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 42,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 42,
+                                    },
+                                ),
+                            },
                             ast_idx: 19,
                             use_expr_idx: 3,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 47,
@@ -13983,14 +14155,17 @@ Ok(
                             progress: 26,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 44,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 44,
+                                    },
+                                ),
+                            },
                             ast_idx: 20,
                             use_expr_idx: 6,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 47,
@@ -14000,21 +14175,24 @@ Ok(
                             progress: 21,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 48,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 48,
+                                    },
+                                ),
+                            },
                             ast_idx: 21,
                             use_expr_idx: 9,
-                            accessibility: PublicUnder(
+                            visibility: PublicUnder(
                                 ModulePath(
                                     Id {
                                         value: 47,
                                     },
                                 ),
                             ),
-                            progress: 39,
+                            progress: 40,
                         },
                     ],
                 ),

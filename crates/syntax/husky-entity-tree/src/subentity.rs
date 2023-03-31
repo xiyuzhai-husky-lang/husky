@@ -1,5 +1,6 @@
 use crate::*;
 use husky_entity_taxonomy::AssociatedItemKind;
+use husky_print_utils::p;
 use vec_like::VecMapGetEntry;
 
 #[salsa::tracked(jar = EntityTreeJar)]
@@ -23,7 +24,7 @@ pub(crate) fn subentity_path(
                 .module_symbols()
                 .resolve_ident(ident)
             {
-                Some(_) => todo!(),
+                Some(entity_symbol) => Ok(entity_symbol.path(db)),
                 None => Err(OriginalEntityTreeError::NoSubentity)?,
             }
         }

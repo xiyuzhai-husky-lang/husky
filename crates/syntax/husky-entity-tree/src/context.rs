@@ -3,23 +3,29 @@ use crate::*;
 use husky_word::Ident;
 use vec_like::VecMap;
 
-pub(crate) struct EntityTreeSymbolContext<'a> {
+pub(crate) struct EntityTreeSymbolContext<'a, 'b>
+where
+    'a: 'b,
+{
     db: &'a dyn EntityTreeDb,
     crate_path: CratePath,
     crate_root: ModulePath,
-    crate_prelude: CrateSymbolContext<'a>,
-    current_sheet: &'a EntityTreePresheetMut<'a>,
-    sheets: &'a VecMap<EntityTreePresheetMut<'a>>,
+    crate_prelude: CrateSymbolContext<'b>,
+    current_sheet: &'b EntityTreePresheetMut<'a>,
+    presheets: &'b VecMap<EntityTreePresheetMut<'a>>,
 }
 
-impl<'a> EntityTreeSymbolContext<'a> {
+impl<'a, 'b> EntityTreeSymbolContext<'a, 'b>
+where
+    'a: 'b,
+{
     pub(crate) fn new(
         db: &'a dyn EntityTreeDb,
         crate_path: CratePath,
         crate_root: ModulePath,
-        crate_prelude: CrateSymbolContext<'a>,
-        current_sheet: &'a EntityTreePresheetMut<'a>,
-        sheets: &'a VecMap<EntityTreePresheetMut<'a>>,
+        crate_prelude: CrateSymbolContext<'b>,
+        current_sheet: &'b EntityTreePresheetMut<'a>,
+        sheets: &'b VecMap<EntityTreePresheetMut<'a>>,
     ) -> Self {
         Self {
             db,
@@ -27,7 +33,7 @@ impl<'a> EntityTreeSymbolContext<'a> {
             crate_root,
             crate_prelude,
             current_sheet,
-            sheets,
+            presheets: sheets,
         }
     }
 
@@ -38,7 +44,7 @@ impl<'a> EntityTreeSymbolContext<'a> {
             .or_else(|| self.crate_prelude.resolve_ident(ident))
     }
 
-    pub(crate) fn db(&self) -> &dyn EntityTreeDb {
+    pub(crate) fn db(&self) -> &'a dyn EntityTreeDb {
         self.db
     }
 
@@ -57,7 +63,7 @@ impl<'a> EntityTreeSymbolContext<'a> {
                 EntityPath::Module(module_path) => {
                     // 如果出现 unwrap None的错误，就是因为module_path对应的文件不存在
                     // 后面应该通过某些东西保证每个module_path对应的文件都存在
-                    let module_sheet = &self.sheets[module_path];
+                    let module_sheet = &self.presheets[module_path];
                     module_sheet.module_specific_symbols().resolve_ident(ident)
                 }
                 EntityPath::ModuleItem(_) => todo!(),
@@ -72,19 +78,11 @@ impl<'a> EntityTreeSymbolContext<'a> {
         }
     }
 
-    pub(crate) fn module_symbols(
-        &self,
-        module_path: ModulePath,
-    ) -> EntityTreeResult<EntitySymbolTableRef<'a>> {
-        let query_crate_path = module_path.crate_path(self.db);
-        if query_crate_path == self.crate_path {
-            Ok(self.sheets[module_path].module_specific_symbols())
-        } else {
-            Ok(self.db.entity_tree_sheet(module_path)?.module_symbols())
-        }
-    }
-
     pub(crate) fn crate_root(&self) -> ModulePath {
         self.crate_root
+    }
+
+    pub(crate) fn presheets(&self) -> &VecMap<EntityTreePresheetMut> {
+        self.presheets
     }
 }

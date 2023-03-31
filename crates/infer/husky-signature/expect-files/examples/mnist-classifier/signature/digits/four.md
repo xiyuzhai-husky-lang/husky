@@ -4,8 +4,8 @@
     ),
     Ok(
         Signature::Form(
-            FormSignature::Function(
-                FormFnSignature {
+            FormSignature::Fn(
+                FnSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
@@ -39,8 +39,8 @@
     ),
     Ok(
         Signature::Form(
-            FormSignature::Function(
-                FormFnSignature {
+            FormSignature::Fn(
+                FnSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
@@ -65,8 +65,8 @@
     ),
     Ok(
         Signature::Form(
-            FormSignature::Function(
-                FormFnSignature {
+            FormSignature::Fn(
+                FnSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },

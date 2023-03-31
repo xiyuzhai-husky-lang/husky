@@ -5,32 +5,27 @@ DiagnosticSheet {
             Diagnostic {
                 message: "SymbolNotAccessible",
                 severity: Error,
-                range: [13:10, 13:16),
+                range: [14:10, 14:16),
             },
             Diagnostic {
                 message: "SymbolNotAccessible",
                 severity: Error,
-                range: [14:11, 14:18),
+                range: [15:11, 15:18),
             },
             Diagnostic {
                 message: "SymbolNotAccessible",
                 severity: Error,
-                range: [15:10, 15:16),
+                range: [16:10, 16:16),
             },
             Diagnostic {
                 message: "SymbolNotAccessible",
                 severity: Error,
-                range: [16:12, 16:20),
+                range: [17:12, 17:20),
             },
             Diagnostic {
                 message: "unresolved identifier",
                 severity: Error,
-                range: [17:11, 17:18),
-            },
-            Diagnostic {
-                message: "SymbolNotAccessible",
-                severity: Error,
-                range: [18:10, 18:16),
+                range: [18:11, 18:18),
             },
             Diagnostic {
                 message: "SymbolNotAccessible",

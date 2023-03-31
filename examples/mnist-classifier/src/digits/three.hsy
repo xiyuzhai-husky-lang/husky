@@ -5,6 +5,7 @@ use domains::ml::models::narrow::narrow_down
 use crate::major::*
 use crate::fermi::*
 use crate::line_segment_sketch::concave_component::*
+use super::*
 
 
 fn three_fermi_match -> FermiMatchResult:

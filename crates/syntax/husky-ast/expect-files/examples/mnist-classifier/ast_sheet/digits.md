@@ -327,15 +327,10 @@ Ok(
                         18,
                     ),
                 },
-                Ast::Use {
-                    token_group_idx: TokenGroupIdx(
-                        19,
-                    ),
-                },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            0..20,
+            0..19,
         ),
         siblings: [
             ArenaIdxRange(
@@ -369,7 +364,7 @@ Ok(
                 0..0,
             ),
             ArenaIdxRange(
-                0..20,
+                0..19,
             ),
         ],
     },

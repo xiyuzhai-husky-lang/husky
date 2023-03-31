@@ -135,12 +135,12 @@ impl EntitySymbolEntry {
             .is_visible_from(db, target_module_path)
             .then_some(EntitySymbolEntry {
                 ident: self.ident,
-                visibility: rule.accessibility(),
+                visibility: rule.visibility(),
                 symbol: UseSymbol::new(
                     db,
                     self.symbol,
                     self.symbol.path(db),
-                    rule.accessibility(),
+                    rule.visibility(),
                     rule.ast_idx(),
                     rule.use_expr_idx(),
                 )

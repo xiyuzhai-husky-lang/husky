@@ -42,7 +42,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 0,
                 rule_idx: UseExprRuleIdx(
-                    10,
+                    9,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: ModuleItem(
@@ -74,7 +74,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 2,
                 rule_idx: UseExprRuleIdx(
-                    11,
+                    10,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: ModuleItem(
@@ -106,7 +106,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 4,
                 rule_idx: UseExprRuleIdx(
-                    12,
+                    11,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: ModuleItem(
@@ -138,7 +138,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 6,
                 rule_idx: UseExprRuleIdx(
-                    13,
+                    12,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: ModuleItem(
@@ -170,7 +170,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 8,
                 rule_idx: UseExprRuleIdx(
-                    14,
+                    13,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: ModuleItem(
@@ -202,7 +202,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 10,
                 rule_idx: UseExprRuleIdx(
-                    15,
+                    14,
                 ),
                 state: UseExprRuleState::Erroneous,
             },
@@ -216,7 +216,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 47,
+                                value: 51,
                             },
                         ),
                     ),
@@ -226,13 +226,13 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 12,
                 rule_idx: UseExprRuleIdx(
-                    16,
+                    15,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 160,
+                                value: 180,
                             },
                         ),
                     ),
@@ -248,7 +248,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 51,
+                                value: 52,
                             },
                         ),
                     ),
@@ -258,13 +258,13 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 14,
                 rule_idx: UseExprRuleIdx(
-                    17,
+                    16,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 180,
+                                value: 182,
                             },
                         ),
                     ),
@@ -280,7 +280,7 @@ Ok(
                     original_symbol: Submodule(
                         SubmoduleSymbol(
                             Id {
-                                value: 52,
+                                value: 53,
                             },
                         ),
                     ),
@@ -290,39 +290,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 16,
                 rule_idx: UseExprRuleIdx(
-                    18,
-                ),
-                state: UseExprRuleState::Resolved {
-                    original_symbol: ModuleItem(
-                        ModuleItemSymbol(
-                            Id {
-                                value: 182,
-                            },
-                        ),
-                    ),
-                },
-            },
-            TokenInfo::None,
-            TokenInfo::UseExpr {
-                use_expr_idx: 19,
-                rule_idx: UseExprRuleIdx(
-                    9,
-                ),
-                state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 53,
-                            },
-                        ),
-                    ),
-                },
-            },
-            TokenInfo::None,
-            TokenInfo::UseExpr {
-                use_expr_idx: 18,
-                rule_idx: UseExprRuleIdx(
-                    19,
+                    17,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: ModuleItem(

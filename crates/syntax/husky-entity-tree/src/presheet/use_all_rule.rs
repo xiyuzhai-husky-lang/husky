@@ -1,33 +1,85 @@
+use vec_like::VecMapGetEntry;
+
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct UseAllRule {
-    parent: ModulePath,
+    /// parent is of type `RelativeModulePath`
+    ///
+    /// because we would like to handle the two cases separately:
+    /// - parent is inside the current crate
+    /// - parent is outside the current crate
+    parent: ModulePathWithKinship,
     ast_idx: AstIdx,
     use_expr_idx: UseExprIdx,
-    accessibility: Visibility,
+    visibility: Visibility,
     // how many symbols have been checked
     progress: usize,
 }
 
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub(crate) struct ModulePathWithKinship {
+    // precomputed and save here for efficiency
+    kinship: ModulePathKinship,
+    path: ModulePath,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum ModulePathKinship {
+    /// module path inside the current crate
+    Inside,
+    /// module path outside the current crate
+    Outside,
+}
+
+impl ModulePathWithKinship {
+    fn new(db: &dyn EntityTreeDb, crate_path: CratePath, path: ModulePath) -> Self {
+        let kinship = match crate_path == path.crate_path(db) {
+            true => ModulePathKinship::Inside,
+            false => ModulePathKinship::Outside,
+        };
+        Self { kinship, path }
+    }
+
+    #[inline(always)]
+    pub(crate) fn module_symbols<'a, 'b>(
+        self,
+        db: &'a dyn EntityTreeDb,
+        presheets: &'b [EntityTreePresheetMut<'a>],
+    ) -> EntityTreeResult<EntitySymbolTableRef<'b>>
+    where
+        'a: 'b,
+    {
+        Ok(match self.kinship {
+            ModulePathKinship::Inside => presheets
+                .get_entry(self.path)
+                .expect("inside path should all be present in presheets")
+                .module_specific_symbols(),
+            ModulePathKinship::Outside => db.entity_tree_sheet(self.path)?.module_symbols(),
+        })
+    }
+}
+
 impl UseAllRule {
-    pub fn new(
+    pub(crate) fn new(
+        db: &dyn EntityTreeDb,
+        sheet: &EntityTreePresheetMut,
         parent: ModulePath,
         ast_idx: AstIdx,
         use_expr_idx: UseExprIdx,
         accessibility: Visibility,
     ) -> Self {
         Self {
-            parent,
+            parent: ModulePathWithKinship::new(db, sheet.module_path().crate_path(db), parent),
             progress: 0,
             use_expr_idx,
-            accessibility,
+            visibility: accessibility,
             ast_idx,
         }
     }
 
-    pub fn parent(&self) -> ModulePath {
+    pub(crate) fn parent(&self) -> ModulePathWithKinship {
         self.parent
     }
 
@@ -36,21 +88,26 @@ impl UseAllRule {
     }
 
     pub(crate) fn is_unresolved(&self, ctx: &EntityTreeSymbolContext) -> bool {
-        let Ok(module_symbols) = ctx.module_symbols(self.parent) else {
-            todo!()
-        };
-        self.progress < module_symbols.len()
+        match self.parent.kinship {
+            ModulePathKinship::Inside => {
+                let Ok(module_symbols) = self.parent.module_symbols(ctx.db(), ctx.presheets()) else {
+                    todo!()
+                };
+                self.progress < module_symbols.len()
+            }
+            ModulePathKinship::Outside => self.progress == 0,
+        }
     }
 
-    pub fn use_expr_idx(&self) -> ArenaIdx<UseExpr> {
+    pub fn use_expr_idx(&self) -> UseExprIdx {
         self.use_expr_idx
     }
 
-    pub fn accessibility(&self) -> Visibility {
-        self.accessibility
+    pub fn visibility(&self) -> Visibility {
+        self.visibility
     }
 
-    pub fn ast_idx(&self) -> ArenaIdx<Ast> {
+    pub fn ast_idx(&self) -> AstIdx {
         self.ast_idx
     }
 

@@ -20,7 +20,7 @@ impl HasSignature for TypeItemPath {
     type Signature = TypeItemSignature;
 
     fn signature(self, db: &dyn SignatureDb) -> SignatureResult<TypeItemSignature> {
-        todo!()
+        self.decl(db)?.signature(db)
     }
 }
 

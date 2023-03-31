@@ -6,8 +6,8 @@
     ),
     Ok(
         Signature::Form(
-            FormSignature::Function(
-                FormFnSignature {
+            FormSignature::Fn(
+                FnSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
@@ -18,7 +18,7 @@
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
                                         Id {
-                                            value: 41,
+                                            value: 42,
                                         },
                                     ),
                                 ),

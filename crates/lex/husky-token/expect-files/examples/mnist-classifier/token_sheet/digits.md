@@ -140,18 +140,6 @@ Ok(
                 Keyword::Use,
             ),
             Token::Ident(
-                `six`,
-            ),
-            Token::Punctuation(
-                Punctuation::ColonColon,
-            ),
-            Token::Ident(
-                `is_six`,
-            ),
-            Token::Keyword(
-                Keyword::Use,
-            ),
-            Token::Ident(
                 `seven`,
             ),
             Token::Punctuation(
@@ -205,10 +193,8 @@ Ok(
             45,
             49,
             53,
-            57,
         ],
         indents: [
-            0,
             0,
             0,
             0,

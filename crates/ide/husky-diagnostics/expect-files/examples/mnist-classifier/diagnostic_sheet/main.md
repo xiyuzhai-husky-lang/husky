@@ -13,11 +13,6 @@ DiagnosticSheet {
                 range: [12:12, 12:25),
             },
             Diagnostic {
-                message: "unresolved identifier",
-                severity: Error,
-                range: [13:12, 13:22),
-            },
-            Diagnostic {
                 message: "SymbolNotAccessible",
                 severity: Error,
                 range: [17:18, 17:35),
