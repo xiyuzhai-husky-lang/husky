@@ -260,7 +260,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 233,
+                                        value: 253,
                                     },
                                 ),
                             ),
@@ -273,7 +273,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 259,
+                                        value: 299,
                                     },
                                 ),
                             ),
@@ -286,7 +286,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 260,
+                                        value: 300,
                                     },
                                 ),
                             ),
@@ -299,7 +299,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 261,
+                                        value: 301,
                                     },
                                 ),
                             ),
@@ -702,7 +702,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 18,
+                            progress: 41,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -1128,7 +1128,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 262,
+                                        value: 302,
                                     },
                                 ),
                             ),
@@ -1141,7 +1141,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 947,
+                                        value: 1007,
                                     },
                                 ),
                             ),
@@ -1154,7 +1154,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 948,
+                                        value: 1008,
                                     },
                                 ),
                             ),
@@ -1167,7 +1167,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 949,
+                                        value: 1009,
                                     },
                                 ),
                             ),
@@ -1180,7 +1180,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 950,
+                                        value: 1010,
                                     },
                                 ),
                             ),
@@ -1737,7 +1737,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 291,
+                                        value: 331,
                                     },
                                 ),
                             ),
@@ -1750,7 +1750,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 292,
+                                        value: 332,
                                     },
                                 ),
                             ),
@@ -1763,7 +1763,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 293,
+                                        value: 333,
                                     },
                                 ),
                             ),
@@ -1776,7 +1776,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 294,
+                                        value: 334,
                                     },
                                 ),
                             ),
@@ -1789,7 +1789,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 295,
+                                        value: 335,
                                     },
                                 ),
                             ),
@@ -1802,7 +1802,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 296,
+                                        value: 336,
                                     },
                                 ),
                             ),
@@ -1815,7 +1815,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 297,
+                                        value: 337,
                                     },
                                 ),
                             ),
@@ -1828,7 +1828,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 298,
+                                        value: 338,
                                     },
                                 ),
                             ),
@@ -1841,7 +1841,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 300,
+                                        value: 340,
                                     },
                                 ),
                             ),
@@ -1854,7 +1854,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 302,
+                                        value: 342,
                                     },
                                 ),
                             ),
@@ -1867,7 +1867,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 334,
+                                        value: 374,
                                     },
                                 ),
                             ),
@@ -1880,7 +1880,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 335,
+                                        value: 375,
                                     },
                                 ),
                             ),
@@ -1893,7 +1893,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 336,
+                                        value: 376,
                                     },
                                 ),
                             ),
@@ -1906,7 +1906,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 964,
+                                        value: 1024,
                                     },
                                 ),
                             ),
@@ -2613,7 +2613,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 337,
+                                        value: 377,
                                     },
                                 ),
                             ),
@@ -2626,7 +2626,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 357,
+                                        value: 397,
                                     },
                                 ),
                             ),
@@ -2639,7 +2639,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 358,
+                                        value: 398,
                                     },
                                 ),
                             ),
@@ -2652,7 +2652,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 359,
+                                        value: 399,
                                     },
                                 ),
                             ),
@@ -2665,7 +2665,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 360,
+                                        value: 400,
                                     },
                                 ),
                             ),
@@ -2678,7 +2678,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 361,
+                                        value: 401,
                                     },
                                 ),
                             ),
@@ -2691,7 +2691,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 362,
+                                        value: 402,
                                     },
                                 ),
                             ),
@@ -3380,7 +3380,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 363,
+                                        value: 403,
                                     },
                                 ),
                             ),
@@ -3393,7 +3393,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 364,
+                                        value: 404,
                                     },
                                 ),
                             ),
@@ -3406,7 +3406,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 365,
+                                        value: 405,
                                     },
                                 ),
                             ),
@@ -3419,7 +3419,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 366,
+                                        value: 406,
                                     },
                                 ),
                             ),
@@ -3432,7 +3432,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 369,
+                                        value: 409,
                                     },
                                 ),
                             ),
@@ -3445,7 +3445,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 370,
+                                        value: 410,
                                     },
                                 ),
                             ),
@@ -3458,7 +3458,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 371,
+                                        value: 411,
                                     },
                                 ),
                             ),
@@ -3471,7 +3471,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 372,
+                                        value: 412,
                                     },
                                 ),
                             ),
@@ -3484,7 +3484,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 373,
+                                        value: 413,
                                     },
                                 ),
                             ),
@@ -3497,7 +3497,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 376,
+                                        value: 416,
                                     },
                                 ),
                             ),
@@ -3510,7 +3510,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 377,
+                                        value: 417,
                                     },
                                 ),
                             ),
@@ -3523,7 +3523,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 378,
+                                        value: 418,
                                     },
                                 ),
                             ),
@@ -3536,7 +3536,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 379,
+                                        value: 419,
                                     },
                                 ),
                             ),
@@ -3549,7 +3549,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 380,
+                                        value: 420,
                                     },
                                 ),
                             ),
@@ -3562,7 +3562,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 381,
+                                        value: 421,
                                     },
                                 ),
                             ),
@@ -3575,7 +3575,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 382,
+                                        value: 422,
                                     },
                                 ),
                             ),
@@ -3588,7 +3588,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 383,
+                                        value: 423,
                                     },
                                 ),
                             ),
@@ -3601,7 +3601,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1025,
+                                        value: 1085,
                                     },
                                 ),
                             ),
@@ -3614,7 +3614,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1036,
+                                        value: 1096,
                                     },
                                 ),
                             ),
@@ -4126,7 +4126,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 390,
+                                        value: 430,
                                     },
                                 ),
                             ),
@@ -4139,7 +4139,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 391,
+                                        value: 431,
                                     },
                                 ),
                             ),
@@ -4152,7 +4152,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 392,
+                                        value: 432,
                                     },
                                 ),
                             ),
@@ -4165,7 +4165,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 393,
+                                        value: 433,
                                     },
                                 ),
                             ),
@@ -4178,7 +4178,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 394,
+                                        value: 434,
                                     },
                                 ),
                             ),
@@ -4191,7 +4191,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 395,
+                                        value: 435,
                                     },
                                 ),
                             ),
@@ -4204,7 +4204,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 396,
+                                        value: 436,
                                     },
                                 ),
                             ),
@@ -4217,7 +4217,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 397,
+                                        value: 437,
                                     },
                                 ),
                             ),
@@ -4230,7 +4230,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 398,
+                                        value: 438,
                                     },
                                 ),
                             ),
@@ -4243,7 +4243,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 399,
+                                        value: 439,
                                     },
                                 ),
                             ),
@@ -4256,7 +4256,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 400,
+                                        value: 440,
                                     },
                                 ),
                             ),
@@ -4269,7 +4269,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 401,
+                                        value: 441,
                                     },
                                 ),
                             ),
@@ -4282,7 +4282,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 402,
+                                        value: 442,
                                     },
                                 ),
                             ),
@@ -4295,7 +4295,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 403,
+                                        value: 443,
                                     },
                                 ),
                             ),
@@ -4308,7 +4308,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 404,
+                                        value: 444,
                                     },
                                 ),
                             ),
@@ -4321,7 +4321,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 405,
+                                        value: 445,
                                     },
                                 ),
                             ),
@@ -4334,7 +4334,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 406,
+                                        value: 446,
                                     },
                                 ),
                             ),
@@ -4347,7 +4347,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 407,
+                                        value: 447,
                                     },
                                 ),
                             ),
@@ -4360,7 +4360,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 408,
+                                        value: 448,
                                     },
                                 ),
                             ),
@@ -4373,7 +4373,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 409,
+                                        value: 449,
                                     },
                                 ),
                             ),
@@ -4386,7 +4386,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 410,
+                                        value: 450,
                                     },
                                 ),
                             ),
@@ -4530,7 +4530,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 411,
+                                        value: 451,
                                     },
                                 ),
                             ),
@@ -4543,7 +4543,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 412,
+                                        value: 452,
                                     },
                                 ),
                             ),
@@ -4556,7 +4556,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 413,
+                                        value: 453,
                                     },
                                 ),
                             ),
@@ -4569,7 +4569,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 414,
+                                        value: 454,
                                     },
                                 ),
                             ),
@@ -4582,7 +4582,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 415,
+                                        value: 455,
                                     },
                                 ),
                             ),
@@ -4595,7 +4595,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 416,
+                                        value: 456,
                                     },
                                 ),
                             ),
@@ -4608,7 +4608,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 417,
+                                        value: 457,
                                     },
                                 ),
                             ),
@@ -4621,7 +4621,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 418,
+                                        value: 458,
                                     },
                                 ),
                             ),
@@ -4634,7 +4634,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 419,
+                                        value: 459,
                                     },
                                 ),
                             ),
@@ -4647,7 +4647,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 420,
+                                        value: 460,
                                     },
                                 ),
                             ),
@@ -4660,7 +4660,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 421,
+                                        value: 461,
                                     },
                                 ),
                             ),
@@ -4673,7 +4673,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 422,
+                                        value: 462,
                                     },
                                 ),
                             ),
@@ -4686,7 +4686,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 423,
+                                        value: 463,
                                     },
                                 ),
                             ),
@@ -4699,7 +4699,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 424,
+                                        value: 464,
                                     },
                                 ),
                             ),
@@ -4712,7 +4712,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 425,
+                                        value: 465,
                                     },
                                 ),
                             ),
@@ -4725,7 +4725,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 426,
+                                        value: 466,
                                     },
                                 ),
                             ),
@@ -4738,7 +4738,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 427,
+                                        value: 467,
                                     },
                                 ),
                             ),
@@ -4751,7 +4751,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 428,
+                                        value: 468,
                                     },
                                 ),
                             ),
@@ -4764,7 +4764,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 429,
+                                        value: 469,
                                     },
                                 ),
                             ),
@@ -4777,7 +4777,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 430,
+                                        value: 470,
                                     },
                                 ),
                             ),
@@ -4790,7 +4790,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 431,
+                                        value: 471,
                                     },
                                 ),
                             ),
@@ -5080,7 +5080,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 480,
+                                        value: 520,
                                     },
                                 ),
                             ),
@@ -5093,7 +5093,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 481,
+                                        value: 521,
                                     },
                                 ),
                             ),
@@ -5106,7 +5106,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 482,
+                                        value: 522,
                                     },
                                 ),
                             ),
@@ -5119,7 +5119,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 483,
+                                        value: 523,
                                     },
                                 ),
                             ),
@@ -5132,7 +5132,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 484,
+                                        value: 524,
                                     },
                                 ),
                             ),
@@ -5145,7 +5145,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 485,
+                                        value: 525,
                                     },
                                 ),
                             ),
@@ -5536,7 +5536,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1058,
+                                        value: 1118,
                                     },
                                 ),
                             ),
@@ -5549,7 +5549,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1059,
+                                        value: 1119,
                                     },
                                 ),
                             ),
@@ -5562,7 +5562,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1060,
+                                        value: 1120,
                                     },
                                 ),
                             ),
@@ -5575,7 +5575,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1061,
+                                        value: 1121,
                                     },
                                 ),
                             ),
@@ -5860,7 +5860,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `is_seven`,
+                            ident: `is_five`,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
@@ -5873,7 +5873,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `is_eight`,
+                            ident: `is_seven`,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
@@ -5886,7 +5886,7 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `is_nine`,
+                            ident: `is_eight`,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
@@ -5894,6 +5894,305 @@ Ok(
                                 UseSymbol(
                                     Id {
                                         value: 182,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `is_nine`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 183,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `connected_component`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 184,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `raw_contour`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 185,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `geom2d`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 186,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `line_segment_sketch`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 187,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `fermi`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 188,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `digits`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 189,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 190,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `MnistLabel`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 191,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `find_raw_contours`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 192,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `connected_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 193,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_connected_component`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 194,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ignored_connected_components_row_span_sum_sum`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 195,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contours`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 196,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contour`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 197,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_line_segment_sketch`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 198,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_concave_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 199,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `fermi_match`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 200,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegmentStroke`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 201,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegmentSketch`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 202,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ConcaveComponent`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 1123,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `find_concave_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 1124,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegment`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 1125,
                                     },
                                 ),
                             ),
@@ -6172,6 +6471,35 @@ Ok(
                             },
                         },
                         UseExprRule {
+                            ast_idx: 19,
+                            use_expr_idx: 19,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            variant: UseExprRuleVariant::Parent {
+                                parent_name_token: NameToken::Crate(
+                                    CrateToken {
+                                        token_idx: TokenIdx(
+                                            58,
+                                        ),
+                                    },
+                                ),
+                                children: ArenaIdxRange(
+                                    18..19,
+                                ),
+                            },
+                            parent: None,
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: CrateRoot {
+                                    root_module: ModulePath(
+                                        Id {
+                                            value: 40,
+                                        },
+                                    ),
+                                },
+                            },
+                        },
+                        UseExprRule {
                             ast_idx: 10,
                             use_expr_idx: 0,
                             visibility: Visibility::Pub,
@@ -6279,7 +6607,7 @@ Ok(
                                 original_symbol: ModuleItem(
                                     ModuleItemSymbol(
                                         Id {
-                                            value: 193,
+                                            value: 194,
                                         },
                                     ),
                                 ),
@@ -6333,7 +6661,15 @@ Ok(
                                     `mnist_classifier::digits::five`,
                                 ),
                             ),
-                            state: UseExprRuleState::Erroneous,
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: ModuleItem(
+                                    ModuleItemSymbol(
+                                        Id {
+                                            value: 175,
+                                        },
+                                    ),
+                                ),
+                            },
                         },
                         UseExprRule {
                             ast_idx: 16,
@@ -6358,7 +6694,7 @@ Ok(
                                 original_symbol: ModuleItem(
                                     ModuleItemSymbol(
                                         Id {
-                                            value: 180,
+                                            value: 181,
                                         },
                                     ),
                                 ),
@@ -6387,7 +6723,7 @@ Ok(
                                 original_symbol: ModuleItem(
                                     ModuleItemSymbol(
                                         Id {
-                                            value: 182,
+                                            value: 183,
                                         },
                                     ),
                                 ),
@@ -6416,7 +6752,7 @@ Ok(
                                 original_symbol: ModuleItem(
                                     ModuleItemSymbol(
                                         Id {
-                                            value: 186,
+                                            value: 187,
                                         },
                                     ),
                                 ),
@@ -6425,80 +6761,30 @@ Ok(
                     ],
                 ),
                 use_all_rules: UseAllRules(
-                    [],
+                    [
+                        UseAllRule {
+                            parent: KinshipedModulePath {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 40,
+                                    },
+                                ),
+                            },
+                            ast_idx: 19,
+                            use_expr_idx: 18,
+                            visibility: PubUnder(
+                                ModulePath(
+                                    Id {
+                                        value: 46,
+                                    },
+                                ),
+                            ),
+                            progress: 23,
+                        },
+                    ],
                 ),
-                errors: [
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::SymbolExistsButNotAccessible(
-                            IdentToken {
-                                ident: `is_six`,
-                                token_idx: TokenIdx(
-                                    28,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::SymbolExistsButNotAccessible(
-                            IdentToken {
-                                ident: `is_zero`,
-                                token_idx: TokenIdx(
-                                    32,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::SymbolExistsButNotAccessible(
-                            IdentToken {
-                                ident: `is_two`,
-                                token_idx: TokenIdx(
-                                    36,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::SymbolExistsButNotAccessible(
-                            IdentToken {
-                                ident: `is_three`,
-                                token_idx: TokenIdx(
-                                    40,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `is_five`,
-                                token_idx: TokenIdx(
-                                    44,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::SymbolExistsButNotAccessible(
-                            IdentToken {
-                                ident: `is_seven`,
-                                token_idx: TokenIdx(
-                                    48,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::SymbolExistsButNotAccessible(
-                            IdentToken {
-                                ident: `is_nine`,
-                                token_idx: TokenIdx(
-                                    56,
-                                ),
-                            },
-                        ),
-                    ),
-                ],
+                errors: [],
             },
             EntityTreeSheet {
                 module_path: `mnist_classifier::digits::zero`,
@@ -6533,7 +6819,7 @@ Ok(
                         EntitySymbolEntry {
                             ident: `is_zero`,
                             visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::zero`,
+                                `mnist_classifier::digits`,
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
@@ -6551,7 +6837,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 486,
+                                        value: 526,
                                     },
                                 ),
                             ),
@@ -6564,7 +6850,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 487,
+                                        value: 527,
                                     },
                                 ),
                             ),
@@ -6577,7 +6863,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 488,
+                                        value: 528,
                                     },
                                 ),
                             ),
@@ -6590,7 +6876,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 489,
+                                        value: 529,
                                     },
                                 ),
                             ),
@@ -6603,7 +6889,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 490,
+                                        value: 530,
                                     },
                                 ),
                             ),
@@ -6616,7 +6902,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 491,
+                                        value: 531,
                                     },
                                 ),
                             ),
@@ -6629,7 +6915,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 492,
+                                        value: 532,
                                     },
                                 ),
                             ),
@@ -6642,7 +6928,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 506,
+                                        value: 546,
                                     },
                                 ),
                             ),
@@ -6655,7 +6941,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1070,
+                                        value: 1134,
                                     },
                                 ),
                             ),
@@ -6668,7 +6954,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1071,
+                                        value: 1135,
                                     },
                                 ),
                             ),
@@ -7248,7 +7534,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 525,
+                                        value: 565,
                                     },
                                 ),
                             ),
@@ -7261,7 +7547,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 526,
+                                        value: 566,
                                     },
                                 ),
                             ),
@@ -7274,7 +7560,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 527,
+                                        value: 567,
                                     },
                                 ),
                             ),
@@ -7287,7 +7573,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 528,
+                                        value: 568,
                                     },
                                 ),
                             ),
@@ -7300,7 +7586,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 529,
+                                        value: 569,
                                     },
                                 ),
                             ),
@@ -7313,7 +7599,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 530,
+                                        value: 570,
                                     },
                                 ),
                             ),
@@ -7326,7 +7612,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 531,
+                                        value: 571,
                                     },
                                 ),
                             ),
@@ -7339,7 +7625,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 545,
+                                        value: 585,
                                     },
                                 ),
                             ),
@@ -7352,7 +7638,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1118,
+                                        value: 1182,
                                     },
                                 ),
                             ),
@@ -7365,7 +7651,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1119,
+                                        value: 1183,
                                     },
                                 ),
                             ),
@@ -7838,7 +8124,7 @@ Ok(
                         EntitySymbolEntry {
                             ident: `is_six`,
                             visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::six`,
+                                `mnist_classifier::digits`,
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
@@ -7882,7 +8168,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 564,
+                                        value: 604,
                                     },
                                 ),
                             ),
@@ -7895,7 +8181,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 565,
+                                        value: 605,
                                     },
                                 ),
                             ),
@@ -7908,7 +8194,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 566,
+                                        value: 606,
                                     },
                                 ),
                             ),
@@ -7921,7 +8207,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 567,
+                                        value: 607,
                                     },
                                 ),
                             ),
@@ -7934,7 +8220,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 568,
+                                        value: 608,
                                     },
                                 ),
                             ),
@@ -7947,7 +8233,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 569,
+                                        value: 609,
                                     },
                                 ),
                             ),
@@ -7960,7 +8246,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 570,
+                                        value: 610,
                                     },
                                 ),
                             ),
@@ -7973,7 +8259,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 584,
+                                        value: 624,
                                     },
                                 ),
                             ),
@@ -7986,7 +8272,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1166,
+                                        value: 1230,
                                     },
                                 ),
                             ),
@@ -7999,7 +8285,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1167,
+                                        value: 1231,
                                     },
                                 ),
                             ),
@@ -8524,7 +8810,7 @@ Ok(
                         EntitySymbolEntry {
                             ident: `is_three`,
                             visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::three`,
+                                `mnist_classifier::digits`,
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
@@ -8581,7 +8867,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 603,
+                                        value: 643,
                                     },
                                 ),
                             ),
@@ -8594,7 +8880,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 604,
+                                        value: 644,
                                     },
                                 ),
                             ),
@@ -8607,7 +8893,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 605,
+                                        value: 645,
                                     },
                                 ),
                             ),
@@ -8620,7 +8906,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 606,
+                                        value: 646,
                                     },
                                 ),
                             ),
@@ -8633,7 +8919,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 607,
+                                        value: 647,
                                     },
                                 ),
                             ),
@@ -8646,7 +8932,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 608,
+                                        value: 648,
                                     },
                                 ),
                             ),
@@ -8659,7 +8945,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 609,
+                                        value: 649,
                                     },
                                 ),
                             ),
@@ -8672,7 +8958,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 623,
+                                        value: 663,
                                     },
                                 ),
                             ),
@@ -8685,7 +8971,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1214,
+                                        value: 1278,
                                     },
                                 ),
                             ),
@@ -8698,7 +8984,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1215,
+                                        value: 1279,
                                     },
                                 ),
                             ),
@@ -9241,7 +9527,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 642,
+                                        value: 682,
                                     },
                                 ),
                             ),
@@ -9254,7 +9540,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 643,
+                                        value: 683,
                                     },
                                 ),
                             ),
@@ -9267,7 +9553,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 644,
+                                        value: 684,
                                     },
                                 ),
                             ),
@@ -9280,7 +9566,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 645,
+                                        value: 685,
                                     },
                                 ),
                             ),
@@ -9293,7 +9579,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 646,
+                                        value: 686,
                                     },
                                 ),
                             ),
@@ -9306,7 +9592,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 647,
+                                        value: 687,
                                     },
                                 ),
                             ),
@@ -9319,7 +9605,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 648,
+                                        value: 688,
                                     },
                                 ),
                             ),
@@ -9332,7 +9618,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 662,
+                                        value: 702,
                                     },
                                 ),
                             ),
@@ -9345,7 +9631,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1262,
+                                        value: 1326,
                                     },
                                 ),
                             ),
@@ -9358,7 +9644,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1263,
+                                        value: 1327,
                                     },
                                 ),
                             ),
@@ -9801,7 +10087,21 @@ Ok(
             EntityTreeSheet {
                 module_path: `mnist_classifier::digits::five`,
                 symbols: EntitySymbolTable(
-                    [],
+                    [
+                        EntitySymbolEntry {
+                            ident: `is_five`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: ModuleItem(
+                                ModuleItemSymbol(
+                                    Id {
+                                        value: 175,
+                                    },
+                                ),
+                            ),
+                        },
+                    ],
                 ),
                 impl_blocks: [],
                 use_expr_rules: UseExprRules(
@@ -9824,7 +10124,7 @@ Ok(
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
-                                        value: 175,
+                                        value: 176,
                                     },
                                 ),
                             ),
@@ -9837,7 +10137,7 @@ Ok(
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
-                                        value: 176,
+                                        value: 177,
                                     },
                                 ),
                             ),
@@ -9850,7 +10150,7 @@ Ok(
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
-                                        value: 177,
+                                        value: 178,
                                     },
                                 ),
                             ),
@@ -9863,7 +10163,7 @@ Ok(
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
-                                        value: 178,
+                                        value: 179,
                                     },
                                 ),
                             ),
@@ -9876,7 +10176,7 @@ Ok(
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
-                                        value: 179,
+                                        value: 180,
                                     },
                                 ),
                             ),
@@ -9884,12 +10184,12 @@ Ok(
                         EntitySymbolEntry {
                             ident: `is_seven`,
                             visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
+                                `mnist_classifier::digits`,
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
-                                        value: 180,
+                                        value: 181,
                                     },
                                 ),
                             ),
@@ -9902,7 +10202,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 681,
+                                        value: 721,
                                     },
                                 ),
                             ),
@@ -9915,7 +10215,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 682,
+                                        value: 722,
                                     },
                                 ),
                             ),
@@ -9928,7 +10228,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 683,
+                                        value: 723,
                                     },
                                 ),
                             ),
@@ -9941,7 +10241,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 685,
+                                        value: 725,
                                     },
                                 ),
                             ),
@@ -9954,7 +10254,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 686,
+                                        value: 726,
                                     },
                                 ),
                             ),
@@ -9967,7 +10267,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 687,
+                                        value: 727,
                                     },
                                 ),
                             ),
@@ -9980,7 +10280,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 688,
+                                        value: 728,
                                     },
                                 ),
                             ),
@@ -9993,7 +10293,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 703,
+                                        value: 743,
                                     },
                                 ),
                             ),
@@ -10006,7 +10306,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 722,
+                                        value: 762,
                                     },
                                 ),
                             ),
@@ -10019,7 +10319,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 723,
+                                        value: 763,
                                     },
                                 ),
                             ),
@@ -10032,7 +10332,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 724,
+                                        value: 764,
                                     },
                                 ),
                             ),
@@ -10045,7 +10345,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 725,
+                                        value: 765,
                                     },
                                 ),
                             ),
@@ -10058,7 +10358,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 726,
+                                        value: 766,
                                     },
                                 ),
                             ),
@@ -10071,7 +10371,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 727,
+                                        value: 767,
                                     },
                                 ),
                             ),
@@ -10084,7 +10384,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 728,
+                                        value: 768,
                                     },
                                 ),
                             ),
@@ -10097,7 +10397,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 729,
+                                        value: 769,
                                     },
                                 ),
                             ),
@@ -10110,7 +10410,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 730,
+                                        value: 770,
                                     },
                                 ),
                             ),
@@ -10123,7 +10423,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 731,
+                                        value: 771,
                                     },
                                 ),
                             ),
@@ -10136,7 +10436,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 732,
+                                        value: 772,
                                     },
                                 ),
                             ),
@@ -10149,7 +10449,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 733,
+                                        value: 773,
                                     },
                                 ),
                             ),
@@ -10162,7 +10462,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 734,
+                                        value: 774,
                                     },
                                 ),
                             ),
@@ -10175,7 +10475,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 735,
+                                        value: 775,
                                     },
                                 ),
                             ),
@@ -10188,7 +10488,20 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 736,
+                                        value: 776,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `is_five`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 777,
                                     },
                                 ),
                             ),
@@ -10201,7 +10514,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 738,
+                                        value: 779,
                                     },
                                 ),
                             ),
@@ -10214,7 +10527,150 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 739,
+                                        value: 780,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `connected_component`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 781,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `raw_contour`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 782,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `geom2d`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 783,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `line_segment_sketch`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 784,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `fermi`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 785,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `digits`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 786,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 787,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `MnistLabel`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 788,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `find_raw_contours`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 789,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegmentStroke`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 798,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegmentSketch`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 799,
                                     },
                                 ),
                             ),
@@ -10227,7 +10683,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1310,
+                                        value: 1374,
                                     },
                                 ),
                             ),
@@ -10240,7 +10696,20 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1311,
+                                        value: 1375,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegment`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 1598,
                                     },
                                 ),
                             ),
@@ -10695,7 +11164,7 @@ Ok(
                                 original_symbol: ModuleItem(
                                     ModuleItemSymbol(
                                         Id {
-                                            value: 200,
+                                            value: 201,
                                         },
                                     ),
                                 ),
@@ -10724,7 +11193,7 @@ Ok(
                                 original_symbol: ModuleItem(
                                     ModuleItemSymbol(
                                         Id {
-                                            value: 195,
+                                            value: 196,
                                         },
                                     ),
                                 ),
@@ -10826,7 +11295,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 18,
+                            progress: 41,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -10895,7 +11364,7 @@ Ok(
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
-                                        value: 181,
+                                        value: 182,
                                     },
                                 ),
                             ),
@@ -10908,7 +11377,7 @@ Ok(
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
-                                        value: 182,
+                                        value: 183,
                                     },
                                 ),
                             ),
@@ -10921,7 +11390,7 @@ Ok(
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
-                                        value: 183,
+                                        value: 184,
                                     },
                                 ),
                             ),
@@ -10934,7 +11403,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 740,
+                                        value: 800,
                                     },
                                 ),
                             ),
@@ -10947,7 +11416,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 741,
+                                        value: 801,
                                     },
                                 ),
                             ),
@@ -10960,7 +11429,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 743,
+                                        value: 803,
                                     },
                                 ),
                             ),
@@ -10973,7 +11442,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 762,
+                                        value: 822,
                                     },
                                 ),
                             ),
@@ -10986,7 +11455,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1350,
+                                        value: 1414,
                                     },
                                 ),
                             ),
@@ -10999,7 +11468,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1351,
+                                        value: 1415,
                                     },
                                 ),
                             ),
@@ -11611,7 +12080,7 @@ Ok(
                                 original_symbol: ModuleItem(
                                     ModuleItemSymbol(
                                         Id {
-                                            value: 200,
+                                            value: 201,
                                         },
                                     ),
                                 ),
@@ -11640,7 +12109,7 @@ Ok(
                                 original_symbol: ModuleItem(
                                     ModuleItemSymbol(
                                         Id {
-                                            value: 195,
+                                            value: 196,
                                         },
                                     ),
                                 ),
@@ -11831,7 +12300,7 @@ Ok(
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
-                                        value: 184,
+                                        value: 185,
                                     },
                                 ),
                             ),
@@ -11844,7 +12313,7 @@ Ok(
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
-                                        value: 185,
+                                        value: 186,
                                     },
                                 ),
                             ),
@@ -11852,12 +12321,12 @@ Ok(
                         EntitySymbolEntry {
                             ident: `is_nine`,
                             visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::nine`,
+                                `mnist_classifier::digits`,
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
-                                        value: 186,
+                                        value: 187,
                                     },
                                 ),
                             ),
@@ -11870,7 +12339,7 @@ Ok(
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
-                                        value: 187,
+                                        value: 188,
                                     },
                                 ),
                             ),
@@ -11883,7 +12352,7 @@ Ok(
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
-                                        value: 188,
+                                        value: 189,
                                     },
                                 ),
                             ),
@@ -11896,7 +12365,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 804,
+                                        value: 864,
                                     },
                                 ),
                             ),
@@ -11909,7 +12378,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 805,
+                                        value: 865,
                                     },
                                 ),
                             ),
@@ -11922,7 +12391,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 806,
+                                        value: 866,
                                     },
                                 ),
                             ),
@@ -11935,7 +12404,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 807,
+                                        value: 867,
                                     },
                                 ),
                             ),
@@ -11948,7 +12417,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 808,
+                                        value: 868,
                                     },
                                 ),
                             ),
@@ -11961,7 +12430,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 809,
+                                        value: 869,
                                     },
                                 ),
                             ),
@@ -11974,7 +12443,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 810,
+                                        value: 870,
                                     },
                                 ),
                             ),
@@ -11987,7 +12456,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 824,
+                                        value: 884,
                                     },
                                 ),
                             ),
@@ -12000,7 +12469,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1398,
+                                        value: 1462,
                                     },
                                 ),
                             ),
@@ -12013,7 +12482,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1399,
+                                        value: 1463,
                                     },
                                 ),
                             ),
@@ -12595,7 +13064,7 @@ Ok(
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
-                                        value: 189,
+                                        value: 190,
                                     },
                                 ),
                             ),
@@ -12608,7 +13077,7 @@ Ok(
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
-                                        value: 190,
+                                        value: 191,
                                     },
                                 ),
                             ),
@@ -12621,7 +13090,7 @@ Ok(
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
-                                        value: 191,
+                                        value: 192,
                                     },
                                 ),
                             ),
@@ -12634,7 +13103,7 @@ Ok(
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
-                                        value: 192,
+                                        value: 193,
                                     },
                                 ),
                             ),
@@ -12642,12 +13111,12 @@ Ok(
                         EntitySymbolEntry {
                             ident: `is_two`,
                             visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::two`,
+                                `mnist_classifier::digits`,
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
-                                        value: 193,
+                                        value: 194,
                                     },
                                 ),
                             ),
@@ -12660,7 +13129,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 183,
+                                        value: 203,
                                     },
                                 ),
                             ),
@@ -12673,7 +13142,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 184,
+                                        value: 204,
                                     },
                                 ),
                             ),
@@ -12686,7 +13155,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 185,
+                                        value: 205,
                                     },
                                 ),
                             ),
@@ -12699,7 +13168,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 186,
+                                        value: 206,
                                     },
                                 ),
                             ),
@@ -12712,7 +13181,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 187,
+                                        value: 207,
                                     },
                                 ),
                             ),
@@ -12725,7 +13194,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 188,
+                                        value: 208,
                                     },
                                 ),
                             ),
@@ -12738,7 +13207,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 189,
+                                        value: 209,
                                     },
                                 ),
                             ),
@@ -12751,7 +13220,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 190,
+                                        value: 210,
                                     },
                                 ),
                             ),
@@ -12764,7 +13233,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 191,
+                                        value: 211,
                                     },
                                 ),
                             ),
@@ -12777,7 +13246,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 192,
+                                        value: 212,
                                     },
                                 ),
                             ),
@@ -12790,7 +13259,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 193,
+                                        value: 213,
                                     },
                                 ),
                             ),
@@ -12803,7 +13272,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 194,
+                                        value: 214,
                                     },
                                 ),
                             ),
@@ -12816,7 +13285,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 195,
+                                        value: 215,
                                     },
                                 ),
                             ),
@@ -12829,7 +13298,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 196,
+                                        value: 216,
                                     },
                                 ),
                             ),
@@ -12842,7 +13311,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 197,
+                                        value: 217,
                                     },
                                 ),
                             ),
@@ -12855,7 +13324,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 198,
+                                        value: 218,
                                     },
                                 ),
                             ),
@@ -12868,7 +13337,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 199,
+                                        value: 219,
                                     },
                                 ),
                             ),
@@ -12881,7 +13350,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 200,
+                                        value: 220,
                                     },
                                 ),
                             ),
@@ -12894,7 +13363,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 201,
+                                        value: 221,
                                     },
                                 ),
                             ),
@@ -12907,7 +13376,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1438,
+                                        value: 1502,
                                     },
                                 ),
                             ),
@@ -12920,7 +13389,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1439,
+                                        value: 1503,
                                     },
                                 ),
                             ),
@@ -12933,7 +13402,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1440,
+                                        value: 1504,
                                     },
                                 ),
                             ),
@@ -12946,7 +13415,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1441,
+                                        value: 1505,
                                     },
                                 ),
                             ),
@@ -13152,7 +13621,7 @@ Ok(
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
-                                        value: 194,
+                                        value: 195,
                                     },
                                 ),
                             ),
@@ -13163,7 +13632,7 @@ Ok(
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
-                                        value: 195,
+                                        value: 196,
                                     },
                                 ),
                             ),
@@ -13174,7 +13643,7 @@ Ok(
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
-                                        value: 196,
+                                        value: 197,
                                     },
                                 ),
                             ),
@@ -13185,7 +13654,7 @@ Ok(
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
-                                        value: 197,
+                                        value: 198,
                                     },
                                 ),
                             ),
@@ -13196,7 +13665,7 @@ Ok(
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
-                                        value: 198,
+                                        value: 199,
                                     },
                                 ),
                             ),
@@ -13207,7 +13676,7 @@ Ok(
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
-                                        value: 199,
+                                        value: 200,
                                     },
                                 ),
                             ),
@@ -13218,7 +13687,7 @@ Ok(
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
-                                        value: 200,
+                                        value: 201,
                                     },
                                 ),
                             ),
@@ -13231,7 +13700,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 202,
+                                        value: 222,
                                     },
                                 ),
                             ),
@@ -13244,7 +13713,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 203,
+                                        value: 223,
                                     },
                                 ),
                             ),
@@ -13257,7 +13726,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 204,
+                                        value: 224,
                                     },
                                 ),
                             ),
@@ -13270,7 +13739,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 205,
+                                        value: 225,
                                     },
                                 ),
                             ),
@@ -13283,7 +13752,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 206,
+                                        value: 226,
                                     },
                                 ),
                             ),
@@ -13296,7 +13765,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 207,
+                                        value: 227,
                                     },
                                 ),
                             ),
@@ -13309,7 +13778,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 208,
+                                        value: 228,
                                     },
                                 ),
                             ),
@@ -13322,7 +13791,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 209,
+                                        value: 229,
                                     },
                                 ),
                             ),
@@ -13335,7 +13804,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 210,
+                                        value: 230,
                                     },
                                 ),
                             ),
@@ -13348,7 +13817,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 218,
+                                        value: 238,
                                     },
                                 ),
                             ),
@@ -13361,7 +13830,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 219,
+                                        value: 239,
                                     },
                                 ),
                             ),
@@ -13374,7 +13843,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 220,
+                                        value: 240,
                                     },
                                 ),
                             ),
@@ -13387,7 +13856,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 843,
+                                        value: 903,
                                     },
                                 ),
                             ),
@@ -13400,7 +13869,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 844,
+                                        value: 904,
                                     },
                                 ),
                             ),
@@ -13413,7 +13882,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 846,
+                                        value: 906,
                                     },
                                 ),
                             ),
@@ -13426,7 +13895,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 848,
+                                        value: 908,
                                     },
                                 ),
                             ),
@@ -13439,7 +13908,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 869,
+                                        value: 929,
                                     },
                                 ),
                             ),
@@ -13452,7 +13921,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 922,
+                                        value: 982,
                                     },
                                 ),
                             ),
@@ -13465,7 +13934,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 923,
+                                        value: 983,
                                     },
                                 ),
                             ),
@@ -13478,7 +13947,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 924,
+                                        value: 984,
                                     },
                                 ),
                             ),
@@ -13491,7 +13960,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1442,
+                                        value: 1506,
                                     },
                                 ),
                             ),

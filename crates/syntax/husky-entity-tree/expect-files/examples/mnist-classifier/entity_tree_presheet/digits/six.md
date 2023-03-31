@@ -52,7 +52,7 @@ Ok(
                 NativeEntitySymbolEntry {
                     ident: `is_six`,
                     visibility: Visibility::PubUnder(
-                        `mnist_classifier::digits::six`,
+                        `mnist_classifier::digits`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
@@ -60,13 +60,13 @@ Ok(
                                 FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
                             ),
                             visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::six`,
+                                `mnist_classifier::digits`,
                             ),
                             ast_idx: 59,
                             ident_token: IdentToken {
                                 ident: `is_six`,
                                 token_idx: TokenIdx(
-                                    93,
+                                    97,
                                 ),
                             },
                         },
@@ -89,7 +89,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `upmost`,
                                 token_idx: TokenIdx(
-                                    356,
+                                    360,
                                 ),
                             },
                         },
@@ -112,7 +112,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `bottom1`,
                                 token_idx: TokenIdx(
-                                    385,
+                                    389,
                                 ),
                             },
                         },

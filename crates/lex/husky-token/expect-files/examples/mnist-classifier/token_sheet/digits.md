@@ -172,6 +172,20 @@ Ok(
             Token::Ident(
                 `is_nine`,
             ),
+            Token::Keyword(
+                Keyword::Use,
+            ),
+            Token::Keyword(
+                Keyword::Pronoun(
+                    Crate,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation::ColonColon,
+            ),
+            Token::Punctuation(
+                Punctuation::Star,
+            ),
         ],
         group_starts: [
             0,
@@ -193,8 +207,10 @@ Ok(
             45,
             49,
             53,
+            57,
         ],
         indents: [
+            0,
             0,
             0,
             0,

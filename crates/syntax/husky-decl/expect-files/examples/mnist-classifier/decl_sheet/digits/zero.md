@@ -327,7 +327,7 @@ Ok(
                                 curry_token: Some(
                                     CurryToken(
                                         TokenIdx(
-                                            106,
+                                            110,
                                         ),
                                     ),
                                 ),
@@ -338,7 +338,7 @@ Ok(
                                 ),
                                 eol_colon: EolColonToken(
                                     TokenIdx(
-                                        109,
+                                        113,
                                     ),
                                 ),
                                 expr_region: ExprRegion {
@@ -359,7 +359,7 @@ Ok(
                                                     ExprError::Original(
                                                         OriginalExprError::UnrecognizedIdent {
                                                             token_idx: TokenIdx(
-                                                                108,
+                                                                112,
                                                             ),
                                                             ident: `MnistLabel`,
                                                         },
@@ -368,7 +368,7 @@ Ok(
                                                 Expr::Prefix {
                                                     opr: Option,
                                                     opr_token_idx: TokenIdx(
-                                                        107,
+                                                        111,
                                                     ),
                                                     opd: 0,
                                                 },

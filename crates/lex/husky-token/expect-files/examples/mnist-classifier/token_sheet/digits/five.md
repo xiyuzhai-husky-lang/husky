@@ -1,7 +1,79 @@
 Ok(
     TokenSheetData {
-        tokens: [],
-        group_starts: [],
-        indents: [],
+        tokens: [
+            Token::Keyword(
+                Keyword::Use,
+            ),
+            Token::Keyword(
+                Keyword::Pronoun(
+                    Super,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation::ColonColon,
+            ),
+            Token::Punctuation(
+                Punctuation::Star,
+            ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Punctuation(
+                Punctuation::Bra(
+                    Par,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Pronoun(
+                    Super,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation::Ket(
+                    Par,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Form(
+                    Gn,
+                ),
+            ),
+            Token::Ident(
+                `is_five`,
+            ),
+            Token::Punctuation(
+                Punctuation::Binary(
+                    Curry,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation::Question,
+            ),
+            Token::Ident(
+                `MnistLabel`,
+            ),
+            Token::Punctuation(
+                Punctuation::Colon,
+            ),
+            Token::Ident(
+                `MnistLabel`,
+            ),
+            Token::Punctuation(
+                Punctuation::ColonColon,
+            ),
+            Token::Ident(
+                `Five`,
+            ),
+        ],
+        group_starts: [
+            0,
+            4,
+            14,
+        ],
+        indents: [
+            0,
+            0,
+            4,
+        ],
     },
 )

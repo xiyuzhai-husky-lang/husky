@@ -289,7 +289,12 @@ impl<'a> AstParser<'a> {
         );
         let visibility_expr = match aux_parser.parse_visibility_expr() {
             Ok(visibility_expr) => visibility_expr,
-            Err(_) => todo!(),
+            Err(e) => {
+                return Ast::Err {
+                    token_group_idx,
+                    error: e.into(),
+                }
+            }
         };
         match aux_parser.peek() {
             Some(Token::Keyword(Keyword::Use)) => self.parse_use_ast(

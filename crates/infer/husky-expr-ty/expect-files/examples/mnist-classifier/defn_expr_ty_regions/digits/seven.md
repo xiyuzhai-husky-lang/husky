@@ -2436,14 +2436,9 @@
                 ),
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Original(
-                                TodoScopeResolution,
-                            ),
-                        ),
+                ty_result: Err(
+                    Derived(
+                        EntityPathError,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -2644,14 +2639,9 @@
                 ),
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Original(
-                                TodoScopeResolution,
-                            ),
-                        ),
+                ty_result: Err(
+                    Derived(
+                        EntityPathError,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -2809,14 +2799,9 @@
                 ),
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Original(
-                                TodoScopeResolution,
-                            ),
-                        ),
+                ty_result: Err(
+                    Derived(
+                        EntityPathError,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -2980,13 +2965,13 @@
                         ),
                     },
                     UnresolvedTermEntry {
-                        src_expr_idx: 43,
+                        src_expr_idx: 41,
                         unresolved_term: ImplicitSymbol(
                             ImplicitSymbol {
                                 idx: ImplicitSymbolIdx(
                                     6,
                                 ),
-                                src_expr_idx: 43,
+                                src_expr_idx: 41,
                                 variant: UnspecifiedFloatType,
                             },
                         ),
@@ -3002,13 +2987,13 @@
                         ),
                     },
                     UnresolvedTermEntry {
-                        src_expr_idx: 51,
+                        src_expr_idx: 49,
                         unresolved_term: ImplicitSymbol(
                             ImplicitSymbol {
                                 idx: ImplicitSymbolIdx(
                                     7,
                                 ),
-                                src_expr_idx: 51,
+                                src_expr_idx: 49,
                                 variant: UnspecifiedFloatType,
                             },
                         ),
@@ -3024,13 +3009,13 @@
                         ),
                     },
                     UnresolvedTermEntry {
-                        src_expr_idx: 58,
+                        src_expr_idx: 54,
                         unresolved_term: ImplicitSymbol(
                             ImplicitSymbol {
                                 idx: ImplicitSymbolIdx(
                                     8,
                                 ),
-                                src_expr_idx: 58,
+                                src_expr_idx: 54,
                                 variant: UnspecifiedIntegerType,
                             },
                         ),
@@ -3460,7 +3445,7 @@
                             ),
                         },
                         LocalTermExpectationRule {
-                            src_expr_idx: 43,
+                            src_expr_idx: 41,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
                                     6,
@@ -3472,7 +3457,7 @@
                             resolve_progress: Unresolved,
                         },
                         LocalTermExpectationRule {
-                            src_expr_idx: 44,
+                            src_expr_idx: 42,
                             expectee: Resolved(
                                 EntityPath(
                                     TypeOntology(
@@ -3508,7 +3493,7 @@
                             ),
                         },
                         LocalTermExpectationRule {
-                            src_expr_idx: 45,
+                            src_expr_idx: 43,
                             expectee: Resolved(
                                 EntityPath(
                                     TypeOntology(
@@ -3526,7 +3511,7 @@
                             resolve_progress: Unresolved,
                         },
                         LocalTermExpectationRule {
-                            src_expr_idx: 51,
+                            src_expr_idx: 49,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
                                     7,
@@ -3538,7 +3523,7 @@
                             resolve_progress: Unresolved,
                         },
                         LocalTermExpectationRule {
-                            src_expr_idx: 52,
+                            src_expr_idx: 50,
                             expectee: Resolved(
                                 EntityPath(
                                     TypeOntology(
@@ -3574,7 +3559,7 @@
                             ),
                         },
                         LocalTermExpectationRule {
-                            src_expr_idx: 58,
+                            src_expr_idx: 54,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
                                     8,
@@ -3586,7 +3571,7 @@
                             resolve_progress: Unresolved,
                         },
                         LocalTermExpectationRule {
-                            src_expr_idx: 60,
+                            src_expr_idx: 56,
                             expectee: Resolved(
                                 EntityPath(
                                     TypeOntology(
@@ -3622,7 +3607,7 @@
                             ),
                         },
                         LocalTermExpectationRule {
-                            src_expr_idx: 63,
+                            src_expr_idx: 59,
                             expectee: Resolved(
                                 EntityPath(
                                     TypeOntology(

@@ -52,7 +52,7 @@ Ok(
                 NativeEntitySymbolEntry {
                     ident: `is_nine`,
                     visibility: Visibility::PubUnder(
-                        `mnist_classifier::digits::nine`,
+                        `mnist_classifier::digits`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
@@ -60,13 +60,13 @@ Ok(
                                 FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
                             ),
                             visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::nine`,
+                                `mnist_classifier::digits`,
                             ),
                             ast_idx: 46,
                             ident_token: IdentToken {
                                 ident: `is_nine`,
                                 token_idx: TokenIdx(
-                                    101,
+                                    105,
                                 ),
                             },
                         },
@@ -89,7 +89,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `downmost`,
                                 token_idx: TokenIdx(
-                                    273,
+                                    277,
                                 ),
                             },
                         },
@@ -112,7 +112,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `big_cc`,
                                 token_idx: TokenIdx(
-                                    302,
+                                    306,
                                 ),
                             },
                         },

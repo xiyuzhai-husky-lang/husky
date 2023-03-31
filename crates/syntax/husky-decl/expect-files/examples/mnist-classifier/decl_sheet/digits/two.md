@@ -751,7 +751,7 @@ Ok(
                                 curry_token: Some(
                                     CurryToken(
                                         TokenIdx(
-                                            152,
+                                            156,
                                         ),
                                     ),
                                 ),
@@ -762,7 +762,7 @@ Ok(
                                 ),
                                 eol_colon: EolColonToken(
                                     TokenIdx(
-                                        155,
+                                        159,
                                     ),
                                 ),
                                 expr_region: ExprRegion {
@@ -792,7 +792,7 @@ Ok(
                                                 Expr::Prefix {
                                                     opr: Option,
                                                     opr_token_idx: TokenIdx(
-                                                        153,
+                                                        157,
                                                     ),
                                                     opd: 0,
                                                 },
@@ -802,7 +802,7 @@ Ok(
                                             data: [
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        154,
+                                                        158,
                                                     ),
                                                     ident: `MnistLabel`,
                                                     entity_path: EntityPath::ModuleItem(

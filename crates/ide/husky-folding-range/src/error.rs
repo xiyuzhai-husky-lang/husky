@@ -7,9 +7,15 @@ use thiserror::Error;
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
 pub enum FoldingRangeError {
     #[error("ast error {0}")]
-    Ast(#[from] AstError),
+    Ast(String),
     #[error("vfs error {0}")]
     Vfs(#[from] VfsError),
+}
+
+impl From<&AstError> for FoldingRangeError {
+    fn from(value: &AstError) -> Self {
+        todo!()
+    }
 }
 
 impl From<&VfsError> for FoldingRangeError {

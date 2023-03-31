@@ -61,7 +61,7 @@ Ok(
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 200,
+                                value: 201,
                             },
                         ),
                     ),
@@ -109,7 +109,7 @@ Ok(
                     original_symbol: ModuleItem(
                         ModuleItemSymbol(
                             Id {
-                                value: 195,
+                                value: 196,
                             },
                         ),
                     ),
@@ -756,6 +756,10 @@ Ok(
                 expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::Entity(
                 Some(
                     EntityPath::ModuleItem(
@@ -775,7 +779,16 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist::MnistLabel`, `Enum`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
@@ -983,7 +996,16 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist::MnistLabel`, `Enum`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -1041,7 +1063,16 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist::MnistLabel`, `Enum`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -1085,7 +1116,16 @@ Ok(
             TokenInfo::Field,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist::MnistLabel`, `Enum`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             TokenInfo::None,
             TokenInfo::None,
         ],

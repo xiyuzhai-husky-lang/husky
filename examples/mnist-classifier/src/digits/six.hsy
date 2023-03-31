@@ -13,7 +13,7 @@ fn six_match -> FermiMatchResult:
 fn six_match_refined1 -> FermiMatchResult:
     fermi_match(major_concave_components, [upmost, bottom1])
 
-gn is_six -> ?MnistLabel:
+pub(super) gn is_six -> ?MnistLabel:
     require is_one be none
     let upmost_match = six_match.matches[0]
     require upmost_match be some

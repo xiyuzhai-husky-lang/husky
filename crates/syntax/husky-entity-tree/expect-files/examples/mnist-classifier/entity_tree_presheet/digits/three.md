@@ -29,7 +29,7 @@ Ok(
                 NativeEntitySymbolEntry {
                     ident: `is_three`,
                     visibility: Visibility::PubUnder(
-                        `mnist_classifier::digits::three`,
+                        `mnist_classifier::digits`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
@@ -37,13 +37,13 @@ Ok(
                                 FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
                             ),
                             visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::three`,
+                                `mnist_classifier::digits`,
                             ),
                             ast_idx: 36,
                             ident_token: IdentToken {
                                 ident: `is_three`,
                                 token_idx: TokenIdx(
-                                    84,
+                                    88,
                                 ),
                             },
                         },
@@ -66,7 +66,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `uparc`,
                                 token_idx: TokenIdx(
-                                    214,
+                                    218,
                                 ),
                             },
                         },
@@ -89,7 +89,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `downarc`,
                                 token_idx: TokenIdx(
-                                    248,
+                                    252,
                                 ),
                             },
                         },
@@ -112,7 +112,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `back`,
                                 token_idx: TokenIdx(
-                                    282,
+                                    286,
                                 ),
                             },
                         },

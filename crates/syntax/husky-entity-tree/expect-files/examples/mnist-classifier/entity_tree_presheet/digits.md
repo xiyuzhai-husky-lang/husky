@@ -413,6 +413,27 @@ Ok(
                     parent: None,
                     state: UseExprRuleState::Unresolved,
                 },
+                UseExprRule {
+                    ast_idx: 19,
+                    use_expr_idx: 19,
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier::digits`,
+                    ),
+                    variant: UseExprRuleVariant::Parent {
+                        parent_name_token: NameToken::Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    58,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
+                            18..19,
+                        ),
+                    },
+                    parent: None,
+                    state: UseExprRuleState::Unresolved,
+                },
             ],
         ),
         use_all_trackers: UseAllRules(
@@ -704,6 +725,36 @@ Ok(
                         children: Ok(
                             UseExprChildren::Single {
                                 child: 16,
+                            },
+                        ),
+                    },
+                ),
+                UseExpr::All {
+                    star_token: StarToken(
+                        TokenIdx(
+                            60,
+                        ),
+                    ),
+                },
+                UseExpr::Parent(
+                    ParentUseExpr {
+                        parent_name_token: NameToken::Crate(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    58,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    59,
+                                ),
+                            ),
+                        ),
+                        children: Ok(
+                            UseExprChildren::Single {
+                                child: 18,
                             },
                         ),
                     },

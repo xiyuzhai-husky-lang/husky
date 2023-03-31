@@ -83,7 +83,13 @@
             ),
         ),
     ),
-    Err(
-        RawTermError,
+    Ok(
+        Signature::Form(
+            FormSignature::Feature(
+                FeatureSignature {
+                    return_ty: RawTerm(`core::option::Option mnist::MnistLabel`),
+                },
+            ),
+        ),
     ),
 ]

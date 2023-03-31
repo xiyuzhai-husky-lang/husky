@@ -848,7 +848,7 @@ Ok(
                                 curry_token: Some(
                                     CurryToken(
                                         TokenIdx(
-                                            217,
+                                            221,
                                         ),
                                     ),
                                 ),
@@ -859,7 +859,7 @@ Ok(
                                 ),
                                 eol_colon: EolColonToken(
                                     TokenIdx(
-                                        220,
+                                        224,
                                     ),
                                 ),
                                 expr_region: ExprRegion {
@@ -876,27 +876,39 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdent {
-                                                            token_idx: TokenIdx(
-                                                                219,
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 0,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist::MnistLabel`, `Enum`),
                                                             ),
-                                                            ident: `MnistLabel`,
-                                                        },
+                                                        ),
                                                     ),
-                                                ),
+                                                },
                                                 Expr::Prefix {
                                                     opr: Option,
                                                     opr_token_idx: TokenIdx(
-                                                        218,
+                                                        222,
                                                     ),
                                                     opd: 0,
                                                 },
                                             ],
                                         },
                                         entity_path_expr_arena: Arena {
-                                            data: [],
+                                            data: [
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        223,
+                                                    ),
+                                                    ident: `MnistLabel`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
                                         },
                                         stmt_arena: Arena {
                                             data: [],

@@ -1,1 +1,5 @@
-[]
+[
+    Err(
+        RawTermError,
+    ),
+]

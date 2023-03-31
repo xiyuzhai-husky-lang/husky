@@ -1,12 +1,15 @@
 use husky_token::{
     IdentToken, Punctuation, TokenError, TokenGroupIdx, TokenIdx, TokenIdxRange, TokenParseContext,
 };
+use husky_visibility_expr::{
+    DerivedVisibilityExprError, OriginalVisibilityExprError, VisibilityExprError,
+};
 use parsec::OriginalError;
 use thiserror::Error;
 
 use crate::{AstDb, AstIdx};
 
-#[derive(Debug, Error, PartialEq, Eq, Clone)]
+#[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = AstDb)]
 pub enum AstError {
     #[error("{0}")]
@@ -15,7 +18,7 @@ pub enum AstError {
     Derived(#[from] DerivedAstError),
 }
 
-#[derive(Debug, Error, PartialEq, Eq, Clone)]
+#[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = AstDb)]
 pub enum OriginalAstError {
     #[error("excessive indent")]
@@ -98,6 +101,8 @@ pub enum OriginalAstError {
     UnexpectedEndKeywordAsFirstNonCommentToken,
     #[error("UnexpectedTypeDefnInsideTypeImplBlock")]
     UnexpectedTypeDefnInsideTypeImplBlock,
+    #[error("VisibilityExprError")]
+    VisibilityExprError(#[from] OriginalVisibilityExprError),
 }
 
 impl OriginalError for OriginalAstError {
@@ -110,11 +115,13 @@ impl From<TokenError> for AstError {
     }
 }
 
-#[derive(Debug, Error, PartialEq, Eq, Clone)]
+#[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = AstDb)]
 pub enum DerivedAstError {
     #[error("{0}")]
     Token(#[from] TokenError),
+    #[error("VisibilityExprError")]
+    VisibilityExprError(#[from] DerivedVisibilityExprError),
 }
 
 impl From<&AstError> for AstError {
@@ -124,3 +131,12 @@ impl From<&AstError> for AstError {
 }
 
 pub type AstResult<T> = Result<T, AstError>;
+
+impl From<VisibilityExprError> for AstError {
+    fn from(e: VisibilityExprError) -> Self {
+        match e {
+            VisibilityExprError::Original(e) => AstError::Original(e.into()),
+            VisibilityExprError::Derived(e) => AstError::Derived(e.into()),
+        }
+    }
+}
