@@ -19,7 +19,7 @@ use crate::*;
 pub(crate) fn signature_from_decl(db: &dyn SignatureDb, decl: Decl) -> SignatureResult<Signature> {
     match decl {
         Decl::Type(decl) => ty_signature_from_decl(db, decl).map(Into::into),
-        Decl::Form(decl) => form_signature_from_decl(db, decl).map(Into::into),
+        Decl::Form(decl) => decl.signature(db).map(Into::into),
         Decl::Trait(decl) => trai_signature_from_decl(db, decl).map(Into::into),
         Decl::Impl(decl) => impl_block_signature_from_decl(db, decl).map(Into::into),
         Decl::AssociatedItem(decl) => associated_item_signature_from_decl(db, decl).map(Into::into),

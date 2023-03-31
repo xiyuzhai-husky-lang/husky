@@ -135,7 +135,7 @@ pub(crate) fn form_entity_variance_reprs(
         Ok(decl) => decl,
         Err(_) => return Err(DerivedVarianceError::DeclError.into()),
     };
-    let signature = match db.form_signature(decl) {
+    let signature = match decl.signature(db) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedVarianceError::SignatureError.into()),
     };

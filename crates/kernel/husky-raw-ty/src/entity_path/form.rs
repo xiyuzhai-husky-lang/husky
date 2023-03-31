@@ -2,11 +2,7 @@ use super::*;
 
 #[salsa::tracked(jar = RawTypeJar)]
 pub fn form_path_raw_ty(db: &dyn RawTypeDb, path: FormPath) -> RawTypeResult<RawTerm> {
-    let decl = match path.decl(db) {
-        Ok(decl) => decl,
-        Err(_) => return Err(DerivedRawTypeError::FormDeclError.into()),
-    };
-    let signature = match db.form_signature(decl) {
+    let signature = match path.signature(db) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedRawTypeError::SignatureError.into()),
     };
@@ -15,9 +11,9 @@ pub fn form_path_raw_ty(db: &dyn RawTypeDb, path: FormPath) -> RawTypeResult<Raw
     };
     let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
     match signature {
-        FormSignature::Function(signature) => form_fn_entity_raw_ty(db, variances, signature),
+        FormSignature::Fn(signature) => form_fn_entity_raw_ty(db, variances, signature),
         FormSignature::Feature(signature) => feature_entity_raw_ty(db, signature, raw_term_menu),
-        FormSignature::Morphism(_) => todo!(),
+        FormSignature::Gn(_) => todo!(),
         FormSignature::Value(_) => todo!(),
     }
 }
@@ -25,7 +21,7 @@ pub fn form_path_raw_ty(db: &dyn RawTypeDb, path: FormPath) -> RawTypeResult<Raw
 pub(crate) fn form_fn_entity_raw_ty(
     db: &dyn RawTypeDb,
     variances: &[Variance],
-    signature: FormFnSignature,
+    signature: FnSignature,
 ) -> RawTypeResult<RawTerm> {
     let param_raw_tys = signature
         .parameters(db)
