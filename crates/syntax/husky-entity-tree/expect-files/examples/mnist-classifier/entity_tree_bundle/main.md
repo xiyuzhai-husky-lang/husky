@@ -689,7 +689,7 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -709,7 +709,7 @@ Ok(
                             progress: 28,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -729,7 +729,7 @@ Ok(
                             progress: 18,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -749,7 +749,7 @@ Ok(
                             progress: 24,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -769,7 +769,7 @@ Ok(
                             progress: 21,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Outside,
                                 path: ModulePath(
                                     Id {
@@ -1361,7 +1361,7 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -1381,7 +1381,7 @@ Ok(
                             progress: 23,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -2066,7 +2066,7 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -2086,7 +2086,7 @@ Ok(
                             progress: 6,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -2106,7 +2106,7 @@ Ok(
                             progress: 30,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -2940,7 +2940,7 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -2954,7 +2954,7 @@ Ok(
                             progress: 40,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -2968,7 +2968,7 @@ Ok(
                             progress: 22,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -2982,7 +2982,7 @@ Ok(
                             progress: 7,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -3002,7 +3002,7 @@ Ok(
                             progress: 7,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -3946,7 +3946,7 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -3966,7 +3966,7 @@ Ok(
                             progress: 23,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -3986,7 +3986,7 @@ Ok(
                             progress: 21,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -4006,7 +4006,7 @@ Ok(
                             progress: 6,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -4026,7 +4026,7 @@ Ok(
                             progress: 7,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -4436,7 +4436,7 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -4958,7 +4958,7 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -4978,7 +4978,7 @@ Ok(
                             progress: 21,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -4998,7 +4998,7 @@ Ok(
                             progress: 26,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -5211,7 +5211,7 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -5609,7 +5609,7 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -7091,7 +7091,7 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -7111,7 +7111,7 @@ Ok(
                             progress: 28,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -7131,7 +7131,7 @@ Ok(
                             progress: 24,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -7755,7 +7755,7 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -7775,7 +7775,7 @@ Ok(
                             progress: 28,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -7795,7 +7795,7 @@ Ok(
                             progress: 24,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -8470,7 +8470,7 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -8490,7 +8490,7 @@ Ok(
                             progress: 28,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -8510,7 +8510,7 @@ Ok(
                             progress: 24,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -9136,7 +9136,7 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -9156,7 +9156,7 @@ Ok(
                             progress: 28,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -9176,7 +9176,7 @@ Ok(
                             progress: 24,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -9818,7 +9818,7 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -9838,7 +9838,7 @@ Ok(
                             progress: 28,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -9858,7 +9858,7 @@ Ok(
                             progress: 24,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -10937,7 +10937,7 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -10957,7 +10957,7 @@ Ok(
                             progress: 28,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -10977,7 +10977,7 @@ Ok(
                             progress: 24,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -10997,7 +10997,7 @@ Ok(
                             progress: 18,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -11899,7 +11899,7 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -11919,7 +11919,7 @@ Ok(
                             progress: 24,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -11939,7 +11939,7 @@ Ok(
                             progress: 26,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -12693,7 +12693,7 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -12713,7 +12713,7 @@ Ok(
                             progress: 28,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -12733,7 +12733,7 @@ Ok(
                             progress: 24,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -13332,7 +13332,7 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -14095,7 +14095,7 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -14115,7 +14115,7 @@ Ok(
                             progress: 23,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -14135,7 +14135,7 @@ Ok(
                             progress: 30,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -14155,7 +14155,7 @@ Ok(
                             progress: 26,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
@@ -14175,7 +14175,7 @@ Ok(
                             progress: 21,
                         },
                         UseAllRule {
-                            parent: ModulePathWithKinship {
+                            parent: KinshipedModulePath {
                                 kinship: Inside,
                                 path: ModulePath(
                                     Id {
