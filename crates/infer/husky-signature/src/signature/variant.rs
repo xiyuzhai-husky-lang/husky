@@ -8,6 +8,15 @@ pub use unit::*;
 
 use super::*;
 
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::derive_debug_with_db(db = SignatureDb)]
+#[enum_class::from_variants]
+pub enum VariantSignature {
+    Props(PropsVariantSignature),
+    Unit(UnitVariantSignature),
+    Tuple(TupleVariantSignature),
+}
+
 pub(crate) fn variant_signature_from_decl(
     _db: &dyn SignatureDb,
     decl: VariantDecl,
@@ -20,11 +29,4 @@ pub(crate) fn variant_signature_from_decl(
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = SignatureDb)]
-pub enum VariantSignature {
-    Props(PropsVariantSignature),
-    Unit(UnitVariantSignature),
-    Tuple(TupleVariantSignature),
-}
 impl VariantSignature {}

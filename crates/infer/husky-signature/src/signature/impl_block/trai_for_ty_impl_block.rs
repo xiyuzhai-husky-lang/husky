@@ -1,4 +1,5 @@
 use super::*;
+use husky_entity_tree::TraitForTypeImplBlock;
 
 #[salsa::interned(db = SignatureDb, jar = SignatureJar)]
 pub struct TraitForTypeImplBlockSignature {
@@ -6,6 +7,14 @@ pub struct TraitForTypeImplBlockSignature {
     pub implicit_parameters: ImplicitParameterSignatures,
     pub trai: RawTerm,
     pub ty: RawTerm,
+}
+
+impl HasSignature for TraitForTypeImplBlock {
+    type Signature = TraitForTypeImplBlockSignature;
+
+    fn signature(self, db: &dyn SignatureDb) -> SignatureResult<Self::Signature> {
+        trai_for_ty_impl_block_signature(db, self.decl(db)?)
+    }
 }
 
 #[salsa::tracked(jar = SignatureJar)]

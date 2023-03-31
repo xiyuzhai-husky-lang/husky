@@ -22,6 +22,7 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = SignatureDb)]
+#[enum_class::from_variants]
 pub enum TypeSignature {
     Enum(EnumTypeSignature),
     RegularStruct(RegularStructTypeSignature),
@@ -50,57 +51,12 @@ impl TypeSignature {
     }
 }
 
-impl From<UnionTypeSignature> for TypeSignature {
-    fn from(v: UnionTypeSignature) -> Self {
-        Self::Union(v)
-    }
-}
+impl HasSignature for TypePath {
+    type Signature = TypeSignature;
 
-impl From<EnumTypeSignature> for TypeSignature {
-    fn from(v: EnumTypeSignature) -> Self {
-        Self::Enum(v)
-    }
-}
-
-impl From<TupleStructTypeSignature> for TypeSignature {
-    fn from(v: TupleStructTypeSignature) -> Self {
-        Self::TupleStruct(v)
-    }
-}
-
-impl From<UnitStructTypeSignature> for TypeSignature {
-    fn from(v: UnitStructTypeSignature) -> Self {
-        Self::UnitStruct(v)
-    }
-}
-
-impl From<RegularStructTypeSignature> for TypeSignature {
-    fn from(v: RegularStructTypeSignature) -> Self {
-        Self::RegularStruct(v)
-    }
-}
-
-impl From<RecordTypeSignature> for TypeSignature {
-    fn from(v: RecordTypeSignature) -> Self {
-        Self::Record(v)
-    }
-}
-
-impl From<InductiveTypeSignature> for TypeSignature {
-    fn from(v: InductiveTypeSignature) -> Self {
-        Self::Inductive(v)
-    }
-}
-
-impl From<StructureTypeSignature> for TypeSignature {
-    fn from(v: StructureTypeSignature) -> Self {
-        Self::Structure(v)
-    }
-}
-
-impl From<ExternTypeSignature> for TypeSignature {
-    fn from(v: ExternTypeSignature) -> Self {
-        Self::Foreign(v)
+    #[inline(always)]
+    fn signature(self, db: &dyn SignatureDb) -> SignatureResult<Self::Signature> {
+        ty_signature_from_decl(db, self.decl(db)?)
     }
 }
 
@@ -118,14 +74,5 @@ pub(crate) fn ty_signature_from_decl(
         TypeDecl::Structure(decl) => structure_ty_signature(db, decl).map(Into::into),
         TypeDecl::Extern(decl) => alien_ty_signature(db, decl).map(Into::into),
         TypeDecl::Union(decl) => union_ty_signature(db, decl).map(Into::into),
-    }
-}
-
-impl HasSignature for TypePath {
-    type Signature = TypeSignature;
-
-    #[inline(always)]
-    fn signature(self, db: &dyn SignatureDb) -> SignatureResult<Self::Signature> {
-        ty_signature_from_decl(db, self.decl(db)?)
     }
 }
