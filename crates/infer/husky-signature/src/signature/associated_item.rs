@@ -8,6 +8,15 @@ pub use ty_item::*;
 
 use super::*;
 
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::derive_debug_with_db(db = SignatureDb, jar = SignatureJar)]
+#[enum_class::from_variants]
+pub enum AssociatedItemSignature {
+    TypeItem(TypeItemSignature),
+    TraitItem(TraitItemSignature),
+    TraitForTypeItem(TraitForTypeItemSignature),
+}
+
 pub(crate) fn associated_item_signature_from_decl(
     db: &dyn SignatureDb,
     decl: AssociatedItemDecl,
@@ -23,15 +32,6 @@ pub(crate) fn associated_item_signature_from_decl(
             trai_for_ty_associated_item_signature_from_decl(db, decl).map(|s| s.into())
         } // TypeDecl::Enum(decl) => enum_ty_signature(db, decl).into(),
     }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = SignatureDb, jar = SignatureJar)]
-#[enum_class::from_variants]
-pub enum AssociatedItemSignature {
-    TypeItem(TypeItemSignature),
-    TraitItem(TraitItemSignature),
-    TraitForTypeItem(TraitForTypeItemSignature),
 }
 
 impl AssociatedItemSignature {

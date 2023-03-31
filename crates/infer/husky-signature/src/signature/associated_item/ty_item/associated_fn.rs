@@ -9,6 +9,14 @@ pub struct TypeAssociatedFnSignature {
     pub return_ty: RawTerm,
 }
 
+impl HasSignature for TypeAssociatedFnDecl {
+    type Signature = TypeAssociatedFnSignature;
+
+    fn signature(self, db: &dyn SignatureDb) -> SignatureResult<TypeAssociatedFnSignature> {
+        ty_associated_fn_signature(db, self)
+    }
+}
+
 #[salsa::tracked(jar = SignatureJar)]
 pub(crate) fn ty_associated_fn_signature(
     db: &dyn SignatureDb,

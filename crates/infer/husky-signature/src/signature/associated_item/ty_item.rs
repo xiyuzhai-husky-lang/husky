@@ -23,6 +23,34 @@ pub enum TypeItemSignature {
     Memo(TypeMemoSignature),
 }
 
+impl TypeItemSignature {
+    pub fn implicit_parameters(self, db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
+        match self {
+            TypeItemSignature::AssociatedFn(signature) => signature.implicit_parameters(db),
+            TypeItemSignature::MethodFn(_) => todo!(),
+            TypeItemSignature::AssociatedType(_) => todo!(),
+            TypeItemSignature::AssociatedValue(_) => todo!(),
+            TypeItemSignature::Memo(_) => todo!(),
+        }
+    }
+}
+
+impl HasSignature for TypeItemPath {
+    type Signature = TypeItemSignature;
+
+    fn signature(self, db: &dyn SignatureDb) -> SignatureResult<TypeItemSignature> {
+        self.decl(db)?.signature(db)
+    }
+}
+
+impl HasSignature for TypeItemDecl {
+    type Signature = TypeItemSignature;
+
+    fn signature(self, db: &dyn SignatureDb) -> SignatureResult<TypeItemSignature> {
+        ty_item_signature_from_decl(db, self)
+    }
+}
+
 pub(crate) fn ty_item_signature(
     db: &dyn SignatureDb,
     path: TypeItemPath,
@@ -45,17 +73,5 @@ pub(crate) fn ty_item_signature_from_decl(
             ty_associated_value_signature(db, decl).map(Into::into)
         }
         TypeItemDecl::Memo(decl) => ty_memo_signature(db, decl).map(Into::into),
-    }
-}
-
-impl TypeItemSignature {
-    pub fn implicit_parameters(self, db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
-        match self {
-            TypeItemSignature::AssociatedFn(signature) => signature.implicit_parameters(db),
-            TypeItemSignature::MethodFn(_) => todo!(),
-            TypeItemSignature::AssociatedType(_) => todo!(),
-            TypeItemSignature::AssociatedValue(_) => todo!(),
-            TypeItemSignature::Memo(_) => todo!(),
-        }
     }
 }

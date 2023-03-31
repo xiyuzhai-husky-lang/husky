@@ -4,11 +4,11 @@ mod gn;
 mod type_alias;
 mod value;
 
-pub use feature::*;
-pub use gn::*;
-pub use r#fn::*;
-pub use type_alias::*;
-pub use value::*;
+pub use self::feature::*;
+pub use self::gn::*;
+pub use self::r#fn::*;
+pub use self::type_alias::*;
+pub use self::value::*;
 
 use crate::*;
 

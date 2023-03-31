@@ -29,6 +29,7 @@ pub(crate) fn signature_from_decl(db: &dyn SignatureDb, decl: Decl) -> Signature
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = SignatureDb, jar = SignatureJar)]
+#[enum_class::from_variants]
 pub enum Signature {
     Type(TypeSignature),
     Form(FormSignature),
@@ -39,40 +40,8 @@ pub enum Signature {
     DeriveDecr(DeriveDecrSignature),
 }
 
-impl Signature {}
+pub trait HasSignature: Copy {
+    type Signature;
 
-impl From<TypeSignature> for Signature {
-    fn from(v: TypeSignature) -> Self {
-        Self::Type(v)
-    }
-}
-
-impl From<FormSignature> for Signature {
-    fn from(v: FormSignature) -> Self {
-        Self::Form(v)
-    }
-}
-
-impl From<TraitSignature> for Signature {
-    fn from(v: TraitSignature) -> Self {
-        Self::Trait(v)
-    }
-}
-
-impl From<ImplSignature> for Signature {
-    fn from(v: ImplSignature) -> Self {
-        Self::Impl(v)
-    }
-}
-
-impl From<AssociatedItemSignature> for Signature {
-    fn from(v: AssociatedItemSignature) -> Self {
-        Self::AssociatedItem(v)
-    }
-}
-
-impl From<VariantSignature> for Signature {
-    fn from(v: VariantSignature) -> Self {
-        Self::Variant(v)
-    }
+    fn signature(self, db: &dyn SignatureDb) -> SignatureResult<Self::Signature>;
 }
