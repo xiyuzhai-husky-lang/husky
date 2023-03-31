@@ -13,7 +13,7 @@ Ok(
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
-                                        value: 201,
+                                        value: 202,
                                     },
                                 ),
                             ),
@@ -26,7 +26,7 @@ Ok(
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
-                                        value: 202,
+                                        value: 203,
                                     },
                                 ),
                             ),
@@ -39,7 +39,7 @@ Ok(
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
-                                        value: 203,
+                                        value: 204,
                                     },
                                 ),
                             ),

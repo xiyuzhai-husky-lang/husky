@@ -220,7 +220,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 28;\n\ntoken_line_group_idx = 10\n\ntoken = Token::Ident(\n    `MnistLabel`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 2,\n    rule_idx: UseExprRuleIdx(\n        10,\n    ),\n    state: UseExprRuleState::Erroneous,\n};\n\nuse\n",
+                                value: "\ntoken_idx = 28;\n\ntoken_line_group_idx = 10\n\ntoken = Token::Ident(\n    `MnistLabel`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 2,\n    rule_idx: UseExprRuleIdx(\n        10,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: PackageDependency {\n            entity_path: ModuleItem(\n                Type(\n                    TypePath(\n                        Id {\n                            value: 88,\n                        },\n                    ),\n                ),\n            ),\n        },\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(

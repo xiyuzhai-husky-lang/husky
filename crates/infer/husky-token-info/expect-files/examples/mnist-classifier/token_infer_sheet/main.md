@@ -72,7 +72,19 @@ Ok(
                 rule_idx: UseExprRuleIdx(
                     10,
                 ),
-                state: UseExprRuleState::Erroneous,
+                state: UseExprRuleState::Resolved {
+                    original_symbol: PackageDependency {
+                        entity_path: ModuleItem(
+                            Type(
+                                TypePath(
+                                    Id {
+                                        value: 88,
+                                    },
+                                ),
+                            ),
+                        ),
+                    },
+                },
             },
             TokenInfo::None,
             TokenInfo::UseExpr {

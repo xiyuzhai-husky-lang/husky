@@ -2188,80 +2188,101 @@ Ok(
                 use_all_rules: UseAllRules(
                     [
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 2,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 2,
+                                    },
+                                ),
+                            },
                             ast_idx: 0,
                             use_expr_idx: 0,
-                            accessibility: Public,
+                            visibility: Public,
                             progress: 5,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 6,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 6,
+                                    },
+                                ),
+                            },
                             ast_idx: 1,
                             use_expr_idx: 3,
-                            accessibility: Public,
+                            visibility: Public,
                             progress: 15,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 9,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 9,
+                                    },
+                                ),
+                            },
                             ast_idx: 2,
                             use_expr_idx: 6,
-                            accessibility: Public,
+                            visibility: Public,
                             progress: 1,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 10,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 10,
+                                    },
+                                ),
+                            },
                             ast_idx: 3,
                             use_expr_idx: 9,
-                            accessibility: Public,
+                            visibility: Public,
                             progress: 1,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 12,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 12,
+                                    },
+                                ),
+                            },
                             ast_idx: 4,
                             use_expr_idx: 12,
-                            accessibility: Public,
+                            visibility: Public,
                             progress: 2,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 11,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 11,
+                                    },
+                                ),
+                            },
                             ast_idx: 5,
                             use_expr_idx: 15,
-                            accessibility: Public,
+                            visibility: Public,
                             progress: 1,
                         },
                         UseAllRule {
-                            parent: ModulePath(
-                                Id {
-                                    value: 14,
-                                },
-                            ),
+                            parent: ModulePathWithKinship {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 14,
+                                    },
+                                ),
+                            },
                             ast_idx: 6,
                             use_expr_idx: 18,
-                            accessibility: Public,
+                            visibility: Public,
                             progress: 4,
                         },
                     ],

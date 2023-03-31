@@ -160,9 +160,13 @@ impl<'a> EntityTreeCollector<'a> {
                 rule_idx,
             } => {
                 let rule = &self.presheets[module_path][rule_idx];
-                let parent = rule.parent();
                 let progress = rule.progress();
-                let parent_symbols = &self.presheets[parent].module_specific_symbols().data();
+                let parent_symbols = match rule.parent().module_symbols(db, &self.presheets) {
+                    Ok(parent_symbols) => parent_symbols.data(),
+                    Err(_) => todo!(),
+                };
+                // &self.presheets[parent].module_specific_symbols().data();
+                // only need to process those starting from progress
                 let new_uses: Vec<EntitySymbolEntry> = parent_symbols[progress..]
                     .iter()
                     .filter_map(|entry| entry.export_via_use_all(db, module_path, rule))
@@ -179,12 +183,15 @@ impl<'a> EntityTreeCollector<'a> {
     }
 }
 
-fn crate_prelude<'a>(
+fn crate_prelude<'a, 'b>(
     opt_universal_prelude: Option<EntitySymbolTableRef<'a>>,
     core_prelude_module: ModulePath,
-    presheets: &'a VecMap<EntityTreePresheetMut<'a>>,
+    presheets: &'b VecMap<EntityTreePresheetMut<'a>>,
     crate_specific_prelude: EntitySymbolTableRef<'a>,
-) -> CrateSymbolContext<'a> {
+) -> CrateSymbolContext<'b>
+where
+    'a: 'b,
+{
     let universal_prelude = opt_universal_prelude
         .unwrap_or_else(|| presheets[core_prelude_module].module_specific_symbols());
     CrateSymbolContext::new(universal_prelude, crate_specific_prelude)

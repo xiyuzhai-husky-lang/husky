@@ -81,6 +81,7 @@ impl<'a> EntityTreePresheetMut<'a> {
         self.module_path
     }
 
+    /// symbols in module except those from prelude
     pub(crate) fn module_specific_symbols(&'a self) -> EntitySymbolTableRef<'a> {
         self.symbols.as_ref()
     }
@@ -184,15 +185,10 @@ impl<'a> EntityTreePresheetBuilder<'a> {
                 }
             }
             Ast::Defn {
-                token_group_idx: _,
-                body: _,
                 accessibility,
-                entity_kind: _,
                 entity_path,
-                is_generic: _,
-                body_kind: _,
-                saved_stream_state: _,
                 ident_token,
+                ..
             } => {
                 let accessibility = *accessibility;
                 let ident = ident_token.ident();

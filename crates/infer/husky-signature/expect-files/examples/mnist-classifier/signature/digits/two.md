@@ -4,8 +4,8 @@
     ),
     Ok(
         Signature::Form(
-            FormSignature::Function(
-                FormFnSignature {
+            FormSignature::Fn(
+                FnSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
@@ -30,8 +30,8 @@
     ),
     Ok(
         Signature::Form(
-            FormSignature::Function(
-                FormFnSignature {
+            FormSignature::Fn(
+                FnSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
@@ -56,8 +56,8 @@
     ),
     Ok(
         Signature::Form(
-            FormSignature::Function(
-                FormFnSignature {
+            FormSignature::Fn(
+                FnSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
@@ -80,7 +80,13 @@
             ),
         ),
     ),
-    Err(
-        ReturnTypeRawTermError,
+    Ok(
+        Signature::Form(
+            FormSignature::Feature(
+                FeatureSignature {
+                    return_ty: RawTerm(`core::option::Option mnist::MnistLabel`),
+                },
+            ),
+        ),
     ),
 ]

@@ -4,18 +4,10 @@ Ok(
             data: [
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        8,
+                        9,
                     ),
                     body: ArenaIdxRange(
                         0..0,
-                    ),
-                },
-                Ast::BasicStmtOrBranch {
-                    token_group_idx: TokenGroupIdx(
-                        10,
-                    ),
-                    body: ArenaIdxRange(
-                        1..1,
                     ),
                 },
                 Ast::BasicStmtOrBranch {
@@ -148,10 +140,10 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        28,
+                        27,
                     ),
                     body: ArenaIdxRange(
-                        18..18,
+                        1..1,
                     ),
                 },
                 Ast::BasicStmtOrBranch {
@@ -172,10 +164,10 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        32,
+                        31,
                     ),
                     body: ArenaIdxRange(
-                        21..21,
+                        18..18,
                     ),
                 },
                 Ast::BasicStmtOrBranch {
@@ -196,10 +188,10 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        36,
+                        35,
                     ),
                     body: ArenaIdxRange(
-                        24..24,
+                        21..21,
                     ),
                 },
                 Ast::BasicStmtOrBranch {
@@ -213,6 +205,14 @@ Ok(
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         38,
+                    ),
+                    body: ArenaIdxRange(
+                        24..24,
+                    ),
+                },
+                Ast::BasicStmtOrBranch {
+                    token_group_idx: TokenGroupIdx(
+                        39,
                     ),
                     body: ArenaIdxRange(
                         24..24,
@@ -253,9 +253,14 @@ Ok(
                         6,
                     ),
                 },
-                Ast::Defn {
+                Ast::Use {
                     token_group_idx: TokenGroupIdx(
                         7,
+                    ),
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        8,
                     ),
                     body: ArenaIdxRange(
                         0..1,
@@ -279,18 +284,18 @@ Ok(
                     ident_token: IdentToken {
                         ident: `three_fermi_match`,
                         token_idx: TokenIdx(
-                            63,
+                            67,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        64,
+                        68,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        9,
+                        10,
                     ),
                     body: ArenaIdxRange(
                         1..18,
@@ -314,18 +319,18 @@ Ok(
                     ident_token: IdentToken {
                         ident: `is_three`,
                         token_idx: TokenIdx(
-                            80,
+                            84,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        81,
+                        85,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        27,
+                        28,
                     ),
                     body: ArenaIdxRange(
                         18..21,
@@ -349,18 +354,18 @@ Ok(
                     ident_token: IdentToken {
                         ident: `uparc`,
                         token_idx: TokenIdx(
-                            210,
+                            214,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        211,
+                        215,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        31,
+                        32,
                     ),
                     body: ArenaIdxRange(
                         21..24,
@@ -384,18 +389,18 @@ Ok(
                     ident_token: IdentToken {
                         ident: `downarc`,
                         token_idx: TokenIdx(
-                            244,
+                            248,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        245,
+                        249,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        35,
+                        36,
                     ),
                     body: ArenaIdxRange(
                         24..27,
@@ -419,19 +424,19 @@ Ok(
                     ident_token: IdentToken {
                         ident: `back`,
                         token_idx: TokenIdx(
-                            278,
+                            282,
                         ),
                     },
                     is_generic: false,
                     body_kind: Block,
                     saved_stream_state: TokenIdx(
-                        279,
+                        283,
                     ),
                 },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            27..39,
+            27..40,
         ),
         siblings: [
             ArenaIdxRange(
@@ -531,7 +536,7 @@ Ok(
                 24..27,
             ),
             ArenaIdxRange(
-                27..39,
+                27..40,
             ),
         ],
     },

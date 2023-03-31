@@ -370,7 +370,7 @@ Ok(
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Ident(
                             IdentToken {
-                                ident: `six`,
+                                ident: `seven`,
                                 token_idx: TokenIdx(
                                     46,
                                 ),
@@ -394,7 +394,7 @@ Ok(
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Ident(
                             IdentToken {
-                                ident: `seven`,
+                                ident: `eight`,
                                 token_idx: TokenIdx(
                                     50,
                                 ),
@@ -418,7 +418,7 @@ Ok(
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Ident(
                             IdentToken {
-                                ident: `eight`,
+                                ident: `nine`,
                                 token_idx: TokenIdx(
                                     54,
                                 ),
@@ -426,30 +426,6 @@ Ok(
                         ),
                         children: ArenaIdxRange(
                             16..17,
-                        ),
-                    },
-                    parent: None,
-                    state: UseExprRuleState::Unresolved,
-                },
-                UseExprRule {
-                    ast_idx: 19,
-                    use_expr_idx: 19,
-                    accessibility: VisibilityProgress::Done {
-                        accessibility: Visibility::PublicUnder(
-                            `mnist_classifier::digits`,
-                        ),
-                    },
-                    variant: UseExprRuleVariant::Parent {
-                        parent_name_token: NameToken::Ident(
-                            IdentToken {
-                                ident: `nine`,
-                                token_idx: TokenIdx(
-                                    58,
-                                ),
-                            },
-                        ),
-                        children: ArenaIdxRange(
-                            18..19,
                         ),
                     },
                     parent: None,
@@ -656,7 +632,7 @@ Ok(
                 ),
                 UseExpr::Leaf {
                     ident_token: IdentToken {
-                        ident: `is_six`,
+                        ident: `is_seven`,
                         token_idx: TokenIdx(
                             48,
                         ),
@@ -666,7 +642,7 @@ Ok(
                     ParentUseExpr {
                         parent_name_token: NameToken::Ident(
                             IdentToken {
-                                ident: `six`,
+                                ident: `seven`,
                                 token_idx: TokenIdx(
                                     46,
                                 ),
@@ -688,7 +664,7 @@ Ok(
                 ),
                 UseExpr::Leaf {
                     ident_token: IdentToken {
-                        ident: `is_seven`,
+                        ident: `is_eight`,
                         token_idx: TokenIdx(
                             52,
                         ),
@@ -698,7 +674,7 @@ Ok(
                     ParentUseExpr {
                         parent_name_token: NameToken::Ident(
                             IdentToken {
-                                ident: `seven`,
+                                ident: `eight`,
                                 token_idx: TokenIdx(
                                     50,
                                 ),
@@ -720,7 +696,7 @@ Ok(
                 ),
                 UseExpr::Leaf {
                     ident_token: IdentToken {
-                        ident: `is_eight`,
+                        ident: `is_nine`,
                         token_idx: TokenIdx(
                             56,
                         ),
@@ -730,7 +706,7 @@ Ok(
                     ParentUseExpr {
                         parent_name_token: NameToken::Ident(
                             IdentToken {
-                                ident: `eight`,
+                                ident: `nine`,
                                 token_idx: TokenIdx(
                                     54,
                                 ),
@@ -746,38 +722,6 @@ Ok(
                         children: Ok(
                             UseExprChildren::Single {
                                 child: 16,
-                            },
-                        ),
-                    },
-                ),
-                UseExpr::Leaf {
-                    ident_token: IdentToken {
-                        ident: `is_nine`,
-                        token_idx: TokenIdx(
-                            60,
-                        ),
-                    },
-                },
-                UseExpr::Parent(
-                    ParentUseExpr {
-                        parent_name_token: NameToken::Ident(
-                            IdentToken {
-                                ident: `nine`,
-                                token_idx: TokenIdx(
-                                    58,
-                                ),
-                            },
-                        ),
-                        scope_resolution_token: Ok(
-                            ScopeResolutionToken(
-                                TokenIdx(
-                                    59,
-                                ),
-                            ),
-                        ),
-                        children: Ok(
-                            UseExprChildren::Single {
-                                child: 18,
                             },
                         ),
                     },

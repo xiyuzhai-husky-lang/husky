@@ -159,6 +159,8 @@ impl<'a> EntityTreePresheetMut<'a> {
                         UseExpr::All { star_token: _ } => match path {
                             EntityPath::Module(path) => {
                                 let new_rule = UseAllRule::new(
+                                    db,
+                                    self,
                                     path,
                                     rule.ast_idx(),
                                     use_expr_idx,

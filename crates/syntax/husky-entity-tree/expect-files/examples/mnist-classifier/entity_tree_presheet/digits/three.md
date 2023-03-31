@@ -16,11 +16,11 @@ Ok(
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::digits::three`,
                             ),
-                            ast_idx: 34,
+                            ast_idx: 35,
                             ident_token: IdentToken {
                                 ident: `three_fermi_match`,
                                 token_idx: TokenIdx(
-                                    63,
+                                    67,
                                 ),
                             },
                         },
@@ -39,11 +39,11 @@ Ok(
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::digits::three`,
                             ),
-                            ast_idx: 35,
+                            ast_idx: 36,
                             ident_token: IdentToken {
                                 ident: `is_three`,
                                 token_idx: TokenIdx(
-                                    80,
+                                    84,
                                 ),
                             },
                         },
@@ -62,11 +62,11 @@ Ok(
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::digits::three`,
                             ),
-                            ast_idx: 36,
+                            ast_idx: 37,
                             ident_token: IdentToken {
                                 ident: `uparc`,
                                 token_idx: TokenIdx(
-                                    210,
+                                    214,
                                 ),
                             },
                         },
@@ -85,11 +85,11 @@ Ok(
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::digits::three`,
                             ),
-                            ast_idx: 37,
+                            ast_idx: 38,
                             ident_token: IdentToken {
                                 ident: `downarc`,
                                 token_idx: TokenIdx(
-                                    244,
+                                    248,
                                 ),
                             },
                         },
@@ -108,11 +108,11 @@ Ok(
                             visibility: Visibility::PublicUnder(
                                 `mnist_classifier::digits::three`,
                             ),
-                            ast_idx: 38,
+                            ast_idx: 39,
                             ident_token: IdentToken {
                                 ident: `back`,
                                 token_idx: TokenIdx(
-                                    278,
+                                    282,
                                 ),
                             },
                         },
@@ -919,6 +919,15 @@ Ok(
                             },
                         ),
                     },
+                ),
+                UseExpr::Err(
+                    UseExprError::Original(
+                        OriginalUseExprError::ExpectUseExpr(
+                            TokenIdx(
+                                63,
+                            ),
+                        ),
+                    ),
                 ),
             ],
         },
