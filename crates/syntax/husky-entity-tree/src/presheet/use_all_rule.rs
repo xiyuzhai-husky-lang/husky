@@ -10,7 +10,7 @@ pub struct UseAllRule {
     /// because we would like to handle the two cases separately:
     /// - parent is inside the current crate
     /// - parent is outside the current crate
-    parent: ModulePathWithKinship,
+    parent: KinshipedModulePath,
     ast_idx: AstIdx,
     use_expr_idx: UseExprIdx,
     visibility: Visibility,
@@ -19,7 +19,7 @@ pub struct UseAllRule {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub(crate) struct ModulePathWithKinship {
+pub(crate) struct KinshipedModulePath {
     // precomputed and save here for efficiency
     kinship: ModulePathKinship,
     path: ModulePath,
@@ -33,7 +33,7 @@ pub enum ModulePathKinship {
     Outside,
 }
 
-impl ModulePathWithKinship {
+impl KinshipedModulePath {
     fn new(db: &dyn EntityTreeDb, crate_path: CratePath, path: ModulePath) -> Self {
         let kinship = match crate_path == path.crate_path(db) {
             true => ModulePathKinship::Inside,
@@ -71,7 +71,7 @@ impl UseAllRule {
         accessibility: Visibility,
     ) -> Self {
         Self {
-            parent: ModulePathWithKinship::new(db, sheet.module_path().crate_path(db), parent),
+            parent: KinshipedModulePath::new(db, sheet.module_path().crate_path(db), parent),
             progress: 0,
             use_expr_idx,
             visibility: accessibility,
@@ -79,7 +79,7 @@ impl UseAllRule {
         }
     }
 
-    pub(crate) fn parent(&self) -> ModulePathWithKinship {
+    pub(crate) fn parent(&self) -> KinshipedModulePath {
         self.parent
     }
 
