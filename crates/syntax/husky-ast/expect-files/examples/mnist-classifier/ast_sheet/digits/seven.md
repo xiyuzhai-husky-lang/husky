@@ -657,11 +657,34 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 30,
+                                    value: 24,
                                 },
                             ),
                         ),
-                        variant: Protected,
+                        variant: PubUnder {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    215,
+                                ),
+                            },
+                            lpar: LeftParenthesisToken(
+                                TokenIdx(
+                                    216,
+                                ),
+                            ),
+                            scope: Super(
+                                SuperToken {
+                                    token_idx: TokenIdx(
+                                        217,
+                                    ),
+                                },
+                            ),
+                            rpar: RightParenthesisToken(
+                                TokenIdx(
+                                    218,
+                                ),
+                            ),
+                        },
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -679,12 +702,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `is_seven`,
                         token_idx: TokenIdx(
-                            216,
+                            220,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        217,
+                        221,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(

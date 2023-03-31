@@ -517,11 +517,34 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 28,
+                                    value: 24,
                                 },
                             ),
                         ),
-                        variant: Protected,
+                        variant: PubUnder {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    100,
+                                ),
+                            },
+                            lpar: LeftParenthesisToken(
+                                TokenIdx(
+                                    101,
+                                ),
+                            ),
+                            scope: Super(
+                                SuperToken {
+                                    token_idx: TokenIdx(
+                                        102,
+                                    ),
+                                },
+                            ),
+                            rpar: RightParenthesisToken(
+                                TokenIdx(
+                                    103,
+                                ),
+                            ),
+                        },
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -539,12 +562,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `is_nine`,
                         token_idx: TokenIdx(
-                            101,
+                            105,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        102,
+                        106,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -581,12 +604,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `downmost`,
                         token_idx: TokenIdx(
-                            273,
+                            277,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        274,
+                        278,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -623,12 +646,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `big_cc`,
                         token_idx: TokenIdx(
-                            302,
+                            306,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        303,
+                        307,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(

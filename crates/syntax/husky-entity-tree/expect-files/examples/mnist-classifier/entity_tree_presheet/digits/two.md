@@ -98,7 +98,7 @@ Ok(
                 NativeEntitySymbolEntry {
                     ident: `is_two`,
                     visibility: Visibility::PubUnder(
-                        `mnist_classifier::digits::two`,
+                        `mnist_classifier::digits`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
@@ -106,13 +106,13 @@ Ok(
                                 FormPath(`mnist_classifier::digits::two::is_two`, `Feature`),
                             ),
                             visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::two`,
+                                `mnist_classifier::digits`,
                             ),
                             ast_idx: 58,
                             ident_token: IdentToken {
                                 ident: `is_two`,
                                 token_idx: TokenIdx(
-                                    151,
+                                    155,
                                 ),
                             },
                         },

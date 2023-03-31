@@ -121,7 +121,7 @@ Ok(
                 NativeEntitySymbolEntry {
                     ident: `is_seven`,
                     visibility: Visibility::PubUnder(
-                        `mnist_classifier::digits::seven`,
+                        `mnist_classifier::digits`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
@@ -129,13 +129,13 @@ Ok(
                                 FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
                             ),
                             visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
+                                `mnist_classifier::digits`,
                             ),
                             ast_idx: 52,
                             ident_token: IdentToken {
                                 ident: `is_seven`,
                                 token_idx: TokenIdx(
-                                    216,
+                                    220,
                                 ),
                             },
                         },

@@ -22,6 +22,7 @@ husky-token = { path = "../../lex/husky-token" }
 # syntax
 husky-text = { path = "../../lex/husky-text", features = ["lsp_support"] }
 husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
+husky-visibility-expr = { path = "../../syntax/husky-visibility-expr" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-expr = { path = "../../syntax/husky-expr" }
 husky-decl = { path = "../../syntax/husky-decl" }

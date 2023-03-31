@@ -421,11 +421,34 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 34,
+                                    value: 24,
                                 },
                             ),
                         ),
-                        variant: Protected,
+                        variant: PubUnder {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    104,
+                                ),
+                            },
+                            lpar: LeftParenthesisToken(
+                                TokenIdx(
+                                    105,
+                                ),
+                            ),
+                            scope: Super(
+                                SuperToken {
+                                    token_idx: TokenIdx(
+                                        106,
+                                    ),
+                                },
+                            ),
+                            rpar: RightParenthesisToken(
+                                TokenIdx(
+                                    107,
+                                ),
+                            ),
+                        },
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -443,12 +466,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `is_zero`,
                         token_idx: TokenIdx(
-                            105,
+                            109,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        106,
+                        110,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(

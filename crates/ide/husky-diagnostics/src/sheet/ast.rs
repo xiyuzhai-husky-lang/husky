@@ -1,5 +1,6 @@
 use husky_ast::{Ast, AstError, OriginalAstError};
 use husky_token::TokenGroupIdx;
+use husky_visibility_expr::OriginalVisibilityExprError;
 
 use super::*;
 
@@ -158,6 +159,9 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             OriginalAstError::ExpectedEntityKeywordGroup(_) => {
                 format!("Syntax Error: ExpectedEntityKeywordGroup")
             }
+            OriginalAstError::VisibilityExprError(_) => {
+                format!("Syntax Error: VisibilityExprError")
+            }
         }
     }
 
@@ -209,9 +213,12 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             | OriginalAstError::UnexpectedTokenForConnectedModuleItem(token_idx)
             | OriginalAstError::UnexpectedPunctuationForConnectedModuleItem(token_idx, _)
             | OriginalAstError::UnexpectedTokenForDisconnectedModuleItem(token_idx)
-            | OriginalAstError::UnexpectedPunctuationForDisconnectedModuleItem(token_idx, _) => {
-                ctx.ranged_token_sheet().token_text_range(*token_idx)
-            }
+            | OriginalAstError::UnexpectedPunctuationForDisconnectedModuleItem(token_idx, _)
+            | OriginalAstError::VisibilityExprError(
+                OriginalVisibilityExprError::NoSuperForRoot(token_idx)
+                | OriginalVisibilityExprError::ExpectRightParenthesis(token_idx)
+                | OriginalVisibilityExprError::ExpectCrateOrSuper(token_idx),
+            ) => ctx.ranged_token_sheet().token_text_range(*token_idx),
             OriginalAstError::ExpectedEntityKeywordGroup(_) => todo!(),
         }
     }

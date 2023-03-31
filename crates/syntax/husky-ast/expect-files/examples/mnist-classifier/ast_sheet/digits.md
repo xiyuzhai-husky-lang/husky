@@ -500,10 +500,26 @@ Ok(
                     },
                     state_after_visibility_expr: None,
                 },
+                Ast::Use {
+                    token_group_idx: TokenGroupIdx(
+                        19,
+                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 24,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
+                    state_after_visibility_expr: None,
+                },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            0..19,
+            0..20,
         ),
         siblings: [
             ArenaIdxRange(
@@ -537,7 +553,7 @@ Ok(
                 0..0,
             ),
             ArenaIdxRange(
-                0..19,
+                0..20,
             ),
         ],
     },

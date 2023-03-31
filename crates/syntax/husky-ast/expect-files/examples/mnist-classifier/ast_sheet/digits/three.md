@@ -396,11 +396,34 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 32,
+                                    value: 24,
                                 },
                             ),
                         ),
-                        variant: Protected,
+                        variant: PubUnder {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    83,
+                                ),
+                            },
+                            lpar: LeftParenthesisToken(
+                                TokenIdx(
+                                    84,
+                                ),
+                            ),
+                            scope: Super(
+                                SuperToken {
+                                    token_idx: TokenIdx(
+                                        85,
+                                    ),
+                                },
+                            ),
+                            rpar: RightParenthesisToken(
+                                TokenIdx(
+                                    86,
+                                ),
+                            ),
+                        },
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -418,12 +441,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `is_three`,
                         token_idx: TokenIdx(
-                            84,
+                            88,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        85,
+                        89,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -460,12 +483,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `uparc`,
                         token_idx: TokenIdx(
-                            214,
+                            218,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        215,
+                        219,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -502,12 +525,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `downarc`,
                         token_idx: TokenIdx(
-                            248,
+                            252,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        249,
+                        253,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -544,12 +567,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `back`,
                         token_idx: TokenIdx(
-                            282,
+                            286,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        283,
+                        287,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(

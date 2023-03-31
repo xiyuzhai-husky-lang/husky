@@ -34,6 +34,7 @@ impl VisibilityExpr {
     ) -> VisibilityExprResult<Self> {
         Ok(if let Some(pub_token) = token_stream.parse::<PubToken>()? {
             if let Some(lpar) = token_stream.parse::<LeftParenthesisToken>()? {
+                let state = token_stream.state();
                 if let Some(crate_token) = token_stream.parse::<CrateToken>()? {
                     todo!()
                 } else if let Some(super_token) = token_stream.parse::<SuperToken>()? {
@@ -41,7 +42,7 @@ impl VisibilityExpr {
                         visibility: Visibility::PubUnder(
                             module_path
                                 .parent(db)
-                                .ok_or(OriginalVisibilityExprError::NoSuperForRoot)?,
+                                .ok_or(OriginalVisibilityExprError::NoSuperForRoot(state))?,
                         ),
                         variant: VisibilityExprVariant::PubUnder {
                             pub_token,
@@ -53,7 +54,7 @@ impl VisibilityExpr {
                         },
                     }
                 } else {
-                    todo!()
+                    Err(OriginalVisibilityExprError::ExpectCrateOrSuper(state))?
                 }
             } else {
                 VisibilityExpr {

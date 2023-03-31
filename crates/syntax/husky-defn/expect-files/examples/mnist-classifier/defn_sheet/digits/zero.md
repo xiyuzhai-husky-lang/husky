@@ -824,7 +824,7 @@ Ok(
                                     curry_token: Some(
                                         CurryToken(
                                             TokenIdx(
-                                                106,
+                                                110,
                                             ),
                                         ),
                                     ),
@@ -835,7 +835,7 @@ Ok(
                                     ),
                                     eol_colon: EolColonToken(
                                         TokenIdx(
-                                            109,
+                                            113,
                                         ),
                                     ),
                                     expr_region: ExprRegion {
@@ -856,7 +856,7 @@ Ok(
                                                         ExprError::Original(
                                                             OriginalExprError::UnrecognizedIdent {
                                                                 token_idx: TokenIdx(
-                                                                    108,
+                                                                    112,
                                                                 ),
                                                                 ident: `MnistLabel`,
                                                             },
@@ -865,7 +865,7 @@ Ok(
                                                     Expr::Prefix {
                                                         opr: Option,
                                                         opr_token_idx: TokenIdx(
-                                                            107,
+                                                            111,
                                                         ),
                                                         opd: 0,
                                                     },
@@ -925,7 +925,7 @@ Ok(
                                                     ExprError::Original(
                                                         OriginalExprError::UnrecognizedIdent {
                                                             token_idx: TokenIdx(
-                                                                111,
+                                                                115,
                                                             ),
                                                             ident: `is_one`,
                                                         },
@@ -934,7 +934,7 @@ Ok(
                                                 Expr::Be {
                                                     src: 0,
                                                     be_token_idx: TokenIdx(
-                                                        112,
+                                                        116,
                                                     ),
                                                     target: Ok(
                                                         BeVariableDeclPattern {
@@ -955,40 +955,40 @@ Ok(
                                                 Expr::Field {
                                                     owner: 2,
                                                     dot_token_idx: TokenIdx(
-                                                        116,
+                                                        120,
                                                     ),
                                                     ident_token: IdentToken {
                                                         ident: `raw_contours`,
                                                         token_idx: TokenIdx(
-                                                            117,
+                                                            121,
                                                         ),
                                                     },
                                                 },
                                                 Expr::MethodCall {
                                                     self_argument: 3,
                                                     dot_token_idx: TokenIdx(
-                                                        118,
+                                                        122,
                                                     ),
                                                     ident_token: IdentToken {
                                                         ident: `ilen`,
                                                         token_idx: TokenIdx(
-                                                            119,
+                                                            123,
                                                         ),
                                                     },
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
-                                                        120,
+                                                        124,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
                                                         4..4,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
-                                                        121,
+                                                        125,
                                                     ),
                                                 },
                                                 Expr::Literal(
                                                     TokenIdx(
-                                                        123,
+                                                        127,
                                                     ),
                                                 ),
                                                 Expr::Binary {
@@ -997,7 +997,7 @@ Ok(
                                                         Eq,
                                                     ),
                                                     opr_token_idx: TokenIdx(
-                                                        122,
+                                                        126,
                                                     ),
                                                     ropd: 5,
                                                 },
@@ -1015,7 +1015,7 @@ Ok(
                                                     ExprError::Original(
                                                         OriginalExprError::UnrecognizedIdent {
                                                             token_idx: TokenIdx(
-                                                                125,
+                                                                129,
                                                             ),
                                                             ident: `n`,
                                                         },
@@ -1024,12 +1024,12 @@ Ok(
                                                 Expr::Field {
                                                     owner: 7,
                                                     dot_token_idx: TokenIdx(
-                                                        128,
+                                                        132,
                                                     ),
                                                     ident_token: IdentToken {
                                                         ident: `norm`,
                                                         token_idx: TokenIdx(
-                                                            129,
+                                                            133,
                                                         ),
                                                     },
                                                 },
@@ -1037,7 +1037,7 @@ Ok(
                                                     lopd: 8,
                                                     opr: Assign,
                                                     opr_token_idx: TokenIdx(
-                                                        126,
+                                                        130,
                                                     ),
                                                     ropd: 9,
                                                 },
@@ -1045,7 +1045,7 @@ Ok(
                                                     ExprError::Original(
                                                         OriginalExprError::UnrecognizedIdent {
                                                             token_idx: TokenIdx(
-                                                                131,
+                                                                135,
                                                             ),
                                                             ident: `n`,
                                                         },
@@ -1053,7 +1053,7 @@ Ok(
                                                 ),
                                                 Expr::Literal(
                                                     TokenIdx(
-                                                        133,
+                                                        137,
                                                     ),
                                                 ),
                                                 Expr::Binary {
@@ -1062,7 +1062,7 @@ Ok(
                                                         Less,
                                                     ),
                                                     opr_token_idx: TokenIdx(
-                                                        132,
+                                                        136,
                                                     ),
                                                     ropd: 12,
                                                 },
@@ -1079,36 +1079,36 @@ Ok(
                                                 Expr::Field {
                                                     owner: 14,
                                                     dot_token_idx: TokenIdx(
-                                                        136,
+                                                        140,
                                                     ),
                                                     ident_token: IdentToken {
                                                         ident: `matches`,
                                                         token_idx: TokenIdx(
-                                                            137,
+                                                            141,
                                                         ),
                                                     },
                                                 },
                                                 Expr::Literal(
                                                     TokenIdx(
-                                                        139,
+                                                        143,
                                                     ),
                                                 ),
                                                 Expr::IndexOrCompositionWithList {
                                                     owner: 15,
                                                     lbox_token_idx: TokenIdx(
-                                                        138,
+                                                        142,
                                                     ),
                                                     items: ArenaIdxRange(
                                                         16..17,
                                                     ),
                                                     rbox_token_idx: TokenIdx(
-                                                        140,
+                                                        144,
                                                     ),
                                                 },
                                                 Expr::Be {
                                                     src: 17,
                                                     be_token_idx: TokenIdx(
-                                                        141,
+                                                        145,
                                                     ),
                                                     target: Ok(
                                                         BeVariableDeclPattern {
@@ -1129,28 +1129,28 @@ Ok(
                                                 Expr::MethodCall {
                                                     self_argument: 19,
                                                     dot_token_idx: TokenIdx(
-                                                        145,
+                                                        149,
                                                     ),
                                                     ident_token: IdentToken {
                                                         ident: `ilen`,
                                                         token_idx: TokenIdx(
-                                                            146,
+                                                            150,
                                                         ),
                                                     },
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
-                                                        147,
+                                                        151,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
                                                         20..20,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
-                                                        148,
+                                                        152,
                                                     ),
                                                 },
                                                 Expr::Literal(
                                                     TokenIdx(
-                                                        150,
+                                                        154,
                                                     ),
                                                 ),
                                                 Expr::Binary {
@@ -1159,7 +1159,7 @@ Ok(
                                                         Eq,
                                                     ),
                                                     opr_token_idx: TokenIdx(
-                                                        149,
+                                                        153,
                                                     ),
                                                     ropd: 21,
                                                 },
@@ -1176,71 +1176,39 @@ Ok(
                                                 Expr::Field {
                                                     owner: 23,
                                                     dot_token_idx: TokenIdx(
-                                                        154,
+                                                        158,
                                                     ),
                                                     ident_token: IdentToken {
                                                         ident: `matches`,
                                                         token_idx: TokenIdx(
-                                                            155,
+                                                            159,
                                                         ),
                                                     },
                                                 },
                                                 Expr::Literal(
                                                     TokenIdx(
-                                                        157,
+                                                        161,
                                                     ),
                                                 ),
                                                 Expr::IndexOrCompositionWithList {
                                                     owner: 24,
                                                     lbox_token_idx: TokenIdx(
-                                                        156,
+                                                        160,
                                                     ),
                                                     items: ArenaIdxRange(
                                                         25..26,
                                                     ),
                                                     rbox_token_idx: TokenIdx(
-                                                        158,
+                                                        162,
                                                     ),
                                                 },
                                                 Expr::MethodCall {
                                                     self_argument: 26,
                                                     dot_token_idx: TokenIdx(
-                                                        159,
-                                                    ),
-                                                    ident_token: IdentToken {
-                                                        ident: `displacement`,
-                                                        token_idx: TokenIdx(
-                                                            160,
-                                                        ),
-                                                    },
-                                                    implicit_arguments: None,
-                                                    lpar_token_idx: TokenIdx(
-                                                        161,
-                                                    ),
-                                                    nonself_arguments: ArenaIdxRange(
-                                                        27..27,
-                                                    ),
-                                                    rpar_token_idx: TokenIdx(
-                                                        162,
-                                                    ),
-                                                },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdent {
-                                                            token_idx: TokenIdx(
-                                                                151,
-                                                            ),
-                                                            ident: `c`,
-                                                        },
-                                                    ),
-                                                ),
-                                                Expr::MethodCall {
-                                                    self_argument: 27,
-                                                    dot_token_idx: TokenIdx(
                                                         163,
                                                     ),
                                                     ident_token: IdentToken {
-                                                        ident: `norm`,
+                                                        ident: `displacement`,
                                                         token_idx: TokenIdx(
                                                             164,
                                                         ),
@@ -1250,17 +1218,49 @@ Ok(
                                                         165,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        28..28,
+                                                        27..27,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         166,
+                                                    ),
+                                                },
+                                                Expr::Err(
+                                                    ExprError::Original(
+                                                        OriginalExprError::UnrecognizedIdent {
+                                                            token_idx: TokenIdx(
+                                                                155,
+                                                            ),
+                                                            ident: `c`,
+                                                        },
+                                                    ),
+                                                ),
+                                                Expr::MethodCall {
+                                                    self_argument: 27,
+                                                    dot_token_idx: TokenIdx(
+                                                        167,
+                                                    ),
+                                                    ident_token: IdentToken {
+                                                        ident: `norm`,
+                                                        token_idx: TokenIdx(
+                                                            168,
+                                                        ),
+                                                    },
+                                                    implicit_arguments: None,
+                                                    lpar_token_idx: TokenIdx(
+                                                        169,
+                                                    ),
+                                                    nonself_arguments: ArenaIdxRange(
+                                                        28..28,
+                                                    ),
+                                                    rpar_token_idx: TokenIdx(
+                                                        170,
                                                     ),
                                                 },
                                                 Expr::Binary {
                                                     lopd: 28,
                                                     opr: Assign,
                                                     opr_token_idx: TokenIdx(
-                                                        152,
+                                                        156,
                                                     ),
                                                     ropd: 29,
                                                 },
@@ -1268,7 +1268,7 @@ Ok(
                                                     ExprError::Original(
                                                         OriginalExprError::UnrecognizedIdent {
                                                             token_idx: TokenIdx(
-                                                                168,
+                                                                172,
                                                             ),
                                                             ident: `c`,
                                                         },
@@ -1276,7 +1276,7 @@ Ok(
                                                 ),
                                                 Expr::Literal(
                                                     TokenIdx(
-                                                        170,
+                                                        174,
                                                     ),
                                                 ),
                                                 Expr::Binary {
@@ -1285,7 +1285,7 @@ Ok(
                                                         Less,
                                                     ),
                                                     opr_token_idx: TokenIdx(
-                                                        169,
+                                                        173,
                                                     ),
                                                     ropd: 32,
                                                 },
@@ -1293,7 +1293,7 @@ Ok(
                                                     ExprError::Original(
                                                         OriginalExprError::UnrecognizedIdent {
                                                             token_idx: TokenIdx(
-                                                                171,
+                                                                175,
                                                             ),
                                                             ident: `MnistLabel`,
                                                         },
@@ -1303,7 +1303,7 @@ Ok(
                                                     ExprError::Original(
                                                         OriginalExprError::UnresolvedSubentity {
                                                             token_idx: TokenIdx(
-                                                                173,
+                                                                177,
                                                             ),
                                                             ident: `Zero`,
                                                         },
@@ -1313,7 +1313,7 @@ Ok(
                                                     lopd: 34,
                                                     opr: ScopeResolution,
                                                     opr_token_idx: TokenIdx(
-                                                        172,
+                                                        176,
                                                     ),
                                                     ropd: 35,
                                                 },
@@ -1339,20 +1339,20 @@ Ok(
                                                 },
                                                 Expr::List {
                                                     lbox_token_idx: TokenIdx(
-                                                        180,
+                                                        184,
                                                     ),
                                                     items: ArenaIdxRange(
                                                         38..38,
                                                     ),
                                                     rbox_token_idx: TokenIdx(
-                                                        181,
+                                                        185,
                                                     ),
                                                 },
                                                 Expr::Err(
                                                     ExprError::Original(
                                                         OriginalExprError::UnrecognizedIdent {
                                                             token_idx: TokenIdx(
-                                                                174,
+                                                                178,
                                                             ),
                                                             ident: `simp_zero_match`,
                                                         },
@@ -1362,25 +1362,25 @@ Ok(
                                                     function: 37,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
-                                                        177,
+                                                        181,
                                                     ),
                                                     items: ArenaIdxRange(
                                                         38..40,
                                                     ),
                                                     commas: [
                                                         TokenIdx(
-                                                            179,
+                                                            183,
                                                         ),
                                                     ],
                                                     rpar_token_idx: TokenIdx(
-                                                        182,
+                                                        186,
                                                     ),
                                                 },
                                                 Expr::Binary {
                                                     lopd: 40,
                                                     opr: Assign,
                                                     opr_token_idx: TokenIdx(
-                                                        175,
+                                                        179,
                                                     ),
                                                     ropd: 41,
                                                 },
@@ -1388,7 +1388,7 @@ Ok(
                                                     ExprError::Original(
                                                         OriginalExprError::UnrecognizedIdent {
                                                             token_idx: TokenIdx(
-                                                                183,
+                                                                187,
                                                             ),
                                                             ident: `narrow_down`,
                                                         },
@@ -1398,7 +1398,7 @@ Ok(
                                                     ExprError::Original(
                                                         OriginalExprError::UnrecognizedIdent {
                                                             token_idx: TokenIdx(
-                                                                185,
+                                                                189,
                                                             ),
                                                             ident: `MnistLabel`,
                                                         },
@@ -1408,19 +1408,9 @@ Ok(
                                                     ExprError::Original(
                                                         OriginalExprError::UnresolvedSubentity {
                                                             token_idx: TokenIdx(
-                                                                187,
-                                                            ),
-                                                            ident: `Zero`,
-                                                        },
-                                                    ),
-                                                ),
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdent {
-                                                            token_idx: TokenIdx(
                                                                 191,
                                                             ),
-                                                            ident: `simp_zero_match`,
+                                                            ident: `Zero`,
                                                         },
                                                     ),
                                                 ),
@@ -1444,52 +1434,62 @@ Ok(
                                                         },
                                                     ),
                                                 ),
+                                                Expr::Err(
+                                                    ExprError::Original(
+                                                        OriginalExprError::UnrecognizedIdent {
+                                                            token_idx: TokenIdx(
+                                                                203,
+                                                            ),
+                                                            ident: `simp_zero_match`,
+                                                        },
+                                                    ),
+                                                ),
                                                 Expr::Binary {
                                                     lopd: 44,
                                                     opr: ScopeResolution,
                                                     opr_token_idx: TokenIdx(
-                                                        186,
+                                                        190,
                                                     ),
                                                     ropd: 45,
                                                 },
                                                 Expr::Literal(
                                                     TokenIdx(
-                                                        189,
+                                                        193,
                                                     ),
                                                 ),
                                                 Expr::Field {
                                                     owner: 46,
                                                     dot_token_idx: TokenIdx(
-                                                        192,
-                                                    ),
-                                                    ident_token: IdentToken {
-                                                        ident: `norm`,
-                                                        token_idx: TokenIdx(
-                                                            193,
-                                                        ),
-                                                    },
-                                                },
-                                                Expr::Field {
-                                                    owner: 47,
-                                                    dot_token_idx: TokenIdx(
                                                         196,
                                                     ),
                                                     ident_token: IdentToken {
-                                                        ident: `rel_norm`,
+                                                        ident: `norm`,
                                                         token_idx: TokenIdx(
                                                             197,
                                                         ),
                                                     },
                                                 },
                                                 Expr::Field {
-                                                    owner: 48,
+                                                    owner: 47,
                                                     dot_token_idx: TokenIdx(
                                                         200,
                                                     ),
                                                     ident_token: IdentToken {
-                                                        ident: `angle_change_norm`,
+                                                        ident: `rel_norm`,
                                                         token_idx: TokenIdx(
                                                             201,
+                                                        ),
+                                                    },
+                                                },
+                                                Expr::Field {
+                                                    owner: 48,
+                                                    dot_token_idx: TokenIdx(
+                                                        204,
+                                                    ),
+                                                    ident_token: IdentToken {
+                                                        ident: `angle_change_norm`,
+                                                        token_idx: TokenIdx(
+                                                            205,
                                                         ),
                                                     },
                                                 },
@@ -1497,17 +1497,14 @@ Ok(
                                                     function: 43,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
-                                                        184,
+                                                        188,
                                                     ),
                                                     items: ArenaIdxRange(
                                                         49..54,
                                                     ),
                                                     commas: [
                                                         TokenIdx(
-                                                            188,
-                                                        ),
-                                                        TokenIdx(
-                                                            190,
+                                                            192,
                                                         ),
                                                         TokenIdx(
                                                             194,
@@ -1518,23 +1515,26 @@ Ok(
                                                         TokenIdx(
                                                             202,
                                                         ),
+                                                        TokenIdx(
+                                                            206,
+                                                        ),
                                                     ],
                                                     rpar_token_idx: TokenIdx(
-                                                        203,
+                                                        207,
                                                     ),
                                                 },
                                                 Expr::Suffix {
                                                     opd: 54,
                                                     opr: UnveilOrComposeWithOption,
                                                     opr_token_idx: TokenIdx(
-                                                        204,
+                                                        208,
                                                     ),
                                                 },
                                                 Expr::Err(
                                                     ExprError::Original(
                                                         OriginalExprError::UnrecognizedIdent {
                                                             token_idx: TokenIdx(
-                                                                206,
+                                                                210,
                                                             ),
                                                             ident: `simp_zero_match`,
                                                         },
@@ -1543,18 +1543,18 @@ Ok(
                                                 Expr::Field {
                                                     owner: 56,
                                                     dot_token_idx: TokenIdx(
-                                                        207,
+                                                        211,
                                                     ),
                                                     ident_token: IdentToken {
                                                         ident: `norm`,
                                                         token_idx: TokenIdx(
-                                                            208,
+                                                            212,
                                                         ),
                                                     },
                                                 },
                                                 Expr::Literal(
                                                     TokenIdx(
-                                                        210,
+                                                        214,
                                                     ),
                                                 ),
                                                 Expr::Binary {
@@ -1563,7 +1563,7 @@ Ok(
                                                         Less,
                                                     ),
                                                     opr_token_idx: TokenIdx(
-                                                        209,
+                                                        213,
                                                     ),
                                                     ropd: 58,
                                                 },
@@ -1580,48 +1580,48 @@ Ok(
                                                 Expr::Field {
                                                     owner: 60,
                                                     dot_token_idx: TokenIdx(
-                                                        213,
+                                                        217,
                                                     ),
                                                     ident_token: IdentToken {
                                                         ident: `eff_holes`,
                                                         token_idx: TokenIdx(
-                                                            214,
+                                                            218,
                                                         ),
                                                     },
                                                 },
                                                 Expr::Field {
                                                     owner: 61,
                                                     dot_token_idx: TokenIdx(
-                                                        215,
+                                                        219,
                                                     ),
                                                     ident_token: IdentToken {
                                                         ident: `matches`,
                                                         token_idx: TokenIdx(
-                                                            216,
+                                                            220,
                                                         ),
                                                     },
                                                 },
                                                 Expr::Literal(
                                                     TokenIdx(
-                                                        218,
+                                                        222,
                                                     ),
                                                 ),
                                                 Expr::IndexOrCompositionWithList {
                                                     owner: 62,
                                                     lbox_token_idx: TokenIdx(
-                                                        217,
+                                                        221,
                                                     ),
                                                     items: ArenaIdxRange(
                                                         63..64,
                                                     ),
                                                     rbox_token_idx: TokenIdx(
-                                                        219,
+                                                        223,
                                                     ),
                                                 },
                                                 Expr::Be {
                                                     src: 64,
                                                     be_token_idx: TokenIdx(
-                                                        220,
+                                                        224,
                                                     ),
                                                     target: Ok(
                                                         BeVariableDeclPattern {
@@ -1642,48 +1642,48 @@ Ok(
                                                 Expr::Field {
                                                     owner: 66,
                                                     dot_token_idx: TokenIdx(
-                                                        224,
+                                                        228,
                                                     ),
                                                     ident_token: IdentToken {
                                                         ident: `eff_holes`,
                                                         token_idx: TokenIdx(
-                                                            225,
+                                                            229,
                                                         ),
                                                     },
                                                 },
                                                 Expr::Field {
                                                     owner: 67,
                                                     dot_token_idx: TokenIdx(
-                                                        226,
+                                                        230,
                                                     ),
                                                     ident_token: IdentToken {
                                                         ident: `matches`,
                                                         token_idx: TokenIdx(
-                                                            227,
+                                                            231,
                                                         ),
                                                     },
                                                 },
                                                 Expr::Literal(
                                                     TokenIdx(
-                                                        229,
+                                                        233,
                                                     ),
                                                 ),
                                                 Expr::IndexOrCompositionWithList {
                                                     owner: 68,
                                                     lbox_token_idx: TokenIdx(
-                                                        228,
+                                                        232,
                                                     ),
                                                     items: ArenaIdxRange(
                                                         69..70,
                                                     ),
                                                     rbox_token_idx: TokenIdx(
-                                                        230,
+                                                        234,
                                                     ),
                                                 },
                                                 Expr::Be {
                                                     src: 70,
                                                     be_token_idx: TokenIdx(
-                                                        231,
+                                                        235,
                                                     ),
                                                     target: Ok(
                                                         BeVariableDeclPattern {
@@ -1704,37 +1704,37 @@ Ok(
                                                 Expr::Field {
                                                     owner: 72,
                                                     dot_token_idx: TokenIdx(
-                                                        236,
+                                                        240,
                                                     ),
                                                     ident_token: IdentToken {
                                                         ident: `eff_holes`,
                                                         token_idx: TokenIdx(
-                                                            237,
+                                                            241,
                                                         ),
                                                     },
                                                 },
                                                 Expr::Field {
                                                     owner: 73,
                                                     dot_token_idx: TokenIdx(
-                                                        238,
+                                                        242,
                                                     ),
                                                     ident_token: IdentToken {
                                                         ident: `matches`,
                                                         token_idx: TokenIdx(
-                                                            239,
+                                                            243,
                                                         ),
                                                     },
                                                 },
                                                 Expr::Literal(
                                                     TokenIdx(
-                                                        241,
+                                                        245,
                                                     ),
                                                 ),
                                                 Expr::Err(
                                                     ExprError::Original(
                                                         OriginalExprError::UnrecognizedIdent {
                                                             token_idx: TokenIdx(
-                                                                233,
+                                                                237,
                                                             ),
                                                             ident: `major_hole`,
                                                         },
@@ -1743,20 +1743,20 @@ Ok(
                                                 Expr::IndexOrCompositionWithList {
                                                     owner: 74,
                                                     lbox_token_idx: TokenIdx(
-                                                        240,
+                                                        244,
                                                     ),
                                                     items: ArenaIdxRange(
                                                         75..76,
                                                     ),
                                                     rbox_token_idx: TokenIdx(
-                                                        242,
+                                                        246,
                                                     ),
                                                 },
                                                 Expr::Binary {
                                                     lopd: 76,
                                                     opr: Assign,
                                                     opr_token_idx: TokenIdx(
-                                                        234,
+                                                        238,
                                                     ),
                                                     ropd: 77,
                                                 },
@@ -1764,7 +1764,7 @@ Ok(
                                                     ExprError::Original(
                                                         OriginalExprError::UnrecognizedIdent {
                                                             token_idx: TokenIdx(
-                                                                245,
+                                                                249,
                                                             ),
                                                             ident: `major_hole`,
                                                         },
@@ -1773,12 +1773,12 @@ Ok(
                                                 Expr::Field {
                                                     owner: 79,
                                                     dot_token_idx: TokenIdx(
-                                                        246,
+                                                        250,
                                                     ),
                                                     ident_token: IdentToken {
                                                         ident: `bounding_box`,
                                                         token_idx: TokenIdx(
-                                                            247,
+                                                            251,
                                                         ),
                                                     },
                                                 },
@@ -1786,7 +1786,7 @@ Ok(
                                                     ExprError::Original(
                                                         OriginalExprError::UnrecognizedIdent {
                                                             token_idx: TokenIdx(
-                                                                253,
+                                                                257,
                                                             ),
                                                             ident: `major_hole`,
                                                         },
@@ -1795,64 +1795,64 @@ Ok(
                                                 Expr::Field {
                                                     owner: 81,
                                                     dot_token_idx: TokenIdx(
-                                                        254,
+                                                        258,
                                                     ),
                                                     ident_token: IdentToken {
                                                         ident: `bounding_box`,
                                                         token_idx: TokenIdx(
-                                                            255,
+                                                            259,
                                                         ),
                                                     },
                                                 },
                                                 Expr::MethodCall {
                                                     self_argument: 80,
                                                     dot_token_idx: TokenIdx(
-                                                        248,
+                                                        252,
                                                     ),
                                                     ident_token: IdentToken {
                                                         ident: `ymax`,
                                                         token_idx: TokenIdx(
-                                                            249,
+                                                            253,
                                                         ),
                                                     },
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
-                                                        250,
+                                                        254,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
                                                         81..81,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
-                                                        251,
+                                                        255,
                                                     ),
                                                 },
                                                 Expr::MethodCall {
                                                     self_argument: 82,
                                                     dot_token_idx: TokenIdx(
-                                                        256,
+                                                        260,
                                                     ),
                                                     ident_token: IdentToken {
                                                         ident: `ymin`,
                                                         token_idx: TokenIdx(
-                                                            257,
+                                                            261,
                                                         ),
                                                     },
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
-                                                        258,
+                                                        262,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
                                                         83..83,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
-                                                        259,
+                                                        263,
                                                     ),
                                                 },
                                                 Expr::Err(
                                                     ExprError::Original(
                                                         OriginalExprError::UnrecognizedIdent {
                                                             token_idx: TokenIdx(
-                                                                243,
+                                                                247,
                                                             ),
                                                             ident: `a`,
                                                         },
@@ -1864,7 +1864,7 @@ Ok(
                                                         Sub,
                                                     ),
                                                     opr_token_idx: TokenIdx(
-                                                        252,
+                                                        256,
                                                     ),
                                                     ropd: 84,
                                                 },
@@ -1872,7 +1872,7 @@ Ok(
                                                     lopd: 85,
                                                     opr: Assign,
                                                     opr_token_idx: TokenIdx(
-                                                        244,
+                                                        248,
                                                     ),
                                                     ropd: 86,
                                                 },
@@ -1889,12 +1889,12 @@ Ok(
                                                 Expr::Field {
                                                     owner: 88,
                                                     dot_token_idx: TokenIdx(
-                                                        263,
+                                                        267,
                                                     ),
                                                     ident_token: IdentToken {
                                                         ident: `bounding_box`,
                                                         token_idx: TokenIdx(
-                                                            264,
+                                                            268,
                                                         ),
                                                     },
                                                 },
@@ -1911,64 +1911,64 @@ Ok(
                                                 Expr::Field {
                                                     owner: 90,
                                                     dot_token_idx: TokenIdx(
-                                                        271,
+                                                        275,
                                                     ),
                                                     ident_token: IdentToken {
                                                         ident: `bounding_box`,
                                                         token_idx: TokenIdx(
-                                                            272,
+                                                            276,
                                                         ),
                                                     },
                                                 },
                                                 Expr::MethodCall {
                                                     self_argument: 89,
                                                     dot_token_idx: TokenIdx(
-                                                        265,
+                                                        269,
                                                     ),
                                                     ident_token: IdentToken {
                                                         ident: `ymax`,
                                                         token_idx: TokenIdx(
-                                                            266,
+                                                            270,
                                                         ),
                                                     },
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
-                                                        267,
+                                                        271,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
                                                         90..90,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
-                                                        268,
+                                                        272,
                                                     ),
                                                 },
                                                 Expr::MethodCall {
                                                     self_argument: 91,
                                                     dot_token_idx: TokenIdx(
-                                                        273,
+                                                        277,
                                                     ),
                                                     ident_token: IdentToken {
                                                         ident: `ymin`,
                                                         token_idx: TokenIdx(
-                                                            274,
+                                                            278,
                                                         ),
                                                     },
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
-                                                        275,
+                                                        279,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
                                                         92..92,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
-                                                        276,
+                                                        280,
                                                     ),
                                                 },
                                                 Expr::Err(
                                                     ExprError::Original(
                                                         OriginalExprError::UnrecognizedIdent {
                                                             token_idx: TokenIdx(
-                                                                260,
+                                                                264,
                                                             ),
                                                             ident: `b`,
                                                         },
@@ -1980,7 +1980,7 @@ Ok(
                                                         Sub,
                                                     ),
                                                     opr_token_idx: TokenIdx(
-                                                        269,
+                                                        273,
                                                     ),
                                                     ropd: 93,
                                                 },
@@ -1988,7 +1988,7 @@ Ok(
                                                     lopd: 94,
                                                     opr: Assign,
                                                     opr_token_idx: TokenIdx(
-                                                        261,
+                                                        265,
                                                     ),
                                                     ropd: 95,
                                                 },
@@ -1996,7 +1996,7 @@ Ok(
                                                     ExprError::Original(
                                                         OriginalExprError::UnrecognizedIdent {
                                                             token_idx: TokenIdx(
-                                                                279,
+                                                                283,
                                                             ),
                                                             ident: `a`,
                                                         },
@@ -2006,7 +2006,7 @@ Ok(
                                                     ExprError::Original(
                                                         OriginalExprError::UnrecognizedIdent {
                                                             token_idx: TokenIdx(
-                                                                281,
+                                                                285,
                                                             ),
                                                             ident: `b`,
                                                         },
@@ -2016,7 +2016,7 @@ Ok(
                                                     ExprError::Original(
                                                         OriginalExprError::UnrecognizedIdent {
                                                             token_idx: TokenIdx(
-                                                                277,
+                                                                281,
                                                             ),
                                                             ident: `ratio`,
                                                         },
@@ -2028,7 +2028,7 @@ Ok(
                                                         Div,
                                                     ),
                                                     opr_token_idx: TokenIdx(
-                                                        280,
+                                                        284,
                                                     ),
                                                     ropd: 98,
                                                 },
@@ -2036,7 +2036,7 @@ Ok(
                                                     lopd: 99,
                                                     opr: Assign,
                                                     opr_token_idx: TokenIdx(
-                                                        278,
+                                                        282,
                                                     ),
                                                     ropd: 100,
                                                 },
@@ -2044,7 +2044,7 @@ Ok(
                                                     ExprError::Original(
                                                         OriginalExprError::UnrecognizedIdent {
                                                             token_idx: TokenIdx(
-                                                                283,
+                                                                287,
                                                             ),
                                                             ident: `ratio`,
                                                         },
@@ -2052,7 +2052,7 @@ Ok(
                                                 ),
                                                 Expr::Literal(
                                                     TokenIdx(
-                                                        285,
+                                                        289,
                                                     ),
                                                 ),
                                                 Expr::Binary {
@@ -2061,7 +2061,7 @@ Ok(
                                                         Greater,
                                                     ),
                                                     opr_token_idx: TokenIdx(
-                                                        284,
+                                                        288,
                                                     ),
                                                     ropd: 103,
                                                 },
@@ -2069,7 +2069,7 @@ Ok(
                                                     ExprError::Original(
                                                         OriginalExprError::UnrecognizedIdent {
                                                             token_idx: TokenIdx(
-                                                                288,
+                                                                292,
                                                             ),
                                                             ident: `simp_zero_match`,
                                                         },
@@ -2079,7 +2079,7 @@ Ok(
                                                     ExprError::Original(
                                                         OriginalExprError::UnrecognizedIdent {
                                                             token_idx: TokenIdx(
-                                                                286,
+                                                                290,
                                                             ),
                                                             ident: `a`,
                                                         },
@@ -2088,12 +2088,12 @@ Ok(
                                                 Expr::Field {
                                                     owner: 105,
                                                     dot_token_idx: TokenIdx(
-                                                        289,
+                                                        293,
                                                     ),
                                                     ident_token: IdentToken {
                                                         ident: `norm`,
                                                         token_idx: TokenIdx(
-                                                            290,
+                                                            294,
                                                         ),
                                                     },
                                                 },
@@ -2101,7 +2101,7 @@ Ok(
                                                     lopd: 106,
                                                     opr: Assign,
                                                     opr_token_idx: TokenIdx(
-                                                        287,
+                                                        291,
                                                     ),
                                                     ropd: 107,
                                                 },
@@ -2109,7 +2109,7 @@ Ok(
                                                     ExprError::Original(
                                                         OriginalExprError::UnrecognizedIdent {
                                                             token_idx: TokenIdx(
-                                                                291,
+                                                                295,
                                                             ),
                                                             ident: `MnistLabel`,
                                                         },
@@ -2119,7 +2119,7 @@ Ok(
                                                     ExprError::Original(
                                                         OriginalExprError::UnresolvedSubentity {
                                                             token_idx: TokenIdx(
-                                                                293,
+                                                                297,
                                                             ),
                                                             ident: `Zero`,
                                                         },
@@ -2129,7 +2129,7 @@ Ok(
                                                     lopd: 109,
                                                     opr: ScopeResolution,
                                                     opr_token_idx: TokenIdx(
-                                                        292,
+                                                        296,
                                                     ),
                                                     ropd: 110,
                                                 },
@@ -2144,7 +2144,7 @@ Ok(
                                             data: [
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        115,
+                                                        119,
                                                     ),
                                                     ident: `major_connected_component`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -2155,7 +2155,7 @@ Ok(
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        127,
+                                                        131,
                                                     ),
                                                     ident: `open_one_match`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -2166,7 +2166,7 @@ Ok(
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        135,
+                                                        139,
                                                     ),
                                                     ident: `open_one_match`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -2177,7 +2177,7 @@ Ok(
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        144,
+                                                        148,
                                                     ),
                                                     ident: `connected_components`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -2188,7 +2188,7 @@ Ok(
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        153,
+                                                        157,
                                                     ),
                                                     ident: `open_one_match`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -2199,7 +2199,7 @@ Ok(
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        176,
+                                                        180,
                                                     ),
                                                     ident: `fermi_match`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -2210,7 +2210,7 @@ Ok(
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        178,
+                                                        182,
                                                     ),
                                                     ident: `major_concave_components`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -2221,7 +2221,7 @@ Ok(
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        212,
+                                                        216,
                                                     ),
                                                     ident: `major_connected_component`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -2232,7 +2232,7 @@ Ok(
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        223,
+                                                        227,
                                                     ),
                                                     ident: `major_connected_component`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -2243,7 +2243,7 @@ Ok(
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        235,
+                                                        239,
                                                     ),
                                                     ident: `major_connected_component`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -2254,7 +2254,7 @@ Ok(
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        262,
+                                                        266,
                                                     ),
                                                     ident: `major_line_segment_sketch`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -2265,7 +2265,7 @@ Ok(
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        270,
+                                                        274,
                                                     ),
                                                     ident: `major_line_segment_sketch`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -2284,7 +2284,7 @@ Ok(
                                                 Stmt::Require {
                                                     require_token: RequireToken {
                                                         token_idx: TokenIdx(
-                                                            130,
+                                                            134,
                                                         ),
                                                     },
                                                     condition: Ok(
@@ -2294,7 +2294,7 @@ Ok(
                                                 Stmt::Require {
                                                     require_token: RequireToken {
                                                         token_idx: TokenIdx(
-                                                            134,
+                                                            138,
                                                         ),
                                                     },
                                                     condition: Ok(
@@ -2304,7 +2304,7 @@ Ok(
                                                 Stmt::Require {
                                                     require_token: RequireToken {
                                                         token_idx: TokenIdx(
-                                                            143,
+                                                            147,
                                                         ),
                                                     },
                                                     condition: Ok(
@@ -2317,7 +2317,7 @@ Ok(
                                                 Stmt::Require {
                                                     require_token: RequireToken {
                                                         token_idx: TokenIdx(
-                                                            167,
+                                                            171,
                                                         ),
                                                     },
                                                     condition: Ok(
@@ -2330,7 +2330,7 @@ Ok(
                                                 Stmt::Require {
                                                     require_token: RequireToken {
                                                         token_idx: TokenIdx(
-                                                            110,
+                                                            114,
                                                         ),
                                                     },
                                                     condition: Ok(
@@ -2341,7 +2341,7 @@ Ok(
                                                     if_branch: IfBranch {
                                                         if_token: IfToken {
                                                             token_idx: TokenIdx(
-                                                                114,
+                                                                118,
                                                             ),
                                                         },
                                                         condition: Ok(
@@ -2350,7 +2350,7 @@ Ok(
                                                         eol_colon: Ok(
                                                             EolColonToken(
                                                                 TokenIdx(
-                                                                    124,
+                                                                    128,
                                                                 ),
                                                             ),
                                                         ),
@@ -2372,7 +2372,7 @@ Ok(
                                                 Stmt::Require {
                                                     require_token: RequireToken {
                                                         token_idx: TokenIdx(
-                                                            205,
+                                                            209,
                                                         ),
                                                     },
                                                     condition: Ok(
@@ -2382,7 +2382,7 @@ Ok(
                                                 Stmt::Require {
                                                     require_token: RequireToken {
                                                         token_idx: TokenIdx(
-                                                            211,
+                                                            215,
                                                         ),
                                                     },
                                                     condition: Ok(
@@ -2392,7 +2392,7 @@ Ok(
                                                 Stmt::Require {
                                                     require_token: RequireToken {
                                                         token_idx: TokenIdx(
-                                                            222,
+                                                            226,
                                                         ),
                                                     },
                                                     condition: Ok(
@@ -2414,7 +2414,7 @@ Ok(
                                                 Stmt::Require {
                                                     require_token: RequireToken {
                                                         token_idx: TokenIdx(
-                                                            282,
+                                                            286,
                                                         ),
                                                     },
                                                     condition: Ok(
@@ -2437,7 +2437,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `none`,
                                                             token_idx: TokenIdx(
-                                                                113,
+                                                                117,
                                                             ),
                                                         },
                                                     },
@@ -2446,7 +2446,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `some`,
                                                             token_idx: TokenIdx(
-                                                                142,
+                                                                146,
                                                             ),
                                                         },
                                                     },
@@ -2455,7 +2455,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `none`,
                                                             token_idx: TokenIdx(
-                                                                221,
+                                                                225,
                                                             ),
                                                         },
                                                     },
@@ -2464,7 +2464,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `some`,
                                                             token_idx: TokenIdx(
-                                                                232,
+                                                                236,
                                                             ),
                                                         },
                                                     },

@@ -14,7 +14,7 @@ fn nine_match -> FermiMatchResult:
 fn nine_match_refine -> FermiMatchResult:
     fermi_match(major_concave_components, [big_cc])
 
-gn is_nine -> ?MnistLabel:
+pub(super) gn is_nine -> ?MnistLabel:
     require is_zero be none
     require is_six be none 
     let eff_holes = major_connected_component.eff_holes

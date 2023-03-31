@@ -35,7 +35,7 @@ fn leftdowncc_pattern(cc: ~ConcaveComponent) -> ?f32:
     require ang < 30.0
     ang
 
-gn is_seven -> ?MnistLabel:
+pub(super) gn is_seven -> ?MnistLabel:
     require is_one be none
     require is_six be none
     require is_zero be none

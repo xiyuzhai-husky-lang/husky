@@ -25,7 +25,7 @@ fn down_cc_pattern(cc: ~ConcaveComponent) -> ?f32:
     // require cc.relative_bounding_box.ymin()<0.2
     dp.x
 
-gn is_two -> ?MnistLabel:
+pub(super) gn is_two -> ?MnistLabel:
 
     require is_zero be none
     require is_three be none

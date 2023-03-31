@@ -13,9 +13,11 @@ pub enum VisibilityExprError {
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum OriginalVisibilityExprError {
     #[error("NoSuperForRoot")]
-    NoSuperForRoot,
+    NoSuperForRoot(TokenIdx),
     #[error("ExpectRightParenthesis")]
     ExpectRightParenthesis(TokenIdx),
+    #[error("ExpectCrateOrSuper")]
+    ExpectCrateOrSuper(TokenIdx),
 }
 
 impl OriginalError for OriginalVisibilityExprError {
