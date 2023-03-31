@@ -13,7 +13,7 @@ pub struct ImplicitParameterSignature {
 impl ImplicitParameterSignature {
     fn from_decl(
         parameter_decl: &ImplicitParameterDecl,
-        region: &SignatureTermRegion,
+        region: &SignatureRegion,
         raw_term_menu: &RawTermMenu,
     ) -> ImplicitParameterSignature {
         let pattern = &parameter_decl.pattern();
@@ -70,7 +70,7 @@ pub struct ImplicitParameterSignatures {
 impl ImplicitParameterSignatures {
     pub(crate) fn from_decl(
         implicit_parameters: &[ImplicitParameterDecl],
-        signature_term_region: &SignatureTermRegion,
+        signature_term_region: &SignatureRegion,
         raw_term_menu: &RawTermMenu,
     ) -> Self {
         Self {
@@ -113,12 +113,16 @@ impl ExplicitParameterSignature {
 }
 
 impl ExplicitParameterSignature {
-    pub fn ty(&self) -> RawTerm {
-        self.ty
-    }
-
     pub(crate) fn new(liason: Liason, ty: RawTerm) -> Self {
         Self { liason, ty }
+    }
+
+    pub fn liason(&self) -> Liason {
+        self.liason
+    }
+
+    pub fn ty(&self) -> RawTerm {
+        self.ty
     }
 }
 
@@ -138,7 +142,7 @@ impl std::ops::Deref for ExplicitParameterSignatures {
 impl ExplicitParameterSignatures {
     pub(crate) fn from_decl(
         parameters: &[RegularParameterDeclPattern],
-        sheet: &SignatureTermRegion,
+        region: &SignatureRegion,
     ) -> SignatureResult<Self> {
         Ok(Self {
             parameters: parameters
@@ -146,7 +150,8 @@ impl ExplicitParameterSignatures {
                 .enumerate()
                 .map(|(i, parameter)| {
                     let ty = parameter.ty();
-                    let ty = match sheet.expr_term(ty) {
+                    parameter.pattern();
+                    let ty = match region.expr_term(ty) {
                         Ok(ty) => ty,
                         Err(_) => {
                             return Err(SignatureError::ParameterTypeRawTermError(
@@ -154,7 +159,10 @@ impl ExplicitParameterSignatures {
                             ))
                         }
                     };
-                    Ok(ExplicitParameterSignature::new(todo!(), ty))
+                    Ok(ExplicitParameterSignature::new(
+                        region[parameter.pattern()],
+                        ty,
+                    ))
                 })
                 .collect::<Result<Vec<ExplicitParameterSignature>, SignatureError>>()?,
         })

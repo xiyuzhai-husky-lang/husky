@@ -19,6 +19,12 @@ pub struct TypeMethodFnDecl {
 }
 
 impl TypeMethodFnDecl {
+    pub fn self_parameter<'a>(self, db: &'a dyn DeclDb) -> Option<&'a SelfParameterDeclPattern> {
+        self.explicit_parameter_decl_list(db)
+            .self_parameter()
+            .as_ref()
+    }
+
     pub fn regular_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [RegularParameterDeclPattern] {
         self.explicit_parameter_decl_list(db).regular_parameters()
     }

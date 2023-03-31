@@ -1,7 +1,4 @@
 [
-    Err(
-        DeclExprError,
-    ),
     Ok(
         Signature::Type(
             TypeSignature::RegularStruct(
@@ -33,7 +30,7 @@
                     parameters: ExplicitParameterSignatures {
                         parameters: [
                             ExplicitParameterSignature {
-                                pattern: ParameterSignaturePattern,
+                                liason: Pure,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -45,7 +42,7 @@
                                 ),
                             },
                             ExplicitParameterSignature {
-                                pattern: ParameterSignaturePattern,
+                                liason: Pure,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -73,7 +70,7 @@
                     parameters: ExplicitParameterSignatures {
                         parameters: [
                             ExplicitParameterSignature {
-                                pattern: ParameterSignaturePattern,
+                                liason: Pure,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -85,7 +82,7 @@
                                 ),
                             },
                             ExplicitParameterSignature {
-                                pattern: ParameterSignaturePattern,
+                                liason: Pure,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -113,7 +110,7 @@
                     parameters: ExplicitParameterSignatures {
                         parameters: [
                             ExplicitParameterSignature {
-                                pattern: ParameterSignaturePattern,
+                                liason: Pure,
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
                                         Id {
@@ -123,7 +120,7 @@
                                 ),
                             },
                             ExplicitParameterSignature {
-                                pattern: ParameterSignaturePattern,
+                                liason: Pure,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -135,7 +132,7 @@
                                 ),
                             },
                             ExplicitParameterSignature {
-                                pattern: ParameterSignaturePattern,
+                                liason: Pure,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -163,7 +160,7 @@
                     parameters: ExplicitParameterSignatures {
                         parameters: [
                             ExplicitParameterSignature {
-                                pattern: ParameterSignaturePattern,
+                                liason: Pure,
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
                                         Id {
@@ -173,7 +170,7 @@
                                 ),
                             },
                             ExplicitParameterSignature {
-                                pattern: ParameterSignaturePattern,
+                                liason: Pure,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -185,7 +182,7 @@
                                 ),
                             },
                             ExplicitParameterSignature {
-                                pattern: ParameterSignaturePattern,
+                                liason: Pure,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -197,7 +194,7 @@
                                 ),
                             },
                             ExplicitParameterSignature {
-                                pattern: ParameterSignaturePattern,
+                                liason: Pure,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -225,7 +222,7 @@
                     parameters: ExplicitParameterSignatures {
                         parameters: [
                             ExplicitParameterSignature {
-                                pattern: ParameterSignaturePattern,
+                                liason: Pure,
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
                                         Id {
@@ -235,7 +232,7 @@
                                 ),
                             },
                             ExplicitParameterSignature {
-                                pattern: ParameterSignaturePattern,
+                                liason: Pure,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -276,7 +273,7 @@
                         parameters: ExplicitParameterSignatures {
                             parameters: [
                                 ExplicitParameterSignature {
-                                    pattern: ParameterSignaturePattern,
+                                    liason: Pure,
                                     ty: ExplicitApplication(
                                         RawTermExplicitApplication(
                                             Id {
@@ -286,7 +283,7 @@
                                     ),
                                 },
                                 ExplicitParameterSignature {
-                                    pattern: ParameterSignaturePattern,
+                                    liason: Pure,
                                     ty: EntityPath(
                                         Type(
                                             TypePath(
@@ -298,7 +295,7 @@
                                     ),
                                 },
                                 ExplicitParameterSignature {
-                                    pattern: ParameterSignaturePattern,
+                                    liason: Pure,
                                     ty: EntityPath(
                                         Type(
                                             TypePath(
@@ -326,7 +323,7 @@
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
-                            pattern: ParameterSignaturePattern,
+                            liason: Pure,
                             ty: EntityPath(
                                 Type(
                                     TypePath(
@@ -391,7 +388,7 @@
                         parameters: ExplicitParameterSignatures {
                             parameters: [
                                 ExplicitParameterSignature {
-                                    pattern: ParameterSignaturePattern,
+                                    liason: Pure,
                                     ty: ExplicitApplication(
                                         RawTermExplicitApplication(
                                             Id {
@@ -401,7 +398,7 @@
                                     ),
                                 },
                                 ExplicitParameterSignature {
-                                    pattern: ParameterSignaturePattern,
+                                    liason: Pure,
                                     ty: EntityPath(
                                         Type(
                                             TypePath(

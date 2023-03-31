@@ -14,7 +14,7 @@
                     parameters: ExplicitParameterSignatures {
                         parameters: [
                             ExplicitParameterSignature {
-                                pattern: ParameterSignaturePattern,
+                                liason: Pure,
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
                                         Id {
@@ -117,7 +117,7 @@
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
-                            pattern: ParameterSignaturePattern,
+                            liason: Pure,
                             ty: EntityPath(
                                 Type(
                                     TypePath(
@@ -146,7 +146,7 @@
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
-                            pattern: ParameterSignaturePattern,
+                            liason: Pure,
                             ty: EntityPath(
                                 Type(
                                     TypePath(
@@ -175,7 +175,7 @@
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
-                            pattern: ParameterSignaturePattern,
+                            liason: Pure,
                             ty: EntityPath(
                                 Type(
                                     TypePath(
@@ -204,7 +204,7 @@
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
-                            pattern: ParameterSignaturePattern,
+                            liason: Pure,
                             ty: EntityPath(
                                 Type(
                                     TypePath(
@@ -233,7 +233,7 @@
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
-                            pattern: ParameterSignaturePattern,
+                            liason: Pure,
                             ty: EntityPath(
                                 Type(
                                     TypePath(
@@ -262,7 +262,7 @@
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
-                            pattern: ParameterSignaturePattern,
+                            liason: Pure,
                             ty: EntityPath(
                                 Type(
                                     TypePath(

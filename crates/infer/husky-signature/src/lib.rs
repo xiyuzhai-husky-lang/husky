@@ -3,8 +3,8 @@ mod db;
 mod error;
 mod has_signature;
 mod parameter;
+mod region;
 mod signature;
-mod term;
 #[cfg(test)]
 mod tests;
 
@@ -12,8 +12,8 @@ pub use self::db::*;
 pub use self::error::*;
 pub use self::has_signature::*;
 pub use self::parameter::*;
+pub use self::region::*;
 pub use self::signature::*;
-pub use self::term::*;
 
 use husky_decl::*;
 use husky_entity_path::*;
@@ -23,8 +23,6 @@ use husky_word::*;
 
 #[salsa::jar(db = SignatureDb)]
 pub struct SignatureJar(
-    SignatureRawTermApplication,
-    SignatureRawTermCurry,
     signature_term_region,
     // type
     enum_ty_signature,

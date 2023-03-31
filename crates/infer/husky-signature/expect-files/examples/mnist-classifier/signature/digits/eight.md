@@ -1,9 +1,9 @@
 [
     Err(
-        ReturnTypeRawTermError,
+        RawTermError,
     ),
     Err(
-        ReturnTypeRawTermError,
+        RawTermError,
     ),
     Ok(
         Signature::Form(
@@ -15,7 +15,7 @@
                     parameters: ExplicitParameterSignatures {
                         parameters: [
                             ExplicitParameterSignature {
-                                pattern: ParameterSignaturePattern,
+                                liason: Pure,
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
                                         Id {

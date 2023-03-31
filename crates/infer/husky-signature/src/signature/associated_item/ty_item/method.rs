@@ -7,16 +7,21 @@ pub fn ty_method_signature(
     db: &dyn SignatureDb,
     decl: TypeMethodFnDecl,
 ) -> SignatureResult<TypeMethodSignature> {
-    let impl_block = decl.associated_item(db).impl_block(db);
-    let explicit_parameter_list = decl.explicit_parameter_decl_list(db);
-    let self_parameter = match impl_block {
-        ImplBlock::Type(impl_block) => {
-            ExplicitParameterSignature::new(todo!(), impl_block.signature(db)?.ty(db))
-        }
-        _ => unreachable!(),
-    };
     let expr_region = decl.expr_region(db);
     let signature_term_region = signature_term_region(db, expr_region);
+    let self_parameter = {
+        let impl_block = decl.associated_item(db).impl_block(db);
+        let liason = match decl.self_parameter(db) {
+            Some(self_parameter) => todo!(),
+            None => Liason::Pure,
+        };
+        match impl_block {
+            ImplBlock::Type(impl_block) => {
+                ExplicitParameterSignature::new(liason, impl_block.signature(db)?.ty(db))
+            }
+            _ => unreachable!(),
+        }
+    };
     let raw_term_menu = db.raw_term_menu(expr_region.toolchain(db)).unwrap();
     let implicit_parameters = ImplicitParameterSignatures::from_decl(
         decl.implicit_parameters(db),

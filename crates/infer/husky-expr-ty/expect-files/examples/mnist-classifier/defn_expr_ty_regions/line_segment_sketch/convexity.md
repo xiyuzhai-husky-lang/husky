@@ -45,7 +45,13 @@
                                 FieldTypeTermError(
                                     RawTypeError(
                                         Derived(
-                                            SignatureError,
+                                            TypeOntologyDeclError {
+                                                path: TypePath(
+                                                    Id {
+                                                        value: 82,
+                                                    },
+                                                ),
+                                            },
                                         ),
                                     ),
                                 ),
@@ -100,7 +106,13 @@
                                 FieldTypeTermError(
                                     RawTypeError(
                                         Derived(
-                                            SignatureError,
+                                            TypeOntologyDeclError {
+                                                path: TypePath(
+                                                    Id {
+                                                        value: 82,
+                                                    },
+                                                ),
+                                            },
                                         ),
                                     ),
                                 ),
@@ -230,7 +242,13 @@
                                 FieldTypeTermError(
                                     RawTypeError(
                                         Derived(
-                                            SignatureError,
+                                            TypeOntologyDeclError {
+                                                path: TypePath(
+                                                    Id {
+                                                        value: 82,
+                                                    },
+                                                ),
+                                            },
                                         ),
                                     ),
                                 ),
@@ -587,7 +605,13 @@
                                 FieldTypeTermError(
                                     RawTypeError(
                                         Derived(
-                                            SignatureError,
+                                            TypeOntologyDeclError {
+                                                path: TypePath(
+                                                    Id {
+                                                        value: 82,
+                                                    },
+                                                ),
+                                            },
                                         ),
                                     ),
                                 ),
@@ -1136,7 +1160,13 @@
                                 FieldTypeTermError(
                                     RawTypeError(
                                         Derived(
-                                            SignatureError,
+                                            TypeOntologyDeclError {
+                                                path: TypePath(
+                                                    Id {
+                                                        value: 82,
+                                                    },
+                                                ),
+                                            },
                                         ),
                                     ),
                                 ),

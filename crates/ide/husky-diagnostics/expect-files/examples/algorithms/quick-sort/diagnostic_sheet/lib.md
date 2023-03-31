@@ -15,16 +15,6 @@ DiagnosticSheet {
     decl_diagnostic_sheet: DeclDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Syntax Error: expect `->`",
-                severity: Error,
-                range: [1:41, 1:42),
-            },
-            Diagnostic {
-                message: "Syntax Error: expect `->`",
-                severity: Error,
-                range: [5:66, 5:67),
-            },
-            Diagnostic {
                 message: "Syntax Error: ExpectParameterDeclList",
                 severity: Error,
                 range: [31:33, 31:34),

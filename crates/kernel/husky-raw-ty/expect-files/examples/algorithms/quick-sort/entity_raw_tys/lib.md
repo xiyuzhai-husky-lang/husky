@@ -5,10 +5,8 @@
                 FormPath(`quick_sort::quick_sort`, `Fn`),
             ),
         ),
-        Err(
-            RawTypeError::Derived(
-                DerivedRawTypeError::SignatureError,
-            ),
+        Ok(
+            RawTerm(`(independent v0: Type) -> Fp(core::slice::Slice v0) -> core::basic::unit`),
         ),
     ),
     (
@@ -17,10 +15,8 @@
                 FormPath(`quick_sort::quick_sort_aux`, `Fn`),
             ),
         ),
-        Err(
-            RawTypeError::Derived(
-                DerivedRawTypeError::SignatureError,
-            ),
+        Ok(
+            RawTerm(`(independent v0: Type) -> Fp(core::slice::Slice v0, core::num::isize, core::num::isize) -> core::basic::unit`),
         ),
     ),
     (
