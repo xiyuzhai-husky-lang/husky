@@ -456,6 +456,11 @@ Ok(
             Token::Punctuation(
                 Punctuation::Colon,
             ),
+            Token::Keyword(
+                Keyword::Stmt(
+                    Let,
+                ),
+            ),
             Token::Ident(
                 `n`,
             ),
@@ -556,6 +561,11 @@ Ok(
             Token::Literal(
                 Literal::Integer(
                     Unspecified,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Stmt(
+                    Let,
                 ),
             ),
             Token::Ident(
@@ -1126,24 +1136,24 @@ Ok(
             114,
             118,
             129,
-            134,
-            138,
-            147,
-            155,
-            171,
-            175,
-            178,
-            188,
-            210,
-            216,
-            227,
-            238,
-            249,
-            267,
-            285,
-            291,
-            295,
-            301,
+            135,
+            139,
+            148,
+            156,
+            173,
+            177,
+            180,
+            190,
+            212,
+            218,
+            229,
+            240,
+            251,
+            269,
+            287,
+            293,
+            297,
+            303,
         ],
         indents: [
             0,
