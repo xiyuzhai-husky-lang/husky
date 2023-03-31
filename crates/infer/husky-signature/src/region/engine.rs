@@ -8,12 +8,26 @@ pub(super) struct SignatureRawTermEngine<'a> {
     db: &'a dyn SignatureDb,
     expr_region_data: &'a ExprRegionData,
     raw_term_menu: &'a RawTermMenu,
-    expr_terms: ExprMap<SignatureRawTermResult<RawTerm>>,
     raw_term_symbol_region: RawTermSymbolRegion,
+    expr_terms: ExprMap<SignatureRawTermResult<RawTerm>>,
+    liasons: PatternExprMap<Liason>,
+}
+
+#[salsa::tracked(jar = SignatureJar, return_ref)]
+pub(crate) fn signature_term_region(
+    db: &dyn SignatureDb,
+    expr_region: ExprRegion,
+) -> SignatureRegion {
+    let expr_region_data = expr_region.data(db);
+    let parent_expr_region = expr_region_data.parent();
+    let parent_term_symbol_region =
+        parent_expr_region.map(|r| signature_term_region(db, r).term_symbol_region());
+    let mut engine = SignatureRawTermEngine::new(db, expr_region, parent_term_symbol_region);
+    engine.infer_all()
 }
 
 impl<'a> SignatureRawTermEngine<'a> {
-    pub(super) fn new(
+    fn new(
         db: &'a dyn SignatureDb,
         expr_region: ExprRegion,
         parent_term_symbol_region: Option<&'a RawTermSymbolRegion>,
@@ -23,24 +37,29 @@ impl<'a> SignatureRawTermEngine<'a> {
         let _entity_path_menu = db.entity_path_menu(toolchain);
         let raw_term_menu = db.raw_term_menu(toolchain).unwrap();
         let expr_region_data = &expr_region.data(db);
-        let mut this = Self {
+        Self {
             db,
             expr_region_data,
             raw_term_menu,
-            expr_terms: ExprMap::new(expr_region_data.expr_arena()),
             raw_term_symbol_region: RawTermSymbolRegion::new(
                 parent_term_symbol_region,
                 expr_region_data.symbol_region(),
             ),
-        };
-        this.init_current_symbol_term_symbols();
-        this.raw_term_symbol_region.init_self_ty_and_value(
-            db,
-            expr_region_data.path(),
-            expr_region_data.symbol_region(),
+            expr_terms: ExprMap::new(expr_region_data.expr_arena()),
+            liasons: PatternExprMap::new(expr_region_data.pattern_expr_arena()),
+        }
+    }
+
+    fn infer_all(mut self) -> SignatureRegion {
+        self.init_current_symbol_term_symbols();
+        self.raw_term_symbol_region.init_self_ty_and_value(
+            self.db,
+            self.expr_region_data.path(),
+            self.expr_region_data.symbol_region(),
         );
-        this.init_expr_roots();
-        this
+        self.init_expr_roots();
+        self.infer_liasons();
+        self.finish()
     }
 
     fn init_current_symbol_term_symbols(&mut self) {
@@ -73,7 +92,7 @@ impl<'a> SignatureRawTermEngine<'a> {
                                 .symbol_region()
                                 .regular_parameter_pattern_ty_constraint(*pattern)
                                 .unwrap();
-                            match self.infer_new(ty) {
+                            match self.infer_new_expr_term(ty) {
                                 Ok(ty) => Ok(ty),
                                 Err(_) => Err(RawTermSymbolTypeErrorKind::SignatureRawTermError),
                             }
@@ -96,40 +115,41 @@ impl<'a> SignatureRawTermEngine<'a> {
                 | ExprRootKind::ReturnType
                 | ExprRootKind::FieldType => (),
             }
-            self.cache_new(expr_root.expr())
+            self.cache_new_expr_term(expr_root.expr())
         }
     }
 
     // infer the term for expr, assuming it hasn't been computed before
-    fn infer_new(&mut self, expr_idx: ExprIdx) -> SignatureRawTermResult<RawTerm> {
-        let result = self.calc(expr_idx);
+    fn infer_new_expr_term(&mut self, expr_idx: ExprIdx) -> SignatureRawTermResult<RawTerm> {
+        let result = self.calc_expr_term(expr_idx);
         let result_export = match result {
             Ok(term) => Ok(term),
             Err(_) => Err(DerivedSignatureRawTermError::RawTermAbortion.into()),
         };
-        self.save(expr_idx, result);
+        self.save_expr_term(expr_idx, result);
         result_export
     }
 
     // cache the term for expr, assuming it hasn't been computed before
-    fn cache_new(&mut self, expr_idx: ExprIdx) {
-        let result = self.calc(expr_idx);
-        self.save(expr_idx, result)
+    fn cache_new_expr_term(&mut self, expr_idx: ExprIdx) {
+        let result = self.calc_expr_term(expr_idx);
+        self.save_expr_term(expr_idx, result)
     }
 
-    pub(crate) fn finish(self) -> SignatureTermRegion {
-        SignatureTermRegion::new(
+    pub(crate) fn finish(self) -> SignatureRegion {
+        SignatureRegion::new(
             self.expr_region_data.path(),
             self.raw_term_symbol_region,
             self.expr_terms,
+            self.liasons,
         )
     }
 
-    fn save(&mut self, expr_idx: ExprIdx, outcome: SignatureRawTermResult<RawTerm>) {
+    fn save_expr_term(&mut self, expr_idx: ExprIdx, outcome: SignatureRawTermResult<RawTerm>) {
         self.expr_terms.insert_new(expr_idx, outcome)
     }
 
-    fn calc(&mut self, expr_idx: ExprIdx) -> SignatureRawTermResult<RawTerm> {
+    fn calc_expr_term(&mut self, expr_idx: ExprIdx) -> SignatureRawTermResult<RawTerm> {
         match self.expr_region_data.expr_arena()[expr_idx] {
             Expr::Literal(_) => todo!(),
             Expr::EntityPath {
@@ -176,10 +196,10 @@ impl<'a> SignatureRawTermEngine<'a> {
             Expr::Binary {
                 lopd, opr, ropd, ..
             } => {
-                let Ok(lopd) = self.infer_new(lopd) else {
+                let Ok(lopd) = self.infer_new_expr_term(lopd) else {
                     return Err(DerivedSignatureRawTermError::CannotInferOperandRawTermInPrefix.into());
                 };
-                let Ok(ropd) = self.infer_new(ropd) else {
+                let Ok(ropd) = self.infer_new_expr_term(ropd) else {
                     return Err(DerivedSignatureRawTermError::CannotInferOperandRawTermInPrefix.into());
                 };
                 match opr {
@@ -211,7 +231,7 @@ impl<'a> SignatureRawTermEngine<'a> {
                 opr_token_idx: _,
                 opd,
             } => {
-                let Ok(opd) = self.infer_new(opd) else {
+                let Ok(opd) = self.infer_new_expr_term(opd) else {
                     return Err(DerivedSignatureRawTermError::CannotInferOperandRawTermInPrefix.into());
                 };
                 let tmpl = match opr {
@@ -248,7 +268,7 @@ impl<'a> SignatureRawTermEngine<'a> {
                 ref commas,
                 ..
             } => {
-                let Ok(function) = self.infer_new(function) else {
+                let Ok(function) = self.infer_new_expr_term(function) else {
                     return Err(
                         DerivedSignatureRawTermError::CannotInferArgumentRawTermInApplication.into()
                     )
@@ -266,7 +286,7 @@ impl<'a> SignatureRawTermEngine<'a> {
                 let extra_comma = items.len() == commas.len();
                 let items = items
                     .into_iter()
-                    .map(|item| self.infer_new(item))
+                    .map(|item| self.infer_new_expr_term(item))
                     .collect::<SignatureRawTermResult<_>>()?;
                 Ok(RawTermExplicitApplicationOrRitchieCall::new(
                     self.db,
@@ -278,10 +298,10 @@ impl<'a> SignatureRawTermEngine<'a> {
                 .into())
             }
             Expr::ExplicitApplication { function, argument } => {
-                let Ok(argument) = self.infer_new(argument) else {
+                let Ok(argument) = self.infer_new_expr_term(argument) else {
                     Err(DerivedSignatureRawTermError::CannotInferArgumentRawTermInApplication)?
                 };
-                let Ok( function) = self.infer_new(function) else {
+                let Ok( function) = self.infer_new_expr_term(function) else {
                     Err(DerivedSignatureRawTermError::CannotInferFunctionRawTermInApplication)?
                 };
                 Ok(RawTermExplicitApplication::new(self.db, function, argument).into())
@@ -294,7 +314,7 @@ impl<'a> SignatureRawTermEngine<'a> {
             Expr::List { items, .. } => {
                 let items = items
                     .into_iter()
-                    .map(|item| self.infer_new(item))
+                    .map(|item| self.infer_new_expr_term(item))
                     .collect::<SignatureRawTermResult<Vec<_>>>()?;
                 Ok(RawTermList::new(
                     self.db,
@@ -307,7 +327,7 @@ impl<'a> SignatureRawTermEngine<'a> {
                 0 => Ok(self.raw_term_menu.slice_ty_path()),
                 _ => todo!(),
             },
-            Expr::Bracketed { item, .. } => self.infer_new(item),
+            Expr::Bracketed { item, .. } => self.infer_new_expr_term(item),
             Expr::Block { stmts: _ } => todo!(),
             Expr::IndexOrCompositionWithList {
                 owner: _,
@@ -332,5 +352,35 @@ impl<'a> SignatureRawTermEngine<'a> {
 
     pub(crate) fn raw_term_menu(&self) -> &RawTermMenu {
         self.raw_term_menu
+    }
+
+    fn infer_liasons(&mut self) {
+        for (idx, pattern) in self.expr_region_data.pattern_expr_arena().indexed_iter() {
+            let liason = match pattern {
+                PatternExpr::Literal(_) => todo!(),
+                PatternExpr::Ident {
+                    modifier,
+                    ident_token,
+                } => match modifier {
+                    PatternModifier::None => Liason::Pure,
+                    PatternModifier::Mut => Liason::Mut,
+                },
+                PatternExpr::Entity(_) => todo!(),
+                PatternExpr::Tuple { name, fields } => todo!(),
+                PatternExpr::Struct { name, fields } => todo!(),
+                PatternExpr::OneOf { options } => todo!(),
+                PatternExpr::Binding {
+                    ident_token,
+                    asperand_token,
+                    src,
+                } => todo!(),
+                PatternExpr::Range {
+                    start,
+                    dot_dot_token,
+                    end,
+                } => todo!(),
+            };
+            self.liasons.insert_new(idx, liason);
+        }
     }
 }

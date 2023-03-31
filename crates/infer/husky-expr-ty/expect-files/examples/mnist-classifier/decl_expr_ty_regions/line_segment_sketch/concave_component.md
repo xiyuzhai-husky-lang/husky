@@ -144,7 +144,13 @@
                         TypeError(
                             RawTypeError(
                                 Derived(
-                                    SignatureError,
+                                    TypeOntologyDeclError {
+                                        path: TypePath(
+                                            Id {
+                                                value: 82,
+                                            },
+                                        ),
+                                    },
                                 ),
                             ),
                         ),

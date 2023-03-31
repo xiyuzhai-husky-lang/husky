@@ -30,7 +30,7 @@
                     parameters: ExplicitParameterSignatures {
                         parameters: [
                             ExplicitParameterSignature {
-                                pattern: ParameterSignaturePattern,
+                                liason: Pure,
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
                                         Id {
@@ -40,7 +40,7 @@
                                 ),
                             },
                             ExplicitParameterSignature {
-                                pattern: ParameterSignaturePattern,
+                                liason: Pure,
                                 ty: ExplicitApplicationOrRitchieCall(
                                     RawTermExplicitApplicationOrRitchieCall(
                                         Id {

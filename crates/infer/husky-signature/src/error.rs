@@ -41,7 +41,7 @@ impl From<&ExprError> for SignatureError {
 
 impl From<&SignatureRawTermError> for SignatureError {
     fn from(value: &SignatureRawTermError) -> Self {
-        todo!()
+        SignatureError::RawTermError
     }
 }
 

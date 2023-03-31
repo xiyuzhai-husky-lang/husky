@@ -2,4 +2,5 @@
 pub enum Liason {
     Pure,
     Move,
+    Mut,
 }

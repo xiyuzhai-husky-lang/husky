@@ -24,7 +24,7 @@ pub(crate) struct ExprTypeEngine<'a> {
     term_menu: &'a TermMenu,
     token_sheet_data: &'a TokenSheetData,
     expr_region_data: &'a ExprRegionData,
-    signature_term_region: &'a SignatureTermRegion,
+    signature_term_region: &'a SignatureRegion,
     expr_ty_infos: ExprMap<ExprTypeInfo>,
     extra_expr_errors: Vec<(ExprIdx, ExprTypeError)>,
     expr_terms: ExprMap<ExprTermResult<LocalTerm>>,

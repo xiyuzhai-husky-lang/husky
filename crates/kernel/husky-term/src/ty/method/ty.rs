@@ -142,16 +142,17 @@ impl MethodTypeInfo {
     ) -> TermResult<Self> {
         // todo: formal method, method that is not a function pointer
         let signature = signature?;
-        let t = |parameter_sig:& ExplicitParameterSignature| -> TermResult<TermRitchieParameterLiasonedType>{
-            Ok(TermRitchieParameterLiasonedType::new(
-                todo!(),
-                Term::from_raw_unchecked(
-                    db,
-                    parameter_sig.ty(),
-                    TermTypeExpectation::FinalDestinationEqsSort,
-                )?,
-            ))
-        };
+        let t =
+            |param: &ExplicitParameterSignature| -> TermResult<TermRitchieParameterLiasonedType> {
+                Ok(TermRitchieParameterLiasonedType::new(
+                    param.liason(),
+                    Term::from_raw_unchecked(
+                        db,
+                        param.ty(),
+                        TermTypeExpectation::FinalDestinationEqsSort,
+                    )?,
+                ))
+            };
         let self_liasoned_ty = t(signature.self_parameter(db))?;
         let nonself_parameter_liasoned_tys = signature
             .nonself_regular_parameters(db)
