@@ -199,14 +199,10 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             todo!()
                         }
                     },
-                    _ => Expr::Err(
-                        OriginalExprError::ExpectedIdentAfterDot {
-                            self_expr,
-                            dot_token_idx,
-                        }
-                        .into(),
-                    )
-                    .into(),
+                    _ => {
+                        Expr::Err(OriginalExprError::ExpectedIdentAfterDot { dot_token_idx }.into())
+                            .into()
+                    }
                 }
             }
             None => {

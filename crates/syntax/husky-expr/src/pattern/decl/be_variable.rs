@@ -18,7 +18,7 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for BeVariableDeclPattern {
                 pattern_expr_idx: ctx.alloc_pattern_expr(
                     PatternExpr::Ident {
                         ident_token,
-                        liason: PatternLiason::None,
+                        modifier: PatternModifier::None,
                     },
                     PatternExprInfo::Be,
                 ),

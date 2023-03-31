@@ -196,7 +196,6 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         },
                         None => Expr::Err(
                             OriginalExprError::NoRightOperandForBinaryOperator {
-                                lopd,
                                 punctuation,
                                 punctuation_token_idx,
                             }

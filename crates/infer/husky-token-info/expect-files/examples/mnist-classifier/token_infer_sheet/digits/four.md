@@ -306,7 +306,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `cc`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -930,7 +930,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `cc`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -1023,7 +1023,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `cc`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -1047,7 +1047,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `cc`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -1062,7 +1062,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `cc`,
                 },
                 expr_region: ExprRegionLeash(_),

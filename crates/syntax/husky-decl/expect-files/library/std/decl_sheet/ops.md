@@ -78,44 +78,42 @@ Ok(
                                     roots: [],
                                 },
                             },
-                            implicit_parameter_decl_list: Ok(
-                                Some(
-                                    ImplicitParameterDeclList {
-                                        langle: LeftAngleBracketOrLessThanToken(
-                                            TokenIdx(
-                                                8,
-                                            ),
+                            implicit_parameter_decl_list: Some(
+                                ImplicitParameterDeclList {
+                                    langle: LeftAngleBracketOrLessThanToken(
+                                        TokenIdx(
+                                            8,
                                         ),
-                                        implicit_parameters: [
-                                            ImplicitParameterDecl {
-                                                pattern: ImplicitParameterDeclPattern {
-                                                    annotated_variance_token: None,
-                                                    symbol: 0,
-                                                    variant: ImplicitParameterDeclPatternVariant::Type0 {
-                                                        ident_token: IdentToken {
-                                                            ident: `B`,
-                                                            token_idx: TokenIdx(
-                                                                9,
-                                                            ),
-                                                        },
+                                    ),
+                                    implicit_parameters: [
+                                        ImplicitParameterDecl {
+                                            pattern: ImplicitParameterDeclPattern {
+                                                annotated_variance_token: None,
+                                                symbol: 0,
+                                                variant: ImplicitParameterDeclPatternVariant::Type0 {
+                                                    ident_token: IdentToken {
+                                                        ident: `B`,
+                                                        token_idx: TokenIdx(
+                                                            9,
+                                                        ),
                                                     },
                                                 },
-                                                traits: None,
                                             },
-                                        ],
-                                        commas: [],
-                                        decl_list_result: Ok(
-                                            (),
-                                        ),
-                                        rangle: Ok(
-                                            RightAngleBracketToken(
-                                                TokenIdx(
-                                                    10,
-                                                ),
+                                            traits: None,
+                                        },
+                                    ],
+                                    commas: [],
+                                    decl_list_result: Ok(
+                                        (),
+                                    ),
+                                    rangle: Ok(
+                                        RightAngleBracketToken(
+                                            TokenIdx(
+                                                10,
                                             ),
                                         ),
-                                    },
-                                ),
+                                    ),
+                                },
                             ),
                         },
                     ),

@@ -235,6 +235,7 @@ where
     }
 }
 
+#[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct MutToken {
     token_idx: TokenIdx,

@@ -134,6 +134,7 @@ pub(crate) fn term_ritchie_from_raw_unchecked(
             .iter()
             .map(|parameter_liasoned_ty| -> TermResult<_> {
                 Ok(TermRitchieParameterLiasonedType {
+                    liason: parameter_liasoned_ty.liason(),
                     ty: t(parameter_liasoned_ty.ty())?,
                 })
             }),
@@ -179,6 +180,7 @@ where
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = TermDb)]
 pub struct TermRitchieParameterLiasonedType {
+    liason: Liason,
     ty: Term,
 }
 
@@ -189,6 +191,7 @@ impl TermRitchieParameterLiasonedType {
 
     fn reduce(self, db: &dyn TermDb) -> Self {
         Self {
+            liason: self.liason,
             ty: self.ty.reduce(db),
         }
     }
@@ -219,8 +222,8 @@ where
 }
 
 impl TermRitchieParameterLiasonedType {
-    pub fn new(ty: Term) -> Self {
-        Self { ty }
+    pub fn new(liason: Liason, ty: Term) -> Self {
+        Self { liason, ty }
     }
 
     pub fn ty(&self) -> Term {

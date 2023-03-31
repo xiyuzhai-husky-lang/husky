@@ -26,7 +26,7 @@ pub(crate) fn trai_for_ty_impl_block_signature(
     let signature_term_region = signature_term_region(db, expr_region);
     let raw_term_menu = db.raw_term_menu(expr_region.toolchain(db)).unwrap();
     let implicit_parameters = ImplicitParameterSignatures::from_decl(
-        decl.implicit_parameters(db)?,
+        decl.implicit_parameters(db),
         &signature_term_region,
         raw_term_menu,
     );

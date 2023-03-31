@@ -310,7 +310,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 160;\n\ntoken_line_group_idx = 14\n\ntoken = Token::Ident(\n    `arr`,\n);\n\ntoken_info = TokenInfo::InheritedSymbol {\n    inherited_symbol_idx: 1,\n    inherited_symbol_kind: InheritedSymbolKind::RegularParameter {\n        ident: `arr`,\n    },\n    expr_region: ExprRegionLeash(_),\n};\n\nInheritedSymbol {\n    parent_symbol_idx: Current(\n        1,\n    ),\n    kind: InheritedSymbolKind::RegularParameter {\n        ident: `arr`,\n    },\n}\n",
+                                value: "\ntoken_idx = 160;\n\ntoken_line_group_idx = 14\n\ntoken = Token::Ident(\n    `arr`,\n);\n\ntoken_info = TokenInfo::InheritedSymbol {\n    inherited_symbol_idx: 1,\n    inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {\n        ident: `arr`,\n    },\n    expr_region: ExprRegionLeash(_),\n};\n\nInheritedSymbol {\n    parent_symbol_idx: Current(\n        1,\n    ),\n    kind: InheritedSymbolKind::ExplicitParameter {\n        ident: `arr`,\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -340,7 +340,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 176;\n\ntoken_line_group_idx = 17\n\ntoken = Token::Ident(\n    `arr`,\n);\n\ntoken_info = TokenInfo::InheritedSymbol {\n    inherited_symbol_idx: 1,\n    inherited_symbol_kind: InheritedSymbolKind::RegularParameter {\n        ident: `arr`,\n    },\n    expr_region: ExprRegionLeash(_),\n};\n\nInheritedSymbol {\n    parent_symbol_idx: Current(\n        1,\n    ),\n    kind: InheritedSymbolKind::RegularParameter {\n        ident: `arr`,\n    },\n}\n",
+                                value: "\ntoken_idx = 176;\n\ntoken_line_group_idx = 17\n\ntoken = Token::Ident(\n    `arr`,\n);\n\ntoken_info = TokenInfo::InheritedSymbol {\n    inherited_symbol_idx: 1,\n    inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {\n        ident: `arr`,\n    },\n    expr_region: ExprRegionLeash(_),\n};\n\nInheritedSymbol {\n    parent_symbol_idx: Current(\n        1,\n    ),\n    kind: InheritedSymbolKind::ExplicitParameter {\n        ident: `arr`,\n    },\n}\n",
                             },
                         ),
                         range: Some(

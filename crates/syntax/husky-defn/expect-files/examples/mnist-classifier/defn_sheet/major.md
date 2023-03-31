@@ -17,23 +17,21 @@ Ok(
                                 decl: FeatureDecl {
                                     path: FormPath(`mnist_classifier::major::connected_components`, `Feature`),
                                     ast_idx: 23,
-                                    curry_token: Ok(
+                                    curry_token: Some(
                                         CurryToken(
                                             TokenIdx(
                                                 33,
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
-                                        OutputTypeExpr {
+                                    return_ty: Some(
+                                        ReturnTypeExpr {
                                             expr: 2,
                                         },
                                     ),
-                                    eol_colon: Ok(
-                                        EolColonToken(
-                                            TokenIdx(
-                                                37,
-                                            ),
+                                    eol_colon: EolColonToken(
+                                        TokenIdx(
+                                            37,
                                         ),
                                     ),
                                     expr_region: ExprRegion {
@@ -255,23 +253,21 @@ Ok(
                                 decl: FeatureDecl {
                                     path: FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
                                     ast_idx: 24,
-                                    curry_token: Ok(
+                                    curry_token: Some(
                                         CurryToken(
                                             TokenIdx(
                                                 45,
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
-                                        OutputTypeExpr {
+                                    return_ty: Some(
+                                        ReturnTypeExpr {
                                             expr: 0,
                                         },
                                     ),
-                                    eol_colon: Ok(
-                                        EolColonToken(
-                                            TokenIdx(
-                                                47,
-                                            ),
+                                    eol_colon: EolColonToken(
+                                        TokenIdx(
+                                            47,
                                         ),
                                     ),
                                     expr_region: ExprRegion {
@@ -809,31 +805,31 @@ Ok(
                                             pattern_expr_arena: Arena {
                                                 data: [
                                                     PatternExpr::Ident {
+                                                        modifier: None,
                                                         ident_token: IdentToken {
                                                             ident: `i0`,
                                                             token_idx: TokenIdx(
                                                                 50,
                                                             ),
                                                         },
-                                                        liason: None,
                                                     },
                                                     PatternExpr::Ident {
+                                                        modifier: None,
                                                         ident_token: IdentToken {
                                                             ident: `max_row_span_sum`,
                                                             token_idx: TokenIdx(
                                                                 55,
                                                             ),
                                                         },
-                                                        liason: None,
                                                     },
                                                     PatternExpr::Ident {
+                                                        modifier: None,
                                                         ident_token: IdentToken {
                                                             ident: `row_span_sum`,
                                                             token_idx: TokenIdx(
                                                                 68,
                                                             ),
                                                         },
-                                                        liason: None,
                                                     },
                                                 ],
                                             },
@@ -986,23 +982,21 @@ Ok(
                                 decl: FeatureDecl {
                                     path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
                                     ast_idx: 25,
-                                    curry_token: Ok(
+                                    curry_token: Some(
                                         CurryToken(
                                             TokenIdx(
                                                 95,
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
-                                        OutputTypeExpr {
+                                    return_ty: Some(
+                                        ReturnTypeExpr {
                                             expr: 0,
                                         },
                                     ),
-                                    eol_colon: Ok(
-                                        EolColonToken(
-                                            TokenIdx(
-                                                97,
-                                            ),
+                                    eol_colon: EolColonToken(
+                                        TokenIdx(
+                                            97,
                                         ),
                                     ),
                                     expr_region: ExprRegion {
@@ -1392,13 +1386,13 @@ Ok(
                                             pattern_expr_arena: Arena {
                                                 data: [
                                                     PatternExpr::Ident {
+                                                        modifier: None,
                                                         ident_token: IdentToken {
                                                             ident: `sum`,
                                                             token_idx: TokenIdx(
                                                                 100,
                                                             ),
                                                         },
-                                                        liason: None,
                                                     },
                                                 ],
                                             },
@@ -1499,23 +1493,21 @@ Ok(
                                 decl: FeatureDecl {
                                     path: FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
                                     ast_idx: 26,
-                                    curry_token: Ok(
+                                    curry_token: Some(
                                         CurryToken(
                                             TokenIdx(
                                                 129,
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
-                                        OutputTypeExpr {
+                                    return_ty: Some(
+                                        ReturnTypeExpr {
                                             expr: 2,
                                         },
                                     ),
-                                    eol_colon: Ok(
-                                        EolColonToken(
-                                            TokenIdx(
-                                                133,
-                                            ),
+                                    eol_colon: EolColonToken(
+                                        TokenIdx(
+                                            133,
                                         ),
                                     ),
                                     expr_region: ExprRegion {
@@ -1725,23 +1717,21 @@ Ok(
                                 decl: FeatureDecl {
                                     path: FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
                                     ast_idx: 27,
-                                    curry_token: Ok(
+                                    curry_token: Some(
                                         CurryToken(
                                             TokenIdx(
                                                 140,
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
-                                        OutputTypeExpr {
+                                    return_ty: Some(
+                                        ReturnTypeExpr {
                                             expr: 0,
                                         },
                                     ),
-                                    eol_colon: Ok(
-                                        EolColonToken(
-                                            TokenIdx(
-                                                142,
-                                            ),
+                                    eol_colon: EolColonToken(
+                                        TokenIdx(
+                                            142,
                                         ),
                                     ),
                                     expr_region: ExprRegion {
@@ -1953,23 +1943,21 @@ Ok(
                                 decl: FeatureDecl {
                                     path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
                                     ast_idx: 28,
-                                    curry_token: Ok(
+                                    curry_token: Some(
                                         CurryToken(
                                             TokenIdx(
                                                 152,
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
-                                        OutputTypeExpr {
+                                    return_ty: Some(
+                                        ReturnTypeExpr {
                                             expr: 0,
                                         },
                                     ),
-                                    eol_colon: Ok(
-                                        EolColonToken(
-                                            TokenIdx(
-                                                154,
-                                            ),
+                                    eol_colon: EolColonToken(
+                                        TokenIdx(
+                                            154,
                                         ),
                                     ),
                                     expr_region: ExprRegion {
@@ -2164,23 +2152,21 @@ Ok(
                                 decl: FeatureDecl {
                                     path: FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
                                     ast_idx: 29,
-                                    curry_token: Ok(
+                                    curry_token: Some(
                                         CurryToken(
                                             TokenIdx(
                                                 161,
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
-                                        OutputTypeExpr {
+                                    return_ty: Some(
+                                        ReturnTypeExpr {
                                             expr: 2,
                                         },
                                     ),
-                                    eol_colon: Ok(
-                                        EolColonToken(
-                                            TokenIdx(
-                                                165,
-                                            ),
+                                    eol_colon: EolColonToken(
+                                        TokenIdx(
+                                            165,
                                         ),
                                     ),
                                     expr_region: ExprRegion {

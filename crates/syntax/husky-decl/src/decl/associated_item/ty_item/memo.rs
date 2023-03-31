@@ -9,12 +9,9 @@ pub struct TypeMemoDecl {
     pub associated_item: AssociatedItem,
     pub ast_idx: AstIdx,
     pub expr_region: ExprRegion,
-    #[return_ref]
-    pub curry_token: DeclExprResult<CurryToken>,
-    #[return_ref]
-    pub return_ty: DeclExprResult<OutputTypeExpr>,
-    #[return_ref]
-    pub eol_colon: DeclExprResult<EolColonToken>,
+    pub curry_token: Option<CurryToken>,
+    pub return_ty: Option<ReturnTypeExpr>,
+    pub eol_colon: EolColonToken,
 }
 
 impl<'a> DeclParseContext<'a> {
@@ -40,9 +37,14 @@ impl<'a> DeclParseContext<'a> {
             None => None,
             _ => unreachable!(),
         };
-        let curry_token = ctx.parse_expected(OriginalDeclExprError::ExpectCurry);
-        let return_ty = ctx.parse_expected(OriginalDeclExprError::ExpectOutputType);
-        let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon);
+
+        let curry_token = ctx.parse()?;
+        let return_ty = if curry_token.is_some() {
+            Some(ctx.parse_expected(OriginalDeclExprError::ExpectOutputType)?)
+        } else {
+            None
+        };
+        let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon)?;
         Ok(TypeMemoDecl::new(
             self.db(),
             path,

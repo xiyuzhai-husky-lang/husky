@@ -30,9 +30,9 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    parameters: RegularParameterSignatures {
+                    parameters: ExplicitParameterSignatures {
                         parameters: [
-                            RegularParameterSignature {
+                            ExplicitParameterSignature {
                                 pattern: ParameterSignaturePattern,
                                 ty: EntityPath(
                                     Type(
@@ -44,7 +44,7 @@
                                     ),
                                 ),
                             },
-                            RegularParameterSignature {
+                            ExplicitParameterSignature {
                                 pattern: ParameterSignaturePattern,
                                 ty: EntityPath(
                                     Type(
@@ -70,9 +70,9 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    parameters: RegularParameterSignatures {
+                    parameters: ExplicitParameterSignatures {
                         parameters: [
-                            RegularParameterSignature {
+                            ExplicitParameterSignature {
                                 pattern: ParameterSignaturePattern,
                                 ty: EntityPath(
                                     Type(
@@ -84,7 +84,7 @@
                                     ),
                                 ),
                             },
-                            RegularParameterSignature {
+                            ExplicitParameterSignature {
                                 pattern: ParameterSignaturePattern,
                                 ty: EntityPath(
                                     Type(
@@ -110,9 +110,9 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    parameters: RegularParameterSignatures {
+                    parameters: ExplicitParameterSignatures {
                         parameters: [
-                            RegularParameterSignature {
+                            ExplicitParameterSignature {
                                 pattern: ParameterSignaturePattern,
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
@@ -122,7 +122,7 @@
                                     ),
                                 ),
                             },
-                            RegularParameterSignature {
+                            ExplicitParameterSignature {
                                 pattern: ParameterSignaturePattern,
                                 ty: EntityPath(
                                     Type(
@@ -134,7 +134,7 @@
                                     ),
                                 ),
                             },
-                            RegularParameterSignature {
+                            ExplicitParameterSignature {
                                 pattern: ParameterSignaturePattern,
                                 ty: EntityPath(
                                     Type(
@@ -160,9 +160,9 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    parameters: RegularParameterSignatures {
+                    parameters: ExplicitParameterSignatures {
                         parameters: [
-                            RegularParameterSignature {
+                            ExplicitParameterSignature {
                                 pattern: ParameterSignaturePattern,
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
@@ -172,7 +172,7 @@
                                     ),
                                 ),
                             },
-                            RegularParameterSignature {
+                            ExplicitParameterSignature {
                                 pattern: ParameterSignaturePattern,
                                 ty: EntityPath(
                                     Type(
@@ -184,7 +184,7 @@
                                     ),
                                 ),
                             },
-                            RegularParameterSignature {
+                            ExplicitParameterSignature {
                                 pattern: ParameterSignaturePattern,
                                 ty: EntityPath(
                                     Type(
@@ -196,7 +196,7 @@
                                     ),
                                 ),
                             },
-                            RegularParameterSignature {
+                            ExplicitParameterSignature {
                                 pattern: ParameterSignaturePattern,
                                 ty: EntityPath(
                                     Type(
@@ -222,9 +222,9 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    parameters: RegularParameterSignatures {
+                    parameters: ExplicitParameterSignatures {
                         parameters: [
-                            RegularParameterSignature {
+                            ExplicitParameterSignature {
                                 pattern: ParameterSignaturePattern,
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
@@ -234,7 +234,7 @@
                                     ),
                                 ),
                             },
-                            RegularParameterSignature {
+                            ExplicitParameterSignature {
                                 pattern: ParameterSignaturePattern,
                                 ty: EntityPath(
                                     Type(
@@ -256,7 +256,7 @@
     Ok(
         Signature::Impl(
             ImplSignature::TypeImpl(
-                TypeImplSignature {
+                TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
@@ -273,9 +273,9 @@
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: RegularParameterSignatures {
+                        parameters: ExplicitParameterSignatures {
                             parameters: [
-                                RegularParameterSignature {
+                                ExplicitParameterSignature {
                                     pattern: ParameterSignaturePattern,
                                     ty: ExplicitApplication(
                                         RawTermExplicitApplication(
@@ -285,7 +285,7 @@
                                         ),
                                     ),
                                 },
-                                RegularParameterSignature {
+                                ExplicitParameterSignature {
                                     pattern: ParameterSignaturePattern,
                                     ty: EntityPath(
                                         Type(
@@ -297,7 +297,7 @@
                                         ),
                                     ),
                                 },
-                                RegularParameterSignature {
+                                ExplicitParameterSignature {
                                     pattern: ParameterSignaturePattern,
                                     ty: EntityPath(
                                         Type(
@@ -325,7 +325,7 @@
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        self_parameter: RegularParameterSignature {
+                        self_parameter: ExplicitParameterSignature {
                             pattern: ParameterSignaturePattern,
                             ty: EntityPath(
                                 Type(
@@ -337,7 +337,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: RegularParameterSignatures {
+                        nonself_regular_parameters: ExplicitParameterSignatures {
                             parameters: [],
                         },
                         return_ty: RawTerm(`mnist_classifier::geom2d::Vector2d`),
@@ -349,7 +349,7 @@
     Ok(
         Signature::Impl(
             ImplSignature::TypeImpl(
-                TypeImplSignature {
+                TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
@@ -388,9 +388,9 @@
                         implicit_parameters: ImplicitParameterSignatures {
                             data: [],
                         },
-                        parameters: RegularParameterSignatures {
+                        parameters: ExplicitParameterSignatures {
                             parameters: [
-                                RegularParameterSignature {
+                                ExplicitParameterSignature {
                                     pattern: ParameterSignaturePattern,
                                     ty: ExplicitApplication(
                                         RawTermExplicitApplication(
@@ -400,7 +400,7 @@
                                         ),
                                     ),
                                 },
-                                RegularParameterSignature {
+                                ExplicitParameterSignature {
                                     pattern: ParameterSignaturePattern,
                                     ty: EntityPath(
                                         Type(

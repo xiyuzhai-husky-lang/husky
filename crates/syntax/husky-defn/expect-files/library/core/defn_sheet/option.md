@@ -81,44 +81,42 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    implicit_parameter_decl_list: Ok(
-                                        Some(
-                                            ImplicitParameterDeclList {
-                                                langle: LeftAngleBracketOrLessThanToken(
-                                                    TokenIdx(
-                                                        3,
-                                                    ),
+                                    implicit_parameter_decl_list: Some(
+                                        ImplicitParameterDeclList {
+                                            langle: LeftAngleBracketOrLessThanToken(
+                                                TokenIdx(
+                                                    3,
                                                 ),
-                                                implicit_parameters: [
-                                                    ImplicitParameterDecl {
-                                                        pattern: ImplicitParameterDeclPattern {
-                                                            annotated_variance_token: None,
-                                                            symbol: 0,
-                                                            variant: ImplicitParameterDeclPatternVariant::Type0 {
-                                                                ident_token: IdentToken {
-                                                                    ident: `T`,
-                                                                    token_idx: TokenIdx(
-                                                                        4,
-                                                                    ),
-                                                                },
+                                            ),
+                                            implicit_parameters: [
+                                                ImplicitParameterDecl {
+                                                    pattern: ImplicitParameterDeclPattern {
+                                                        annotated_variance_token: None,
+                                                        symbol: 0,
+                                                        variant: ImplicitParameterDeclPatternVariant::Type0 {
+                                                            ident_token: IdentToken {
+                                                                ident: `T`,
+                                                                token_idx: TokenIdx(
+                                                                    4,
+                                                                ),
                                                             },
                                                         },
-                                                        traits: None,
                                                     },
-                                                ],
-                                                commas: [],
-                                                decl_list_result: Ok(
-                                                    (),
-                                                ),
-                                                rangle: Ok(
-                                                    RightAngleBracketToken(
-                                                        TokenIdx(
-                                                            5,
-                                                        ),
+                                                    traits: None,
+                                                },
+                                            ],
+                                            commas: [],
+                                            decl_list_result: Ok(
+                                                (),
+                                            ),
+                                            rangle: Ok(
+                                                RightAngleBracketToken(
+                                                    TokenIdx(
+                                                        5,
                                                     ),
                                                 ),
-                                            },
-                                        ),
+                                            ),
+                                        },
                                     ),
                                 },
                             },

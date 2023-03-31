@@ -17,23 +17,21 @@ Ok(
                                 decl: FeatureDecl {
                                     path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Feature`),
                                     ast_idx: 44,
-                                    curry_token: Ok(
+                                    curry_token: Some(
                                         CurryToken(
                                             TokenIdx(
                                                 76,
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
-                                        OutputTypeExpr {
+                                    return_ty: Some(
+                                        ReturnTypeExpr {
                                             expr: 0,
                                         },
                                     ),
-                                    eol_colon: Ok(
-                                        EolColonToken(
-                                            TokenIdx(
-                                                78,
-                                            ),
+                                    eol_colon: EolColonToken(
+                                        TokenIdx(
+                                            78,
                                         ),
                                     ),
                                     expr_region: ExprRegion {
@@ -275,23 +273,21 @@ Ok(
                                 decl: FeatureDecl {
                                     path: FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Feature`),
                                     ast_idx: 45,
-                                    curry_token: Ok(
+                                    curry_token: Some(
                                         CurryToken(
                                             TokenIdx(
                                                 89,
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
-                                        OutputTypeExpr {
+                                    return_ty: Some(
+                                        ReturnTypeExpr {
                                             expr: 0,
                                         },
                                     ),
-                                    eol_colon: Ok(
-                                        EolColonToken(
-                                            TokenIdx(
-                                                91,
-                                            ),
+                                    eol_colon: EolColonToken(
+                                        TokenIdx(
+                                            91,
                                         ),
                                     ),
                                     expr_region: ExprRegion {
@@ -533,23 +529,21 @@ Ok(
                                 decl: FeatureDecl {
                                     path: FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
                                     ast_idx: 46,
-                                    curry_token: Ok(
+                                    curry_token: Some(
                                         CurryToken(
                                             TokenIdx(
                                                 102,
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
-                                        OutputTypeExpr {
+                                    return_ty: Some(
+                                        ReturnTypeExpr {
                                             expr: 1,
                                         },
                                     ),
-                                    eol_colon: Ok(
-                                        EolColonToken(
-                                            TokenIdx(
-                                                105,
-                                            ),
+                                    eol_colon: EolColonToken(
+                                        TokenIdx(
+                                            105,
                                         ),
                                     ),
                                     expr_region: ExprRegion {
@@ -2078,139 +2072,139 @@ Ok(
                                             pattern_expr_arena: Arena {
                                                 data: [
                                                     PatternExpr::Ident {
+                                                        modifier: None,
                                                         ident_token: IdentToken {
                                                             ident: `none`,
                                                             token_idx: TokenIdx(
                                                                 109,
                                                             ),
                                                         },
-                                                        liason: None,
                                                     },
                                                     PatternExpr::Ident {
+                                                        modifier: None,
                                                         ident_token: IdentToken {
                                                             ident: `none`,
                                                             token_idx: TokenIdx(
                                                                 113,
                                                             ),
                                                         },
-                                                        liason: None,
                                                     },
                                                     PatternExpr::Ident {
+                                                        modifier: None,
                                                         ident_token: IdentToken {
                                                             ident: `eff_holes`,
                                                             token_idx: TokenIdx(
                                                                 115,
                                                             ),
                                                         },
-                                                        liason: None,
                                                     },
                                                     PatternExpr::Ident {
+                                                        modifier: None,
                                                         ident_token: IdentToken {
                                                             ident: `none`,
                                                             token_idx: TokenIdx(
                                                                 128,
                                                             ),
                                                         },
-                                                        liason: None,
                                                     },
                                                     PatternExpr::Ident {
+                                                        modifier: None,
                                                         ident_token: IdentToken {
                                                             ident: `down_match`,
                                                             token_idx: TokenIdx(
                                                                 130,
                                                             ),
                                                         },
-                                                        liason: None,
                                                     },
                                                     PatternExpr::Ident {
+                                                        modifier: None,
                                                         ident_token: IdentToken {
                                                             ident: `some`,
                                                             token_idx: TokenIdx(
                                                                 141,
                                                             ),
                                                         },
-                                                        liason: None,
                                                     },
                                                     PatternExpr::Ident {
+                                                        modifier: None,
                                                         ident_token: IdentToken {
                                                             ident: `down_match_dp_y`,
                                                             token_idx: TokenIdx(
                                                                 143,
                                                             ),
                                                         },
-                                                        liason: None,
                                                     },
                                                     PatternExpr::Ident {
+                                                        modifier: None,
                                                         ident_token: IdentToken {
                                                             ident: `higher_excess`,
                                                             token_idx: TokenIdx(
                                                                 153,
                                                             ),
                                                         },
-                                                        liason: None,
                                                     },
                                                     PatternExpr::Ident {
+                                                        modifier: None,
                                                         ident_token: IdentToken {
                                                             ident: `none`,
                                                             token_idx: TokenIdx(
                                                                 174,
                                                             ),
                                                         },
-                                                        liason: None,
                                                     },
                                                     PatternExpr::Ident {
+                                                        modifier: None,
                                                         ident_token: IdentToken {
                                                             ident: `nine_match_refine_result`,
                                                             token_idx: TokenIdx(
                                                                 185,
                                                             ),
                                                         },
-                                                        liason: None,
                                                     },
                                                     PatternExpr::Ident {
+                                                        modifier: None,
                                                         ident_token: IdentToken {
                                                             ident: `some`,
                                                             token_idx: TokenIdx(
                                                                 196,
                                                             ),
                                                         },
-                                                        liason: None,
                                                     },
                                                     PatternExpr::Ident {
+                                                        modifier: None,
                                                         ident_token: IdentToken {
                                                             ident: `higher_excess`,
                                                             token_idx: TokenIdx(
                                                                 204,
                                                             ),
                                                         },
-                                                        liason: None,
                                                     },
                                                     PatternExpr::Ident {
+                                                        modifier: None,
                                                         ident_token: IdentToken {
                                                             ident: `upper_arc`,
                                                             token_idx: TokenIdx(
                                                                 214,
                                                             ),
                                                         },
-                                                        liason: None,
                                                     },
                                                     PatternExpr::Ident {
+                                                        modifier: None,
                                                         ident_token: IdentToken {
                                                             ident: `some`,
                                                             token_idx: TokenIdx(
                                                                 225,
                                                             ),
                                                         },
-                                                        liason: None,
                                                     },
                                                     PatternExpr::Ident {
+                                                        modifier: None,
                                                         ident_token: IdentToken {
                                                             ident: `a`,
                                                             token_idx: TokenIdx(
                                                                 250,
                                                             ),
                                                         },
-                                                        liason: None,
                                                     },
                                                 ],
                                             },
@@ -2628,13 +2622,13 @@ Ok(
                                                 pattern_expr_arena: Arena {
                                                     data: [
                                                         PatternExpr::Ident {
+                                                            modifier: None,
                                                             ident_token: IdentToken {
                                                                 ident: `cc`,
                                                                 token_idx: TokenIdx(
                                                                     275,
                                                                 ),
                                                             },
-                                                            liason: None,
                                                         },
                                                     ],
                                                 },
@@ -2668,7 +2662,7 @@ Ok(
                                                                 276,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                            variant: CurrentSymbolVariant::ExplicitParameter {
                                                                 ident: `cc`,
                                                                 pattern_symbol_idx: 0,
                                                             },
@@ -2678,7 +2672,7 @@ Ok(
                                                 allow_self_type: False,
                                                 allow_self_value: False,
                                                 pattern_ty_constraints: [
-                                                    RegularParameter {
+                                                    ExplicitParameter {
                                                         pattern: 0,
                                                         ty: 1,
                                                     },
@@ -2692,60 +2686,50 @@ Ok(
                                             ],
                                         },
                                     },
-                                    implicit_parameter_decl_list: Ok(
-                                        None,
-                                    ),
-                                    parameter_decl_list: Ok(
-                                        ExplicitParameterDeclList {
-                                            lpar: LeftParenthesisToken(
-                                                TokenIdx(
-                                                    274,
+                                    implicit_parameter_decl_list: None,
+                                    parameter_decl_list: ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                274,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    0..1,
                                                 ),
-                                            ),
-                                            parameters: [
-                                                ExplicitParameterDeclPattern {
-                                                    pattern: 0,
-                                                    variables: ArenaIdxRange(
-                                                        0..1,
-                                                    ),
-                                                    colon: ColonToken(
-                                                        TokenIdx(
-                                                            276,
-                                                        ),
-                                                    ),
-                                                    ty: 1,
-                                                },
-                                            ],
-                                            commas: [],
-                                            decl_list_result: Ok(
-                                                (),
-                                            ),
-                                            rpar: Ok(
-                                                RightParenthesisToken(
+                                                colon: ColonToken(
                                                     TokenIdx(
-                                                        279,
+                                                        276,
                                                     ),
                                                 ),
+                                                ty: 1,
+                                            },
+                                        ],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                279,
                                             ),
-                                        },
-                                    ),
-                                    curry_token: Ok(
+                                        ),
+                                    },
+                                    curry_token: Some(
                                         CurryToken(
                                             TokenIdx(
                                                 280,
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
-                                        OutputTypeExpr {
+                                    return_ty: Some(
+                                        ReturnTypeExpr {
                                             expr: 3,
                                         },
                                     ),
-                                    eol_colon: Ok(
-                                        EolColonToken(
-                                            TokenIdx(
-                                                283,
-                                            ),
+                                    eol_colon: EolColonToken(
+                                        TokenIdx(
+                                            283,
                                         ),
                                     ),
                                 },
@@ -2835,13 +2819,13 @@ Ok(
                                                         pattern_expr_arena: Arena {
                                                             data: [
                                                                 PatternExpr::Ident {
+                                                                    modifier: None,
                                                                     ident_token: IdentToken {
                                                                         ident: `cc`,
                                                                         token_idx: TokenIdx(
                                                                             275,
                                                                         ),
                                                                     },
-                                                                    liason: None,
                                                                 },
                                                             ],
                                                         },
@@ -2875,7 +2859,7 @@ Ok(
                                                                         276,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                                    variant: CurrentSymbolVariant::ExplicitParameter {
                                                                         ident: `cc`,
                                                                         pattern_symbol_idx: 0,
                                                                     },
@@ -2885,7 +2869,7 @@ Ok(
                                                         allow_self_type: False,
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [
-                                                            RegularParameter {
+                                                            ExplicitParameter {
                                                                 pattern: 0,
                                                                 ty: 1,
                                                             },
@@ -2917,7 +2901,7 @@ Ok(
                                                         287,
                                                     ),
                                                     inherited_symbol_idx: 0,
-                                                    inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                                                    inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                                                         ident: `cc`,
                                                     },
                                                 },
@@ -3062,13 +3046,13 @@ Ok(
                                             pattern_expr_arena: Arena {
                                                 data: [
                                                     PatternExpr::Ident {
+                                                        modifier: None,
                                                         ident_token: IdentToken {
                                                             ident: `dp`,
                                                             token_idx: TokenIdx(
                                                                 285,
                                                             ),
                                                         },
-                                                        liason: None,
                                                     },
                                                 ],
                                             },
@@ -3098,7 +3082,7 @@ Ok(
                                                         parent_symbol_idx: Current(
                                                             0,
                                                         ),
-                                                        kind: InheritedSymbolKind::RegularParameter {
+                                                        kind: InheritedSymbolKind::ExplicitParameter {
                                                             ident: `cc`,
                                                         },
                                                     },
@@ -3243,13 +3227,13 @@ Ok(
                                                 pattern_expr_arena: Arena {
                                                     data: [
                                                         PatternExpr::Ident {
+                                                            modifier: None,
                                                             ident_token: IdentToken {
                                                                 ident: `cc`,
                                                                 token_idx: TokenIdx(
                                                                     304,
                                                                 ),
                                                             },
-                                                            liason: None,
                                                         },
                                                     ],
                                                 },
@@ -3283,7 +3267,7 @@ Ok(
                                                                 305,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                            variant: CurrentSymbolVariant::ExplicitParameter {
                                                                 ident: `cc`,
                                                                 pattern_symbol_idx: 0,
                                                             },
@@ -3293,7 +3277,7 @@ Ok(
                                                 allow_self_type: False,
                                                 allow_self_value: False,
                                                 pattern_ty_constraints: [
-                                                    RegularParameter {
+                                                    ExplicitParameter {
                                                         pattern: 0,
                                                         ty: 1,
                                                     },
@@ -3307,60 +3291,50 @@ Ok(
                                             ],
                                         },
                                     },
-                                    implicit_parameter_decl_list: Ok(
-                                        None,
-                                    ),
-                                    parameter_decl_list: Ok(
-                                        ExplicitParameterDeclList {
-                                            lpar: LeftParenthesisToken(
-                                                TokenIdx(
-                                                    303,
+                                    implicit_parameter_decl_list: None,
+                                    parameter_decl_list: ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                303,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    0..1,
                                                 ),
-                                            ),
-                                            parameters: [
-                                                ExplicitParameterDeclPattern {
-                                                    pattern: 0,
-                                                    variables: ArenaIdxRange(
-                                                        0..1,
-                                                    ),
-                                                    colon: ColonToken(
-                                                        TokenIdx(
-                                                            305,
-                                                        ),
-                                                    ),
-                                                    ty: 1,
-                                                },
-                                            ],
-                                            commas: [],
-                                            decl_list_result: Ok(
-                                                (),
-                                            ),
-                                            rpar: Ok(
-                                                RightParenthesisToken(
+                                                colon: ColonToken(
                                                     TokenIdx(
-                                                        308,
+                                                        305,
                                                     ),
                                                 ),
+                                                ty: 1,
+                                            },
+                                        ],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                308,
                                             ),
-                                        },
-                                    ),
-                                    curry_token: Ok(
+                                        ),
+                                    },
+                                    curry_token: Some(
                                         CurryToken(
                                             TokenIdx(
                                                 309,
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
-                                        OutputTypeExpr {
+                                    return_ty: Some(
+                                        ReturnTypeExpr {
                                             expr: 3,
                                         },
                                     ),
-                                    eol_colon: Ok(
-                                        EolColonToken(
-                                            TokenIdx(
-                                                312,
-                                            ),
+                                    eol_colon: EolColonToken(
+                                        TokenIdx(
+                                            312,
                                         ),
                                     ),
                                 },
@@ -3450,13 +3424,13 @@ Ok(
                                                         pattern_expr_arena: Arena {
                                                             data: [
                                                                 PatternExpr::Ident {
+                                                                    modifier: None,
                                                                     ident_token: IdentToken {
                                                                         ident: `cc`,
                                                                         token_idx: TokenIdx(
                                                                             304,
                                                                         ),
                                                                     },
-                                                                    liason: None,
                                                                 },
                                                             ],
                                                         },
@@ -3490,7 +3464,7 @@ Ok(
                                                                         305,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSymbolVariant::RegularParameter {
+                                                                    variant: CurrentSymbolVariant::ExplicitParameter {
                                                                         ident: `cc`,
                                                                         pattern_symbol_idx: 0,
                                                                     },
@@ -3500,7 +3474,7 @@ Ok(
                                                         allow_self_type: False,
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [
-                                                            RegularParameter {
+                                                            ExplicitParameter {
                                                                 pattern: 0,
                                                                 ty: 1,
                                                             },
@@ -3532,7 +3506,7 @@ Ok(
                                                         316,
                                                     ),
                                                     inherited_symbol_idx: 0,
-                                                    inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                                                    inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                                                         ident: `cc`,
                                                     },
                                                 },
@@ -3601,7 +3575,7 @@ Ok(
                                                         328,
                                                     ),
                                                     inherited_symbol_idx: 0,
-                                                    inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                                                    inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                                                         ident: `cc`,
                                                     },
                                                 },
@@ -3660,7 +3634,7 @@ Ok(
                                                         337,
                                                     ),
                                                     inherited_symbol_idx: 0,
-                                                    inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                                                    inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                                                         ident: `cc`,
                                                     },
                                                 },
@@ -3768,13 +3742,13 @@ Ok(
                                             pattern_expr_arena: Arena {
                                                 data: [
                                                     PatternExpr::Ident {
+                                                        modifier: None,
                                                         ident_token: IdentToken {
                                                             ident: `dp`,
                                                             token_idx: TokenIdx(
                                                                 314,
                                                             ),
                                                         },
-                                                        liason: None,
                                                     },
                                                 ],
                                             },
@@ -3804,7 +3778,7 @@ Ok(
                                                         parent_symbol_idx: Current(
                                                             0,
                                                         ),
-                                                        kind: InheritedSymbolKind::RegularParameter {
+                                                        kind: InheritedSymbolKind::ExplicitParameter {
                                                             ident: `cc`,
                                                         },
                                                     },

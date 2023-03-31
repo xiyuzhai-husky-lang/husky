@@ -7,19 +7,15 @@ pub struct EnumTypeDecl {
     pub ast_idx: AstIdx,
     pub expr_region: ExprRegion,
     #[return_ref]
-    implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
+    implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
 }
 
 impl EnumTypeDecl {
-    pub fn implicit_parameters(
-        self,
-        db: &dyn DeclDb,
-    ) -> DeclExprResultRef<&[ImplicitParameterDecl]> {
+    pub fn implicit_parameters(self, db: &dyn DeclDb) -> &[ImplicitParameterDecl] {
         self.implicit_parameter_decl_list(db)
-            .as_ref()?
             .as_ref()
             .map(ImplicitParameterDeclList::implicit_parameters)
-            .unwrap_or(Ok(&[]))
+            .unwrap_or(&[])
     }
 }
 
@@ -39,7 +35,7 @@ impl<'a> DeclParseContext<'a> {
             AllowSelfValue::False,
         );
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
-        let implicit_parameters = ctx.parse();
+        let implicit_parameters = ctx.parse()?;
         Ok(EnumTypeDecl::new(
             self.db(),
             path,

@@ -35,7 +35,7 @@
     Ok(
         Signature::Impl(
             ImplSignature::TypeImpl(
-                TypeImplSignature {
+                TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },

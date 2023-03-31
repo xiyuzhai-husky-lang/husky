@@ -9,211 +9,14 @@ Ok(
                         ),
                     ),
                 ),
-                Ok(
-                    Decl::Type(
-                        TypeDecl::RegularStruct(
-                            RegularStructTypeDecl {
-                                path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                ast_idx: 169,
-                                expr_region: ExprRegion {
-                                    data: ExprRegionData {
-                                        parent: None,
-                                        path: RegionPath::Decl(
-                                            DeclRegionPath::Entity(
-                                                EntityPath::ModuleItem(
-                                                    ModuleItemPath::Type(
-                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                        expr_arena: Arena {
-                                            data: [
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                            binary_token_idx: TokenIdx(
-                                                                46,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::NoRightOperandForBinaryOperator {
-                                                            lopd: 0,
-                                                            punctuation: Closed(
-                                                                RemEuclid,
-                                                            ),
-                                                            punctuation_token_idx: TokenIdx(
-                                                                46,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
-                                                Expr::List {
-                                                    lbox_token_idx: TokenIdx(
-                                                        45,
-                                                    ),
-                                                    items: ArenaIdxRange(
-                                                        1..2,
-                                                    ),
-                                                    rbox_token_idx: TokenIdx(
-                                                        47,
-                                                    ),
-                                                },
-                                                Expr::EntityPath {
-                                                    entity_path_expr: 0,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
-                                                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                },
-                                                Expr::ExplicitApplication {
-                                                    function: 2,
-                                                    argument: 3,
-                                                },
-                                                Expr::EntityPath {
-                                                    entity_path_expr: 1,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
-                                                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                },
-                                            ],
-                                        },
-                                        entity_path_expr_arena: Arena {
-                                            data: [
-                                                EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        48,
-                                                    ),
-                                                    ident: `Point2d`,
-                                                    entity_path: EntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
-                                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                        ),
-                                                    ),
-                                                },
-                                                EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        52,
-                                                    ),
-                                                    ident: `Point2d`,
-                                                    entity_path: EntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
-                                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                        ),
-                                                    ),
-                                                },
-                                            ],
-                                        },
-                                        stmt_arena: Arena {
-                                            data: [],
-                                        },
-                                        pattern_expr_region: PatternExprRegion {
-                                            pattern_expr_arena: Arena {
-                                                data: [],
-                                            },
-                                            pattern_infos: [],
-                                            pattern_symbol_maps: [],
-                                            pattern_symbol_arena: Arena {
-                                                data: [],
-                                            },
-                                        },
-                                        symbol_region: SymbolRegion {
-                                            inherited_symbol_arena: Arena {
-                                                data: [],
-                                            },
-                                            current_symbol_arena: Arena {
-                                                data: [],
-                                            },
-                                            allow_self_type: True,
-                                            allow_self_value: False,
-                                            pattern_ty_constraints: [],
-                                        },
-                                        roots: [
-                                            ExprRoot {
-                                                kind: FieldType,
-                                                expr: 4,
-                                            },
-                                            ExprRoot {
-                                                kind: FieldType,
-                                                expr: 5,
-                                            },
-                                        ],
-                                    },
-                                },
-                                implicit_parameter_decl_list: Ok(
-                                    None,
+                Err(
+                    DeclError::Original(
+                        OriginalDeclError::Expr(
+                            OriginalDeclExprError::ExpectRightCurlyBrace(
+                                TokenIdx(
+                                    53,
                                 ),
-                                lcurl: LeftCurlyBraceToken(
-                                    TokenIdx(
-                                        42,
-                                    ),
-                                ),
-                                field_comma_list: (
-                                    [
-                                        FieldDeclPattern {
-                                            decorators: [],
-                                            visibility: None,
-                                            ident_token: IdentToken {
-                                                ident: `points`,
-                                                token_idx: TokenIdx(
-                                                    43,
-                                                ),
-                                            },
-                                            colon: ColonToken(
-                                                TokenIdx(
-                                                    44,
-                                                ),
-                                            ),
-                                            ty: 4,
-                                        },
-                                        FieldDeclPattern {
-                                            decorators: [],
-                                            visibility: None,
-                                            ident_token: IdentToken {
-                                                ident: `start`,
-                                                token_idx: TokenIdx(
-                                                    50,
-                                                ),
-                                            },
-                                            colon: ColonToken(
-                                                TokenIdx(
-                                                    51,
-                                                ),
-                                            ),
-                                            ty: 5,
-                                        },
-                                    ],
-                                    [
-                                        CommaToken(
-                                            TokenIdx(
-                                                49,
-                                            ),
-                                        ),
-                                    ],
-                                    Ok(
-                                        (),
-                                    ),
-                                ),
-                                rcurl: Err(
-                                    DeclExprError::Original(
-                                        OriginalDeclExprError::ExpectRightCurlyBrace(
-                                            TokenIdx(
-                                                53,
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -352,9 +155,7 @@ Ok(
                                         ],
                                     },
                                 },
-                                implicit_parameter_decl_list: Ok(
-                                    None,
-                                ),
+                                implicit_parameter_decl_list: None,
                                 lcurl: LeftCurlyBraceToken(
                                     TokenIdx(
                                         162,
@@ -407,15 +208,10 @@ Ok(
                                             ),
                                         ),
                                     ],
-                                    Ok(
-                                        (),
-                                    ),
                                 ),
-                                rcurl: Ok(
-                                    RightCurlyBraceToken(
-                                        TokenIdx(
-                                            174,
-                                        ),
+                                rcurl: RightCurlyBraceToken(
+                                    TokenIdx(
+                                        174,
                                     ),
                                 ),
                             },
@@ -527,22 +323,22 @@ Ok(
                                             pattern_expr_arena: Arena {
                                                 data: [
                                                     PatternExpr::Ident {
+                                                        modifier: None,
                                                         ident_token: IdentToken {
                                                             ident: `u`,
                                                             token_idx: TokenIdx(
                                                                 348,
                                                             ),
                                                         },
-                                                        liason: None,
                                                     },
                                                     PatternExpr::Ident {
+                                                        modifier: None,
                                                         ident_token: IdentToken {
                                                             ident: `r`,
                                                             token_idx: TokenIdx(
                                                                 352,
                                                             ),
                                                         },
-                                                        liason: None,
                                                     },
                                                 ],
                                             },
@@ -586,7 +382,7 @@ Ok(
                                                             349,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::RegularParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitParameter {
                                                             ident: `u`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -596,7 +392,7 @@ Ok(
                                                             353,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::RegularParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitParameter {
                                                             ident: `r`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -606,11 +402,11 @@ Ok(
                                             allow_self_type: False,
                                             allow_self_value: False,
                                             pattern_ty_constraints: [
-                                                RegularParameter {
+                                                ExplicitParameter {
                                                     pattern: 0,
                                                     ty: 0,
                                                 },
-                                                RegularParameter {
+                                                ExplicitParameter {
                                                     pattern: 1,
                                                     ty: 1,
                                                 },
@@ -624,78 +420,68 @@ Ok(
                                         ],
                                     },
                                 },
-                                implicit_parameter_decl_list: Ok(
-                                    None,
-                                ),
-                                parameter_decl_list: Ok(
-                                    ExplicitParameterDeclList {
-                                        lpar: LeftParenthesisToken(
+                                implicit_parameter_decl_list: None,
+                                parameter_decl_list: ExplicitParameterDeclList {
+                                    lpar: LeftParenthesisToken(
+                                        TokenIdx(
+                                            347,
+                                        ),
+                                    ),
+                                    self_parameter: None,
+                                    regular_parameters: [
+                                        RegularParameterDeclPattern {
+                                            pattern: 0,
+                                            variables: ArenaIdxRange(
+                                                0..1,
+                                            ),
+                                            colon: ColonToken(
+                                                TokenIdx(
+                                                    349,
+                                                ),
+                                            ),
+                                            ty: 0,
+                                        },
+                                        RegularParameterDeclPattern {
+                                            pattern: 1,
+                                            variables: ArenaIdxRange(
+                                                1..2,
+                                            ),
+                                            colon: ColonToken(
+                                                TokenIdx(
+                                                    353,
+                                                ),
+                                            ),
+                                            ty: 1,
+                                        },
+                                    ],
+                                    commas: [
+                                        CommaToken(
                                             TokenIdx(
-                                                347,
+                                                351,
                                             ),
                                         ),
-                                        parameters: [
-                                            ExplicitParameterDeclPattern {
-                                                pattern: 0,
-                                                variables: ArenaIdxRange(
-                                                    0..1,
-                                                ),
-                                                colon: ColonToken(
-                                                    TokenIdx(
-                                                        349,
-                                                    ),
-                                                ),
-                                                ty: 0,
-                                            },
-                                            ExplicitParameterDeclPattern {
-                                                pattern: 1,
-                                                variables: ArenaIdxRange(
-                                                    1..2,
-                                                ),
-                                                colon: ColonToken(
-                                                    TokenIdx(
-                                                        353,
-                                                    ),
-                                                ),
-                                                ty: 1,
-                                            },
-                                        ],
-                                        commas: [
-                                            CommaToken(
-                                                TokenIdx(
-                                                    351,
-                                                ),
-                                            ),
-                                        ],
-                                        decl_list_result: Ok(
-                                            (),
+                                    ],
+                                    rpar: RightParenthesisToken(
+                                        TokenIdx(
+                                            355,
                                         ),
-                                        rpar: Ok(
-                                            RightParenthesisToken(
-                                                TokenIdx(
-                                                    355,
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                ),
-                                curry_token: Ok(
+                                    ),
+                                },
+                                curry_token: Some(
                                     CurryToken(
                                         TokenIdx(
                                             356,
                                         ),
                                     ),
                                 ),
-                                return_ty: Ok(
-                                    OutputTypeExpr {
+                                return_ty: Some(
+                                    ReturnTypeExpr {
                                         expr: 2,
                                     },
                                 ),
-                                eol_colon: Ok(
-                                    EolColonToken(
-                                        TokenIdx(
-                                            358,
-                                        ),
+                                eol_colon: EolColonToken(
+                                    TokenIdx(
+                                        358,
                                     ),
                                 ),
                             },
@@ -807,22 +593,22 @@ Ok(
                                             pattern_expr_arena: Arena {
                                                 data: [
                                                     PatternExpr::Ident {
+                                                        modifier: None,
                                                         ident_token: IdentToken {
                                                             ident: `u`,
                                                             token_idx: TokenIdx(
                                                                 445,
                                                             ),
                                                         },
-                                                        liason: None,
                                                     },
                                                     PatternExpr::Ident {
+                                                        modifier: None,
                                                         ident_token: IdentToken {
                                                             ident: `r`,
                                                             token_idx: TokenIdx(
                                                                 449,
                                                             ),
                                                         },
-                                                        liason: None,
                                                     },
                                                 ],
                                             },
@@ -866,7 +652,7 @@ Ok(
                                                             446,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::RegularParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitParameter {
                                                             ident: `u`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -876,7 +662,7 @@ Ok(
                                                             450,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::RegularParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitParameter {
                                                             ident: `r`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -886,11 +672,11 @@ Ok(
                                             allow_self_type: False,
                                             allow_self_value: False,
                                             pattern_ty_constraints: [
-                                                RegularParameter {
+                                                ExplicitParameter {
                                                     pattern: 0,
                                                     ty: 0,
                                                 },
-                                                RegularParameter {
+                                                ExplicitParameter {
                                                     pattern: 1,
                                                     ty: 1,
                                                 },
@@ -904,78 +690,68 @@ Ok(
                                         ],
                                     },
                                 },
-                                implicit_parameter_decl_list: Ok(
-                                    None,
-                                ),
-                                parameter_decl_list: Ok(
-                                    ExplicitParameterDeclList {
-                                        lpar: LeftParenthesisToken(
+                                implicit_parameter_decl_list: None,
+                                parameter_decl_list: ExplicitParameterDeclList {
+                                    lpar: LeftParenthesisToken(
+                                        TokenIdx(
+                                            444,
+                                        ),
+                                    ),
+                                    self_parameter: None,
+                                    regular_parameters: [
+                                        RegularParameterDeclPattern {
+                                            pattern: 0,
+                                            variables: ArenaIdxRange(
+                                                0..1,
+                                            ),
+                                            colon: ColonToken(
+                                                TokenIdx(
+                                                    446,
+                                                ),
+                                            ),
+                                            ty: 0,
+                                        },
+                                        RegularParameterDeclPattern {
+                                            pattern: 1,
+                                            variables: ArenaIdxRange(
+                                                1..2,
+                                            ),
+                                            colon: ColonToken(
+                                                TokenIdx(
+                                                    450,
+                                                ),
+                                            ),
+                                            ty: 1,
+                                        },
+                                    ],
+                                    commas: [
+                                        CommaToken(
                                             TokenIdx(
-                                                444,
+                                                448,
                                             ),
                                         ),
-                                        parameters: [
-                                            ExplicitParameterDeclPattern {
-                                                pattern: 0,
-                                                variables: ArenaIdxRange(
-                                                    0..1,
-                                                ),
-                                                colon: ColonToken(
-                                                    TokenIdx(
-                                                        446,
-                                                    ),
-                                                ),
-                                                ty: 0,
-                                            },
-                                            ExplicitParameterDeclPattern {
-                                                pattern: 1,
-                                                variables: ArenaIdxRange(
-                                                    1..2,
-                                                ),
-                                                colon: ColonToken(
-                                                    TokenIdx(
-                                                        450,
-                                                    ),
-                                                ),
-                                                ty: 1,
-                                            },
-                                        ],
-                                        commas: [
-                                            CommaToken(
-                                                TokenIdx(
-                                                    448,
-                                                ),
-                                            ),
-                                        ],
-                                        decl_list_result: Ok(
-                                            (),
+                                    ],
+                                    rpar: RightParenthesisToken(
+                                        TokenIdx(
+                                            452,
                                         ),
-                                        rpar: Ok(
-                                            RightParenthesisToken(
-                                                TokenIdx(
-                                                    452,
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                ),
-                                curry_token: Ok(
+                                    ),
+                                },
+                                curry_token: Some(
                                     CurryToken(
                                         TokenIdx(
                                             453,
                                         ),
                                     ),
                                 ),
-                                return_ty: Ok(
-                                    OutputTypeExpr {
+                                return_ty: Some(
+                                    ReturnTypeExpr {
                                         expr: 2,
                                     },
                                 ),
-                                eol_colon: Ok(
-                                    EolColonToken(
-                                        TokenIdx(
-                                            455,
-                                        ),
+                                eol_colon: EolColonToken(
+                                    TokenIdx(
+                                        455,
                                     ),
                                 ),
                             },
@@ -1115,31 +891,31 @@ Ok(
                                             pattern_expr_arena: Arena {
                                                 data: [
                                                     PatternExpr::Ident {
+                                                        modifier: None,
                                                         ident_token: IdentToken {
                                                             ident: `ct`,
                                                             token_idx: TokenIdx(
                                                                 542,
                                                             ),
                                                         },
-                                                        liason: None,
                                                     },
                                                     PatternExpr::Ident {
+                                                        modifier: None,
                                                         ident_token: IdentToken {
                                                             ident: `start`,
                                                             token_idx: TokenIdx(
                                                                 547,
                                                             ),
                                                         },
-                                                        liason: None,
                                                     },
                                                     PatternExpr::Ident {
+                                                        modifier: None,
                                                         ident_token: IdentToken {
                                                             ident: `r`,
                                                             token_idx: TokenIdx(
                                                                 551,
                                                             ),
                                                         },
-                                                        liason: None,
                                                     },
                                                 ],
                                             },
@@ -1193,7 +969,7 @@ Ok(
                                                             543,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::RegularParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitParameter {
                                                             ident: `ct`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -1203,7 +979,7 @@ Ok(
                                                             548,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::RegularParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitParameter {
                                                             ident: `start`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -1213,7 +989,7 @@ Ok(
                                                             552,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::RegularParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitParameter {
                                                             ident: `r`,
                                                             pattern_symbol_idx: 2,
                                                         },
@@ -1223,15 +999,15 @@ Ok(
                                             allow_self_type: False,
                                             allow_self_value: False,
                                             pattern_ty_constraints: [
-                                                RegularParameter {
+                                                ExplicitParameter {
                                                     pattern: 0,
                                                     ty: 1,
                                                 },
-                                                RegularParameter {
+                                                ExplicitParameter {
                                                     pattern: 1,
                                                     ty: 2,
                                                 },
-                                                RegularParameter {
+                                                ExplicitParameter {
                                                     pattern: 2,
                                                     ty: 3,
                                                 },
@@ -1245,95 +1021,85 @@ Ok(
                                         ],
                                     },
                                 },
-                                implicit_parameter_decl_list: Ok(
-                                    None,
-                                ),
-                                parameter_decl_list: Ok(
-                                    ExplicitParameterDeclList {
-                                        lpar: LeftParenthesisToken(
+                                implicit_parameter_decl_list: None,
+                                parameter_decl_list: ExplicitParameterDeclList {
+                                    lpar: LeftParenthesisToken(
+                                        TokenIdx(
+                                            541,
+                                        ),
+                                    ),
+                                    self_parameter: None,
+                                    regular_parameters: [
+                                        RegularParameterDeclPattern {
+                                            pattern: 0,
+                                            variables: ArenaIdxRange(
+                                                0..1,
+                                            ),
+                                            colon: ColonToken(
+                                                TokenIdx(
+                                                    543,
+                                                ),
+                                            ),
+                                            ty: 1,
+                                        },
+                                        RegularParameterDeclPattern {
+                                            pattern: 1,
+                                            variables: ArenaIdxRange(
+                                                1..2,
+                                            ),
+                                            colon: ColonToken(
+                                                TokenIdx(
+                                                    548,
+                                                ),
+                                            ),
+                                            ty: 2,
+                                        },
+                                        RegularParameterDeclPattern {
+                                            pattern: 2,
+                                            variables: ArenaIdxRange(
+                                                2..3,
+                                            ),
+                                            colon: ColonToken(
+                                                TokenIdx(
+                                                    552,
+                                                ),
+                                            ),
+                                            ty: 3,
+                                        },
+                                    ],
+                                    commas: [
+                                        CommaToken(
                                             TokenIdx(
-                                                541,
+                                                546,
                                             ),
                                         ),
-                                        parameters: [
-                                            ExplicitParameterDeclPattern {
-                                                pattern: 0,
-                                                variables: ArenaIdxRange(
-                                                    0..1,
-                                                ),
-                                                colon: ColonToken(
-                                                    TokenIdx(
-                                                        543,
-                                                    ),
-                                                ),
-                                                ty: 1,
-                                            },
-                                            ExplicitParameterDeclPattern {
-                                                pattern: 1,
-                                                variables: ArenaIdxRange(
-                                                    1..2,
-                                                ),
-                                                colon: ColonToken(
-                                                    TokenIdx(
-                                                        548,
-                                                    ),
-                                                ),
-                                                ty: 2,
-                                            },
-                                            ExplicitParameterDeclPattern {
-                                                pattern: 2,
-                                                variables: ArenaIdxRange(
-                                                    2..3,
-                                                ),
-                                                colon: ColonToken(
-                                                    TokenIdx(
-                                                        552,
-                                                    ),
-                                                ),
-                                                ty: 3,
-                                            },
-                                        ],
-                                        commas: [
-                                            CommaToken(
-                                                TokenIdx(
-                                                    546,
-                                                ),
-                                            ),
-                                            CommaToken(
-                                                TokenIdx(
-                                                    550,
-                                                ),
-                                            ),
-                                        ],
-                                        decl_list_result: Ok(
-                                            (),
-                                        ),
-                                        rpar: Ok(
-                                            RightParenthesisToken(
-                                                TokenIdx(
-                                                    554,
-                                                ),
+                                        CommaToken(
+                                            TokenIdx(
+                                                550,
                                             ),
                                         ),
-                                    },
-                                ),
-                                curry_token: Ok(
+                                    ],
+                                    rpar: RightParenthesisToken(
+                                        TokenIdx(
+                                            554,
+                                        ),
+                                    ),
+                                },
+                                curry_token: Some(
                                     CurryToken(
                                         TokenIdx(
                                             555,
                                         ),
                                     ),
                                 ),
-                                return_ty: Ok(
-                                    OutputTypeExpr {
+                                return_ty: Some(
+                                    ReturnTypeExpr {
                                         expr: 4,
                                     },
                                 ),
-                                eol_colon: Ok(
-                                    EolColonToken(
-                                        TokenIdx(
-                                            557,
-                                        ),
+                                eol_colon: EolColonToken(
+                                    TokenIdx(
+                                        557,
                                     ),
                                 ),
                             },
@@ -1494,40 +1260,40 @@ Ok(
                                             pattern_expr_arena: Arena {
                                                 data: [
                                                     PatternExpr::Ident {
+                                                        modifier: None,
                                                         ident_token: IdentToken {
                                                             ident: `ct`,
                                                             token_idx: TokenIdx(
                                                                 775,
                                                             ),
                                                         },
-                                                        liason: None,
                                                     },
                                                     PatternExpr::Ident {
+                                                        modifier: None,
                                                         ident_token: IdentToken {
                                                             ident: `start0`,
                                                             token_idx: TokenIdx(
                                                                 780,
                                                             ),
                                                         },
-                                                        liason: None,
                                                     },
                                                     PatternExpr::Ident {
+                                                        modifier: None,
                                                         ident_token: IdentToken {
                                                             ident: `end`,
                                                             token_idx: TokenIdx(
                                                                 784,
                                                             ),
                                                         },
-                                                        liason: None,
                                                     },
                                                     PatternExpr::Ident {
+                                                        modifier: None,
                                                         ident_token: IdentToken {
                                                             ident: `r`,
                                                             token_idx: TokenIdx(
                                                                 788,
                                                             ),
                                                         },
-                                                        liason: None,
                                                     },
                                                 ],
                                             },
@@ -1591,7 +1357,7 @@ Ok(
                                                             776,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::RegularParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitParameter {
                                                             ident: `ct`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -1601,7 +1367,7 @@ Ok(
                                                             781,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::RegularParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitParameter {
                                                             ident: `start0`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -1611,7 +1377,7 @@ Ok(
                                                             785,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::RegularParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitParameter {
                                                             ident: `end`,
                                                             pattern_symbol_idx: 2,
                                                         },
@@ -1621,7 +1387,7 @@ Ok(
                                                             789,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::RegularParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitParameter {
                                                             ident: `r`,
                                                             pattern_symbol_idx: 3,
                                                         },
@@ -1631,19 +1397,19 @@ Ok(
                                             allow_self_type: False,
                                             allow_self_value: False,
                                             pattern_ty_constraints: [
-                                                RegularParameter {
+                                                ExplicitParameter {
                                                     pattern: 0,
                                                     ty: 1,
                                                 },
-                                                RegularParameter {
+                                                ExplicitParameter {
                                                     pattern: 1,
                                                     ty: 2,
                                                 },
-                                                RegularParameter {
+                                                ExplicitParameter {
                                                     pattern: 2,
                                                     ty: 3,
                                                 },
-                                                RegularParameter {
+                                                ExplicitParameter {
                                                     pattern: 3,
                                                     ty: 4,
                                                 },
@@ -1657,112 +1423,102 @@ Ok(
                                         ],
                                     },
                                 },
-                                implicit_parameter_decl_list: Ok(
-                                    None,
-                                ),
-                                parameter_decl_list: Ok(
-                                    ExplicitParameterDeclList {
-                                        lpar: LeftParenthesisToken(
+                                implicit_parameter_decl_list: None,
+                                parameter_decl_list: ExplicitParameterDeclList {
+                                    lpar: LeftParenthesisToken(
+                                        TokenIdx(
+                                            774,
+                                        ),
+                                    ),
+                                    self_parameter: None,
+                                    regular_parameters: [
+                                        RegularParameterDeclPattern {
+                                            pattern: 0,
+                                            variables: ArenaIdxRange(
+                                                0..1,
+                                            ),
+                                            colon: ColonToken(
+                                                TokenIdx(
+                                                    776,
+                                                ),
+                                            ),
+                                            ty: 1,
+                                        },
+                                        RegularParameterDeclPattern {
+                                            pattern: 1,
+                                            variables: ArenaIdxRange(
+                                                1..2,
+                                            ),
+                                            colon: ColonToken(
+                                                TokenIdx(
+                                                    781,
+                                                ),
+                                            ),
+                                            ty: 2,
+                                        },
+                                        RegularParameterDeclPattern {
+                                            pattern: 2,
+                                            variables: ArenaIdxRange(
+                                                2..3,
+                                            ),
+                                            colon: ColonToken(
+                                                TokenIdx(
+                                                    785,
+                                                ),
+                                            ),
+                                            ty: 3,
+                                        },
+                                        RegularParameterDeclPattern {
+                                            pattern: 3,
+                                            variables: ArenaIdxRange(
+                                                3..4,
+                                            ),
+                                            colon: ColonToken(
+                                                TokenIdx(
+                                                    789,
+                                                ),
+                                            ),
+                                            ty: 4,
+                                        },
+                                    ],
+                                    commas: [
+                                        CommaToken(
                                             TokenIdx(
-                                                774,
+                                                779,
                                             ),
                                         ),
-                                        parameters: [
-                                            ExplicitParameterDeclPattern {
-                                                pattern: 0,
-                                                variables: ArenaIdxRange(
-                                                    0..1,
-                                                ),
-                                                colon: ColonToken(
-                                                    TokenIdx(
-                                                        776,
-                                                    ),
-                                                ),
-                                                ty: 1,
-                                            },
-                                            ExplicitParameterDeclPattern {
-                                                pattern: 1,
-                                                variables: ArenaIdxRange(
-                                                    1..2,
-                                                ),
-                                                colon: ColonToken(
-                                                    TokenIdx(
-                                                        781,
-                                                    ),
-                                                ),
-                                                ty: 2,
-                                            },
-                                            ExplicitParameterDeclPattern {
-                                                pattern: 2,
-                                                variables: ArenaIdxRange(
-                                                    2..3,
-                                                ),
-                                                colon: ColonToken(
-                                                    TokenIdx(
-                                                        785,
-                                                    ),
-                                                ),
-                                                ty: 3,
-                                            },
-                                            ExplicitParameterDeclPattern {
-                                                pattern: 3,
-                                                variables: ArenaIdxRange(
-                                                    3..4,
-                                                ),
-                                                colon: ColonToken(
-                                                    TokenIdx(
-                                                        789,
-                                                    ),
-                                                ),
-                                                ty: 4,
-                                            },
-                                        ],
-                                        commas: [
-                                            CommaToken(
-                                                TokenIdx(
-                                                    779,
-                                                ),
-                                            ),
-                                            CommaToken(
-                                                TokenIdx(
-                                                    783,
-                                                ),
-                                            ),
-                                            CommaToken(
-                                                TokenIdx(
-                                                    787,
-                                                ),
-                                            ),
-                                        ],
-                                        decl_list_result: Ok(
-                                            (),
-                                        ),
-                                        rpar: Ok(
-                                            RightParenthesisToken(
-                                                TokenIdx(
-                                                    791,
-                                                ),
+                                        CommaToken(
+                                            TokenIdx(
+                                                783,
                                             ),
                                         ),
-                                    },
-                                ),
-                                curry_token: Ok(
+                                        CommaToken(
+                                            TokenIdx(
+                                                787,
+                                            ),
+                                        ),
+                                    ],
+                                    rpar: RightParenthesisToken(
+                                        TokenIdx(
+                                            791,
+                                        ),
+                                    ),
+                                },
+                                curry_token: Some(
                                     CurryToken(
                                         TokenIdx(
                                             792,
                                         ),
                                     ),
                                 ),
-                                return_ty: Ok(
-                                    OutputTypeExpr {
+                                return_ty: Some(
+                                    ReturnTypeExpr {
                                         expr: 5,
                                     },
                                 ),
-                                eol_colon: Ok(
-                                    EolColonToken(
-                                        TokenIdx(
-                                            794,
-                                        ),
+                                eol_colon: EolColonToken(
+                                    TokenIdx(
+                                        794,
                                     ),
                                 ),
                             },
@@ -1896,22 +1652,22 @@ Ok(
                                             pattern_expr_arena: Arena {
                                                 data: [
                                                     PatternExpr::Ident {
+                                                        modifier: None,
                                                         ident_token: IdentToken {
                                                             ident: `ct`,
                                                             token_idx: TokenIdx(
                                                                 1041,
                                                             ),
                                                         },
-                                                        liason: None,
                                                     },
                                                     PatternExpr::Ident {
+                                                        modifier: None,
                                                         ident_token: IdentToken {
                                                             ident: `r`,
                                                             token_idx: TokenIdx(
                                                                 1046,
                                                             ),
                                                         },
-                                                        liason: None,
                                                     },
                                                 ],
                                             },
@@ -1955,7 +1711,7 @@ Ok(
                                                             1042,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::RegularParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitParameter {
                                                             ident: `ct`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -1965,7 +1721,7 @@ Ok(
                                                             1047,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::RegularParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitParameter {
                                                             ident: `r`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -1975,11 +1731,11 @@ Ok(
                                             allow_self_type: False,
                                             allow_self_value: False,
                                             pattern_ty_constraints: [
-                                                RegularParameter {
+                                                ExplicitParameter {
                                                     pattern: 0,
                                                     ty: 1,
                                                 },
-                                                RegularParameter {
+                                                ExplicitParameter {
                                                     pattern: 1,
                                                     ty: 2,
                                                 },
@@ -1993,78 +1749,68 @@ Ok(
                                         ],
                                     },
                                 },
-                                implicit_parameter_decl_list: Ok(
-                                    None,
-                                ),
-                                parameter_decl_list: Ok(
-                                    ExplicitParameterDeclList {
-                                        lpar: LeftParenthesisToken(
+                                implicit_parameter_decl_list: None,
+                                parameter_decl_list: ExplicitParameterDeclList {
+                                    lpar: LeftParenthesisToken(
+                                        TokenIdx(
+                                            1040,
+                                        ),
+                                    ),
+                                    self_parameter: None,
+                                    regular_parameters: [
+                                        RegularParameterDeclPattern {
+                                            pattern: 0,
+                                            variables: ArenaIdxRange(
+                                                0..1,
+                                            ),
+                                            colon: ColonToken(
+                                                TokenIdx(
+                                                    1042,
+                                                ),
+                                            ),
+                                            ty: 1,
+                                        },
+                                        RegularParameterDeclPattern {
+                                            pattern: 1,
+                                            variables: ArenaIdxRange(
+                                                1..2,
+                                            ),
+                                            colon: ColonToken(
+                                                TokenIdx(
+                                                    1047,
+                                                ),
+                                            ),
+                                            ty: 2,
+                                        },
+                                    ],
+                                    commas: [
+                                        CommaToken(
                                             TokenIdx(
-                                                1040,
+                                                1045,
                                             ),
                                         ),
-                                        parameters: [
-                                            ExplicitParameterDeclPattern {
-                                                pattern: 0,
-                                                variables: ArenaIdxRange(
-                                                    0..1,
-                                                ),
-                                                colon: ColonToken(
-                                                    TokenIdx(
-                                                        1042,
-                                                    ),
-                                                ),
-                                                ty: 1,
-                                            },
-                                            ExplicitParameterDeclPattern {
-                                                pattern: 1,
-                                                variables: ArenaIdxRange(
-                                                    1..2,
-                                                ),
-                                                colon: ColonToken(
-                                                    TokenIdx(
-                                                        1047,
-                                                    ),
-                                                ),
-                                                ty: 2,
-                                            },
-                                        ],
-                                        commas: [
-                                            CommaToken(
-                                                TokenIdx(
-                                                    1045,
-                                                ),
-                                            ),
-                                        ],
-                                        decl_list_result: Ok(
-                                            (),
+                                    ],
+                                    rpar: RightParenthesisToken(
+                                        TokenIdx(
+                                            1049,
                                         ),
-                                        rpar: Ok(
-                                            RightParenthesisToken(
-                                                TokenIdx(
-                                                    1049,
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                ),
-                                curry_token: Ok(
+                                    ),
+                                },
+                                curry_token: Some(
                                     CurryToken(
                                         TokenIdx(
                                             1050,
                                         ),
                                     ),
                                 ),
-                                return_ty: Ok(
-                                    OutputTypeExpr {
+                                return_ty: Some(
+                                    ReturnTypeExpr {
                                         expr: 5,
                                     },
                                 ),
-                                eol_colon: Ok(
-                                    EolColonToken(
-                                        TokenIdx(
-                                            1054,
-                                        ),
+                                eol_colon: EolColonToken(
+                                    TokenIdx(
+                                        1054,
                                     ),
                                 ),
                             },
@@ -2109,17 +1855,13 @@ Ok(
                                         81,
                                     ),
                                 },
-                                implicit_parameter_decl_list: Ok(
-                                    None,
-                                ),
+                                implicit_parameter_decl_list: None,
                                 ty_expr: TypeExpr {
                                     expr: 0,
                                 },
-                                eol_colon: Ok(
-                                    EolColonToken(
-                                        TokenIdx(
-                                            83,
-                                        ),
+                                eol_colon: EolColonToken(
+                                    TokenIdx(
+                                        83,
                                     ),
                                 ),
                                 expr_region: ExprRegion {
@@ -2437,31 +2179,31 @@ Ok(
                                                 pattern_expr_arena: Arena {
                                                     data: [
                                                         PatternExpr::Ident {
+                                                            modifier: None,
                                                             ident_token: IdentToken {
                                                                 ident: `ct`,
                                                                 token_idx: TokenIdx(
                                                                     88,
                                                                 ),
                                                             },
-                                                            liason: None,
                                                         },
                                                         PatternExpr::Ident {
+                                                            modifier: None,
                                                             ident_token: IdentToken {
                                                                 ident: `from`,
                                                                 token_idx: TokenIdx(
                                                                     93,
                                                                 ),
                                                             },
-                                                            liason: None,
                                                         },
                                                         PatternExpr::Ident {
+                                                            modifier: None,
                                                             ident_token: IdentToken {
                                                                 ident: `to`,
                                                                 token_idx: TokenIdx(
                                                                     97,
                                                                 ),
                                                             },
-                                                            liason: None,
                                                         },
                                                     ],
                                                 },
@@ -2515,7 +2257,7 @@ Ok(
                                                                 89,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                            variant: CurrentSymbolVariant::ExplicitParameter {
                                                                 ident: `ct`,
                                                                 pattern_symbol_idx: 0,
                                                             },
@@ -2525,7 +2267,7 @@ Ok(
                                                                 94,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                            variant: CurrentSymbolVariant::ExplicitParameter {
                                                                 ident: `from`,
                                                                 pattern_symbol_idx: 1,
                                                             },
@@ -2535,7 +2277,7 @@ Ok(
                                                                 98,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                            variant: CurrentSymbolVariant::ExplicitParameter {
                                                                 ident: `to`,
                                                                 pattern_symbol_idx: 2,
                                                             },
@@ -2545,15 +2287,15 @@ Ok(
                                                 allow_self_type: True,
                                                 allow_self_value: True,
                                                 pattern_ty_constraints: [
-                                                    RegularParameter {
+                                                    ExplicitParameter {
                                                         pattern: 0,
                                                         ty: 1,
                                                     },
-                                                    RegularParameter {
+                                                    ExplicitParameter {
                                                         pattern: 1,
                                                         ty: 2,
                                                     },
-                                                    RegularParameter {
+                                                    ExplicitParameter {
                                                         pattern: 2,
                                                         ty: 3,
                                                     },
@@ -2567,95 +2309,85 @@ Ok(
                                             ],
                                         },
                                     },
-                                    implicit_parameter_decl_list: Ok(
-                                        None,
-                                    ),
-                                    parameter_decl_list: Ok(
-                                        ExplicitParameterDeclList {
-                                            lpar: LeftParenthesisToken(
+                                    implicit_parameter_decl_list: None,
+                                    parameter_decl_list: ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                87,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        89,
+                                                    ),
+                                                ),
+                                                ty: 1,
+                                            },
+                                            RegularParameterDeclPattern {
+                                                pattern: 1,
+                                                variables: ArenaIdxRange(
+                                                    1..2,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        94,
+                                                    ),
+                                                ),
+                                                ty: 2,
+                                            },
+                                            RegularParameterDeclPattern {
+                                                pattern: 2,
+                                                variables: ArenaIdxRange(
+                                                    2..3,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        98,
+                                                    ),
+                                                ),
+                                                ty: 3,
+                                            },
+                                        ],
+                                        commas: [
+                                            CommaToken(
                                                 TokenIdx(
-                                                    87,
+                                                    92,
                                                 ),
                                             ),
-                                            parameters: [
-                                                ExplicitParameterDeclPattern {
-                                                    pattern: 0,
-                                                    variables: ArenaIdxRange(
-                                                        0..1,
-                                                    ),
-                                                    colon: ColonToken(
-                                                        TokenIdx(
-                                                            89,
-                                                        ),
-                                                    ),
-                                                    ty: 1,
-                                                },
-                                                ExplicitParameterDeclPattern {
-                                                    pattern: 1,
-                                                    variables: ArenaIdxRange(
-                                                        1..2,
-                                                    ),
-                                                    colon: ColonToken(
-                                                        TokenIdx(
-                                                            94,
-                                                        ),
-                                                    ),
-                                                    ty: 2,
-                                                },
-                                                ExplicitParameterDeclPattern {
-                                                    pattern: 2,
-                                                    variables: ArenaIdxRange(
-                                                        2..3,
-                                                    ),
-                                                    colon: ColonToken(
-                                                        TokenIdx(
-                                                            98,
-                                                        ),
-                                                    ),
-                                                    ty: 3,
-                                                },
-                                            ],
-                                            commas: [
-                                                CommaToken(
-                                                    TokenIdx(
-                                                        92,
-                                                    ),
-                                                ),
-                                                CommaToken(
-                                                    TokenIdx(
-                                                        96,
-                                                    ),
-                                                ),
-                                            ],
-                                            decl_list_result: Ok(
-                                                (),
-                                            ),
-                                            rpar: Ok(
-                                                RightParenthesisToken(
-                                                    TokenIdx(
-                                                        100,
-                                                    ),
+                                            CommaToken(
+                                                TokenIdx(
+                                                    96,
                                                 ),
                                             ),
-                                        },
-                                    ),
-                                    curry_token: Ok(
+                                        ],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                100,
+                                            ),
+                                        ),
+                                    },
+                                    curry_token: Some(
                                         CurryToken(
                                             TokenIdx(
                                                 101,
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
-                                        OutputTypeExpr {
+                                    return_ty: Some(
+                                        ReturnTypeExpr {
                                             expr: 4,
                                         },
                                     ),
-                                    eol_colon: Ok(
-                                        EolColonToken(
-                                            TokenIdx(
-                                                103,
-                                            ),
+                                    eol_colon: EolColonToken(
+                                        TokenIdx(
+                                            103,
                                         ),
                                     ),
                                 },
@@ -2903,47 +2635,37 @@ Ok(
                                             ],
                                         },
                                     },
-                                    implicit_parameter_decl_list: Ok(
-                                        None,
-                                    ),
-                                    parameter_decl_list: Ok(
-                                        ExplicitParameterDeclList {
-                                            lpar: LeftParenthesisToken(
-                                                TokenIdx(
-                                                    125,
-                                                ),
+                                    implicit_parameter_decl_list: None,
+                                    explicit_parameter_decl_list: ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                125,
                                             ),
-                                            parameters: [],
-                                            commas: [],
-                                            decl_list_result: Ok(
-                                                (),
+                                        ),
+                                        self_parameter: None,
+                                        regular_parameters: [],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                126,
                                             ),
-                                            rpar: Ok(
-                                                RightParenthesisToken(
-                                                    TokenIdx(
-                                                        126,
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    curry_token: Ok(
+                                        ),
+                                    },
+                                    curry_token: Some(
                                         CurryToken(
                                             TokenIdx(
                                                 127,
                                             ),
                                         ),
                                     ),
-                                    return_ty_inner: Ok(
-                                        OutputTypeExpr {
+                                    return_ty: Some(
+                                        ReturnTypeExpr {
                                             expr: 0,
                                         },
                                     ),
-                                    eol_colon: Ok(
-                                        EolColonToken(
-                                            TokenIdx(
-                                                129,
-                                            ),
+                                    eol_colon: EolColonToken(
+                                        TokenIdx(
+                                            129,
                                         ),
                                     ),
                                 },
@@ -2989,17 +2711,13 @@ Ok(
                                         175,
                                     ),
                                 },
-                                implicit_parameter_decl_list: Ok(
-                                    None,
-                                ),
+                                implicit_parameter_decl_list: None,
                                 ty_expr: TypeExpr {
                                     expr: 0,
                                 },
-                                eol_colon: Ok(
-                                    EolColonToken(
-                                        TokenIdx(
-                                            177,
-                                        ),
+                                eol_colon: EolColonToken(
+                                    TokenIdx(
+                                        177,
                                     ),
                                 ),
                                 expr_region: ExprRegion {
@@ -3326,23 +3044,21 @@ Ok(
                                             ],
                                         },
                                     },
-                                    curry_token: Ok(
+                                    curry_token: Some(
                                         CurryToken(
                                             TokenIdx(
                                                 180,
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
-                                        OutputTypeExpr {
+                                    return_ty: Some(
+                                        ReturnTypeExpr {
                                             expr: 2,
                                         },
                                     ),
-                                    eol_colon: Ok(
-                                        EolColonToken(
-                                            TokenIdx(
-                                                184,
-                                            ),
+                                    eol_colon: EolColonToken(
+                                        TokenIdx(
+                                            184,
                                         ),
                                     ),
                                 },
@@ -3580,23 +3296,21 @@ Ok(
                                             ],
                                         },
                                     },
-                                    curry_token: Ok(
+                                    curry_token: Some(
                                         CurryToken(
                                             TokenIdx(
                                                 191,
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
-                                        OutputTypeExpr {
+                                    return_ty: Some(
+                                        ReturnTypeExpr {
                                             expr: 0,
                                         },
                                     ),
-                                    eol_colon: Ok(
-                                        EolColonToken(
-                                            TokenIdx(
-                                                193,
-                                            ),
+                                    eol_colon: EolColonToken(
+                                        TokenIdx(
+                                            193,
                                         ),
                                     ),
                                 },
@@ -3819,22 +3533,22 @@ Ok(
                                                 pattern_expr_arena: Arena {
                                                     data: [
                                                         PatternExpr::Ident {
+                                                            modifier: None,
                                                             ident_token: IdentToken {
                                                                 ident: `ct`,
                                                                 token_idx: TokenIdx(
                                                                     317,
                                                                 ),
                                                             },
-                                                            liason: None,
                                                         },
                                                         PatternExpr::Ident {
+                                                            modifier: None,
                                                             ident_token: IdentToken {
                                                                 ident: `r`,
                                                                 token_idx: TokenIdx(
                                                                     322,
                                                                 ),
                                                             },
-                                                            liason: None,
                                                         },
                                                     ],
                                                 },
@@ -3878,7 +3592,7 @@ Ok(
                                                                 318,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                            variant: CurrentSymbolVariant::ExplicitParameter {
                                                                 ident: `ct`,
                                                                 pattern_symbol_idx: 0,
                                                             },
@@ -3888,7 +3602,7 @@ Ok(
                                                                 323,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSymbolVariant::RegularParameter {
+                                                            variant: CurrentSymbolVariant::ExplicitParameter {
                                                                 ident: `r`,
                                                                 pattern_symbol_idx: 1,
                                                             },
@@ -3898,11 +3612,11 @@ Ok(
                                                 allow_self_type: True,
                                                 allow_self_value: True,
                                                 pattern_ty_constraints: [
-                                                    RegularParameter {
+                                                    ExplicitParameter {
                                                         pattern: 0,
                                                         ty: 1,
                                                     },
-                                                    RegularParameter {
+                                                    ExplicitParameter {
                                                         pattern: 1,
                                                         ty: 2,
                                                     },
@@ -3916,78 +3630,68 @@ Ok(
                                             ],
                                         },
                                     },
-                                    implicit_parameter_decl_list: Ok(
-                                        None,
-                                    ),
-                                    parameter_decl_list: Ok(
-                                        ExplicitParameterDeclList {
-                                            lpar: LeftParenthesisToken(
+                                    implicit_parameter_decl_list: None,
+                                    parameter_decl_list: ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                316,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        318,
+                                                    ),
+                                                ),
+                                                ty: 1,
+                                            },
+                                            RegularParameterDeclPattern {
+                                                pattern: 1,
+                                                variables: ArenaIdxRange(
+                                                    1..2,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        323,
+                                                    ),
+                                                ),
+                                                ty: 2,
+                                            },
+                                        ],
+                                        commas: [
+                                            CommaToken(
                                                 TokenIdx(
-                                                    316,
+                                                    321,
                                                 ),
                                             ),
-                                            parameters: [
-                                                ExplicitParameterDeclPattern {
-                                                    pattern: 0,
-                                                    variables: ArenaIdxRange(
-                                                        0..1,
-                                                    ),
-                                                    colon: ColonToken(
-                                                        TokenIdx(
-                                                            318,
-                                                        ),
-                                                    ),
-                                                    ty: 1,
-                                                },
-                                                ExplicitParameterDeclPattern {
-                                                    pattern: 1,
-                                                    variables: ArenaIdxRange(
-                                                        1..2,
-                                                    ),
-                                                    colon: ColonToken(
-                                                        TokenIdx(
-                                                            323,
-                                                        ),
-                                                    ),
-                                                    ty: 2,
-                                                },
-                                            ],
-                                            commas: [
-                                                CommaToken(
-                                                    TokenIdx(
-                                                        321,
-                                                    ),
-                                                ),
-                                            ],
-                                            decl_list_result: Ok(
-                                                (),
+                                        ],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                325,
                                             ),
-                                            rpar: Ok(
-                                                RightParenthesisToken(
-                                                    TokenIdx(
-                                                        325,
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    curry_token: Ok(
+                                        ),
+                                    },
+                                    curry_token: Some(
                                         CurryToken(
                                             TokenIdx(
                                                 326,
                                             ),
                                         ),
                                     ),
-                                    return_ty: Ok(
-                                        OutputTypeExpr {
+                                    return_ty: Some(
+                                        ReturnTypeExpr {
                                             expr: 3,
                                         },
                                     ),
-                                    eol_colon: Ok(
-                                        EolColonToken(
-                                            TokenIdx(
-                                                328,
-                                            ),
+                                    eol_colon: EolColonToken(
+                                        TokenIdx(
+                                            328,
                                         ),
                                     ),
                                 },

@@ -18,7 +18,7 @@ pub(crate) fn expr_diagnostic_sheet(
     db: &dyn DiagnosticsDb,
     module_path: ModulePath,
 ) -> ExprDiagnosticSheet {
-    let mut diagnostics = vec![];
+    let mut sheet_collector = SheetDiagnosticsCollector::new(db, module_path);
     if let (Ok(ranged_token_sheet), Ok(defn_sheet)) = (
         db.ranged_token_sheet(module_path),
         db.collect_defns(module_path),
@@ -27,52 +27,45 @@ pub(crate) fn expr_diagnostic_sheet(
         for (_, defn) in defn_sheet.defns() {
             if let Ok(defn) = defn {
                 let decl = defn.decl(db);
-                collect_expr_diagnostics(db, decl.expr_region(db), &mut diagnostics);
+                sheet_collector.collect_expr_diagnostics(decl.expr_region(db));
                 if let Some(expr_region) = defn.expr_region(db) {
-                    collect_expr_diagnostics(db, expr_region, &mut diagnostics);
+                    sheet_collector.collect_expr_diagnostics(expr_region);
                 }
             }
         }
     }
-    ExprDiagnosticSheet::new(db, diagnostics)
+    ExprDiagnosticSheet::new(db, sheet_collector.finish())
 }
 
-fn collect_expr_diagnostics(
-    db: &dyn DiagnosticsDb,
-    expr_region: ExprRegion,
-    diagnostics: &mut Vec<Diagnostic>,
-) {
-    let expr_region_data = expr_region.data(db);
-    let ctx: RegionDiagnosticsContext = RegionDiagnosticsContext::new(db, expr_region);
-    for expr in expr_region_data.expr_arena().data() {
-        match expr {
-            Expr::Err(ExprError::Original(error)) => diagnostics.push(error.to_diagnostic(&ctx)),
-            _ => (),
+impl<'a> SheetDiagnosticsCollector<'a> {
+    fn collect_expr_diagnostics(&mut self, expr_region: ExprRegion) {
+        let expr_region_data = expr_region.data(self.db());
+        for expr in expr_region_data.expr_arena().data() {
+            match expr {
+                Expr::Err(ExprError::Original(e)) => self.visit_atom(e),
+                _ => (),
+            }
         }
-    }
-    for stmt in expr_region_data.stmt_arena().data() {
-        match stmt {
-            Stmt::Err(error) => diagnostics.push(error.to_diagnostic(&ctx)),
-            _ => (),
+        for stmt in expr_region_data.stmt_arena().data() {
+            match stmt {
+                Stmt::Err(e) => self.visit_atom(e),
+                _ => (),
+            }
         }
-    }
-    for entity_path_expr in expr_region_data.entity_path_expr_arena().data() {
-        match entity_path_expr {
-            EntityPathExpr::Root { .. } => (),
-            EntityPathExpr::Subentity {
-                ident_token, path, ..
-            } => {
-                match ident_token {
-                    Err(EntityPathExprError::Original(error)) => {
-                        diagnostics.push(error.to_diagnostic(&ctx))
+        for entity_path_expr in expr_region_data.entity_path_expr_arena().data() {
+            match entity_path_expr {
+                EntityPathExpr::Root { .. } => (),
+                EntityPathExpr::Subentity {
+                    ident_token, path, ..
+                } => {
+                    match ident_token {
+                        Err(EntityPathExprError::Original(e)) => self.visit_atom(e),
+                        _ => (),
                     }
-                    _ => (),
-                }
-                match path {
-                    Err(EntityPathExprError::Original(error)) => {
-                        diagnostics.push(error.to_diagnostic(&ctx))
+                    match path {
+                        Err(EntityPathExprError::Original(e)) => self.visit_atom(e),
+                        _ => (),
                     }
-                    _ => (),
                 }
             }
         }
@@ -80,7 +73,7 @@ fn collect_expr_diagnostics(
 }
 
 impl Diagnose for OriginalExprError {
-    type Context<'a> = RegionDiagnosticsContext<'a>;
+    type Context<'a> = SheetDiagnosticsContext<'a>;
 
     fn message(&self, _db: &Self::Context<'_>) -> String {
         match self {
@@ -255,9 +248,9 @@ impl Diagnose for OriginalExprError {
 }
 
 impl Diagnose for OriginalEntityPathExprError {
-    type Context<'a> = RegionDiagnosticsContext<'a>;
+    type Context<'a> = SheetDiagnosticsContext<'a>;
 
-    fn message(&self, ctx: &RegionDiagnosticsContext) -> String {
+    fn message(&self, ctx: &SheetDiagnosticsContext) -> String {
         match self {
             OriginalEntityPathExprError::EntityTree {
                 token_idx: _,
@@ -281,7 +274,7 @@ impl Diagnose for OriginalEntityPathExprError {
         }
     }
 
-    fn range(&self, ctx: &RegionDiagnosticsContext) -> TextRange {
+    fn range(&self, ctx: &SheetDiagnosticsContext) -> TextRange {
         match self {
             OriginalEntityPathExprError::EntityTree {
                 token_idx,
@@ -293,9 +286,9 @@ impl Diagnose for OriginalEntityPathExprError {
 }
 
 impl Diagnose for StmtError {
-    type Context<'a> = RegionDiagnosticsContext<'a>;
+    type Context<'a> = SheetDiagnosticsContext<'a>;
 
-    fn message(&self, _ctx: &RegionDiagnosticsContext) -> String {
+    fn message(&self, _ctx: &SheetDiagnosticsContext) -> String {
         todo!()
     }
 
@@ -303,7 +296,7 @@ impl Diagnose for StmtError {
         todo!()
     }
 
-    fn range(&self, _ctx: &RegionDiagnosticsContext) -> TextRange {
+    fn range(&self, _ctx: &SheetDiagnosticsContext) -> TextRange {
         todo!()
     }
 }

@@ -6,9 +6,9 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    parameters: RegularParameterSignatures {
+                    parameters: ExplicitParameterSignatures {
                         parameters: [
-                            RegularParameterSignature {
+                            ExplicitParameterSignature {
                                 pattern: ParameterSignaturePattern,
                                 ty: EntityPath(
                                     Type(
@@ -20,7 +20,7 @@
                                     ),
                                 ),
                             },
-                            RegularParameterSignature {
+                            ExplicitParameterSignature {
                                 pattern: ParameterSignaturePattern,
                                 ty: EntityPath(
                                     Type(

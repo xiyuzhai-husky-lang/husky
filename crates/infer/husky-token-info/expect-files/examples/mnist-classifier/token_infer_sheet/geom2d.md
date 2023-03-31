@@ -149,7 +149,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `shift`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -172,7 +172,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `i`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -310,7 +310,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `other`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -324,7 +324,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `other`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -451,7 +451,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `other`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -689,7 +689,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `other`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -703,7 +703,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `other`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -830,7 +830,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `other`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -844,7 +844,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `other`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -910,7 +910,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `other`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -924,7 +924,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `other`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -1025,7 +1025,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `is_branch_cut_positive`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -1129,7 +1129,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `other`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -1246,7 +1246,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `other`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -1281,7 +1281,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `other`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -1327,7 +1327,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `is_branch_cut_positive`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -1356,7 +1356,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `other`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -1672,7 +1672,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `other`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -1689,7 +1689,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `other`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -1771,7 +1771,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `point`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -1788,7 +1788,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `point`,
                 },
                 expr_region: ExprRegionLeash(_),

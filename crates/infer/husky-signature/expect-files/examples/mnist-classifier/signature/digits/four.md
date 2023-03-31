@@ -9,9 +9,9 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    parameters: RegularParameterSignatures {
+                    parameters: ExplicitParameterSignatures {
                         parameters: [
-                            RegularParameterSignature {
+                            ExplicitParameterSignature {
                                 pattern: ParameterSignaturePattern,
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
@@ -44,9 +44,9 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    parameters: RegularParameterSignatures {
+                    parameters: ExplicitParameterSignatures {
                         parameters: [
-                            RegularParameterSignature {
+                            ExplicitParameterSignature {
                                 pattern: ParameterSignaturePattern,
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
@@ -70,9 +70,9 @@
                     implicit_parameters: ImplicitParameterSignatures {
                         data: [],
                     },
-                    parameters: RegularParameterSignatures {
+                    parameters: ExplicitParameterSignatures {
                         parameters: [
-                            RegularParameterSignature {
+                            ExplicitParameterSignature {
                                 pattern: ParameterSignaturePattern,
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(

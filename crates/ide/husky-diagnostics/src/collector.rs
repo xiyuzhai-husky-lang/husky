@@ -24,8 +24,12 @@ impl<'a> SheetDiagnosticsCollector<'a> {
         self.diagnostics
     }
 
-    pub(crate) fn db(&'a self) -> &'a dyn DiagnosticsDb {
+    pub(crate) fn db(&self) -> &'a dyn DiagnosticsDb {
         self.context.db()
+    }
+
+    pub(crate) fn ctx(&self) -> &SheetDiagnosticsContext<'a> {
+        &self.context
     }
 }
 

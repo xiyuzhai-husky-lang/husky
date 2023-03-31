@@ -184,7 +184,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `line_segment_sketch`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -206,7 +206,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `line_segment_sketch`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -216,7 +216,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `index`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -245,7 +245,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `line_segment_sketch`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -256,7 +256,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `index`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -338,7 +338,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `line_segment_sketch`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -349,7 +349,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `index`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -408,7 +408,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `line_segment_sketch`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -496,7 +496,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `line_segment_sketch`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -506,7 +506,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `index`,
                 },
                 expr_region: ExprRegionLeash(_),
@@ -562,7 +562,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::RegularParameter {
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `line_segment_sketch`,
                 },
                 expr_region: ExprRegionLeash(_),

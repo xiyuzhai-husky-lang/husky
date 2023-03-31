@@ -63,7 +63,7 @@ pub struct SignatureJar(
     // impl block
     // impl_block_signature_from_decl,
     ty_impl_block_signature,
-    TypeImplSignature,
+    TypeImplBlockSignature,
     trai_for_ty_impl_block_signature,
     TraitForTypeImplBlockSignature,
     // variant

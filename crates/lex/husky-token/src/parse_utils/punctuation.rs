@@ -755,3 +755,51 @@ fn curry_token_works() {
     assert!(t(&db, "a").unwrap().is_none());
     assert!(t(&db, "'").is_err());
 }
+
+/// `!!`
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = TokenDb)]
+pub struct OwnedToken(TokenIdx);
+
+impl<'a, Context> parsec::ParseFrom<Context> for OwnedToken
+where
+    Context: TokenParseContext<'a>,
+{
+    type Error = TokenError;
+
+    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
+        let token_stream = ctx.token_stream_mut();
+        if let Some((token_idx, token)) = token_stream.next_indexed() {
+            match token {
+                Token::Punctuation(Punctuation::DoubleExclamation) => {
+                    Ok(Some(OwnedToken(token_idx)))
+                }
+                Token::Error(error) => Err(error),
+                Token::Label(_)
+                | Token::Punctuation(_)
+                | Token::Ident(_)
+                | Token::WordOpr(_)
+                | Token::Literal(_)
+                | Token::Keyword(_) => Ok(None),
+            }
+        } else {
+            Ok(None)
+        }
+    }
+}
+
+#[test]
+fn double_exclamation_token_works() {
+    fn t(db: &DB, input: &str) -> TokenResult<Option<OwnedToken>> {
+        quick_parse(db, input)
+    }
+
+    let db = DB::default();
+    assert!(t(&db, "!!").unwrap().is_some());
+    assert!(t(&db, "::@").unwrap().is_none());
+    assert!(t(&db, ":@").unwrap().is_none());
+    assert!(t(&db, ".").unwrap().is_none());
+    assert!(t(&db, "||").unwrap().is_none());
+    assert!(t(&db, "a").unwrap().is_none());
+    assert!(t(&db, "'").is_err());
+}

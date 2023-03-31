@@ -1,22 +1,40 @@
+use husky_entity_tree::TypeImplBlock;
+
 use super::*;
 
 #[salsa::interned(db = SignatureDb, jar = SignatureJar)]
-pub struct TypeImplSignature {
+pub struct TypeImplBlockSignature {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterSignatures,
     pub ty: RawTerm,
+}
+
+impl HasSignature for TypeImplBlock {
+    type Signature = TypeImplBlockSignature;
+
+    fn signature(self, db: &dyn SignatureDb) -> SignatureResult<Self::Signature> {
+        self.decl(db)?.signature(db)
+    }
+}
+
+impl HasSignature for TypeImplBlockDecl {
+    type Signature = TypeImplBlockSignature;
+
+    fn signature(self, db: &dyn SignatureDb) -> SignatureResult<Self::Signature> {
+        ty_impl_block_signature(db, self)
+    }
 }
 
 #[salsa::tracked(jar = SignatureJar)]
 pub(crate) fn ty_impl_block_signature(
     db: &dyn SignatureDb,
     decl: TypeImplBlockDecl,
-) -> SignatureResult<TypeImplSignature> {
+) -> SignatureResult<TypeImplBlockSignature> {
     let expr_region = decl.expr_region(db);
     let signature_term_region = signature_term_region(db, expr_region);
     let raw_term_menu = db.raw_term_menu(expr_region.toolchain(db)).unwrap();
     let implicit_parameters = ImplicitParameterSignatures::from_decl(
-        decl.implicit_parameters(db)?,
+        decl.implicit_parameters(db),
         &signature_term_region,
         raw_term_menu,
     );
@@ -25,5 +43,5 @@ pub(crate) fn ty_impl_block_signature(
         Ok(ty) => ty,
         Err(_) => todo!(),
     };
-    Ok(TypeImplSignature::new(db, implicit_parameters, ty))
+    Ok(TypeImplBlockSignature::new(db, implicit_parameters, ty))
 }

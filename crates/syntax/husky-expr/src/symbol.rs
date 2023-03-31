@@ -37,7 +37,7 @@ impl InheritedSymbol {
                 InheritedImplicitParameterSymbol::Lifetime { label } => None,
                 InheritedImplicitParameterSymbol::Type { ident } => Some(ident),
             },
-            InheritedSymbolKind::RegularParameter { ident } => Some(ident),
+            InheritedSymbolKind::ExplicitParameter { ident } => Some(ident),
         }
     }
 }
@@ -46,7 +46,7 @@ impl InheritedSymbol {
 #[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum InheritedSymbolKind {
     ImplicitParameter(InheritedImplicitParameterSymbol),
-    RegularParameter { ident: Ident },
+    ExplicitParameter { ident: Ident },
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -91,7 +91,7 @@ impl CurrentSymbol {
             CurrentSymbolVariant::ImplicitParameter {
                 implicit_parameter_variant: CurrentImplicitParameterSymbol::Type { ident_token },
             } => Some(ident_token.ident()),
-            CurrentSymbolVariant::RegularParameter { ident, .. }
+            CurrentSymbolVariant::ExplicitParameter { ident, .. }
             | CurrentSymbolVariant::LetVariable { ident, .. }
             | CurrentSymbolVariant::FrameVariable { ident, .. } => Some(ident),
             CurrentSymbolVariant::ImplicitParameter {
@@ -133,7 +133,7 @@ pub enum CurrentSymbolVariant {
     ImplicitParameter {
         implicit_parameter_variant: CurrentImplicitParameterSymbol,
     },
-    RegularParameter {
+    ExplicitParameter {
         ident: Ident,
         pattern_symbol_idx: PatternSymbolIdx,
     },
@@ -180,7 +180,7 @@ impl CurrentSymbolVariant {
             } => CurrentSymbolKind::ImplicitParameter {
                 implicit_parameter_kind: implicit_parameter_variant.kind(),
             },
-            CurrentSymbolVariant::RegularParameter {
+            CurrentSymbolVariant::ExplicitParameter {
                 pattern_symbol_idx, ..
             } => CurrentSymbolKind::Parameter {
                 pattern_symbol_idx: *pattern_symbol_idx,

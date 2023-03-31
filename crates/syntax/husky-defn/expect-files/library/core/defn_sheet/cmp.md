@@ -61,9 +61,7 @@ Ok(
                                         roots: [],
                                     },
                                 },
-                                implicit_parameter_decl_list: Ok(
-                                    None,
-                                ),
+                                implicit_parameter_decl_list: None,
                             },
                         },
                     ),
@@ -129,9 +127,7 @@ Ok(
                                         roots: [],
                                     },
                                 },
-                                implicit_parameter_decl_list: Ok(
-                                    None,
-                                ),
+                                implicit_parameter_decl_list: None,
                             },
                         },
                     ),
@@ -197,9 +193,7 @@ Ok(
                                         roots: [],
                                     },
                                 },
-                                implicit_parameter_decl_list: Ok(
-                                    None,
-                                ),
+                                implicit_parameter_decl_list: None,
                             },
                         },
                     ),
@@ -265,9 +259,7 @@ Ok(
                                         roots: [],
                                     },
                                 },
-                                implicit_parameter_decl_list: Ok(
-                                    None,
-                                ),
+                                implicit_parameter_decl_list: None,
                             },
                         },
                     ),

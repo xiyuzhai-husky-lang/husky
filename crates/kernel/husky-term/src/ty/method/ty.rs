@@ -1,6 +1,6 @@
 use husky_decl::HasItemDecls;
 use husky_entity_tree::EntityTreeBundleResultRef;
-use husky_signature::{ty_method_signature, RegularParameterSignature};
+use husky_signature::{ty_method_signature, ExplicitParameterSignature};
 use vec_like::VecMapGetEntry;
 
 use super::*;
@@ -142,8 +142,9 @@ impl MethodTypeInfo {
     ) -> TermResult<Self> {
         // todo: formal method, method that is not a function pointer
         let signature = signature?;
-        let t = |parameter_sig:& RegularParameterSignature| -> TermResult<TermRitchieParameterLiasonedType>{
+        let t = |parameter_sig:& ExplicitParameterSignature| -> TermResult<TermRitchieParameterLiasonedType>{
             Ok(TermRitchieParameterLiasonedType::new(
+                todo!(),
                 Term::from_raw_unchecked(
                     db,
                     parameter_sig.ty(),

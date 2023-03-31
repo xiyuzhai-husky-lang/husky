@@ -23,7 +23,7 @@ impl<'a> SheetDiagnosticsContext<'a> {
         }
     }
 
-    pub(crate) fn db(&self) -> &dyn DiagnosticsDb {
+    pub(crate) fn db(&self) -> &'a dyn DiagnosticsDb {
         self.db
     }
 

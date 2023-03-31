@@ -9,36 +9,30 @@ pub struct TraitForTypeImplBlockDecl {
     pub impl_block: TraitForTypeImplBlock,
     pub impl_token: ImplToken,
     #[return_ref]
-    implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
+    implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
     pub trai_expr: TraitExpr,
     #[return_ref]
     pub for_token: ConnectionForToken,
     pub ty_expr: TypeExpr,
-    #[return_ref]
-    pub eol_colon: DeclExprResult<EolColonToken>,
+    pub eol_colon: EolColonToken,
     pub expr_region: ExprRegion,
 }
 
 impl TraitForTypeImplBlockDecl {
-    pub fn implicit_parameters<'a>(
-        self,
-        db: &'a dyn DeclDb,
-    ) -> DeclExprResultRef<'a, &'a [ImplicitParameterDecl]> {
+    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDecl] {
         self.implicit_parameter_decl_list(db)
-            .as_ref()?
             .as_ref()
             .map(ImplicitParameterDeclList::implicit_parameters)
-            .unwrap_or(Ok(&[]))
+            .unwrap_or(&[])
     }
 }
 
-pub(super) fn trai_for_ty_impl_block_decl(
-    db: &dyn DeclDb,
-    impl_block: TraitForTypeImplBlock,
-) -> DeclResultRef<TraitForTypeImplBlockDecl> {
-    trai_for_ty_impl_block_decl_aux(db, impl_block)
-        .as_ref()
-        .copied()
+impl HasDecl for TraitForTypeImplBlock {
+    type Decl = TraitForTypeImplBlockDecl;
+
+    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
+        trai_for_ty_impl_block_decl_aux(db, self).as_ref().copied()
+    }
 }
 
 #[salsa::tracked(jar = DeclJar, return_ref)]
@@ -48,14 +42,6 @@ pub(crate) fn trai_for_ty_impl_block_decl_aux(
 ) -> DeclResult<TraitForTypeImplBlockDecl> {
     let parser = DeclParseContext::new(db, impl_block.module_path(db))?;
     Ok(parser.parse_trai_for_ty_impl_block_decl(impl_block)?.into())
-}
-
-impl HasDecl for TraitForTypeImplBlock {
-    type Decl = TraitForTypeImplBlockDecl;
-
-    fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
-        trai_for_ty_impl_block_decl(db, self)
-    }
 }
 
 impl<'a> DeclParseContext<'a> {
@@ -89,12 +75,12 @@ impl<'a> DeclParseContext<'a> {
         );
         let mut ctx = parser.ctx(None, token_group_idx, None);
         let impl_token = ctx.parse().unwrap().unwrap();
-        let implicit_parameter_decl_list = ctx.parse();
+        let implicit_parameter_decl_list = ctx.parse()?;
         // ad hoc
         let trai: TraitExpr = ctx.parse().unwrap().unwrap();
         let for_token = ctx.parse().unwrap().unwrap();
         let ty = ctx.parse().unwrap().unwrap();
-        let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon);
+        let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon)?;
         Ok(TraitForTypeImplBlockDecl::new(
             self.db(),
             ast_idx,

@@ -14,6 +14,7 @@ pub use error::*;
 pub use parameter::*;
 pub use sheet::*;
 
+use derive_getters::Getters;
 use husky_ast::*;
 use husky_entity_path::*;
 use husky_entity_tree::*;

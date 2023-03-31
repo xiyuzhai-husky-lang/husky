@@ -35,8 +35,8 @@ pub enum PatternExpr {
     Literal(LiteralData),
     /// example: `a`
     Ident {
+        modifier: PatternModifier,
         ident_token: IdentToken,
-        liason: PatternLiason,
     },
     /// example: `A::B`
     Entity(EntityPath),
@@ -73,7 +73,7 @@ pub type PatternExprIdxRange = ArenaIdxRange<PatternExpr>;
 pub type PatternExprMap<V> = ArenaMap<PatternExpr, V>;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum PatternLiason {
+pub enum PatternModifier {
     None,
     Mut,
 }
