@@ -1,7 +1,7 @@
 use crate::*;
 
 #[salsa::interned(db = SignatureDb, jar = SignatureJar)]
-pub struct FormFnSignature {
+pub struct FnSignature {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterSignatures,
     #[return_ref]
@@ -9,8 +9,16 @@ pub struct FormFnSignature {
     pub return_ty: RawTerm,
 }
 
+impl HasSignature for FnDecl {
+    type Signature = FnSignature;
+
+    fn signature(self, db: &dyn SignatureDb) -> SignatureResult<Self::Signature> {
+        fn_signature(db, self)
+    }
+}
+
 #[salsa::tracked(jar = SignatureJar)]
-pub fn form_fn_signature(db: &dyn SignatureDb, decl: FnDecl) -> SignatureResult<FormFnSignature> {
+pub fn fn_signature(db: &dyn SignatureDb, decl: FnDecl) -> SignatureResult<FnSignature> {
     let expr_region = decl.expr_region(db);
     let signature_term_region = signature_term_region(db, expr_region);
     let raw_term_menu = db.raw_term_menu(expr_region.toolchain(db)).unwrap();
@@ -28,7 +36,7 @@ pub fn form_fn_signature(db: &dyn SignatureDb, decl: FnDecl) -> SignatureResult<
         },
         Err(_) => return Err(SignatureError::ExprError),
     };
-    Ok(FormFnSignature::new(
+    Ok(FnSignature::new(
         db,
         implicit_parameters,
         parameters,
@@ -36,4 +44,4 @@ pub fn form_fn_signature(db: &dyn SignatureDb, decl: FnDecl) -> SignatureResult<
     ))
 }
 
-impl FormFnSignature {}
+impl FnSignature {}

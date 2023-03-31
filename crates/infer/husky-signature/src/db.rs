@@ -7,7 +7,6 @@ pub trait SignatureDb: salsa::DbWithJar<SignatureJar> + DecrDb + RawTermDb {
     fn signature_term_region(&self, expr_region: ExprRegion) -> &SignatureTermRegion;
     fn ty_signature_from_decl(&self, decl: TypeDecl) -> SignatureResult<TypeSignature>;
     fn trai_signature(&self, decl: TraitDecl) -> SignatureResult<TraitSignature>;
-    fn form_signature(&self, decl: FormDecl) -> SignatureResult<FormSignature>;
     fn ty_item_signature(&self, path: TypeItemPath) -> SignatureResult<TypeItemSignature>;
 }
 
@@ -25,10 +24,6 @@ where
 
     fn trai_signature(&self, decl: TraitDecl) -> SignatureResult<TraitSignature> {
         trai_signature_from_decl(self, decl)
-    }
-
-    fn form_signature(&self, decl: FormDecl) -> SignatureResult<FormSignature> {
-        form_signature_from_decl(self, decl)
     }
 
     fn ty_item_signature(&self, path: TypeItemPath) -> SignatureResult<TypeItemSignature> {

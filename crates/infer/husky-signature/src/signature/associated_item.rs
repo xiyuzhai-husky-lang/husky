@@ -27,28 +27,11 @@ pub(crate) fn associated_item_signature_from_decl(
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = SignatureDb, jar = SignatureJar)]
+#[enum_class::from_variants]
 pub enum AssociatedItemSignature {
     TypeItem(TypeItemSignature),
     TraitItem(TraitItemSignature),
     TraitForTypeItem(TraitForTypeItemSignature),
-}
-
-impl From<TraitForTypeItemSignature> for AssociatedItemSignature {
-    fn from(v: TraitForTypeItemSignature) -> Self {
-        Self::TraitForTypeItem(v)
-    }
-}
-
-impl From<TraitItemSignature> for AssociatedItemSignature {
-    fn from(v: TraitItemSignature) -> Self {
-        Self::TraitItem(v)
-    }
-}
-
-impl From<TypeItemSignature> for AssociatedItemSignature {
-    fn from(v: TypeItemSignature) -> Self {
-        Self::TypeItem(v)
-    }
 }
 
 impl AssociatedItemSignature {

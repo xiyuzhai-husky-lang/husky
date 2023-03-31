@@ -1,5 +1,25 @@
 use crate::*;
 
+#[salsa::interned(db = SignatureDb, jar = SignatureJar)]
+pub struct FeatureSignature {
+    pub return_ty: RawTerm,
+}
+
+impl HasSignature for FeatureDecl {
+    type Signature = FeatureSignature;
+
+    fn signature(self, db: &dyn SignatureDb) -> SignatureResult<Self::Signature> {
+        feature_signature(db, self)
+    }
+}
+
+impl FeatureSignature {
+    #[inline(always)]
+    pub fn implicit_parameters(self, db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
+        &[]
+    }
+}
+
 #[salsa::tracked(jar = SignatureJar)]
 pub fn feature_signature(
     db: &dyn SignatureDb,
@@ -16,9 +36,4 @@ pub fn feature_signature(
         Err(_) => return Err(SignatureError::ExprError),
     };
     Ok(FeatureSignature::new(db, return_ty))
-}
-
-#[salsa::interned(db = SignatureDb, jar = SignatureJar)]
-pub struct FeatureSignature {
-    pub return_ty: RawTerm,
 }
