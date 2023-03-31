@@ -105,39 +105,21 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 11,
+                use_expr_idx: 10,
                 rule_idx: UseExprRuleIdx(
                     3,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: PackageDependency {
-                        entity_path: Module(
-                            ModulePath(
-                                Id {
-                                    value: 62,
-                                },
-                            ),
+                    original_symbol: CrateRoot {
+                        root_module: ModulePath(
+                            Id {
+                                value: 40,
+                            },
                         ),
                     },
                 },
             },
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::UseExpr {
-                use_expr_idx: 9,
-                rule_idx: UseExprRuleIdx(
-                    7,
-                ),
-                state: UseExprRuleState::Erroneous,
-            },
-            TokenInfo::None,
-            TokenInfo::UseExpr {
-                use_expr_idx: 10,
-                rule_idx: UseExprRuleIdx(
-                    8,
-                ),
-                state: UseExprRuleState::Erroneous,
-            },
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,

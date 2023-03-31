@@ -5,13 +5,13 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `quick_sort`,
-                    accessibility: Visibility::Public,
+                    visibility: Visibility::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
                                 FormPath(`quick_sort::quick_sort`, `Fn`),
                             ),
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             ast_idx: 30,
                             ident_token: IdentToken {
                                 ident: `quick_sort`,
@@ -24,7 +24,7 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `quick_sort_aux`,
-                    accessibility: Visibility::PublicUnder(
+                    visibility: Visibility::PubUnder(
                         `quick_sort`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
@@ -32,7 +32,7 @@ Ok(
                             path: ModuleItemPath::Form(
                                 FormPath(`quick_sort::quick_sort_aux`, `Fn`),
                             ),
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `quick_sort`,
                             ),
                             ast_idx: 31,
@@ -47,7 +47,7 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `partition`,
-                    accessibility: Visibility::PublicUnder(
+                    visibility: Visibility::PubUnder(
                         `quick_sort`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
@@ -55,7 +55,7 @@ Ok(
                             path: ModuleItemPath::Form(
                                 FormPath(`quick_sort::partition`, `Fn`),
                             ),
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `quick_sort`,
                             ),
                             ast_idx: 32,
@@ -70,7 +70,7 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `quick_sort_works_for_integers`,
-                    accessibility: Visibility::PublicUnder(
+                    visibility: Visibility::PubUnder(
                         `quick_sort`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
@@ -78,7 +78,7 @@ Ok(
                             path: ModuleItemPath::Form(
                                 FormPath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
                             ),
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `quick_sort`,
                             ),
                             ast_idx: 34,
@@ -93,7 +93,7 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `quick_sort_works_for_strs`,
-                    accessibility: Visibility::PublicUnder(
+                    visibility: Visibility::PubUnder(
                         `quick_sort`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
@@ -101,7 +101,7 @@ Ok(
                             path: ModuleItemPath::Form(
                                 FormPath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
                             ),
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `quick_sort`,
                             ),
                             ast_idx: 36,
@@ -123,9 +123,6 @@ Ok(
             [],
         ),
         use_expr_arena: Arena {
-            data: [],
-        },
-        mod_path_arena: Arena {
             data: [],
         },
         errors: [],

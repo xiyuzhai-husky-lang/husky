@@ -1,9 +1,7 @@
+use crate::*;
 use husky_text::TextPosition;
-
 use husky_vfs::VfsError;
 use salsa::DebugWithDb;
-
-use crate::*;
 
 /// is eof if raw is equal to the len of all tokens
 #[derive(Debug, Hash, PartialOrd, Ord, PartialEq, Eq, Clone, Copy)]

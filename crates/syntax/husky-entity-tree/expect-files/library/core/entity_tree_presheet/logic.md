@@ -5,13 +5,13 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `Prop`,
-                    accessibility: Visibility::Public,
+                    visibility: Visibility::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`core::logic::Prop`, `Extern`),
                             ),
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             ast_idx: 0,
                             ident_token: IdentToken {
                                 ident: `Prop`,
@@ -24,13 +24,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `LogicAnd`,
-                    accessibility: Visibility::Public,
+                    visibility: Visibility::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`core::logic::LogicAnd`, `Structure`),
                             ),
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             ast_idx: 1,
                             ident_token: IdentToken {
                                 ident: `LogicAnd`,
@@ -43,13 +43,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `LogicOr`,
-                    accessibility: Visibility::Public,
+                    visibility: Visibility::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`core::logic::LogicOr`, `Inductive`),
                             ),
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             ast_idx: 2,
                             ident_token: IdentToken {
                                 ident: `LogicOr`,
@@ -69,9 +69,6 @@ Ok(
             [],
         ),
         use_expr_arena: Arena {
-            data: [],
-        },
-        mod_path_arena: Arena {
             data: [],
         },
         errors: [],

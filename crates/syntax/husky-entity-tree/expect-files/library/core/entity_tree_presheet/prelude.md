@@ -9,9 +9,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 0,
                     use_expr_idx: 2,
-                    accessibility: VisibilityProgress::Done {
-                        accessibility: Visibility::Public,
-                    },
+                    visibility: Visibility::Pub,
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Crate(
                             CrateToken {
@@ -30,9 +28,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 1,
                     use_expr_idx: 5,
-                    accessibility: VisibilityProgress::Done {
-                        accessibility: Visibility::Public,
-                    },
+                    visibility: Visibility::Pub,
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Crate(
                             CrateToken {
@@ -51,9 +47,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 2,
                     use_expr_idx: 8,
-                    accessibility: VisibilityProgress::Done {
-                        accessibility: Visibility::Public,
-                    },
+                    visibility: Visibility::Pub,
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Crate(
                             CrateToken {
@@ -72,9 +66,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 3,
                     use_expr_idx: 11,
-                    accessibility: VisibilityProgress::Done {
-                        accessibility: Visibility::Public,
-                    },
+                    visibility: Visibility::Pub,
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Crate(
                             CrateToken {
@@ -93,9 +85,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 4,
                     use_expr_idx: 14,
-                    accessibility: VisibilityProgress::Done {
-                        accessibility: Visibility::Public,
-                    },
+                    visibility: Visibility::Pub,
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Crate(
                             CrateToken {
@@ -114,9 +104,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 5,
                     use_expr_idx: 17,
-                    accessibility: VisibilityProgress::Done {
-                        accessibility: Visibility::Public,
-                    },
+                    visibility: Visibility::Pub,
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Crate(
                             CrateToken {
@@ -135,9 +123,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 6,
                     use_expr_idx: 20,
-                    accessibility: VisibilityProgress::Done {
-                        accessibility: Visibility::Public,
-                    },
+                    visibility: Visibility::Pub,
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Crate(
                             CrateToken {
@@ -539,9 +525,6 @@ Ok(
                     },
                 ),
             ],
-        },
-        mod_path_arena: Arena {
-            data: [],
         },
         errors: [],
     },

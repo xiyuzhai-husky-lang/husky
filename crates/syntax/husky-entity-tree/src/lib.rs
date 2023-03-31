@@ -37,11 +37,12 @@ use self::subentity::*;
 use self::submodule::*;
 #[cfg(test)]
 use self::tests::*;
-use husky_accessibility::*;
 use husky_ast::*;
 use husky_entity_path::*;
 use husky_entity_taxonomy::EntityKind;
 use husky_vfs::*;
+use husky_visibility::*;
+use husky_visibility_expr::*;
 use husky_word::{Ident, WordDb};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 use salsa::DebugWithDb;

@@ -32,6 +32,7 @@ pub enum NameToken {
     SelfValue(SelfValueToken),
     Super(SuperToken),
 }
+
 impl NameToken {
     pub fn token_idx(self) -> TokenIdx {
         match self {

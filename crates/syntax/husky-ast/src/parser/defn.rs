@@ -12,24 +12,35 @@ use salsa::DebugWithDb;
 use super::*;
 
 impl<'a> AstParser<'a> {
-    pub(super) fn parse_defn(&mut self, context: &Context, token_group_idx: TokenGroupIdx) -> Ast {
-        self.parse_defn_aux(context, token_group_idx)
+    pub(super) fn parse_defn(
+        &mut self,
+        context: &Context,
+        token_group_idx: TokenGroupIdx,
+        visibility_expr: VisibilityExpr,
+        state: Option<TokenIdx>,
+    ) -> Ast {
+        self.parse_defn_aux(context, token_group_idx, visibility_expr, state)
             .unwrap_or_else(|error| Ast::Err {
                 token_group_idx,
                 error,
             })
     }
 
-    fn parse_defn_aux(&mut self, ctx: &Context, token_group_idx: TokenGroupIdx) -> AstResult<Ast> {
+    fn parse_defn_aux(
+        &mut self,
+        ctx: &Context,
+        token_group_idx: TokenGroupIdx,
+        visibility_expr: VisibilityExpr,
+        state: Option<TokenIdx>,
+    ) -> AstResult<Ast> {
         let mut aux_parser = BasicAuxAstParser::new(
             self.db,
             ctx,
             self.module_path,
             self.token_sheet
-                .token_group_token_stream(token_group_idx, None),
+                .token_group_token_stream(token_group_idx, state),
         );
-        let (accessibility, entity_kind, ident_token, is_generic, saved_stream_state) =
-            aux_parser.parse_head()?;
+        let (entity_kind, ident_token, is_generic, saved_stream_state) = aux_parser.parse_head()?;
         let ident = ident_token.ident();
         let entity_path: Option<husky_entity_path::EntityPath> = match entity_kind {
             EntityKind::Module => {
@@ -80,7 +91,7 @@ impl<'a> AstParser<'a> {
         };
         Ok(Ast::Defn {
             // order matters!
-            accessibility,
+            visibility_expr,
             ident_token,
             is_generic,
             token_group_idx,
@@ -146,8 +157,7 @@ impl<'a> AstParser<'a> {
 }
 
 impl<'a> BasicAuxAstParser<'a> {
-    fn parse_head(mut self) -> AstResult<(Visibility, EntityKind, IdentToken, bool, TokenIdx)> {
-        let accessibility = self.parse_accessibility()?;
+    fn parse_head(mut self) -> AstResult<(EntityKind, IdentToken, bool, TokenIdx)> {
         let entity_keyword_group =
             self.parse_expected(OriginalAstError::ExpectedEntityKeywordGroup)?;
         let ident: IdentToken = self.parse_expected(OriginalAstError::ExpectedIdent)?;
@@ -194,7 +204,6 @@ impl<'a> BasicAuxAstParser<'a> {
             AstContextKind::InsideNoChild => return Err(OriginalAstError::ExpectNothing.into()),
         };
         Ok((
-            accessibility,
             entity_kind,
             ident,
             is_generic,

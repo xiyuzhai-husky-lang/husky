@@ -5,13 +5,13 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `str`,
-                    accessibility: Visibility::Public,
+                    visibility: Visibility::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`core::str::str`, `Extern`),
                             ),
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             ast_idx: 0,
                             ident_token: IdentToken {
                                 ident: `str`,
@@ -24,13 +24,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `StringLiteral`,
-                    accessibility: Visibility::Public,
+                    visibility: Visibility::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`core::str::StringLiteral`, `Extern`),
                             ),
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             ast_idx: 1,
                             ident_token: IdentToken {
                                 ident: `StringLiteral`,
@@ -50,9 +50,6 @@ Ok(
             [],
         ),
         use_expr_arena: Arena {
-            data: [],
-        },
-        mod_path_arena: Arena {
             data: [],
         },
         errors: [],

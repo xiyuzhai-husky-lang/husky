@@ -5,13 +5,13 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `is_convex`,
-                    accessibility: Visibility::Public,
+                    visibility: Visibility::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
                                 FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
                             ),
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             ast_idx: 22,
                             ident_token: IdentToken {
                                 ident: `is_convex`,
@@ -29,11 +29,9 @@ Ok(
                 UseExprRule {
                     ast_idx: 19,
                     use_expr_idx: 2,
-                    accessibility: VisibilityProgress::Done {
-                        accessibility: Visibility::PublicUnder(
-                            `mnist_classifier::line_segment_sketch::convexity`,
-                        ),
-                    },
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier::line_segment_sketch::convexity`,
+                    ),
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Crate(
                             CrateToken {
@@ -52,11 +50,9 @@ Ok(
                 UseExprRule {
                     ast_idx: 20,
                     use_expr_idx: 5,
-                    accessibility: VisibilityProgress::Done {
-                        accessibility: Visibility::PublicUnder(
-                            `mnist_classifier::line_segment_sketch::convexity`,
-                        ),
-                    },
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier::line_segment_sketch::convexity`,
+                    ),
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Crate(
                             CrateToken {
@@ -75,11 +71,9 @@ Ok(
                 UseExprRule {
                     ast_idx: 21,
                     use_expr_idx: 8,
-                    accessibility: VisibilityProgress::Done {
-                        accessibility: Visibility::PublicUnder(
-                            `mnist_classifier::line_segment_sketch::convexity`,
-                        ),
-                    },
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier::line_segment_sketch::convexity`,
+                    ),
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Crate(
                             CrateToken {
@@ -265,9 +259,6 @@ Ok(
                     },
                 ),
             ],
-        },
-        mod_path_arena: Arena {
-            data: [],
         },
         errors: [],
     },

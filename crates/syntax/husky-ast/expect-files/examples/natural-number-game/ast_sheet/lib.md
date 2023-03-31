@@ -30,12 +30,16 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::PublicUnder(
-                        `natural_number_game`,
-                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 44,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Inductive,
@@ -56,9 +60,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: EnumVariants,
                     saved_stream_state: TokenIdx(
                         2,
+                    ),
+                    body_kind: EnumVariants,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::BasicStmtOrBranch {
@@ -109,12 +116,16 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         9,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::PublicUnder(
-                        `natural_number_game`,
-                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 44,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Structure,
@@ -135,21 +146,28 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         86,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         10,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::PublicUnder(
-                        `natural_number_game`,
-                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 44,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Structure,
@@ -170,9 +188,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         115,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
             ],

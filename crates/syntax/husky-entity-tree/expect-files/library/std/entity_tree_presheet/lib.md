@@ -5,13 +5,13 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `prelude`,
-                    accessibility: Visibility::PublicUnder(
+                    visibility: Visibility::PubUnder(
                         `std`,
                     ),
                     symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `std::prelude`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `std`,
                             ),
                             ast_idx: 0,
@@ -26,13 +26,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `logic`,
-                    accessibility: Visibility::PublicUnder(
+                    visibility: Visibility::PubUnder(
                         `std`,
                     ),
                     symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `std::logic`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `std`,
                             ),
                             ast_idx: 1,
@@ -47,13 +47,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `ops`,
-                    accessibility: Visibility::PublicUnder(
+                    visibility: Visibility::PubUnder(
                         `std`,
                     ),
                     symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `std::ops`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `std`,
                             ),
                             ast_idx: 2,
@@ -75,9 +75,6 @@ Ok(
             [],
         ),
         use_expr_arena: Arena {
-            data: [],
-        },
-        mod_path_arena: Arena {
             data: [],
         },
         errors: [],

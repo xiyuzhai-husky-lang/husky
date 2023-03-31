@@ -5,13 +5,13 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `ConcaveComponent`,
-                    accessibility: Visibility::Public,
+                    visibility: Visibility::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                             ),
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             ast_idx: 74,
                             ident_token: IdentToken {
                                 ident: `ConcaveComponent`,
@@ -24,13 +24,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `find_concave_components`,
-                    accessibility: Visibility::Public,
+                    visibility: Visibility::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
                                 FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                             ),
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             ast_idx: 76,
                             ident_token: IdentToken {
                                 ident: `find_concave_components`,
@@ -48,11 +48,9 @@ Ok(
                 UseExprRule {
                     ast_idx: 69,
                     use_expr_idx: 2,
-                    accessibility: VisibilityProgress::Done {
-                        accessibility: Visibility::PublicUnder(
-                            `mnist_classifier::line_segment_sketch::concave_component`,
-                        ),
-                    },
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier::line_segment_sketch::concave_component`,
+                    ),
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Crate(
                             CrateToken {
@@ -71,11 +69,9 @@ Ok(
                 UseExprRule {
                     ast_idx: 70,
                     use_expr_idx: 6,
-                    accessibility: VisibilityProgress::Done {
-                        accessibility: Visibility::PublicUnder(
-                            `mnist_classifier::line_segment_sketch::concave_component`,
-                        ),
-                    },
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier::line_segment_sketch::concave_component`,
+                    ),
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Crate(
                             CrateToken {
@@ -94,11 +90,9 @@ Ok(
                 UseExprRule {
                     ast_idx: 71,
                     use_expr_idx: 10,
-                    accessibility: VisibilityProgress::Done {
-                        accessibility: Visibility::PublicUnder(
-                            `mnist_classifier::line_segment_sketch::concave_component`,
-                        ),
-                    },
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier::line_segment_sketch::concave_component`,
+                    ),
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Crate(
                             CrateToken {
@@ -117,11 +111,9 @@ Ok(
                 UseExprRule {
                     ast_idx: 72,
                     use_expr_idx: 13,
-                    accessibility: VisibilityProgress::Done {
-                        accessibility: Visibility::PublicUnder(
-                            `mnist_classifier::line_segment_sketch::concave_component`,
-                        ),
-                    },
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier::line_segment_sketch::concave_component`,
+                    ),
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Crate(
                             CrateToken {
@@ -140,11 +132,9 @@ Ok(
                 UseExprRule {
                     ast_idx: 73,
                     use_expr_idx: 15,
-                    accessibility: VisibilityProgress::Done {
-                        accessibility: Visibility::PublicUnder(
-                            `mnist_classifier::line_segment_sketch::concave_component`,
-                        ),
-                    },
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier::line_segment_sketch::concave_component`,
+                    ),
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Crate(
                             CrateToken {
@@ -462,9 +452,6 @@ Ok(
                     },
                 ),
             ],
-        },
-        mod_path_arena: Arena {
-            data: [],
         },
         errors: [],
     },

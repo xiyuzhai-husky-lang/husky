@@ -7,7 +7,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `quick_sort`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -18,7 +18,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `quick_sort_aux`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `quick_sort`,
                             ),
                             symbol: ModuleItem(
@@ -31,7 +31,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `partition`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `quick_sort`,
                             ),
                             symbol: ModuleItem(
@@ -44,7 +44,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `quick_sort_works_for_integers`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `quick_sort`,
                             ),
                             symbol: ModuleItem(
@@ -57,7 +57,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `quick_sort_works_for_strs`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `quick_sort`,
                             ),
                             symbol: ModuleItem(

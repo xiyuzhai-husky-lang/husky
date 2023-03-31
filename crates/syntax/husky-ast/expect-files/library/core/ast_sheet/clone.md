@@ -6,12 +6,16 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::PublicUnder(
-                        `core::clone`,
-                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 3,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitItem(
                             MethodFn,
@@ -25,19 +29,28 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         6,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
-                    body: ArenaIdxRange(
-                        0..1,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    0,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: ModuleItem {
                         module_item_kind: Trait,
                         connection: Connected,
@@ -56,9 +69,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: Block,
                     saved_stream_state: TokenIdx(
                         3,
+                    ),
+                    body_kind: Block,
+                    body: ArenaIdxRange(
+                        0..1,
                     ),
                 },
             ],

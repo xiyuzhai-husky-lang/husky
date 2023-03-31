@@ -9,9 +9,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 0,
                     use_expr_idx: 2,
-                    accessibility: VisibilityProgress::Done {
-                        accessibility: Visibility::Public,
-                    },
+                    visibility: Visibility::Pub,
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Ident(
                             IdentToken {
@@ -91,9 +89,6 @@ Ok(
                     },
                 ),
             ],
-        },
-        mod_path_arena: Arena {
-            data: [],
         },
         errors: [],
     },

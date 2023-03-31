@@ -36,7 +36,6 @@ pub struct EntityTreePresheet {
     use_one_trackers: UseExprRules,
     use_all_trackers: UseAllRules,
     use_expr_arena: UseExprArena,
-    mod_path_arena: ModulePathExprArena,
     errors: Vec<EntityTreeError>,
 }
 
@@ -60,7 +59,6 @@ impl EntityTreePresheet {
             use_all_rules: self.use_all_trackers.clone(),
             errors: self.errors.clone(),
             use_expr_arena: &self.use_expr_arena,
-            mod_path_arena: &self.mod_path_arena,
         }
     }
 }
@@ -73,7 +71,6 @@ pub(crate) struct EntityTreePresheetMut<'a> {
     use_all_rules: UseAllRules,
     errors: Vec<EntityTreeError>,
     use_expr_arena: &'a UseExprArena,
-    mod_path_arena: &'a ModulePathExprArena,
 }
 
 impl<'a> EntityTreePresheetMut<'a> {
@@ -119,7 +116,6 @@ struct EntityTreePresheetBuilder<'a> {
     ast_sheet: &'a AstSheet,
     module_path: ModulePath,
     native_symbol_entries: NativeEntitySymbolTable,
-    mod_path_expr_arena: ModulePathExprArena,
     use_expr_arena: UseExprArena,
     entity_use_trackers: UseExprRules,
     token_sheet_data: &'a TokenSheetData,
@@ -132,7 +128,6 @@ impl<'a> EntityTreePresheetBuilder<'a> {
             db,
             ast_sheet: db.ast_sheet(module_path)?,
             module_path,
-            mod_path_expr_arena: Default::default(),
             use_expr_arena: Default::default(),
             native_symbol_entries: Default::default(),
             entity_use_trackers: Default::default(),
@@ -152,24 +147,19 @@ impl<'a> EntityTreePresheetBuilder<'a> {
             use_all_trackers: Default::default(),
             errors: self.errors,
             use_expr_arena: self.use_expr_arena,
-            mod_path_arena: self.mod_path_expr_arena,
         }
     }
 
     fn process(&mut self, ast_idx: AstIdx, ast: &Ast) {
         match ast {
-            Ast::Use { token_group_idx } => {
+            Ast::Use {
+                token_group_idx,
+                visibility_expr,
+                state_after_visibility_expr,
+            } => {
                 let mut token_stream = self
                     .token_sheet_data
-                    .token_group_token_stream(*token_group_idx, None);
-                // let module_symbol_context = self.module_symbol_context;
-                let accessibility_expr = match parse_accessibility_expr(
-                    &mut token_stream,
-                    &mut self.mod_path_expr_arena,
-                ) {
-                    Ok(accessibility_expr) => accessibility_expr,
-                    Err(_) => todo!(),
-                };
+                    .token_group_token_stream(*token_group_idx, *state_after_visibility_expr);
                 let Ok(use_expr_root) =
                     parse_use_expr_root(&mut token_stream, &mut self.use_expr_arena) else {
                         return
@@ -177,7 +167,7 @@ impl<'a> EntityTreePresheetBuilder<'a> {
                 if let Some(new_rule) = UseExprRule::new_root(
                     ast_idx,
                     use_expr_root,
-                    accessibility_expr,
+                    visibility_expr,
                     &self.use_expr_arena,
                     self.module_path,
                 ) {
@@ -185,22 +175,22 @@ impl<'a> EntityTreePresheetBuilder<'a> {
                 }
             }
             Ast::Defn {
-                accessibility,
+                visibility_expr,
                 entity_path,
                 ident_token,
                 ..
             } => {
-                let accessibility = *accessibility;
+                let visibility = visibility_expr.visibility();
                 let ident = ident_token.ident();
                 if let Some(entity_path) = entity_path {
                     let new_entry = NativeEntitySymbolEntry::new(
                         ident,
-                        accessibility,
+                        visibility,
                         match entity_path {
                             EntityPath::Module(module_path) => SubmoduleSymbol::new(
                                 self.db,
                                 *module_path,
-                                accessibility,
+                                visibility,
                                 ast_idx,
                                 *ident_token,
                             )
@@ -208,7 +198,7 @@ impl<'a> EntityTreePresheetBuilder<'a> {
                             EntityPath::ModuleItem(module_item_path) => ModuleItemSymbol::new(
                                 self.db,
                                 *module_item_path,
-                                accessibility,
+                                visibility,
                                 ast_idx,
                                 *ident_token,
                             )

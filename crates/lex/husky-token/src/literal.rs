@@ -1,15 +1,16 @@
-mod bool_literal;
-mod char_literal;
-mod float_literal;
-mod integer_literal;
-mod string_literal;
-mod tuple_index_literal;
+mod bool;
+mod char;
+mod float;
+mod integer;
+mod string;
+mod tuple_index;
 
-pub use bool_literal::*;
-pub use char_literal::*;
-pub use float_literal::*;
-pub use integer_literal::*;
-pub use tuple_index_literal::*;
+pub use self::bool::*;
+pub use self::char::*;
+pub use self::float::*;
+pub use self::integer::*;
+pub use self::string::*;
+pub use self::tuple_index::*;
 
 use super::*;
 use crate::TokenJar;

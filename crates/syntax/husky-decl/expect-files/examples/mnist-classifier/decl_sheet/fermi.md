@@ -792,7 +792,7 @@ Ok(
                                         associated_item_kind: TypeItem(
                                             Memo,
                                         ),
-                                        accessibility: Visibility::PublicUnder(
+                                        visibility: Visibility::PubUnder(
                                             `mnist_classifier::fermi`,
                                         ),
                                         is_generic: false,
@@ -1044,7 +1044,7 @@ Ok(
                                         associated_item_kind: TypeItem(
                                             Memo,
                                         ),
-                                        accessibility: Visibility::PublicUnder(
+                                        visibility: Visibility::PubUnder(
                                             `mnist_classifier::fermi`,
                                         ),
                                         is_generic: false,
@@ -1296,7 +1296,7 @@ Ok(
                                         associated_item_kind: TypeItem(
                                             Memo,
                                         ),
-                                        accessibility: Visibility::PublicUnder(
+                                        visibility: Visibility::PubUnder(
                                             `mnist_classifier::fermi`,
                                         ),
                                         is_generic: false,

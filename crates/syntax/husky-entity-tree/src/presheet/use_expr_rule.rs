@@ -57,7 +57,7 @@ impl UseExprRules {
 pub struct UseExprRule {
     ast_idx: AstIdx,
     use_expr_idx: UseExprIdx,
-    accessibility: VisibilityProgress,
+    visibility: Visibility,
     variant: UseExprRuleVariant,
     parent: Option<EntityPath>,
     state: UseExprRuleState,
@@ -75,30 +75,6 @@ pub enum UseExprRuleVariant {
     },
 }
 
-// ad hoc
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
-pub enum VisibilityProgress {
-    Done { accessibility: Visibility },
-    Todo,
-}
-
-impl VisibilityProgress {
-    fn new(expr: Option<VisibilityExpr>, module_path: ModulePath) -> Self {
-        match expr {
-            Some(expr) => match expr {
-                VisibilityExpr::Public { .. } => VisibilityProgress::Done {
-                    accessibility: Visibility::Public,
-                },
-                VisibilityExpr::PublicUnder { .. } => todo!(),
-            },
-            None => VisibilityProgress::Done {
-                accessibility: Visibility::PublicUnder(module_path),
-            },
-        }
-    }
-}
-
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum UseExprRuleState {
@@ -111,7 +87,7 @@ impl UseExprRule {
     pub fn new_root(
         ast_idx: AstIdx,
         use_expr_root: UseExprRoot,
-        accessibility_expr: Option<VisibilityExpr>,
+        visibility_expr: &VisibilityExpr,
         use_expr_arena: &UseExprArena,
         module_path: ModulePath,
     ) -> Option<Self> {
@@ -124,7 +100,7 @@ impl UseExprRule {
         Some(Self {
             ast_idx,
             use_expr_idx: parent_use_expr_idx.into(),
-            accessibility: VisibilityProgress::new(accessibility_expr, module_path),
+            visibility: visibility_expr.visibility(),
             parent: None,
             state: UseExprRuleState::Unresolved,
             variant: UseExprRuleVariant::Parent {
@@ -142,7 +118,7 @@ impl UseExprRule {
         Self {
             ast_idx: self.ast_idx,
             use_expr_idx,
-            accessibility: self.accessibility,
+            visibility: self.visibility,
             parent: Some(parent),
             state: UseExprRuleState::Unresolved,
             variant,
@@ -173,11 +149,8 @@ impl UseExprRule {
         &self.variant
     }
 
-    pub(crate) fn accessibility(&self) -> Visibility {
-        match self.accessibility {
-            VisibilityProgress::Done { accessibility } => accessibility,
-            VisibilityProgress::Todo => todo!(),
-        }
+    pub(crate) fn visibility(&self) -> Visibility {
+        self.visibility
     }
 
     pub(crate) fn children(&self) -> Option<UseExprIdxRange> {

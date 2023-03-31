@@ -35,11 +35,6 @@ DiagnosticSheet {
             Diagnostic {
                 message: "SymbolNotAccessible",
                 severity: Error,
-                range: [20:12, 20:20),
-            },
-            Diagnostic {
-                message: "SymbolNotAccessible",
-                severity: Error,
                 range: [21:11, 21:18),
             },
         ],

@@ -6,10 +6,16 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    0,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Extern,
@@ -30,19 +36,28 @@ Ok(
                         ),
                     },
                     is_generic: true,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         3,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    11,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Extern,
@@ -63,19 +78,28 @@ Ok(
                         ),
                     },
                     is_generic: true,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         14,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    22,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Extern,
@@ -96,9 +120,12 @@ Ok(
                         ),
                     },
                     is_generic: true,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         25,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
             ],

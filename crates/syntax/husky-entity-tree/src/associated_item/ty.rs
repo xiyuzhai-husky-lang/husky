@@ -8,7 +8,7 @@ pub struct TypeAssociatedItem {
     pub ast_idx: AstIdx,
     pub ident: Ident,
     pub associated_item_kind: AssociatedItemKind,
-    pub accessibility: Visibility,
+    pub visibility: Visibility,
     pub is_generic: bool,
 }
 

@@ -1,11 +1,7 @@
-mod major_path_expr;
-mod module_path_expr;
-mod use_expr;
-mod visibility_expr;
+mod major_path;
+mod r#use;
 
-pub use major_path_expr::*;
-pub use module_path_expr::*;
-pub use use_expr::*;
-pub use visibility_expr::*;
+pub use self::major_path::*;
+pub use self::r#use::*;
 
 use crate::*;

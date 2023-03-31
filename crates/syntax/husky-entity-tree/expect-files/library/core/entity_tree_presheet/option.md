@@ -5,13 +5,13 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `Option`,
-                    accessibility: Visibility::Public,
+                    visibility: Visibility::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`core::option::Option`, `Enum`),
                             ),
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             ast_idx: 0,
                             ident_token: IdentToken {
                                 ident: `Option`,
@@ -31,9 +31,6 @@ Ok(
             [],
         ),
         use_expr_arena: Arena {
-            data: [],
-        },
-        mod_path_arena: Arena {
             data: [],
         },
         errors: [],

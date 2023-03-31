@@ -7,7 +7,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `connected_component`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
                             symbol: Submodule(
@@ -20,7 +20,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `raw_contour`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
                             symbol: Submodule(
@@ -33,7 +33,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `geom2d`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
                             symbol: Submodule(
@@ -46,7 +46,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `line_segment_sketch`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
                             symbol: Submodule(
@@ -59,7 +59,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `fermi`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
                             symbol: Submodule(
@@ -72,7 +72,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `digits`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
                             symbol: Submodule(
@@ -85,7 +85,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `major`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
                             symbol: Submodule(
@@ -98,7 +98,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `MnistLabel`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
                             symbol: Use(
@@ -111,7 +111,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `find_raw_contours`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
                             symbol: Use(
@@ -124,7 +124,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `connected_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
                             symbol: Use(
@@ -137,7 +137,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `major_connected_component`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
                             symbol: Use(
@@ -150,7 +150,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `ignored_connected_components_row_span_sum_sum`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
                             symbol: Use(
@@ -163,7 +163,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `major_raw_contours`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
                             symbol: Use(
@@ -176,7 +176,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `major_raw_contour`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
                             symbol: Use(
@@ -189,7 +189,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `major_line_segment_sketch`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
                             symbol: Use(
@@ -202,7 +202,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `major_concave_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
                             symbol: Use(
@@ -215,7 +215,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `fermi_match`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
                             symbol: Use(
@@ -228,7 +228,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `LineSegmentStroke`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
                             symbol: Use(
@@ -241,7 +241,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `LineSegmentSketch`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
                             symbol: Use(
@@ -254,52 +254,52 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `is_one`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 214,
+                                        value: 233,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `ConcaveComponent`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 240,
+                                        value: 259,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `find_concave_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 241,
+                                        value: 260,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `LineSegment`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 242,
+                                        value: 261,
                                     },
                                 ),
                             ),
@@ -312,11 +312,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 19,
                             use_expr_idx: 1,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -346,11 +344,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 20,
                             use_expr_idx: 3,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -380,11 +376,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 21,
                             use_expr_idx: 5,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -412,11 +406,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 22,
                             use_expr_idx: 7,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -444,11 +436,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 23,
                             use_expr_idx: 9,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -476,11 +466,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 24,
                             use_expr_idx: 11,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -508,11 +496,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 25,
                             use_expr_idx: 13,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -540,11 +526,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 26,
                             use_expr_idx: 18,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -564,11 +548,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 27,
                             use_expr_idx: 20,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -598,11 +580,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 19,
                             use_expr_idx: 0,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
                             variant: UseExprRuleVariant::Leaf {
                                 ident_token: IdentToken {
                                     ident: `BinaryImage28`,
@@ -621,11 +601,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 20,
                             use_expr_idx: 2,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
                             variant: UseExprRuleVariant::Leaf {
                                 ident_token: IdentToken {
                                     ident: `MnistLabel`,
@@ -656,11 +634,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 24,
                             use_expr_idx: 10,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
                             variant: UseExprRuleVariant::Leaf {
                                 ident_token: IdentToken {
                                     ident: `find_raw_contours`,
@@ -699,7 +675,7 @@ Ok(
                             },
                             ast_idx: 21,
                             use_expr_idx: 4,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 40,
@@ -719,7 +695,7 @@ Ok(
                             },
                             ast_idx: 22,
                             use_expr_idx: 6,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 40,
@@ -739,7 +715,7 @@ Ok(
                             },
                             ast_idx: 23,
                             use_expr_idx: 8,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 40,
@@ -759,7 +735,7 @@ Ok(
                             },
                             ast_idx: 25,
                             use_expr_idx: 12,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 40,
@@ -779,7 +755,7 @@ Ok(
                             },
                             ast_idx: 27,
                             use_expr_idx: 19,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 40,
@@ -829,7 +805,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `ConnectedComponentDistribution`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -840,7 +816,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `EffHoles`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -851,7 +827,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `hole_tmpl`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
                             symbol: ModuleItem(
@@ -864,7 +840,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `ConnectedComponent`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -875,7 +851,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `horizontal_extend`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
                             symbol: ModuleItem(
@@ -888,7 +864,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `find_connected_components`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -899,7 +875,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `connected_component`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
                             symbol: Use(
@@ -912,7 +888,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `raw_contour`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
                             symbol: Use(
@@ -925,7 +901,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `geom2d`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
                             symbol: Use(
@@ -938,7 +914,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `line_segment_sketch`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
                             symbol: Use(
@@ -951,7 +927,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `fermi`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
                             symbol: Use(
@@ -964,7 +940,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `digits`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
                             symbol: Use(
@@ -977,7 +953,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `major`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
                             symbol: Use(
@@ -990,7 +966,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `MnistLabel`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
                             symbol: Use(
@@ -1003,7 +979,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `find_raw_contours`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
                             symbol: Use(
@@ -1016,7 +992,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `connected_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
                             symbol: Use(
@@ -1029,7 +1005,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `major_connected_component`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
                             symbol: Use(
@@ -1042,7 +1018,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `ignored_connected_components_row_span_sum_sum`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
                             symbol: Use(
@@ -1055,7 +1031,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `major_raw_contours`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
                             symbol: Use(
@@ -1068,7 +1044,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `major_raw_contour`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
                             symbol: Use(
@@ -1081,7 +1057,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `major_line_segment_sketch`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
                             symbol: Use(
@@ -1094,7 +1070,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `major_concave_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
                             symbol: Use(
@@ -1107,7 +1083,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `fermi_match`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
                             symbol: Use(
@@ -1120,7 +1096,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `LineSegmentStroke`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
                             symbol: Use(
@@ -1133,7 +1109,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `LineSegmentSketch`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
                             symbol: Use(
@@ -1146,65 +1122,65 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `RawContour`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 243,
+                                        value: 262,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `is_one`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 862,
+                                        value: 947,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `ConcaveComponent`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 863,
+                                        value: 948,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `find_concave_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 864,
+                                        value: 949,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `LineSegment`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 865,
+                                        value: 950,
                                     },
                                 ),
                             ),
@@ -1219,10 +1195,10 @@ Ok(
                                 ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                 disambiguator: 0,
                             },
-                            ast_idx: 125,
+                            ast_idx: 124,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    85,
+                                    77,
                                 ),
                             },
                             ty_expr: 0,
@@ -1236,77 +1212,20 @@ Ok(
                     [
                         UseExprRule {
                             ast_idx: 118,
-                            use_expr_idx: 3,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::connected_component`,
-                                ),
-                            },
+                            use_expr_idx: 2,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `cv`,
+                                parent_name_token: NameToken::Crate(
+                                    CrateToken {
                                         token_idx: TokenIdx(
                                             1,
                                         ),
                                     },
                                 ),
                                 children: ArenaIdxRange(
-                                    2..3,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 119,
-                            use_expr_idx: 6,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::connected_component`,
-                                ),
-                            },
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            9,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    5..6,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 120,
-                            use_expr_idx: 8,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::connected_component`,
-                                ),
-                            },
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            15,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    7..8,
+                                    1..2,
                                 ),
                             },
                             parent: None,
@@ -1322,23 +1241,50 @@ Ok(
                         },
                         UseExprRule {
                             ast_idx: 119,
-                            use_expr_idx: 5,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::connected_component`,
+                            use_expr_idx: 4,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            variant: UseExprRuleVariant::Parent {
+                                parent_name_token: NameToken::Crate(
+                                    CrateToken {
+                                        token_idx: TokenIdx(
+                                            7,
+                                        ),
+                                    },
+                                ),
+                                children: ArenaIdxRange(
+                                    3..4,
                                 ),
                             },
+                            parent: None,
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: CrateRoot {
+                                    root_module: ModulePath(
+                                        Id {
+                                            value: 40,
+                                        },
+                                    ),
+                                },
+                            },
+                        },
+                        UseExprRule {
+                            ast_idx: 118,
+                            use_expr_idx: 1,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
                                         ident: `raw_contour`,
                                         token_idx: TokenIdx(
-                                            11,
+                                            3,
                                         ),
                                     },
                                 ),
                                 children: ArenaIdxRange(
-                                    4..5,
+                                    0..1,
                                 ),
                             },
                             parent: Some(
@@ -1369,9 +1315,9 @@ Ok(
                                     },
                                 ),
                             },
-                            ast_idx: 120,
-                            use_expr_idx: 7,
-                            visibility: PublicUnder(
+                            ast_idx: 119,
+                            use_expr_idx: 3,
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 41,
@@ -1389,31 +1335,20 @@ Ok(
                                     },
                                 ),
                             },
-                            ast_idx: 119,
-                            use_expr_idx: 4,
-                            visibility: PublicUnder(
+                            ast_idx: 118,
+                            use_expr_idx: 0,
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 41,
                                     },
                                 ),
                             ),
-                            progress: 26,
+                            progress: 43,
                         },
                     ],
                 ),
-                errors: [
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `cv`,
-                                token_idx: TokenIdx(
-                                    1,
-                                ),
-                            },
-                        ),
-                    ),
-                ],
+                errors: [],
             },
             EntityTreeSheet {
                 module_path: `mnist_classifier::raw_contour`,
@@ -1421,7 +1356,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `RawContour`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -1432,7 +1367,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `Direction`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             symbol: ModuleItem(
@@ -1445,7 +1380,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `get_pixel_pair`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             symbol: ModuleItem(
@@ -1458,7 +1393,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `get_pixel_to_the_left`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             symbol: ModuleItem(
@@ -1471,7 +1406,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `get_pixel_to_the_right`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             symbol: ModuleItem(
@@ -1484,7 +1419,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `get_inward_direction`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             symbol: ModuleItem(
@@ -1497,7 +1432,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `get_angle_change`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             symbol: ModuleItem(
@@ -1510,7 +1445,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `get_outward_direction`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             symbol: ModuleItem(
@@ -1523,7 +1458,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `StreakCache`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             symbol: ModuleItem(
@@ -1536,7 +1471,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `get_concave_middle_point`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             symbol: ModuleItem(
@@ -1549,7 +1484,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `find_raw_contours`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             symbol: ModuleItem(
@@ -1561,151 +1496,242 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `Point2d`,
-                            visibility: Visibility::PublicUnder(
+                            ident: `connected_component`,
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 254,
+                                        value: 113,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `RelativePoint2d`,
-                            visibility: Visibility::PublicUnder(
+                            ident: `raw_contour`,
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 255,
+                                        value: 114,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `Vector2d`,
-                            visibility: Visibility::PublicUnder(
+                            ident: `geom2d`,
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 256,
+                                        value: 115,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `ClosedRange`,
-                            visibility: Visibility::PublicUnder(
+                            ident: `line_segment_sketch`,
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 257,
+                                        value: 116,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `BoundingBox`,
-                            visibility: Visibility::PublicUnder(
+                            ident: `fermi`,
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 258,
+                                        value: 117,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `RelativeBoundingBox`,
-                            visibility: Visibility::PublicUnder(
+                            ident: `digits`,
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 259,
+                                        value: 118,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `ConnectedComponentDistribution`,
-                            visibility: Visibility::PublicUnder(
+                            ident: `major`,
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 260,
+                                        value: 119,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `EffHoles`,
-                            visibility: Visibility::PublicUnder(
+                            ident: `MnistLabel`,
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 261,
+                                        value: 120,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `ConnectedComponent`,
-                            visibility: Visibility::PublicUnder(
+                            ident: `connected_components`,
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 263,
+                                        value: 122,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `find_connected_components`,
-                            visibility: Visibility::PublicUnder(
+                            ident: `major_connected_component`,
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 265,
+                                        value: 123,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ignored_connected_components_row_span_sum_sum`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 124,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contours`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 125,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contour`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 126,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_line_segment_sketch`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 127,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_concave_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 128,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `fermi_match`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 129,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `LineSegmentStroke`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 290,
+                                        value: 130,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `LineSegmentSketch`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 131,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `Point2d`,
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             symbol: Use(
@@ -1717,8 +1743,73 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `ConcaveComponent`,
-                            visibility: Visibility::PublicUnder(
+                            ident: `RelativePoint2d`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 292,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `Vector2d`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 293,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ClosedRange`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 294,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `BoundingBox`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 295,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `RelativeBoundingBox`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 296,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ConnectedComponentDistribution`,
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             symbol: Use(
@@ -1730,8 +1821,8 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `find_concave_components`,
-                            visibility: Visibility::PublicUnder(
+                            ident: `EffHoles`,
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             symbol: Use(
@@ -1743,14 +1834,79 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `LineSegment`,
-                            visibility: Visibility::PublicUnder(
+                            ident: `ConnectedComponent`,
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 299,
+                                        value: 300,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `find_connected_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 302,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ConcaveComponent`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 334,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `find_concave_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 335,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegment`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 336,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `is_one`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 964,
                                     },
                                 ),
                             ),
@@ -1768,7 +1924,7 @@ Ok(
                             ast_idx: 200,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    42,
+                                    38,
                                 ),
                             },
                             ty_expr: 1,
@@ -1783,11 +1939,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 195,
                             use_expr_idx: 2,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::raw_contour`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -1814,11 +1968,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 196,
                             use_expr_idx: 5,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::raw_contour`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -1845,11 +1997,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 197,
                             use_expr_idx: 8,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::raw_contour`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -1875,34 +2025,29 @@ Ok(
                         },
                         UseExprRule {
                             ast_idx: 198,
-                            use_expr_idx: 11,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::raw_contour`,
-                                ),
-                            },
+                            use_expr_idx: 10,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `mnist`,
+                                parent_name_token: NameToken::Crate(
+                                    CrateToken {
                                         token_idx: TokenIdx(
                                             19,
                                         ),
                                     },
                                 ),
                                 children: ArenaIdxRange(
-                                    9..11,
+                                    9..10,
                                 ),
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: PackageDependency {
-                                    entity_path: Module(
-                                        ModulePath(
-                                            Id {
-                                                value: 62,
-                                            },
-                                        ),
+                                original_symbol: CrateRoot {
+                                    root_module: ModulePath(
+                                        Id {
+                                            value: 40,
+                                        },
                                     ),
                                 },
                             },
@@ -1910,11 +2055,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 195,
                             use_expr_idx: 1,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::raw_contour`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -1946,11 +2089,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 196,
                             use_expr_idx: 4,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::raw_contour`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -1982,11 +2123,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 197,
                             use_expr_idx: 7,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::raw_contour`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -2015,56 +2154,30 @@ Ok(
                                 ),
                             },
                         },
-                        UseExprRule {
-                            ast_idx: 198,
-                            use_expr_idx: 9,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::raw_contour`,
-                                ),
-                            },
-                            variant: UseExprRuleVariant::Leaf {
-                                ident_token: IdentToken {
-                                    ident: `BinaryImage28`,
-                                    token_idx: TokenIdx(
-                                        22,
-                                    ),
-                                },
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 198,
-                            use_expr_idx: 10,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::raw_contour`,
-                                ),
-                            },
-                            variant: UseExprRuleVariant::Leaf {
-                                ident_token: IdentToken {
-                                    ident: `BinaryGrid28`,
-                                    token_idx: TokenIdx(
-                                        24,
-                                    ),
-                                },
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Erroneous,
-                        },
                     ],
                 ),
                 use_all_rules: UseAllRules(
                     [
+                        UseAllRule {
+                            parent: KinshipedModulePath {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 40,
+                                    },
+                                ),
+                            },
+                            ast_idx: 198,
+                            use_expr_idx: 9,
+                            visibility: PubUnder(
+                                ModulePath(
+                                    Id {
+                                        value: 42,
+                                    },
+                                ),
+                            ),
+                            progress: 23,
+                        },
                         UseAllRule {
                             parent: KinshipedModulePath {
                                 kinship: Inside,
@@ -2076,7 +2189,7 @@ Ok(
                             },
                             ast_idx: 195,
                             use_expr_idx: 0,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 42,
@@ -2096,7 +2209,7 @@ Ok(
                             },
                             ast_idx: 196,
                             use_expr_idx: 3,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 42,
@@ -2116,7 +2229,7 @@ Ok(
                             },
                             ast_idx: 197,
                             use_expr_idx: 6,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 42,
@@ -2127,28 +2240,7 @@ Ok(
                         },
                     ],
                 ),
-                errors: [
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `BinaryImage28`,
-                                token_idx: TokenIdx(
-                                    22,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `BinaryGrid28`,
-                                token_idx: TokenIdx(
-                                    24,
-                                ),
-                            },
-                        ),
-                    ),
-                ],
+                errors: [],
             },
             EntityTreeSheet {
                 module_path: `mnist_classifier::geom2d`,
@@ -2156,7 +2248,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `Point2d`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -2167,7 +2259,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `RelativePoint2d`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -2178,7 +2270,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `Vector2d`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -2189,7 +2281,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `ClosedRange`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -2200,7 +2292,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `BoundingBox`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -2211,7 +2303,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `RelativeBoundingBox`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -2343,7 +2435,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `concave_component`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             symbol: Submodule(
@@ -2356,7 +2448,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `convex_component`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             symbol: Submodule(
@@ -2369,7 +2461,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `convexity`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             symbol: Submodule(
@@ -2382,7 +2474,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `line_segment`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             symbol: Submodule(
@@ -2395,7 +2487,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `LineSegmentStroke`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -2406,7 +2498,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `LineSegmentSketch`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -2417,7 +2509,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `go_right`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             symbol: ModuleItem(
@@ -2430,7 +2522,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `go_left`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             symbol: ModuleItem(
@@ -2443,7 +2535,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `extend_end`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             symbol: ModuleItem(
@@ -2456,7 +2548,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `extend_start`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             symbol: ModuleItem(
@@ -2469,7 +2561,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `find_line_segments`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             symbol: ModuleItem(
@@ -2482,124 +2574,124 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `ConcaveComponent`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 113,
+                                        value: 132,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `find_concave_components`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 114,
+                                        value: 133,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `LineSegment`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 116,
+                                        value: 135,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `RawContour`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 300,
+                                        value: 337,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `Point2d`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 320,
+                                        value: 357,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `RelativePoint2d`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 321,
+                                        value: 358,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `Vector2d`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 322,
+                                        value: 359,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `ClosedRange`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 323,
+                                        value: 360,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `BoundingBox`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 324,
+                                        value: 361,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `RelativeBoundingBox`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 325,
+                                        value: 362,
                                     },
                                 ),
                             ),
@@ -2651,9 +2743,7 @@ Ok(
                         UseExprRule {
                             ast_idx: 163,
                             use_expr_idx: 1,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::Public,
-                            },
+                            visibility: Visibility::Pub,
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -2681,9 +2771,7 @@ Ok(
                         UseExprRule {
                             ast_idx: 164,
                             use_expr_idx: 3,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::Public,
-                            },
+                            visibility: Visibility::Pub,
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -2711,9 +2799,7 @@ Ok(
                         UseExprRule {
                             ast_idx: 165,
                             use_expr_idx: 5,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::Public,
-                            },
+                            visibility: Visibility::Pub,
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -2741,11 +2827,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 166,
                             use_expr_idx: 8,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::line_segment_sketch`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -2772,11 +2856,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 167,
                             use_expr_idx: 11,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::line_segment_sketch`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -2803,11 +2885,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 168,
                             use_expr_idx: 13,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::line_segment_sketch`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -2835,11 +2915,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 166,
                             use_expr_idx: 7,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::line_segment_sketch`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -2871,11 +2949,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 167,
                             use_expr_idx: 10,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::line_segment_sketch`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -2907,11 +2983,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 167,
                             use_expr_idx: 9,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::line_segment_sketch`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
                             variant: UseExprRuleVariant::Leaf {
                                 ident_token: IdentToken {
                                     ident: `RawContour`,
@@ -2950,7 +3024,7 @@ Ok(
                             },
                             ast_idx: 163,
                             use_expr_idx: 0,
-                            visibility: Public,
+                            visibility: Pub,
                             progress: 40,
                         },
                         UseAllRule {
@@ -2964,7 +3038,7 @@ Ok(
                             },
                             ast_idx: 164,
                             use_expr_idx: 2,
-                            visibility: Public,
+                            visibility: Pub,
                             progress: 22,
                         },
                         UseAllRule {
@@ -2978,7 +3052,7 @@ Ok(
                             },
                             ast_idx: 165,
                             use_expr_idx: 4,
-                            visibility: Public,
+                            visibility: Pub,
                             progress: 7,
                         },
                         UseAllRule {
@@ -2992,7 +3066,7 @@ Ok(
                             },
                             ast_idx: 168,
                             use_expr_idx: 12,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 44,
@@ -3012,7 +3086,7 @@ Ok(
                             },
                             ast_idx: 166,
                             use_expr_idx: 6,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 44,
@@ -3031,7 +3105,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `ConcaveComponent`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -3042,7 +3116,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `find_concave_components`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -3053,494 +3127,494 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `connected_component`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 118,
+                                        value: 137,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `raw_contour`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 119,
+                                        value: 138,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `geom2d`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 120,
+                                        value: 139,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `line_segment_sketch`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 121,
+                                        value: 140,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `fermi`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 122,
+                                        value: 141,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `digits`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 123,
+                                        value: 142,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 124,
+                                        value: 143,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `MnistLabel`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 125,
+                                        value: 144,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `find_raw_contours`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 126,
+                                        value: 145,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `connected_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 127,
+                                        value: 146,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_connected_component`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 128,
+                                        value: 147,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `ignored_connected_components_row_span_sum_sum`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 129,
+                                        value: 148,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_raw_contours`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 130,
+                                        value: 149,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_raw_contour`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 131,
+                                        value: 150,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_line_segment_sketch`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 132,
+                                        value: 151,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_concave_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 133,
+                                        value: 152,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `fermi_match`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 134,
+                                        value: 153,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `LineSegmentStroke`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 135,
+                                        value: 154,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `LineSegmentSketch`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 136,
+                                        value: 155,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `concave_component`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 326,
+                                        value: 363,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `convex_component`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 327,
+                                        value: 364,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `convexity`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 328,
+                                        value: 365,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `line_segment`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 329,
+                                        value: 366,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `go_right`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 332,
+                                        value: 369,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `go_left`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 333,
+                                        value: 370,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `extend_end`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 334,
+                                        value: 371,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `extend_start`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 335,
+                                        value: 372,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `find_line_segments`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 336,
+                                        value: 373,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `LineSegment`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 339,
+                                        value: 376,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `RawContour`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 340,
+                                        value: 377,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `Point2d`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 341,
+                                        value: 378,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `RelativePoint2d`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 342,
+                                        value: 379,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `Vector2d`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 343,
+                                        value: 380,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `ClosedRange`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 344,
+                                        value: 381,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `BoundingBox`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 345,
+                                        value: 382,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `RelativeBoundingBox`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 346,
+                                        value: 383,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `is_one`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 938,
+                                        value: 1025,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `is_convex`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 949,
+                                        value: 1036,
                                     },
                                 ),
                             ),
@@ -3573,11 +3647,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 69,
                             use_expr_idx: 2,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::line_segment_sketch::concave_component`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -3604,11 +3676,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 70,
                             use_expr_idx: 6,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::line_segment_sketch::concave_component`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -3635,11 +3705,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 71,
                             use_expr_idx: 10,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::line_segment_sketch::concave_component`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -3666,11 +3734,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 72,
                             use_expr_idx: 13,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::line_segment_sketch::concave_component`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -3697,11 +3763,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 73,
                             use_expr_idx: 15,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::line_segment_sketch::concave_component`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -3728,11 +3792,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 69,
                             use_expr_idx: 1,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::line_segment_sketch::concave_component`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -3764,11 +3826,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 70,
                             use_expr_idx: 5,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::line_segment_sketch::concave_component`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -3800,11 +3860,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 71,
                             use_expr_idx: 9,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::line_segment_sketch::concave_component`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -3836,11 +3894,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 72,
                             use_expr_idx: 12,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::line_segment_sketch::concave_component`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -3872,11 +3928,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 70,
                             use_expr_idx: 4,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::line_segment_sketch::concave_component`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -3908,11 +3962,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 71,
                             use_expr_idx: 8,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::line_segment_sketch::concave_component`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -3956,7 +4008,7 @@ Ok(
                             },
                             ast_idx: 73,
                             use_expr_idx: 14,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 48,
@@ -3976,7 +4028,7 @@ Ok(
                             },
                             ast_idx: 69,
                             use_expr_idx: 0,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 48,
@@ -3996,7 +4048,7 @@ Ok(
                             },
                             ast_idx: 72,
                             use_expr_idx: 11,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 48,
@@ -4016,7 +4068,7 @@ Ok(
                             },
                             ast_idx: 70,
                             use_expr_idx: 3,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 48,
@@ -4036,7 +4088,7 @@ Ok(
                             },
                             ast_idx: 71,
                             use_expr_idx: 7,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 48,
@@ -4055,7 +4107,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `ConvexComponent`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
                             symbol: ModuleItem(
@@ -4068,273 +4120,273 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `concave_component`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 353,
+                                        value: 390,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `convex_component`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 354,
+                                        value: 391,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `convexity`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 355,
+                                        value: 392,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `line_segment`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 356,
+                                        value: 393,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `LineSegmentStroke`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 357,
+                                        value: 394,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `LineSegmentSketch`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 358,
+                                        value: 395,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `go_right`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 359,
+                                        value: 396,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `go_left`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 360,
+                                        value: 397,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `extend_end`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 361,
+                                        value: 398,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `extend_start`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 362,
+                                        value: 399,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `find_line_segments`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 363,
+                                        value: 400,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `ConcaveComponent`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 364,
+                                        value: 401,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `find_concave_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 365,
+                                        value: 402,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `LineSegment`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 366,
+                                        value: 403,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `RawContour`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 367,
+                                        value: 404,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `Point2d`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 368,
+                                        value: 405,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `RelativePoint2d`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 369,
+                                        value: 406,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `Vector2d`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 370,
+                                        value: 407,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `ClosedRange`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 371,
+                                        value: 408,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `BoundingBox`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 372,
+                                        value: 409,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `RelativeBoundingBox`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 373,
+                                        value: 410,
                                     },
                                 ),
                             ),
@@ -4367,11 +4419,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 2,
                             use_expr_idx: 2,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::line_segment_sketch::convex_component`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::convex_component`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -4398,11 +4448,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 2,
                             use_expr_idx: 1,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::line_segment_sketch::convex_component`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::convex_component`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -4446,7 +4494,7 @@ Ok(
                             },
                             ast_idx: 2,
                             use_expr_idx: 0,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 49,
@@ -4465,7 +4513,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `is_convex`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -4476,273 +4524,273 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `concave_component`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 374,
+                                        value: 411,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `convex_component`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 375,
+                                        value: 412,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `convexity`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 376,
+                                        value: 413,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `line_segment`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 377,
+                                        value: 414,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `LineSegmentStroke`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 378,
+                                        value: 415,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `LineSegmentSketch`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 379,
+                                        value: 416,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `go_right`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 380,
+                                        value: 417,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `go_left`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 381,
+                                        value: 418,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `extend_end`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 382,
+                                        value: 419,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `extend_start`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 383,
+                                        value: 420,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `find_line_segments`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 384,
+                                        value: 421,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `ConcaveComponent`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 385,
+                                        value: 422,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `find_concave_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 386,
+                                        value: 423,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `LineSegment`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 387,
+                                        value: 424,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `RawContour`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 388,
+                                        value: 425,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `Point2d`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 389,
+                                        value: 426,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `RelativePoint2d`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 390,
+                                        value: 427,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `Vector2d`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 391,
+                                        value: 428,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `ClosedRange`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 392,
+                                        value: 429,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `BoundingBox`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 393,
+                                        value: 430,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `RelativeBoundingBox`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 394,
+                                        value: 431,
                                     },
                                 ),
                             ),
@@ -4755,11 +4803,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 19,
                             use_expr_idx: 2,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::line_segment_sketch::convexity`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::convexity`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -4786,11 +4832,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 20,
                             use_expr_idx: 5,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::line_segment_sketch::convexity`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::convexity`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -4817,11 +4861,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 21,
                             use_expr_idx: 8,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::line_segment_sketch::convexity`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::convexity`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -4848,11 +4890,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 19,
                             use_expr_idx: 1,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::line_segment_sketch::convexity`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::convexity`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -4884,11 +4924,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 20,
                             use_expr_idx: 4,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::line_segment_sketch::convexity`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::convexity`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -4920,11 +4958,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 21,
                             use_expr_idx: 7,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::line_segment_sketch::convexity`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::convexity`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -4968,7 +5004,7 @@ Ok(
                             },
                             ast_idx: 19,
                             use_expr_idx: 0,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 50,
@@ -4988,14 +5024,14 @@ Ok(
                             },
                             ast_idx: 20,
                             use_expr_idx: 3,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 50,
                                     },
                                 ),
                             ),
-                            progress: 26,
+                            progress: 43,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -5008,7 +5044,7 @@ Ok(
                             },
                             ast_idx: 21,
                             use_expr_idx: 6,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 50,
@@ -5027,7 +5063,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `LineSegment`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -5038,78 +5074,78 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `Point2d`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::line_segment`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 427,
+                                        value: 480,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `RelativePoint2d`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::line_segment`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 428,
+                                        value: 481,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `Vector2d`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::line_segment`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 429,
+                                        value: 482,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `ClosedRange`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::line_segment`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 430,
+                                        value: 483,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `BoundingBox`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::line_segment`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 431,
+                                        value: 484,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `RelativeBoundingBox`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::line_segment`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 432,
+                                        value: 485,
                                     },
                                 ),
                             ),
@@ -5142,11 +5178,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 15,
                             use_expr_idx: 2,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::line_segment_sketch::line_segment`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::line_segment`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -5173,11 +5207,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 15,
                             use_expr_idx: 1,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::line_segment_sketch::line_segment`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::line_segment`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -5221,7 +5253,7 @@ Ok(
                             },
                             ast_idx: 15,
                             use_expr_idx: 0,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 51,
@@ -5240,7 +5272,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `FermiMatchResult`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::fermi`,
                             ),
                             symbol: ModuleItem(
@@ -5253,7 +5285,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `fermi_match`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -5264,286 +5296,286 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `connected_component`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::fermi`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 137,
+                                        value: 156,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `raw_contour`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::fermi`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 138,
+                                        value: 157,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `geom2d`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::fermi`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 139,
+                                        value: 158,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `line_segment_sketch`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::fermi`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 140,
+                                        value: 159,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `fermi`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::fermi`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 141,
+                                        value: 160,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `digits`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::fermi`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 142,
+                                        value: 161,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::fermi`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 143,
+                                        value: 162,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `MnistLabel`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::fermi`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 144,
+                                        value: 163,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `find_raw_contours`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::fermi`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 145,
+                                        value: 164,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `connected_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::fermi`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 146,
+                                        value: 165,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_connected_component`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::fermi`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 147,
+                                        value: 166,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `ignored_connected_components_row_span_sum_sum`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::fermi`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 148,
+                                        value: 167,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_raw_contours`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::fermi`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 149,
+                                        value: 168,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_raw_contour`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::fermi`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 150,
+                                        value: 169,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_line_segment_sketch`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::fermi`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 151,
+                                        value: 170,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_concave_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::fermi`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 152,
+                                        value: 171,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `LineSegmentStroke`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::fermi`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 154,
+                                        value: 173,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `LineSegmentSketch`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::fermi`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 155,
+                                        value: 174,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `is_one`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::fermi`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 971,
+                                        value: 1058,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `ConcaveComponent`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::fermi`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 972,
+                                        value: 1059,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `find_concave_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::fermi`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 973,
+                                        value: 1060,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `LineSegment`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::fermi`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 974,
+                                        value: 1061,
                                     },
                                 ),
                             ),
@@ -5576,11 +5608,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 21,
                             use_expr_idx: 1,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::fermi`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::fermi`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -5619,7 +5649,7 @@ Ok(
                             },
                             ast_idx: 21,
                             use_expr_idx: 0,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 45,
@@ -5638,7 +5668,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `zero`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
                             symbol: Submodule(
@@ -5651,7 +5681,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `one`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
                             symbol: Submodule(
@@ -5664,7 +5694,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `six`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
                             symbol: Submodule(
@@ -5677,7 +5707,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `three`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
                             symbol: Submodule(
@@ -5690,7 +5720,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `four`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
                             symbol: Submodule(
@@ -5703,7 +5733,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `five`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
                             symbol: Submodule(
@@ -5716,7 +5746,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `seven`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
                             symbol: Submodule(
@@ -5729,7 +5759,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `eight`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
                             symbol: Submodule(
@@ -5742,7 +5772,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `nine`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
                             symbol: Submodule(
@@ -5755,7 +5785,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `two`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
                             symbol: Submodule(
@@ -5768,102 +5798,102 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `is_one`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 156,
+                                        value: 175,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `is_six`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 157,
+                                        value: 176,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `is_zero`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 158,
+                                        value: 177,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `is_two`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 159,
+                                        value: 178,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `is_three`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 160,
+                                        value: 179,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `is_seven`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 161,
+                                        value: 180,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `is_eight`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 162,
+                                        value: 181,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `is_nine`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 163,
+                                        value: 182,
                                     },
                                 ),
                             ),
@@ -5876,9 +5906,7 @@ Ok(
                         UseExprRule {
                             ast_idx: 10,
                             use_expr_idx: 1,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::Public,
-                            },
+                            visibility: Visibility::Pub,
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -5906,11 +5934,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 11,
                             use_expr_idx: 3,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -5938,11 +5964,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 12,
                             use_expr_idx: 5,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -5970,11 +5994,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 13,
                             use_expr_idx: 7,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -6002,11 +6024,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 14,
                             use_expr_idx: 9,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -6034,11 +6054,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 15,
                             use_expr_idx: 11,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -6066,11 +6084,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 16,
                             use_expr_idx: 13,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -6098,11 +6114,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 17,
                             use_expr_idx: 15,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -6130,11 +6144,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 18,
                             use_expr_idx: 17,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -6162,9 +6174,7 @@ Ok(
                         UseExprRule {
                             ast_idx: 10,
                             use_expr_idx: 0,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::Public,
-                            },
+                            visibility: Visibility::Pub,
                             variant: UseExprRuleVariant::Leaf {
                                 ident_token: IdentToken {
                                     ident: `is_one`,
@@ -6191,11 +6201,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 11,
                             use_expr_idx: 2,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
                             variant: UseExprRuleVariant::Leaf {
                                 ident_token: IdentToken {
                                     ident: `is_six`,
@@ -6222,11 +6230,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 12,
                             use_expr_idx: 4,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
                             variant: UseExprRuleVariant::Leaf {
                                 ident_token: IdentToken {
                                     ident: `is_zero`,
@@ -6253,11 +6259,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 13,
                             use_expr_idx: 6,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
                             variant: UseExprRuleVariant::Leaf {
                                 ident_token: IdentToken {
                                     ident: `is_two`,
@@ -6284,11 +6288,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 14,
                             use_expr_idx: 8,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
                             variant: UseExprRuleVariant::Leaf {
                                 ident_token: IdentToken {
                                     ident: `is_three`,
@@ -6315,11 +6317,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 15,
                             use_expr_idx: 10,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
                             variant: UseExprRuleVariant::Leaf {
                                 ident_token: IdentToken {
                                     ident: `is_five`,
@@ -6338,11 +6338,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 16,
                             use_expr_idx: 12,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
                             variant: UseExprRuleVariant::Leaf {
                                 ident_token: IdentToken {
                                     ident: `is_seven`,
@@ -6369,11 +6367,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 17,
                             use_expr_idx: 14,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
                             variant: UseExprRuleVariant::Leaf {
                                 ident_token: IdentToken {
                                     ident: `is_eight`,
@@ -6400,11 +6396,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 18,
                             use_expr_idx: 16,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
                             variant: UseExprRuleVariant::Leaf {
                                 ident_token: IdentToken {
                                     ident: `is_nine`,
@@ -6497,16 +6491,6 @@ Ok(
                     EntityTreeError::Original(
                         OriginalEntityTreeError::SymbolExistsButNotAccessible(
                             IdentToken {
-                                ident: `is_eight`,
-                                token_idx: TokenIdx(
-                                    52,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::SymbolExistsButNotAccessible(
-                            IdentToken {
                                 ident: `is_nine`,
                                 token_idx: TokenIdx(
                                     56,
@@ -6522,7 +6506,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `open_one_match`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::zero`,
                             ),
                             symbol: ModuleItem(
@@ -6535,7 +6519,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `almost_closed`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::zero`,
                             ),
                             symbol: ModuleItem(
@@ -6548,7 +6532,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `is_zero`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::zero`,
                             ),
                             symbol: ModuleItem(
@@ -6561,130 +6545,130 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `connected_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::zero`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 433,
+                                        value: 486,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_connected_component`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::zero`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 434,
+                                        value: 487,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `ignored_connected_components_row_span_sum_sum`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::zero`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 435,
+                                        value: 488,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_raw_contours`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::zero`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 436,
+                                        value: 489,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_raw_contour`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::zero`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 437,
+                                        value: 490,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_line_segment_sketch`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::zero`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 438,
+                                        value: 491,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_concave_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::zero`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 439,
+                                        value: 492,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `fermi_match`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::zero`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 453,
+                                        value: 506,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `ConcaveComponent`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::zero`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 983,
+                                        value: 1070,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `find_concave_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::zero`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 984,
+                                        value: 1071,
                                     },
                                 ),
                             ),
@@ -6697,11 +6681,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 25,
                             use_expr_idx: 3,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::zero`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -6721,11 +6703,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 26,
                             use_expr_idx: 8,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::zero`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -6745,11 +6725,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 27,
                             use_expr_idx: 13,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::zero`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -6769,11 +6747,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 28,
                             use_expr_idx: 18,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::zero`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -6793,11 +6769,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 29,
                             use_expr_idx: 21,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::zero`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -6824,11 +6798,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 30,
                             use_expr_idx: 24,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::zero`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -6855,11 +6827,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 31,
                             use_expr_idx: 28,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::zero`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -6886,11 +6856,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 32,
                             use_expr_idx: 31,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::zero`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -6917,11 +6885,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 29,
                             use_expr_idx: 20,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::zero`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -6953,11 +6919,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 30,
                             use_expr_idx: 23,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::zero`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -6989,11 +6953,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 31,
                             use_expr_idx: 27,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::zero`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -7025,11 +6987,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 32,
                             use_expr_idx: 30,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::zero`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -7053,11 +7013,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 31,
                             use_expr_idx: 26,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::zero`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -7101,7 +7059,7 @@ Ok(
                             },
                             ast_idx: 29,
                             use_expr_idx: 19,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 52,
@@ -7121,7 +7079,7 @@ Ok(
                             },
                             ast_idx: 30,
                             use_expr_idx: 22,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 52,
@@ -7141,7 +7099,7 @@ Ok(
                             },
                             ast_idx: 31,
                             use_expr_idx: 25,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 52,
@@ -7221,7 +7179,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `one_fermi_match`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::one`,
                             ),
                             symbol: ModuleItem(
@@ -7234,7 +7192,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `is_one`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -7245,7 +7203,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `upmost`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::one`,
                             ),
                             symbol: ModuleItem(
@@ -7258,7 +7216,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `downmost`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::one`,
                             ),
                             symbol: ModuleItem(
@@ -7271,7 +7229,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `hat`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::one`,
                             ),
                             symbol: ModuleItem(
@@ -7284,130 +7242,130 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `connected_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::one`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 472,
+                                        value: 525,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_connected_component`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::one`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 473,
+                                        value: 526,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `ignored_connected_components_row_span_sum_sum`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::one`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 474,
+                                        value: 527,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_raw_contours`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::one`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 475,
+                                        value: 528,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_raw_contour`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::one`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 476,
+                                        value: 529,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_line_segment_sketch`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::one`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 477,
+                                        value: 530,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_concave_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::one`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 478,
+                                        value: 531,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `fermi_match`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::one`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 492,
+                                        value: 545,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `ConcaveComponent`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::one`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1031,
+                                        value: 1118,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `find_concave_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::one`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1032,
+                                        value: 1119,
                                     },
                                 ),
                             ),
@@ -7420,11 +7378,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 61,
                             use_expr_idx: 3,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::one`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::one`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -7444,11 +7400,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 62,
                             use_expr_idx: 8,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::one`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::one`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -7468,11 +7422,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 63,
                             use_expr_idx: 13,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::one`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::one`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -7492,11 +7444,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 64,
                             use_expr_idx: 18,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::one`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::one`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -7516,11 +7466,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 65,
                             use_expr_idx: 21,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::one`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::one`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -7547,11 +7495,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 66,
                             use_expr_idx: 24,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::one`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::one`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -7578,11 +7524,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 67,
                             use_expr_idx: 28,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::one`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::one`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -7609,11 +7553,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 65,
                             use_expr_idx: 20,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::one`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::one`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -7645,11 +7587,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 66,
                             use_expr_idx: 23,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::one`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::one`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -7681,11 +7621,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 67,
                             use_expr_idx: 27,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::one`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::one`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -7717,11 +7655,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 67,
                             use_expr_idx: 26,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::one`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::one`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -7765,7 +7701,7 @@ Ok(
                             },
                             ast_idx: 65,
                             use_expr_idx: 19,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 53,
@@ -7785,7 +7721,7 @@ Ok(
                             },
                             ast_idx: 66,
                             use_expr_idx: 22,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 53,
@@ -7805,7 +7741,7 @@ Ok(
                             },
                             ast_idx: 67,
                             use_expr_idx: 25,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 53,
@@ -7875,7 +7811,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `six_match`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::six`,
                             ),
                             symbol: ModuleItem(
@@ -7888,7 +7824,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `six_match_refined1`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::six`,
                             ),
                             symbol: ModuleItem(
@@ -7901,7 +7837,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `is_six`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::six`,
                             ),
                             symbol: ModuleItem(
@@ -7914,7 +7850,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `upmost`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::six`,
                             ),
                             symbol: ModuleItem(
@@ -7927,7 +7863,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `bottom1`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::six`,
                             ),
                             symbol: ModuleItem(
@@ -7940,130 +7876,130 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `connected_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::six`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 511,
+                                        value: 564,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_connected_component`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::six`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 512,
+                                        value: 565,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `ignored_connected_components_row_span_sum_sum`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::six`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 513,
+                                        value: 566,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_raw_contours`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::six`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 514,
+                                        value: 567,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_raw_contour`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::six`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 515,
+                                        value: 568,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_line_segment_sketch`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::six`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 516,
+                                        value: 569,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_concave_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::six`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 517,
+                                        value: 570,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `fermi_match`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::six`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 531,
+                                        value: 584,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `ConcaveComponent`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::six`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1079,
+                                        value: 1166,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `find_concave_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::six`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1080,
+                                        value: 1167,
                                     },
                                 ),
                             ),
@@ -8076,11 +8012,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 49,
                             use_expr_idx: 3,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::six`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -8100,11 +8034,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 50,
                             use_expr_idx: 8,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::six`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -8124,11 +8056,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 51,
                             use_expr_idx: 13,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::six`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -8148,11 +8078,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 52,
                             use_expr_idx: 18,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::six`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -8172,11 +8100,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 53,
                             use_expr_idx: 21,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::six`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -8203,11 +8129,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 54,
                             use_expr_idx: 24,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::six`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -8234,11 +8158,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 55,
                             use_expr_idx: 28,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::six`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -8265,11 +8187,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 56,
                             use_expr_idx: 31,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::six`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -8296,11 +8216,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 53,
                             use_expr_idx: 20,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::six`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -8332,11 +8250,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 54,
                             use_expr_idx: 23,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::six`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -8368,11 +8284,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 55,
                             use_expr_idx: 27,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::six`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -8404,11 +8318,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 56,
                             use_expr_idx: 30,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::six`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -8432,11 +8344,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 55,
                             use_expr_idx: 26,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::six`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -8480,7 +8390,7 @@ Ok(
                             },
                             ast_idx: 53,
                             use_expr_idx: 19,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 54,
@@ -8500,7 +8410,7 @@ Ok(
                             },
                             ast_idx: 54,
                             use_expr_idx: 22,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 54,
@@ -8520,7 +8430,7 @@ Ok(
                             },
                             ast_idx: 55,
                             use_expr_idx: 25,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 54,
@@ -8600,7 +8510,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `three_fermi_match`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::three`,
                             ),
                             symbol: ModuleItem(
@@ -8613,7 +8523,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `is_three`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::three`,
                             ),
                             symbol: ModuleItem(
@@ -8626,7 +8536,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `uparc`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::three`,
                             ),
                             symbol: ModuleItem(
@@ -8639,7 +8549,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `downarc`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::three`,
                             ),
                             symbol: ModuleItem(
@@ -8652,7 +8562,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `back`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::three`,
                             ),
                             symbol: ModuleItem(
@@ -8665,130 +8575,130 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `connected_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::three`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 550,
+                                        value: 603,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_connected_component`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::three`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 551,
+                                        value: 604,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `ignored_connected_components_row_span_sum_sum`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::three`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 552,
+                                        value: 605,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_raw_contours`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::three`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 553,
+                                        value: 606,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_raw_contour`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::three`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 554,
+                                        value: 607,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_line_segment_sketch`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::three`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 555,
+                                        value: 608,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_concave_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::three`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 556,
+                                        value: 609,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `fermi_match`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::three`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 570,
+                                        value: 623,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `ConcaveComponent`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::three`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1127,
+                                        value: 1214,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `find_concave_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::three`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1128,
+                                        value: 1215,
                                     },
                                 ),
                             ),
@@ -8801,11 +8711,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 27,
                             use_expr_idx: 5,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::three`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::three`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -8825,11 +8733,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 28,
                             use_expr_idx: 10,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::three`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::three`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -8849,11 +8755,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 29,
                             use_expr_idx: 15,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::three`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::three`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -8873,11 +8777,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 30,
                             use_expr_idx: 20,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::three`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::three`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -8897,11 +8799,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 31,
                             use_expr_idx: 23,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::three`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::three`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -8928,11 +8828,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 32,
                             use_expr_idx: 26,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::three`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::three`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -8959,11 +8857,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 33,
                             use_expr_idx: 30,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::three`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::three`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -8990,11 +8886,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 31,
                             use_expr_idx: 22,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::three`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::three`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -9026,11 +8920,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 32,
                             use_expr_idx: 25,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::three`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::three`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -9062,11 +8954,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 33,
                             use_expr_idx: 29,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::three`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::three`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -9098,11 +8988,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 33,
                             use_expr_idx: 28,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::three`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::three`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -9146,7 +9034,7 @@ Ok(
                             },
                             ast_idx: 31,
                             use_expr_idx: 21,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 55,
@@ -9166,7 +9054,7 @@ Ok(
                             },
                             ast_idx: 32,
                             use_expr_idx: 24,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 55,
@@ -9186,7 +9074,7 @@ Ok(
                             },
                             ast_idx: 33,
                             use_expr_idx: 27,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 55,
@@ -9256,7 +9144,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `left_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
                             symbol: ModuleItem(
@@ -9269,7 +9157,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `left_coordinate_max`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
                             symbol: ModuleItem(
@@ -9282,7 +9170,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `components_max_downwards`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
                             symbol: ModuleItem(
@@ -9295,7 +9183,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `components_max_heights`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
                             symbol: ModuleItem(
@@ -9308,7 +9196,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `is_four`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
                             symbol: ModuleItem(
@@ -9321,7 +9209,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `displacement_downwards`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
                             symbol: ModuleItem(
@@ -9334,7 +9222,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `cc_box_heights`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
                             symbol: ModuleItem(
@@ -9347,130 +9235,130 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `connected_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 589,
+                                        value: 642,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_connected_component`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 590,
+                                        value: 643,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `ignored_connected_components_row_span_sum_sum`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 591,
+                                        value: 644,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_raw_contours`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 592,
+                                        value: 645,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_raw_contour`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 593,
+                                        value: 646,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_line_segment_sketch`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 594,
+                                        value: 647,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_concave_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 595,
+                                        value: 648,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `fermi_match`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 609,
+                                        value: 662,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `ConcaveComponent`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1175,
+                                        value: 1262,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `find_concave_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1176,
+                                        value: 1263,
                                     },
                                 ),
                             ),
@@ -9483,11 +9371,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 37,
                             use_expr_idx: 5,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::four`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -9507,11 +9393,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 38,
                             use_expr_idx: 10,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::four`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -9531,11 +9415,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 39,
                             use_expr_idx: 15,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::four`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -9555,11 +9437,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 40,
                             use_expr_idx: 20,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::four`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -9579,11 +9459,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 41,
                             use_expr_idx: 23,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::four`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -9610,11 +9488,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 42,
                             use_expr_idx: 26,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::four`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -9641,11 +9517,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 43,
                             use_expr_idx: 30,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::four`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -9672,11 +9546,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 41,
                             use_expr_idx: 22,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::four`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -9708,11 +9580,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 42,
                             use_expr_idx: 25,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::four`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -9744,11 +9614,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 43,
                             use_expr_idx: 29,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::four`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -9780,11 +9648,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 43,
                             use_expr_idx: 28,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::four`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -9828,7 +9694,7 @@ Ok(
                             },
                             ast_idx: 41,
                             use_expr_idx: 21,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 56,
@@ -9848,7 +9714,7 @@ Ok(
                             },
                             ast_idx: 42,
                             use_expr_idx: 24,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 56,
@@ -9868,7 +9734,7 @@ Ok(
                             },
                             ast_idx: 43,
                             use_expr_idx: 27,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 56,
@@ -9952,7 +9818,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `simple_seven_match`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
                             symbol: ModuleItem(
@@ -9965,7 +9831,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `simple_leftdown_pattern`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
                             symbol: ModuleItem(
@@ -9978,7 +9844,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `special_seven_match`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
                             symbol: ModuleItem(
@@ -9991,7 +9857,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `leftupcc_pattern`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
                             symbol: ModuleItem(
@@ -10004,7 +9870,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `leftdowncc_pattern`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
                             symbol: ModuleItem(
@@ -10017,7 +9883,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `is_seven`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
                             symbol: ModuleItem(
@@ -10030,267 +9896,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `major_concave_components`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 628,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_connected_component`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 629,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `connected_components`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 630,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `ignored_connected_components_row_span_sum_sum`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 632,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_raw_contours`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 633,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_raw_contour`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 634,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_line_segment_sketch`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 635,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `fermi_match`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 650,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `zero`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 669,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `one`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 670,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `six`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 671,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `three`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 672,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `four`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 673,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `five`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 674,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `seven`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 675,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `eight`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 676,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `nine`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 677,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `two`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 678,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `is_one`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 679,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `is_six`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 680,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `is_zero`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
                             symbol: Use(
@@ -10302,8 +9908,8 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `is_two`,
-                            visibility: Visibility::PublicUnder(
+                            ident: `major_connected_component`,
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
                             symbol: Use(
@@ -10315,8 +9921,8 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `is_three`,
-                            visibility: Visibility::PublicUnder(
+                            ident: `connected_components`,
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
                             symbol: Use(
@@ -10328,8 +9934,8 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `is_eight`,
-                            visibility: Visibility::PublicUnder(
+                            ident: `ignored_connected_components_row_span_sum_sum`,
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
                             symbol: Use(
@@ -10341,8 +9947,8 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `is_nine`,
-                            visibility: Visibility::PublicUnder(
+                            ident: `major_raw_contours`,
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
                             symbol: Use(
@@ -10354,27 +9960,287 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
-                            ident: `ConcaveComponent`,
-                            visibility: Visibility::PublicUnder(
+                            ident: `major_raw_contour`,
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1223,
+                                        value: 687,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_line_segment_sketch`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 688,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `fermi_match`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 703,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `zero`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 722,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `one`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 723,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `six`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 724,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `three`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 725,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `four`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 726,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `five`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 727,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `seven`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 728,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `eight`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 729,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `nine`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 730,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `two`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 731,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `is_one`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 732,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `is_six`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 733,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `is_zero`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 734,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `is_two`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 735,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `is_three`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 736,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `is_eight`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 738,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `is_nine`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 739,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ConcaveComponent`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 1310,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `find_concave_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1224,
+                                        value: 1311,
                                     },
                                 ),
                             ),
@@ -10387,11 +10253,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 39,
                             use_expr_idx: 5,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::seven`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -10411,11 +10275,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 40,
                             use_expr_idx: 8,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::seven`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -10442,11 +10304,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 41,
                             use_expr_idx: 11,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::seven`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -10473,11 +10333,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 42,
                             use_expr_idx: 16,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::seven`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -10497,11 +10355,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 43,
                             use_expr_idx: 19,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::seven`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -10528,11 +10384,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 44,
                             use_expr_idx: 22,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::seven`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -10559,11 +10413,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 45,
                             use_expr_idx: 26,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::seven`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -10590,11 +10442,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 46,
                             use_expr_idx: 29,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::seven`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -10621,11 +10471,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 40,
                             use_expr_idx: 7,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::seven`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -10657,11 +10505,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 41,
                             use_expr_idx: 10,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::seven`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -10693,11 +10539,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 43,
                             use_expr_idx: 18,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::seven`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -10729,11 +10573,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 44,
                             use_expr_idx: 21,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::seven`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -10765,11 +10607,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 45,
                             use_expr_idx: 25,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::seven`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -10801,11 +10641,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 46,
                             use_expr_idx: 28,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::seven`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -10837,11 +10675,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 40,
                             use_expr_idx: 6,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::seven`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
                             variant: UseExprRuleVariant::Leaf {
                                 ident_token: IdentToken {
                                     ident: `major_concave_components`,
@@ -10868,11 +10704,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 41,
                             use_expr_idx: 9,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::seven`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
                             variant: UseExprRuleVariant::Leaf {
                                 ident_token: IdentToken {
                                     ident: `major_connected_component`,
@@ -10899,11 +10733,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 45,
                             use_expr_idx: 24,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::seven`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -10947,7 +10779,7 @@ Ok(
                             },
                             ast_idx: 43,
                             use_expr_idx: 17,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 58,
@@ -10967,7 +10799,7 @@ Ok(
                             },
                             ast_idx: 44,
                             use_expr_idx: 20,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 58,
@@ -10987,7 +10819,7 @@ Ok(
                             },
                             ast_idx: 46,
                             use_expr_idx: 27,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 58,
@@ -11007,7 +10839,7 @@ Ok(
                             },
                             ast_idx: 45,
                             use_expr_idx: 23,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 58,
@@ -11057,7 +10889,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `upper_mouth_match`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             symbol: ModuleItem(
@@ -11070,8 +10902,8 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `is_eight`,
-                            visibility: Visibility::PublicUnder(
-                                `mnist_classifier::digits::eight`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
                             ),
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
@@ -11083,7 +10915,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `big_mouth`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             symbol: ModuleItem(
@@ -11096,78 +10928,78 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `major_concave_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 687,
+                                        value: 740,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_connected_component`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 688,
+                                        value: 741,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `fermi_match`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 690,
+                                        value: 743,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `RawContour`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 709,
+                                        value: 762,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `ConcaveComponent`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1263,
+                                        value: 1350,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `find_concave_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1264,
+                                        value: 1351,
                                     },
                                 ),
                             ),
@@ -11180,11 +11012,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 17,
                             use_expr_idx: 5,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::eight`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -11204,11 +11034,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 18,
                             use_expr_idx: 8,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::eight`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -11235,11 +11063,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 19,
                             use_expr_idx: 11,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::eight`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -11266,11 +11092,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 20,
                             use_expr_idx: 16,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::eight`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -11290,11 +11114,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 21,
                             use_expr_idx: 19,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::eight`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -11321,11 +11143,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 22,
                             use_expr_idx: 22,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::eight`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -11352,11 +11172,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 23,
                             use_expr_idx: 25,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::eight`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -11383,11 +11201,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 24,
                             use_expr_idx: 28,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::eight`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -11414,11 +11230,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 25,
                             use_expr_idx: 32,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::eight`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -11445,11 +11259,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 26,
                             use_expr_idx: 35,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::eight`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -11476,11 +11288,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 27,
                             use_expr_idx: 38,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::eight`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -11507,11 +11317,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 18,
                             use_expr_idx: 7,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::eight`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -11543,11 +11351,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 19,
                             use_expr_idx: 10,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::eight`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -11579,11 +11385,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 21,
                             use_expr_idx: 18,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::eight`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -11607,11 +11411,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 22,
                             use_expr_idx: 21,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::eight`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -11635,11 +11437,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 23,
                             use_expr_idx: 24,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::eight`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -11663,11 +11463,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 24,
                             use_expr_idx: 27,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::eight`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -11691,11 +11489,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 25,
                             use_expr_idx: 31,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::eight`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -11727,11 +11523,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 26,
                             use_expr_idx: 34,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::eight`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -11763,11 +11557,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 27,
                             use_expr_idx: 37,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::eight`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -11799,11 +11591,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 18,
                             use_expr_idx: 6,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::eight`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
                             variant: UseExprRuleVariant::Leaf {
                                 ident_token: IdentToken {
                                     ident: `major_concave_components`,
@@ -11830,11 +11620,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 19,
                             use_expr_idx: 9,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::eight`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
                             variant: UseExprRuleVariant::Leaf {
                                 ident_token: IdentToken {
                                     ident: `major_connected_component`,
@@ -11861,11 +11649,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 25,
                             use_expr_idx: 30,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::eight`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -11909,7 +11695,7 @@ Ok(
                             },
                             ast_idx: 26,
                             use_expr_idx: 33,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 59,
@@ -11929,14 +11715,14 @@ Ok(
                             },
                             ast_idx: 27,
                             use_expr_idx: 36,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 59,
                                     },
                                 ),
                             ),
-                            progress: 26,
+                            progress: 43,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -11949,7 +11735,7 @@ Ok(
                             },
                             ast_idx: 25,
                             use_expr_idx: 29,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 59,
@@ -12039,7 +11825,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `nine_match`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
                             symbol: ModuleItem(
@@ -12052,7 +11838,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `nine_match_refine`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
                             symbol: ModuleItem(
@@ -12065,7 +11851,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `is_nine`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
                             symbol: ModuleItem(
@@ -12078,7 +11864,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `downmost`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
                             symbol: ModuleItem(
@@ -12091,7 +11877,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `big_cc`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
                             symbol: ModuleItem(
@@ -12104,130 +11890,130 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `connected_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 735,
+                                        value: 804,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_connected_component`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 736,
+                                        value: 805,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `ignored_connected_components_row_span_sum_sum`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 737,
+                                        value: 806,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_raw_contours`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 738,
+                                        value: 807,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_raw_contour`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 739,
+                                        value: 808,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_line_segment_sketch`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 740,
+                                        value: 809,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_concave_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 741,
+                                        value: 810,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `fermi_match`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 755,
+                                        value: 824,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `ConcaveComponent`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1311,
+                                        value: 1398,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `find_concave_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1312,
+                                        value: 1399,
                                     },
                                 ),
                             ),
@@ -12240,11 +12026,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 35,
                             use_expr_idx: 5,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::nine`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -12264,11 +12048,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 36,
                             use_expr_idx: 10,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::nine`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -12288,11 +12070,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 37,
                             use_expr_idx: 15,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::nine`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -12312,11 +12092,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 38,
                             use_expr_idx: 20,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::nine`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -12336,11 +12114,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 39,
                             use_expr_idx: 23,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::nine`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -12367,11 +12143,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 40,
                             use_expr_idx: 26,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::nine`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -12398,11 +12172,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 41,
                             use_expr_idx: 30,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::nine`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -12429,11 +12201,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 42,
                             use_expr_idx: 33,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::nine`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -12460,11 +12230,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 43,
                             use_expr_idx: 36,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::nine`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -12491,11 +12259,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 39,
                             use_expr_idx: 22,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::nine`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -12527,11 +12293,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 40,
                             use_expr_idx: 25,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::nine`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -12563,11 +12327,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 41,
                             use_expr_idx: 29,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::nine`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -12599,11 +12361,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 42,
                             use_expr_idx: 32,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::nine`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -12627,11 +12387,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 43,
                             use_expr_idx: 35,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::nine`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -12655,11 +12413,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 41,
                             use_expr_idx: 28,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::nine`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -12703,7 +12459,7 @@ Ok(
                             },
                             ast_idx: 39,
                             use_expr_idx: 21,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 60,
@@ -12723,7 +12479,7 @@ Ok(
                             },
                             ast_idx: 40,
                             use_expr_idx: 24,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 60,
@@ -12743,7 +12499,7 @@ Ok(
                             },
                             ast_idx: 41,
                             use_expr_idx: 27,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 60,
@@ -12833,7 +12589,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `two_match`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
                             ),
                             symbol: ModuleItem(
@@ -12846,7 +12602,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `left_cc_pattern`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
                             ),
                             symbol: ModuleItem(
@@ -12859,7 +12615,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `right_cc_pattern`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
                             ),
                             symbol: ModuleItem(
@@ -12872,7 +12628,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `down_cc_pattern`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
                             ),
                             symbol: ModuleItem(
@@ -12885,7 +12641,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `is_two`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
                             ),
                             symbol: ModuleItem(
@@ -12898,299 +12654,299 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `connected_component`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 164,
+                                        value: 183,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `raw_contour`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 165,
+                                        value: 184,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `geom2d`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 166,
+                                        value: 185,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `line_segment_sketch`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 167,
+                                        value: 186,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `fermi`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 168,
+                                        value: 187,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `digits`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 169,
+                                        value: 188,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 170,
+                                        value: 189,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `MnistLabel`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 171,
+                                        value: 190,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `find_raw_contours`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 172,
+                                        value: 191,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `connected_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 173,
+                                        value: 192,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_connected_component`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 174,
+                                        value: 193,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `ignored_connected_components_row_span_sum_sum`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 175,
+                                        value: 194,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_raw_contours`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 176,
+                                        value: 195,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_raw_contour`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 177,
+                                        value: 196,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_line_segment_sketch`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 178,
+                                        value: 197,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_concave_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 179,
+                                        value: 198,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `fermi_match`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 180,
+                                        value: 199,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `LineSegmentStroke`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 181,
+                                        value: 200,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `LineSegmentSketch`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 182,
+                                        value: 201,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `is_one`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1351,
+                                        value: 1438,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `ConcaveComponent`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1352,
+                                        value: 1439,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `find_concave_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1353,
+                                        value: 1440,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `LineSegment`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1354,
+                                        value: 1441,
                                     },
                                 ),
                             ),
@@ -13203,11 +12959,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 49,
                             use_expr_idx: 5,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::two`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::two`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -13227,11 +12981,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 50,
                             use_expr_idx: 10,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::two`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::two`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -13251,11 +13003,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 51,
                             use_expr_idx: 15,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::two`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::two`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -13275,11 +13025,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 52,
                             use_expr_idx: 20,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::two`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::two`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -13299,11 +13047,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 53,
                             use_expr_idx: 22,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::digits::two`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::two`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -13342,7 +13088,7 @@ Ok(
                             },
                             ast_idx: 53,
                             use_expr_idx: 21,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 61,
@@ -13402,7 +13148,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `connected_components`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -13413,7 +13159,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `major_connected_component`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -13424,7 +13170,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `ignored_connected_components_row_span_sum_sum`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -13435,7 +13181,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `major_raw_contours`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -13446,7 +13192,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `major_raw_contour`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -13457,7 +13203,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `major_line_segment_sketch`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -13468,7 +13214,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `major_concave_components`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -13479,273 +13225,273 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `connected_component`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 183,
+                                        value: 202,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `raw_contour`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 184,
+                                        value: 203,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `geom2d`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 185,
+                                        value: 204,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `line_segment_sketch`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 186,
+                                        value: 205,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `fermi`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 187,
+                                        value: 206,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `digits`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 188,
+                                        value: 207,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 189,
+                                        value: 208,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `MnistLabel`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 190,
+                                        value: 209,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `find_raw_contours`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 191,
+                                        value: 210,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `fermi_match`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 199,
+                                        value: 218,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `LineSegmentStroke`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 200,
+                                        value: 219,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `LineSegmentSketch`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 201,
+                                        value: 220,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `ConnectedComponentDistribution`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 774,
+                                        value: 843,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `EffHoles`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 775,
+                                        value: 844,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `ConnectedComponent`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 777,
+                                        value: 846,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `find_connected_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 779,
+                                        value: 848,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `RawContour`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 800,
+                                        value: 869,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `ConcaveComponent`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 837,
+                                        value: 922,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `find_concave_components`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 838,
+                                        value: 923,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `LineSegment`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 839,
+                                        value: 924,
                                     },
                                 ),
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `is_one`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1355,
+                                        value: 1442,
                                     },
                                 ),
                             ),
@@ -13758,11 +13504,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 18,
                             use_expr_idx: 2,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::major`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::major`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -13789,11 +13533,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 19,
                             use_expr_idx: 5,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::major`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::major`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -13820,11 +13562,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 20,
                             use_expr_idx: 8,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::major`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::major`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -13851,11 +13591,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 21,
                             use_expr_idx: 12,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::major`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::major`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -13882,11 +13620,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 22,
                             use_expr_idx: 14,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::major`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::major`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -13913,11 +13649,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 18,
                             use_expr_idx: 1,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::major`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::major`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -13949,11 +13683,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 19,
                             use_expr_idx: 4,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::major`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::major`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -13985,11 +13717,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 20,
                             use_expr_idx: 7,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::major`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::major`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -14021,11 +13751,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 21,
                             use_expr_idx: 11,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::major`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::major`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -14057,11 +13785,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 21,
                             use_expr_idx: 10,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `mnist_classifier::major`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::major`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -14105,7 +13831,7 @@ Ok(
                             },
                             ast_idx: 22,
                             use_expr_idx: 13,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 47,
@@ -14125,7 +13851,7 @@ Ok(
                             },
                             ast_idx: 18,
                             use_expr_idx: 0,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 47,
@@ -14145,14 +13871,14 @@ Ok(
                             },
                             ast_idx: 19,
                             use_expr_idx: 3,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 47,
                                     },
                                 ),
                             ),
-                            progress: 26,
+                            progress: 43,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -14165,7 +13891,7 @@ Ok(
                             },
                             ast_idx: 20,
                             use_expr_idx: 6,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 47,
@@ -14185,7 +13911,7 @@ Ok(
                             },
                             ast_idx: 21,
                             use_expr_idx: 9,
-                            visibility: PublicUnder(
+                            visibility: PubUnder(
                                 ModulePath(
                                     Id {
                                         value: 47,
@@ -14216,7 +13942,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `ConnectedComponent`,
                         token_idx: TokenIdx(
-                            86,
+                            78,
                         ),
                     },
                     entity_path: EntityPath::ModuleItem(
@@ -14229,7 +13955,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `RawContour`,
                         token_idx: TokenIdx(
-                            43,
+                            39,
                         ),
                     },
                     entity_path: EntityPath::ModuleItem(

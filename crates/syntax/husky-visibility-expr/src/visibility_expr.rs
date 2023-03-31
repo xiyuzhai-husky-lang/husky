@@ -25,7 +25,7 @@ pub enum VisibilityExprError {
 
 pub type VisibilityExprResult<T> = Result<T, VisibilityExprError>;
 
-pub(crate) fn parse_accessibility_expr(
+pub(crate) fn parse_visibility_expr(
     token_stream: &mut TokenStream,
     mod_path_expr_arena: &mut ModulePathExprArena,
 ) -> VisibilityExprResult<Option<VisibilityExpr>> {

@@ -6,12 +6,16 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::PublicUnder(
-                        `std`,
-                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 17,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
                     entity_kind: Module,
                     entity_path: Some(
                         EntityPath::Module(
@@ -25,21 +29,28 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         2,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::PublicUnder(
-                        `std`,
-                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 17,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
                     entity_kind: Module,
                     entity_path: Some(
                         EntityPath::Module(
@@ -53,21 +64,28 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         4,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::PublicUnder(
-                        `std`,
-                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 17,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
                     entity_kind: Module,
                     entity_path: Some(
                         EntityPath::Module(
@@ -81,9 +99,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         6,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
             ],

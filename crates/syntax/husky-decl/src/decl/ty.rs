@@ -124,9 +124,7 @@ impl<'a> DeclParseContext<'a> {
             Ast::Defn {
                 token_group_idx,
                 ref body,
-
                 entity_kind,
-
                 saved_stream_state,
                 ..
             } => self.parse_ty_decl_aux(

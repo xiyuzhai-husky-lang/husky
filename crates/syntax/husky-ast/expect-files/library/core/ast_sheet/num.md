@@ -6,10 +6,16 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         5,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    33,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MethodFn,
@@ -23,19 +29,28 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         36,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         7,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    47,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitForTypeItem(
                             MethodFn,
@@ -49,19 +64,28 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         50,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         12,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    85,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MethodFn,
@@ -75,19 +99,28 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         88,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         14,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    99,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitForTypeItem(
                             MethodFn,
@@ -101,19 +134,28 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         102,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         19,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    137,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MethodFn,
@@ -127,21 +169,28 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         140,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         21,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::PublicUnder(
-                        `core::num`,
-                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 11,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitForTypeItem(
                             MethodFn,
@@ -155,19 +204,28 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         153,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         26,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    188,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MethodFn,
@@ -181,19 +239,28 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         191,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         28,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    202,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitForTypeItem(
                             MethodFn,
@@ -207,19 +274,28 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         205,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         33,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    240,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MethodFn,
@@ -233,19 +309,28 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         243,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         35,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    254,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitForTypeItem(
                             MethodFn,
@@ -259,19 +344,28 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         257,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         40,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    292,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MethodFn,
@@ -285,19 +379,28 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         295,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         42,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    306,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitForTypeItem(
                             MethodFn,
@@ -311,19 +414,28 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         309,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         47,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    344,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MethodFn,
@@ -337,19 +449,28 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         347,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         49,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    358,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitForTypeItem(
                             MethodFn,
@@ -363,19 +484,28 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         361,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         54,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    396,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MethodFn,
@@ -389,19 +519,28 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         399,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         56,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    410,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitForTypeItem(
                             MethodFn,
@@ -415,19 +554,28 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         413,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         61,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    448,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MethodFn,
@@ -441,19 +589,28 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         451,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         63,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    462,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitForTypeItem(
                             MethodFn,
@@ -467,19 +624,28 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         465,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         68,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    500,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MethodFn,
@@ -493,19 +659,28 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         503,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         70,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    514,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitForTypeItem(
                             MethodFn,
@@ -519,19 +694,28 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         517,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         75,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    552,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MethodFn,
@@ -545,19 +729,28 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         555,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         77,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    566,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitForTypeItem(
                             MethodFn,
@@ -571,19 +764,28 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         569,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         82,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    604,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MethodFn,
@@ -597,19 +799,28 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         607,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         84,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    618,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitForTypeItem(
                             MethodFn,
@@ -623,19 +834,28 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         621,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         89,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    656,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MethodFn,
@@ -649,21 +869,28 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         659,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         91,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::PublicUnder(
-                        `core::num`,
-                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 11,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitForTypeItem(
                             MethodFn,
@@ -677,19 +904,28 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         672,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         96,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    707,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MethodFn,
@@ -703,19 +939,28 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         710,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         98,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    721,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitForTypeItem(
                             MethodFn,
@@ -729,15 +974,29 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         724,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Use {
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 11,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
+                    state_after_visibility_expr: None,
                 },
                 Ast::Attr {
                     token_group_idx: TokenGroupIdx(
@@ -754,10 +1013,16 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    26,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Extern,
@@ -778,9 +1043,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         29,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Impl {
@@ -814,10 +1082,16 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         10,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    78,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Extern,
@@ -838,9 +1112,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         81,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Impl {
@@ -874,10 +1151,16 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         17,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    130,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Extern,
@@ -898,9 +1181,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         133,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Impl {
@@ -934,10 +1220,16 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         24,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    181,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Extern,
@@ -958,9 +1250,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         184,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Impl {
@@ -994,10 +1289,16 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         31,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    233,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Extern,
@@ -1018,9 +1319,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         236,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Impl {
@@ -1054,10 +1358,16 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         38,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    285,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Extern,
@@ -1078,9 +1388,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         288,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Impl {
@@ -1114,10 +1427,16 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         45,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    337,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Extern,
@@ -1138,9 +1457,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         340,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Impl {
@@ -1174,10 +1496,16 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         52,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    389,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Extern,
@@ -1198,9 +1526,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         392,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Impl {
@@ -1234,10 +1565,16 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         59,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    441,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Extern,
@@ -1258,9 +1595,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         444,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Impl {
@@ -1294,10 +1634,16 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         66,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    493,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Extern,
@@ -1318,9 +1664,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         496,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Impl {
@@ -1354,10 +1703,16 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         73,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    545,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Extern,
@@ -1378,9 +1733,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         548,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Impl {
@@ -1414,10 +1772,16 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         80,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    597,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Extern,
@@ -1438,9 +1802,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         600,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Impl {
@@ -1474,10 +1841,16 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         87,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    649,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Extern,
@@ -1498,9 +1871,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         652,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Impl {
@@ -1534,10 +1910,16 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         94,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    700,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Extern,
@@ -1558,9 +1940,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         703,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Impl {

@@ -84,7 +84,7 @@ impl EntitySymbolEntry {
         let root_module = ModulePath::new_root(db, crate_path);
         Self {
             ident: db.word_menu().crate_ident(),
-            visibility: Visibility::PublicUnder(root_module),
+            visibility: Visibility::PubUnder(root_module),
             symbol: EntitySymbol::CrateRoot { root_module },
         }
     }
@@ -96,7 +96,7 @@ impl EntitySymbolEntry {
         let package_path = package_dependency.package_path();
         Self {
             ident: package_path.ident(db),
-            visibility: Visibility::Public,
+            visibility: Visibility::Pub,
             symbol: EntitySymbol::PackageDependency {
                 entity_path: package_path.lib_module(db).into(),
             },
@@ -109,15 +109,15 @@ impl EntitySymbolEntry {
         rule: &mut UseExprRule,
     ) -> Self {
         rule.mark_as_resolved(original_symbol);
-        let accessibility = rule.accessibility();
+        let visibility = rule.visibility();
         Self {
             ident: rule.ident().unwrap(),
-            visibility: accessibility,
+            visibility: visibility,
             symbol: UseSymbol::new(
                 db,
                 original_symbol,
                 original_symbol.path(db),
-                accessibility,
+                visibility,
                 rule.ast_idx(),
                 rule.use_expr_idx(),
             )
@@ -156,7 +156,7 @@ impl EntitySymbolEntry {
         self.ident
     }
 
-    pub fn accessibility(&self) -> Visibility {
+    pub fn visibility(&self) -> Visibility {
         self.visibility
     }
 }
@@ -190,7 +190,7 @@ impl NativeEntitySymbolTable {
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct NativeEntitySymbolEntry {
     ident: Ident,
-    accessibility: Visibility,
+    visibility: Visibility,
     symbol: NativeEntitySymbol,
 }
 
@@ -198,17 +198,17 @@ impl From<&NativeEntitySymbolEntry> for EntitySymbolEntry {
     fn from(val: &NativeEntitySymbolEntry) -> Self {
         EntitySymbolEntry {
             ident: val.ident,
-            visibility: val.accessibility,
+            visibility: val.visibility,
             symbol: val.symbol.into(),
         }
     }
 }
 
 impl NativeEntitySymbolEntry {
-    pub fn new(ident: Ident, accessibility: Visibility, symbol: NativeEntitySymbol) -> Self {
+    pub fn new(ident: Ident, visibility: Visibility, symbol: NativeEntitySymbol) -> Self {
         Self {
             ident,
-            accessibility,
+            visibility,
             symbol,
         }
     }

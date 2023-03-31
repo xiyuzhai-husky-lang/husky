@@ -5,13 +5,13 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `bool`,
-                    accessibility: Visibility::Public,
+                    visibility: Visibility::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`core::basic::bool`, `Extern`),
                             ),
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             ast_idx: 0,
                             ident_token: IdentToken {
                                 ident: `bool`,
@@ -24,13 +24,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `never`,
-                    accessibility: Visibility::Public,
+                    visibility: Visibility::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`core::basic::never`, `Extern`),
                             ),
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             ast_idx: 1,
                             ident_token: IdentToken {
                                 ident: `never`,
@@ -43,13 +43,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `unit`,
-                    accessibility: Visibility::Public,
+                    visibility: Visibility::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`core::basic::unit`, `Extern`),
                             ),
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             ast_idx: 2,
                             ident_token: IdentToken {
                                 ident: `unit`,
@@ -62,13 +62,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `Trait`,
-                    accessibility: Visibility::Public,
+                    visibility: Visibility::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`core::basic::Trait`, `Structure`),
                             ),
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             ast_idx: 3,
                             ident_token: IdentToken {
                                 ident: `Trait`,
@@ -81,13 +81,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `Module`,
-                    accessibility: Visibility::Public,
+                    visibility: Visibility::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`core::basic::Module`, `Structure`),
                             ),
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             ast_idx: 4,
                             ident_token: IdentToken {
                                 ident: `Module`,
@@ -107,9 +107,6 @@ Ok(
             [],
         ),
         use_expr_arena: Arena {
-            data: [],
-        },
-        mod_path_arena: Arena {
             data: [],
         },
         errors: [],

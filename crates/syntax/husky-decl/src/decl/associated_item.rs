@@ -71,17 +71,12 @@ impl<'a> DeclParseContext<'a> {
         Ok(match self.ast_sheet()[ast_idx] {
             Ast::Defn {
                 token_group_idx,
-                body: _,
-                accessibility: _,
                 entity_kind:
                     EntityKind::AssociatedItem {
                         associated_item_kind,
                     },
-                entity_path: _,
-                ident_token: _,
-                is_generic: _,
-                body_kind: _,
                 saved_stream_state,
+                ..
             } => match associated_item_kind {
                 AssociatedItemKind::TraitItem(_) => todo!(),
                 AssociatedItemKind::TypeItem(ty_item_kind) => self.parse_ty_item_decl(

@@ -5,13 +5,13 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `LineSegment`,
-                    accessibility: Visibility::Public,
+                    visibility: Visibility::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                             ),
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             ast_idx: 16,
                             ident_token: IdentToken {
                                 ident: `LineSegment`,
@@ -29,11 +29,9 @@ Ok(
                 UseExprRule {
                     ast_idx: 15,
                     use_expr_idx: 2,
-                    accessibility: VisibilityProgress::Done {
-                        accessibility: Visibility::PublicUnder(
-                            `mnist_classifier::line_segment_sketch::line_segment`,
-                        ),
-                    },
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier::line_segment_sketch::line_segment`,
+                    ),
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Crate(
                             CrateToken {
@@ -111,9 +109,6 @@ Ok(
                     },
                 ),
             ],
-        },
-        mod_path_arena: Arena {
-            data: [],
         },
         errors: [],
     },

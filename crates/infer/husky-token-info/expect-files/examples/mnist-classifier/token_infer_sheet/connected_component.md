@@ -3,23 +3,9 @@ Ok(
         token_infos: [
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 3,
+                use_expr_idx: 2,
                 rule_idx: UseExprRuleIdx(
                     0,
-                ),
-                state: UseExprRuleState::Erroneous,
-            },
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::UseExpr {
-                use_expr_idx: 6,
-                rule_idx: UseExprRuleIdx(
-                    1,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: CrateRoot {
@@ -33,9 +19,9 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 5,
+                use_expr_idx: 1,
                 rule_idx: UseExprRuleIdx(
-                    3,
+                    2,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: Submodule(
@@ -51,9 +37,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 8,
+                use_expr_idx: 4,
                 rule_idx: UseExprRuleIdx(
-                    2,
+                    1,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: CrateRoot {

@@ -68,13 +68,13 @@ impl UseAllRule {
         parent: ModulePath,
         ast_idx: AstIdx,
         use_expr_idx: UseExprIdx,
-        accessibility: Visibility,
+        visibility: Visibility,
     ) -> Self {
         Self {
             parent: KinshipedModulePath::new(db, sheet.module_path().crate_path(db), parent),
             progress: 0,
             use_expr_idx,
-            visibility: accessibility,
+            visibility: visibility,
             ast_idx,
         }
     }

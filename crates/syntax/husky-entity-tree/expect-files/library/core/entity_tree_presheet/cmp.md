@@ -5,13 +5,13 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `PartialEq`,
-                    accessibility: Visibility::Public,
+                    visibility: Visibility::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Trait(
                                 TraitPath(`core::cmp::PartialEq`),
                             ),
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             ast_idx: 0,
                             ident_token: IdentToken {
                                 ident: `PartialEq`,
@@ -24,13 +24,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `Eq`,
-                    accessibility: Visibility::Public,
+                    visibility: Visibility::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Trait(
                                 TraitPath(`core::cmp::Eq`),
                             ),
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             ast_idx: 1,
                             ident_token: IdentToken {
                                 ident: `Eq`,
@@ -43,13 +43,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `PartialOrd`,
-                    accessibility: Visibility::Public,
+                    visibility: Visibility::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Trait(
                                 TraitPath(`core::cmp::PartialOrd`),
                             ),
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             ast_idx: 2,
                             ident_token: IdentToken {
                                 ident: `PartialOrd`,
@@ -62,13 +62,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `Ord`,
-                    accessibility: Visibility::Public,
+                    visibility: Visibility::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Trait(
                                 TraitPath(`core::cmp::Ord`),
                             ),
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             ast_idx: 3,
                             ident_token: IdentToken {
                                 ident: `Ord`,
@@ -88,9 +88,6 @@ Ok(
             [],
         ),
         use_expr_arena: Arena {
-            data: [],
-        },
-        mod_path_arena: Arena {
             data: [],
         },
         errors: [],

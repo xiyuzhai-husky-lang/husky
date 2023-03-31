@@ -2,30 +2,13 @@ use super::*;
 use husky_entity_taxonomy::{ModuleItemKind, TypeKind};
 use husky_opn_syntax::Bracket;
 use husky_token::*;
+use husky_visibility_expr::VisibilityExprResult;
 use parsec::StreamWrapper;
 use std::iter::Peekable;
 
 pub(super) trait AstTokenParseContext<'a>: TokenParseContext<'a> {
     fn ast_context_kind(&self) -> AstContextKind;
     fn module_path(&self) -> ModulePath;
-
-    fn parse_accessibility(&mut self) -> AstResult<Visibility> {
-        let token_stream = self.borrow_mut();
-        Ok(match token_stream.peek().unwrap() {
-            Token::Keyword(Keyword::Pub) => {
-                token_stream.next();
-                match token_stream.peek().ok_or(
-                    OriginalAstError::UnexpectedEndOfTokenGroupAfterPubKeyword(
-                        token_stream.state(),
-                    ),
-                )? {
-                    Token::Punctuation(Punctuation::Bra(Bracket::Par)) => todo!(),
-                    _ => Visibility::Public,
-                }
-            }
-            _ => Visibility::PublicUnder(self.module_path()),
-        })
-    }
 
     fn take_entity_kind_keyword(&mut self) -> AstResult<EntityKeywordGroup> {
         let (idx, token) = self
@@ -117,5 +100,9 @@ impl<'a> BasicAuxAstParser<'a> {
 
     pub(crate) fn db(&self) -> &dyn AstDb {
         self.db
+    }
+    // todo: where to put this?
+    pub(crate) fn parse_visibility_expr(&mut self) -> VisibilityExprResult<VisibilityExpr> {
+        VisibilityExpr::parse_from_token_stream(self.db, self.module_path, &mut self.token_iter)
     }
 }
