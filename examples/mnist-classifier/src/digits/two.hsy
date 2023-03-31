@@ -26,7 +26,6 @@ fn down_cc_pattern(cc: ~ConcaveComponent) -> ?f32:
     dp.x
 
 pub(super) gn is_two -> ?MnistLabel:
-
     require is_zero be none
     require is_three be none
     require is_seven be none
@@ -36,9 +35,8 @@ pub(super) gn is_two -> ?MnistLabel:
 
     let cc_num = major_concave_components.ilen()
     let eff_holes = major_connected_component.eff_holes
+    
     require eff_holes.matches[1] be none
-
-
     let left_cc = two_match.matches[0]
     let right_cc = two_match.matches[1]
     let down_cc = two_match.matches[2]
