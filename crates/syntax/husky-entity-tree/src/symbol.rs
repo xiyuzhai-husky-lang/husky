@@ -55,8 +55,8 @@ pub enum EntitySymbol {
 impl EntitySymbol {
     fn visibility(&self, db: &dyn EntityTreeDb) -> Visibility {
         match self {
-            EntitySymbol::CrateRoot { root_module } => Visibility::PublicUnder(*root_module),
-            EntitySymbol::PackageDependency { .. } => Visibility::Public,
+            EntitySymbol::CrateRoot { root_module } => Visibility::PubUnder(*root_module),
+            EntitySymbol::PackageDependency { .. } => Visibility::Pub,
             EntitySymbol::Submodule(symbol) => symbol.visibility(db),
             EntitySymbol::ModuleItem(symbol) => symbol.visibility(db),
             EntitySymbol::Use(symbol) => symbol.visibility(db),

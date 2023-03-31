@@ -6,12 +6,16 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::PublicUnder(
-                        `std::ops`,
-                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 19,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitItem(
                             AssociatedType,
@@ -25,21 +29,28 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         14,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::PublicUnder(
-                        `std::ops`,
-                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 19,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TraitItem(
                             MethodFn,
@@ -53,9 +64,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         17,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Attr {
@@ -67,12 +81,16 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
-                    body: ArenaIdxRange(
-                        0..2,
-                    ),
-                    accessibility: Visibility::PublicUnder(
-                        `std::ops`,
-                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 19,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
                     entity_kind: ModuleItem {
                         module_item_kind: Trait,
                         connection: Connected,
@@ -91,9 +109,12 @@ Ok(
                         ),
                     },
                     is_generic: true,
-                    body_kind: Block,
                     saved_stream_state: TokenIdx(
                         8,
+                    ),
+                    body_kind: Block,
+                    body: ArenaIdxRange(
+                        0..2,
                     ),
                 },
             ],

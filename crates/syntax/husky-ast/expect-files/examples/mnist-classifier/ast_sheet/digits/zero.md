@@ -205,52 +205,144 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 34,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
+                    state_after_visibility_expr: None,
                 },
                 Ast::Use {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 34,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
+                    state_after_visibility_expr: None,
                 },
                 Ast::Use {
                     token_group_idx: TokenGroupIdx(
                         2,
                     ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 34,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
+                    state_after_visibility_expr: None,
                 },
                 Ast::Use {
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 34,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
+                    state_after_visibility_expr: None,
                 },
                 Ast::Use {
                     token_group_idx: TokenGroupIdx(
                         4,
                     ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 34,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
+                    state_after_visibility_expr: None,
                 },
                 Ast::Use {
                     token_group_idx: TokenGroupIdx(
                         5,
                     ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 34,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
+                    state_after_visibility_expr: None,
                 },
                 Ast::Use {
                     token_group_idx: TokenGroupIdx(
                         6,
                     ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 34,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
+                    state_after_visibility_expr: None,
                 },
                 Ast::Use {
                     token_group_idx: TokenGroupIdx(
                         7,
                     ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 34,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
+                    state_after_visibility_expr: None,
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         8,
                     ),
-                    body: ArenaIdxRange(
-                        0..1,
-                    ),
-                    accessibility: Visibility::PublicUnder(
-                        `mnist_classifier::digits::zero`,
-                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 34,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
                             Feature,
@@ -271,21 +363,28 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: Block,
                     saved_stream_state: TokenIdx(
                         66,
+                    ),
+                    body_kind: Block,
+                    body: ArenaIdxRange(
+                        0..1,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         10,
                     ),
-                    body: ArenaIdxRange(
-                        1..3,
-                    ),
-                    accessibility: Visibility::PublicUnder(
-                        `mnist_classifier::digits::zero`,
-                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 34,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
                             Fn,
@@ -306,21 +405,28 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: Block,
                     saved_stream_state: TokenIdx(
                         79,
+                    ),
+                    body_kind: Block,
+                    body: ArenaIdxRange(
+                        1..3,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         13,
                     ),
-                    body: ArenaIdxRange(
-                        11..25,
-                    ),
-                    accessibility: Visibility::PublicUnder(
-                        `mnist_classifier::digits::zero`,
-                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 34,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
                             Feature,
@@ -341,9 +447,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: Block,
                     saved_stream_state: TokenIdx(
                         106,
+                    ),
+                    body_kind: Block,
+                    body: ArenaIdxRange(
+                        11..25,
                     ),
                 },
             ],

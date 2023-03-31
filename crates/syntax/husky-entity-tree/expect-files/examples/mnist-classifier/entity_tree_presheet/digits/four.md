@@ -5,7 +5,7 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `left_components`,
-                    accessibility: Visibility::PublicUnder(
+                    visibility: Visibility::PubUnder(
                         `mnist_classifier::digits::four`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
@@ -13,7 +13,7 @@ Ok(
                             path: ModuleItemPath::Form(
                                 FormPath(`mnist_classifier::digits::four::left_components`, `Feature`),
                             ),
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
                             ast_idx: 44,
@@ -28,7 +28,7 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `left_coordinate_max`,
-                    accessibility: Visibility::PublicUnder(
+                    visibility: Visibility::PubUnder(
                         `mnist_classifier::digits::four`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
@@ -36,7 +36,7 @@ Ok(
                             path: ModuleItemPath::Form(
                                 FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
                             ),
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
                             ast_idx: 45,
@@ -51,7 +51,7 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `components_max_downwards`,
-                    accessibility: Visibility::PublicUnder(
+                    visibility: Visibility::PubUnder(
                         `mnist_classifier::digits::four`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
@@ -59,7 +59,7 @@ Ok(
                             path: ModuleItemPath::Form(
                                 FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Feature`),
                             ),
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
                             ast_idx: 46,
@@ -74,7 +74,7 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `components_max_heights`,
-                    accessibility: Visibility::PublicUnder(
+                    visibility: Visibility::PubUnder(
                         `mnist_classifier::digits::four`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
@@ -82,7 +82,7 @@ Ok(
                             path: ModuleItemPath::Form(
                                 FormPath(`mnist_classifier::digits::four::components_max_heights`, `Feature`),
                             ),
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
                             ast_idx: 47,
@@ -97,7 +97,7 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `is_four`,
-                    accessibility: Visibility::PublicUnder(
+                    visibility: Visibility::PubUnder(
                         `mnist_classifier::digits::four`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
@@ -105,7 +105,7 @@ Ok(
                             path: ModuleItemPath::Form(
                                 FormPath(`mnist_classifier::digits::four::is_four`, `Feature`),
                             ),
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
                             ast_idx: 48,
@@ -120,7 +120,7 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `displacement_downwards`,
-                    accessibility: Visibility::PublicUnder(
+                    visibility: Visibility::PubUnder(
                         `mnist_classifier::digits::four`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
@@ -128,7 +128,7 @@ Ok(
                             path: ModuleItemPath::Form(
                                 FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
                             ),
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
                             ast_idx: 49,
@@ -143,7 +143,7 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `cc_box_heights`,
-                    accessibility: Visibility::PublicUnder(
+                    visibility: Visibility::PubUnder(
                         `mnist_classifier::digits::four`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
@@ -151,7 +151,7 @@ Ok(
                             path: ModuleItemPath::Form(
                                 FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
                             ),
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
                             ast_idx: 50,
@@ -171,11 +171,9 @@ Ok(
                 UseExprRule {
                     ast_idx: 37,
                     use_expr_idx: 5,
-                    accessibility: VisibilityProgress::Done {
-                        accessibility: Visibility::PublicUnder(
-                            `mnist_classifier::digits::four`,
-                        ),
-                    },
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier::digits::four`,
+                    ),
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Ident(
                             IdentToken {
@@ -195,11 +193,9 @@ Ok(
                 UseExprRule {
                     ast_idx: 38,
                     use_expr_idx: 10,
-                    accessibility: VisibilityProgress::Done {
-                        accessibility: Visibility::PublicUnder(
-                            `mnist_classifier::digits::four`,
-                        ),
-                    },
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier::digits::four`,
+                    ),
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Ident(
                             IdentToken {
@@ -219,11 +215,9 @@ Ok(
                 UseExprRule {
                     ast_idx: 39,
                     use_expr_idx: 15,
-                    accessibility: VisibilityProgress::Done {
-                        accessibility: Visibility::PublicUnder(
-                            `mnist_classifier::digits::four`,
-                        ),
-                    },
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier::digits::four`,
+                    ),
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Ident(
                             IdentToken {
@@ -243,11 +237,9 @@ Ok(
                 UseExprRule {
                     ast_idx: 40,
                     use_expr_idx: 20,
-                    accessibility: VisibilityProgress::Done {
-                        accessibility: Visibility::PublicUnder(
-                            `mnist_classifier::digits::four`,
-                        ),
-                    },
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier::digits::four`,
+                    ),
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Ident(
                             IdentToken {
@@ -267,11 +259,9 @@ Ok(
                 UseExprRule {
                     ast_idx: 41,
                     use_expr_idx: 23,
-                    accessibility: VisibilityProgress::Done {
-                        accessibility: Visibility::PublicUnder(
-                            `mnist_classifier::digits::four`,
-                        ),
-                    },
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier::digits::four`,
+                    ),
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Crate(
                             CrateToken {
@@ -290,11 +280,9 @@ Ok(
                 UseExprRule {
                     ast_idx: 42,
                     use_expr_idx: 26,
-                    accessibility: VisibilityProgress::Done {
-                        accessibility: Visibility::PublicUnder(
-                            `mnist_classifier::digits::four`,
-                        ),
-                    },
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier::digits::four`,
+                    ),
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Crate(
                             CrateToken {
@@ -313,11 +301,9 @@ Ok(
                 UseExprRule {
                     ast_idx: 43,
                     use_expr_idx: 30,
-                    accessibility: VisibilityProgress::Done {
-                        accessibility: Visibility::PublicUnder(
-                            `mnist_classifier::digits::four`,
-                        ),
-                    },
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier::digits::four`,
+                    ),
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Crate(
                             CrateToken {
@@ -967,9 +953,6 @@ Ok(
                     },
                 ),
             ],
-        },
-        mod_path_arena: Arena {
-            data: [],
         },
         errors: [],
     },

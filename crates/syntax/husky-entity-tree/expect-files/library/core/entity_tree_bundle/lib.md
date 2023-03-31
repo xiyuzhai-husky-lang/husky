@@ -7,7 +7,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `basic`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
@@ -18,7 +18,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `default`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
@@ -29,7 +29,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `logic`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
@@ -40,7 +40,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `mem`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
@@ -51,7 +51,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `num`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
@@ -62,7 +62,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `ops`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
@@ -73,7 +73,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `prelude`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
@@ -84,7 +84,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `raw_bits`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
@@ -95,7 +95,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `fmt`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
@@ -106,7 +106,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `clone`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
@@ -117,7 +117,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `marker`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
@@ -128,7 +128,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `list`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
@@ -139,7 +139,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `cmp`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
@@ -150,7 +150,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `str`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
@@ -161,7 +161,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `option`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Submodule(
                                 SubmoduleSymbol(
                                     Id {
@@ -187,7 +187,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `bool`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -198,7 +198,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `never`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -209,7 +209,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `unit`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -220,7 +220,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `Trait`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -231,7 +231,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `Module`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -271,7 +271,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `Prop`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -282,7 +282,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `LogicAnd`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -293,7 +293,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `LogicOr`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -319,7 +319,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `Ref`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -330,7 +330,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `RefMut`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -341,7 +341,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `Leash`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -367,7 +367,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `i8`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -378,7 +378,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `i16`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -389,7 +389,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `i32`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -400,7 +400,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `i64`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -411,7 +411,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `i128`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -422,7 +422,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `isize`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -433,7 +433,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `u8`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -444,7 +444,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `u16`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -455,7 +455,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `u32`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -466,7 +466,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `u64`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -477,7 +477,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `u128`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -488,7 +488,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `usize`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -499,7 +499,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `f32`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -510,7 +510,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `f64`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -521,7 +521,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `Add`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `core::num`,
                             ),
                             symbol: Use(
@@ -1143,11 +1143,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 28,
                             use_expr_idx: 2,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `core::num`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `core::num`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -1174,11 +1172,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 28,
                             use_expr_idx: 1,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `core::num`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `core::num`,
+                            ),
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -1210,11 +1206,9 @@ Ok(
                         UseExprRule {
                             ast_idx: 28,
                             use_expr_idx: 0,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::PublicUnder(
-                                    `core::num`,
-                                ),
-                            },
+                            visibility: Visibility::PubUnder(
+                                `core::num`,
+                            ),
                             variant: UseExprRuleVariant::Leaf {
                                 ident_token: IdentToken {
                                     ident: `Add`,
@@ -1251,7 +1245,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `Add`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -1262,7 +1256,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `AddAssign`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -1273,7 +1267,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `BitAnd`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -1284,7 +1278,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `BitAndAssign`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -1295,7 +1289,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `BitOr`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -1306,7 +1300,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `BitOrAssign`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -1317,7 +1311,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `BitXor`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -1328,7 +1322,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `BitXorAssign`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -1339,7 +1333,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `Div`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -1350,7 +1344,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `DivAssign`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -1361,7 +1355,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `Mul`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -1372,7 +1366,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `MulAssign`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -1383,7 +1377,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `Neg`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -1394,7 +1388,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `Not`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -1405,7 +1399,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `Sub`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -1431,7 +1425,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `bool`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Use(
                                 UseSymbol(
                                     Id {
@@ -1442,7 +1436,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `never`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Use(
                                 UseSymbol(
                                     Id {
@@ -1453,7 +1447,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `unit`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Use(
                                 UseSymbol(
                                     Id {
@@ -1464,7 +1458,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `Trait`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Use(
                                 UseSymbol(
                                     Id {
@@ -1475,7 +1469,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `Module`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Use(
                                 UseSymbol(
                                     Id {
@@ -1486,7 +1480,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `i8`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Use(
                                 UseSymbol(
                                     Id {
@@ -1497,7 +1491,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `i16`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Use(
                                 UseSymbol(
                                     Id {
@@ -1508,7 +1502,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `i32`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Use(
                                 UseSymbol(
                                     Id {
@@ -1519,7 +1513,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `i64`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Use(
                                 UseSymbol(
                                     Id {
@@ -1530,7 +1524,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `i128`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Use(
                                 UseSymbol(
                                     Id {
@@ -1541,7 +1535,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `isize`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Use(
                                 UseSymbol(
                                     Id {
@@ -1552,7 +1546,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `u8`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Use(
                                 UseSymbol(
                                     Id {
@@ -1563,7 +1557,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `u16`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Use(
                                 UseSymbol(
                                     Id {
@@ -1574,7 +1568,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `u32`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Use(
                                 UseSymbol(
                                     Id {
@@ -1585,7 +1579,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `u64`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Use(
                                 UseSymbol(
                                     Id {
@@ -1596,7 +1590,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `u128`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Use(
                                 UseSymbol(
                                     Id {
@@ -1607,7 +1601,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `usize`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Use(
                                 UseSymbol(
                                     Id {
@@ -1618,7 +1612,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `f32`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Use(
                                 UseSymbol(
                                     Id {
@@ -1629,7 +1623,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `f64`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Use(
                                 UseSymbol(
                                     Id {
@@ -1640,7 +1634,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `r32`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Use(
                                 UseSymbol(
                                     Id {
@@ -1651,7 +1645,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `Debug`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Use(
                                 UseSymbol(
                                     Id {
@@ -1662,7 +1656,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `Copy`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Use(
                                 UseSymbol(
                                     Id {
@@ -1673,7 +1667,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `Sized`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Use(
                                 UseSymbol(
                                     Id {
@@ -1684,7 +1678,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `Clone`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Use(
                                 UseSymbol(
                                     Id {
@@ -1695,7 +1689,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `PartialEq`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Use(
                                 UseSymbol(
                                     Id {
@@ -1706,7 +1700,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `Eq`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Use(
                                 UseSymbol(
                                     Id {
@@ -1717,7 +1711,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `PartialOrd`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Use(
                                 UseSymbol(
                                     Id {
@@ -1728,7 +1722,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `Ord`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: Use(
                                 UseSymbol(
                                     Id {
@@ -1745,9 +1739,7 @@ Ok(
                         UseExprRule {
                             ast_idx: 0,
                             use_expr_idx: 2,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::Public,
-                            },
+                            visibility: Visibility::Pub,
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -1774,9 +1766,7 @@ Ok(
                         UseExprRule {
                             ast_idx: 1,
                             use_expr_idx: 5,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::Public,
-                            },
+                            visibility: Visibility::Pub,
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -1803,9 +1793,7 @@ Ok(
                         UseExprRule {
                             ast_idx: 2,
                             use_expr_idx: 8,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::Public,
-                            },
+                            visibility: Visibility::Pub,
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -1832,9 +1820,7 @@ Ok(
                         UseExprRule {
                             ast_idx: 3,
                             use_expr_idx: 11,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::Public,
-                            },
+                            visibility: Visibility::Pub,
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -1861,9 +1847,7 @@ Ok(
                         UseExprRule {
                             ast_idx: 4,
                             use_expr_idx: 14,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::Public,
-                            },
+                            visibility: Visibility::Pub,
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -1890,9 +1874,7 @@ Ok(
                         UseExprRule {
                             ast_idx: 5,
                             use_expr_idx: 17,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::Public,
-                            },
+                            visibility: Visibility::Pub,
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -1919,9 +1901,7 @@ Ok(
                         UseExprRule {
                             ast_idx: 6,
                             use_expr_idx: 20,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::Public,
-                            },
+                            visibility: Visibility::Pub,
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
@@ -1948,9 +1928,7 @@ Ok(
                         UseExprRule {
                             ast_idx: 0,
                             use_expr_idx: 1,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::Public,
-                            },
+                            visibility: Visibility::Pub,
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -1982,9 +1960,7 @@ Ok(
                         UseExprRule {
                             ast_idx: 1,
                             use_expr_idx: 4,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::Public,
-                            },
+                            visibility: Visibility::Pub,
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -2016,9 +1992,7 @@ Ok(
                         UseExprRule {
                             ast_idx: 2,
                             use_expr_idx: 7,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::Public,
-                            },
+                            visibility: Visibility::Pub,
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -2050,9 +2024,7 @@ Ok(
                         UseExprRule {
                             ast_idx: 3,
                             use_expr_idx: 10,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::Public,
-                            },
+                            visibility: Visibility::Pub,
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -2084,9 +2056,7 @@ Ok(
                         UseExprRule {
                             ast_idx: 4,
                             use_expr_idx: 13,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::Public,
-                            },
+                            visibility: Visibility::Pub,
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -2118,9 +2088,7 @@ Ok(
                         UseExprRule {
                             ast_idx: 5,
                             use_expr_idx: 16,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::Public,
-                            },
+                            visibility: Visibility::Pub,
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -2152,9 +2120,7 @@ Ok(
                         UseExprRule {
                             ast_idx: 6,
                             use_expr_idx: 19,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::Public,
-                            },
+                            visibility: Visibility::Pub,
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -2198,7 +2164,7 @@ Ok(
                             },
                             ast_idx: 0,
                             use_expr_idx: 0,
-                            visibility: Public,
+                            visibility: Pub,
                             progress: 5,
                         },
                         UseAllRule {
@@ -2212,7 +2178,7 @@ Ok(
                             },
                             ast_idx: 1,
                             use_expr_idx: 3,
-                            visibility: Public,
+                            visibility: Pub,
                             progress: 15,
                         },
                         UseAllRule {
@@ -2226,7 +2192,7 @@ Ok(
                             },
                             ast_idx: 2,
                             use_expr_idx: 6,
-                            visibility: Public,
+                            visibility: Pub,
                             progress: 1,
                         },
                         UseAllRule {
@@ -2240,7 +2206,7 @@ Ok(
                             },
                             ast_idx: 3,
                             use_expr_idx: 9,
-                            visibility: Public,
+                            visibility: Pub,
                             progress: 1,
                         },
                         UseAllRule {
@@ -2254,7 +2220,7 @@ Ok(
                             },
                             ast_idx: 4,
                             use_expr_idx: 12,
-                            visibility: Public,
+                            visibility: Pub,
                             progress: 2,
                         },
                         UseAllRule {
@@ -2268,7 +2234,7 @@ Ok(
                             },
                             ast_idx: 5,
                             use_expr_idx: 15,
-                            visibility: Public,
+                            visibility: Pub,
                             progress: 1,
                         },
                         UseAllRule {
@@ -2282,7 +2248,7 @@ Ok(
                             },
                             ast_idx: 6,
                             use_expr_idx: 18,
-                            visibility: Public,
+                            visibility: Pub,
                             progress: 4,
                         },
                     ],
@@ -2295,7 +2261,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `r32`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -2321,7 +2287,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `Debug`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -2347,7 +2313,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `Clone`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -2373,7 +2339,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `Copy`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -2384,7 +2350,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `Sized`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -2410,7 +2376,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `List`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -2436,7 +2402,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `PartialEq`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -2447,7 +2413,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `Eq`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -2458,7 +2424,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `PartialOrd`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -2469,7 +2435,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `Ord`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -2495,7 +2461,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `str`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -2506,7 +2472,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `StringLiteral`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {
@@ -2532,7 +2498,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `Option`,
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             symbol: ModuleItem(
                                 ModuleItemSymbol(
                                     Id {

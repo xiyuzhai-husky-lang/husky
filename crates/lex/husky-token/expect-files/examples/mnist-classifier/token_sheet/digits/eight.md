@@ -305,6 +305,24 @@ Ok(
                 ),
             ),
             Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Punctuation(
+                Punctuation::Bra(
+                    Par,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Pronoun(
+                    Super,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation::Ket(
+                    Par,
+                ),
+            ),
+            Token::Keyword(
                 Keyword::Form(
                     Gn,
                 ),
@@ -743,20 +761,20 @@ Ok(
             78,
             83,
             91,
-            97,
             101,
             105,
             109,
             113,
-            123,
-            135,
-            147,
-            149,
+            117,
+            127,
+            139,
             151,
-            154,
-            166,
-            177,
-            201,
+            153,
+            155,
+            158,
+            170,
+            181,
+            205,
         ],
         indents: [
             0,

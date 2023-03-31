@@ -13,7 +13,7 @@ use crate::raw_contour::*
 fn upper_mouth_match -> FermiMatchResult:
     fermi_match(major_concave_components, [big_mouth])
 
-gn is_eight -> ?MnistLabel:
+pub(super) gn is_eight -> ?MnistLabel:
     require is_one be none
     require is_six be none
     require is_zero be none

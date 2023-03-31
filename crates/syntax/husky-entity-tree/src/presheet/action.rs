@@ -164,7 +164,7 @@ impl<'a> EntityTreePresheetMut<'a> {
                                     path,
                                     rule.ast_idx(),
                                     use_expr_idx,
-                                    rule.accessibility(),
+                                    rule.visibility(),
                                 );
                                 self.use_all_rules.push(new_rule)
                             }

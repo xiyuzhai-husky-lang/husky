@@ -102,12 +102,16 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         3,
                     ),
-                    body: ArenaIdxRange(
-                        1..4,
-                    ),
-                    accessibility: Visibility::PublicUnder(
-                        `mnist_classifier::fermi`,
-                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 35,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             Memo,
@@ -121,21 +125,28 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: Block,
                     saved_stream_state: TokenIdx(
                         28,
+                    ),
+                    body_kind: Block,
+                    body: ArenaIdxRange(
+                        1..4,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         8,
                     ),
-                    body: ArenaIdxRange(
-                        5..8,
-                    ),
-                    accessibility: Visibility::PublicUnder(
-                        `mnist_classifier::fermi`,
-                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 35,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             Memo,
@@ -149,21 +160,28 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: Block,
                     saved_stream_state: TokenIdx(
                         66,
+                    ),
+                    body_kind: Block,
+                    body: ArenaIdxRange(
+                        5..8,
                     ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         13,
                     ),
-                    body: ArenaIdxRange(
-                        9..12,
-                    ),
-                    accessibility: Visibility::PublicUnder(
-                        `mnist_classifier::fermi`,
-                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 35,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             Memo,
@@ -177,9 +195,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: Block,
                     saved_stream_state: TokenIdx(
                         104,
+                    ),
+                    body_kind: Block,
+                    body: ArenaIdxRange(
+                        9..12,
                     ),
                 },
                 Ast::BasicStmtOrBranch {
@@ -234,17 +255,32 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 35,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
+                    state_after_visibility_expr: None,
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         1,
                     ),
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
-                    accessibility: Visibility::PublicUnder(
-                        `mnist_classifier::fermi`,
-                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 35,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
@@ -265,9 +301,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: None,
                     saved_stream_state: TokenIdx(
                         6,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
                     ),
                 },
                 Ast::Impl {
@@ -282,10 +321,16 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         18,
                     ),
-                    body: ArenaIdxRange(
-                        17..21,
-                    ),
-                    accessibility: Visibility::Public,
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    144,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
                             Fn,
@@ -306,9 +351,12 @@ Ok(
                         ),
                     },
                     is_generic: false,
-                    body_kind: Block,
                     saved_stream_state: TokenIdx(
                         147,
+                    ),
+                    body_kind: Block,
+                    body: ArenaIdxRange(
+                        17..21,
                     ),
                 },
             ],

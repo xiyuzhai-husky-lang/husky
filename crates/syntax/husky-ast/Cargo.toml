@@ -28,9 +28,10 @@ husky-package-path = { path = "../../kernel/husky-package-path" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
+husky-visibility = { path = "../../kernel/husky-visibility" }
 # syntax
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
-husky-accessibility = { path = "../../syntax/husky-accessibility" }
+husky-visibility-expr = { path = "../../syntax/husky-visibility-expr" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 

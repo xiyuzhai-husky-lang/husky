@@ -2201,7 +2201,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            accessibility: Visibility::PublicUnder(
+                                            visibility: Visibility::PubUnder(
                                                 `mnist_classifier::geom2d`,
                                             ),
                                             is_generic: false,
@@ -2788,7 +2788,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            accessibility: Visibility::PublicUnder(
+                                            visibility: Visibility::PubUnder(
                                                 `mnist_classifier::geom2d`,
                                             ),
                                             is_generic: false,
@@ -3581,7 +3581,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            accessibility: Visibility::PublicUnder(
+                                            visibility: Visibility::PubUnder(
                                                 `mnist_classifier::geom2d`,
                                             ),
                                             is_generic: false,
@@ -4223,7 +4223,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            accessibility: Visibility::PublicUnder(
+                                            visibility: Visibility::PubUnder(
                                                 `mnist_classifier::geom2d`,
                                             ),
                                             is_generic: false,
@@ -5063,7 +5063,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            accessibility: Visibility::Public,
+                                            visibility: Visibility::Pub,
                                             is_generic: false,
                                         },
                                         ast_idx: 41,
@@ -5648,7 +5648,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            accessibility: Visibility::Public,
+                                            visibility: Visibility::Pub,
                                             is_generic: false,
                                         },
                                         ast_idx: 42,
@@ -6439,7 +6439,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            accessibility: Visibility::PublicUnder(
+                                            visibility: Visibility::PubUnder(
                                                 `mnist_classifier::geom2d`,
                                             ),
                                             is_generic: false,
@@ -7081,7 +7081,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            accessibility: Visibility::PublicUnder(
+                                            visibility: Visibility::PubUnder(
                                                 `mnist_classifier::geom2d`,
                                             ),
                                             is_generic: false,
@@ -7844,7 +7844,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            accessibility: Visibility::PublicUnder(
+                                            visibility: Visibility::PubUnder(
                                                 `mnist_classifier::geom2d`,
                                             ),
                                             is_generic: false,
@@ -8607,7 +8607,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            accessibility: Visibility::PublicUnder(
+                                            visibility: Visibility::PubUnder(
                                                 `mnist_classifier::geom2d`,
                                             ),
                                             is_generic: false,
@@ -9743,7 +9743,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            accessibility: Visibility::PublicUnder(
+                                            visibility: Visibility::PubUnder(
                                                 `mnist_classifier::geom2d`,
                                             ),
                                             is_generic: false,
@@ -10457,7 +10457,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            accessibility: Visibility::PublicUnder(
+                                            visibility: Visibility::PubUnder(
                                                 `mnist_classifier::geom2d`,
                                             ),
                                             is_generic: false,
@@ -12222,7 +12222,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            accessibility: Visibility::PublicUnder(
+                                            visibility: Visibility::PubUnder(
                                                 `mnist_classifier::geom2d`,
                                             ),
                                             is_generic: false,
@@ -13042,7 +13042,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            accessibility: Visibility::PublicUnder(
+                                            visibility: Visibility::PubUnder(
                                                 `mnist_classifier::geom2d`,
                                             ),
                                             is_generic: false,
@@ -13862,7 +13862,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            accessibility: Visibility::PublicUnder(
+                                            visibility: Visibility::PubUnder(
                                                 `mnist_classifier::geom2d`,
                                             ),
                                             is_generic: false,
@@ -14404,7 +14404,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            accessibility: Visibility::PublicUnder(
+                                            visibility: Visibility::PubUnder(
                                                 `mnist_classifier::geom2d`,
                                             ),
                                             is_generic: false,
@@ -14946,7 +14946,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            accessibility: Visibility::PublicUnder(
+                                            visibility: Visibility::PubUnder(
                                                 `mnist_classifier::geom2d`,
                                             ),
                                             is_generic: false,
@@ -15488,7 +15488,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            accessibility: Visibility::PublicUnder(
+                                            visibility: Visibility::PubUnder(
                                                 `mnist_classifier::geom2d`,
                                             ),
                                             is_generic: false,
@@ -16156,7 +16156,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            accessibility: Visibility::PublicUnder(
+                                            visibility: Visibility::PubUnder(
                                                 `mnist_classifier::geom2d`,
                                             ),
                                             is_generic: false,
@@ -16698,7 +16698,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            accessibility: Visibility::PublicUnder(
+                                            visibility: Visibility::PubUnder(
                                                 `mnist_classifier::geom2d`,
                                             ),
                                             is_generic: false,
@@ -17240,7 +17240,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            accessibility: Visibility::PublicUnder(
+                                            visibility: Visibility::PubUnder(
                                                 `mnist_classifier::geom2d`,
                                             ),
                                             is_generic: false,
@@ -17782,7 +17782,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            accessibility: Visibility::PublicUnder(
+                                            visibility: Visibility::PubUnder(
                                                 `mnist_classifier::geom2d`,
                                             ),
                                             is_generic: false,

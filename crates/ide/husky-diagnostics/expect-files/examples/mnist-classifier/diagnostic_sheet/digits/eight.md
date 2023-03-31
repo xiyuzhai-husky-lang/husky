@@ -55,7 +55,7 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [16:17, 16:27),
+                range: [16:28, 16:38),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",

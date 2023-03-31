@@ -3,16 +3,14 @@ mod reserved;
 mod tokenizer;
 mod word;
 
-pub use error::*;
+pub(crate) use self::reserved::*;
 
+use self::pretoken::*;
+use self::tokenizer::*;
+use self::word::*;
 use crate::*;
 use convexity::*;
 use husky_text::TextCharIter;
-
-use pretoken::*;
-pub(crate) use reserved::*;
-use tokenizer::*;
-use word::*;
 
 // must be used inside tracked context
 pub(crate) fn tokenize<'a>(db: &dyn TokenDb, input: &str) -> RangedTokenSheet {

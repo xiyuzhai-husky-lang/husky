@@ -1,0 +1,48 @@
+pub(crate) use husky_vfs::test_utils::*;
+
+use crate::*;
+use husky_vfs::VfsJar;
+use husky_word::WordJar;
+use salsa::{Database, Storage};
+use with_db::WithDb;
+
+#[salsa::db(WordJar, VfsJar)]
+#[derive(Default)]
+pub(crate) struct DB {
+    storage: Storage<Self>,
+}
+
+impl Database for DB {}
+
+#[test]
+fn visibility_partial_ord_works() {
+    use Visibility::*;
+
+    let db = DB::default();
+    let path_menu = db.dev_path_menu().unwrap();
+    assert!(Pub.with_db(&db) > PubUnder(path_menu.core_num()).with_db(&db));
+    assert!(
+        !(PubUnder(path_menu.core_prelude()).with_db(&db)
+            > PubUnder(path_menu.core_num()).with_db(&db))
+    );
+    assert!(Pub.with_db(&db) > Private.with_db(&db));
+    assert!(Pub.with_db(&db) >= Pub.with_db(&db));
+    // equals
+    assert_eq!(Pub.with_db(&db), Pub.with_db(&db));
+    assert_eq!(Private.with_db(&db), Private.with_db(&db));
+    assert_eq!(
+        PubUnder(path_menu.core_prelude()).with_db(&db),
+        PubUnder(path_menu.core_prelude()).with_db(&db)
+    );
+    // not equals
+    assert_ne!(Pub.with_db(&db), Private.with_db(&db));
+    assert_ne!(Private.with_db(&db), Pub.with_db(&db));
+    assert_ne!(
+        Private.with_db(&db),
+        PubUnder(path_menu.core_num()).with_db(&db)
+    );
+    assert_ne!(
+        PubUnder(path_menu.core_prelude()).with_db(&db),
+        PubUnder(path_menu.core_num()).with_db(&db)
+    );
+}

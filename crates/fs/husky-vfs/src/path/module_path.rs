@@ -27,6 +27,13 @@ impl ModulePath {
         self.crate_path(db).package_path(db)
     }
 
+    pub fn parent(self, db: &dyn VfsDb) -> Option<Self> {
+        match self.data(db) {
+            ModulePathData::Root(_) => None,
+            ModulePathData::Child { parent, .. } => Some(parent),
+        }
+    }
+
     pub fn new_root(db: &dyn VfsDb, crate_path: CratePath) -> Self {
         Self::new(db, ModulePathData::Root(crate_path))
     }

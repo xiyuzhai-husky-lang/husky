@@ -5,13 +5,13 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `concave_component`,
-                    accessibility: Visibility::PublicUnder(
+                    visibility: Visibility::PubUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::line_segment_sketch::concave_component`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             ast_idx: 159,
@@ -26,13 +26,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `convex_component`,
-                    accessibility: Visibility::PublicUnder(
+                    visibility: Visibility::PubUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::line_segment_sketch::convex_component`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             ast_idx: 160,
@@ -47,13 +47,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `convexity`,
-                    accessibility: Visibility::PublicUnder(
+                    visibility: Visibility::PubUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::line_segment_sketch::convexity`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             ast_idx: 161,
@@ -68,13 +68,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `line_segment`,
-                    accessibility: Visibility::PublicUnder(
+                    visibility: Visibility::PubUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::line_segment_sketch::line_segment`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             ast_idx: 162,
@@ -89,13 +89,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `LineSegmentStroke`,
-                    accessibility: Visibility::Public,
+                    visibility: Visibility::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                             ),
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             ast_idx: 169,
                             ident_token: IdentToken {
                                 ident: `LineSegmentStroke`,
@@ -108,13 +108,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `LineSegmentSketch`,
-                    accessibility: Visibility::Public,
+                    visibility: Visibility::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                             ),
-                            visibility: Visibility::Public,
+                            visibility: Visibility::Pub,
                             ast_idx: 171,
                             ident_token: IdentToken {
                                 ident: `LineSegmentSketch`,
@@ -127,7 +127,7 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `go_right`,
-                    accessibility: Visibility::PublicUnder(
+                    visibility: Visibility::PubUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
@@ -135,7 +135,7 @@ Ok(
                             path: ModuleItemPath::Form(
                                 FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                             ),
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             ast_idx: 173,
@@ -150,7 +150,7 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `go_left`,
-                    accessibility: Visibility::PublicUnder(
+                    visibility: Visibility::PubUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
@@ -158,7 +158,7 @@ Ok(
                             path: ModuleItemPath::Form(
                                 FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                             ),
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             ast_idx: 174,
@@ -173,7 +173,7 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `extend_end`,
-                    accessibility: Visibility::PublicUnder(
+                    visibility: Visibility::PubUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
@@ -181,7 +181,7 @@ Ok(
                             path: ModuleItemPath::Form(
                                 FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
                             ),
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             ast_idx: 175,
@@ -196,7 +196,7 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `extend_start`,
-                    accessibility: Visibility::PublicUnder(
+                    visibility: Visibility::PubUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
@@ -204,7 +204,7 @@ Ok(
                             path: ModuleItemPath::Form(
                                 FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
                             ),
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             ast_idx: 176,
@@ -219,7 +219,7 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `find_line_segments`,
-                    accessibility: Visibility::PublicUnder(
+                    visibility: Visibility::PubUnder(
                         `mnist_classifier::line_segment_sketch`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
@@ -227,7 +227,7 @@ Ok(
                             path: ModuleItemPath::Form(
                                 FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
                             ),
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                             ast_idx: 177,
@@ -247,9 +247,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 163,
                     use_expr_idx: 1,
-                    accessibility: VisibilityProgress::Done {
-                        accessibility: Visibility::Public,
-                    },
+                    visibility: Visibility::Pub,
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Ident(
                             IdentToken {
@@ -269,9 +267,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 164,
                     use_expr_idx: 3,
-                    accessibility: VisibilityProgress::Done {
-                        accessibility: Visibility::Public,
-                    },
+                    visibility: Visibility::Pub,
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Ident(
                             IdentToken {
@@ -291,9 +287,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 165,
                     use_expr_idx: 5,
-                    accessibility: VisibilityProgress::Done {
-                        accessibility: Visibility::Public,
-                    },
+                    visibility: Visibility::Pub,
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Ident(
                             IdentToken {
@@ -313,11 +307,9 @@ Ok(
                 UseExprRule {
                     ast_idx: 166,
                     use_expr_idx: 8,
-                    accessibility: VisibilityProgress::Done {
-                        accessibility: Visibility::PublicUnder(
-                            `mnist_classifier::line_segment_sketch`,
-                        ),
-                    },
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier::line_segment_sketch`,
+                    ),
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Crate(
                             CrateToken {
@@ -336,11 +328,9 @@ Ok(
                 UseExprRule {
                     ast_idx: 167,
                     use_expr_idx: 11,
-                    accessibility: VisibilityProgress::Done {
-                        accessibility: Visibility::PublicUnder(
-                            `mnist_classifier::line_segment_sketch`,
-                        ),
-                    },
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier::line_segment_sketch`,
+                    ),
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Crate(
                             CrateToken {
@@ -359,11 +349,9 @@ Ok(
                 UseExprRule {
                     ast_idx: 168,
                     use_expr_idx: 13,
-                    accessibility: VisibilityProgress::Done {
-                        accessibility: Visibility::PublicUnder(
-                            `mnist_classifier::line_segment_sketch`,
-                        ),
-                    },
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier::line_segment_sketch`,
+                    ),
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Ident(
                             IdentToken {
@@ -621,9 +609,6 @@ Ok(
                     },
                 ),
             ],
-        },
-        mod_path_arena: Arena {
-            data: [],
         },
         errors: [],
     },

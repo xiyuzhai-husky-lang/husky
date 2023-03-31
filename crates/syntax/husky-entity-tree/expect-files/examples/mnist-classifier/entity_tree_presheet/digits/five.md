@@ -13,9 +13,6 @@ Ok(
         use_expr_arena: Arena {
             data: [],
         },
-        mod_path_arena: Arena {
-            data: [],
-        },
         errors: [],
     },
 )

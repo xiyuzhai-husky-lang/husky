@@ -1,4 +1,3 @@
-use cv::datasets::mnist::BinaryImage28
 use crate::raw_contour::*
 use crate::*
 

@@ -7,7 +7,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `Nat`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `natural_number_game`,
                             ),
                             symbol: ModuleItem(
@@ -20,7 +20,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `OddNat`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `natural_number_game`,
                             ),
                             symbol: ModuleItem(
@@ -33,7 +33,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `EvenNat`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `natural_number_game`,
                             ),
                             symbol: ModuleItem(

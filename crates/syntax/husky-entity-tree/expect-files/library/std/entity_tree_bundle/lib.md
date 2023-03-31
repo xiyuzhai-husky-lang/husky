@@ -7,7 +7,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `prelude`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `std`,
                             ),
                             symbol: Submodule(
@@ -20,7 +20,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `logic`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `std`,
                             ),
                             symbol: Submodule(
@@ -33,7 +33,7 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `ops`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `std`,
                             ),
                             symbol: Submodule(
@@ -80,9 +80,7 @@ Ok(
                         UseExprRule {
                             ast_idx: 0,
                             use_expr_idx: 2,
-                            accessibility: VisibilityProgress::Done {
-                                accessibility: Visibility::Public,
-                            },
+                            visibility: Visibility::Pub,
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -123,7 +121,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `Add`,
-                            visibility: Visibility::PublicUnder(
+                            visibility: Visibility::PubUnder(
                                 `std::ops`,
                             ),
                             symbol: ModuleItem(

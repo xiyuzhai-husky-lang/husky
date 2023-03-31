@@ -113,7 +113,12 @@ impl<'a> AstParser<'a> {
                         error: OriginalAstError::UnexpectedPattern.into(),
                     });
                 }
-                Keyword::Use => self.parse_use_ast(token_group_idx, context),
+                Keyword::Use => self.parse_use_ast(
+                    token_group_idx,
+                    context,
+                    VisibilityExpr::new_protected(self.module_path),
+                    None,
+                ),
                 Keyword::Main => Ast::Main {
                     token_group_idx,
                     body: self.parse_asts(context.subcontext(AstContextKind::InsideForm)),
@@ -126,7 +131,12 @@ impl<'a> AstParser<'a> {
                 | Keyword::Form(_)
                 | Keyword::Visual
                 | Keyword::Trait
-                | Keyword::TypeEntity(_) => self.parse_defn(context, token_group_idx),
+                | Keyword::TypeEntity(_) => self.parse_defn(
+                    context,
+                    token_group_idx,
+                    VisibilityExpr::new_protected(self.module_path),
+                    None,
+                ),
                 Keyword::Impl => Ast::Impl {
                     token_group_idx,
                     body: self.parse_asts(context.subcontext(
@@ -259,30 +269,45 @@ impl<'a> AstParser<'a> {
         self.alloc_asts(verticals)
     }
 
-    fn parse_defn_or_use(&mut self, token_group_idx: TokenGroupIdx, context: &Context) -> Ast {
-        for token in &self.token_sheet[token_group_idx] {
-            match token {
-                Token::Keyword(Keyword::Pub) => (),
-                Token::Keyword(Keyword::Use) => {
-                    return self.parse_use_ast(token_group_idx, context)
-                }
-                Token::Keyword(_) => return self.parse_defn(context, token_group_idx),
-                Token::Ident(_)
-                | Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_) => {
-                    return Ast::Err {
-                        token_group_idx,
-                        error: OriginalAstError::ExpectedDecoratorOrEntityKeyword.into(),
-                    }
-                }
-                Token::Error(_) => todo!(),
-            }
-        }
-        Ast::Err {
-            token_group_idx,
-            error: OriginalAstError::InvalidAstForDefinitionOrUse.into(),
+    fn parse_defn_or_use(&mut self, token_group_idx: TokenGroupIdx, ctx: &Context) -> Ast {
+        // for token in &self.token_sheet[token_group_idx] {
+        //     match token {
+        //         Token::Keyword(Keyword::Pub | Keyword::Pronoun(_)) => (),
+        //         Token::Keyword(Keyword::Use) => {
+        //             return self.parse_use_ast(token_group_idx, context)
+        //         }
+        //         Token::Keyword(_) => return self.parse_defn(context, token_group_idx, todo!()),
+        //         _ => (),
+        //     }
+        // }
+        let mut aux_parser = BasicAuxAstParser::new(
+            self.db,
+            ctx,
+            self.module_path,
+            self.token_sheet
+                .token_group_token_stream(token_group_idx, None),
+        );
+        let visibility_expr = match aux_parser.parse_visibility_expr() {
+            Ok(visibility_expr) => visibility_expr,
+            Err(_) => todo!(),
+        };
+        match aux_parser.peek() {
+            Some(Token::Keyword(Keyword::Use)) => self.parse_use_ast(
+                token_group_idx,
+                ctx,
+                visibility_expr,
+                Some(aux_parser.finish_with_saved_stream_state()),
+            ),
+            Some(Token::Keyword(_)) => self.parse_defn(
+                ctx,
+                token_group_idx,
+                visibility_expr,
+                Some(aux_parser.finish_with_saved_stream_state()),
+            ),
+            _ => Ast::Err {
+                token_group_idx,
+                error: OriginalAstError::InvalidAstForDefinitionOrUse.into(),
+            },
         }
     }
 }

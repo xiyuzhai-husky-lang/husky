@@ -91,15 +91,9 @@ impl<'a> InferEngine<'a> {
         let ast_idx = defn.ast_idx(self.db);
         match self.ast_sheet[ast_idx] {
             Ast::Defn {
-                token_group_idx: _,
-                body: _,
-                accessibility: _,
-                entity_kind,
-                entity_path: _,
                 ident_token,
-                is_generic: _,
-                body_kind: _,
-                saved_stream_state: _,
+                entity_kind,
+                ..
             } => self.sheet.add(
                 ident_token.token_idx(),
                 TokenInfo::Entity(decl.path(self.db), Some(entity_kind)),

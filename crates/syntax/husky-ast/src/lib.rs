@@ -18,11 +18,12 @@ pub use self::specs::*;
 
 use self::parser::*;
 use either::*;
-use husky_accessibility::Visibility;
 use husky_entity_path::{EntityPath, VariantPath};
 use husky_entity_taxonomy::EntityKind;
 use husky_token::{DecrIdentToken, IdentToken, TokenGroupIdx, TokenIdx};
 use husky_vfs::*;
+use husky_visibility::Visibility;
+use husky_visibility_expr::VisibilityExpr;
 use husky_word::*;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 use salsa::DbWithJar;
@@ -39,12 +40,12 @@ pub enum Ast {
     },
     Use {
         token_group_idx: TokenGroupIdx,
+        visibility_expr: VisibilityExpr,
+        state_after_visibility_expr: Option<TokenIdx>,
     },
     /// specify internal attributes
     /// doesn't need to be processed until comptime
-    Attr {
-        token_group_idx: TokenGroupIdx,
-    },
+    Attr { token_group_idx: TokenGroupIdx },
     /// decoration, used for deriving trait implementations, etc.
     /// needs to be processed before inference
     Decr {
@@ -67,15 +68,15 @@ pub enum Ast {
     },
     Defn {
         token_group_idx: TokenGroupIdx,
-        body: AstIdxRange,
-        accessibility: Visibility,
+        visibility_expr: VisibilityExpr,
         entity_kind: EntityKind,
         /// None only when this is under impl block
         entity_path: Option<EntityPath>,
         ident_token: IdentToken,
         is_generic: bool,
-        body_kind: DefnBodyKind,
         saved_stream_state: TokenIdx,
+        body_kind: DefnBodyKind,
+        body: AstIdxRange,
     },
     ModuleItemVariant {
         token_group_idx: TokenGroupIdx,

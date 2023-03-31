@@ -1,7 +1,7 @@
 use crate::geom2d::*
 use crate::connected_component::*
 use crate::line_segment_sketch::*
-use mnist::{BinaryImage28, BinaryGrid28}
+use crate::*
 
 pub struct RawContour {
     cc: &ConnectedComponent,

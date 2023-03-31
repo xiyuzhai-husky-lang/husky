@@ -746,7 +746,7 @@ impl<'t> CodeEdit<'t> {
                 // drop ctx lock before further processing
                 use accesskit::{Role, TextDirection};
 
-                ui.ctx().with_accessibility_parent(parent_id, || {
+                ui.ctx().with_visibility_parent(parent_id, || {
                     for (i, row) in galley.rows.iter().enumerate() {
                         let id = parent_id.with(i);
                         ui.ctx().accesskit_node_builder(id, |builder| {

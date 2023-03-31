@@ -21,7 +21,7 @@ pub struct AssociatedItem {
     pub ast_idx: AstIdx,
     pub ident: Ident,
     pub associated_item_kind: AssociatedItemKind,
-    pub accessibility: Visibility,
+    pub visibility: Visibility,
     pub is_generic: bool,
 }
 
@@ -53,7 +53,7 @@ impl AssociatedItem {
         ast_idx: AstIdx,
         ident: Ident,
         associated_item_kind: AssociatedItemKind,
-        accessibility: Visibility,
+        visibility: Visibility,
         is_generic: bool,
     ) -> Self {
         let id = AssociatedItemId {
@@ -92,7 +92,7 @@ impl AssociatedItem {
             ast_idx,
             ident,
             associated_item_kind,
-            accessibility,
+            visibility,
             is_generic,
         )
     }
@@ -166,9 +166,8 @@ pub(crate) fn impl_block_associated_items_aux(
             let ast = &ast_sheet[ast_idx];
             match ast {
                 Ast::Defn {
-                    accessibility,
+                    visibility_expr,
                     entity_kind,
-
                     ident_token,
                     is_generic,
                     ..
@@ -187,7 +186,7 @@ pub(crate) fn impl_block_associated_items_aux(
                             ast_idx,
                             ident_token.ident(),
                             associated_item_kind,
-                            *accessibility,
+                            visibility_expr.visibility(),
                             *is_generic,
                         ),
                     ))

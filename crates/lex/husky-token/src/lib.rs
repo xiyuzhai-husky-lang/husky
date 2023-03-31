@@ -14,7 +14,7 @@ mod stream;
 pub mod test_utils;
 #[cfg(test)]
 mod tests;
-mod token_accessibility;
+mod token_visibility;
 mod tokenize;
 
 pub use self::convexity::*;
@@ -26,7 +26,7 @@ pub use self::parse_utils::*;
 pub use self::sheet::*;
 pub use self::snippet::*;
 pub use self::stream::*;
-pub use self::token_accessibility::*;
+pub use self::token_visibility::*;
 
 use husky_text::{HasTextRange, TextRange};
 use husky_vfs::{ModulePath, VfsResult};
