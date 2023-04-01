@@ -160,7 +160,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 215;\n\ntoken_line_group_idx = 29\n\ntoken = Token::Keyword(\n    Keyword::Stmt(\n        For,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "Other\ntoken_idx = 215;\n\ntoken_line_group_idx = 29\n\ntoken = Token::Keyword(\n    Keyword::Stmt(\n        NonImplFor,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(

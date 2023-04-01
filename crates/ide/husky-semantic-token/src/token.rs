@@ -128,14 +128,14 @@ impl SemanticToken {
                     | StmtKeyword::Elif
                     | StmtKeyword::Else
                     | StmtKeyword::Match
-                    | StmtKeyword::For
+                    | StmtKeyword::NonImplFor
                     | StmtKeyword::ForExt
                     | StmtKeyword::While
                     | StmtKeyword::Do
                     | StmtKeyword::Break
                     | StmtKeyword::Return
                     | StmtKeyword::Require => result |= CONTROL_FLOW,
-                    StmtKeyword::Let | StmtKeyword::Var | StmtKeyword::Assert => (),
+                    StmtKeyword::Let | StmtKeyword::Assert => (),
                 },
                 Keyword::End(_) => result |= CONTROL_FLOW,
                 _ => (),

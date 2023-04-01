@@ -842,7 +842,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Stmt(
-                    For,
+                    NonImplFor,
                 ),
             ),
             Token::Ident(

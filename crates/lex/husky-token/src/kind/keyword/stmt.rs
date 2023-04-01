@@ -5,12 +5,13 @@ use crate::{Keyword, Token};
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum StmtKeyword {
     Let,
-    Var,
     If,
     Elif,
     Else,
     Match,
-    For,
+    /// `for` token not in an impl decl
+    NonImplFor,
+    /// `forext`
     ForExt,
     While,
     Do,
@@ -24,12 +25,11 @@ impl StmtKeyword {
     pub const fn code(self) -> &'static str {
         match self {
             StmtKeyword::Let => "let",
-            StmtKeyword::Var => "var",
             StmtKeyword::If => "if",
             StmtKeyword::Elif => "elif",
             StmtKeyword::Else => "else",
             StmtKeyword::Match => "match",
-            StmtKeyword::For => "for",
+            StmtKeyword::NonImplFor => "for",
             StmtKeyword::ForExt => "forext",
             StmtKeyword::While => "while",
             StmtKeyword::Do => "do",

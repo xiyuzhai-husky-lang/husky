@@ -9,6 +9,7 @@ pub enum FormKeyword {
     Proposition,
     Type,
     Const,
+    Var,
     Gn,
 }
 
@@ -22,6 +23,7 @@ impl FormKeyword {
             FormKeyword::Proposition => "proposition",
             FormKeyword::Type => "type",
             FormKeyword::Const => "const",
+            FormKeyword::Var => "var",
             FormKeyword::Gn => "gn",
         }
     }
