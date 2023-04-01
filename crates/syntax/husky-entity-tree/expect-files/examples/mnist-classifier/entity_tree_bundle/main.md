@@ -162,7 +162,7 @@ Ok(
                                     original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
                                             path: ModuleItemPath::Form(
-                                                FormPath(`mnist_classifier::major::connected_components`, `Fn`),
+                                                FormPath(`mnist_classifier::major::connected_components`, `Var`),
                                             ),
                                             visibility: Visibility::Pub,
                                             ast_idx: 23,
@@ -176,7 +176,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::connected_components`, `Fn`),
+                                            FormPath(`mnist_classifier::major::connected_components`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -197,21 +197,21 @@ Ok(
                                     original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
                                             path: ModuleItemPath::Form(
-                                                FormPath(`mnist_classifier::major::major_connected_component`, `Fn`),
+                                                FormPath(`mnist_classifier::major::major_connected_component`, `Var`),
                                             ),
                                             visibility: Visibility::Pub,
                                             ast_idx: 24,
                                             ident_token: IdentToken {
                                                 ident: `major_connected_component`,
                                                 token_idx: TokenIdx(
-                                                    44,
+                                                    45,
                                                 ),
                                             },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_connected_component`, `Fn`),
+                                            FormPath(`mnist_classifier::major::major_connected_component`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -232,21 +232,21 @@ Ok(
                                     original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
                                             path: ModuleItemPath::Form(
-                                                FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Fn`),
+                                                FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Var`),
                                             ),
                                             visibility: Visibility::Pub,
                                             ast_idx: 25,
                                             ident_token: IdentToken {
                                                 ident: `ignored_connected_components_row_span_sum_sum`,
                                                 token_idx: TokenIdx(
-                                                    94,
+                                                    96,
                                                 ),
                                             },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Fn`),
+                                            FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -267,21 +267,21 @@ Ok(
                                     original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
                                             path: ModuleItemPath::Form(
-                                                FormPath(`mnist_classifier::major::major_raw_contours`, `Fn`),
+                                                FormPath(`mnist_classifier::major::major_raw_contours`, `Var`),
                                             ),
                                             visibility: Visibility::Pub,
                                             ast_idx: 26,
                                             ident_token: IdentToken {
                                                 ident: `major_raw_contours`,
                                                 token_idx: TokenIdx(
-                                                    128,
+                                                    131,
                                                 ),
                                             },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_raw_contours`, `Fn`),
+                                            FormPath(`mnist_classifier::major::major_raw_contours`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -302,21 +302,21 @@ Ok(
                                     original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
                                             path: ModuleItemPath::Form(
-                                                FormPath(`mnist_classifier::major::major_raw_contour`, `Fn`),
+                                                FormPath(`mnist_classifier::major::major_raw_contour`, `Var`),
                                             ),
                                             visibility: Visibility::Pub,
                                             ast_idx: 27,
                                             ident_token: IdentToken {
                                                 ident: `major_raw_contour`,
                                                 token_idx: TokenIdx(
-                                                    139,
+                                                    143,
                                                 ),
                                             },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_raw_contour`, `Fn`),
+                                            FormPath(`mnist_classifier::major::major_raw_contour`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -337,21 +337,21 @@ Ok(
                                     original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
                                             path: ModuleItemPath::Form(
-                                                FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Fn`),
+                                                FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Var`),
                                             ),
                                             visibility: Visibility::Pub,
                                             ast_idx: 28,
                                             ident_token: IdentToken {
                                                 ident: `major_line_segment_sketch`,
                                                 token_idx: TokenIdx(
-                                                    151,
+                                                    156,
                                                 ),
                                             },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Fn`),
+                                            FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -372,21 +372,21 @@ Ok(
                                     original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
                                             path: ModuleItemPath::Form(
-                                                FormPath(`mnist_classifier::major::major_concave_components`, `Fn`),
+                                                FormPath(`mnist_classifier::major::major_concave_components`, `Var`),
                                             ),
                                             visibility: Visibility::Pub,
                                             ast_idx: 29,
                                             ident_token: IdentToken {
                                                 ident: `major_concave_components`,
                                                 token_idx: TokenIdx(
-                                                    160,
+                                                    166,
                                                 ),
                                             },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_concave_components`, `Fn`),
+                                            FormPath(`mnist_classifier::major::major_concave_components`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -1322,7 +1322,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `horizontal_extend`,
                                         token_idx: TokenIdx(
-                                            552,
+                                            560,
                                         ),
                                     },
                                 },
@@ -1341,7 +1341,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `find_connected_components`,
                                         token_idx: TokenIdx(
-                                            638,
+                                            646,
                                         ),
                                     },
                                 },
@@ -1625,7 +1625,7 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::connected_components`, `Fn`),
+                                                        FormPath(`mnist_classifier::major::connected_components`, `Var`),
                                                     ),
                                                     visibility: Visibility::Pub,
                                                     ast_idx: 23,
@@ -1639,7 +1639,7 @@ Ok(
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::connected_components`, `Fn`),
+                                                    FormPath(`mnist_classifier::major::connected_components`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -1651,7 +1651,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::connected_components`, `Fn`),
+                                            FormPath(`mnist_classifier::major::connected_components`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -1674,21 +1674,21 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::major_connected_component`, `Fn`),
+                                                        FormPath(`mnist_classifier::major::major_connected_component`, `Var`),
                                                     ),
                                                     visibility: Visibility::Pub,
                                                     ast_idx: 24,
                                                     ident_token: IdentToken {
                                                         ident: `major_connected_component`,
                                                         token_idx: TokenIdx(
-                                                            44,
+                                                            45,
                                                         ),
                                                     },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::major_connected_component`, `Fn`),
+                                                    FormPath(`mnist_classifier::major::major_connected_component`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -1700,7 +1700,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_connected_component`, `Fn`),
+                                            FormPath(`mnist_classifier::major::major_connected_component`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -1723,21 +1723,21 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Fn`),
+                                                        FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Var`),
                                                     ),
                                                     visibility: Visibility::Pub,
                                                     ast_idx: 25,
                                                     ident_token: IdentToken {
                                                         ident: `ignored_connected_components_row_span_sum_sum`,
                                                         token_idx: TokenIdx(
-                                                            94,
+                                                            96,
                                                         ),
                                                     },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Fn`),
+                                                    FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -1749,7 +1749,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Fn`),
+                                            FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -1772,21 +1772,21 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::major_raw_contours`, `Fn`),
+                                                        FormPath(`mnist_classifier::major::major_raw_contours`, `Var`),
                                                     ),
                                                     visibility: Visibility::Pub,
                                                     ast_idx: 26,
                                                     ident_token: IdentToken {
                                                         ident: `major_raw_contours`,
                                                         token_idx: TokenIdx(
-                                                            128,
+                                                            131,
                                                         ),
                                                     },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::major_raw_contours`, `Fn`),
+                                                    FormPath(`mnist_classifier::major::major_raw_contours`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -1798,7 +1798,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_raw_contours`, `Fn`),
+                                            FormPath(`mnist_classifier::major::major_raw_contours`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -1821,21 +1821,21 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::major_raw_contour`, `Fn`),
+                                                        FormPath(`mnist_classifier::major::major_raw_contour`, `Var`),
                                                     ),
                                                     visibility: Visibility::Pub,
                                                     ast_idx: 27,
                                                     ident_token: IdentToken {
                                                         ident: `major_raw_contour`,
                                                         token_idx: TokenIdx(
-                                                            139,
+                                                            143,
                                                         ),
                                                     },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::major_raw_contour`, `Fn`),
+                                                    FormPath(`mnist_classifier::major::major_raw_contour`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -1847,7 +1847,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_raw_contour`, `Fn`),
+                                            FormPath(`mnist_classifier::major::major_raw_contour`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -1870,21 +1870,21 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Fn`),
+                                                        FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Var`),
                                                     ),
                                                     visibility: Visibility::Pub,
                                                     ast_idx: 28,
                                                     ident_token: IdentToken {
                                                         ident: `major_line_segment_sketch`,
                                                         token_idx: TokenIdx(
-                                                            151,
+                                                            156,
                                                         ),
                                                     },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Fn`),
+                                                    FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -1896,7 +1896,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Fn`),
+                                            FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -1919,21 +1919,21 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::major_concave_components`, `Fn`),
+                                                        FormPath(`mnist_classifier::major::major_concave_components`, `Var`),
                                                     ),
                                                     visibility: Visibility::Pub,
                                                     ast_idx: 29,
                                                     ident_token: IdentToken {
                                                         ident: `major_concave_components`,
                                                         token_idx: TokenIdx(
-                                                            160,
+                                                            166,
                                                         ),
                                                     },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::major_concave_components`, `Fn`),
+                                                    FormPath(`mnist_classifier::major::major_concave_components`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -1945,7 +1945,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_concave_components`, `Fn`),
+                                            FormPath(`mnist_classifier::major::major_concave_components`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -2552,7 +2552,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `Direction`,
                                         token_idx: TokenIdx(
-                                            390,
+                                            394,
                                         ),
                                     },
                                 },
@@ -2575,7 +2575,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `get_pixel_pair`,
                                         token_idx: TokenIdx(
-                                            400,
+                                            404,
                                         ),
                                     },
                                 },
@@ -2598,7 +2598,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `get_pixel_to_the_left`,
                                         token_idx: TokenIdx(
-                                            425,
+                                            429,
                                         ),
                                     },
                                 },
@@ -2621,7 +2621,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `get_pixel_to_the_right`,
                                         token_idx: TokenIdx(
-                                            446,
+                                            450,
                                         ),
                                     },
                                 },
@@ -2644,7 +2644,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `get_inward_direction`,
                                         token_idx: TokenIdx(
-                                            471,
+                                            475,
                                         ),
                                     },
                                 },
@@ -2667,7 +2667,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `get_angle_change`,
                                         token_idx: TokenIdx(
-                                            617,
+                                            621,
                                         ),
                                     },
                                 },
@@ -2690,7 +2690,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `get_outward_direction`,
                                         token_idx: TokenIdx(
-                                            681,
+                                            685,
                                         ),
                                     },
                                 },
@@ -2713,7 +2713,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `StreakCache`,
                                         token_idx: TokenIdx(
-                                            908,
+                                            912,
                                         ),
                                     },
                                 },
@@ -2736,7 +2736,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `get_concave_middle_point`,
                                         token_idx: TokenIdx(
-                                            920,
+                                            924,
                                         ),
                                     },
                                 },
@@ -2759,7 +2759,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `find_raw_contours`,
                                         token_idx: TokenIdx(
-                                            985,
+                                            989,
                                         ),
                                     },
                                 },
@@ -3328,7 +3328,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `find_connected_components`,
                                                 token_idx: TokenIdx(
-                                                    638,
+                                                    646,
                                                 ),
                                             },
                                         },
@@ -3569,7 +3569,7 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::connected_components`, `Fn`),
+                                                        FormPath(`mnist_classifier::major::connected_components`, `Var`),
                                                     ),
                                                     visibility: Visibility::Pub,
                                                     ast_idx: 23,
@@ -3583,7 +3583,7 @@ Ok(
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::connected_components`, `Fn`),
+                                                    FormPath(`mnist_classifier::major::connected_components`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -3595,7 +3595,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::connected_components`, `Fn`),
+                                            FormPath(`mnist_classifier::major::connected_components`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -3618,21 +3618,21 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::major_connected_component`, `Fn`),
+                                                        FormPath(`mnist_classifier::major::major_connected_component`, `Var`),
                                                     ),
                                                     visibility: Visibility::Pub,
                                                     ast_idx: 24,
                                                     ident_token: IdentToken {
                                                         ident: `major_connected_component`,
                                                         token_idx: TokenIdx(
-                                                            44,
+                                                            45,
                                                         ),
                                                     },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::major_connected_component`, `Fn`),
+                                                    FormPath(`mnist_classifier::major::major_connected_component`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -3644,7 +3644,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_connected_component`, `Fn`),
+                                            FormPath(`mnist_classifier::major::major_connected_component`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -3667,21 +3667,21 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Fn`),
+                                                        FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Var`),
                                                     ),
                                                     visibility: Visibility::Pub,
                                                     ast_idx: 25,
                                                     ident_token: IdentToken {
                                                         ident: `ignored_connected_components_row_span_sum_sum`,
                                                         token_idx: TokenIdx(
-                                                            94,
+                                                            96,
                                                         ),
                                                     },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Fn`),
+                                                    FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -3693,7 +3693,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Fn`),
+                                            FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -3716,21 +3716,21 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::major_raw_contours`, `Fn`),
+                                                        FormPath(`mnist_classifier::major::major_raw_contours`, `Var`),
                                                     ),
                                                     visibility: Visibility::Pub,
                                                     ast_idx: 26,
                                                     ident_token: IdentToken {
                                                         ident: `major_raw_contours`,
                                                         token_idx: TokenIdx(
-                                                            128,
+                                                            131,
                                                         ),
                                                     },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::major_raw_contours`, `Fn`),
+                                                    FormPath(`mnist_classifier::major::major_raw_contours`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -3742,7 +3742,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_raw_contours`, `Fn`),
+                                            FormPath(`mnist_classifier::major::major_raw_contours`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -3765,21 +3765,21 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::major_raw_contour`, `Fn`),
+                                                        FormPath(`mnist_classifier::major::major_raw_contour`, `Var`),
                                                     ),
                                                     visibility: Visibility::Pub,
                                                     ast_idx: 27,
                                                     ident_token: IdentToken {
                                                         ident: `major_raw_contour`,
                                                         token_idx: TokenIdx(
-                                                            139,
+                                                            143,
                                                         ),
                                                     },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::major_raw_contour`, `Fn`),
+                                                    FormPath(`mnist_classifier::major::major_raw_contour`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -3791,7 +3791,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_raw_contour`, `Fn`),
+                                            FormPath(`mnist_classifier::major::major_raw_contour`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -3814,21 +3814,21 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Fn`),
+                                                        FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Var`),
                                                     ),
                                                     visibility: Visibility::Pub,
                                                     ast_idx: 28,
                                                     ident_token: IdentToken {
                                                         ident: `major_line_segment_sketch`,
                                                         token_idx: TokenIdx(
-                                                            151,
+                                                            156,
                                                         ),
                                                     },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Fn`),
+                                                    FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -3840,7 +3840,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Fn`),
+                                            FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -3863,21 +3863,21 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::major_concave_components`, `Fn`),
+                                                        FormPath(`mnist_classifier::major::major_concave_components`, `Var`),
                                                     ),
                                                     visibility: Visibility::Pub,
                                                     ast_idx: 29,
                                                     ident_token: IdentToken {
                                                         ident: `major_concave_components`,
                                                         token_idx: TokenIdx(
-                                                            160,
+                                                            166,
                                                         ),
                                                     },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::major_concave_components`, `Fn`),
+                                                    FormPath(`mnist_classifier::major::major_concave_components`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -3889,7 +3889,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_concave_components`, `Fn`),
+                                            FormPath(`mnist_classifier::major::major_concave_components`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -4727,7 +4727,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `go_right`,
                                         token_idx: TokenIdx(
-                                            346,
+                                            348,
                                         ),
                                     },
                                 },
@@ -4750,7 +4750,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `go_left`,
                                         token_idx: TokenIdx(
-                                            443,
+                                            445,
                                         ),
                                     },
                                 },
@@ -4773,7 +4773,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `extend_end`,
                                         token_idx: TokenIdx(
-                                            540,
+                                            542,
                                         ),
                                     },
                                 },
@@ -4796,7 +4796,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `extend_start`,
                                         token_idx: TokenIdx(
-                                            773,
+                                            775,
                                         ),
                                     },
                                 },
@@ -4819,7 +4819,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `find_line_segments`,
                                         token_idx: TokenIdx(
-                                            1039,
+                                            1041,
                                         ),
                                     },
                                 },
@@ -6108,7 +6108,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `go_right`,
                                                 token_idx: TokenIdx(
-                                                    346,
+                                                    348,
                                                 ),
                                             },
                                         },
@@ -6145,7 +6145,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `go_left`,
                                                 token_idx: TokenIdx(
-                                                    443,
+                                                    445,
                                                 ),
                                             },
                                         },
@@ -6182,7 +6182,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `extend_end`,
                                                 token_idx: TokenIdx(
-                                                    540,
+                                                    542,
                                                 ),
                                             },
                                         },
@@ -6219,7 +6219,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `extend_start`,
                                                 token_idx: TokenIdx(
-                                                    773,
+                                                    775,
                                                 ),
                                             },
                                         },
@@ -6256,7 +6256,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `find_line_segments`,
                                                 token_idx: TokenIdx(
-                                                    1039,
+                                                    1041,
                                                 ),
                                             },
                                         },
@@ -6676,7 +6676,7 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::connected_components`, `Fn`),
+                                                        FormPath(`mnist_classifier::major::connected_components`, `Var`),
                                                     ),
                                                     visibility: Visibility::Pub,
                                                     ast_idx: 23,
@@ -6690,7 +6690,7 @@ Ok(
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::connected_components`, `Fn`),
+                                                    FormPath(`mnist_classifier::major::connected_components`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -6702,7 +6702,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::connected_components`, `Fn`),
+                                            FormPath(`mnist_classifier::major::connected_components`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -6725,21 +6725,21 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::major_connected_component`, `Fn`),
+                                                        FormPath(`mnist_classifier::major::major_connected_component`, `Var`),
                                                     ),
                                                     visibility: Visibility::Pub,
                                                     ast_idx: 24,
                                                     ident_token: IdentToken {
                                                         ident: `major_connected_component`,
                                                         token_idx: TokenIdx(
-                                                            44,
+                                                            45,
                                                         ),
                                                     },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::major_connected_component`, `Fn`),
+                                                    FormPath(`mnist_classifier::major::major_connected_component`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -6751,7 +6751,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_connected_component`, `Fn`),
+                                            FormPath(`mnist_classifier::major::major_connected_component`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -6774,21 +6774,21 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Fn`),
+                                                        FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Var`),
                                                     ),
                                                     visibility: Visibility::Pub,
                                                     ast_idx: 25,
                                                     ident_token: IdentToken {
                                                         ident: `ignored_connected_components_row_span_sum_sum`,
                                                         token_idx: TokenIdx(
-                                                            94,
+                                                            96,
                                                         ),
                                                     },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Fn`),
+                                                    FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -6800,7 +6800,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Fn`),
+                                            FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -6823,21 +6823,21 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::major_raw_contours`, `Fn`),
+                                                        FormPath(`mnist_classifier::major::major_raw_contours`, `Var`),
                                                     ),
                                                     visibility: Visibility::Pub,
                                                     ast_idx: 26,
                                                     ident_token: IdentToken {
                                                         ident: `major_raw_contours`,
                                                         token_idx: TokenIdx(
-                                                            128,
+                                                            131,
                                                         ),
                                                     },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::major_raw_contours`, `Fn`),
+                                                    FormPath(`mnist_classifier::major::major_raw_contours`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -6849,7 +6849,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_raw_contours`, `Fn`),
+                                            FormPath(`mnist_classifier::major::major_raw_contours`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -6872,21 +6872,21 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::major_raw_contour`, `Fn`),
+                                                        FormPath(`mnist_classifier::major::major_raw_contour`, `Var`),
                                                     ),
                                                     visibility: Visibility::Pub,
                                                     ast_idx: 27,
                                                     ident_token: IdentToken {
                                                         ident: `major_raw_contour`,
                                                         token_idx: TokenIdx(
-                                                            139,
+                                                            143,
                                                         ),
                                                     },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::major_raw_contour`, `Fn`),
+                                                    FormPath(`mnist_classifier::major::major_raw_contour`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -6898,7 +6898,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_raw_contour`, `Fn`),
+                                            FormPath(`mnist_classifier::major::major_raw_contour`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -6921,21 +6921,21 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Fn`),
+                                                        FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Var`),
                                                     ),
                                                     visibility: Visibility::Pub,
                                                     ast_idx: 28,
                                                     ident_token: IdentToken {
                                                         ident: `major_line_segment_sketch`,
                                                         token_idx: TokenIdx(
-                                                            151,
+                                                            156,
                                                         ),
                                                     },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Fn`),
+                                                    FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -6947,7 +6947,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Fn`),
+                                            FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -6970,21 +6970,21 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::major_concave_components`, `Fn`),
+                                                        FormPath(`mnist_classifier::major::major_concave_components`, `Var`),
                                                     ),
                                                     visibility: Visibility::Pub,
                                                     ast_idx: 29,
                                                     ident_token: IdentToken {
                                                         ident: `major_concave_components`,
                                                         token_idx: TokenIdx(
-                                                            160,
+                                                            166,
                                                         ),
                                                     },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::major_concave_components`, `Fn`),
+                                                    FormPath(`mnist_classifier::major::major_concave_components`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -6996,7 +6996,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_concave_components`, `Fn`),
+                                            FormPath(`mnist_classifier::major::major_concave_components`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -7910,7 +7910,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `go_right`,
                                                 token_idx: TokenIdx(
-                                                    346,
+                                                    348,
                                                 ),
                                             },
                                         },
@@ -7947,7 +7947,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `go_left`,
                                                 token_idx: TokenIdx(
-                                                    443,
+                                                    445,
                                                 ),
                                             },
                                         },
@@ -7984,7 +7984,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `extend_end`,
                                                 token_idx: TokenIdx(
-                                                    540,
+                                                    542,
                                                 ),
                                             },
                                         },
@@ -8021,7 +8021,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `extend_start`,
                                                 token_idx: TokenIdx(
-                                                    773,
+                                                    775,
                                                 ),
                                             },
                                         },
@@ -8058,7 +8058,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `find_line_segments`,
                                                 token_idx: TokenIdx(
-                                                    1039,
+                                                    1041,
                                                 ),
                                             },
                                         },
@@ -8924,7 +8924,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `go_right`,
                                                 token_idx: TokenIdx(
-                                                    346,
+                                                    348,
                                                 ),
                                             },
                                         },
@@ -8961,7 +8961,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `go_left`,
                                                 token_idx: TokenIdx(
-                                                    443,
+                                                    445,
                                                 ),
                                             },
                                         },
@@ -8998,7 +8998,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `extend_end`,
                                                 token_idx: TokenIdx(
-                                                    540,
+                                                    542,
                                                 ),
                                             },
                                         },
@@ -9035,7 +9035,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `extend_start`,
                                                 token_idx: TokenIdx(
-                                                    773,
+                                                    775,
                                                 ),
                                             },
                                         },
@@ -9072,7 +9072,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `find_line_segments`,
                                                 token_idx: TokenIdx(
-                                                    1039,
+                                                    1041,
                                                 ),
                                             },
                                         },
@@ -10490,7 +10490,7 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::connected_components`, `Fn`),
+                                                        FormPath(`mnist_classifier::major::connected_components`, `Var`),
                                                     ),
                                                     visibility: Visibility::Pub,
                                                     ast_idx: 23,
@@ -10504,7 +10504,7 @@ Ok(
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::connected_components`, `Fn`),
+                                                    FormPath(`mnist_classifier::major::connected_components`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -10516,7 +10516,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::connected_components`, `Fn`),
+                                            FormPath(`mnist_classifier::major::connected_components`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -10539,21 +10539,21 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::major_connected_component`, `Fn`),
+                                                        FormPath(`mnist_classifier::major::major_connected_component`, `Var`),
                                                     ),
                                                     visibility: Visibility::Pub,
                                                     ast_idx: 24,
                                                     ident_token: IdentToken {
                                                         ident: `major_connected_component`,
                                                         token_idx: TokenIdx(
-                                                            44,
+                                                            45,
                                                         ),
                                                     },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::major_connected_component`, `Fn`),
+                                                    FormPath(`mnist_classifier::major::major_connected_component`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -10565,7 +10565,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_connected_component`, `Fn`),
+                                            FormPath(`mnist_classifier::major::major_connected_component`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -10588,21 +10588,21 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Fn`),
+                                                        FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Var`),
                                                     ),
                                                     visibility: Visibility::Pub,
                                                     ast_idx: 25,
                                                     ident_token: IdentToken {
                                                         ident: `ignored_connected_components_row_span_sum_sum`,
                                                         token_idx: TokenIdx(
-                                                            94,
+                                                            96,
                                                         ),
                                                     },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Fn`),
+                                                    FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -10614,7 +10614,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Fn`),
+                                            FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -10637,21 +10637,21 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::major_raw_contours`, `Fn`),
+                                                        FormPath(`mnist_classifier::major::major_raw_contours`, `Var`),
                                                     ),
                                                     visibility: Visibility::Pub,
                                                     ast_idx: 26,
                                                     ident_token: IdentToken {
                                                         ident: `major_raw_contours`,
                                                         token_idx: TokenIdx(
-                                                            128,
+                                                            131,
                                                         ),
                                                     },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::major_raw_contours`, `Fn`),
+                                                    FormPath(`mnist_classifier::major::major_raw_contours`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -10663,7 +10663,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_raw_contours`, `Fn`),
+                                            FormPath(`mnist_classifier::major::major_raw_contours`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -10686,21 +10686,21 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::major_raw_contour`, `Fn`),
+                                                        FormPath(`mnist_classifier::major::major_raw_contour`, `Var`),
                                                     ),
                                                     visibility: Visibility::Pub,
                                                     ast_idx: 27,
                                                     ident_token: IdentToken {
                                                         ident: `major_raw_contour`,
                                                         token_idx: TokenIdx(
-                                                            139,
+                                                            143,
                                                         ),
                                                     },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::major_raw_contour`, `Fn`),
+                                                    FormPath(`mnist_classifier::major::major_raw_contour`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -10712,7 +10712,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_raw_contour`, `Fn`),
+                                            FormPath(`mnist_classifier::major::major_raw_contour`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -10735,21 +10735,21 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Fn`),
+                                                        FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Var`),
                                                     ),
                                                     visibility: Visibility::Pub,
                                                     ast_idx: 28,
                                                     ident_token: IdentToken {
                                                         ident: `major_line_segment_sketch`,
                                                         token_idx: TokenIdx(
-                                                            151,
+                                                            156,
                                                         ),
                                                     },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Fn`),
+                                                    FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -10761,7 +10761,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Fn`),
+                                            FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -10784,21 +10784,21 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::major_concave_components`, `Fn`),
+                                                        FormPath(`mnist_classifier::major::major_concave_components`, `Var`),
                                                     ),
                                                     visibility: Visibility::Pub,
                                                     ast_idx: 29,
                                                     ident_token: IdentToken {
                                                         ident: `major_concave_components`,
                                                         token_idx: TokenIdx(
-                                                            160,
+                                                            166,
                                                         ),
                                                     },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::major_concave_components`, `Fn`),
+                                                    FormPath(`mnist_classifier::major::major_concave_components`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -10810,7 +10810,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_concave_components`, `Fn`),
+                                            FormPath(`mnist_classifier::major::major_concave_components`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -12074,7 +12074,7 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::connected_components`, `Fn`),
+                                                        FormPath(`mnist_classifier::major::connected_components`, `Var`),
                                                     ),
                                                     visibility: Visibility::Pub,
                                                     ast_idx: 23,
@@ -12088,7 +12088,7 @@ Ok(
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::connected_components`, `Fn`),
+                                                    FormPath(`mnist_classifier::major::connected_components`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -12100,7 +12100,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::connected_components`, `Fn`),
+                                            FormPath(`mnist_classifier::major::connected_components`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -12123,21 +12123,21 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::major_connected_component`, `Fn`),
+                                                        FormPath(`mnist_classifier::major::major_connected_component`, `Var`),
                                                     ),
                                                     visibility: Visibility::Pub,
                                                     ast_idx: 24,
                                                     ident_token: IdentToken {
                                                         ident: `major_connected_component`,
                                                         token_idx: TokenIdx(
-                                                            44,
+                                                            45,
                                                         ),
                                                     },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::major_connected_component`, `Fn`),
+                                                    FormPath(`mnist_classifier::major::major_connected_component`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -12149,7 +12149,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_connected_component`, `Fn`),
+                                            FormPath(`mnist_classifier::major::major_connected_component`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -12172,21 +12172,21 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Fn`),
+                                                        FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Var`),
                                                     ),
                                                     visibility: Visibility::Pub,
                                                     ast_idx: 25,
                                                     ident_token: IdentToken {
                                                         ident: `ignored_connected_components_row_span_sum_sum`,
                                                         token_idx: TokenIdx(
-                                                            94,
+                                                            96,
                                                         ),
                                                     },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Fn`),
+                                                    FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -12198,7 +12198,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Fn`),
+                                            FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -12221,21 +12221,21 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::major_raw_contours`, `Fn`),
+                                                        FormPath(`mnist_classifier::major::major_raw_contours`, `Var`),
                                                     ),
                                                     visibility: Visibility::Pub,
                                                     ast_idx: 26,
                                                     ident_token: IdentToken {
                                                         ident: `major_raw_contours`,
                                                         token_idx: TokenIdx(
-                                                            128,
+                                                            131,
                                                         ),
                                                     },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::major_raw_contours`, `Fn`),
+                                                    FormPath(`mnist_classifier::major::major_raw_contours`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -12247,7 +12247,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_raw_contours`, `Fn`),
+                                            FormPath(`mnist_classifier::major::major_raw_contours`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -12270,21 +12270,21 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::major_raw_contour`, `Fn`),
+                                                        FormPath(`mnist_classifier::major::major_raw_contour`, `Var`),
                                                     ),
                                                     visibility: Visibility::Pub,
                                                     ast_idx: 27,
                                                     ident_token: IdentToken {
                                                         ident: `major_raw_contour`,
                                                         token_idx: TokenIdx(
-                                                            139,
+                                                            143,
                                                         ),
                                                     },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::major_raw_contour`, `Fn`),
+                                                    FormPath(`mnist_classifier::major::major_raw_contour`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -12296,7 +12296,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_raw_contour`, `Fn`),
+                                            FormPath(`mnist_classifier::major::major_raw_contour`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -12319,21 +12319,21 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Fn`),
+                                                        FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Var`),
                                                     ),
                                                     visibility: Visibility::Pub,
                                                     ast_idx: 28,
                                                     ident_token: IdentToken {
                                                         ident: `major_line_segment_sketch`,
                                                         token_idx: TokenIdx(
-                                                            151,
+                                                            156,
                                                         ),
                                                     },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Fn`),
+                                                    FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -12345,7 +12345,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Fn`),
+                                            FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -12368,21 +12368,21 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::major_concave_components`, `Fn`),
+                                                        FormPath(`mnist_classifier::major::major_concave_components`, `Var`),
                                                     ),
                                                     visibility: Visibility::Pub,
                                                     ast_idx: 29,
                                                     ident_token: IdentToken {
                                                         ident: `major_concave_components`,
                                                         token_idx: TokenIdx(
-                                                            160,
+                                                            166,
                                                         ),
                                                     },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::major_concave_components`, `Fn`),
+                                                    FormPath(`mnist_classifier::major::major_concave_components`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -12394,7 +12394,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_concave_components`, `Fn`),
+                                            FormPath(`mnist_classifier::major::major_concave_components`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -14720,7 +14720,7 @@ Ok(
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`mnist_classifier::major::connected_components`, `Fn`),
+                                        FormPath(`mnist_classifier::major::connected_components`, `Var`),
                                     ),
                                     visibility: Visibility::Pub,
                                     ast_idx: 23,
@@ -14739,14 +14739,14 @@ Ok(
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`mnist_classifier::major::major_connected_component`, `Fn`),
+                                        FormPath(`mnist_classifier::major::major_connected_component`, `Var`),
                                     ),
                                     visibility: Visibility::Pub,
                                     ast_idx: 24,
                                     ident_token: IdentToken {
                                         ident: `major_connected_component`,
                                         token_idx: TokenIdx(
-                                            44,
+                                            45,
                                         ),
                                     },
                                 },
@@ -14758,14 +14758,14 @@ Ok(
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Fn`),
+                                        FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Var`),
                                     ),
                                     visibility: Visibility::Pub,
                                     ast_idx: 25,
                                     ident_token: IdentToken {
                                         ident: `ignored_connected_components_row_span_sum_sum`,
                                         token_idx: TokenIdx(
-                                            94,
+                                            96,
                                         ),
                                     },
                                 },
@@ -14777,14 +14777,14 @@ Ok(
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`mnist_classifier::major::major_raw_contours`, `Fn`),
+                                        FormPath(`mnist_classifier::major::major_raw_contours`, `Var`),
                                     ),
                                     visibility: Visibility::Pub,
                                     ast_idx: 26,
                                     ident_token: IdentToken {
                                         ident: `major_raw_contours`,
                                         token_idx: TokenIdx(
-                                            128,
+                                            131,
                                         ),
                                     },
                                 },
@@ -14796,14 +14796,14 @@ Ok(
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`mnist_classifier::major::major_raw_contour`, `Fn`),
+                                        FormPath(`mnist_classifier::major::major_raw_contour`, `Var`),
                                     ),
                                     visibility: Visibility::Pub,
                                     ast_idx: 27,
                                     ident_token: IdentToken {
                                         ident: `major_raw_contour`,
                                         token_idx: TokenIdx(
-                                            139,
+                                            143,
                                         ),
                                     },
                                 },
@@ -14815,14 +14815,14 @@ Ok(
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Fn`),
+                                        FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Var`),
                                     ),
                                     visibility: Visibility::Pub,
                                     ast_idx: 28,
                                     ident_token: IdentToken {
                                         ident: `major_line_segment_sketch`,
                                         token_idx: TokenIdx(
-                                            151,
+                                            156,
                                         ),
                                     },
                                 },
@@ -14834,14 +14834,14 @@ Ok(
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`mnist_classifier::major::major_concave_components`, `Fn`),
+                                        FormPath(`mnist_classifier::major::major_concave_components`, `Var`),
                                     ),
                                     visibility: Visibility::Pub,
                                     ast_idx: 29,
                                     ident_token: IdentToken {
                                         ident: `major_concave_components`,
                                         token_idx: TokenIdx(
-                                            160,
+                                            166,
                                         ),
                                     },
                                 },
@@ -15200,7 +15200,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `find_connected_components`,
                                                 token_idx: TokenIdx(
-                                                    638,
+                                                    646,
                                                 ),
                                             },
                                         },

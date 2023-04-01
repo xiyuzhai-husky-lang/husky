@@ -9,7 +9,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::major::connected_components`, `Fn`),
+                                FormPath(`mnist_classifier::major::connected_components`, `Var`),
                             ),
                             visibility: Visibility::Pub,
                             ast_idx: 23,
@@ -28,14 +28,14 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_connected_component`, `Fn`),
+                                FormPath(`mnist_classifier::major::major_connected_component`, `Var`),
                             ),
                             visibility: Visibility::Pub,
                             ast_idx: 24,
                             ident_token: IdentToken {
                                 ident: `major_connected_component`,
                                 token_idx: TokenIdx(
-                                    44,
+                                    45,
                                 ),
                             },
                         },
@@ -47,14 +47,14 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Fn`),
+                                FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Var`),
                             ),
                             visibility: Visibility::Pub,
                             ast_idx: 25,
                             ident_token: IdentToken {
                                 ident: `ignored_connected_components_row_span_sum_sum`,
                                 token_idx: TokenIdx(
-                                    94,
+                                    96,
                                 ),
                             },
                         },
@@ -66,14 +66,14 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_raw_contours`, `Fn`),
+                                FormPath(`mnist_classifier::major::major_raw_contours`, `Var`),
                             ),
                             visibility: Visibility::Pub,
                             ast_idx: 26,
                             ident_token: IdentToken {
                                 ident: `major_raw_contours`,
                                 token_idx: TokenIdx(
-                                    128,
+                                    131,
                                 ),
                             },
                         },
@@ -85,14 +85,14 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_raw_contour`, `Fn`),
+                                FormPath(`mnist_classifier::major::major_raw_contour`, `Var`),
                             ),
                             visibility: Visibility::Pub,
                             ast_idx: 27,
                             ident_token: IdentToken {
                                 ident: `major_raw_contour`,
                                 token_idx: TokenIdx(
-                                    139,
+                                    143,
                                 ),
                             },
                         },
@@ -104,14 +104,14 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Fn`),
+                                FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Var`),
                             ),
                             visibility: Visibility::Pub,
                             ast_idx: 28,
                             ident_token: IdentToken {
                                 ident: `major_line_segment_sketch`,
                                 token_idx: TokenIdx(
-                                    151,
+                                    156,
                                 ),
                             },
                         },
@@ -123,14 +123,14 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_concave_components`, `Fn`),
+                                FormPath(`mnist_classifier::major::major_concave_components`, `Var`),
                             ),
                             visibility: Visibility::Pub,
                             ast_idx: 29,
                             ident_token: IdentToken {
                                 ident: `major_concave_components`,
                                 token_idx: TokenIdx(
-                                    160,
+                                    166,
                                 ),
                             },
                         },

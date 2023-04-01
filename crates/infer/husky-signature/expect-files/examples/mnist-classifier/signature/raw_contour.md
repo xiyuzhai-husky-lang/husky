@@ -342,7 +342,7 @@
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
                                         Id {
-                                            value: 46,
+                                            value: 51,
                                         },
                                     ),
                                 ),
@@ -368,7 +368,7 @@
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
                                         Id {
-                                            value: 44,
+                                            value: 49,
                                         },
                                     ),
                                 ),
@@ -389,6 +389,50 @@
                     },
                     ty: RawTerm(`mnist_classifier::raw_contour::RawContour`),
                 },
+            ),
+        ),
+    ),
+    Ok(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
+                TypeItemSignature::Memo(
+                    TypeMemoSignature {
+                        return_ty: RawTerm(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
+                    },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
+                TypeItemSignature::Memo(
+                    TypeMemoSignature {
+                        return_ty: RawTerm(`mnist_classifier::geom2d::BoundingBox`),
+                    },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
+                TypeItemSignature::Memo(
+                    TypeMemoSignature {
+                        return_ty: RawTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
+                    },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
+                TypeItemSignature::Memo(
+                    TypeMemoSignature {
+                        return_ty: RawTerm(`core::num::f32`),
+                    },
+                ),
             ),
         ),
     ),

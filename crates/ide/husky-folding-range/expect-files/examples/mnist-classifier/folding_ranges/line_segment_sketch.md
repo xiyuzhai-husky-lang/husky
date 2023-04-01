@@ -540,7 +540,7 @@ Ok(
             ),
             end_line: 199,
             end_character: Some(
-                24,
+                17,
             ),
             kind: Some(
                 Region,

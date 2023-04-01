@@ -34,10 +34,10 @@ pub struct LineSegmentSketch {
 }
 
 impl LineSegmentSketch:
-    fn concave_components -> []ConcaveComponent:
+    memo concave_components: []ConcaveComponent =:
         find_concave_components(self)
     
-    fn bounding_box -> BoundingBox:
+    memo bounding_box: BoundingBox =:
         let start_point = self.strokes[0].start
         let mut xmin = start_point.x
         let mut xmax = start_point.x
@@ -197,4 +197,4 @@ fn find_line_segments(ct: ~RawContour, r: f32) -> []LineSegmentStroke:
             last_line_segment.points.start - N,
             line_segments.firstx().points.end - 1
         )
-    return line_segments
+    line_segments

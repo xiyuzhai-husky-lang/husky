@@ -241,14 +241,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Fn,
+                            Var,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::major::connected_components`, `Fn`),
+                                FormPath(`mnist_classifier::major::connected_components`, `Var`),
                             ),
                         ),
                     ),
@@ -276,33 +276,33 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    42,
+                                    43,
                                 ),
                             },
                         },
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Fn,
+                            Var,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_connected_component`, `Fn`),
+                                FormPath(`mnist_classifier::major::major_connected_component`, `Var`),
                             ),
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `major_connected_component`,
                         token_idx: TokenIdx(
-                            44,
+                            45,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        45,
+                        46,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -318,33 +318,33 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    92,
+                                    94,
                                 ),
                             },
                         },
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Fn,
+                            Var,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Fn`),
+                                FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Var`),
                             ),
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `ignored_connected_components_row_span_sum_sum`,
                         token_idx: TokenIdx(
-                            94,
+                            96,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        95,
+                        97,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -360,33 +360,33 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    126,
+                                    129,
                                 ),
                             },
                         },
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Fn,
+                            Var,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_raw_contours`, `Fn`),
+                                FormPath(`mnist_classifier::major::major_raw_contours`, `Var`),
                             ),
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `major_raw_contours`,
                         token_idx: TokenIdx(
-                            128,
+                            131,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        129,
+                        132,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -402,33 +402,33 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    137,
+                                    141,
                                 ),
                             },
                         },
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Fn,
+                            Var,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_raw_contour`, `Fn`),
+                                FormPath(`mnist_classifier::major::major_raw_contour`, `Var`),
                             ),
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `major_raw_contour`,
                         token_idx: TokenIdx(
-                            139,
+                            143,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        140,
+                        144,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -444,33 +444,33 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    149,
+                                    154,
                                 ),
                             },
                         },
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Fn,
+                            Var,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Fn`),
+                                FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Var`),
                             ),
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `major_line_segment_sketch`,
                         token_idx: TokenIdx(
-                            151,
+                            156,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        152,
+                        157,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -486,33 +486,33 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    158,
+                                    164,
                                 ),
                             },
                         },
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Fn,
+                            Var,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_concave_components`, `Fn`),
+                                FormPath(`mnist_classifier::major::major_concave_components`, `Var`),
                             ),
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `major_concave_components`,
                         token_idx: TokenIdx(
-                            160,
+                            166,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        161,
+                        167,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(

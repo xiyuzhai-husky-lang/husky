@@ -37,51 +37,15 @@ DiagnosticSheet {
                 severity: Error,
                 range: [132:28, 132:41),
             },
+            Diagnostic {
+                message: "Syntax Error: unrecognized identifier",
+                severity: Error,
+                range: [27:9, 27:26),
+            },
         ],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Syntax Error: ExpectParameterDeclList",
-                severity: Error,
-                range: [26:21, 26:23),
-            },
-            Diagnostic {
-                message: "Syntax Error: ExpectParameterDeclList",
-                severity: Error,
-                range: [29:18, 29:20),
-            },
-            Diagnostic {
-                message: "Syntax Error: ExpectParameterDeclList",
-                severity: Error,
-                range: [38:22, 38:24),
-            },
-            Diagnostic {
-                message: "Syntax Error: ExpectParameterDeclList",
-                severity: Error,
-                range: [48:21, 48:23),
-            },
-            Diagnostic {
-                message: "Syntax Error: ExpectParameterDeclList",
-                severity: Error,
-                range: [55:21, 55:23),
-            },
-            Diagnostic {
-                message: "Syntax Error: ExpectParameterDeclList",
-                severity: Error,
-                range: [62:21, 62:23),
-            },
-            Diagnostic {
-                message: "Syntax Error: ExpectParameterDeclList",
-                severity: Error,
-                range: [86:19, 86:21),
-            },
-            Diagnostic {
-                message: "Syntax Error: ExpectParameterDeclList",
-                severity: Error,
-                range: [89:19, 89:21),
-            },
-        ],
+        diagnostics: [],
     },
     defn_diagnostic_sheet: DefnDiagnosticSheet {
         diagnostics: [],
@@ -92,6 +56,21 @@ DiagnosticSheet {
                 message: "Type Error: NoSuchField",
                 severity: Error,
                 range: [16:15, 16:29),
+            },
+            Diagnostic {
+                message: "Type Error: no method named `push` for type `LocalTerm::Resolved(Term(`TypeOntology(core::list::List) TypeOntology(core::mem::Leash) TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::raw_contour::RawContour)`))`",
+                severity: Error,
+                range: [34:17, 34:21),
+            },
+            Diagnostic {
+                message: "Type Error: no method named `push` for type `LocalTerm::Resolved(Term(`TypeOntology(core::list::List) TypeOntology(core::mem::Leash) TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::raw_contour::RawContour)`))`",
+                severity: Error,
+                range: [35:17, 35:21),
+            },
+            Diagnostic {
+                message: "type path mismatch: expect core::option::Option, but got core::mem::Leash instead",
+                severity: Error,
+                range: [36:25, 36:32),
             },
         ],
     },

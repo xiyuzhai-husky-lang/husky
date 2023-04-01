@@ -40,16 +40,6 @@ DiagnosticSheet {
                 severity: Error,
                 range: [16:20, 16:22),
             },
-            Diagnostic {
-                message: "Syntax Error: ExpectParameterDeclList",
-                severity: Error,
-                range: [37:27, 37:29),
-            },
-            Diagnostic {
-                message: "Syntax Error: ExpectParameterDeclList",
-                severity: Error,
-                range: [40:21, 40:23),
-            },
         ],
     },
     defn_diagnostic_sheet: DefnDiagnosticSheet {
