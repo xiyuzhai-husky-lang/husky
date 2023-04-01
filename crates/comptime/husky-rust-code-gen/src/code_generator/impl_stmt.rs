@@ -140,7 +140,7 @@ impl<'a> RustCodeGenerator<'a> {
         //     } => {
         //         self.write(match init_kind {
         //             InitKind::Let => "let ",
-        //             InitKind::Var => "let mut ",
+        //             InitKind::Val => "let mut ",
         //             InitKind::Decl => "let ",
         //         });
         //         self.write(&varname.ident);

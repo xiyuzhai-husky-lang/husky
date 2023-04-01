@@ -183,7 +183,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Var,
+                    Val,
                 ),
             ),
             Token::Ident(

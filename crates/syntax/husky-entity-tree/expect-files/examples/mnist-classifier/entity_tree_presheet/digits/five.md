@@ -11,7 +11,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::five::is_five`, `Var`),
+                                FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,

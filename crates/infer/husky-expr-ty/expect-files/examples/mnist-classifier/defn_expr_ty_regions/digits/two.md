@@ -763,7 +763,7 @@
             DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::digits::two::is_two`, `Var`),
+                        FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                     ),
                 ),
             ),

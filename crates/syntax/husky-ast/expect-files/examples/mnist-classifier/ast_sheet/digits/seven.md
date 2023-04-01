@@ -343,14 +343,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Var,
+                            Val,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Var`),
+                                FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                             ),
                         ),
                     ),
@@ -427,14 +427,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Var,
+                            Val,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Var`),
+                                FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                             ),
                         ),
                     ),
@@ -576,14 +576,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Var,
+                            Val,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::is_seven`, `Var`),
+                                FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                             ),
                         ),
                     ),

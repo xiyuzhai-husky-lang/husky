@@ -1,9 +1,9 @@
 use super::*
 
-var upper_mouth_match: FermiMatchResult =:
+val upper_mouth_match: FermiMatchResult =:
     fermi_match(major_concave_components, [big_mouth])
 
-pub(super) var is_eight: ?MnistLabel =:
+pub(super) val is_eight: ?MnistLabel =:
     require is_one be none
     require is_six be none
     require is_zero be none

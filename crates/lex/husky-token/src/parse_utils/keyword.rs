@@ -830,7 +830,7 @@ pub enum EntityKeywordGroup {
     // `static const fn`
     StaticConstFn(StaticToken, ConstToken, FormFnToken),
     // `var`
-    Var(VarToken),
+    Val(VarToken),
     // `gn`
     Gn(GnToken),
     //
@@ -900,8 +900,8 @@ where
                             Ok(Some(EntityKeywordGroup::Type(TypeToken { token_idx })))
                         }
                         FormKeyword::Const => todo!(),
-                        FormKeyword::Var => {
-                            Ok(Some(EntityKeywordGroup::Var(VarToken { token_idx })))
+                        FormKeyword::Val => {
+                            Ok(Some(EntityKeywordGroup::Val(VarToken { token_idx })))
                         }
                         FormKeyword::Gn => Ok(Some(EntityKeywordGroup::Gn(GnToken { token_idx }))),
                         FormKeyword::Constexpr => todo!(),

@@ -11,7 +11,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::two::two_match`, `Var`),
+                                FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
@@ -103,7 +103,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::two::is_two`, `Var`),
+                                FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,

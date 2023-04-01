@@ -10,14 +10,14 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::nine::nine_match`, `Var`),
+                            FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                         ),
                     ),
                 ),
                 Some(
                     ModuleItem {
                         module_item_kind: Form(
-                            Var,
+                            Val,
                         ),
                         connection: Connected,
                     },
@@ -49,14 +49,14 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Var`),
+                            FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                         ),
                     ),
                 ),
                 Some(
                     ModuleItem {
                         module_item_kind: Form(
-                            Var,
+                            Val,
                         ),
                         connection: Connected,
                     },
@@ -92,14 +92,14 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::nine::is_nine`, `Var`),
+                            FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                         ),
                     ),
                 ),
                 Some(
                     ModuleItem {
                         module_item_kind: Form(
-                            Var,
+                            Val,
                         ),
                         connection: Connected,
                     },
@@ -158,7 +158,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::nine::nine_match`, `Var`),
+                            FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                         ),
                     ),
                 ),
@@ -264,7 +264,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Var`),
+                            FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                         ),
                     ),
                 ),
@@ -290,7 +290,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Var`),
+                            FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                         ),
                     ),
                 ),
@@ -329,7 +329,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Var`),
+                            FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                         ),
                     ),
                 ),
@@ -384,7 +384,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Var`),
+                            FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                         ),
                     ),
                 ),

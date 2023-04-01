@@ -189,7 +189,7 @@ impl<'a> BasicAuxAstParser<'a> {
                 EntityKeywordGroup::Type(_) => todo!(),
                 EntityKeywordGroup::Trait(_) => todo!(),
                 EntityKeywordGroup::Visual(_) => todo!(),
-                EntityKeywordGroup::Var(_) => todo!(),
+                EntityKeywordGroup::Val(_) => todo!(),
                 EntityKeywordGroup::Memo(_) => todo!(),
             },
             AstContextKind::InsideModule => {
@@ -216,7 +216,7 @@ impl<'a> BasicAuxAstParser<'a> {
             EntityKeywordGroup::ConstFn(_, _) => todo!(),
             EntityKeywordGroup::StaticFn(_, _) => todo!(),
             EntityKeywordGroup::StaticConstFn(_, _, _) => todo!(),
-            EntityKeywordGroup::Var(_) => FormKind::Var.into(),
+            EntityKeywordGroup::Val(_) => FormKind::Val.into(),
             EntityKeywordGroup::Gn(_) => FormKind::Gn.into(),
             EntityKeywordGroup::GeneralDef(_) => todo!(),
             EntityKeywordGroup::TypeEntity(token) => token.type_kind().into(),
@@ -249,7 +249,7 @@ impl<'a> BasicAuxAstParser<'a> {
             EntityKeywordGroup::Type(_) => todo!(),
             EntityKeywordGroup::Trait(_) => todo!(),
             EntityKeywordGroup::Visual(_) => todo!(),
-            EntityKeywordGroup::Var(_) => TypeItemKind::AssociatedVar,
+            EntityKeywordGroup::Val(_) => TypeItemKind::AssociatedVar,
             EntityKeywordGroup::Memo(_) => TypeItemKind::Memo,
         };
         Ok(EntityKind::AssociatedItem {
@@ -273,7 +273,7 @@ impl<'a> BasicAuxAstParser<'a> {
             EntityKeywordGroup::Type(_) => TraitItemKind::AssociatedType,
             EntityKeywordGroup::Trait(_) => Err(OriginalAstError::UnexpectedTraitInsideTrait)?,
             EntityKeywordGroup::Visual(_) => todo!(),
-            EntityKeywordGroup::Var(_) => todo!(),
+            EntityKeywordGroup::Val(_) => todo!(),
             EntityKeywordGroup::Memo(_) => todo!(),
         };
         Ok(EntityKind::AssociatedItem {
@@ -297,7 +297,7 @@ impl<'a> BasicAuxAstParser<'a> {
             EntityKeywordGroup::Type(_) => todo!(),
             EntityKeywordGroup::Trait(_) => todo!(),
             EntityKeywordGroup::Visual(_) => todo!(),
-            EntityKeywordGroup::Var(_) => FormKind::Var.into(),
+            EntityKeywordGroup::Val(_) => FormKind::Val.into(),
             EntityKeywordGroup::Memo(_) => Err(OriginalAstError::UnexpectedMemoFieldInsideForm)?,
         };
         Ok(EntityKind::ModuleItem {

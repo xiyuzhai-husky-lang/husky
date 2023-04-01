@@ -2,7 +2,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::digits::two::two_match`, `Var`),
+                FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
             ),
         ),
         Err(
@@ -50,7 +50,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::digits::two::is_two`, `Var`),
+                FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
             ),
         ),
         Err(

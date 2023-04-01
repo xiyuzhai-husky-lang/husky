@@ -5,7 +5,7 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Var`),
+                            FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                         ),
                     ),
                 ),
@@ -13,7 +13,7 @@ Ok(
                     Decl::Form(
                         FormDecl::Feature(
                             FeatureDecl {
-                                path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Var`),
+                                path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                                 ast_idx: 28,
                                 colon_token: Some(
                                     ColonToken(
@@ -48,7 +48,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Var`),
+                                                        FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                                                     ),
                                                 ),
                                             ),
@@ -111,7 +111,7 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::three::is_three`, `Var`),
+                            FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                         ),
                     ),
                 ),
@@ -119,7 +119,7 @@ Ok(
                     Decl::Form(
                         FormDecl::Feature(
                             FeatureDecl {
-                                path: FormPath(`mnist_classifier::digits::three::is_three`, `Var`),
+                                path: FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                                 ast_idx: 29,
                                 colon_token: Some(
                                     ColonToken(
@@ -154,7 +154,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::three::is_three`, `Var`),
+                                                        FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                                                     ),
                                                 ),
                                             ),

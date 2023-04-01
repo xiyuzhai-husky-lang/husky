@@ -5,7 +5,7 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::two::two_match`, `Var`),
+                            FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                         ),
                     ),
                 ),
@@ -634,7 +634,7 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::two::is_two`, `Var`),
+                            FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                         ),
                     ),
                 ),
@@ -642,7 +642,7 @@ Ok(
                     Decl::Form(
                         FormDecl::Feature(
                             FeatureDecl {
-                                path: FormPath(`mnist_classifier::digits::two::is_two`, `Var`),
+                                path: FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                                 ast_idx: 54,
                                 colon_token: Some(
                                     ColonToken(
@@ -677,7 +677,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::two::is_two`, `Var`),
+                                                        FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                                                     ),
                                                 ),
                                             ),

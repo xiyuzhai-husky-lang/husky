@@ -1,4 +1,4 @@
 use super::*
 
-pub(super) var is_five: ?MnistLabel =:
+pub(super) val is_five: ?MnistLabel =:
     MnistLabel::Five

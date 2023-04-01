@@ -13,7 +13,7 @@ impl<'a> TraceLineGenerator<'a> {
                 self.render_keyword_token(
                     match init_kind {
                         InitKind::Let => "let ",
-                        InitKind::Var => "var ",
+                        InitKind::Val => "var ",
                         InitKind::Decl => panic!(),
                     },
                     None,

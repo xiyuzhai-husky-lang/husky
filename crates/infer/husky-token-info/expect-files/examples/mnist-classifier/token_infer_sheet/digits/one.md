@@ -10,14 +10,14 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                     ),
                 ),
                 Some(
                     ModuleItem {
                         module_item_kind: Form(
-                            Var,
+                            Val,
                         ),
                         connection: Connected,
                     },
@@ -72,14 +72,14 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                     ),
                 ),
                 Some(
                     ModuleItem {
                         module_item_kind: Form(
-                            Var,
+                            Val,
                         ),
                         connection: Connected,
                     },
@@ -188,7 +188,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                     ),
                 ),
@@ -212,7 +212,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                     ),
                 ),
@@ -236,7 +236,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                     ),
                 ),
@@ -345,7 +345,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                     ),
                 ),
@@ -374,7 +374,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                     ),
                 ),
@@ -387,7 +387,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                     ),
                 ),
@@ -400,7 +400,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                     ),
                 ),
@@ -423,7 +423,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                     ),
                 ),
@@ -441,7 +441,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                     ),
                 ),
@@ -670,7 +670,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                     ),
                 ),
@@ -688,7 +688,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                     ),
                 ),
@@ -706,7 +706,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                     ),
                 ),

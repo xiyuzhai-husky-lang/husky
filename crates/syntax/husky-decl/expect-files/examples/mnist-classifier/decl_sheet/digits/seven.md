@@ -5,7 +5,7 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Var`),
+                            FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                         ),
                     ),
                 ),
@@ -13,7 +13,7 @@ Ok(
                     Decl::Form(
                         FormDecl::Feature(
                             FeatureDecl {
-                                path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Var`),
+                                path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                                 ast_idx: 40,
                                 colon_token: Some(
                                     ColonToken(
@@ -48,7 +48,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Var`),
+                                                        FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                                                     ),
                                                 ),
                                             ),
@@ -314,7 +314,7 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Var`),
+                            FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                         ),
                     ),
                 ),
@@ -322,7 +322,7 @@ Ok(
                     Decl::Form(
                         FormDecl::Feature(
                             FeatureDecl {
-                                path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Var`),
+                                path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                                 ast_idx: 42,
                                 colon_token: Some(
                                     ColonToken(
@@ -357,7 +357,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Var`),
+                                                        FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                                                     ),
                                                 ),
                                             ),
@@ -826,7 +826,7 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::seven::is_seven`, `Var`),
+                            FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                         ),
                     ),
                 ),
@@ -834,7 +834,7 @@ Ok(
                     Decl::Form(
                         FormDecl::Feature(
                             FeatureDecl {
-                                path: FormPath(`mnist_classifier::digits::seven::is_seven`, `Var`),
+                                path: FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                 ast_idx: 45,
                                 colon_token: Some(
                                     ColonToken(
@@ -869,7 +869,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::seven::is_seven`, `Var`),
+                                                        FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                                     ),
                                                 ),
                                             ),

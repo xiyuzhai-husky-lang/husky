@@ -4,7 +4,7 @@
             DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::digits::nine::nine_match`, `Var`),
+                        FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                     ),
                 ),
             ),
@@ -183,7 +183,7 @@
             DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Var`),
+                        FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                     ),
                 ),
             ),
@@ -362,7 +362,7 @@
             DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::digits::nine::is_nine`, `Var`),
+                        FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                     ),
                 ),
             ),

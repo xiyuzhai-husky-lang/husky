@@ -340,14 +340,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Var,
+                            Val,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::zero::is_zero`, `Var`),
+                                FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                             ),
                         ),
                     ),

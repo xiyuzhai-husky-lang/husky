@@ -1,6 +1,6 @@
 use super::*
 
-var two_match -> FermiMatchResult:
+val two_match -> FermiMatchResult:
     fermi_match(major_concave_components,[left_cc_pattern, right_cc_pattern,down_cc_pattern])
 
 
@@ -20,7 +20,7 @@ fn down_cc_pattern(cc: ~ConcaveComponent) -> ?f32:
     // require cc.relative_bounding_box.ymin()<0.2
     dp.x
 
-pub(super) var is_two: ?MnistLabel =:
+pub(super) val is_two: ?MnistLabel =:
     require is_zero be none
     require is_three be none
     require is_seven be none

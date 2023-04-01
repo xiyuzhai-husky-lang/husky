@@ -5,7 +5,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::major::connected_components`, `Var`),
+                            FormPath(`mnist_classifier::major::connected_components`, `Val`),
                         ),
                     ),
                 ),
@@ -13,9 +13,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Feature(
                             FeatureDefn {
-                                path: FormPath(`mnist_classifier::major::connected_components`, `Var`),
+                                path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
                                 decl: FeatureDecl {
-                                    path: FormPath(`mnist_classifier::major::connected_components`, `Var`),
+                                    path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
                                     ast_idx: 23,
                                     colon_token: Some(
                                         ColonToken(
@@ -50,7 +50,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::connected_components`, `Var`),
+                                                            FormPath(`mnist_classifier::major::connected_components`, `Val`),
                                                         ),
                                                     ),
                                                 ),
@@ -139,7 +139,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::connected_components`, `Var`),
+                                                        FormPath(`mnist_classifier::major::connected_components`, `Val`),
                                                     ),
                                                 ),
                                             ),
@@ -250,7 +250,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::major::major_connected_component`, `Var`),
+                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                     ),
                 ),
@@ -258,9 +258,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Feature(
                             FeatureDefn {
-                                path: FormPath(`mnist_classifier::major::major_connected_component`, `Var`),
+                                path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                 decl: FeatureDecl {
-                                    path: FormPath(`mnist_classifier::major::major_connected_component`, `Var`),
+                                    path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     ast_idx: 24,
                                     colon_token: Some(
                                         ColonToken(
@@ -295,7 +295,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::major_connected_component`, `Var`),
+                                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                         ),
                                                     ),
                                                 ),
@@ -369,7 +369,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::major_connected_component`, `Var`),
+                                                        FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                     ),
                                                 ),
                                             ),
@@ -391,7 +391,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::major::connected_components`, `Var`),
+                                                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -443,7 +443,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::major::connected_components`, `Var`),
+                                                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -573,7 +573,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::major::connected_components`, `Var`),
+                                                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -616,7 +616,7 @@ Ok(
                                                     ident: `connected_components`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::connected_components`, `Var`),
+                                                            FormPath(`mnist_classifier::major::connected_components`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -627,7 +627,7 @@ Ok(
                                                     ident: `connected_components`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::connected_components`, `Var`),
+                                                            FormPath(`mnist_classifier::major::connected_components`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -638,7 +638,7 @@ Ok(
                                                     ident: `connected_components`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::connected_components`, `Var`),
+                                                            FormPath(`mnist_classifier::major::connected_components`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -992,7 +992,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Var`),
+                            FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                         ),
                     ),
                 ),
@@ -1000,9 +1000,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Feature(
                             FeatureDefn {
-                                path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Var`),
+                                path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                 decl: FeatureDecl {
-                                    path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Var`),
+                                    path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                     ast_idx: 25,
                                     colon_token: Some(
                                         ColonToken(
@@ -1037,7 +1037,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Var`),
+                                                            FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                                         ),
                                                     ),
                                                 ),
@@ -1111,7 +1111,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Var`),
+                                                        FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                                     ),
                                                 ),
                                             ),
@@ -1128,7 +1128,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::major::connected_components`, `Var`),
+                                                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -1180,7 +1180,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::major::connected_components`, `Var`),
+                                                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -1244,7 +1244,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::major::major_connected_component`, `Var`),
+                                                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -1297,7 +1297,7 @@ Ok(
                                                     ident: `connected_components`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::connected_components`, `Var`),
+                                                            FormPath(`mnist_classifier::major::connected_components`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -1308,7 +1308,7 @@ Ok(
                                                     ident: `connected_components`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::connected_components`, `Var`),
+                                                            FormPath(`mnist_classifier::major::connected_components`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -1319,7 +1319,7 @@ Ok(
                                                     ident: `major_connected_component`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::major_connected_component`, `Var`),
+                                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -1514,7 +1514,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::major::major_raw_contours`, `Var`),
+                            FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
                         ),
                     ),
                 ),
@@ -1522,9 +1522,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Feature(
                             FeatureDefn {
-                                path: FormPath(`mnist_classifier::major::major_raw_contours`, `Var`),
+                                path: FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
                                 decl: FeatureDecl {
-                                    path: FormPath(`mnist_classifier::major::major_raw_contours`, `Var`),
+                                    path: FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
                                     ast_idx: 26,
                                     colon_token: Some(
                                         ColonToken(
@@ -1559,7 +1559,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::major_raw_contours`, `Var`),
+                                                            FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
                                                         ),
                                                     ),
                                                 ),
@@ -1648,7 +1648,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::major_raw_contours`, `Var`),
+                                                        FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
                                                     ),
                                                 ),
                                             ),
@@ -1660,7 +1660,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::major::major_connected_component`, `Var`),
+                                                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -1693,7 +1693,7 @@ Ok(
                                                     ident: `major_connected_component`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::major_connected_component`, `Var`),
+                                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -1747,7 +1747,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::major::major_raw_contour`, `Var`),
+                            FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                         ),
                     ),
                 ),
@@ -1755,9 +1755,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Feature(
                             FeatureDefn {
-                                path: FormPath(`mnist_classifier::major::major_raw_contour`, `Var`),
+                                path: FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                                 decl: FeatureDecl {
-                                    path: FormPath(`mnist_classifier::major::major_raw_contour`, `Var`),
+                                    path: FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                                     ast_idx: 27,
                                     colon_token: Some(
                                         ColonToken(
@@ -1792,7 +1792,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::major_raw_contour`, `Var`),
+                                                            FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                                                         ),
                                                     ),
                                                 ),
@@ -1866,7 +1866,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::major_raw_contour`, `Var`),
+                                                        FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                                                     ),
                                                 ),
                                             ),
@@ -1878,7 +1878,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::major::major_connected_component`, `Var`),
+                                                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -1928,7 +1928,7 @@ Ok(
                                                     ident: `major_connected_component`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::major_connected_component`, `Var`),
+                                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -1982,7 +1982,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Var`),
+                            FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                         ),
                     ),
                 ),
@@ -1990,9 +1990,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Feature(
                             FeatureDefn {
-                                path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Var`),
+                                path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                 decl: FeatureDecl {
-                                    path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Var`),
+                                    path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                     ast_idx: 28,
                                     colon_token: Some(
                                         ColonToken(
@@ -2027,7 +2027,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Var`),
+                                                            FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                                         ),
                                                     ),
                                                 ),
@@ -2101,7 +2101,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Var`),
+                                                        FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                                     ),
                                                 ),
                                             ),
@@ -2113,7 +2113,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::major::major_raw_contour`, `Var`),
+                                                                FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -2146,7 +2146,7 @@ Ok(
                                                     ident: `major_raw_contour`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::major_raw_contour`, `Var`),
+                                                            FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -2200,7 +2200,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::major::major_concave_components`, `Var`),
+                            FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                         ),
                     ),
                 ),
@@ -2208,9 +2208,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Feature(
                             FeatureDefn {
-                                path: FormPath(`mnist_classifier::major::major_concave_components`, `Var`),
+                                path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                 decl: FeatureDecl {
-                                    path: FormPath(`mnist_classifier::major::major_concave_components`, `Var`),
+                                    path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                     ast_idx: 29,
                                     colon_token: Some(
                                         ColonToken(
@@ -2245,7 +2245,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::major_concave_components`, `Var`),
+                                                            FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                         ),
                                                     ),
                                                 ),
@@ -2334,7 +2334,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::major_concave_components`, `Var`),
+                                                        FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                     ),
                                                 ),
                                             ),
@@ -2346,7 +2346,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Var`),
+                                                                FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -2379,7 +2379,7 @@ Ok(
                                                     ident: `major_line_segment_sketch`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Var`),
+                                                            FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                                         ),
                                                     ),
                                                 },

@@ -4,7 +4,7 @@
             DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::digits::four::left_components`, `Var`),
+                        FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                     ),
                 ),
             ),
@@ -206,7 +206,7 @@
             DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Var`),
+                        FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                     ),
                 ),
             ),
@@ -249,7 +249,7 @@
             DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::digits::four::components_max_heights`, `Var`),
+                        FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                     ),
                 ),
             ),
@@ -292,7 +292,7 @@
             DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::digits::four::is_four`, `Var`),
+                        FormPath(`mnist_classifier::digits::four::is_four`, `Val`),
                     ),
                 ),
             ),

@@ -9,7 +9,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::major::connected_components`, `Var`),
+                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
                             ),
                             visibility: Visibility::Pub,
                             ast_idx: 23,
@@ -28,7 +28,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_connected_component`, `Var`),
+                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             ),
                             visibility: Visibility::Pub,
                             ast_idx: 24,
@@ -47,7 +47,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Var`),
+                                FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                             ),
                             visibility: Visibility::Pub,
                             ast_idx: 25,
@@ -66,7 +66,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_raw_contours`, `Var`),
+                                FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
                             ),
                             visibility: Visibility::Pub,
                             ast_idx: 26,
@@ -85,7 +85,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_raw_contour`, `Var`),
+                                FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                             ),
                             visibility: Visibility::Pub,
                             ast_idx: 27,
@@ -104,7 +104,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Var`),
+                                FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                             ),
                             visibility: Visibility::Pub,
                             ast_idx: 28,
@@ -123,7 +123,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_concave_components`, `Var`),
+                                FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             ),
                             visibility: Visibility::Pub,
                             ast_idx: 29,

@@ -12,7 +12,7 @@ pub enum TypeKind {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum FormKind {
-    Var,
+    Val,
     Fn,
     Gn,
     Value,

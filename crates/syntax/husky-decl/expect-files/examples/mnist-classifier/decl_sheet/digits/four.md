@@ -5,7 +5,7 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::four::left_components`, `Var`),
+                            FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                         ),
                     ),
                 ),
@@ -13,7 +13,7 @@ Ok(
                     Decl::Form(
                         FormDecl::Feature(
                             FeatureDecl {
-                                path: FormPath(`mnist_classifier::digits::four::left_components`, `Var`),
+                                path: FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                                 ast_idx: 38,
                                 colon_token: Some(
                                     ColonToken(
@@ -48,7 +48,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::four::left_components`, `Var`),
+                                                        FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                                                     ),
                                                 ),
                                             ),
@@ -314,7 +314,7 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Var`),
+                            FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                         ),
                     ),
                 ),
@@ -322,7 +322,7 @@ Ok(
                     Decl::Form(
                         FormDecl::Feature(
                             FeatureDecl {
-                                path: FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Var`),
+                                path: FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                                 ast_idx: 40,
                                 colon_token: Some(
                                     ColonToken(
@@ -357,7 +357,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Var`),
+                                                        FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                                                     ),
                                                 ),
                                             ),
@@ -420,7 +420,7 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::four::components_max_heights`, `Var`),
+                            FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                         ),
                     ),
                 ),
@@ -428,7 +428,7 @@ Ok(
                     Decl::Form(
                         FormDecl::Feature(
                             FeatureDecl {
-                                path: FormPath(`mnist_classifier::digits::four::components_max_heights`, `Var`),
+                                path: FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                                 ast_idx: 41,
                                 colon_token: Some(
                                     ColonToken(
@@ -463,7 +463,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::four::components_max_heights`, `Var`),
+                                                        FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                                                     ),
                                                 ),
                                             ),
@@ -526,7 +526,7 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::four::is_four`, `Var`),
+                            FormPath(`mnist_classifier::digits::four::is_four`, `Val`),
                         ),
                     ),
                 ),
@@ -534,7 +534,7 @@ Ok(
                     Decl::Form(
                         FormDecl::Feature(
                             FeatureDecl {
-                                path: FormPath(`mnist_classifier::digits::four::is_four`, `Var`),
+                                path: FormPath(`mnist_classifier::digits::four::is_four`, `Val`),
                                 ast_idx: 42,
                                 colon_token: Some(
                                     ColonToken(
@@ -569,7 +569,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::four::is_four`, `Var`),
+                                                        FormPath(`mnist_classifier::digits::four::is_four`, `Val`),
                                                     ),
                                                 ),
                                             ),

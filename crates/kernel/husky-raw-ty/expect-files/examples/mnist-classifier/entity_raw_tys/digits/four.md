@@ -2,7 +2,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::digits::four::left_components`, `Var`),
+                FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
             ),
         ),
         Err(
@@ -26,7 +26,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Var`),
+                FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
             ),
         ),
         Err(
@@ -38,7 +38,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::digits::four::components_max_heights`, `Var`),
+                FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
             ),
         ),
         Err(
@@ -50,7 +50,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::digits::four::is_four`, `Var`),
+                FormPath(`mnist_classifier::digits::four::is_four`, `Val`),
             ),
         ),
         Err(
