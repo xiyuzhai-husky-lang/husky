@@ -13,7 +13,9 @@ Ok(
                 `str`,
             ),
             Token::Punctuation(
-                Punctuation::Semicolon,
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
             ),
             Token::Keyword(
                 Keyword::Pub,
@@ -27,7 +29,9 @@ Ok(
                 `StringLiteral`,
             ),
             Token::Punctuation(
-                Punctuation::Semicolon,
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
             ),
         ],
         group_starts: [

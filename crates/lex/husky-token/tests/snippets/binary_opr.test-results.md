@@ -14,9 +14,11 @@ output
 TokenSheetData {
     tokens: [
         Token::Punctuation(
-            Punctuation::Binary(
-                Closed(
-                    Add,
+            Punctuation(
+                PunctuationMapped::Binary(
+                    Closed(
+                        Add,
+                    ),
                 ),
             ),
         ),
@@ -44,7 +46,9 @@ output
 TokenSheetData {
     tokens: [
         Token::Punctuation(
-            Punctuation::Minus,
+            Punctuation(
+                PunctuationMapped::Minus,
+            ),
         ),
     ],
     group_starts: [
@@ -70,7 +74,9 @@ output
 TokenSheetData {
     tokens: [
         Token::Punctuation(
-            Punctuation::Star,
+            Punctuation(
+                PunctuationMapped::Star,
+            ),
         ),
     ],
     group_starts: [
@@ -96,9 +102,11 @@ output
 TokenSheetData {
     tokens: [
         Token::Punctuation(
-            Punctuation::Binary(
-                Closed(
-                    Div,
+            Punctuation(
+                PunctuationMapped::Binary(
+                    Closed(
+                        Div,
+                    ),
                 ),
             ),
         ),
@@ -126,9 +134,11 @@ output
 TokenSheetData {
     tokens: [
         Token::Punctuation(
-            Punctuation::Binary(
-                Closed(
-                    Power,
+            Punctuation(
+                PunctuationMapped::Binary(
+                    Closed(
+                        Power,
+                    ),
                 ),
             ),
         ),
@@ -156,7 +166,9 @@ output
 TokenSheetData {
     tokens: [
         Token::Punctuation(
-            Punctuation::Vertical,
+            Punctuation(
+                PunctuationMapped::Vertical,
+            ),
         ),
     ],
     group_starts: [
@@ -182,7 +194,9 @@ output
 TokenSheetData {
     tokens: [
         Token::Punctuation(
-            Punctuation::DoubleVertical,
+            Punctuation(
+                PunctuationMapped::DoubleVertical,
+            ),
         ),
     ],
     group_starts: [
@@ -208,9 +222,11 @@ output
 TokenSheetData {
     tokens: [
         Token::Punctuation(
-            Punctuation::Binary(
-                ShortCircuitLogic(
-                    And,
+            Punctuation(
+                PunctuationMapped::Binary(
+                    ShortCircuitLogic(
+                        And,
+                    ),
                 ),
             ),
         ),
@@ -238,9 +254,11 @@ output
 TokenSheetData {
     tokens: [
         Token::Punctuation(
-            Punctuation::Binary(
-                Comparison(
-                    Eq,
+            Punctuation(
+                PunctuationMapped::Binary(
+                    Comparison(
+                        Eq,
+                    ),
                 ),
             ),
         ),
@@ -268,9 +286,11 @@ output
 TokenSheetData {
     tokens: [
         Token::Punctuation(
-            Punctuation::Binary(
-                Comparison(
-                    Neq,
+            Punctuation(
+                PunctuationMapped::Binary(
+                    Comparison(
+                        Neq,
+                    ),
                 ),
             ),
         ),
@@ -298,7 +318,9 @@ output
 TokenSheetData {
     tokens: [
         Token::Punctuation(
-            Punctuation::RaOrGt,
+            Punctuation(
+                PunctuationMapped::RaOrGt,
+            ),
         ),
     ],
     group_starts: [
@@ -324,9 +346,11 @@ output
 TokenSheetData {
     tokens: [
         Token::Punctuation(
-            Punctuation::Binary(
-                Comparison(
-                    Geq,
+            Punctuation(
+                PunctuationMapped::Binary(
+                    Comparison(
+                        Geq,
+                    ),
                 ),
             ),
         ),
@@ -354,7 +378,9 @@ output
 TokenSheetData {
     tokens: [
         Token::Punctuation(
-            Punctuation::LaOrLt,
+            Punctuation(
+                PunctuationMapped::LaOrLt,
+            ),
         ),
     ],
     group_starts: [
@@ -380,9 +406,11 @@ output
 TokenSheetData {
     tokens: [
         Token::Punctuation(
-            Punctuation::Binary(
-                Comparison(
-                    Leq,
+            Punctuation(
+                PunctuationMapped::Binary(
+                    Comparison(
+                        Leq,
+                    ),
                 ),
             ),
         ),

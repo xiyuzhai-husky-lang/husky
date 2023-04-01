@@ -9,12 +9,8 @@ Ok(
                     0,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: CrateRoot {
-                        root_module: ModulePath(
-                            Id {
-                                value: 1,
-                            },
-                        ),
+                    original_symbol: EntitySymbol::CrateRoot {
+                        root_module_path: `core`,
                     },
                 },
             },
@@ -25,12 +21,18 @@ Ok(
                     7,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 1,
+                    original_symbol: EntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `core::basic`,
+                            visibility: Visibility::Pub,
+                            ast_idx: 0,
+                            ident_token: IdentToken {
+                                ident: `basic`,
+                                token_idx: TokenIdx(
+                                    2,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },
@@ -44,12 +46,8 @@ Ok(
                     1,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: CrateRoot {
-                        root_module: ModulePath(
-                            Id {
-                                value: 1,
-                            },
-                        ),
+                    original_symbol: EntitySymbol::CrateRoot {
+                        root_module_path: `core`,
                     },
                 },
             },
@@ -60,12 +58,18 @@ Ok(
                     8,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 5,
+                    original_symbol: EntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `core::num`,
+                            visibility: Visibility::Pub,
+                            ast_idx: 4,
+                            ident_token: IdentToken {
+                                ident: `num`,
+                                token_idx: TokenIdx(
+                                    14,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },
@@ -79,12 +83,8 @@ Ok(
                     2,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: CrateRoot {
-                        root_module: ModulePath(
-                            Id {
-                                value: 1,
-                            },
-                        ),
+                    original_symbol: EntitySymbol::CrateRoot {
+                        root_module_path: `core`,
                     },
                 },
             },
@@ -95,12 +95,18 @@ Ok(
                     9,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 8,
+                    original_symbol: EntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `core::raw_bits`,
+                            visibility: Visibility::Pub,
+                            ast_idx: 7,
+                            ident_token: IdentToken {
+                                ident: `raw_bits`,
+                                token_idx: TokenIdx(
+                                    23,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },
@@ -114,12 +120,8 @@ Ok(
                     3,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: CrateRoot {
-                        root_module: ModulePath(
-                            Id {
-                                value: 1,
-                            },
-                        ),
+                    original_symbol: EntitySymbol::CrateRoot {
+                        root_module_path: `core`,
                     },
                 },
             },
@@ -130,12 +132,18 @@ Ok(
                     10,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 9,
+                    original_symbol: EntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `core::fmt`,
+                            visibility: Visibility::Pub,
+                            ast_idx: 8,
+                            ident_token: IdentToken {
+                                ident: `fmt`,
+                                token_idx: TokenIdx(
+                                    26,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },
@@ -149,12 +157,8 @@ Ok(
                     4,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: CrateRoot {
-                        root_module: ModulePath(
-                            Id {
-                                value: 1,
-                            },
-                        ),
+                    original_symbol: EntitySymbol::CrateRoot {
+                        root_module_path: `core`,
                     },
                 },
             },
@@ -165,12 +169,18 @@ Ok(
                     11,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 11,
+                    original_symbol: EntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `core::marker`,
+                            visibility: Visibility::Pub,
+                            ast_idx: 10,
+                            ident_token: IdentToken {
+                                ident: `marker`,
+                                token_idx: TokenIdx(
+                                    32,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },
@@ -184,12 +194,8 @@ Ok(
                     5,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: CrateRoot {
-                        root_module: ModulePath(
-                            Id {
-                                value: 1,
-                            },
-                        ),
+                    original_symbol: EntitySymbol::CrateRoot {
+                        root_module_path: `core`,
                     },
                 },
             },
@@ -200,12 +206,18 @@ Ok(
                     12,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 10,
+                    original_symbol: EntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `core::clone`,
+                            visibility: Visibility::Pub,
+                            ast_idx: 9,
+                            ident_token: IdentToken {
+                                ident: `clone`,
+                                token_idx: TokenIdx(
+                                    29,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },
@@ -219,12 +231,8 @@ Ok(
                     6,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: CrateRoot {
-                        root_module: ModulePath(
-                            Id {
-                                value: 1,
-                            },
-                        ),
+                    original_symbol: EntitySymbol::CrateRoot {
+                        root_module_path: `core`,
                     },
                 },
             },
@@ -235,12 +243,18 @@ Ok(
                     13,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 13,
+                    original_symbol: EntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `core::cmp`,
+                            visibility: Visibility::Pub,
+                            ast_idx: 12,
+                            ident_token: IdentToken {
+                                ident: `cmp`,
+                                token_idx: TokenIdx(
+                                    38,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },

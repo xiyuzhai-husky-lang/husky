@@ -406,8 +406,8 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                     }
                     _ => Punctuation::COLON,
                 },
-                '(' => Punctuation::RPAR,
-                '[' => Punctuation::RBOX,
+                '(' => Punctuation::LPAR,
+                '[' => Punctuation::LBOX,
                 '{' => Punctuation::LCURL,
                 ')' => Punctuation::RPAR,
                 ']' => Punctuation::RBOX,

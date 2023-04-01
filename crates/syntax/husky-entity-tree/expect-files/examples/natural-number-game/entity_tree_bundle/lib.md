@@ -10,12 +10,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `natural_number_game`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 203,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Type(
+                                        TypePath(`natural_number_game::Nat`, `Inductive`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `natural_number_game`,
+                                    ),
+                                    ast_idx: 3,
+                                    ident_token: IdentToken {
+                                        ident: `Nat`,
+                                        token_idx: TokenIdx(
+                                            1,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -23,12 +33,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `natural_number_game`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 204,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Type(
+                                        TypePath(`natural_number_game::OddNat`, `Structure`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `natural_number_game`,
+                                    ),
+                                    ast_idx: 9,
+                                    ident_token: IdentToken {
+                                        ident: `OddNat`,
+                                        token_idx: TokenIdx(
+                                            85,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -36,12 +56,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `natural_number_game`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 205,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Type(
+                                        TypePath(`natural_number_game::EvenNat`, `Structure`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `natural_number_game`,
+                                    ),
+                                    ast_idx: 10,
+                                    ident_token: IdentToken {
+                                        ident: `EvenNat`,
+                                        token_idx: TokenIdx(
+                                            114,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                     ],

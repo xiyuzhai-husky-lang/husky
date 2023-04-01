@@ -155,8 +155,113 @@ Ok(
         use_one_trackers: UseExprRules(
             [
                 UseExprRule {
+                    ast_idx: 18,
+                    use_expr_idx: 2,
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier`,
+                    ),
+                    variant: UseExprRuleVariant::Parent {
+                        parent_name_token: NameToken::SelfValue(
+                            SelfValueToken {
+                                token_idx: TokenIdx(
+                                    15,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
+                            1..2,
+                        ),
+                    },
+                    parent: None,
+                    state: UseExprRuleState::Unresolved,
+                },
+                UseExprRule {
+                    ast_idx: 19,
+                    use_expr_idx: 5,
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier`,
+                    ),
+                    variant: UseExprRuleVariant::Parent {
+                        parent_name_token: NameToken::SelfValue(
+                            SelfValueToken {
+                                token_idx: TokenIdx(
+                                    21,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
+                            4..5,
+                        ),
+                    },
+                    parent: None,
+                    state: UseExprRuleState::Unresolved,
+                },
+                UseExprRule {
+                    ast_idx: 20,
+                    use_expr_idx: 8,
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier`,
+                    ),
+                    variant: UseExprRuleVariant::Parent {
+                        parent_name_token: NameToken::SelfValue(
+                            SelfValueToken {
+                                token_idx: TokenIdx(
+                                    27,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
+                            7..8,
+                        ),
+                    },
+                    parent: None,
+                    state: UseExprRuleState::Unresolved,
+                },
+                UseExprRule {
+                    ast_idx: 21,
+                    use_expr_idx: 11,
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier`,
+                    ),
+                    variant: UseExprRuleVariant::Parent {
+                        parent_name_token: NameToken::SelfValue(
+                            SelfValueToken {
+                                token_idx: TokenIdx(
+                                    34,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
+                            10..11,
+                        ),
+                    },
+                    parent: None,
+                    state: UseExprRuleState::Unresolved,
+                },
+                UseExprRule {
+                    ast_idx: 22,
+                    use_expr_idx: 14,
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier`,
+                    ),
+                    variant: UseExprRuleVariant::Parent {
+                        parent_name_token: NameToken::SelfValue(
+                            SelfValueToken {
+                                token_idx: TokenIdx(
+                                    40,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
+                            13..14,
+                        ),
+                    },
+                    parent: None,
+                    state: UseExprRuleState::Unresolved,
+                },
+                UseExprRule {
                     ast_idx: 23,
-                    use_expr_idx: 6,
+                    use_expr_idx: 16,
                     visibility: Visibility::PubUnder(
                         `mnist_classifier`,
                     ),
@@ -170,7 +275,7 @@ Ok(
                             },
                         ),
                         children: ArenaIdxRange(
-                            5..6,
+                            15..16,
                         ),
                     },
                     parent: None,
@@ -183,85 +288,275 @@ Ok(
         ),
         use_expr_arena: Arena {
             data: [
-                UseExpr::Err(
-                    UseExprError::Original(
-                        OriginalUseExprError::InvalidSelfAsRoot {
-                            use_token: UseToken {
+                UseExpr::All {
+                    star_token: StarToken(
+                        TokenIdx(
+                            19,
+                        ),
+                    ),
+                },
+                UseExpr::Parent(
+                    ParentUseExpr {
+                        parent_name_token: NameToken::Ident(
+                            IdentToken {
+                                ident: `major`,
                                 token_idx: TokenIdx(
-                                    14,
+                                    17,
                                 ),
                             },
-                            self_token: SelfValueToken {
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    18,
+                                ),
+                            ),
+                        ),
+                        children: Ok(
+                            UseExprChildren::Single {
+                                child: 0,
+                            },
+                        ),
+                    },
+                ),
+                UseExpr::Parent(
+                    ParentUseExpr {
+                        parent_name_token: NameToken::SelfValue(
+                            SelfValueToken {
                                 token_idx: TokenIdx(
                                     15,
                                 ),
                             },
-                        },
-                    ),
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    16,
+                                ),
+                            ),
+                        ),
+                        children: Ok(
+                            UseExprChildren::Single {
+                                child: 1,
+                            },
+                        ),
+                    },
                 ),
-                UseExpr::Err(
-                    UseExprError::Original(
-                        OriginalUseExprError::InvalidSelfAsRoot {
-                            use_token: UseToken {
+                UseExpr::All {
+                    star_token: StarToken(
+                        TokenIdx(
+                            25,
+                        ),
+                    ),
+                },
+                UseExpr::Parent(
+                    ParentUseExpr {
+                        parent_name_token: NameToken::Ident(
+                            IdentToken {
+                                ident: `digits`,
                                 token_idx: TokenIdx(
-                                    20,
+                                    23,
                                 ),
                             },
-                            self_token: SelfValueToken {
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    24,
+                                ),
+                            ),
+                        ),
+                        children: Ok(
+                            UseExprChildren::Single {
+                                child: 3,
+                            },
+                        ),
+                    },
+                ),
+                UseExpr::Parent(
+                    ParentUseExpr {
+                        parent_name_token: NameToken::SelfValue(
+                            SelfValueToken {
                                 token_idx: TokenIdx(
                                     21,
                                 ),
                             },
-                        },
-                    ),
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    22,
+                                ),
+                            ),
+                        ),
+                        children: Ok(
+                            UseExprChildren::Single {
+                                child: 4,
+                            },
+                        ),
+                    },
                 ),
-                UseExpr::Err(
-                    UseExprError::Original(
-                        OriginalUseExprError::InvalidSelfAsRoot {
-                            use_token: UseToken {
+                UseExpr::All {
+                    star_token: StarToken(
+                        TokenIdx(
+                            31,
+                        ),
+                    ),
+                },
+                UseExpr::Parent(
+                    ParentUseExpr {
+                        parent_name_token: NameToken::Ident(
+                            IdentToken {
+                                ident: `fermi`,
                                 token_idx: TokenIdx(
-                                    26,
+                                    29,
                                 ),
                             },
-                            self_token: SelfValueToken {
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    30,
+                                ),
+                            ),
+                        ),
+                        children: Ok(
+                            UseExprChildren::Single {
+                                child: 6,
+                            },
+                        ),
+                    },
+                ),
+                UseExpr::Parent(
+                    ParentUseExpr {
+                        parent_name_token: NameToken::SelfValue(
+                            SelfValueToken {
                                 token_idx: TokenIdx(
                                     27,
                                 ),
                             },
-                        },
-                    ),
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    28,
+                                ),
+                            ),
+                        ),
+                        children: Ok(
+                            UseExprChildren::Single {
+                                child: 7,
+                            },
+                        ),
+                    },
                 ),
-                UseExpr::Err(
-                    UseExprError::Original(
-                        OriginalUseExprError::InvalidSelfAsRoot {
-                            use_token: UseToken {
+                UseExpr::All {
+                    star_token: StarToken(
+                        TokenIdx(
+                            38,
+                        ),
+                    ),
+                },
+                UseExpr::Parent(
+                    ParentUseExpr {
+                        parent_name_token: NameToken::Ident(
+                            IdentToken {
+                                ident: `raw_contour`,
                                 token_idx: TokenIdx(
-                                    33,
+                                    36,
                                 ),
                             },
-                            self_token: SelfValueToken {
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    37,
+                                ),
+                            ),
+                        ),
+                        children: Ok(
+                            UseExprChildren::Single {
+                                child: 9,
+                            },
+                        ),
+                    },
+                ),
+                UseExpr::Parent(
+                    ParentUseExpr {
+                        parent_name_token: NameToken::SelfValue(
+                            SelfValueToken {
                                 token_idx: TokenIdx(
                                     34,
                                 ),
                             },
-                        },
-                    ),
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    35,
+                                ),
+                            ),
+                        ),
+                        children: Ok(
+                            UseExprChildren::Single {
+                                child: 10,
+                            },
+                        ),
+                    },
                 ),
-                UseExpr::Err(
-                    UseExprError::Original(
-                        OriginalUseExprError::InvalidSelfAsRoot {
-                            use_token: UseToken {
+                UseExpr::All {
+                    star_token: StarToken(
+                        TokenIdx(
+                            44,
+                        ),
+                    ),
+                },
+                UseExpr::Parent(
+                    ParentUseExpr {
+                        parent_name_token: NameToken::Ident(
+                            IdentToken {
+                                ident: `line_segment_sketch`,
                                 token_idx: TokenIdx(
-                                    39,
+                                    42,
                                 ),
                             },
-                            self_token: SelfValueToken {
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    43,
+                                ),
+                            ),
+                        ),
+                        children: Ok(
+                            UseExprChildren::Single {
+                                child: 12,
+                            },
+                        ),
+                    },
+                ),
+                UseExpr::Parent(
+                    ParentUseExpr {
+                        parent_name_token: NameToken::SelfValue(
+                            SelfValueToken {
                                 token_idx: TokenIdx(
                                     40,
                                 ),
                             },
-                        },
-                    ),
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    41,
+                                ),
+                            ),
+                        ),
+                        children: Ok(
+                            UseExprChildren::Single {
+                                child: 13,
+                            },
+                        ),
+                    },
                 ),
                 UseExpr::All {
                     star_token: StarToken(
@@ -289,7 +584,7 @@ Ok(
                         ),
                         children: Ok(
                             UseExprChildren::Single {
-                                child: 5,
+                                child: 15,
                             },
                         ),
                     },

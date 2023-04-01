@@ -10,12 +10,20 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
-                            symbol: Submodule(
-                                SubmoduleSymbol(
-                                    Id {
-                                        value: 34,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `mnist_classifier::connected_component`,
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 11,
+                                    ident_token: IdentToken {
+                                        ident: `connected_component`,
+                                        token_idx: TokenIdx(
+                                            1,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -23,12 +31,20 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
-                            symbol: Submodule(
-                                SubmoduleSymbol(
-                                    Id {
-                                        value: 35,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `mnist_classifier::raw_contour`,
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 12,
+                                    ident_token: IdentToken {
+                                        ident: `raw_contour`,
+                                        token_idx: TokenIdx(
+                                            3,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -36,12 +52,20 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
-                            symbol: Submodule(
-                                SubmoduleSymbol(
-                                    Id {
-                                        value: 36,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `mnist_classifier::geom2d`,
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 13,
+                                    ident_token: IdentToken {
+                                        ident: `geom2d`,
+                                        token_idx: TokenIdx(
+                                            5,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -49,12 +73,20 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
-                            symbol: Submodule(
-                                SubmoduleSymbol(
-                                    Id {
-                                        value: 37,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `mnist_classifier::line_segment_sketch`,
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 14,
+                                    ident_token: IdentToken {
+                                        ident: `line_segment_sketch`,
+                                        token_idx: TokenIdx(
+                                            7,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -62,12 +94,20 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
-                            symbol: Submodule(
-                                SubmoduleSymbol(
-                                    Id {
-                                        value: 38,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `mnist_classifier::fermi`,
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 15,
+                                    ident_token: IdentToken {
+                                        ident: `fermi`,
+                                        token_idx: TokenIdx(
+                                            9,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -75,12 +115,20 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
-                            symbol: Submodule(
-                                SubmoduleSymbol(
-                                    Id {
-                                        value: 39,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `mnist_classifier::digits`,
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 16,
+                                    ident_token: IdentToken {
+                                        ident: `digits`,
+                                        token_idx: TokenIdx(
+                                            11,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -88,12 +136,593 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
-                            symbol: Submodule(
-                                SubmoduleSymbol(
-                                    Id {
-                                        value: 40,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `mnist_classifier::major`,
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 17,
+                                    ident_token: IdentToken {
+                                        ident: `major`,
+                                        token_idx: TokenIdx(
+                                            13,
+                                        ),
                                     },
-                                ),
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `connected_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 23,
+                                            ident_token: IdentToken {
+                                                ident: `connected_components`,
+                                                token_idx: TokenIdx(
+                                                    32,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 18,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_connected_component`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 24,
+                                            ident_token: IdentToken {
+                                                ident: `major_connected_component`,
+                                                token_idx: TokenIdx(
+                                                    44,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 18,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ignored_connected_components_row_span_sum_sum`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 25,
+                                            ident_token: IdentToken {
+                                                ident: `ignored_connected_components_row_span_sum_sum`,
+                                                token_idx: TokenIdx(
+                                                    94,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 18,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contours`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 26,
+                                            ident_token: IdentToken {
+                                                ident: `major_raw_contours`,
+                                                token_idx: TokenIdx(
+                                                    128,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 18,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contour`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 27,
+                                            ident_token: IdentToken {
+                                                ident: `major_raw_contour`,
+                                                token_idx: TokenIdx(
+                                                    139,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 18,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_line_segment_sketch`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 28,
+                                            ident_token: IdentToken {
+                                                ident: `major_line_segment_sketch`,
+                                                token_idx: TokenIdx(
+                                                    151,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 18,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_concave_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 29,
+                                            ident_token: IdentToken {
+                                                ident: `major_concave_components`,
+                                                token_idx: TokenIdx(
+                                                    160,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 18,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `is_one`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 63,
+                                                    ident_token: IdentToken {
+                                                        ident: `is_one`,
+                                                        token_idx: TokenIdx(
+                                                            23,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 10,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 3,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `fermi_match`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 24,
+                                            ident_token: IdentToken {
+                                                ident: `fermi_match`,
+                                                token_idx: TokenIdx(
+                                                    146,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 20,
+                                    use_expr_idx: 6,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `RawContour`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 199,
+                                            ident_token: IdentToken {
+                                                ident: `RawContour`,
+                                                token_idx: TokenIdx(
+                                                    24,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 9,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegmentStroke`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 169,
+                                            ident_token: IdentToken {
+                                                ident: `LineSegmentStroke`,
+                                                token_idx: TokenIdx(
+                                                    41,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 22,
+                                    use_expr_idx: 12,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegmentSketch`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 171,
+                                            ident_token: IdentToken {
+                                                ident: `LineSegmentSketch`,
+                                                token_idx: TokenIdx(
+                                                    161,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 22,
+                                    use_expr_idx: 12,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ConcaveComponent`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 74,
+                                                    ident_token: IdentToken {
+                                                        ident: `ConcaveComponent`,
+                                                        token_idx: TokenIdx(
+                                                            34,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 163,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 22,
+                                    use_expr_idx: 12,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `find_concave_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 76,
+                                                    ident_token: IdentToken {
+                                                        ident: `find_concave_components`,
+                                                        token_idx: TokenIdx(
+                                                            516,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 163,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 22,
+                                    use_expr_idx: 12,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegment`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 16,
+                                                    ident_token: IdentToken {
+                                                        ident: `LineSegment`,
+                                                        token_idx: TokenIdx(
+                                                            8,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 165,
+                                            use_expr_idx: 4,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 22,
+                                    use_expr_idx: 12,
+                                },
                             ),
                         },
                     ],
@@ -102,8 +731,133 @@ Ok(
                 use_expr_rules: UseExprRules(
                     [
                         UseExprRule {
+                            ast_idx: 18,
+                            use_expr_idx: 2,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            variant: UseExprRuleVariant::Parent {
+                                parent_name_token: NameToken::SelfValue(
+                                    SelfValueToken {
+                                        token_idx: TokenIdx(
+                                            15,
+                                        ),
+                                    },
+                                ),
+                                children: ArenaIdxRange(
+                                    1..2,
+                                ),
+                            },
+                            parent: None,
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: EntitySymbol::SelfModule {
+                                    module_path: `mnist_classifier`,
+                                },
+                            },
+                        },
+                        UseExprRule {
+                            ast_idx: 19,
+                            use_expr_idx: 5,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            variant: UseExprRuleVariant::Parent {
+                                parent_name_token: NameToken::SelfValue(
+                                    SelfValueToken {
+                                        token_idx: TokenIdx(
+                                            21,
+                                        ),
+                                    },
+                                ),
+                                children: ArenaIdxRange(
+                                    4..5,
+                                ),
+                            },
+                            parent: None,
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: EntitySymbol::SelfModule {
+                                    module_path: `mnist_classifier`,
+                                },
+                            },
+                        },
+                        UseExprRule {
+                            ast_idx: 20,
+                            use_expr_idx: 8,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            variant: UseExprRuleVariant::Parent {
+                                parent_name_token: NameToken::SelfValue(
+                                    SelfValueToken {
+                                        token_idx: TokenIdx(
+                                            27,
+                                        ),
+                                    },
+                                ),
+                                children: ArenaIdxRange(
+                                    7..8,
+                                ),
+                            },
+                            parent: None,
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: EntitySymbol::SelfModule {
+                                    module_path: `mnist_classifier`,
+                                },
+                            },
+                        },
+                        UseExprRule {
+                            ast_idx: 21,
+                            use_expr_idx: 11,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            variant: UseExprRuleVariant::Parent {
+                                parent_name_token: NameToken::SelfValue(
+                                    SelfValueToken {
+                                        token_idx: TokenIdx(
+                                            34,
+                                        ),
+                                    },
+                                ),
+                                children: ArenaIdxRange(
+                                    10..11,
+                                ),
+                            },
+                            parent: None,
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: EntitySymbol::SelfModule {
+                                    module_path: `mnist_classifier`,
+                                },
+                            },
+                        },
+                        UseExprRule {
+                            ast_idx: 22,
+                            use_expr_idx: 14,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            variant: UseExprRuleVariant::Parent {
+                                parent_name_token: NameToken::SelfValue(
+                                    SelfValueToken {
+                                        token_idx: TokenIdx(
+                                            40,
+                                        ),
+                                    },
+                                ),
+                                children: ArenaIdxRange(
+                                    13..14,
+                                ),
+                            },
+                            parent: None,
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: EntitySymbol::SelfModule {
+                                    module_path: `mnist_classifier`,
+                                },
+                            },
+                        },
+                        UseExprRule {
                             ast_idx: 23,
-                            use_expr_idx: 6,
+                            use_expr_idx: 16,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
@@ -117,20 +871,226 @@ Ok(
                                     },
                                 ),
                                 children: ArenaIdxRange(
-                                    5..6,
+                                    15..16,
                                 ),
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: PackageDependency {
-                                    entity_path: Module(
-                                        ModulePath(
-                                            Id {
-                                                value: 62,
-                                            },
-                                        ),
+                                original_symbol: EntitySymbol::PackageDependency {
+                                    entity_path: EntityPath::Module(
+                                        `mnist`,
                                     ),
                                 },
+                            },
+                        },
+                        UseExprRule {
+                            ast_idx: 18,
+                            use_expr_idx: 1,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            variant: UseExprRuleVariant::Parent {
+                                parent_name_token: NameToken::Ident(
+                                    IdentToken {
+                                        ident: `major`,
+                                        token_idx: TokenIdx(
+                                            17,
+                                        ),
+                                    },
+                                ),
+                                children: ArenaIdxRange(
+                                    0..1,
+                                ),
+                            },
+                            parent: Some(
+                                EntityPath::Module(
+                                    `mnist_classifier`,
+                                ),
+                            ),
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::major`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 17,
+                                        ident_token: IdentToken {
+                                            ident: `major`,
+                                            token_idx: TokenIdx(
+                                                13,
+                                            ),
+                                        },
+                                    },
+                                ),
+                            },
+                        },
+                        UseExprRule {
+                            ast_idx: 19,
+                            use_expr_idx: 4,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            variant: UseExprRuleVariant::Parent {
+                                parent_name_token: NameToken::Ident(
+                                    IdentToken {
+                                        ident: `digits`,
+                                        token_idx: TokenIdx(
+                                            23,
+                                        ),
+                                    },
+                                ),
+                                children: ArenaIdxRange(
+                                    3..4,
+                                ),
+                            },
+                            parent: Some(
+                                EntityPath::Module(
+                                    `mnist_classifier`,
+                                ),
+                            ),
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::digits`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 16,
+                                        ident_token: IdentToken {
+                                            ident: `digits`,
+                                            token_idx: TokenIdx(
+                                                11,
+                                            ),
+                                        },
+                                    },
+                                ),
+                            },
+                        },
+                        UseExprRule {
+                            ast_idx: 20,
+                            use_expr_idx: 7,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            variant: UseExprRuleVariant::Parent {
+                                parent_name_token: NameToken::Ident(
+                                    IdentToken {
+                                        ident: `fermi`,
+                                        token_idx: TokenIdx(
+                                            29,
+                                        ),
+                                    },
+                                ),
+                                children: ArenaIdxRange(
+                                    6..7,
+                                ),
+                            },
+                            parent: Some(
+                                EntityPath::Module(
+                                    `mnist_classifier`,
+                                ),
+                            ),
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::fermi`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 15,
+                                        ident_token: IdentToken {
+                                            ident: `fermi`,
+                                            token_idx: TokenIdx(
+                                                9,
+                                            ),
+                                        },
+                                    },
+                                ),
+                            },
+                        },
+                        UseExprRule {
+                            ast_idx: 21,
+                            use_expr_idx: 10,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            variant: UseExprRuleVariant::Parent {
+                                parent_name_token: NameToken::Ident(
+                                    IdentToken {
+                                        ident: `raw_contour`,
+                                        token_idx: TokenIdx(
+                                            36,
+                                        ),
+                                    },
+                                ),
+                                children: ArenaIdxRange(
+                                    9..10,
+                                ),
+                            },
+                            parent: Some(
+                                EntityPath::Module(
+                                    `mnist_classifier`,
+                                ),
+                            ),
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::raw_contour`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 12,
+                                        ident_token: IdentToken {
+                                            ident: `raw_contour`,
+                                            token_idx: TokenIdx(
+                                                3,
+                                            ),
+                                        },
+                                    },
+                                ),
+                            },
+                        },
+                        UseExprRule {
+                            ast_idx: 22,
+                            use_expr_idx: 13,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            variant: UseExprRuleVariant::Parent {
+                                parent_name_token: NameToken::Ident(
+                                    IdentToken {
+                                        ident: `line_segment_sketch`,
+                                        token_idx: TokenIdx(
+                                            42,
+                                        ),
+                                    },
+                                ),
+                                children: ArenaIdxRange(
+                                    12..13,
+                                ),
+                            },
+                            parent: Some(
+                                EntityPath::Module(
+                                    `mnist_classifier`,
+                                ),
+                            ),
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::line_segment_sketch`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 14,
+                                        ident_token: IdentToken {
+                                            ident: `line_segment_sketch`,
+                                            token_idx: TokenIdx(
+                                                7,
+                                            ),
+                                        },
+                                    },
+                                ),
                             },
                         },
                     ],
@@ -147,7 +1107,7 @@ Ok(
                                 ),
                             },
                             ast_idx: 23,
-                            use_expr_idx: 5,
+                            use_expr_idx: 15,
                             visibility: PubUnder(
                                 ModulePath(
                                     Id {
@@ -156,6 +1116,106 @@ Ok(
                                 ),
                             ),
                             progress: 1,
+                        },
+                        UseAllRule {
+                            parent: KinshipedModulePath {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 47,
+                                    },
+                                ),
+                            },
+                            ast_idx: 18,
+                            use_expr_idx: 0,
+                            visibility: PubUnder(
+                                ModulePath(
+                                    Id {
+                                        value: 40,
+                                    },
+                                ),
+                            ),
+                            progress: 26,
+                        },
+                        UseAllRule {
+                            parent: KinshipedModulePath {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 46,
+                                    },
+                                ),
+                            },
+                            ast_idx: 19,
+                            use_expr_idx: 3,
+                            visibility: PubUnder(
+                                ModulePath(
+                                    Id {
+                                        value: 40,
+                                    },
+                                ),
+                            ),
+                            progress: 40,
+                        },
+                        UseAllRule {
+                            parent: KinshipedModulePath {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 45,
+                                    },
+                                ),
+                            },
+                            ast_idx: 20,
+                            use_expr_idx: 6,
+                            visibility: PubUnder(
+                                ModulePath(
+                                    Id {
+                                        value: 40,
+                                    },
+                                ),
+                            ),
+                            progress: 23,
+                        },
+                        UseAllRule {
+                            parent: KinshipedModulePath {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 42,
+                                    },
+                                ),
+                            },
+                            ast_idx: 21,
+                            use_expr_idx: 9,
+                            visibility: PubUnder(
+                                ModulePath(
+                                    Id {
+                                        value: 40,
+                                    },
+                                ),
+                            ),
+                            progress: 42,
+                        },
+                        UseAllRule {
+                            parent: KinshipedModulePath {
+                                kinship: Inside,
+                                path: ModulePath(
+                                    Id {
+                                        value: 44,
+                                    },
+                                ),
+                            },
+                            ast_idx: 22,
+                            use_expr_idx: 12,
+                            visibility: PubUnder(
+                                ModulePath(
+                                    Id {
+                                        value: 40,
+                                    },
+                                ),
+                            ),
+                            progress: 21,
                         },
                     ],
                 ),
@@ -168,23 +1228,39 @@ Ok(
                         EntitySymbolEntry {
                             ident: `ConnectedComponentDistribution`,
                             visibility: Visibility::Pub,
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 113,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Type(
+                                        TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                    ),
+                                    visibility: Visibility::Pub,
+                                    ast_idx: 120,
+                                    ident_token: IdentToken {
+                                        ident: `ConnectedComponentDistribution`,
+                                        token_idx: TokenIdx(
+                                            12,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `EffHoles`,
                             visibility: Visibility::Pub,
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 114,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Type(
+                                        TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                    ),
+                                    visibility: Visibility::Pub,
+                                    ast_idx: 121,
+                                    ident_token: IdentToken {
+                                        ident: `EffHoles`,
+                                        token_idx: TokenIdx(
+                                            33,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -192,23 +1268,41 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 115,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 122,
+                                    ident_token: IdentToken {
+                                        ident: `hole_tmpl`,
+                                        token_idx: TokenIdx(
+                                            45,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `ConnectedComponent`,
                             visibility: Visibility::Pub,
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 116,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Type(
+                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                    ),
+                                    visibility: Visibility::Pub,
+                                    ast_idx: 123,
+                                    ident_token: IdentToken {
+                                        ident: `ConnectedComponent`,
+                                        token_idx: TokenIdx(
+                                            71,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -216,23 +1310,41 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 117,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 125,
+                                    ident_token: IdentToken {
+                                        ident: `horizontal_extend`,
+                                        token_idx: TokenIdx(
+                                            552,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `find_connected_components`,
                             visibility: Visibility::Pub,
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 118,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                    ),
+                                    visibility: Visibility::Pub,
+                                    ast_idx: 126,
+                                    ident_token: IdentToken {
+                                        ident: `find_connected_components`,
+                                        token_idx: TokenIdx(
+                                            638,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -240,12 +1352,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 62,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::connected_component`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 11,
+                                            ident_token: IdentToken {
+                                                ident: `connected_component`,
+                                                token_idx: TokenIdx(
+                                                    1,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 119,
+                                    use_expr_idx: 3,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -253,12 +1385,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 63,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::raw_contour`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 12,
+                                            ident_token: IdentToken {
+                                                ident: `raw_contour`,
+                                                token_idx: TokenIdx(
+                                                    3,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 119,
+                                    use_expr_idx: 3,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -266,12 +1418,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 64,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::geom2d`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 13,
+                                            ident_token: IdentToken {
+                                                ident: `geom2d`,
+                                                token_idx: TokenIdx(
+                                                    5,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::geom2d`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 119,
+                                    use_expr_idx: 3,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -279,12 +1451,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 65,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::line_segment_sketch`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 14,
+                                            ident_token: IdentToken {
+                                                ident: `line_segment_sketch`,
+                                                token_idx: TokenIdx(
+                                                    7,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::line_segment_sketch`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 119,
+                                    use_expr_idx: 3,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -292,12 +1484,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 66,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::fermi`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 15,
+                                            ident_token: IdentToken {
+                                                ident: `fermi`,
+                                                token_idx: TokenIdx(
+                                                    9,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 119,
+                                    use_expr_idx: 3,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -305,12 +1517,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 67,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::digits`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 16,
+                                            ident_token: IdentToken {
+                                                ident: `digits`,
+                                                token_idx: TokenIdx(
+                                                    11,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 119,
+                                    use_expr_idx: 3,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -318,12 +1550,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 68,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::major`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 17,
+                                            ident_token: IdentToken {
+                                                ident: `major`,
+                                                token_idx: TokenIdx(
+                                                    13,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 119,
+                                    use_expr_idx: 3,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -331,12 +1583,768 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 118,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 199,
+                                            ident_token: IdentToken {
+                                                ident: `RawContour`,
+                                                token_idx: TokenIdx(
+                                                    24,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 118,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `connected_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 23,
+                                                    ident_token: IdentToken {
+                                                        ident: `connected_components`,
+                                                        token_idx: TokenIdx(
+                                                            32,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 18,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 119,
+                                    use_expr_idx: 3,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_connected_component`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 24,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_connected_component`,
+                                                        token_idx: TokenIdx(
+                                                            44,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 18,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 119,
+                                    use_expr_idx: 3,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ignored_connected_components_row_span_sum_sum`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 25,
+                                                    ident_token: IdentToken {
+                                                        ident: `ignored_connected_components_row_span_sum_sum`,
+                                                        token_idx: TokenIdx(
+                                                            94,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 18,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 119,
+                                    use_expr_idx: 3,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contours`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 26,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_raw_contours`,
+                                                        token_idx: TokenIdx(
+                                                            128,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 18,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 119,
+                                    use_expr_idx: 3,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contour`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 27,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_raw_contour`,
+                                                        token_idx: TokenIdx(
+                                                            139,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 18,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 119,
+                                    use_expr_idx: 3,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_line_segment_sketch`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 28,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_line_segment_sketch`,
+                                                        token_idx: TokenIdx(
+                                                            151,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 18,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 119,
+                                    use_expr_idx: 3,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_concave_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 29,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_concave_components`,
+                                                        token_idx: TokenIdx(
+                                                            160,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 18,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 119,
+                                    use_expr_idx: 3,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `is_one`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 63,
+                                                            ident_token: IdentToken {
+                                                                ident: `is_one`,
+                                                                token_idx: TokenIdx(
+                                                                    23,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 10,
+                                                    use_expr_idx: 0,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 3,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 119,
+                                    use_expr_idx: 3,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `fermi_match`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 24,
+                                                    ident_token: IdentToken {
+                                                        ident: `fermi_match`,
+                                                        token_idx: TokenIdx(
+                                                            146,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 20,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 119,
+                                    use_expr_idx: 3,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegmentStroke`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 169,
+                                                    ident_token: IdentToken {
+                                                        ident: `LineSegmentStroke`,
+                                                        token_idx: TokenIdx(
+                                                            41,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 22,
+                                            use_expr_idx: 12,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 119,
+                                    use_expr_idx: 3,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegmentSketch`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 171,
+                                                    ident_token: IdentToken {
+                                                        ident: `LineSegmentSketch`,
+                                                        token_idx: TokenIdx(
+                                                            161,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 22,
+                                            use_expr_idx: 12,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 119,
+                                    use_expr_idx: 3,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ConcaveComponent`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 74,
+                                                            ident_token: IdentToken {
+                                                                ident: `ConcaveComponent`,
+                                                                token_idx: TokenIdx(
+                                                                    34,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 163,
+                                                    use_expr_idx: 0,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 22,
+                                            use_expr_idx: 12,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 119,
+                                    use_expr_idx: 3,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `find_concave_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 76,
+                                                            ident_token: IdentToken {
+                                                                ident: `find_concave_components`,
+                                                                token_idx: TokenIdx(
+                                                                    516,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 163,
+                                                    use_expr_idx: 0,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 22,
+                                            use_expr_idx: 12,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 119,
+                                    use_expr_idx: 3,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegment`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 16,
+                                                            ident_token: IdentToken {
+                                                                ident: `LineSegment`,
+                                                                token_idx: TokenIdx(
+                                                                    8,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 165,
+                                                    use_expr_idx: 4,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 22,
+                                            use_expr_idx: 12,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 119,
+                                    use_expr_idx: 3,
+                                },
                             ),
                         },
                     ],
@@ -384,12 +2392,8 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
+                                original_symbol: EntitySymbol::CrateRoot {
+                                    root_module_path: `mnist_classifier`,
                                 },
                             },
                         },
@@ -413,12 +2417,8 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
+                                original_symbol: EntitySymbol::CrateRoot {
+                                    root_module_path: `mnist_classifier`,
                                 },
                             },
                         },
@@ -447,12 +2447,20 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 35,
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::raw_contour`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 12,
+                                        ident_token: IdentToken {
+                                            ident: `raw_contour`,
+                                            token_idx: TokenIdx(
+                                                3,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -478,7 +2486,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 7,
+                            progress: 22,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -498,7 +2506,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 33,
+                            progress: 42,
                         },
                     ],
                 ),
@@ -511,12 +2519,20 @@ Ok(
                         EntitySymbolEntry {
                             ident: `RawContour`,
                             visibility: Visibility::Pub,
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 119,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Type(
+                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                    ),
+                                    visibility: Visibility::Pub,
+                                    ast_idx: 199,
+                                    ident_token: IdentToken {
+                                        ident: `RawContour`,
+                                        token_idx: TokenIdx(
+                                            24,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -524,12 +2540,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 120,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Type(
+                                        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 201,
+                                    ident_token: IdentToken {
+                                        ident: `Direction`,
+                                        token_idx: TokenIdx(
+                                            390,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -537,12 +2563,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 121,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 206,
+                                    ident_token: IdentToken {
+                                        ident: `get_pixel_pair`,
+                                        token_idx: TokenIdx(
+                                            400,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -550,12 +2586,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 122,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 207,
+                                    ident_token: IdentToken {
+                                        ident: `get_pixel_to_the_left`,
+                                        token_idx: TokenIdx(
+                                            425,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -563,12 +2609,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 123,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 208,
+                                    ident_token: IdentToken {
+                                        ident: `get_pixel_to_the_right`,
+                                        token_idx: TokenIdx(
+                                            446,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -576,12 +2632,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 124,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 209,
+                                    ident_token: IdentToken {
+                                        ident: `get_inward_direction`,
+                                        token_idx: TokenIdx(
+                                            471,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -589,12 +2655,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 125,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 210,
+                                    ident_token: IdentToken {
+                                        ident: `get_angle_change`,
+                                        token_idx: TokenIdx(
+                                            617,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -602,12 +2678,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 126,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 211,
+                                    ident_token: IdentToken {
+                                        ident: `get_outward_direction`,
+                                        token_idx: TokenIdx(
+                                            681,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -615,12 +2701,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 127,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Type(
+                                        TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 212,
+                                    ident_token: IdentToken {
+                                        ident: `StreakCache`,
+                                        token_idx: TokenIdx(
+                                            908,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -628,12 +2724,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 128,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 213,
+                                    ident_token: IdentToken {
+                                        ident: `get_concave_middle_point`,
+                                        token_idx: TokenIdx(
+                                            920,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -641,12 +2747,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 129,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 214,
+                                    ident_token: IdentToken {
+                                        ident: `find_raw_contours`,
+                                        token_idx: TokenIdx(
+                                            985,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -654,12 +2770,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 69,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::connected_component`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 11,
+                                            ident_token: IdentToken {
+                                                ident: `connected_component`,
+                                                token_idx: TokenIdx(
+                                                    1,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 198,
+                                    use_expr_idx: 9,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -667,12 +2803,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 70,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::raw_contour`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 12,
+                                            ident_token: IdentToken {
+                                                ident: `raw_contour`,
+                                                token_idx: TokenIdx(
+                                                    3,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 198,
+                                    use_expr_idx: 9,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -680,12 +2836,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 71,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::geom2d`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 13,
+                                            ident_token: IdentToken {
+                                                ident: `geom2d`,
+                                                token_idx: TokenIdx(
+                                                    5,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::geom2d`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 198,
+                                    use_expr_idx: 9,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -693,12 +2869,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 72,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::line_segment_sketch`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 14,
+                                            ident_token: IdentToken {
+                                                ident: `line_segment_sketch`,
+                                                token_idx: TokenIdx(
+                                                    7,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::line_segment_sketch`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 198,
+                                    use_expr_idx: 9,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -706,12 +2902,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 73,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::fermi`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 15,
+                                            ident_token: IdentToken {
+                                                ident: `fermi`,
+                                                token_idx: TokenIdx(
+                                                    9,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 198,
+                                    use_expr_idx: 9,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -719,12 +2935,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 74,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::digits`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 16,
+                                            ident_token: IdentToken {
+                                                ident: `digits`,
+                                                token_idx: TokenIdx(
+                                                    11,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 198,
+                                    use_expr_idx: 9,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -732,12 +2968,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 75,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::major`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 17,
+                                            ident_token: IdentToken {
+                                                ident: `major`,
+                                                token_idx: TokenIdx(
+                                                    13,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 198,
+                                    use_expr_idx: 9,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -745,12 +3001,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 136,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 78,
+                                            ident_token: IdentToken {
+                                                ident: `Point2d`,
+                                                token_idx: TokenIdx(
+                                                    2,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 195,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -758,12 +3036,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 137,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 80,
+                                            ident_token: IdentToken {
+                                                ident: `RelativePoint2d`,
+                                                token_idx: TokenIdx(
+                                                    144,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 195,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -771,12 +3071,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 138,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 81,
+                                            ident_token: IdentToken {
+                                                ident: `Vector2d`,
+                                                token_idx: TokenIdx(
+                                                    157,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 195,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -784,12 +3106,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 139,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 83,
+                                            ident_token: IdentToken {
+                                                ident: `ClosedRange`,
+                                                token_idx: TokenIdx(
+                                                    488,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 195,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -797,12 +3141,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 140,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 85,
+                                            ident_token: IdentToken {
+                                                ident: `BoundingBox`,
+                                                token_idx: TokenIdx(
+                                                    596,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 195,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -810,12 +3176,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 141,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 87,
+                                            ident_token: IdentToken {
+                                                ident: `RelativeBoundingBox`,
+                                                token_idx: TokenIdx(
+                                                    732,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 195,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -823,12 +3211,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 142,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 120,
+                                            ident_token: IdentToken {
+                                                ident: `ConnectedComponentDistribution`,
+                                                token_idx: TokenIdx(
+                                                    12,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 196,
+                                    use_expr_idx: 3,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -836,12 +3246,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 143,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 121,
+                                            ident_token: IdentToken {
+                                                ident: `EffHoles`,
+                                                token_idx: TokenIdx(
+                                                    33,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 196,
+                                    use_expr_idx: 3,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -849,12 +3281,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 145,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 123,
+                                            ident_token: IdentToken {
+                                                ident: `ConnectedComponent`,
+                                                token_idx: TokenIdx(
+                                                    71,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 196,
+                                    use_expr_idx: 3,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -862,12 +3316,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 147,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 126,
+                                            ident_token: IdentToken {
+                                                ident: `find_connected_components`,
+                                                token_idx: TokenIdx(
+                                                    638,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 196,
+                                    use_expr_idx: 3,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -875,12 +3351,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 160,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 169,
+                                            ident_token: IdentToken {
+                                                ident: `LineSegmentStroke`,
+                                                token_idx: TokenIdx(
+                                                    41,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 197,
+                                    use_expr_idx: 6,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -888,12 +3386,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 161,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 171,
+                                            ident_token: IdentToken {
+                                                ident: `LineSegmentSketch`,
+                                                token_idx: TokenIdx(
+                                                    161,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 197,
+                                    use_expr_idx: 6,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -901,12 +3421,46 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 167,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 74,
+                                                    ident_token: IdentToken {
+                                                        ident: `ConcaveComponent`,
+                                                        token_idx: TokenIdx(
+                                                            34,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 163,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 197,
+                                    use_expr_idx: 6,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -914,12 +3468,46 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 168,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 76,
+                                                    ident_token: IdentToken {
+                                                        ident: `find_concave_components`,
+                                                        token_idx: TokenIdx(
+                                                            516,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 163,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 197,
+                                    use_expr_idx: 6,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -927,12 +3515,499 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 169,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 16,
+                                                    ident_token: IdentToken {
+                                                        ident: `LineSegment`,
+                                                        token_idx: TokenIdx(
+                                                            8,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 165,
+                                            use_expr_idx: 4,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 197,
+                                    use_expr_idx: 6,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `connected_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 23,
+                                                    ident_token: IdentToken {
+                                                        ident: `connected_components`,
+                                                        token_idx: TokenIdx(
+                                                            32,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 18,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 198,
+                                    use_expr_idx: 9,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_connected_component`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 24,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_connected_component`,
+                                                        token_idx: TokenIdx(
+                                                            44,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 18,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 198,
+                                    use_expr_idx: 9,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ignored_connected_components_row_span_sum_sum`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 25,
+                                                    ident_token: IdentToken {
+                                                        ident: `ignored_connected_components_row_span_sum_sum`,
+                                                        token_idx: TokenIdx(
+                                                            94,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 18,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 198,
+                                    use_expr_idx: 9,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contours`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 26,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_raw_contours`,
+                                                        token_idx: TokenIdx(
+                                                            128,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 18,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 198,
+                                    use_expr_idx: 9,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contour`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 27,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_raw_contour`,
+                                                        token_idx: TokenIdx(
+                                                            139,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 18,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 198,
+                                    use_expr_idx: 9,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_line_segment_sketch`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 28,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_line_segment_sketch`,
+                                                        token_idx: TokenIdx(
+                                                            151,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 18,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 198,
+                                    use_expr_idx: 9,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_concave_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 29,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_concave_components`,
+                                                        token_idx: TokenIdx(
+                                                            160,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 18,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 198,
+                                    use_expr_idx: 9,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `is_one`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 63,
+                                                            ident_token: IdentToken {
+                                                                ident: `is_one`,
+                                                                token_idx: TokenIdx(
+                                                                    23,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 10,
+                                                    use_expr_idx: 0,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 3,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 198,
+                                    use_expr_idx: 9,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `fermi_match`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 24,
+                                                    ident_token: IdentToken {
+                                                        ident: `fermi_match`,
+                                                        token_idx: TokenIdx(
+                                                            146,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 20,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 198,
+                                    use_expr_idx: 9,
+                                },
                             ),
                         },
                     ],
@@ -980,12 +4055,8 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
+                                original_symbol: EntitySymbol::CrateRoot {
+                                    root_module_path: `mnist_classifier`,
                                 },
                             },
                         },
@@ -1009,12 +4080,8 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
+                                original_symbol: EntitySymbol::CrateRoot {
+                                    root_module_path: `mnist_classifier`,
                                 },
                             },
                         },
@@ -1038,12 +4105,8 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
+                                original_symbol: EntitySymbol::CrateRoot {
+                                    root_module_path: `mnist_classifier`,
                                 },
                             },
                         },
@@ -1067,12 +4130,8 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
+                                original_symbol: EntitySymbol::CrateRoot {
+                                    root_module_path: `mnist_classifier`,
                                 },
                             },
                         },
@@ -1101,12 +4160,20 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 36,
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::geom2d`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 13,
+                                        ident_token: IdentToken {
+                                            ident: `geom2d`,
+                                            token_idx: TokenIdx(
+                                                5,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -1135,12 +4202,20 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 34,
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::connected_component`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 11,
+                                        ident_token: IdentToken {
+                                            ident: `connected_component`,
+                                            token_idx: TokenIdx(
+                                                1,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -1169,12 +4244,20 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 37,
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::line_segment_sketch`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 14,
+                                        ident_token: IdentToken {
+                                            ident: `line_segment_sketch`,
+                                            token_idx: TokenIdx(
+                                                7,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -1200,7 +4283,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 7,
+                            progress: 22,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -1240,7 +4323,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 14,
+                            progress: 28,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -1273,67 +4356,115 @@ Ok(
                         EntitySymbolEntry {
                             ident: `Point2d`,
                             visibility: Visibility::Pub,
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 130,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Type(
+                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                    ),
+                                    visibility: Visibility::Pub,
+                                    ast_idx: 78,
+                                    ident_token: IdentToken {
+                                        ident: `Point2d`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `RelativePoint2d`,
                             visibility: Visibility::Pub,
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 131,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Type(
+                                        TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                    ),
+                                    visibility: Visibility::Pub,
+                                    ast_idx: 80,
+                                    ident_token: IdentToken {
+                                        ident: `RelativePoint2d`,
+                                        token_idx: TokenIdx(
+                                            144,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `Vector2d`,
                             visibility: Visibility::Pub,
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 132,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Type(
+                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                    ),
+                                    visibility: Visibility::Pub,
+                                    ast_idx: 81,
+                                    ident_token: IdentToken {
+                                        ident: `Vector2d`,
+                                        token_idx: TokenIdx(
+                                            157,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `ClosedRange`,
                             visibility: Visibility::Pub,
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 133,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Type(
+                                        TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                    ),
+                                    visibility: Visibility::Pub,
+                                    ast_idx: 83,
+                                    ident_token: IdentToken {
+                                        ident: `ClosedRange`,
+                                        token_idx: TokenIdx(
+                                            488,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `BoundingBox`,
                             visibility: Visibility::Pub,
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 134,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Type(
+                                        TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                    ),
+                                    visibility: Visibility::Pub,
+                                    ast_idx: 85,
+                                    ident_token: IdentToken {
+                                        ident: `BoundingBox`,
+                                        token_idx: TokenIdx(
+                                            596,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `RelativeBoundingBox`,
                             visibility: Visibility::Pub,
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 135,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Type(
+                                        TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                    ),
+                                    visibility: Visibility::Pub,
+                                    ast_idx: 87,
+                                    ident_token: IdentToken {
+                                        ident: `RelativeBoundingBox`,
+                                        token_idx: TokenIdx(
+                                            732,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                     ],
@@ -1462,12 +4593,20 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            symbol: Submodule(
-                                SubmoduleSymbol(
-                                    Id {
-                                        value: 41,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch`,
+                                    ),
+                                    ast_idx: 159,
+                                    ident_token: IdentToken {
+                                        ident: `concave_component`,
+                                        token_idx: TokenIdx(
+                                            1,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -1475,12 +4614,20 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            symbol: Submodule(
-                                SubmoduleSymbol(
-                                    Id {
-                                        value: 42,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `mnist_classifier::line_segment_sketch::convex_component`,
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch`,
+                                    ),
+                                    ast_idx: 160,
+                                    ident_token: IdentToken {
+                                        ident: `convex_component`,
+                                        token_idx: TokenIdx(
+                                            3,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -1488,12 +4635,20 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            symbol: Submodule(
-                                SubmoduleSymbol(
-                                    Id {
-                                        value: 43,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `mnist_classifier::line_segment_sketch::convexity`,
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch`,
+                                    ),
+                                    ast_idx: 161,
+                                    ident_token: IdentToken {
+                                        ident: `convexity`,
+                                        token_idx: TokenIdx(
+                                            5,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -1501,34 +4656,58 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            symbol: Submodule(
-                                SubmoduleSymbol(
-                                    Id {
-                                        value: 44,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `mnist_classifier::line_segment_sketch::line_segment`,
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch`,
+                                    ),
+                                    ast_idx: 162,
+                                    ident_token: IdentToken {
+                                        ident: `line_segment`,
+                                        token_idx: TokenIdx(
+                                            7,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `LineSegmentStroke`,
                             visibility: Visibility::Pub,
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 136,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Type(
+                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                    ),
+                                    visibility: Visibility::Pub,
+                                    ast_idx: 169,
+                                    ident_token: IdentToken {
+                                        ident: `LineSegmentStroke`,
+                                        token_idx: TokenIdx(
+                                            41,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `LineSegmentSketch`,
                             visibility: Visibility::Pub,
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 137,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Type(
+                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                    ),
+                                    visibility: Visibility::Pub,
+                                    ast_idx: 171,
+                                    ident_token: IdentToken {
+                                        ident: `LineSegmentSketch`,
+                                        token_idx: TokenIdx(
+                                            161,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -1536,12 +4715,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 138,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch`,
+                                    ),
+                                    ast_idx: 173,
+                                    ident_token: IdentToken {
+                                        ident: `go_right`,
+                                        token_idx: TokenIdx(
+                                            346,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -1549,12 +4738,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 139,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch`,
+                                    ),
+                                    ast_idx: 174,
+                                    ident_token: IdentToken {
+                                        ident: `go_left`,
+                                        token_idx: TokenIdx(
+                                            443,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -1562,12 +4761,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 140,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch`,
+                                    ),
+                                    ast_idx: 175,
+                                    ident_token: IdentToken {
+                                        ident: `extend_end`,
+                                        token_idx: TokenIdx(
+                                            540,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -1575,12 +4784,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 141,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch`,
+                                    ),
+                                    ast_idx: 176,
+                                    ident_token: IdentToken {
+                                        ident: `extend_start`,
+                                        token_idx: TokenIdx(
+                                            773,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -1588,45 +4807,115 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 142,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch`,
+                                    ),
+                                    ast_idx: 177,
+                                    ident_token: IdentToken {
+                                        ident: `find_line_segments`,
+                                        token_idx: TokenIdx(
+                                            1039,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `ConcaveComponent`,
                             visibility: Visibility::Pub,
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 76,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 74,
+                                            ident_token: IdentToken {
+                                                ident: `ConcaveComponent`,
+                                                token_idx: TokenIdx(
+                                                    34,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::Pub,
+                                    ast_idx: 163,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `find_concave_components`,
                             visibility: Visibility::Pub,
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 77,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 76,
+                                            ident_token: IdentToken {
+                                                ident: `find_concave_components`,
+                                                token_idx: TokenIdx(
+                                                    516,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::Pub,
+                                    ast_idx: 163,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `LineSegment`,
                             visibility: Visibility::Pub,
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 79,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 16,
+                                            ident_token: IdentToken {
+                                                ident: `LineSegment`,
+                                                token_idx: TokenIdx(
+                                                    8,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::Pub,
+                                    ast_idx: 165,
+                                    use_expr_idx: 4,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -1634,12 +4923,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 170,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 199,
+                                            ident_token: IdentToken {
+                                                ident: `RawContour`,
+                                                token_idx: TokenIdx(
+                                                    24,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch`,
+                                    ),
+                                    ast_idx: 167,
+                                    use_expr_idx: 9,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -1647,12 +4958,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 178,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 78,
+                                            ident_token: IdentToken {
+                                                ident: `Point2d`,
+                                                token_idx: TokenIdx(
+                                                    2,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch`,
+                                    ),
+                                    ast_idx: 166,
+                                    use_expr_idx: 6,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -1660,12 +4993,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 179,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 80,
+                                            ident_token: IdentToken {
+                                                ident: `RelativePoint2d`,
+                                                token_idx: TokenIdx(
+                                                    144,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch`,
+                                    ),
+                                    ast_idx: 166,
+                                    use_expr_idx: 6,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -1673,12 +5028,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 180,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 81,
+                                            ident_token: IdentToken {
+                                                ident: `Vector2d`,
+                                                token_idx: TokenIdx(
+                                                    157,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch`,
+                                    ),
+                                    ast_idx: 166,
+                                    use_expr_idx: 6,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -1686,12 +5063,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 181,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 83,
+                                            ident_token: IdentToken {
+                                                ident: `ClosedRange`,
+                                                token_idx: TokenIdx(
+                                                    488,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch`,
+                                    ),
+                                    ast_idx: 166,
+                                    use_expr_idx: 6,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -1699,12 +5098,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 182,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 85,
+                                            ident_token: IdentToken {
+                                                ident: `BoundingBox`,
+                                                token_idx: TokenIdx(
+                                                    596,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch`,
+                                    ),
+                                    ast_idx: 166,
+                                    use_expr_idx: 6,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -1712,12 +5133,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 183,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 87,
+                                            ident_token: IdentToken {
+                                                ident: `RelativeBoundingBox`,
+                                                token_idx: TokenIdx(
+                                                    732,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch`,
+                                    ),
+                                    ast_idx: 166,
+                                    use_expr_idx: 6,
+                                },
                             ),
                         },
                     ],
@@ -1783,12 +5226,20 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 41,
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::line_segment_sketch`,
+                                        ),
+                                        ast_idx: 159,
+                                        ident_token: IdentToken {
+                                            ident: `concave_component`,
+                                            token_idx: TokenIdx(
+                                                1,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -1811,12 +5262,20 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 42,
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::line_segment_sketch::convex_component`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::line_segment_sketch`,
+                                        ),
+                                        ast_idx: 160,
+                                        ident_token: IdentToken {
+                                            ident: `convex_component`,
+                                            token_idx: TokenIdx(
+                                                3,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -1839,12 +5298,20 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 44,
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::line_segment_sketch::line_segment`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::line_segment_sketch`,
+                                        ),
+                                        ast_idx: 162,
+                                        ident_token: IdentToken {
+                                            ident: `line_segment`,
+                                            token_idx: TokenIdx(
+                                                7,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -1868,12 +5335,8 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
+                                original_symbol: EntitySymbol::CrateRoot {
+                                    root_module_path: `mnist_classifier`,
                                 },
                             },
                         },
@@ -1897,12 +5360,8 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
+                                original_symbol: EntitySymbol::CrateRoot {
+                                    root_module_path: `mnist_classifier`,
                                 },
                             },
                         },
@@ -1927,12 +5386,20 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 44,
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::line_segment_sketch::line_segment`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::line_segment_sketch`,
+                                        ),
+                                        ast_idx: 162,
+                                        ident_token: IdentToken {
+                                            ident: `line_segment`,
+                                            token_idx: TokenIdx(
+                                                7,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -1961,12 +5428,20 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 36,
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::geom2d`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 13,
+                                        ident_token: IdentToken {
+                                            ident: `geom2d`,
+                                            token_idx: TokenIdx(
+                                                5,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -1995,12 +5470,20 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 35,
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::raw_contour`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 12,
+                                        ident_token: IdentToken {
+                                            ident: `raw_contour`,
+                                            token_idx: TokenIdx(
+                                                3,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -2024,12 +5507,20 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: ModuleItem(
-                                    ModuleItemSymbol(
-                                        Id {
-                                            value: 119,
+                                original_symbol: EntitySymbol::ModuleItem(
+                                    ModuleItemSymbol {
+                                        path: ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                        ),
+                                        visibility: Visibility::Pub,
+                                        ast_idx: 199,
+                                        ident_token: IdentToken {
+                                            ident: `RawContour`,
+                                            token_idx: TokenIdx(
+                                                24,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -2049,7 +5540,7 @@ Ok(
                             ast_idx: 163,
                             use_expr_idx: 0,
                             visibility: Pub,
-                            progress: 29,
+                            progress: 38,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -2130,23 +5621,39 @@ Ok(
                         EntitySymbolEntry {
                             ident: `ConcaveComponent`,
                             visibility: Visibility::Pub,
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 143,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Type(
+                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    ),
+                                    visibility: Visibility::Pub,
+                                    ast_idx: 74,
+                                    ident_token: IdentToken {
+                                        ident: `ConcaveComponent`,
+                                        token_idx: TokenIdx(
+                                            34,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `find_concave_components`,
                             visibility: Visibility::Pub,
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 144,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                    ),
+                                    visibility: Visibility::Pub,
+                                    ast_idx: 76,
+                                    ident_token: IdentToken {
+                                        ident: `find_concave_components`,
+                                        token_idx: TokenIdx(
+                                            516,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -2154,12 +5661,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 81,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::connected_component`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 11,
+                                            ident_token: IdentToken {
+                                                ident: `connected_component`,
+                                                token_idx: TokenIdx(
+                                                    1,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 73,
+                                    use_expr_idx: 14,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -2167,12 +5694,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 82,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::raw_contour`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 12,
+                                            ident_token: IdentToken {
+                                                ident: `raw_contour`,
+                                                token_idx: TokenIdx(
+                                                    3,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 73,
+                                    use_expr_idx: 14,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -2180,12 +5727,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 83,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::geom2d`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 13,
+                                            ident_token: IdentToken {
+                                                ident: `geom2d`,
+                                                token_idx: TokenIdx(
+                                                    5,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::geom2d`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 73,
+                                    use_expr_idx: 14,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -2193,12 +5760,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 84,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::line_segment_sketch`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 14,
+                                            ident_token: IdentToken {
+                                                ident: `line_segment_sketch`,
+                                                token_idx: TokenIdx(
+                                                    7,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::line_segment_sketch`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 73,
+                                    use_expr_idx: 14,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -2206,12 +5793,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 85,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::fermi`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 15,
+                                            ident_token: IdentToken {
+                                                ident: `fermi`,
+                                                token_idx: TokenIdx(
+                                                    9,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 73,
+                                    use_expr_idx: 14,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -2219,12 +5826,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 86,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::digits`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 16,
+                                            ident_token: IdentToken {
+                                                ident: `digits`,
+                                                token_idx: TokenIdx(
+                                                    11,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 73,
+                                    use_expr_idx: 14,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -2232,12 +5859,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 87,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::major`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 17,
+                                            ident_token: IdentToken {
+                                                ident: `major`,
+                                                token_idx: TokenIdx(
+                                                    13,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 73,
+                                    use_expr_idx: 14,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -2245,12 +5892,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 184,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 159,
+                                            ident_token: IdentToken {
+                                                ident: `concave_component`,
+                                                token_idx: TokenIdx(
+                                                    1,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 69,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -2258,12 +5925,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 185,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::line_segment_sketch::convex_component`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 160,
+                                            ident_token: IdentToken {
+                                                ident: `convex_component`,
+                                                token_idx: TokenIdx(
+                                                    3,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 69,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -2271,12 +5958,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 186,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::line_segment_sketch::convexity`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 161,
+                                            ident_token: IdentToken {
+                                                ident: `convexity`,
+                                                token_idx: TokenIdx(
+                                                    5,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 69,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -2284,12 +5991,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 187,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::line_segment_sketch::line_segment`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 162,
+                                            ident_token: IdentToken {
+                                                ident: `line_segment`,
+                                                token_idx: TokenIdx(
+                                                    7,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::line_segment_sketch::line_segment`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 69,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -2297,12 +6024,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 188,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 169,
+                                            ident_token: IdentToken {
+                                                ident: `LineSegmentStroke`,
+                                                token_idx: TokenIdx(
+                                                    41,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 69,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -2310,12 +6059,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 189,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 171,
+                                            ident_token: IdentToken {
+                                                ident: `LineSegmentSketch`,
+                                                token_idx: TokenIdx(
+                                                    161,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 69,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -2323,12 +6094,36 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 190,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 173,
+                                            ident_token: IdentToken {
+                                                ident: `go_right`,
+                                                token_idx: TokenIdx(
+                                                    346,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 69,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -2336,12 +6131,36 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 191,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 174,
+                                            ident_token: IdentToken {
+                                                ident: `go_left`,
+                                                token_idx: TokenIdx(
+                                                    443,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 69,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -2349,12 +6168,36 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 192,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 175,
+                                            ident_token: IdentToken {
+                                                ident: `extend_end`,
+                                                token_idx: TokenIdx(
+                                                    540,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 69,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -2362,12 +6205,36 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 193,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 176,
+                                            ident_token: IdentToken {
+                                                ident: `extend_start`,
+                                                token_idx: TokenIdx(
+                                                    773,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 69,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -2375,12 +6242,36 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 194,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 177,
+                                            ident_token: IdentToken {
+                                                ident: `find_line_segments`,
+                                                token_idx: TokenIdx(
+                                                    1039,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 69,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -2388,12 +6279,46 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 197,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 16,
+                                                    ident_token: IdentToken {
+                                                        ident: `LineSegment`,
+                                                        token_idx: TokenIdx(
+                                                            8,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 165,
+                                            use_expr_idx: 4,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 69,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -2401,12 +6326,48 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 198,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 199,
+                                                    ident_token: IdentToken {
+                                                        ident: `RawContour`,
+                                                        token_idx: TokenIdx(
+                                                            24,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 167,
+                                            use_expr_idx: 9,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 69,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -2414,12 +6375,48 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 199,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 78,
+                                                    ident_token: IdentToken {
+                                                        ident: `Point2d`,
+                                                        token_idx: TokenIdx(
+                                                            2,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 166,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 69,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -2427,12 +6424,48 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 200,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 80,
+                                                    ident_token: IdentToken {
+                                                        ident: `RelativePoint2d`,
+                                                        token_idx: TokenIdx(
+                                                            144,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 166,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 69,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -2440,12 +6473,48 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 201,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 81,
+                                                    ident_token: IdentToken {
+                                                        ident: `Vector2d`,
+                                                        token_idx: TokenIdx(
+                                                            157,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 166,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 69,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -2453,12 +6522,48 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 202,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 83,
+                                                    ident_token: IdentToken {
+                                                        ident: `ClosedRange`,
+                                                        token_idx: TokenIdx(
+                                                            488,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 166,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 69,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -2466,12 +6571,48 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 203,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 85,
+                                                    ident_token: IdentToken {
+                                                        ident: `BoundingBox`,
+                                                        token_idx: TokenIdx(
+                                                            596,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 166,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 69,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -2479,12 +6620,501 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 204,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 87,
+                                                    ident_token: IdentToken {
+                                                        ident: `RelativeBoundingBox`,
+                                                        token_idx: TokenIdx(
+                                                            732,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 166,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 69,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `connected_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 23,
+                                                    ident_token: IdentToken {
+                                                        ident: `connected_components`,
+                                                        token_idx: TokenIdx(
+                                                            32,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 18,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 73,
+                                    use_expr_idx: 14,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_connected_component`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 24,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_connected_component`,
+                                                        token_idx: TokenIdx(
+                                                            44,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 18,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 73,
+                                    use_expr_idx: 14,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ignored_connected_components_row_span_sum_sum`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 25,
+                                                    ident_token: IdentToken {
+                                                        ident: `ignored_connected_components_row_span_sum_sum`,
+                                                        token_idx: TokenIdx(
+                                                            94,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 18,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 73,
+                                    use_expr_idx: 14,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contours`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 26,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_raw_contours`,
+                                                        token_idx: TokenIdx(
+                                                            128,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 18,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 73,
+                                    use_expr_idx: 14,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contour`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 27,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_raw_contour`,
+                                                        token_idx: TokenIdx(
+                                                            139,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 18,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 73,
+                                    use_expr_idx: 14,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_line_segment_sketch`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 28,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_line_segment_sketch`,
+                                                        token_idx: TokenIdx(
+                                                            151,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 18,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 73,
+                                    use_expr_idx: 14,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_concave_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 29,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_concave_components`,
+                                                        token_idx: TokenIdx(
+                                                            160,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 18,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 73,
+                                    use_expr_idx: 14,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `is_one`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 63,
+                                                            ident_token: IdentToken {
+                                                                ident: `is_one`,
+                                                                token_idx: TokenIdx(
+                                                                    23,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 10,
+                                                    use_expr_idx: 0,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 3,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 73,
+                                    use_expr_idx: 14,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `fermi_match`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 24,
+                                                    ident_token: IdentToken {
+                                                        ident: `fermi_match`,
+                                                        token_idx: TokenIdx(
+                                                            146,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 20,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 73,
+                                    use_expr_idx: 14,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -2492,12 +7122,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 447,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 22,
+                                            ident_token: IdentToken {
+                                                ident: `is_convex`,
+                                                token_idx: TokenIdx(
+                                                    20,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 71,
+                                    use_expr_idx: 7,
+                                },
                             ),
                         },
                     ],
@@ -2545,12 +7197,8 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
+                                original_symbol: EntitySymbol::CrateRoot {
+                                    root_module_path: `mnist_classifier`,
                                 },
                             },
                         },
@@ -2574,12 +7222,8 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
+                                original_symbol: EntitySymbol::CrateRoot {
+                                    root_module_path: `mnist_classifier`,
                                 },
                             },
                         },
@@ -2603,12 +7247,8 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
+                                original_symbol: EntitySymbol::CrateRoot {
+                                    root_module_path: `mnist_classifier`,
                                 },
                             },
                         },
@@ -2632,12 +7272,8 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
+                                original_symbol: EntitySymbol::CrateRoot {
+                                    root_module_path: `mnist_classifier`,
                                 },
                             },
                         },
@@ -2661,12 +7297,8 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
+                                original_symbol: EntitySymbol::CrateRoot {
+                                    root_module_path: `mnist_classifier`,
                                 },
                             },
                         },
@@ -2695,12 +7327,20 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 37,
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::line_segment_sketch`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 14,
+                                        ident_token: IdentToken {
+                                            ident: `line_segment_sketch`,
+                                            token_idx: TokenIdx(
+                                                7,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -2729,12 +7369,20 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 37,
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::line_segment_sketch`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 14,
+                                        ident_token: IdentToken {
+                                            ident: `line_segment_sketch`,
+                                            token_idx: TokenIdx(
+                                                7,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -2763,12 +7411,20 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 37,
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::line_segment_sketch`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 14,
+                                        ident_token: IdentToken {
+                                            ident: `line_segment_sketch`,
+                                            token_idx: TokenIdx(
+                                                7,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -2797,12 +7453,20 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 36,
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::geom2d`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 13,
+                                        ident_token: IdentToken {
+                                            ident: `geom2d`,
+                                            token_idx: TokenIdx(
+                                                5,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -2831,12 +7495,20 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 44,
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::line_segment_sketch::line_segment`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::line_segment_sketch`,
+                                        ),
+                                        ast_idx: 162,
+                                        ident_token: IdentToken {
+                                            ident: `line_segment`,
+                                            token_idx: TokenIdx(
+                                                7,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -2865,12 +7537,20 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 43,
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::line_segment_sketch::convexity`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::line_segment_sketch`,
+                                        ),
+                                        ast_idx: 161,
+                                        ident_token: IdentToken {
+                                            ident: `convexity`,
+                                            token_idx: TokenIdx(
+                                                5,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -2896,7 +7576,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 7,
+                            progress: 22,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -2991,12 +7671,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 145,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Type(
+                                        TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    ),
+                                    ast_idx: 3,
+                                    ident_token: IdentToken {
+                                        ident: `ConvexComponent`,
+                                        token_idx: TokenIdx(
+                                            7,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3004,12 +7694,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 211,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 159,
+                                            ident_token: IdentToken {
+                                                ident: `concave_component`,
+                                                token_idx: TokenIdx(
+                                                    1,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    ),
+                                    ast_idx: 2,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3017,12 +7727,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 212,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::line_segment_sketch::convex_component`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 160,
+                                            ident_token: IdentToken {
+                                                ident: `convex_component`,
+                                                token_idx: TokenIdx(
+                                                    3,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    ),
+                                    ast_idx: 2,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3030,12 +7760,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 213,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::line_segment_sketch::convexity`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 161,
+                                            ident_token: IdentToken {
+                                                ident: `convexity`,
+                                                token_idx: TokenIdx(
+                                                    5,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    ),
+                                    ast_idx: 2,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3043,12 +7793,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 214,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::line_segment_sketch::line_segment`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 162,
+                                            ident_token: IdentToken {
+                                                ident: `line_segment`,
+                                                token_idx: TokenIdx(
+                                                    7,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::line_segment_sketch::line_segment`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    ),
+                                    ast_idx: 2,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3056,12 +7826,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 215,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 169,
+                                            ident_token: IdentToken {
+                                                ident: `LineSegmentStroke`,
+                                                token_idx: TokenIdx(
+                                                    41,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    ),
+                                    ast_idx: 2,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3069,12 +7861,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 216,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 171,
+                                            ident_token: IdentToken {
+                                                ident: `LineSegmentSketch`,
+                                                token_idx: TokenIdx(
+                                                    161,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    ),
+                                    ast_idx: 2,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3082,12 +7896,36 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 217,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 173,
+                                            ident_token: IdentToken {
+                                                ident: `go_right`,
+                                                token_idx: TokenIdx(
+                                                    346,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    ),
+                                    ast_idx: 2,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3095,12 +7933,36 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 218,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 174,
+                                            ident_token: IdentToken {
+                                                ident: `go_left`,
+                                                token_idx: TokenIdx(
+                                                    443,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    ),
+                                    ast_idx: 2,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3108,12 +7970,36 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 219,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 175,
+                                            ident_token: IdentToken {
+                                                ident: `extend_end`,
+                                                token_idx: TokenIdx(
+                                                    540,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    ),
+                                    ast_idx: 2,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3121,12 +8007,36 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 220,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 176,
+                                            ident_token: IdentToken {
+                                                ident: `extend_start`,
+                                                token_idx: TokenIdx(
+                                                    773,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    ),
+                                    ast_idx: 2,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3134,12 +8044,36 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 221,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 177,
+                                            ident_token: IdentToken {
+                                                ident: `find_line_segments`,
+                                                token_idx: TokenIdx(
+                                                    1039,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    ),
+                                    ast_idx: 2,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3147,12 +8081,46 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 222,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 74,
+                                                    ident_token: IdentToken {
+                                                        ident: `ConcaveComponent`,
+                                                        token_idx: TokenIdx(
+                                                            34,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 163,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    ),
+                                    ast_idx: 2,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3160,12 +8128,46 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 223,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 76,
+                                                    ident_token: IdentToken {
+                                                        ident: `find_concave_components`,
+                                                        token_idx: TokenIdx(
+                                                            516,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 163,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    ),
+                                    ast_idx: 2,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3173,12 +8175,46 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 224,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 16,
+                                                    ident_token: IdentToken {
+                                                        ident: `LineSegment`,
+                                                        token_idx: TokenIdx(
+                                                            8,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 165,
+                                            use_expr_idx: 4,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    ),
+                                    ast_idx: 2,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3186,12 +8222,48 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 225,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 199,
+                                                    ident_token: IdentToken {
+                                                        ident: `RawContour`,
+                                                        token_idx: TokenIdx(
+                                                            24,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 167,
+                                            use_expr_idx: 9,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    ),
+                                    ast_idx: 2,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3199,12 +8271,48 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 226,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 78,
+                                                    ident_token: IdentToken {
+                                                        ident: `Point2d`,
+                                                        token_idx: TokenIdx(
+                                                            2,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 166,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    ),
+                                    ast_idx: 2,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3212,12 +8320,48 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 227,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 80,
+                                                    ident_token: IdentToken {
+                                                        ident: `RelativePoint2d`,
+                                                        token_idx: TokenIdx(
+                                                            144,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 166,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    ),
+                                    ast_idx: 2,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3225,12 +8369,48 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 228,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 81,
+                                                    ident_token: IdentToken {
+                                                        ident: `Vector2d`,
+                                                        token_idx: TokenIdx(
+                                                            157,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 166,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    ),
+                                    ast_idx: 2,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3238,12 +8418,48 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 229,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 83,
+                                                    ident_token: IdentToken {
+                                                        ident: `ClosedRange`,
+                                                        token_idx: TokenIdx(
+                                                            488,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 166,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    ),
+                                    ast_idx: 2,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3251,12 +8467,48 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 230,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 85,
+                                                    ident_token: IdentToken {
+                                                        ident: `BoundingBox`,
+                                                        token_idx: TokenIdx(
+                                                            596,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 166,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    ),
+                                    ast_idx: 2,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3264,12 +8516,48 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 231,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 87,
+                                                    ident_token: IdentToken {
+                                                        ident: `RelativeBoundingBox`,
+                                                        token_idx: TokenIdx(
+                                                            732,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 166,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    ),
+                                    ast_idx: 2,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                     ],
@@ -3317,12 +8605,8 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
+                                original_symbol: EntitySymbol::CrateRoot {
+                                    root_module_path: `mnist_classifier`,
                                 },
                             },
                         },
@@ -3351,12 +8635,20 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 37,
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::line_segment_sketch`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 14,
+                                        ident_token: IdentToken {
+                                            ident: `line_segment_sketch`,
+                                            token_idx: TokenIdx(
+                                                7,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -3395,12 +8687,20 @@ Ok(
                         EntitySymbolEntry {
                             ident: `is_convex`,
                             visibility: Visibility::Pub,
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 146,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
+                                    ),
+                                    visibility: Visibility::Pub,
+                                    ast_idx: 22,
+                                    ident_token: IdentToken {
+                                        ident: `is_convex`,
+                                        token_idx: TokenIdx(
+                                            20,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3408,12 +8708,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 232,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 159,
+                                            ident_token: IdentToken {
+                                                ident: `concave_component`,
+                                                token_idx: TokenIdx(
+                                                    1,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3421,12 +8741,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 233,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::line_segment_sketch::convex_component`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 160,
+                                            ident_token: IdentToken {
+                                                ident: `convex_component`,
+                                                token_idx: TokenIdx(
+                                                    3,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3434,12 +8774,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 234,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::line_segment_sketch::convexity`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 161,
+                                            ident_token: IdentToken {
+                                                ident: `convexity`,
+                                                token_idx: TokenIdx(
+                                                    5,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3447,12 +8807,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 235,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::line_segment_sketch::line_segment`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 162,
+                                            ident_token: IdentToken {
+                                                ident: `line_segment`,
+                                                token_idx: TokenIdx(
+                                                    7,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::line_segment_sketch::line_segment`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3460,12 +8840,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 236,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 169,
+                                            ident_token: IdentToken {
+                                                ident: `LineSegmentStroke`,
+                                                token_idx: TokenIdx(
+                                                    41,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3473,12 +8875,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 237,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 171,
+                                            ident_token: IdentToken {
+                                                ident: `LineSegmentSketch`,
+                                                token_idx: TokenIdx(
+                                                    161,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3486,12 +8910,36 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 238,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 173,
+                                            ident_token: IdentToken {
+                                                ident: `go_right`,
+                                                token_idx: TokenIdx(
+                                                    346,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3499,12 +8947,36 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 239,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 174,
+                                            ident_token: IdentToken {
+                                                ident: `go_left`,
+                                                token_idx: TokenIdx(
+                                                    443,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3512,12 +8984,36 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 240,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 175,
+                                            ident_token: IdentToken {
+                                                ident: `extend_end`,
+                                                token_idx: TokenIdx(
+                                                    540,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3525,12 +9021,36 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 241,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 176,
+                                            ident_token: IdentToken {
+                                                ident: `extend_start`,
+                                                token_idx: TokenIdx(
+                                                    773,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3538,12 +9058,36 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 242,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 177,
+                                            ident_token: IdentToken {
+                                                ident: `find_line_segments`,
+                                                token_idx: TokenIdx(
+                                                    1039,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3551,12 +9095,46 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 243,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 74,
+                                                    ident_token: IdentToken {
+                                                        ident: `ConcaveComponent`,
+                                                        token_idx: TokenIdx(
+                                                            34,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 163,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3564,12 +9142,46 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 244,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 76,
+                                                    ident_token: IdentToken {
+                                                        ident: `find_concave_components`,
+                                                        token_idx: TokenIdx(
+                                                            516,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 163,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3577,12 +9189,46 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 245,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 16,
+                                                    ident_token: IdentToken {
+                                                        ident: `LineSegment`,
+                                                        token_idx: TokenIdx(
+                                                            8,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 165,
+                                            use_expr_idx: 4,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3590,12 +9236,48 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 246,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 199,
+                                                    ident_token: IdentToken {
+                                                        ident: `RawContour`,
+                                                        token_idx: TokenIdx(
+                                                            24,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 167,
+                                            use_expr_idx: 9,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3603,12 +9285,48 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 247,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 78,
+                                                    ident_token: IdentToken {
+                                                        ident: `Point2d`,
+                                                        token_idx: TokenIdx(
+                                                            2,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 166,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3616,12 +9334,48 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 248,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 80,
+                                                    ident_token: IdentToken {
+                                                        ident: `RelativePoint2d`,
+                                                        token_idx: TokenIdx(
+                                                            144,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 166,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3629,12 +9383,48 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 249,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 81,
+                                                    ident_token: IdentToken {
+                                                        ident: `Vector2d`,
+                                                        token_idx: TokenIdx(
+                                                            157,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 166,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3642,12 +9432,48 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 250,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 83,
+                                                    ident_token: IdentToken {
+                                                        ident: `ClosedRange`,
+                                                        token_idx: TokenIdx(
+                                                            488,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 166,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3655,12 +9481,48 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 251,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 85,
+                                                    ident_token: IdentToken {
+                                                        ident: `BoundingBox`,
+                                                        token_idx: TokenIdx(
+                                                            596,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 166,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3668,12 +9530,48 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 252,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 87,
+                                                    ident_token: IdentToken {
+                                                        ident: `RelativeBoundingBox`,
+                                                        token_idx: TokenIdx(
+                                                            732,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                            ast_idx: 166,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                     ],
@@ -3701,12 +9599,8 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
+                                original_symbol: EntitySymbol::CrateRoot {
+                                    root_module_path: `mnist_classifier`,
                                 },
                             },
                         },
@@ -3730,12 +9624,8 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
+                                original_symbol: EntitySymbol::CrateRoot {
+                                    root_module_path: `mnist_classifier`,
                                 },
                             },
                         },
@@ -3759,12 +9649,8 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
+                                original_symbol: EntitySymbol::CrateRoot {
+                                    root_module_path: `mnist_classifier`,
                                 },
                             },
                         },
@@ -3793,12 +9679,20 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 37,
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::line_segment_sketch`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 14,
+                                        ident_token: IdentToken {
+                                            ident: `line_segment_sketch`,
+                                            token_idx: TokenIdx(
+                                                7,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -3827,12 +9721,20 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 35,
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::raw_contour`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 12,
+                                        ident_token: IdentToken {
+                                            ident: `raw_contour`,
+                                            token_idx: TokenIdx(
+                                                3,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -3861,12 +9763,20 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 36,
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::geom2d`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 13,
+                                        ident_token: IdentToken {
+                                            ident: `geom2d`,
+                                            token_idx: TokenIdx(
+                                                5,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -3912,7 +9822,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 33,
+                            progress: 42,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -3945,12 +9855,20 @@ Ok(
                         EntitySymbolEntry {
                             ident: `LineSegment`,
                             visibility: Visibility::Pub,
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 147,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Type(
+                                        TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                    ),
+                                    visibility: Visibility::Pub,
+                                    ast_idx: 16,
+                                    ident_token: IdentToken {
+                                        ident: `LineSegment`,
+                                        token_idx: TokenIdx(
+                                            8,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3958,12 +9876,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::line_segment`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 292,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 78,
+                                            ident_token: IdentToken {
+                                                ident: `Point2d`,
+                                                token_idx: TokenIdx(
+                                                    2,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::line_segment`,
+                                    ),
+                                    ast_idx: 15,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3971,12 +9911,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::line_segment`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 293,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 80,
+                                            ident_token: IdentToken {
+                                                ident: `RelativePoint2d`,
+                                                token_idx: TokenIdx(
+                                                    144,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::line_segment`,
+                                    ),
+                                    ast_idx: 15,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3984,12 +9946,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::line_segment`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 294,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 81,
+                                            ident_token: IdentToken {
+                                                ident: `Vector2d`,
+                                                token_idx: TokenIdx(
+                                                    157,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::line_segment`,
+                                    ),
+                                    ast_idx: 15,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -3997,12 +9981,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::line_segment`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 295,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 83,
+                                            ident_token: IdentToken {
+                                                ident: `ClosedRange`,
+                                                token_idx: TokenIdx(
+                                                    488,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::line_segment`,
+                                    ),
+                                    ast_idx: 15,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -4010,12 +10016,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::line_segment`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 296,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 85,
+                                            ident_token: IdentToken {
+                                                ident: `BoundingBox`,
+                                                token_idx: TokenIdx(
+                                                    596,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::line_segment`,
+                                    ),
+                                    ast_idx: 15,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -4023,12 +10051,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::line_segment`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 297,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 87,
+                                            ident_token: IdentToken {
+                                                ident: `RelativeBoundingBox`,
+                                                token_idx: TokenIdx(
+                                                    732,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::line_segment`,
+                                    ),
+                                    ast_idx: 15,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                     ],
@@ -4076,12 +10126,8 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
+                                original_symbol: EntitySymbol::CrateRoot {
+                                    root_module_path: `mnist_classifier`,
                                 },
                             },
                         },
@@ -4110,12 +10156,20 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 36,
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::geom2d`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 13,
+                                        ident_token: IdentToken {
+                                            ident: `geom2d`,
+                                            token_idx: TokenIdx(
+                                                5,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -4156,23 +10210,41 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::fermi`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 148,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Type(
+                                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 22,
+                                    ident_token: IdentToken {
+                                        ident: `FermiMatchResult`,
+                                        token_idx: TokenIdx(
+                                            5,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `fermi_match`,
                             visibility: Visibility::Pub,
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 149,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                    ),
+                                    visibility: Visibility::Pub,
+                                    ast_idx: 24,
+                                    ident_token: IdentToken {
+                                        ident: `fermi_match`,
+                                        token_idx: TokenIdx(
+                                            146,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -4180,12 +10252,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::fermi`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 88,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::connected_component`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 11,
+                                            ident_token: IdentToken {
+                                                ident: `connected_component`,
+                                                token_idx: TokenIdx(
+                                                    1,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -4193,12 +10285,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::fermi`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 89,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::raw_contour`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 12,
+                                            ident_token: IdentToken {
+                                                ident: `raw_contour`,
+                                                token_idx: TokenIdx(
+                                                    3,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -4206,12 +10318,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::fermi`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 90,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::geom2d`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 13,
+                                            ident_token: IdentToken {
+                                                ident: `geom2d`,
+                                                token_idx: TokenIdx(
+                                                    5,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::geom2d`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -4219,12 +10351,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::fermi`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 91,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::line_segment_sketch`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 14,
+                                            ident_token: IdentToken {
+                                                ident: `line_segment_sketch`,
+                                                token_idx: TokenIdx(
+                                                    7,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::line_segment_sketch`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -4232,12 +10384,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::fermi`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 92,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::fermi`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 15,
+                                            ident_token: IdentToken {
+                                                ident: `fermi`,
+                                                token_idx: TokenIdx(
+                                                    9,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -4245,12 +10417,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::fermi`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 93,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::digits`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 16,
+                                            ident_token: IdentToken {
+                                                ident: `digits`,
+                                                token_idx: TokenIdx(
+                                                    11,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -4258,12 +10450,766 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::fermi`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 94,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::major`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 17,
+                                            ident_token: IdentToken {
+                                                ident: `major`,
+                                                token_idx: TokenIdx(
+                                                    13,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `connected_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 23,
+                                                    ident_token: IdentToken {
+                                                        ident: `connected_components`,
+                                                        token_idx: TokenIdx(
+                                                            32,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 18,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_connected_component`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 24,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_connected_component`,
+                                                        token_idx: TokenIdx(
+                                                            44,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 18,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ignored_connected_components_row_span_sum_sum`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 25,
+                                                    ident_token: IdentToken {
+                                                        ident: `ignored_connected_components_row_span_sum_sum`,
+                                                        token_idx: TokenIdx(
+                                                            94,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 18,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contours`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 26,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_raw_contours`,
+                                                        token_idx: TokenIdx(
+                                                            128,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 18,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contour`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 27,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_raw_contour`,
+                                                        token_idx: TokenIdx(
+                                                            139,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 18,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_line_segment_sketch`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 28,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_line_segment_sketch`,
+                                                        token_idx: TokenIdx(
+                                                            151,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 18,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_concave_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 29,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_concave_components`,
+                                                        token_idx: TokenIdx(
+                                                            160,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 18,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `is_one`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 63,
+                                                            ident_token: IdentToken {
+                                                                ident: `is_one`,
+                                                                token_idx: TokenIdx(
+                                                                    23,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 10,
+                                                    use_expr_idx: 0,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 3,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `RawContour`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 199,
+                                                    ident_token: IdentToken {
+                                                        ident: `RawContour`,
+                                                        token_idx: TokenIdx(
+                                                            24,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 21,
+                                            use_expr_idx: 9,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegmentStroke`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 169,
+                                                    ident_token: IdentToken {
+                                                        ident: `LineSegmentStroke`,
+                                                        token_idx: TokenIdx(
+                                                            41,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 22,
+                                            use_expr_idx: 12,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegmentSketch`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 171,
+                                                    ident_token: IdentToken {
+                                                        ident: `LineSegmentSketch`,
+                                                        token_idx: TokenIdx(
+                                                            161,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 22,
+                                            use_expr_idx: 12,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ConcaveComponent`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 74,
+                                                            ident_token: IdentToken {
+                                                                ident: `ConcaveComponent`,
+                                                                token_idx: TokenIdx(
+                                                                    34,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 163,
+                                                    use_expr_idx: 0,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 22,
+                                            use_expr_idx: 12,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `find_concave_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 76,
+                                                            ident_token: IdentToken {
+                                                                ident: `find_concave_components`,
+                                                                token_idx: TokenIdx(
+                                                                    516,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 163,
+                                                    use_expr_idx: 0,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 22,
+                                            use_expr_idx: 12,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegment`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 16,
+                                                            ident_token: IdentToken {
+                                                                ident: `LineSegment`,
+                                                                token_idx: TokenIdx(
+                                                                    8,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 165,
+                                                    use_expr_idx: 4,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 22,
+                                            use_expr_idx: 12,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                     ],
@@ -4311,12 +11257,8 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
+                                original_symbol: EntitySymbol::CrateRoot {
+                                    root_module_path: `mnist_classifier`,
                                 },
                             },
                         },
@@ -4342,7 +11284,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 7,
+                            progress: 22,
                         },
                     ],
                 ),
@@ -4357,12 +11299,20 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Submodule(
-                                SubmoduleSymbol(
-                                    Id {
-                                        value: 45,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `mnist_classifier::digits::zero`,
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 0,
+                                    ident_token: IdentToken {
+                                        ident: `zero`,
+                                        token_idx: TokenIdx(
+                                            1,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -4370,12 +11320,20 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Submodule(
-                                SubmoduleSymbol(
-                                    Id {
-                                        value: 46,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `mnist_classifier::digits::one`,
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 1,
+                                    ident_token: IdentToken {
+                                        ident: `one`,
+                                        token_idx: TokenIdx(
+                                            3,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -4383,12 +11341,20 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Submodule(
-                                SubmoduleSymbol(
-                                    Id {
-                                        value: 47,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `mnist_classifier::digits::six`,
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 2,
+                                    ident_token: IdentToken {
+                                        ident: `six`,
+                                        token_idx: TokenIdx(
+                                            5,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -4396,12 +11362,20 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Submodule(
-                                SubmoduleSymbol(
-                                    Id {
-                                        value: 48,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `mnist_classifier::digits::three`,
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 3,
+                                    ident_token: IdentToken {
+                                        ident: `three`,
+                                        token_idx: TokenIdx(
+                                            7,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -4409,12 +11383,20 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Submodule(
-                                SubmoduleSymbol(
-                                    Id {
-                                        value: 49,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `mnist_classifier::digits::four`,
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 4,
+                                    ident_token: IdentToken {
+                                        ident: `four`,
+                                        token_idx: TokenIdx(
+                                            9,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -4422,12 +11404,20 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Submodule(
-                                SubmoduleSymbol(
-                                    Id {
-                                        value: 50,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `mnist_classifier::digits::five`,
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 5,
+                                    ident_token: IdentToken {
+                                        ident: `five`,
+                                        token_idx: TokenIdx(
+                                            11,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -4435,12 +11425,20 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Submodule(
-                                SubmoduleSymbol(
-                                    Id {
-                                        value: 51,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `mnist_classifier::digits::seven`,
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 6,
+                                    ident_token: IdentToken {
+                                        ident: `seven`,
+                                        token_idx: TokenIdx(
+                                            13,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -4448,12 +11446,20 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Submodule(
-                                SubmoduleSymbol(
-                                    Id {
-                                        value: 52,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `mnist_classifier::digits::eight`,
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 7,
+                                    ident_token: IdentToken {
+                                        ident: `eight`,
+                                        token_idx: TokenIdx(
+                                            15,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -4461,12 +11467,20 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Submodule(
-                                SubmoduleSymbol(
-                                    Id {
-                                        value: 53,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `mnist_classifier::digits::nine`,
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 8,
+                                    ident_token: IdentToken {
+                                        ident: `nine`,
+                                        token_idx: TokenIdx(
+                                            17,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -4474,23 +11488,51 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Submodule(
-                                SubmoduleSymbol(
-                                    Id {
-                                        value: 54,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `mnist_classifier::digits::two`,
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 9,
+                                    ident_token: IdentToken {
+                                        ident: `two`,
+                                        token_idx: TokenIdx(
+                                            19,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `is_one`,
                             visibility: Visibility::Pub,
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 95,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 63,
+                                            ident_token: IdentToken {
+                                                ident: `is_one`,
+                                                token_idx: TokenIdx(
+                                                    23,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::Pub,
+                                    ast_idx: 10,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -4498,12 +11540,36 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 96,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 52,
+                                            ident_token: IdentToken {
+                                                ident: `is_six`,
+                                                token_idx: TokenIdx(
+                                                    37,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 11,
+                                    use_expr_idx: 2,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -4511,12 +11577,36 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 97,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 28,
+                                            ident_token: IdentToken {
+                                                ident: `is_zero`,
+                                                token_idx: TokenIdx(
+                                                    49,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 12,
+                                    use_expr_idx: 4,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -4524,12 +11614,36 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 98,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::two::is_two`, `Feature`),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 54,
+                                            ident_token: IdentToken {
+                                                ident: `is_two`,
+                                                token_idx: TokenIdx(
+                                                    113,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::two::is_two`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 13,
+                                    use_expr_idx: 6,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -4537,12 +11651,36 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 99,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 29,
+                                            ident_token: IdentToken {
+                                                ident: `is_three`,
+                                                token_idx: TokenIdx(
+                                                    26,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 14,
+                                    use_expr_idx: 8,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -4550,12 +11688,36 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 100,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::five::is_five`, `Feature`),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 2,
+                                            ident_token: IdentToken {
+                                                ident: `is_five`,
+                                                token_idx: TokenIdx(
+                                                    9,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::five::is_five`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 15,
+                                    use_expr_idx: 10,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -4563,12 +11725,36 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 101,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 45,
+                                            ident_token: IdentToken {
+                                                ident: `is_seven`,
+                                                token_idx: TokenIdx(
+                                                    164,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 16,
+                                    use_expr_idx: 12,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -4576,12 +11762,36 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 102,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            ident_token: IdentToken {
+                                                ident: `is_eight`,
+                                                token_idx: TokenIdx(
+                                                    22,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 17,
+                                    use_expr_idx: 14,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -4589,12 +11799,36 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 103,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 38,
+                                            ident_token: IdentToken {
+                                                ident: `is_nine`,
+                                                token_idx: TokenIdx(
+                                                    35,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 18,
+                                    use_expr_idx: 16,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -4602,12 +11836,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 104,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::connected_component`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 11,
+                                            ident_token: IdentToken {
+                                                ident: `connected_component`,
+                                                token_idx: TokenIdx(
+                                                    1,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 18,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -4615,12 +11869,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 105,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::raw_contour`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 12,
+                                            ident_token: IdentToken {
+                                                ident: `raw_contour`,
+                                                token_idx: TokenIdx(
+                                                    3,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 18,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -4628,12 +11902,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 106,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::geom2d`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 13,
+                                            ident_token: IdentToken {
+                                                ident: `geom2d`,
+                                                token_idx: TokenIdx(
+                                                    5,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::geom2d`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 18,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -4641,12 +11935,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 107,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::line_segment_sketch`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 14,
+                                            ident_token: IdentToken {
+                                                ident: `line_segment_sketch`,
+                                                token_idx: TokenIdx(
+                                                    7,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::line_segment_sketch`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 18,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -4654,12 +11968,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 108,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::fermi`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 15,
+                                            ident_token: IdentToken {
+                                                ident: `fermi`,
+                                                token_idx: TokenIdx(
+                                                    9,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 18,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -4667,12 +12001,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 109,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::digits`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 16,
+                                            ident_token: IdentToken {
+                                                ident: `digits`,
+                                                token_idx: TokenIdx(
+                                                    11,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 18,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -4680,12 +12034,754 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 110,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::major`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 17,
+                                            ident_token: IdentToken {
+                                                ident: `major`,
+                                                token_idx: TokenIdx(
+                                                    13,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 18,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `connected_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 23,
+                                                    ident_token: IdentToken {
+                                                        ident: `connected_components`,
+                                                        token_idx: TokenIdx(
+                                                            32,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 18,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 18,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_connected_component`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 24,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_connected_component`,
+                                                        token_idx: TokenIdx(
+                                                            44,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 18,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 18,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ignored_connected_components_row_span_sum_sum`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 25,
+                                                    ident_token: IdentToken {
+                                                        ident: `ignored_connected_components_row_span_sum_sum`,
+                                                        token_idx: TokenIdx(
+                                                            94,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 18,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 18,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contours`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 26,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_raw_contours`,
+                                                        token_idx: TokenIdx(
+                                                            128,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 18,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 18,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_raw_contour`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 27,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_raw_contour`,
+                                                        token_idx: TokenIdx(
+                                                            139,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 18,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 18,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_line_segment_sketch`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 28,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_line_segment_sketch`,
+                                                        token_idx: TokenIdx(
+                                                            151,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 18,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 18,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major_concave_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 29,
+                                                    ident_token: IdentToken {
+                                                        ident: `major_concave_components`,
+                                                        token_idx: TokenIdx(
+                                                            160,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 18,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 18,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `fermi_match`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 24,
+                                                    ident_token: IdentToken {
+                                                        ident: `fermi_match`,
+                                                        token_idx: TokenIdx(
+                                                            146,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 20,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 18,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `RawContour`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 199,
+                                                    ident_token: IdentToken {
+                                                        ident: `RawContour`,
+                                                        token_idx: TokenIdx(
+                                                            24,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 21,
+                                            use_expr_idx: 9,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 18,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegmentStroke`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 169,
+                                                    ident_token: IdentToken {
+                                                        ident: `LineSegmentStroke`,
+                                                        token_idx: TokenIdx(
+                                                            41,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 22,
+                                            use_expr_idx: 12,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 18,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegmentSketch`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 171,
+                                                    ident_token: IdentToken {
+                                                        ident: `LineSegmentSketch`,
+                                                        token_idx: TokenIdx(
+                                                            161,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 22,
+                                            use_expr_idx: 12,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 18,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ConcaveComponent`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 74,
+                                                            ident_token: IdentToken {
+                                                                ident: `ConcaveComponent`,
+                                                                token_idx: TokenIdx(
+                                                                    34,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 163,
+                                                    use_expr_idx: 0,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 22,
+                                            use_expr_idx: 12,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 18,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `find_concave_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 76,
+                                                            ident_token: IdentToken {
+                                                                ident: `find_concave_components`,
+                                                                token_idx: TokenIdx(
+                                                                    516,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 163,
+                                                    use_expr_idx: 0,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 22,
+                                            use_expr_idx: 12,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 18,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegment`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 16,
+                                                            ident_token: IdentToken {
+                                                                ident: `LineSegment`,
+                                                                token_idx: TokenIdx(
+                                                                    8,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 165,
+                                                    use_expr_idx: 4,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 22,
+                                            use_expr_idx: 12,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 18,
+                                },
                             ),
                         },
                     ],
@@ -4712,12 +12808,20 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 46,
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::digits::one`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 1,
+                                        ident_token: IdentToken {
+                                            ident: `one`,
+                                            token_idx: TokenIdx(
+                                                3,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -4742,12 +12846,20 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 47,
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::digits::six`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 2,
+                                        ident_token: IdentToken {
+                                            ident: `six`,
+                                            token_idx: TokenIdx(
+                                                5,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -4772,12 +12884,20 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 45,
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::digits::zero`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 0,
+                                        ident_token: IdentToken {
+                                            ident: `zero`,
+                                            token_idx: TokenIdx(
+                                                1,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -4802,12 +12922,20 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 54,
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::digits::two`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 9,
+                                        ident_token: IdentToken {
+                                            ident: `two`,
+                                            token_idx: TokenIdx(
+                                                19,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -4832,12 +12960,20 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 48,
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::digits::three`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 3,
+                                        ident_token: IdentToken {
+                                            ident: `three`,
+                                            token_idx: TokenIdx(
+                                                7,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -4862,12 +12998,20 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 50,
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::digits::five`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 5,
+                                        ident_token: IdentToken {
+                                            ident: `five`,
+                                            token_idx: TokenIdx(
+                                                11,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -4892,12 +13036,20 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 51,
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::digits::seven`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 6,
+                                        ident_token: IdentToken {
+                                            ident: `seven`,
+                                            token_idx: TokenIdx(
+                                                13,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -4922,12 +13074,20 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 52,
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::digits::eight`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 7,
+                                        ident_token: IdentToken {
+                                            ident: `eight`,
+                                            token_idx: TokenIdx(
+                                                15,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -4952,12 +13112,20 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 53,
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::digits::nine`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 8,
+                                        ident_token: IdentToken {
+                                            ident: `nine`,
+                                            token_idx: TokenIdx(
+                                                17,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -4981,12 +13149,8 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
+                                original_symbol: EntitySymbol::CrateRoot {
+                                    root_module_path: `mnist_classifier`,
                                 },
                             },
                         },
@@ -5008,12 +13172,20 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: ModuleItem(
-                                    ModuleItemSymbol(
-                                        Id {
-                                            value: 154,
+                                original_symbol: EntitySymbol::ModuleItem(
+                                    ModuleItemSymbol {
+                                        path: ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                        ),
+                                        visibility: Visibility::Pub,
+                                        ast_idx: 63,
+                                        ident_token: IdentToken {
+                                            ident: `is_one`,
+                                            token_idx: TokenIdx(
+                                                23,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -5037,12 +13209,22 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: ModuleItem(
-                                    ModuleItemSymbol(
-                                        Id {
-                                            value: 160,
+                                original_symbol: EntitySymbol::ModuleItem(
+                                    ModuleItemSymbol {
+                                        path: ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
+                                        ),
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 52,
+                                        ident_token: IdentToken {
+                                            ident: `is_six`,
+                                            token_idx: TokenIdx(
+                                                37,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -5066,12 +13248,22 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: ModuleItem(
-                                    ModuleItemSymbol(
-                                        Id {
-                                            value: 152,
+                                original_symbol: EntitySymbol::ModuleItem(
+                                    ModuleItemSymbol {
+                                        path: ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
+                                        ),
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 28,
+                                        ident_token: IdentToken {
+                                            ident: `is_zero`,
+                                            token_idx: TokenIdx(
+                                                49,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -5095,12 +13287,22 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: ModuleItem(
-                                    ModuleItemSymbol(
-                                        Id {
-                                            value: 194,
+                                original_symbol: EntitySymbol::ModuleItem(
+                                    ModuleItemSymbol {
+                                        path: ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::two::is_two`, `Feature`),
+                                        ),
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 54,
+                                        ident_token: IdentToken {
+                                            ident: `is_two`,
+                                            token_idx: TokenIdx(
+                                                113,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -5124,12 +13326,22 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: ModuleItem(
-                                    ModuleItemSymbol(
-                                        Id {
-                                            value: 164,
+                                original_symbol: EntitySymbol::ModuleItem(
+                                    ModuleItemSymbol {
+                                        path: ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
+                                        ),
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 29,
+                                        ident_token: IdentToken {
+                                            ident: `is_three`,
+                                            token_idx: TokenIdx(
+                                                26,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -5153,12 +13365,22 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: ModuleItem(
-                                    ModuleItemSymbol(
-                                        Id {
-                                            value: 175,
+                                original_symbol: EntitySymbol::ModuleItem(
+                                    ModuleItemSymbol {
+                                        path: ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::five::is_five`, `Feature`),
+                                        ),
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 2,
+                                        ident_token: IdentToken {
+                                            ident: `is_five`,
+                                            token_idx: TokenIdx(
+                                                9,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -5182,12 +13404,22 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: ModuleItem(
-                                    ModuleItemSymbol(
-                                        Id {
-                                            value: 181,
+                                original_symbol: EntitySymbol::ModuleItem(
+                                    ModuleItemSymbol {
+                                        path: ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
+                                        ),
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 45,
+                                        ident_token: IdentToken {
+                                            ident: `is_seven`,
+                                            token_idx: TokenIdx(
+                                                164,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -5211,12 +13443,22 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: ModuleItem(
-                                    ModuleItemSymbol(
-                                        Id {
-                                            value: 183,
+                                original_symbol: EntitySymbol::ModuleItem(
+                                    ModuleItemSymbol {
+                                        path: ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
+                                        ),
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 19,
+                                        ident_token: IdentToken {
+                                            ident: `is_eight`,
+                                            token_idx: TokenIdx(
+                                                22,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -5240,12 +13482,22 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: ModuleItem(
-                                    ModuleItemSymbol(
-                                        Id {
-                                            value: 187,
+                                original_symbol: EntitySymbol::ModuleItem(
+                                    ModuleItemSymbol {
+                                        path: ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
+                                        ),
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 38,
+                                        ident_token: IdentToken {
+                                            ident: `is_nine`,
+                                            token_idx: TokenIdx(
+                                                35,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -5271,7 +13523,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 7,
+                            progress: 22,
                         },
                     ],
                 ),
@@ -5286,12 +13538,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::zero`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 150,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::zero::open_one_match`, `Feature`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::zero`,
+                                    ),
+                                    ast_idx: 26,
+                                    ident_token: IdentToken {
+                                        ident: `open_one_match`,
+                                        token_idx: TokenIdx(
+                                            5,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -5299,12 +13561,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::zero`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 151,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::zero`,
+                                    ),
+                                    ast_idx: 27,
+                                    ident_token: IdentToken {
+                                        ident: `almost_closed`,
+                                        token_idx: TokenIdx(
+                                            18,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -5312,12 +13584,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 152,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 28,
+                                    ident_token: IdentToken {
+                                        ident: `is_zero`,
+                                        token_idx: TokenIdx(
+                                            49,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                     ],
@@ -5340,23 +13622,41 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::one`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 153,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Feature`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::one`,
+                                    ),
+                                    ast_idx: 62,
+                                    ident_token: IdentToken {
+                                        ident: `one_fermi_match`,
+                                        token_idx: TokenIdx(
+                                            5,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `is_one`,
                             visibility: Visibility::Pub,
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 154,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                    ),
+                                    visibility: Visibility::Pub,
+                                    ast_idx: 63,
+                                    ident_token: IdentToken {
+                                        ident: `is_one`,
+                                        token_idx: TokenIdx(
+                                            23,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -5364,12 +13664,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::one`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 155,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::one::upmost`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::one`,
+                                    ),
+                                    ast_idx: 64,
+                                    ident_token: IdentToken {
+                                        ident: `upmost`,
+                                        token_idx: TokenIdx(
+                                            500,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -5377,12 +13687,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::one`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 156,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::one::downmost`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::one`,
+                                    ),
+                                    ast_idx: 65,
+                                    ident_token: IdentToken {
+                                        ident: `downmost`,
+                                        token_idx: TokenIdx(
+                                            529,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -5390,12 +13710,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::one`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 157,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::one::hat`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::one`,
+                                    ),
+                                    ast_idx: 66,
+                                    ident_token: IdentToken {
+                                        ident: `hat`,
+                                        token_idx: TokenIdx(
+                                            563,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                     ],
@@ -5418,12 +13748,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::six`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 158,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::six::six_match`, `Feature`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::six`,
+                                    ),
+                                    ast_idx: 50,
+                                    ident_token: IdentToken {
+                                        ident: `six_match`,
+                                        token_idx: TokenIdx(
+                                            5,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -5431,12 +13771,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::six`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 159,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Feature`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::six`,
+                                    ),
+                                    ast_idx: 51,
+                                    ident_token: IdentToken {
+                                        ident: `six_match_refined1`,
+                                        token_idx: TokenIdx(
+                                            18,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -5444,12 +13794,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 160,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 52,
+                                    ident_token: IdentToken {
+                                        ident: `is_six`,
+                                        token_idx: TokenIdx(
+                                            37,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -5457,12 +13817,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::six`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 161,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::six::upmost`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::six`,
+                                    ),
+                                    ast_idx: 53,
+                                    ident_token: IdentToken {
+                                        ident: `upmost`,
+                                        token_idx: TokenIdx(
+                                            300,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -5470,12 +13840,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::six`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 162,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::six::bottom1`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::six`,
+                                    ),
+                                    ast_idx: 54,
+                                    ident_token: IdentToken {
+                                        ident: `bottom1`,
+                                        token_idx: TokenIdx(
+                                            329,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                     ],
@@ -5498,12 +13878,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::three`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 163,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Feature`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::three`,
+                                    ),
+                                    ast_idx: 28,
+                                    ident_token: IdentToken {
+                                        ident: `three_fermi_match`,
+                                        token_idx: TokenIdx(
+                                            5,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -5511,12 +13901,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 164,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 29,
+                                    ident_token: IdentToken {
+                                        ident: `is_three`,
+                                        token_idx: TokenIdx(
+                                            26,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -5524,12 +13924,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::three`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 165,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::three::uparc`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::three`,
+                                    ),
+                                    ast_idx: 30,
+                                    ident_token: IdentToken {
+                                        ident: `uparc`,
+                                        token_idx: TokenIdx(
+                                            156,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -5537,12 +13947,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::three`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 166,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::three::downarc`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::three`,
+                                    ),
+                                    ast_idx: 31,
+                                    ident_token: IdentToken {
+                                        ident: `downarc`,
+                                        token_idx: TokenIdx(
+                                            190,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -5550,12 +13970,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::three`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 167,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::three::back`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::three`,
+                                    ),
+                                    ast_idx: 32,
+                                    ident_token: IdentToken {
+                                        ident: `back`,
+                                        token_idx: TokenIdx(
+                                            224,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                     ],
@@ -5578,12 +14008,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 168,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::four::left_components`, `Feature`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::four`,
+                                    ),
+                                    ast_idx: 38,
+                                    ident_token: IdentToken {
+                                        ident: `left_components`,
+                                        token_idx: TokenIdx(
+                                            5,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -5591,12 +14031,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 169,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::four`,
+                                    ),
+                                    ast_idx: 39,
+                                    ident_token: IdentToken {
+                                        ident: `left_coordinate_max`,
+                                        token_idx: TokenIdx(
+                                            20,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -5604,12 +14054,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 170,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Feature`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::four`,
+                                    ),
+                                    ast_idx: 40,
+                                    ident_token: IdentToken {
+                                        ident: `components_max_downwards`,
+                                        token_idx: TokenIdx(
+                                            39,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -5617,12 +14077,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 171,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::four::components_max_heights`, `Feature`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::four`,
+                                    ),
+                                    ast_idx: 41,
+                                    ident_token: IdentToken {
+                                        ident: `components_max_heights`,
+                                        token_idx: TokenIdx(
+                                            52,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -5630,12 +14100,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 172,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::four::is_four`, `Feature`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::four`,
+                                    ),
+                                    ast_idx: 42,
+                                    ident_token: IdentToken {
+                                        ident: `is_four`,
+                                        token_idx: TokenIdx(
+                                            65,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -5643,12 +14123,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 173,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::four`,
+                                    ),
+                                    ast_idx: 43,
+                                    ident_token: IdentToken {
+                                        ident: `displacement_downwards`,
+                                        token_idx: TokenIdx(
+                                            247,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -5656,12 +14146,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 174,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::four`,
+                                    ),
+                                    ast_idx: 44,
+                                    ident_token: IdentToken {
+                                        ident: `cc_box_heights`,
+                                        token_idx: TokenIdx(
+                                            276,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                     ],
@@ -5684,12 +14184,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 175,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::five::is_five`, `Feature`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 2,
+                                    ident_token: IdentToken {
+                                        ident: `is_five`,
+                                        token_idx: TokenIdx(
+                                            9,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                     ],
@@ -5712,12 +14222,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 176,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Feature`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::seven`,
+                                    ),
+                                    ast_idx: 40,
+                                    ident_token: IdentToken {
+                                        ident: `simple_seven_match`,
+                                        token_idx: TokenIdx(
+                                            5,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -5725,12 +14245,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 177,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::seven`,
+                                    ),
+                                    ast_idx: 41,
+                                    ident_token: IdentToken {
+                                        ident: `simple_leftdown_pattern`,
+                                        token_idx: TokenIdx(
+                                            18,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -5738,12 +14268,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 178,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Feature`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::seven`,
+                                    ),
+                                    ast_idx: 42,
+                                    ident_token: IdentToken {
+                                        ident: `special_seven_match`,
+                                        token_idx: TokenIdx(
+                                            48,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -5751,12 +14291,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 179,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::seven`,
+                                    ),
+                                    ast_idx: 43,
+                                    ident_token: IdentToken {
+                                        ident: `leftupcc_pattern`,
+                                        token_idx: TokenIdx(
+                                            63,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -5764,12 +14314,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 180,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::seven`,
+                                    ),
+                                    ast_idx: 44,
+                                    ident_token: IdentToken {
+                                        ident: `leftdowncc_pattern`,
+                                        token_idx: TokenIdx(
+                                            106,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -5777,12 +14337,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 181,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 45,
+                                    ident_token: IdentToken {
+                                        ident: `is_seven`,
+                                        token_idx: TokenIdx(
+                                            164,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                     ],
@@ -5805,12 +14375,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 182,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Feature`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::eight`,
+                                    ),
+                                    ast_idx: 18,
+                                    ident_token: IdentToken {
+                                        ident: `upper_mouth_match`,
+                                        token_idx: TokenIdx(
+                                            5,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -5818,12 +14398,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 183,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    ident_token: IdentToken {
+                                        ident: `is_eight`,
+                                        token_idx: TokenIdx(
+                                            22,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -5831,12 +14421,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 184,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::eight`,
+                                    ),
+                                    ast_idx: 20,
+                                    ident_token: IdentToken {
+                                        ident: `big_mouth`,
+                                        token_idx: TokenIdx(
+                                            85,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                     ],
@@ -5859,12 +14459,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 185,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::nine::nine_match`, `Feature`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::nine`,
+                                    ),
+                                    ast_idx: 36,
+                                    ident_token: IdentToken {
+                                        ident: `nine_match`,
+                                        token_idx: TokenIdx(
+                                            5,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -5872,12 +14482,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 186,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Feature`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::nine`,
+                                    ),
+                                    ast_idx: 37,
+                                    ident_token: IdentToken {
+                                        ident: `nine_match_refine`,
+                                        token_idx: TokenIdx(
+                                            18,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -5885,12 +14505,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 187,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 38,
+                                    ident_token: IdentToken {
+                                        ident: `is_nine`,
+                                        token_idx: TokenIdx(
+                                            35,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -5898,12 +14528,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 188,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::nine::downmost`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::nine`,
+                                    ),
+                                    ast_idx: 39,
+                                    ident_token: IdentToken {
+                                        ident: `downmost`,
+                                        token_idx: TokenIdx(
+                                            207,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -5911,12 +14551,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 189,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::nine::big_cc`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::nine`,
+                                    ),
+                                    ast_idx: 40,
+                                    ident_token: IdentToken {
+                                        ident: `big_cc`,
+                                        token_idx: TokenIdx(
+                                            236,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                     ],
@@ -5939,12 +14589,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 190,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::two::two_match`, `Feature`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::two`,
+                                    ),
+                                    ast_idx: 50,
+                                    ident_token: IdentToken {
+                                        ident: `two_match`,
+                                        token_idx: TokenIdx(
+                                            5,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -5952,12 +14612,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 191,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::two`,
+                                    ),
+                                    ast_idx: 51,
+                                    ident_token: IdentToken {
+                                        ident: `left_cc_pattern`,
+                                        token_idx: TokenIdx(
+                                            22,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -5965,12 +14635,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 192,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::two`,
+                                    ),
+                                    ast_idx: 52,
+                                    ident_token: IdentToken {
+                                        ident: `right_cc_pattern`,
+                                        token_idx: TokenIdx(
+                                            51,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -5978,12 +14658,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 193,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::two`,
+                                    ),
+                                    ast_idx: 53,
+                                    ident_token: IdentToken {
+                                        ident: `down_cc_pattern`,
+                                        token_idx: TokenIdx(
+                                            80,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -5991,12 +14681,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 194,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::two::is_two`, `Feature`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 54,
+                                    ident_token: IdentToken {
+                                        ident: `is_two`,
+                                        token_idx: TokenIdx(
+                                            113,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                     ],
@@ -6017,78 +14717,134 @@ Ok(
                         EntitySymbolEntry {
                             ident: `connected_components`,
                             visibility: Visibility::Pub,
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 195,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                    ),
+                                    visibility: Visibility::Pub,
+                                    ast_idx: 23,
+                                    ident_token: IdentToken {
+                                        ident: `connected_components`,
+                                        token_idx: TokenIdx(
+                                            32,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_connected_component`,
                             visibility: Visibility::Pub,
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 196,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                    ),
+                                    visibility: Visibility::Pub,
+                                    ast_idx: 24,
+                                    ident_token: IdentToken {
+                                        ident: `major_connected_component`,
+                                        token_idx: TokenIdx(
+                                            44,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `ignored_connected_components_row_span_sum_sum`,
                             visibility: Visibility::Pub,
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 197,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                    ),
+                                    visibility: Visibility::Pub,
+                                    ast_idx: 25,
+                                    ident_token: IdentToken {
+                                        ident: `ignored_connected_components_row_span_sum_sum`,
+                                        token_idx: TokenIdx(
+                                            94,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_raw_contours`,
                             visibility: Visibility::Pub,
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 198,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                    ),
+                                    visibility: Visibility::Pub,
+                                    ast_idx: 26,
+                                    ident_token: IdentToken {
+                                        ident: `major_raw_contours`,
+                                        token_idx: TokenIdx(
+                                            128,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_raw_contour`,
                             visibility: Visibility::Pub,
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 199,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                    ),
+                                    visibility: Visibility::Pub,
+                                    ast_idx: 27,
+                                    ident_token: IdentToken {
+                                        ident: `major_raw_contour`,
+                                        token_idx: TokenIdx(
+                                            139,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_line_segment_sketch`,
                             visibility: Visibility::Pub,
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 200,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                    ),
+                                    visibility: Visibility::Pub,
+                                    ast_idx: 28,
+                                    ident_token: IdentToken {
+                                        ident: `major_line_segment_sketch`,
+                                        token_idx: TokenIdx(
+                                            151,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
                             ident: `major_concave_components`,
                             visibility: Visibility::Pub,
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 201,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                    ),
+                                    visibility: Visibility::Pub,
+                                    ast_idx: 29,
+                                    ident_token: IdentToken {
+                                        ident: `major_concave_components`,
+                                        token_idx: TokenIdx(
+                                            160,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -6096,12 +14852,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 111,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::connected_component`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 11,
+                                            ident_token: IdentToken {
+                                                ident: `connected_component`,
+                                                token_idx: TokenIdx(
+                                                    1,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    ast_idx: 22,
+                                    use_expr_idx: 13,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -6109,12 +14885,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 112,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::raw_contour`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 12,
+                                            ident_token: IdentToken {
+                                                ident: `raw_contour`,
+                                                token_idx: TokenIdx(
+                                                    3,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    ast_idx: 22,
+                                    use_expr_idx: 13,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -6122,12 +14918,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 113,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::geom2d`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 13,
+                                            ident_token: IdentToken {
+                                                ident: `geom2d`,
+                                                token_idx: TokenIdx(
+                                                    5,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::geom2d`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    ast_idx: 22,
+                                    use_expr_idx: 13,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -6135,12 +14951,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 114,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::line_segment_sketch`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 14,
+                                            ident_token: IdentToken {
+                                                ident: `line_segment_sketch`,
+                                                token_idx: TokenIdx(
+                                                    7,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::line_segment_sketch`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    ast_idx: 22,
+                                    use_expr_idx: 13,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -6148,12 +14984,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 115,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::fermi`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 15,
+                                            ident_token: IdentToken {
+                                                ident: `fermi`,
+                                                token_idx: TokenIdx(
+                                                    9,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    ast_idx: 22,
+                                    use_expr_idx: 13,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -6161,12 +15017,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 116,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::digits`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 16,
+                                            ident_token: IdentToken {
+                                                ident: `digits`,
+                                                token_idx: TokenIdx(
+                                                    11,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    ast_idx: 22,
+                                    use_expr_idx: 13,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -6174,12 +15050,32 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 117,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::major`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 17,
+                                            ident_token: IdentToken {
+                                                ident: `major`,
+                                                token_idx: TokenIdx(
+                                                    13,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    ast_idx: 22,
+                                    use_expr_idx: 13,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -6187,12 +15083,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 298,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 120,
+                                            ident_token: IdentToken {
+                                                ident: `ConnectedComponentDistribution`,
+                                                token_idx: TokenIdx(
+                                                    12,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    ast_idx: 18,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -6200,12 +15118,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 299,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 121,
+                                            ident_token: IdentToken {
+                                                ident: `EffHoles`,
+                                                token_idx: TokenIdx(
+                                                    33,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    ast_idx: 18,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -6213,12 +15153,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 301,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 123,
+                                            ident_token: IdentToken {
+                                                ident: `ConnectedComponent`,
+                                                token_idx: TokenIdx(
+                                                    71,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    ast_idx: 18,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -6226,12 +15188,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 303,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 126,
+                                            ident_token: IdentToken {
+                                                ident: `find_connected_components`,
+                                                token_idx: TokenIdx(
+                                                    638,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    ast_idx: 18,
+                                    use_expr_idx: 0,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -6239,12 +15223,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 312,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 199,
+                                            ident_token: IdentToken {
+                                                ident: `RawContour`,
+                                                token_idx: TokenIdx(
+                                                    24,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 3,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -6252,12 +15258,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 349,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 169,
+                                            ident_token: IdentToken {
+                                                ident: `LineSegmentStroke`,
+                                                token_idx: TokenIdx(
+                                                    41,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    ast_idx: 20,
+                                    use_expr_idx: 6,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -6265,12 +15293,34 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 350,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 171,
+                                            ident_token: IdentToken {
+                                                ident: `LineSegmentSketch`,
+                                                token_idx: TokenIdx(
+                                                    161,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    ast_idx: 20,
+                                    use_expr_idx: 6,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -6278,12 +15328,46 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 356,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 74,
+                                                    ident_token: IdentToken {
+                                                        ident: `ConcaveComponent`,
+                                                        token_idx: TokenIdx(
+                                                            34,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 163,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    ast_idx: 20,
+                                    use_expr_idx: 6,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -6291,12 +15375,46 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 357,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 76,
+                                                    ident_token: IdentToken {
+                                                        ident: `find_concave_components`,
+                                                        token_idx: TokenIdx(
+                                                            516,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 163,
+                                            use_expr_idx: 0,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    ast_idx: 20,
+                                    use_expr_idx: 6,
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -6304,12 +15422,156 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 358,
-                                    },
-                                ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 16,
+                                                    ident_token: IdentToken {
+                                                        ident: `LineSegment`,
+                                                        token_idx: TokenIdx(
+                                                            8,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 165,
+                                            use_expr_idx: 4,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    ast_idx: 20,
+                                    use_expr_idx: 6,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `is_one`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::major`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 63,
+                                                            ident_token: IdentToken {
+                                                                ident: `is_one`,
+                                                                token_idx: TokenIdx(
+                                                                    23,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 10,
+                                                    use_expr_idx: 0,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 3,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    ast_idx: 22,
+                                    use_expr_idx: 13,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `fermi_match`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::major`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 24,
+                                                    ident_token: IdentToken {
+                                                        ident: `fermi_match`,
+                                                        token_idx: TokenIdx(
+                                                            146,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 20,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    ast_idx: 22,
+                                    use_expr_idx: 13,
+                                },
                             ),
                         },
                     ],
@@ -6337,12 +15599,8 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
+                                original_symbol: EntitySymbol::CrateRoot {
+                                    root_module_path: `mnist_classifier`,
                                 },
                             },
                         },
@@ -6366,12 +15624,8 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
+                                original_symbol: EntitySymbol::CrateRoot {
+                                    root_module_path: `mnist_classifier`,
                                 },
                             },
                         },
@@ -6395,12 +15649,8 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
+                                original_symbol: EntitySymbol::CrateRoot {
+                                    root_module_path: `mnist_classifier`,
                                 },
                             },
                         },
@@ -6424,12 +15674,8 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
+                                original_symbol: EntitySymbol::CrateRoot {
+                                    root_module_path: `mnist_classifier`,
                                 },
                             },
                         },
@@ -6453,12 +15699,8 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
+                                original_symbol: EntitySymbol::CrateRoot {
+                                    root_module_path: `mnist_classifier`,
                                 },
                             },
                         },
@@ -6487,12 +15729,20 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 34,
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::connected_component`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 11,
+                                        ident_token: IdentToken {
+                                            ident: `connected_component`,
+                                            token_idx: TokenIdx(
+                                                1,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -6521,12 +15771,20 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 35,
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::raw_contour`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 12,
+                                        ident_token: IdentToken {
+                                            ident: `raw_contour`,
+                                            token_idx: TokenIdx(
+                                                3,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -6555,12 +15813,20 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 37,
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::line_segment_sketch`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 14,
+                                        ident_token: IdentToken {
+                                            ident: `line_segment_sketch`,
+                                            token_idx: TokenIdx(
+                                                7,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -6589,12 +15855,20 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 37,
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::line_segment_sketch`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 14,
+                                        ident_token: IdentToken {
+                                            ident: `line_segment_sketch`,
+                                            token_idx: TokenIdx(
+                                                7,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -6623,12 +15897,20 @@ Ok(
                                 ),
                             ),
                             state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 41,
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::line_segment_sketch`,
+                                        ),
+                                        ast_idx: 159,
+                                        ident_token: IdentToken {
+                                            ident: `concave_component`,
+                                            token_idx: TokenIdx(
+                                                1,
+                                            ),
                                         },
-                                    ),
+                                    },
                                 ),
                             },
                         },
@@ -6654,7 +15936,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 7,
+                            progress: 22,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -6674,7 +15956,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 14,
+                            progress: 28,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -6694,7 +15976,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 33,
+                            progress: 42,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -6734,7 +16016,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 29,
+                            progress: 38,
                         },
                     ],
                 ),

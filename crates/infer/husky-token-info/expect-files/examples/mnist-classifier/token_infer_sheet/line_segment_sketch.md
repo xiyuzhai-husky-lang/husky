@@ -17,12 +17,20 @@ Ok(
                     0,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 41,
+                    original_symbol: EntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `mnist_classifier::line_segment_sketch::concave_component`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
+                            ast_idx: 159,
+                            ident_token: IdentToken {
+                                ident: `concave_component`,
+                                token_idx: TokenIdx(
+                                    1,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },
@@ -36,12 +44,20 @@ Ok(
                     1,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 42,
+                    original_symbol: EntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `mnist_classifier::line_segment_sketch::convex_component`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
+                            ast_idx: 160,
+                            ident_token: IdentToken {
+                                ident: `convex_component`,
+                                token_idx: TokenIdx(
+                                    3,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },
@@ -55,12 +71,20 @@ Ok(
                     2,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 44,
+                    original_symbol: EntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `mnist_classifier::line_segment_sketch::line_segment`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
+                            ast_idx: 162,
+                            ident_token: IdentToken {
+                                ident: `line_segment`,
+                                token_idx: TokenIdx(
+                                    7,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },
@@ -73,12 +97,8 @@ Ok(
                     3,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: CrateRoot {
-                        root_module: ModulePath(
-                            Id {
-                                value: 40,
-                            },
-                        ),
+                    original_symbol: EntitySymbol::CrateRoot {
+                        root_module_path: `mnist_classifier`,
                     },
                 },
             },
@@ -89,12 +109,20 @@ Ok(
                     6,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 36,
+                    original_symbol: EntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `mnist_classifier::geom2d`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            ast_idx: 13,
+                            ident_token: IdentToken {
+                                ident: `geom2d`,
+                                token_idx: TokenIdx(
+                                    5,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },
@@ -107,12 +135,8 @@ Ok(
                     4,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: CrateRoot {
-                        root_module: ModulePath(
-                            Id {
-                                value: 40,
-                            },
-                        ),
+                    original_symbol: EntitySymbol::CrateRoot {
+                        root_module_path: `mnist_classifier`,
                     },
                 },
             },
@@ -123,12 +147,20 @@ Ok(
                     7,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 35,
+                    original_symbol: EntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `mnist_classifier::raw_contour`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            ast_idx: 12,
+                            ident_token: IdentToken {
+                                ident: `raw_contour`,
+                                token_idx: TokenIdx(
+                                    3,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },
@@ -139,12 +171,20 @@ Ok(
                     8,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: ModuleItem(
-                        ModuleItemSymbol(
-                            Id {
-                                value: 119,
+                    original_symbol: EntitySymbol::ModuleItem(
+                        ModuleItemSymbol {
+                            path: ModuleItemPath::Type(
+                                TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                            ),
+                            visibility: Visibility::Pub,
+                            ast_idx: 199,
+                            ident_token: IdentToken {
+                                ident: `RawContour`,
+                                token_idx: TokenIdx(
+                                    24,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },
@@ -155,12 +195,20 @@ Ok(
                     5,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 44,
+                    original_symbol: EntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `mnist_classifier::line_segment_sketch::line_segment`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
+                            ast_idx: 162,
+                            ident_token: IdentToken {
+                                ident: `line_segment`,
+                                token_idx: TokenIdx(
+                                    7,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },

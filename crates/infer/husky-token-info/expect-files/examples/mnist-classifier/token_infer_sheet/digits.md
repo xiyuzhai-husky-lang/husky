@@ -29,12 +29,20 @@ Ok(
                     0,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 46,
+                    original_symbol: EntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `mnist_classifier::digits::one`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            ast_idx: 1,
+                            ident_token: IdentToken {
+                                ident: `one`,
+                                token_idx: TokenIdx(
+                                    3,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },
@@ -45,12 +53,20 @@ Ok(
                     10,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: ModuleItem(
-                        ModuleItemSymbol(
-                            Id {
-                                value: 154,
+                    original_symbol: EntitySymbol::ModuleItem(
+                        ModuleItemSymbol {
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                            ),
+                            visibility: Visibility::Pub,
+                            ast_idx: 63,
+                            ident_token: IdentToken {
+                                ident: `is_one`,
+                                token_idx: TokenIdx(
+                                    23,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },
@@ -61,12 +77,20 @@ Ok(
                     1,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 47,
+                    original_symbol: EntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `mnist_classifier::digits::six`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            ast_idx: 2,
+                            ident_token: IdentToken {
+                                ident: `six`,
+                                token_idx: TokenIdx(
+                                    5,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },
@@ -77,12 +101,22 @@ Ok(
                     11,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: ModuleItem(
-                        ModuleItemSymbol(
-                            Id {
-                                value: 160,
+                    original_symbol: EntitySymbol::ModuleItem(
+                        ModuleItemSymbol {
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
+                            ),
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            ast_idx: 52,
+                            ident_token: IdentToken {
+                                ident: `is_six`,
+                                token_idx: TokenIdx(
+                                    37,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },
@@ -93,12 +127,20 @@ Ok(
                     2,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 45,
+                    original_symbol: EntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `mnist_classifier::digits::zero`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            ast_idx: 0,
+                            ident_token: IdentToken {
+                                ident: `zero`,
+                                token_idx: TokenIdx(
+                                    1,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },
@@ -109,12 +151,22 @@ Ok(
                     12,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: ModuleItem(
-                        ModuleItemSymbol(
-                            Id {
-                                value: 152,
+                    original_symbol: EntitySymbol::ModuleItem(
+                        ModuleItemSymbol {
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
+                            ),
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            ast_idx: 28,
+                            ident_token: IdentToken {
+                                ident: `is_zero`,
+                                token_idx: TokenIdx(
+                                    49,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },
@@ -125,12 +177,20 @@ Ok(
                     3,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 54,
+                    original_symbol: EntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `mnist_classifier::digits::two`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            ast_idx: 9,
+                            ident_token: IdentToken {
+                                ident: `two`,
+                                token_idx: TokenIdx(
+                                    19,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },
@@ -141,12 +201,22 @@ Ok(
                     13,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: ModuleItem(
-                        ModuleItemSymbol(
-                            Id {
-                                value: 194,
+                    original_symbol: EntitySymbol::ModuleItem(
+                        ModuleItemSymbol {
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::digits::two::is_two`, `Feature`),
+                            ),
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            ast_idx: 54,
+                            ident_token: IdentToken {
+                                ident: `is_two`,
+                                token_idx: TokenIdx(
+                                    113,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },
@@ -157,12 +227,20 @@ Ok(
                     4,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 48,
+                    original_symbol: EntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `mnist_classifier::digits::three`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            ast_idx: 3,
+                            ident_token: IdentToken {
+                                ident: `three`,
+                                token_idx: TokenIdx(
+                                    7,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },
@@ -173,12 +251,22 @@ Ok(
                     14,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: ModuleItem(
-                        ModuleItemSymbol(
-                            Id {
-                                value: 164,
+                    original_symbol: EntitySymbol::ModuleItem(
+                        ModuleItemSymbol {
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
+                            ),
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            ast_idx: 29,
+                            ident_token: IdentToken {
+                                ident: `is_three`,
+                                token_idx: TokenIdx(
+                                    26,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },
@@ -189,12 +277,20 @@ Ok(
                     5,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 50,
+                    original_symbol: EntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `mnist_classifier::digits::five`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            ast_idx: 5,
+                            ident_token: IdentToken {
+                                ident: `five`,
+                                token_idx: TokenIdx(
+                                    11,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },
@@ -205,12 +301,22 @@ Ok(
                     15,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: ModuleItem(
-                        ModuleItemSymbol(
-                            Id {
-                                value: 175,
+                    original_symbol: EntitySymbol::ModuleItem(
+                        ModuleItemSymbol {
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::digits::five::is_five`, `Feature`),
+                            ),
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            ast_idx: 2,
+                            ident_token: IdentToken {
+                                ident: `is_five`,
+                                token_idx: TokenIdx(
+                                    9,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },
@@ -221,12 +327,20 @@ Ok(
                     6,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 51,
+                    original_symbol: EntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `mnist_classifier::digits::seven`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            ast_idx: 6,
+                            ident_token: IdentToken {
+                                ident: `seven`,
+                                token_idx: TokenIdx(
+                                    13,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },
@@ -237,12 +351,22 @@ Ok(
                     16,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: ModuleItem(
-                        ModuleItemSymbol(
-                            Id {
-                                value: 181,
+                    original_symbol: EntitySymbol::ModuleItem(
+                        ModuleItemSymbol {
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
+                            ),
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            ast_idx: 45,
+                            ident_token: IdentToken {
+                                ident: `is_seven`,
+                                token_idx: TokenIdx(
+                                    164,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },
@@ -253,12 +377,20 @@ Ok(
                     7,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 52,
+                    original_symbol: EntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `mnist_classifier::digits::eight`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            ast_idx: 7,
+                            ident_token: IdentToken {
+                                ident: `eight`,
+                                token_idx: TokenIdx(
+                                    15,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },
@@ -269,12 +401,22 @@ Ok(
                     17,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: ModuleItem(
-                        ModuleItemSymbol(
-                            Id {
-                                value: 183,
+                    original_symbol: EntitySymbol::ModuleItem(
+                        ModuleItemSymbol {
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
+                            ),
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            ast_idx: 19,
+                            ident_token: IdentToken {
+                                ident: `is_eight`,
+                                token_idx: TokenIdx(
+                                    22,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },
@@ -285,12 +427,20 @@ Ok(
                     8,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 53,
+                    original_symbol: EntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `mnist_classifier::digits::nine`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            ast_idx: 8,
+                            ident_token: IdentToken {
+                                ident: `nine`,
+                                token_idx: TokenIdx(
+                                    17,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },
@@ -301,12 +451,22 @@ Ok(
                     18,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: ModuleItem(
-                        ModuleItemSymbol(
-                            Id {
-                                value: 187,
+                    original_symbol: EntitySymbol::ModuleItem(
+                        ModuleItemSymbol {
+                            path: ModuleItemPath::Form(
+                                FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
+                            ),
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            ast_idx: 38,
+                            ident_token: IdentToken {
+                                ident: `is_nine`,
+                                token_idx: TokenIdx(
+                                    35,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },
@@ -317,12 +477,8 @@ Ok(
                     9,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: CrateRoot {
-                        root_module: ModulePath(
-                            Id {
-                                value: 40,
-                            },
-                        ),
+                    original_symbol: EntitySymbol::CrateRoot {
+                        root_module_path: `mnist_classifier`,
                     },
                 },
             },
