@@ -56,7 +56,7 @@ Ok(
                     original_symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
+                                FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                             ),
                             visibility: Visibility::Pub,
                             ast_idx: 63,
@@ -104,7 +104,7 @@ Ok(
                     original_symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::six::is_six`, `Var`),
+                                FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
@@ -154,7 +154,7 @@ Ok(
                     original_symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::zero::is_zero`, `Var`),
+                                FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
@@ -204,7 +204,7 @@ Ok(
                     original_symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::two::is_two`, `Var`),
+                                FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
@@ -254,7 +254,7 @@ Ok(
                     original_symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::three::is_three`, `Var`),
+                                FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
@@ -304,7 +304,7 @@ Ok(
                     original_symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::five::is_five`, `Var`),
+                                FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
@@ -354,7 +354,7 @@ Ok(
                     original_symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::is_seven`, `Var`),
+                                FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
@@ -404,7 +404,7 @@ Ok(
                     original_symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::eight::is_eight`, `Var`),
+                                FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
@@ -454,7 +454,7 @@ Ok(
                     original_symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::nine::is_nine`, `Var`),
+                                FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,

@@ -5,7 +5,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::two::two_match`, `Var`),
+                            FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                         ),
                     ),
                 ),
@@ -1780,7 +1780,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::two::is_two`, `Var`),
+                            FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                         ),
                     ),
                 ),
@@ -1788,9 +1788,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Feature(
                             FeatureDefn {
-                                path: FormPath(`mnist_classifier::digits::two::is_two`, `Var`),
+                                path: FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                                 decl: FeatureDecl {
-                                    path: FormPath(`mnist_classifier::digits::two::is_two`, `Var`),
+                                    path: FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                                     ast_idx: 54,
                                     colon_token: Some(
                                         ColonToken(
@@ -1825,7 +1825,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::two::is_two`, `Var`),
+                                                            FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                                                         ),
                                                     ),
                                                 ),
@@ -1894,7 +1894,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::two::is_two`, `Var`),
+                                                        FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                                                     ),
                                                 ),
                                             ),
@@ -2136,7 +2136,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::two::two_match`, `Var`),
+                                                                FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -2175,7 +2175,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::two::two_match`, `Var`),
+                                                                FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -2214,7 +2214,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::two::two_match`, `Var`),
+                                                                FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -3147,7 +3147,7 @@ Ok(
                                                     ident: `two_match`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::two::two_match`, `Var`),
+                                                            FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -3158,7 +3158,7 @@ Ok(
                                                     ident: `two_match`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::two::two_match`, `Var`),
+                                                            FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -3169,7 +3169,7 @@ Ok(
                                                     ident: `two_match`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::two::two_match`, `Var`),
+                                                            FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                                                         ),
                                                     ),
                                                 },

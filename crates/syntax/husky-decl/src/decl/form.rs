@@ -110,7 +110,7 @@ impl<'a> DeclParseContext<'a> {
         saved_stream_state: TokenIdx,
     ) -> Result<FormDecl, DeclError> {
         match path.form_kind(self.db()) {
-            FormKind::Var => {
+            FormKind::Val => {
                 self.parse_feature_decl(ast_idx, token_group_idx, saved_stream_state, path)
             }
             FormKind::Fn => self.parse_fn_decl(ast_idx, token_group_idx, saved_stream_state, path),

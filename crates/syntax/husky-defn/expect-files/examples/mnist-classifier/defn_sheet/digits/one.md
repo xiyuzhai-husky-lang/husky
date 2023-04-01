@@ -5,7 +5,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                     ),
                 ),
@@ -13,9 +13,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Feature(
                             FeatureDefn {
-                                path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                                path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                 decl: FeatureDecl {
-                                    path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                                    path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                     ast_idx: 62,
                                     colon_token: Some(
                                         ColonToken(
@@ -50,7 +50,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                                                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                                         ),
                                                     ),
                                                 ),
@@ -112,7 +112,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                                                        FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                                     ),
                                                 ),
                                             ),
@@ -290,7 +290,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
+                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                     ),
                 ),
@@ -298,9 +298,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Feature(
                             FeatureDefn {
-                                path: FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
+                                path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 decl: FeatureDecl {
-                                    path: FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
+                                    path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                     ast_idx: 63,
                                     colon_token: Some(
                                         ColonToken(
@@ -335,7 +335,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
+                                                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                                         ),
                                                     ),
                                                 ),
@@ -404,7 +404,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
+                                                        FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                                     ),
                                                 ),
                                             ),
@@ -865,7 +865,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                                                                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -904,7 +904,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                                                                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -943,7 +943,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                                                                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -1345,7 +1345,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                                                                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -1427,7 +1427,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                                                                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -1437,7 +1437,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                                                                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -1447,7 +1447,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                                                                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -1598,7 +1598,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                                                                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -1637,7 +1637,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                                                                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -2411,7 +2411,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                                                                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -2450,7 +2450,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                                                                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -2489,7 +2489,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                                                                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -3219,7 +3219,7 @@ Ok(
                                                     ident: `one_fermi_match`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                                                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -3230,7 +3230,7 @@ Ok(
                                                     ident: `one_fermi_match`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                                                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -3241,7 +3241,7 @@ Ok(
                                                     ident: `one_fermi_match`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                                                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -3252,7 +3252,7 @@ Ok(
                                                     ident: `one_fermi_match`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                                                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -3263,7 +3263,7 @@ Ok(
                                                     ident: `one_fermi_match`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                                                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -3274,7 +3274,7 @@ Ok(
                                                     ident: `one_fermi_match`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                                                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -3285,7 +3285,7 @@ Ok(
                                                     ident: `one_fermi_match`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                                                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -3296,7 +3296,7 @@ Ok(
                                                     ident: `one_fermi_match`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                                                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -3307,7 +3307,7 @@ Ok(
                                                     ident: `one_fermi_match`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                                                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -3318,7 +3318,7 @@ Ok(
                                                     ident: `one_fermi_match`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                                                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -3329,7 +3329,7 @@ Ok(
                                                     ident: `one_fermi_match`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                                                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -3340,7 +3340,7 @@ Ok(
                                                     ident: `one_fermi_match`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                                                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                                         ),
                                                     ),
                                                 },

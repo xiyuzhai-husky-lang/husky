@@ -5,7 +5,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Var`),
+                            FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                         ),
                     ),
                 ),
@@ -13,9 +13,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Feature(
                             FeatureDefn {
-                                path: FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Var`),
+                                path: FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                                 decl: FeatureDecl {
-                                    path: FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Var`),
+                                    path: FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                                     ast_idx: 18,
                                     colon_token: Some(
                                         ColonToken(
@@ -50,7 +50,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Var`),
+                                                            FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                                                         ),
                                                     ),
                                                 ),
@@ -112,7 +112,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Var`),
+                                                        FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                                                     ),
                                                 ),
                                             ),
@@ -248,7 +248,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::eight::is_eight`, `Var`),
+                            FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                         ),
                     ),
                 ),
@@ -256,9 +256,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Feature(
                             FeatureDefn {
-                                path: FormPath(`mnist_classifier::digits::eight::is_eight`, `Var`),
+                                path: FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                                 decl: FeatureDecl {
-                                    path: FormPath(`mnist_classifier::digits::eight::is_eight`, `Var`),
+                                    path: FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                                     ast_idx: 19,
                                     colon_token: Some(
                                         ColonToken(
@@ -293,7 +293,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::eight::is_eight`, `Var`),
+                                                            FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                                                         ),
                                                     ),
                                                 ),
@@ -362,7 +362,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::eight::is_eight`, `Var`),
+                                                        FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                                                     ),
                                                 ),
                                             ),

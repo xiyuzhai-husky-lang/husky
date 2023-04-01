@@ -5,7 +5,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::nine::nine_match`, `Var`),
+                            FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                         ),
                     ),
                 ),
@@ -13,9 +13,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Feature(
                             FeatureDefn {
-                                path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Var`),
+                                path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                                 decl: FeatureDecl {
-                                    path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Var`),
+                                    path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                                     ast_idx: 36,
                                     colon_token: Some(
                                         ColonToken(
@@ -50,7 +50,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::nine::nine_match`, `Var`),
+                                                            FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                                                         ),
                                                     ),
                                                 ),
@@ -112,7 +112,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::nine::nine_match`, `Var`),
+                                                        FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                                                     ),
                                                 ),
                                             ),
@@ -248,7 +248,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Var`),
+                            FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                         ),
                     ),
                 ),
@@ -256,9 +256,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Feature(
                             FeatureDefn {
-                                path: FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Var`),
+                                path: FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                                 decl: FeatureDecl {
-                                    path: FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Var`),
+                                    path: FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                                     ast_idx: 37,
                                     colon_token: Some(
                                         ColonToken(
@@ -293,7 +293,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Var`),
+                                                            FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                                                         ),
                                                     ),
                                                 ),
@@ -355,7 +355,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Var`),
+                                                        FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                                                     ),
                                                 ),
                                             ),
@@ -491,7 +491,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::nine::is_nine`, `Var`),
+                            FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                         ),
                     ),
                 ),
@@ -499,9 +499,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Feature(
                             FeatureDefn {
-                                path: FormPath(`mnist_classifier::digits::nine::is_nine`, `Var`),
+                                path: FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                                 decl: FeatureDecl {
-                                    path: FormPath(`mnist_classifier::digits::nine::is_nine`, `Var`),
+                                    path: FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                                     ast_idx: 38,
                                     colon_token: Some(
                                         ColonToken(
@@ -536,7 +536,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::nine::is_nine`, `Var`),
+                                                            FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                                                         ),
                                                     ),
                                                 ),
@@ -605,7 +605,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::nine::is_nine`, `Var`),
+                                                        FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                                                     ),
                                                 ),
                                             ),
@@ -731,7 +731,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::nine::nine_match`, `Var`),
+                                                                FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -1011,7 +1011,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Var`),
+                                                                FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -1071,7 +1071,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Var`),
+                                                                FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -1162,7 +1162,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Var`),
+                                                                FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -1325,7 +1325,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Var`),
+                                                                FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -1516,7 +1516,7 @@ Ok(
                                                     ident: `nine_match`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::nine::nine_match`, `Var`),
+                                                            FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -1527,7 +1527,7 @@ Ok(
                                                     ident: `nine_match_refine`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Var`),
+                                                            FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -1538,7 +1538,7 @@ Ok(
                                                     ident: `nine_match_refine`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Var`),
+                                                            FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -1549,7 +1549,7 @@ Ok(
                                                     ident: `nine_match_refine`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Var`),
+                                                            FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -1560,7 +1560,7 @@ Ok(
                                                     ident: `nine_match_refine`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Var`),
+                                                            FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                                                         ),
                                                     ),
                                                 },

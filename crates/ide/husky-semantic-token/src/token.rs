@@ -64,7 +64,7 @@ impl SemanticToken {
                 } => match module_item_kind {
                     ModuleItemKind::Type(_) => ext::SemanticTokenType::TYPE,
                     ModuleItemKind::Form(form_kind) => match form_kind {
-                        FormKind::Var => ext::SemanticTokenType::VARIABLE,
+                        FormKind::Val => ext::SemanticTokenType::VARIABLE,
                         FormKind::Fn | FormKind::Gn => ext::SemanticTokenType::FUNCTION,
                         FormKind::Value => todo!(),
                         FormKind::TypeAlias => todo!(),

@@ -303,7 +303,7 @@
             DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::digits::zero::is_zero`, `Var`),
+                        FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                     ),
                 ),
             ),

@@ -4,7 +4,7 @@
             DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
+                        FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                     ),
                 ),
             ),
@@ -47,7 +47,7 @@
             DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
+                        FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                     ),
                 ),
             ),

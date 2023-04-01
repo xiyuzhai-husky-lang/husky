@@ -553,7 +553,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Var`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                     ),
                 ),
@@ -561,9 +561,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Feature(
                             FeatureDefn {
-                                path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Var`),
+                                path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 decl: FeatureDecl {
-                                    path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Var`),
+                                    path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                     ast_idx: 28,
                                     colon_token: Some(
                                         ColonToken(
@@ -598,7 +598,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Var`),
+                                                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                                         ),
                                                     ),
                                                 ),
@@ -667,7 +667,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::zero::is_zero`, `Var`),
+                                                        FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                                     ),
                                                 ),
                                             ),

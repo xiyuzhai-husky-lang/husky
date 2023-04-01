@@ -45,7 +45,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Var`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                     ),
                 ),
@@ -53,9 +53,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Feature(
                             FeatureDefn {
-                                path: FormPath(`mnist_classifier::digits::six::is_six`, `Var`),
+                                path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 decl: FeatureDecl {
-                                    path: FormPath(`mnist_classifier::digits::six::is_six`, `Var`),
+                                    path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                     ast_idx: 52,
                                     colon_token: Some(
                                         ColonToken(
@@ -90,7 +90,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::six::is_six`, `Var`),
+                                                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                                         ),
                                                     ),
                                                 ),
@@ -159,7 +159,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::six::is_six`, `Var`),
+                                                        FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                                     ),
                                                 ),
                                             ),

@@ -4,7 +4,7 @@
             DeclRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::digits::five::is_five`, `Var`),
+                        FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                     ),
                 ),
             ),
