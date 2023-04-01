@@ -329,14 +329,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Fn,
+                            Var,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::four::left_components`, `Fn`),
+                                FormPath(`mnist_classifier::digits::four::left_components`, `Var`),
                             ),
                         ),
                     ),
@@ -385,12 +385,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `left_coordinate_max`,
                         token_idx: TokenIdx(
-                            20,
+                            21,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        21,
+                        22,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -413,26 +413,26 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Fn,
+                            Var,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Fn`),
+                                FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Var`),
                             ),
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `components_max_downwards`,
                         token_idx: TokenIdx(
-                            39,
+                            40,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        40,
+                        41,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -455,26 +455,26 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Fn,
+                            Var,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::four::components_max_heights`, `Fn`),
+                                FormPath(`mnist_classifier::digits::four::components_max_heights`, `Var`),
                             ),
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `components_max_heights`,
                         token_idx: TokenIdx(
-                            52,
+                            54,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        53,
+                        55,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -497,26 +497,26 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Gn,
+                            Var,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::four::is_four`, `Gn`),
+                                FormPath(`mnist_classifier::digits::four::is_four`, `Var`),
                             ),
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `is_four`,
                         token_idx: TokenIdx(
-                            65,
+                            68,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        66,
+                        69,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -553,12 +553,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `displacement_downwards`,
                         token_idx: TokenIdx(
-                            247,
+                            251,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        248,
+                        252,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -595,12 +595,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `cc_box_heights`,
                         token_idx: TokenIdx(
-                            276,
+                            280,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        277,
+                        281,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(

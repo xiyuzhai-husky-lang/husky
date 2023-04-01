@@ -1,19 +1,19 @@
 use super::*
 
-fn left_components -> FermiMatchResult:
+var left_components: FermiMatchResult =:
     fermi_match(major_concave_components, [left_coordinate_max, left_coordinate_max])
 
 fn left_coordinate_max(cc: ~ConcaveComponent) -> ?f32:
     cc.relative_bounding_box.xmax()
 
 
-fn components_max_downwards -> FermiMatchResult:
+var components_max_downwards: FermiMatchResult =:
     fermi_match(major_concave_components, [displacement_downwards])
 
-fn components_max_heights -> FermiMatchResult:    
+var components_max_heights: FermiMatchResult =:    
     fermi_match(major_concave_components, [cc_box_heights])
 
-gn is_four -> ?MnistLabel:
+var is_four: ?MnistLabel =:
 
     // Type I four, the horizontal line is long
     // Take two left components and decide which one is the upper and lower.

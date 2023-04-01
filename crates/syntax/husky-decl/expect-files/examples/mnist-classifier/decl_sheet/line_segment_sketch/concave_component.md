@@ -261,19 +261,19 @@ Ok(
                                                 Expr::Prefix {
                                                     opr: Ref,
                                                     opr_token_idx: TokenIdx(
-                                                        520,
+                                                        526,
                                                     ),
                                                     opd: 0,
                                                 },
                                                 Expr::List {
                                                     lbox_token_idx: TokenIdx(
-                                                        524,
+                                                        530,
                                                     ),
                                                     items: ArenaIdxRange(
                                                         2..2,
                                                     ),
                                                     rbox_token_idx: TokenIdx(
-                                                        525,
+                                                        531,
                                                     ),
                                                 },
                                                 Expr::EntityPath {
@@ -296,7 +296,7 @@ Ok(
                                             data: [
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        521,
+                                                        527,
                                                     ),
                                                     ident: `LineSegmentSketch`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -307,7 +307,7 @@ Ok(
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        526,
+                                                        532,
                                                     ),
                                                     ident: `ConcaveComponent`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -329,7 +329,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `line_segment_sketch`,
                                                             token_idx: TokenIdx(
-                                                                518,
+                                                                524,
                                                             ),
                                                         },
                                                     },
@@ -362,7 +362,7 @@ Ok(
                                                 data: [
                                                     CurrentSymbol {
                                                         access_start: TokenIdx(
-                                                            519,
+                                                            525,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ExplicitParameter {
@@ -393,7 +393,7 @@ Ok(
                                 parameter_decl_list: ExplicitParameterDeclList {
                                     lpar: LeftParenthesisToken(
                                         TokenIdx(
-                                            517,
+                                            523,
                                         ),
                                     ),
                                     self_parameter: None,
@@ -405,7 +405,7 @@ Ok(
                                             ),
                                             colon: ColonToken(
                                                 TokenIdx(
-                                                    519,
+                                                    525,
                                                 ),
                                             ),
                                             ty: 1,
@@ -414,14 +414,14 @@ Ok(
                                     commas: [],
                                     rpar: RightParenthesisToken(
                                         TokenIdx(
-                                            522,
+                                            528,
                                         ),
                                     ),
                                 },
                                 curry_token: Some(
                                     CurryToken(
                                         TokenIdx(
-                                            523,
+                                            529,
                                         ),
                                     ),
                                 ),
@@ -433,7 +433,7 @@ Ok(
                                 eol_colon: EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            527,
+                                            533,
                                         ),
                                     },
                                 ),
@@ -586,7 +586,7 @@ Ok(
                 Err(
                     DeclError::Original(
                         OriginalDeclError::Expr(
-                            OriginalDeclExprError::ExpectParameterDeclList(
+                            OriginalDeclExprError::ExpectEolColon(
                                 TokenIdx(
                                     54,
                                 ),
@@ -611,9 +611,9 @@ Ok(
                 Err(
                     DeclError::Original(
                         OriginalDeclError::Expr(
-                            OriginalDeclExprError::ExpectParameterDeclList(
+                            OriginalDeclExprError::ExpectEolColon(
                                 TokenIdx(
-                                    62,
+                                    63,
                                 ),
                             ),
                         ),
@@ -636,9 +636,9 @@ Ok(
                 Err(
                     DeclError::Original(
                         OriginalDeclError::Expr(
-                            OriginalDeclExprError::ExpectParameterDeclList(
+                            OriginalDeclExprError::ExpectEolColon(
                                 TokenIdx(
-                                    80,
+                                    82,
                                 ),
                             ),
                         ),
@@ -661,9 +661,9 @@ Ok(
                 Err(
                     DeclError::Original(
                         OriginalDeclError::Expr(
-                            OriginalDeclExprError::ExpectParameterDeclList(
+                            OriginalDeclExprError::ExpectEolColon(
                                 TokenIdx(
-                                    167,
+                                    170,
                                 ),
                             ),
                         ),
@@ -686,9 +686,9 @@ Ok(
                 Err(
                     DeclError::Original(
                         OriginalDeclError::Expr(
-                            OriginalDeclExprError::ExpectParameterDeclList(
+                            OriginalDeclExprError::ExpectEolColon(
                                 TokenIdx(
-                                    238,
+                                    242,
                                 ),
                             ),
                         ),
@@ -711,9 +711,9 @@ Ok(
                 Err(
                     DeclError::Original(
                         OriginalDeclError::Expr(
-                            OriginalDeclExprError::ExpectParameterDeclList(
+                            OriginalDeclExprError::ExpectEolColon(
                                 TokenIdx(
-                                    367,
+                                    372,
                                 ),
                             ),
                         ),
@@ -916,7 +916,7 @@ Ok(
                                                 data: [
                                                     EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
-                                                            387,
+                                                            393,
                                                         ),
                                                         ident: `LineSegment`,
                                                         entity_path: EntityPath::ModuleItem(
@@ -963,7 +963,7 @@ Ok(
                                     explicit_parameter_decl_list: ExplicitParameterDeclList {
                                         lpar: LeftParenthesisToken(
                                             TokenIdx(
-                                                384,
+                                                390,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -971,14 +971,14 @@ Ok(
                                         commas: [],
                                         rpar: RightParenthesisToken(
                                             TokenIdx(
-                                                385,
+                                                391,
                                             ),
                                         ),
                                     },
                                     curry_token: Some(
                                         CurryToken(
                                             TokenIdx(
-                                                386,
+                                                392,
                                             ),
                                         ),
                                     ),
@@ -990,7 +990,7 @@ Ok(
                                     eol_colon: EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                388,
+                                                394,
                                             ),
                                         },
                                     ),
@@ -1196,7 +1196,7 @@ Ok(
                                                 data: [
                                                     EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
-                                                            424,
+                                                            430,
                                                         ),
                                                         ident: `Point2d`,
                                                         entity_path: EntityPath::ModuleItem(
@@ -1243,7 +1243,7 @@ Ok(
                                     explicit_parameter_decl_list: ExplicitParameterDeclList {
                                         lpar: LeftParenthesisToken(
                                             TokenIdx(
-                                                421,
+                                                427,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -1251,14 +1251,14 @@ Ok(
                                         commas: [],
                                         rpar: RightParenthesisToken(
                                             TokenIdx(
-                                                422,
+                                                428,
                                             ),
                                         ),
                                     },
                                     curry_token: Some(
                                         CurryToken(
                                             TokenIdx(
-                                                423,
+                                                429,
                                             ),
                                         ),
                                     ),
@@ -1270,7 +1270,7 @@ Ok(
                                     eol_colon: EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                425,
+                                                431,
                                             ),
                                         },
                                     ),
@@ -1476,7 +1476,7 @@ Ok(
                                                 data: [
                                                     EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
-                                                            444,
+                                                            450,
                                                         ),
                                                         ident: `Point2d`,
                                                         entity_path: EntityPath::ModuleItem(
@@ -1523,7 +1523,7 @@ Ok(
                                     explicit_parameter_decl_list: ExplicitParameterDeclList {
                                         lpar: LeftParenthesisToken(
                                             TokenIdx(
-                                                441,
+                                                447,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -1531,14 +1531,14 @@ Ok(
                                         commas: [],
                                         rpar: RightParenthesisToken(
                                             TokenIdx(
-                                                442,
+                                                448,
                                             ),
                                         ),
                                     },
                                     curry_token: Some(
                                         CurryToken(
                                             TokenIdx(
-                                                443,
+                                                449,
                                             ),
                                         ),
                                     ),
@@ -1550,7 +1550,7 @@ Ok(
                                     eol_colon: EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                445,
+                                                451,
                                             ),
                                         },
                                     ),
@@ -1756,7 +1756,7 @@ Ok(
                                                 data: [
                                                     EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
-                                                            464,
+                                                            470,
                                                         ),
                                                         ident: `Vector2d`,
                                                         entity_path: EntityPath::ModuleItem(
@@ -1803,7 +1803,7 @@ Ok(
                                     explicit_parameter_decl_list: ExplicitParameterDeclList {
                                         lpar: LeftParenthesisToken(
                                             TokenIdx(
-                                                461,
+                                                467,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -1811,14 +1811,14 @@ Ok(
                                         commas: [],
                                         rpar: RightParenthesisToken(
                                             TokenIdx(
-                                                462,
+                                                468,
                                             ),
                                         ),
                                     },
                                     curry_token: Some(
                                         CurryToken(
                                             TokenIdx(
-                                                463,
+                                                469,
                                             ),
                                         ),
                                     ),
@@ -1830,7 +1830,7 @@ Ok(
                                     eol_colon: EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                465,
+                                                471,
                                             ),
                                         },
                                     ),
@@ -2036,7 +2036,7 @@ Ok(
                                                 data: [
                                                     EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
-                                                            480,
+                                                            486,
                                                         ),
                                                         ident: `Vector2d`,
                                                         entity_path: EntityPath::ModuleItem(
@@ -2083,7 +2083,7 @@ Ok(
                                     explicit_parameter_decl_list: ExplicitParameterDeclList {
                                         lpar: LeftParenthesisToken(
                                             TokenIdx(
-                                                477,
+                                                483,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -2091,14 +2091,14 @@ Ok(
                                         commas: [],
                                         rpar: RightParenthesisToken(
                                             TokenIdx(
-                                                478,
+                                                484,
                                             ),
                                         ),
                                     },
                                     curry_token: Some(
                                         CurryToken(
                                             TokenIdx(
-                                                479,
+                                                485,
                                             ),
                                         ),
                                     ),
@@ -2110,7 +2110,7 @@ Ok(
                                     eol_colon: EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                481,
+                                                487,
                                             ),
                                         },
                                     ),
@@ -2316,7 +2316,7 @@ Ok(
                                                 data: [
                                                     EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
-                                                            498,
+                                                            504,
                                                         ),
                                                         ident: `Vector2d`,
                                                         entity_path: EntityPath::ModuleItem(
@@ -2363,7 +2363,7 @@ Ok(
                                     explicit_parameter_decl_list: ExplicitParameterDeclList {
                                         lpar: LeftParenthesisToken(
                                             TokenIdx(
-                                                495,
+                                                501,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -2371,14 +2371,14 @@ Ok(
                                         commas: [],
                                         rpar: RightParenthesisToken(
                                             TokenIdx(
-                                                496,
+                                                502,
                                             ),
                                         ),
                                     },
                                     curry_token: Some(
                                         CurryToken(
                                             TokenIdx(
-                                                497,
+                                                503,
                                             ),
                                         ),
                                     ),
@@ -2390,7 +2390,7 @@ Ok(
                                     eol_colon: EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                499,
+                                                505,
                                             ),
                                         },
                                     ),

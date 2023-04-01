@@ -2,7 +2,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Fn`),
+                FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Var`),
             ),
         ),
         Err(
@@ -26,7 +26,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Fn`),
+                FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Var`),
             ),
         ),
         Err(
@@ -62,7 +62,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::digits::seven::is_seven`, `Gn`),
+                FormPath(`mnist_classifier::digits::seven::is_seven`, `Var`),
             ),
         ),
         Err(

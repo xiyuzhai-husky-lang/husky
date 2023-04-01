@@ -1,9 +1,9 @@
 use super::*
 
-fn one_fermi_match -> FermiMatchResult:
+var one_fermi_match: FermiMatchResult =:
     fermi_match(major_concave_components, [downmost, upmost, hat])
 
-pub gn is_one -> ?MnistLabel:
+pub var is_one: ?MnistLabel =:
     narrow_down(
         MnistLabel::One,
         5,

@@ -113,7 +113,8 @@ impl<'a> SignatureRawTermEngine<'a> {
                 ExprRootKind::SelfType
                 | ExprRootKind::Trait
                 | ExprRootKind::ReturnType
-                | ExprRootKind::FieldType => (),
+                | ExprRootKind::FieldType
+                | ExprRootKind::VarType => (),
             }
             self.cache_new_expr_term(expr_root.expr())
         }

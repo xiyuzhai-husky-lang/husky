@@ -2,7 +2,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Fn`),
+                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
             ),
         ),
         Err(
@@ -14,7 +14,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::digits::one::is_one`, `Gn`),
+                FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
             ),
         ),
         Err(

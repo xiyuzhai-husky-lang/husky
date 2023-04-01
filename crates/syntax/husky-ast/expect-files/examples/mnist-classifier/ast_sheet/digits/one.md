@@ -519,14 +519,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Fn,
+                            Var,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Fn`),
+                                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
                             ),
                         ),
                     ),
@@ -554,33 +554,33 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    21,
+                                    22,
                                 ),
                             },
                         },
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Gn,
+                            Var,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::one::is_one`, `Gn`),
+                                FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
                             ),
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `is_one`,
                         token_idx: TokenIdx(
-                            23,
+                            24,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        24,
+                        25,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -617,12 +617,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `upmost`,
                         token_idx: TokenIdx(
-                            500,
+                            502,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        501,
+                        503,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -659,12 +659,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `downmost`,
                         token_idx: TokenIdx(
-                            529,
+                            531,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        530,
+                        532,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -701,12 +701,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `hat`,
                         token_idx: TokenIdx(
-                            563,
+                            565,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        564,
+                        566,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(

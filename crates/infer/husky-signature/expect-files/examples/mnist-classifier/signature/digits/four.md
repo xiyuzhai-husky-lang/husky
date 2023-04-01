@@ -1,8 +1,20 @@
 [
     Err(
+        RawTermError,
+    ),
+    Err(
         ParameterTypeRawTermError(
             0,
         ),
+    ),
+    Err(
+        RawTermError,
+    ),
+    Err(
+        RawTermError,
+    ),
+    Err(
+        RawTermError,
     ),
     Err(
         ParameterTypeRawTermError(

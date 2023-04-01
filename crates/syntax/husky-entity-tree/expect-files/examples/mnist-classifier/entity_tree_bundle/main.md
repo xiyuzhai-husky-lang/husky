@@ -409,21 +409,21 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::one::is_one`, `Gn`),
+                                                        FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
                                                     ),
                                                     visibility: Visibility::Pub,
                                                     ast_idx: 63,
                                                     ident_token: IdentToken {
                                                         ident: `is_one`,
                                                         token_idx: TokenIdx(
-                                                            23,
+                                                            24,
                                                         ),
                                                     },
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::digits::one::is_one`, `Gn`),
+                                                    FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::Pub,
@@ -433,7 +433,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::one::is_one`, `Gn`),
+                                            FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -461,7 +461,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `fermi_match`,
                                                 token_idx: TokenIdx(
-                                                    146,
+                                                    149,
                                                 ),
                                             },
                                         },
@@ -650,7 +650,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `find_concave_components`,
                                                         token_idx: TokenIdx(
-                                                            516,
+                                                            522,
                                                         ),
                                                     },
                                                 },
@@ -1970,21 +1970,21 @@ Ok(
                                                     original_symbol: EntitySymbol::ModuleItem(
                                                         ModuleItemSymbol {
                                                             path: ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::one::is_one`, `Gn`),
+                                                                FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
                                                             ),
                                                             visibility: Visibility::Pub,
                                                             ast_idx: 63,
                                                             ident_token: IdentToken {
                                                                 ident: `is_one`,
                                                                 token_idx: TokenIdx(
-                                                                    23,
+                                                                    24,
                                                                 ),
                                                             },
                                                         },
                                                     ),
                                                     path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::one::is_one`, `Gn`),
+                                                            FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
                                                         ),
                                                     ),
                                                     visibility: Visibility::Pub,
@@ -1994,7 +1994,7 @@ Ok(
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::digits::one::is_one`, `Gn`),
+                                                    FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -2006,7 +2006,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::one::is_one`, `Gn`),
+                                            FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -2036,7 +2036,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `fermi_match`,
                                                         token_idx: TokenIdx(
-                                                            146,
+                                                            149,
                                                         ),
                                                     },
                                                 },
@@ -2246,7 +2246,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `find_concave_components`,
                                                                 token_idx: TokenIdx(
-                                                                    516,
+                                                                    522,
                                                                 ),
                                                             },
                                                         },
@@ -3482,7 +3482,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `find_concave_components`,
                                                         token_idx: TokenIdx(
-                                                            516,
+                                                            522,
                                                         ),
                                                     },
                                                 },
@@ -3914,21 +3914,21 @@ Ok(
                                                     original_symbol: EntitySymbol::ModuleItem(
                                                         ModuleItemSymbol {
                                                             path: ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::one::is_one`, `Gn`),
+                                                                FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
                                                             ),
                                                             visibility: Visibility::Pub,
                                                             ast_idx: 63,
                                                             ident_token: IdentToken {
                                                                 ident: `is_one`,
                                                                 token_idx: TokenIdx(
-                                                                    23,
+                                                                    24,
                                                                 ),
                                                             },
                                                         },
                                                     ),
                                                     path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::one::is_one`, `Gn`),
+                                                            FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
                                                         ),
                                                     ),
                                                     visibility: Visibility::Pub,
@@ -3938,7 +3938,7 @@ Ok(
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::digits::one::is_one`, `Gn`),
+                                                    FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -3950,7 +3950,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::one::is_one`, `Gn`),
+                                            FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -3980,7 +3980,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `fermi_match`,
                                                         token_idx: TokenIdx(
-                                                            146,
+                                                            149,
                                                         ),
                                                     },
                                                 },
@@ -4871,7 +4871,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `find_concave_components`,
                                                 token_idx: TokenIdx(
-                                                    516,
+                                                    522,
                                                 ),
                                             },
                                         },
@@ -5650,7 +5650,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `find_concave_components`,
                                         token_idx: TokenIdx(
-                                            516,
+                                            522,
                                         ),
                                     },
                                 },
@@ -7021,21 +7021,21 @@ Ok(
                                                     original_symbol: EntitySymbol::ModuleItem(
                                                         ModuleItemSymbol {
                                                             path: ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::one::is_one`, `Gn`),
+                                                                FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
                                                             ),
                                                             visibility: Visibility::Pub,
                                                             ast_idx: 63,
                                                             ident_token: IdentToken {
                                                                 ident: `is_one`,
                                                                 token_idx: TokenIdx(
-                                                                    23,
+                                                                    24,
                                                                 ),
                                                             },
                                                         },
                                                     ),
                                                     path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::one::is_one`, `Gn`),
+                                                            FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
                                                         ),
                                                     ),
                                                     visibility: Visibility::Pub,
@@ -7045,7 +7045,7 @@ Ok(
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::digits::one::is_one`, `Gn`),
+                                                    FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -7057,7 +7057,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::one::is_one`, `Gn`),
+                                            FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -7087,7 +7087,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `fermi_match`,
                                                         token_idx: TokenIdx(
-                                                            146,
+                                                            149,
                                                         ),
                                                     },
                                                 },
@@ -8142,7 +8142,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `find_concave_components`,
                                                         token_idx: TokenIdx(
-                                                            516,
+                                                            522,
                                                         ),
                                                     },
                                                 },
@@ -9156,7 +9156,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `find_concave_components`,
                                                         token_idx: TokenIdx(
-                                                            516,
+                                                            522,
                                                         ),
                                                     },
                                                 },
@@ -10241,7 +10241,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `fermi_match`,
                                         token_idx: TokenIdx(
-                                            146,
+                                            149,
                                         ),
                                     },
                                 },
@@ -10835,21 +10835,21 @@ Ok(
                                                     original_symbol: EntitySymbol::ModuleItem(
                                                         ModuleItemSymbol {
                                                             path: ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::one::is_one`, `Gn`),
+                                                                FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
                                                             ),
                                                             visibility: Visibility::Pub,
                                                             ast_idx: 63,
                                                             ident_token: IdentToken {
                                                                 ident: `is_one`,
                                                                 token_idx: TokenIdx(
-                                                                    23,
+                                                                    24,
                                                                 ),
                                                             },
                                                         },
                                                     ),
                                                     path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::one::is_one`, `Gn`),
+                                                            FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
                                                         ),
                                                     ),
                                                     visibility: Visibility::Pub,
@@ -10859,7 +10859,7 @@ Ok(
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::digits::one::is_one`, `Gn`),
+                                                    FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -10871,7 +10871,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::one::is_one`, `Gn`),
+                                            FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -11111,7 +11111,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `find_concave_components`,
                                                                 token_idx: TokenIdx(
-                                                                    516,
+                                                                    522,
                                                                 ),
                                                             },
                                                         },
@@ -11512,21 +11512,21 @@ Ok(
                                     original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
                                             path: ModuleItemPath::Form(
-                                                FormPath(`mnist_classifier::digits::one::is_one`, `Gn`),
+                                                FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
                                             ),
                                             visibility: Visibility::Pub,
                                             ast_idx: 63,
                                             ident_token: IdentToken {
                                                 ident: `is_one`,
                                                 token_idx: TokenIdx(
-                                                    23,
+                                                    24,
                                                 ),
                                             },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::one::is_one`, `Gn`),
+                                            FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::Pub,
@@ -11545,7 +11545,7 @@ Ok(
                                     original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
                                             path: ModuleItemPath::Form(
-                                                FormPath(`mnist_classifier::digits::six::is_six`, `Gn`),
+                                                FormPath(`mnist_classifier::digits::six::is_six`, `Var`),
                                             ),
                                             visibility: Visibility::PubUnder(
                                                 `mnist_classifier::digits`,
@@ -11561,7 +11561,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::six::is_six`, `Gn`),
+                                            FormPath(`mnist_classifier::digits::six::is_six`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -11582,7 +11582,7 @@ Ok(
                                     original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
                                             path: ModuleItemPath::Form(
-                                                FormPath(`mnist_classifier::digits::zero::is_zero`, `Gn`),
+                                                FormPath(`mnist_classifier::digits::zero::is_zero`, `Var`),
                                             ),
                                             visibility: Visibility::PubUnder(
                                                 `mnist_classifier::digits`,
@@ -11598,7 +11598,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Gn`),
+                                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -11619,7 +11619,7 @@ Ok(
                                     original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
                                             path: ModuleItemPath::Form(
-                                                FormPath(`mnist_classifier::digits::two::is_two`, `Gn`),
+                                                FormPath(`mnist_classifier::digits::two::is_two`, `Var`),
                                             ),
                                             visibility: Visibility::PubUnder(
                                                 `mnist_classifier::digits`,
@@ -11635,7 +11635,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::two::is_two`, `Gn`),
+                                            FormPath(`mnist_classifier::digits::two::is_two`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -11656,7 +11656,7 @@ Ok(
                                     original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
                                             path: ModuleItemPath::Form(
-                                                FormPath(`mnist_classifier::digits::three::is_three`, `Gn`),
+                                                FormPath(`mnist_classifier::digits::three::is_three`, `Var`),
                                             ),
                                             visibility: Visibility::PubUnder(
                                                 `mnist_classifier::digits`,
@@ -11665,14 +11665,14 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `is_three`,
                                                 token_idx: TokenIdx(
-                                                    26,
+                                                    27,
                                                 ),
                                             },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::three::is_three`, `Gn`),
+                                            FormPath(`mnist_classifier::digits::three::is_three`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -11693,7 +11693,7 @@ Ok(
                                     original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
                                             path: ModuleItemPath::Form(
-                                                FormPath(`mnist_classifier::digits::five::is_five`, `Gn`),
+                                                FormPath(`mnist_classifier::digits::five::is_five`, `Var`),
                                             ),
                                             visibility: Visibility::PubUnder(
                                                 `mnist_classifier::digits`,
@@ -11709,7 +11709,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::five::is_five`, `Gn`),
+                                            FormPath(`mnist_classifier::digits::five::is_five`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -11730,7 +11730,7 @@ Ok(
                                     original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
                                             path: ModuleItemPath::Form(
-                                                FormPath(`mnist_classifier::digits::seven::is_seven`, `Gn`),
+                                                FormPath(`mnist_classifier::digits::seven::is_seven`, `Var`),
                                             ),
                                             visibility: Visibility::PubUnder(
                                                 `mnist_classifier::digits`,
@@ -11739,14 +11739,14 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `is_seven`,
                                                 token_idx: TokenIdx(
-                                                    164,
+                                                    166,
                                                 ),
                                             },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::seven::is_seven`, `Gn`),
+                                            FormPath(`mnist_classifier::digits::seven::is_seven`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -11767,7 +11767,7 @@ Ok(
                                     original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
                                             path: ModuleItemPath::Form(
-                                                FormPath(`mnist_classifier::digits::eight::is_eight`, `Gn`),
+                                                FormPath(`mnist_classifier::digits::eight::is_eight`, `Var`),
                                             ),
                                             visibility: Visibility::PubUnder(
                                                 `mnist_classifier::digits`,
@@ -11776,14 +11776,14 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `is_eight`,
                                                 token_idx: TokenIdx(
-                                                    22,
+                                                    23,
                                                 ),
                                             },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::eight::is_eight`, `Gn`),
+                                            FormPath(`mnist_classifier::digits::eight::is_eight`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -11804,7 +11804,7 @@ Ok(
                                     original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
                                             path: ModuleItemPath::Form(
-                                                FormPath(`mnist_classifier::digits::nine::is_nine`, `Gn`),
+                                                FormPath(`mnist_classifier::digits::nine::is_nine`, `Var`),
                                             ),
                                             visibility: Visibility::PubUnder(
                                                 `mnist_classifier::digits`,
@@ -11813,14 +11813,14 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `is_nine`,
                                                 token_idx: TokenIdx(
-                                                    35,
+                                                    37,
                                                 ),
                                             },
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::nine::is_nine`, `Gn`),
+                                            FormPath(`mnist_classifier::digits::nine::is_nine`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -12424,7 +12424,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `fermi_match`,
                                                         token_idx: TokenIdx(
-                                                            146,
+                                                            149,
                                                         ),
                                                     },
                                                 },
@@ -12683,7 +12683,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `find_concave_components`,
                                                                 token_idx: TokenIdx(
-                                                                    516,
+                                                                    522,
                                                                 ),
                                                             },
                                                         },
@@ -13175,14 +13175,14 @@ Ok(
                                 original_symbol: EntitySymbol::ModuleItem(
                                     ModuleItemSymbol {
                                         path: ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::one::is_one`, `Gn`),
+                                            FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
                                         ),
                                         visibility: Visibility::Pub,
                                         ast_idx: 63,
                                         ident_token: IdentToken {
                                             ident: `is_one`,
                                             token_idx: TokenIdx(
-                                                23,
+                                                24,
                                             ),
                                         },
                                     },
@@ -13212,7 +13212,7 @@ Ok(
                                 original_symbol: EntitySymbol::ModuleItem(
                                     ModuleItemSymbol {
                                         path: ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::six::is_six`, `Gn`),
+                                            FormPath(`mnist_classifier::digits::six::is_six`, `Var`),
                                         ),
                                         visibility: Visibility::PubUnder(
                                             `mnist_classifier::digits`,
@@ -13251,7 +13251,7 @@ Ok(
                                 original_symbol: EntitySymbol::ModuleItem(
                                     ModuleItemSymbol {
                                         path: ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Gn`),
+                                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Var`),
                                         ),
                                         visibility: Visibility::PubUnder(
                                             `mnist_classifier::digits`,
@@ -13290,7 +13290,7 @@ Ok(
                                 original_symbol: EntitySymbol::ModuleItem(
                                     ModuleItemSymbol {
                                         path: ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::two::is_two`, `Gn`),
+                                            FormPath(`mnist_classifier::digits::two::is_two`, `Var`),
                                         ),
                                         visibility: Visibility::PubUnder(
                                             `mnist_classifier::digits`,
@@ -13329,7 +13329,7 @@ Ok(
                                 original_symbol: EntitySymbol::ModuleItem(
                                     ModuleItemSymbol {
                                         path: ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::three::is_three`, `Gn`),
+                                            FormPath(`mnist_classifier::digits::three::is_three`, `Var`),
                                         ),
                                         visibility: Visibility::PubUnder(
                                             `mnist_classifier::digits`,
@@ -13338,7 +13338,7 @@ Ok(
                                         ident_token: IdentToken {
                                             ident: `is_three`,
                                             token_idx: TokenIdx(
-                                                26,
+                                                27,
                                             ),
                                         },
                                     },
@@ -13368,7 +13368,7 @@ Ok(
                                 original_symbol: EntitySymbol::ModuleItem(
                                     ModuleItemSymbol {
                                         path: ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::five::is_five`, `Gn`),
+                                            FormPath(`mnist_classifier::digits::five::is_five`, `Var`),
                                         ),
                                         visibility: Visibility::PubUnder(
                                             `mnist_classifier::digits`,
@@ -13407,7 +13407,7 @@ Ok(
                                 original_symbol: EntitySymbol::ModuleItem(
                                     ModuleItemSymbol {
                                         path: ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::seven::is_seven`, `Gn`),
+                                            FormPath(`mnist_classifier::digits::seven::is_seven`, `Var`),
                                         ),
                                         visibility: Visibility::PubUnder(
                                             `mnist_classifier::digits`,
@@ -13416,7 +13416,7 @@ Ok(
                                         ident_token: IdentToken {
                                             ident: `is_seven`,
                                             token_idx: TokenIdx(
-                                                164,
+                                                166,
                                             ),
                                         },
                                     },
@@ -13446,7 +13446,7 @@ Ok(
                                 original_symbol: EntitySymbol::ModuleItem(
                                     ModuleItemSymbol {
                                         path: ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::eight::is_eight`, `Gn`),
+                                            FormPath(`mnist_classifier::digits::eight::is_eight`, `Var`),
                                         ),
                                         visibility: Visibility::PubUnder(
                                             `mnist_classifier::digits`,
@@ -13455,7 +13455,7 @@ Ok(
                                         ident_token: IdentToken {
                                             ident: `is_eight`,
                                             token_idx: TokenIdx(
-                                                22,
+                                                23,
                                             ),
                                         },
                                     },
@@ -13485,7 +13485,7 @@ Ok(
                                 original_symbol: EntitySymbol::ModuleItem(
                                     ModuleItemSymbol {
                                         path: ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::nine::is_nine`, `Gn`),
+                                            FormPath(`mnist_classifier::digits::nine::is_nine`, `Var`),
                                         ),
                                         visibility: Visibility::PubUnder(
                                             `mnist_classifier::digits`,
@@ -13494,7 +13494,7 @@ Ok(
                                         ident_token: IdentToken {
                                             ident: `is_nine`,
                                             token_idx: TokenIdx(
-                                                35,
+                                                37,
                                             ),
                                         },
                                     },
@@ -13587,7 +13587,7 @@ Ok(
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::zero::is_zero`, `Gn`),
+                                        FormPath(`mnist_classifier::digits::zero::is_zero`, `Var`),
                                     ),
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier::digits`,
@@ -13625,7 +13625,7 @@ Ok(
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Fn`),
+                                        FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
                                     ),
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier::digits::one`,
@@ -13646,14 +13646,14 @@ Ok(
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::one::is_one`, `Gn`),
+                                        FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
                                     ),
                                     visibility: Visibility::Pub,
                                     ast_idx: 63,
                                     ident_token: IdentToken {
                                         ident: `is_one`,
                                         token_idx: TokenIdx(
-                                            23,
+                                            24,
                                         ),
                                     },
                                 },
@@ -13676,7 +13676,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `upmost`,
                                         token_idx: TokenIdx(
-                                            500,
+                                            502,
                                         ),
                                     },
                                 },
@@ -13699,7 +13699,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `downmost`,
                                         token_idx: TokenIdx(
-                                            529,
+                                            531,
                                         ),
                                     },
                                 },
@@ -13722,7 +13722,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `hat`,
                                         token_idx: TokenIdx(
-                                            563,
+                                            565,
                                         ),
                                     },
                                 },
@@ -13797,7 +13797,7 @@ Ok(
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::six::is_six`, `Gn`),
+                                        FormPath(`mnist_classifier::digits::six::is_six`, `Var`),
                                     ),
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier::digits`,
@@ -13829,7 +13829,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `upmost`,
                                         token_idx: TokenIdx(
-                                            300,
+                                            301,
                                         ),
                                     },
                                 },
@@ -13852,7 +13852,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `bottom1`,
                                         token_idx: TokenIdx(
-                                            329,
+                                            330,
                                         ),
                                     },
                                 },
@@ -13881,7 +13881,7 @@ Ok(
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Fn`),
+                                        FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Var`),
                                     ),
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier::digits::three`,
@@ -13904,7 +13904,7 @@ Ok(
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::three::is_three`, `Gn`),
+                                        FormPath(`mnist_classifier::digits::three::is_three`, `Var`),
                                     ),
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier::digits`,
@@ -13913,7 +13913,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `is_three`,
                                         token_idx: TokenIdx(
-                                            26,
+                                            27,
                                         ),
                                     },
                                 },
@@ -13936,7 +13936,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `uparc`,
                                         token_idx: TokenIdx(
-                                            156,
+                                            158,
                                         ),
                                     },
                                 },
@@ -13959,7 +13959,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `downarc`,
                                         token_idx: TokenIdx(
-                                            190,
+                                            192,
                                         ),
                                     },
                                 },
@@ -13982,7 +13982,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `back`,
                                         token_idx: TokenIdx(
-                                            224,
+                                            226,
                                         ),
                                     },
                                 },
@@ -14011,7 +14011,7 @@ Ok(
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::four::left_components`, `Fn`),
+                                        FormPath(`mnist_classifier::digits::four::left_components`, `Var`),
                                     ),
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier::digits::four`,
@@ -14043,7 +14043,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `left_coordinate_max`,
                                         token_idx: TokenIdx(
-                                            20,
+                                            21,
                                         ),
                                     },
                                 },
@@ -14057,7 +14057,7 @@ Ok(
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Fn`),
+                                        FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Var`),
                                     ),
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier::digits::four`,
@@ -14066,7 +14066,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `components_max_downwards`,
                                         token_idx: TokenIdx(
-                                            39,
+                                            40,
                                         ),
                                     },
                                 },
@@ -14080,7 +14080,7 @@ Ok(
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::four::components_max_heights`, `Fn`),
+                                        FormPath(`mnist_classifier::digits::four::components_max_heights`, `Var`),
                                     ),
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier::digits::four`,
@@ -14089,7 +14089,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `components_max_heights`,
                                         token_idx: TokenIdx(
-                                            52,
+                                            54,
                                         ),
                                     },
                                 },
@@ -14103,7 +14103,7 @@ Ok(
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::four::is_four`, `Gn`),
+                                        FormPath(`mnist_classifier::digits::four::is_four`, `Var`),
                                     ),
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier::digits::four`,
@@ -14112,7 +14112,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `is_four`,
                                         token_idx: TokenIdx(
-                                            65,
+                                            68,
                                         ),
                                     },
                                 },
@@ -14135,7 +14135,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `displacement_downwards`,
                                         token_idx: TokenIdx(
-                                            247,
+                                            251,
                                         ),
                                     },
                                 },
@@ -14158,7 +14158,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `cc_box_heights`,
                                         token_idx: TokenIdx(
-                                            276,
+                                            280,
                                         ),
                                     },
                                 },
@@ -14187,7 +14187,7 @@ Ok(
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::five::is_five`, `Gn`),
+                                        FormPath(`mnist_classifier::digits::five::is_five`, `Var`),
                                     ),
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier::digits`,
@@ -14225,7 +14225,7 @@ Ok(
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Fn`),
+                                        FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Var`),
                                     ),
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier::digits::seven`,
@@ -14257,7 +14257,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `simple_leftdown_pattern`,
                                         token_idx: TokenIdx(
-                                            18,
+                                            19,
                                         ),
                                     },
                                 },
@@ -14271,7 +14271,7 @@ Ok(
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Fn`),
+                                        FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Var`),
                                     ),
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier::digits::seven`,
@@ -14280,7 +14280,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `special_seven_match`,
                                         token_idx: TokenIdx(
-                                            48,
+                                            49,
                                         ),
                                     },
                                 },
@@ -14303,7 +14303,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `leftupcc_pattern`,
                                         token_idx: TokenIdx(
-                                            63,
+                                            65,
                                         ),
                                     },
                                 },
@@ -14326,7 +14326,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `leftdowncc_pattern`,
                                         token_idx: TokenIdx(
-                                            106,
+                                            108,
                                         ),
                                     },
                                 },
@@ -14340,7 +14340,7 @@ Ok(
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::seven::is_seven`, `Gn`),
+                                        FormPath(`mnist_classifier::digits::seven::is_seven`, `Var`),
                                     ),
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier::digits`,
@@ -14349,7 +14349,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `is_seven`,
                                         token_idx: TokenIdx(
-                                            164,
+                                            166,
                                         ),
                                     },
                                 },
@@ -14378,7 +14378,7 @@ Ok(
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Fn`),
+                                        FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Var`),
                                     ),
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier::digits::eight`,
@@ -14401,7 +14401,7 @@ Ok(
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::eight::is_eight`, `Gn`),
+                                        FormPath(`mnist_classifier::digits::eight::is_eight`, `Var`),
                                     ),
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier::digits`,
@@ -14410,7 +14410,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `is_eight`,
                                         token_idx: TokenIdx(
-                                            22,
+                                            23,
                                         ),
                                     },
                                 },
@@ -14433,7 +14433,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `big_mouth`,
                                         token_idx: TokenIdx(
-                                            85,
+                                            87,
                                         ),
                                     },
                                 },
@@ -14462,7 +14462,7 @@ Ok(
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::nine::nine_match`, `Fn`),
+                                        FormPath(`mnist_classifier::digits::nine::nine_match`, `Var`),
                                     ),
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier::digits::nine`,
@@ -14485,7 +14485,7 @@ Ok(
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Fn`),
+                                        FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Var`),
                                     ),
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier::digits::nine`,
@@ -14494,7 +14494,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `nine_match_refine`,
                                         token_idx: TokenIdx(
-                                            18,
+                                            19,
                                         ),
                                     },
                                 },
@@ -14508,7 +14508,7 @@ Ok(
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::nine::is_nine`, `Gn`),
+                                        FormPath(`mnist_classifier::digits::nine::is_nine`, `Var`),
                                     ),
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier::digits`,
@@ -14517,7 +14517,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `is_nine`,
                                         token_idx: TokenIdx(
-                                            35,
+                                            37,
                                         ),
                                     },
                                 },
@@ -14540,7 +14540,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `downmost`,
                                         token_idx: TokenIdx(
-                                            207,
+                                            210,
                                         ),
                                     },
                                 },
@@ -14563,7 +14563,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `big_cc`,
                                         token_idx: TokenIdx(
-                                            236,
+                                            239,
                                         ),
                                     },
                                 },
@@ -14592,7 +14592,7 @@ Ok(
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::two::two_match`, `Fn`),
+                                        FormPath(`mnist_classifier::digits::two::two_match`, `Var`),
                                     ),
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier::digits::two`,
@@ -14684,7 +14684,7 @@ Ok(
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`mnist_classifier::digits::two::is_two`, `Gn`),
+                                        FormPath(`mnist_classifier::digits::two::is_two`, `Var`),
                                     ),
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier::digits`,
@@ -15389,7 +15389,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `find_concave_components`,
                                                         token_idx: TokenIdx(
-                                                            516,
+                                                            522,
                                                         ),
                                                     },
                                                 },
@@ -15478,21 +15478,21 @@ Ok(
                                                     original_symbol: EntitySymbol::ModuleItem(
                                                         ModuleItemSymbol {
                                                             path: ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::one::is_one`, `Gn`),
+                                                                FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
                                                             ),
                                                             visibility: Visibility::Pub,
                                                             ast_idx: 63,
                                                             ident_token: IdentToken {
                                                                 ident: `is_one`,
                                                                 token_idx: TokenIdx(
-                                                                    23,
+                                                                    24,
                                                                 ),
                                                             },
                                                         },
                                                     ),
                                                     path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::one::is_one`, `Gn`),
+                                                            FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
                                                         ),
                                                     ),
                                                     visibility: Visibility::Pub,
@@ -15502,7 +15502,7 @@ Ok(
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::digits::one::is_one`, `Gn`),
+                                                    FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
                                                 ),
                                             ),
                                             visibility: Visibility::PubUnder(
@@ -15514,7 +15514,7 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::one::is_one`, `Gn`),
+                                            FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -15544,7 +15544,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `fermi_match`,
                                                         token_idx: TokenIdx(
-                                                            146,
+                                                            149,
                                                         ),
                                                     },
                                                 },

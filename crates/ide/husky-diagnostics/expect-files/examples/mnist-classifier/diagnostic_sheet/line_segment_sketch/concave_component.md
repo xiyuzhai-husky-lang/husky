@@ -37,34 +37,34 @@ DiagnosticSheet {
     decl_diagnostic_sheet: DeclDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Syntax Error: ExpectParameterDeclList",
+                message: "Syntax Error: expect end-of-line colon",
                 severity: Error,
-                range: [13:13, 13:15),
+                range: [13:13, 13:14),
             },
             Diagnostic {
-                message: "Syntax Error: ExpectParameterDeclList",
+                message: "Syntax Error: expect end-of-line colon",
                 severity: Error,
-                range: [17:17, 17:19),
+                range: [17:17, 17:18),
             },
             Diagnostic {
-                message: "Syntax Error: ExpectParameterDeclList",
+                message: "Syntax Error: expect end-of-line colon",
                 severity: Error,
-                range: [20:23, 20:25),
+                range: [20:23, 20:24),
             },
             Diagnostic {
-                message: "Syntax Error: ExpectParameterDeclList",
+                message: "Syntax Error: expect end-of-line colon",
                 severity: Error,
-                range: [33:21, 33:23),
+                range: [33:21, 33:22),
             },
             Diagnostic {
-                message: "Syntax Error: ExpectParameterDeclList",
+                message: "Syntax Error: expect end-of-line colon",
                 severity: Error,
-                range: [43:21, 43:23),
+                range: [43:21, 43:22),
             },
             Diagnostic {
-                message: "Syntax Error: ExpectParameterDeclList",
+                message: "Syntax Error: expect end-of-line colon",
                 severity: Error,
-                range: [60:30, 60:32),
+                range: [60:30, 60:31),
             },
         ],
     },

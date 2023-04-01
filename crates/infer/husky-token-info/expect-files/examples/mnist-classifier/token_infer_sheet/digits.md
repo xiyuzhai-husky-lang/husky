@@ -56,14 +56,14 @@ Ok(
                     original_symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::one::is_one`, `Gn`),
+                                FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
                             ),
                             visibility: Visibility::Pub,
                             ast_idx: 63,
                             ident_token: IdentToken {
                                 ident: `is_one`,
                                 token_idx: TokenIdx(
-                                    23,
+                                    24,
                                 ),
                             },
                         },
@@ -104,7 +104,7 @@ Ok(
                     original_symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::six::is_six`, `Gn`),
+                                FormPath(`mnist_classifier::digits::six::is_six`, `Var`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
@@ -154,7 +154,7 @@ Ok(
                     original_symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::zero::is_zero`, `Gn`),
+                                FormPath(`mnist_classifier::digits::zero::is_zero`, `Var`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
@@ -204,7 +204,7 @@ Ok(
                     original_symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::two::is_two`, `Gn`),
+                                FormPath(`mnist_classifier::digits::two::is_two`, `Var`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
@@ -254,7 +254,7 @@ Ok(
                     original_symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::three::is_three`, `Gn`),
+                                FormPath(`mnist_classifier::digits::three::is_three`, `Var`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
@@ -263,7 +263,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `is_three`,
                                 token_idx: TokenIdx(
-                                    26,
+                                    27,
                                 ),
                             },
                         },
@@ -304,7 +304,7 @@ Ok(
                     original_symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::five::is_five`, `Gn`),
+                                FormPath(`mnist_classifier::digits::five::is_five`, `Var`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
@@ -354,7 +354,7 @@ Ok(
                     original_symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::is_seven`, `Gn`),
+                                FormPath(`mnist_classifier::digits::seven::is_seven`, `Var`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
@@ -363,7 +363,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `is_seven`,
                                 token_idx: TokenIdx(
-                                    164,
+                                    166,
                                 ),
                             },
                         },
@@ -404,7 +404,7 @@ Ok(
                     original_symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::eight::is_eight`, `Gn`),
+                                FormPath(`mnist_classifier::digits::eight::is_eight`, `Var`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
@@ -413,7 +413,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `is_eight`,
                                 token_idx: TokenIdx(
-                                    22,
+                                    23,
                                 ),
                             },
                         },
@@ -454,7 +454,7 @@ Ok(
                     original_symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::nine::is_nine`, `Gn`),
+                                FormPath(`mnist_classifier::digits::nine::is_nine`, `Var`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
@@ -463,7 +463,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `is_nine`,
                                 token_idx: TokenIdx(
-                                    35,
+                                    37,
                                 ),
                             },
                         },

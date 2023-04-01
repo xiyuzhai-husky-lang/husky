@@ -14,4 +14,7 @@
             0,
         ),
     ),
+    Err(
+        RawTermError,
+    ),
 ]

@@ -1,6 +1,6 @@
 use super::*
 
-fn simple_seven_match -> FermiMatchResult:
+var simple_seven_match: FermiMatchResult =:
     fermi_match(major_concave_components,[simple_leftdown_pattern])
 
 fn simple_leftdown_pattern(cc: ~ConcaveComponent) -> ?f32:
@@ -8,7 +8,7 @@ fn simple_leftdown_pattern(cc: ~ConcaveComponent) -> ?f32:
     require dp.y < 0.0
     -dp.y
 
-fn special_seven_match -> FermiMatchResult:
+var special_seven_match: FermiMatchResult =:
     fermi_match(major_concave_components,[leftupcc_pattern, leftdowncc_pattern])
 
 fn leftupcc_pattern(cc: ~ConcaveComponent) -> ?f32:
@@ -27,7 +27,7 @@ fn leftdowncc_pattern(cc: ~ConcaveComponent) -> ?f32:
     require ang < 30.0
     ang
 
-pub(super) gn is_seven -> ?MnistLabel:
+pub(super) var is_seven: ?MnistLabel =:
     require is_one be none
     require is_six be none
     require is_zero be none

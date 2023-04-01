@@ -7,7 +7,7 @@ fn almost_closed(cc: ~ConcaveComponent) -> ?f32:
     require cc.angle_change + 0.0 < -140.0
     -cc.angle_change + 0.0
 
-pub(super) gn is_zero -> ?MnistLabel:
+pub(super) var is_zero: ?MnistLabel =:
     require is_one be none
     if major_connected_component.raw_contours.ilen() == 1:
         let n = open_one_match.norm

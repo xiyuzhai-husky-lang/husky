@@ -527,14 +527,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Gn,
+                            Var,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::six::is_six`, `Gn`),
+                                FormPath(`mnist_classifier::digits::six::is_six`, `Var`),
                             ),
                         ),
                     ),
@@ -583,12 +583,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `upmost`,
                         token_idx: TokenIdx(
-                            300,
+                            301,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        301,
+                        302,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -625,12 +625,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `bottom1`,
                         token_idx: TokenIdx(
-                            329,
+                            330,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        330,
+                        331,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(

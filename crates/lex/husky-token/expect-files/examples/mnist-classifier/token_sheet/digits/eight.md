@@ -23,7 +23,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Fn,
+                    Var,
                 ),
             ),
             Token::Ident(
@@ -31,13 +31,16 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Binary(
-                        Curry,
-                    ),
+                    PunctuationMapped::Colon,
                 ),
             ),
             Token::Ident(
                 `FermiMatchResult`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Eq,
+                ),
             ),
             Token::Punctuation(
                 Punctuation(
@@ -110,7 +113,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Gn,
+                    Var,
                 ),
             ),
             Token::Ident(
@@ -118,9 +121,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Binary(
-                        Curry,
-                    ),
+                    PunctuationMapped::Colon,
                 ),
             ),
             Token::Punctuation(
@@ -130,6 +131,11 @@ Ok(
             ),
             Token::Ident(
                 `MnistLabel`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Eq,
+                ),
             ),
             Token::Punctuation(
                 Punctuation(
@@ -633,22 +639,22 @@ Ok(
         group_starts: [
             0,
             4,
-            9,
-            17,
-            27,
-            31,
-            35,
-            39,
-            43,
-            53,
-            65,
-            77,
+            10,
+            18,
+            29,
+            33,
+            37,
+            41,
+            45,
+            55,
+            67,
             79,
             81,
-            84,
-            96,
-            107,
-            131,
+            83,
+            86,
+            98,
+            109,
+            133,
         ],
         indents: [
             0,

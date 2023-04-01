@@ -250,14 +250,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Fn,
+                            Var,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Fn`),
+                                FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Var`),
                             ),
                         ),
                     ),
@@ -291,50 +291,50 @@ Ok(
                         variant: PubUnder {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    21,
+                                    22,
                                 ),
                             },
                             lpar: LeftParenthesisToken(
                                 TokenIdx(
-                                    22,
+                                    23,
                                 ),
                             ),
                             scope: Super(
                                 SuperToken {
                                     token_idx: TokenIdx(
-                                        23,
+                                        24,
                                     ),
                                 },
                             ),
                             rpar: RightParenthesisToken(
                                 TokenIdx(
-                                    24,
+                                    25,
                                 ),
                             ),
                         },
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Gn,
+                            Var,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::three::is_three`, `Gn`),
+                                FormPath(`mnist_classifier::digits::three::is_three`, `Var`),
                             ),
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `is_three`,
                         token_idx: TokenIdx(
-                            26,
+                            27,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        27,
+                        28,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -371,12 +371,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `uparc`,
                         token_idx: TokenIdx(
-                            156,
+                            158,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        157,
+                        159,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -413,12 +413,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `downarc`,
                         token_idx: TokenIdx(
-                            190,
+                            192,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        191,
+                        193,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -455,12 +455,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `back`,
                         token_idx: TokenIdx(
-                            224,
+                            226,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        225,
+                        227,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(

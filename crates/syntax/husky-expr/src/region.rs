@@ -45,6 +45,7 @@ pub enum ExprRootKind {
     SelfType,
     Trait,
     ReturnType,
+    VarType,
     FieldType,
     BlockExpr,
 }

@@ -1,3 +1,5 @@
+use husky_print_utils::p;
+
 use super::*;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
@@ -6,7 +8,7 @@ pub struct FeatureDecl {
     pub path: FormPath,
     pub ast_idx: AstIdx,
     pub colon_token: Option<ColonToken>,
-    pub return_ty: Option<ReturnTypeExpr>,
+    pub var_ty: Option<VarTypeExpr>,
     pub eq_token: EqToken,
     pub expr_or_eol_token: Either<EolToken, ExprIdx>,
     pub expr_region: ExprRegion,
@@ -27,9 +29,8 @@ impl<'a> DeclParseContext<'a> {
             AllowSelfValue::False,
         );
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
-
-        let curry_token = ctx.parse()?;
-        let return_ty = if curry_token.is_some() {
+        let colon_token = ctx.parse()?;
+        let return_ty = if colon_token.is_some() {
             Some(ctx.parse_expected(OriginalDeclExprError::ExpectVariableType)?)
         } else {
             None
@@ -44,7 +45,7 @@ impl<'a> DeclParseContext<'a> {
             self.db(),
             path,
             ast_idx,
-            curry_token,
+            colon_token,
             return_ty,
             eq_token,
             expr_or_eol_token,

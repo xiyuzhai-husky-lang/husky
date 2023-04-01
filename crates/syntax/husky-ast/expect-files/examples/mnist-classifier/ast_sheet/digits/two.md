@@ -424,14 +424,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Fn,
+                            Var,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::two::two_match`, `Fn`),
+                                FormPath(`mnist_classifier::digits::two::two_match`, `Var`),
                             ),
                         ),
                     ),
@@ -615,14 +615,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Gn,
+                            Var,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::two::is_two`, `Gn`),
+                                FormPath(`mnist_classifier::digits::two::is_two`, `Var`),
                             ),
                         ),
                     ),
