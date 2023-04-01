@@ -335,11 +335,7 @@ impl<'a, 'b> ParseFrom<UseExprParser<'a, 'b>> for UseExpr {
         }
         if let Some(self_value_token) = ctx.parse::<SelfValueToken>()? {
             // differentiate betwee self one and self children
-            if ctx.peek()
-                == Some(&Token::Punctuation(Punctuation::Binary(
-                    BinaryOpr::ScopeResolution,
-                )))
-            {
+            if ctx.peek() == Some(&Token::Punctuation(Punctuation::COLON_COLON)) {
                 Ok(Some(UseExpr::Parent(ParentUseExpr {
                     parent_name_token: self_value_token.into(),
                     scope_resolution_token: Ok(ctx

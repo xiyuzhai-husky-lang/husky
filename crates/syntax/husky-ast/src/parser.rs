@@ -154,8 +154,8 @@ impl<'a> AstParser<'a> {
                 Keyword::Pub | Keyword::Static => self.parse_defn_or_use(token_group_idx, context),
                 Keyword::Async => todo!(),
             },
-            Token::Punctuation(Punctuation::PoundSign) => Ast::Attr { token_group_idx },
-            Token::Punctuation(Punctuation::At) => match token_group.second() {
+            Token::Punctuation(Punctuation::POUND) => Ast::Attr { token_group_idx },
+            Token::Punctuation(Punctuation::AT) => match token_group.second() {
                 Some(Token::Ident(ident)) => Ast::Decr {
                     token_group_idx,
                     ident,
@@ -258,7 +258,7 @@ impl<'a> AstParser<'a> {
             .peek_token_group_of_exact_indent_with_its_first_token(context.indent())
         {
             match first {
-                Token::Punctuation(Punctuation::Vertical) => {
+                Token::Punctuation(Punctuation::VERTICAL) => {
                     self.token_groups.next();
                     verticals.push(self.parse_stmt(idx, &context))
                 }

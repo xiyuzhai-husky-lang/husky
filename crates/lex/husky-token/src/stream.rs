@@ -120,7 +120,8 @@ impl<'a> TokenStream<'a> {
     pub fn peek_next_bra(&mut self) -> Option<Bracket> {
         if self.next_relative < self.tokens.len() {
             match self.tokens[self.next_relative] {
-                Token::Punctuation(special) => special.opt_bra(),
+                Token::Punctuation(punct) => todo!(),
+                //  punct.opt_bra(),
                 _ => None,
             }
         } else {

@@ -57,7 +57,7 @@ impl<'token> Tokenizer<'token> {
         match ranged_pretoken.token {
             Pretoken::Certain(kind) => TokenizerAction::Push((kind, ranged_pretoken.range)),
             Pretoken::Literal(lit) => match self.tokens.last() {
-                Some(Token::Punctuation(Punctuation::Minus)) => TokenizerAction::ReplaceLast((
+                Some(Token::Punctuation(Punctuation::MINUS)) => TokenizerAction::ReplaceLast((
                     Token::Literal(lit.negative().expect("todo")),
                     ranged_pretoken.range,
                 )),
@@ -67,11 +67,9 @@ impl<'token> Tokenizer<'token> {
             Pretoken::Ambiguous(punc) => match punc {
                 AmbiguousPretoken::SubOrMinus => {
                     let token = match self.right_convexity() {
-                        Convexity::Convex => Token::Punctuation(Punctuation::Binary(
-                            BinaryOpr::Closed(BinaryClosedOpr::Sub),
-                        )),
+                        Convexity::Convex => Token::Punctuation(Punctuation::SUB),
                         Convexity::Concave | Convexity::Any => {
-                            Token::Punctuation(Punctuation::Minus)
+                            Token::Punctuation(Punctuation::MINUS)
                         }
                     };
                     TokenizerAction::Push((token, ranged_pretoken.range))
