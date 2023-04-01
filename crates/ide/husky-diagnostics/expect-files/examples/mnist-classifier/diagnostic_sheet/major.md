@@ -16,32 +16,51 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [8:31, 8:36),
-            },
-        ],
+        diagnostics: [],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Syntax Error: ExpectParameterDeclList",
+                severity: Error,
+                range: [7:29, 7:31),
+            },
+            Diagnostic {
+                message: "Syntax Error: ExpectParameterDeclList",
+                severity: Error,
+                range: [10:34, 10:36),
+            },
+            Diagnostic {
+                message: "Syntax Error: ExpectParameterDeclList",
+                severity: Error,
+                range: [20:54, 20:56),
+            },
+            Diagnostic {
+                message: "Syntax Error: ExpectParameterDeclList",
+                severity: Error,
+                range: [26:27, 26:29),
+            },
+            Diagnostic {
+                message: "Syntax Error: ExpectParameterDeclList",
+                severity: Error,
+                range: [30:26, 30:28),
+            },
+            Diagnostic {
+                message: "Syntax Error: ExpectParameterDeclList",
+                severity: Error,
+                range: [33:34, 33:36),
+            },
+            Diagnostic {
+                message: "Syntax Error: ExpectParameterDeclList",
+                severity: Error,
+                range: [36:33, 36:35),
+            },
+        ],
     },
     defn_diagnostic_sheet: DefnDiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Type Error: NoSuchField",
-                severity: Error,
-                range: [34:5, 34:42),
-            },
-            Diagnostic {
-                message: "Type Error: NoSuchField",
-                severity: Error,
-                range: [37:5, 37:49),
-            },
-        ],
+        diagnostics: [],
     },
 }

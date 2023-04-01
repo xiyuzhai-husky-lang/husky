@@ -11,7 +11,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Feature`),
+                                FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Fn`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::eight`,
@@ -34,7 +34,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
+                                FormPath(`mnist_classifier::digits::eight::is_eight`, `Gn`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,

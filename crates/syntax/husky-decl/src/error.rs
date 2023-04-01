@@ -137,6 +137,10 @@ pub enum OriginalDeclExprError {
     ExpectImplicitParameterDecl(TokenIdx),
     #[error("expect `)` in parameter list")]
     ExpectRightParenthesisInParameterList(TokenIdx),
+    #[error("ExpectVariableType")]
+    ExpectVariableType(TokenIdx),
+    #[error("ExpectEqTokenForVariable")]
+    ExpectEqTokenForVariable(TokenIdx),
 }
 
 impl OriginalError for OriginalDeclExprError {

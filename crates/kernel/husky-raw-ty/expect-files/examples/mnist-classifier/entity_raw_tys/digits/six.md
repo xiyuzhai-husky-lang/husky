@@ -2,7 +2,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::digits::six::six_match`, `Feature`),
+                FormPath(`mnist_classifier::digits::six::six_match`, `Fn`),
             ),
         ),
         Err(
@@ -14,7 +14,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Feature`),
+                FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Fn`),
             ),
         ),
         Err(
@@ -26,7 +26,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
+                FormPath(`mnist_classifier::digits::six::is_six`, `Gn`),
             ),
         ),
         Err(

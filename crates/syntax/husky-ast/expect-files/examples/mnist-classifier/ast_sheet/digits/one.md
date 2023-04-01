@@ -519,14 +519,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Feature,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Feature`),
+                                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Fn`),
                             ),
                         ),
                     ),
@@ -561,14 +561,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Feature,
+                            Gn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                FormPath(`mnist_classifier::digits::one::is_one`, `Gn`),
                             ),
                         ),
                     ),

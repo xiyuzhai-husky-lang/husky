@@ -329,7 +329,7 @@ Ok(
                     },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Memo,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -364,7 +364,7 @@ Ok(
                     },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Memo,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -399,7 +399,7 @@ Ok(
                     },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Memo,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -434,7 +434,7 @@ Ok(
                     },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Memo,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -469,7 +469,7 @@ Ok(
                     },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Memo,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,
@@ -504,7 +504,7 @@ Ok(
                     },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Memo,
+                            MethodFn,
                         ),
                     },
                     entity_path: None,

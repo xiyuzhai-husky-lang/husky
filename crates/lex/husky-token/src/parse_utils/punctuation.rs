@@ -123,28 +123,28 @@ fn comma_token_works() {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = TokenDb)]
-pub struct AssignToken(TokenIdx);
+pub struct EqToken(TokenIdx);
 
-impl AssignToken {
+impl EqToken {
     pub fn token_idx(&self) -> TokenIdx {
         self.0
     }
 }
 
-impl<'a, Context> parsec::ParseFrom<Context> for AssignToken
+impl<'a, Context> parsec::ParseFrom<Context> for EqToken
 where
     Context: TokenParseContext<'a>,
 {
     type Error = TokenError;
 
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(ctx, Punctuation::EQ, AssignToken)
+        parse_specific_punctuation_from(ctx, Punctuation::EQ, EqToken)
     }
 }
 
 #[test]
 fn assign_token_works() {
-    fn t(db: &DB, input: &str) -> TokenResult<Option<AssignToken>> {
+    fn t(db: &DB, input: &str) -> TokenResult<Option<EqToken>> {
         quick_parse(db, input)
     }
 

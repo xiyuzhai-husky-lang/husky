@@ -329,14 +329,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Feature,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::four::left_components`, `Feature`),
+                                FormPath(`mnist_classifier::digits::four::left_components`, `Fn`),
                             ),
                         ),
                     ),
@@ -413,14 +413,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Feature,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Feature`),
+                                FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Fn`),
                             ),
                         ),
                     ),
@@ -455,14 +455,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Feature,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::four::components_max_heights`, `Feature`),
+                                FormPath(`mnist_classifier::digits::four::components_max_heights`, `Fn`),
                             ),
                         ),
                     ),
@@ -497,14 +497,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Feature,
+                            Gn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::four::is_four`, `Feature`),
+                                FormPath(`mnist_classifier::digits::four::is_four`, `Gn`),
                             ),
                         ),
                     ),

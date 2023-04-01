@@ -313,14 +313,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Feature,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::nine::nine_match`, `Feature`),
+                                FormPath(`mnist_classifier::digits::nine::nine_match`, `Fn`),
                             ),
                         ),
                     ),
@@ -355,14 +355,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Feature,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Feature`),
+                                FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Fn`),
                             ),
                         ),
                     ),
@@ -420,14 +420,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Feature,
+                            Gn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::nine::is_nine`, `Feature`),
+                                FormPath(`mnist_classifier::digits::nine::is_nine`, `Gn`),
                             ),
                         ),
                     ),

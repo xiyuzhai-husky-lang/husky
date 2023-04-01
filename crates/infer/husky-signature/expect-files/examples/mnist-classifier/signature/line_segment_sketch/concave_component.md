@@ -18,7 +18,7 @@
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
                                         Id {
-                                            value: 41,
+                                            value: 40,
                                         },
                                     ),
                                 ),
@@ -39,72 +39,6 @@
                     },
                     ty: RawTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                 },
-            ),
-        ),
-    ),
-    Ok(
-        Signature::AssociatedItem(
-            AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Memo(
-                    TypeMemoSignature {
-                        return_ty: RawTerm(`core::num::f32`),
-                    },
-                ),
-            ),
-        ),
-    ),
-    Ok(
-        Signature::AssociatedItem(
-            AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Memo(
-                    TypeMemoSignature {
-                        return_ty: RawTerm(`core::num::f32`),
-                    },
-                ),
-            ),
-        ),
-    ),
-    Ok(
-        Signature::AssociatedItem(
-            AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Memo(
-                    TypeMemoSignature {
-                        return_ty: RawTerm(`core::num::f32`),
-                    },
-                ),
-            ),
-        ),
-    ),
-    Ok(
-        Signature::AssociatedItem(
-            AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Memo(
-                    TypeMemoSignature {
-                        return_ty: RawTerm(`core::num::f32`),
-                    },
-                ),
-            ),
-        ),
-    ),
-    Ok(
-        Signature::AssociatedItem(
-            AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Memo(
-                    TypeMemoSignature {
-                        return_ty: RawTerm(`mnist_classifier::geom2d::BoundingBox`),
-                    },
-                ),
-            ),
-        ),
-    ),
-    Ok(
-        Signature::AssociatedItem(
-            AssociatedItemSignature::TypeItem(
-                TypeItemSignature::Memo(
-                    TypeMemoSignature {
-                        return_ty: RawTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
-                    },
-                ),
             ),
         ),
     ),

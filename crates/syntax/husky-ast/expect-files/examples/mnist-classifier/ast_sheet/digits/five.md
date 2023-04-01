@@ -65,14 +65,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Feature,
+                            Gn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::five::is_five`, `Feature`),
+                                FormPath(`mnist_classifier::digits::five::is_five`, `Gn`),
                             ),
                         ),
                     ),

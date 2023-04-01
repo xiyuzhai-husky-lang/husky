@@ -1,16 +1,5 @@
 [
     Err(
-        RawTermError,
-    ),
-    Err(
-        ParameterTypeRawTermError(
-            0,
-        ),
-    ),
-    Err(
-        RawTermError,
-    ),
-    Err(
         ParameterTypeRawTermError(
             0,
         ),
@@ -21,6 +10,8 @@
         ),
     ),
     Err(
-        RawTermError,
+        ParameterTypeRawTermError(
+            0,
+        ),
     ),
 ]

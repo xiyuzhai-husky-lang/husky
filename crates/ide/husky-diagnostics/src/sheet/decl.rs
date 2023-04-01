@@ -84,6 +84,8 @@ impl Diagnose for OriginalDeclExprError {
                 format!("Syntax Error: expect implicit parameter declaration",)
             }
             OriginalDeclExprError::ExpectRightParenthesisInParameterList(_) => todo!(),
+            OriginalDeclExprError::ExpectVariableType(_) => todo!(),
+            OriginalDeclExprError::ExpectEqTokenForVariable(_) => todo!(),
         }
     }
 
@@ -107,6 +109,8 @@ impl Diagnose for OriginalDeclExprError {
             | OriginalDeclExprError::ExpectRightParenthesisInParameterList(token_idx) => {
                 ctx.ranged_token_sheet().token_text_range(*token_idx)
             }
+            OriginalDeclExprError::ExpectVariableType(_) => todo!(),
+            OriginalDeclExprError::ExpectEqTokenForVariable(_) => todo!(),
         }
     }
 }

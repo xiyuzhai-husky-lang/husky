@@ -25,6 +25,7 @@ use parsec::ParseContext;
 use parser::*;
 #[cfg(test)]
 use tests::*;
+use either::*;
 
 #[salsa::jar(db = DeclDb)]
 pub struct DeclJar(

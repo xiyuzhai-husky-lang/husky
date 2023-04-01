@@ -2,71 +2,85 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                FormPath(`mnist_classifier::major::connected_components`, `Fn`),
             ),
         ),
-        Ok(
-            RawTerm(`[] mnist_classifier::connected_component::ConnectedComponent`),
+        Err(
+            RawTypeError::Derived(
+                DerivedRawTypeError::SignatureError,
+            ),
         ),
     ),
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                FormPath(`mnist_classifier::major::major_connected_component`, `Fn`),
             ),
         ),
-        Ok(
-            RawTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+        Err(
+            RawTypeError::Derived(
+                DerivedRawTypeError::SignatureError,
+            ),
         ),
     ),
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Fn`),
             ),
         ),
-        Ok(
-            RawTerm(`core::num::f32`),
+        Err(
+            RawTypeError::Derived(
+                DerivedRawTypeError::SignatureError,
+            ),
         ),
     ),
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                FormPath(`mnist_classifier::major::major_raw_contours`, `Fn`),
             ),
         ),
-        Ok(
-            RawTerm(`[] mnist_classifier::raw_contour::RawContour`),
+        Err(
+            RawTypeError::Derived(
+                DerivedRawTypeError::SignatureError,
+            ),
         ),
     ),
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                FormPath(`mnist_classifier::major::major_raw_contour`, `Fn`),
             ),
         ),
-        Ok(
-            RawTerm(`mnist_classifier::raw_contour::RawContour`),
+        Err(
+            RawTypeError::Derived(
+                DerivedRawTypeError::SignatureError,
+            ),
         ),
     ),
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Fn`),
             ),
         ),
-        Ok(
-            RawTerm(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
+        Err(
+            RawTypeError::Derived(
+                DerivedRawTypeError::SignatureError,
+            ),
         ),
     ),
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                FormPath(`mnist_classifier::major::major_concave_components`, `Fn`),
             ),
         ),
-        Ok(
-            RawTerm(`[] mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+        Err(
+            RawTypeError::Derived(
+                DerivedRawTypeError::SignatureError,
+            ),
         ),
     ),
 ]
