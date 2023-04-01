@@ -10,17 +10,25 @@ Ok(
                 ),
             ),
             Token::Punctuation(
-                Punctuation::ColonColon,
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
             ),
             Token::Punctuation(
-                Punctuation::Star,
+                Punctuation(
+                    PunctuationMapped::Star,
+                ),
             ),
             Token::Keyword(
                 Keyword::Pub,
             ),
             Token::Punctuation(
-                Punctuation::Bra(
-                    Par,
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -29,8 +37,10 @@ Ok(
                 ),
             ),
             Token::Punctuation(
-                Punctuation::Ket(
-                    Par,
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -42,24 +52,34 @@ Ok(
                 `is_five`,
             ),
             Token::Punctuation(
-                Punctuation::Binary(
-                    Curry,
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        Curry,
+                    ),
                 ),
             ),
             Token::Punctuation(
-                Punctuation::Question,
+                Punctuation(
+                    PunctuationMapped::Question,
+                ),
             ),
             Token::Ident(
                 `MnistLabel`,
             ),
             Token::Punctuation(
-                Punctuation::Colon,
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
             ),
             Token::Ident(
                 `MnistLabel`,
             ),
             Token::Punctuation(
-                Punctuation::ColonColon,
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
             ),
             Token::Ident(
                 `Five`,

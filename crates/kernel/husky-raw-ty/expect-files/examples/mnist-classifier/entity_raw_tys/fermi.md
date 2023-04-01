@@ -5,10 +5,8 @@
                 TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
             ),
         ),
-        Err(
-            RawTypeError::Derived(
-                DerivedRawTypeError::SignatureError,
-            ),
+        Ok(
+            RawTerm(`Type`),
         ),
     ),
     (
@@ -17,10 +15,8 @@
                 FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
             ),
         ),
-        Err(
-            RawTypeError::Derived(
-                DerivedRawTypeError::SignatureError,
-            ),
+        Ok(
+            RawTerm(`Fp(~ [] mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent, [](invariant ~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent -> core::option::Option core::num::f32, ) -> mnist_classifier::fermi::FermiMatchResult`),
         ),
     ),
 ]

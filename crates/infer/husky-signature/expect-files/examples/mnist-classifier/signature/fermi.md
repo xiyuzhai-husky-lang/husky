@@ -1,12 +1,59 @@
 [
-    Err(
-        FieldTypeRawTermError(
-            0,
+    Ok(
+        Signature::Type(
+            TypeSignature::RegularStruct(
+                RegularStructTypeSignature {
+                    implicit_parameters: ImplicitParameterSignatures {
+                        data: [],
+                    },
+                    fields: [
+                        RegularStructFieldSignature {
+                            ident: `matches`,
+                            ty: RawTerm(`[] core::option::Option ~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                        },
+                        RegularStructFieldSignature {
+                            ident: `others`,
+                            ty: RawTerm(`[] ~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                        },
+                    ],
+                },
+            ),
         ),
     ),
-    Err(
-        ParameterTypeRawTermError(
-            0,
+    Ok(
+        Signature::Form(
+            FormSignature::Fn(
+                FnSignature {
+                    implicit_parameters: ImplicitParameterSignatures {
+                        data: [],
+                    },
+                    parameters: ExplicitParameterSignatures {
+                        parameters: [
+                            ExplicitParameterSignature {
+                                liason: Pure,
+                                ty: ExplicitApplication(
+                                    RawTermExplicitApplication(
+                                        Id {
+                                            value: 40,
+                                        },
+                                    ),
+                                ),
+                            },
+                            ExplicitParameterSignature {
+                                liason: Pure,
+                                ty: ExplicitApplicationOrRitchieCall(
+                                    RawTermExplicitApplicationOrRitchieCall(
+                                        Id {
+                                            value: 1,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ],
+                    },
+                    return_ty: RawTerm(`mnist_classifier::fermi::FermiMatchResult`),
+                },
+            ),
         ),
     ),
     Ok(

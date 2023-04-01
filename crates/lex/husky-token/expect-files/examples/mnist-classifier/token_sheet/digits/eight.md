@@ -10,10 +10,16 @@ Ok(
                 ),
             ),
             Token::Punctuation(
-                Punctuation::ColonColon,
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
             ),
             Token::Punctuation(
-                Punctuation::Star,
+                Punctuation(
+                    PunctuationMapped::Star,
+                ),
             ),
             Token::Keyword(
                 Keyword::Form(
@@ -24,54 +30,70 @@ Ok(
                 `upper_mouth_match`,
             ),
             Token::Punctuation(
-                Punctuation::Binary(
-                    Curry,
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        Curry,
+                    ),
                 ),
             ),
             Token::Ident(
                 `FermiMatchResult`,
             ),
             Token::Punctuation(
-                Punctuation::Colon,
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
             ),
             Token::Ident(
                 `fermi_match`,
             ),
             Token::Punctuation(
-                Punctuation::Bra(
-                    Par,
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
                 ),
             ),
             Token::Ident(
                 `major_concave_components`,
             ),
             Token::Punctuation(
-                Punctuation::Comma,
+                Punctuation(
+                    PunctuationMapped::Comma,
+                ),
             ),
             Token::Punctuation(
-                Punctuation::Bra(
-                    Box,
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Box,
+                    ),
                 ),
             ),
             Token::Ident(
                 `big_mouth`,
             ),
             Token::Punctuation(
-                Punctuation::Ket(
-                    Box,
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Box,
+                    ),
                 ),
             ),
             Token::Punctuation(
-                Punctuation::Ket(
-                    Par,
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
                 ),
             ),
             Token::Keyword(
                 Keyword::Pub,
             ),
             Token::Punctuation(
-                Punctuation::Bra(
-                    Par,
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -80,8 +102,10 @@ Ok(
                 ),
             ),
             Token::Punctuation(
-                Punctuation::Ket(
-                    Par,
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -93,18 +117,24 @@ Ok(
                 `is_eight`,
             ),
             Token::Punctuation(
-                Punctuation::Binary(
-                    Curry,
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        Curry,
+                    ),
                 ),
             ),
             Token::Punctuation(
-                Punctuation::Question,
+                Punctuation(
+                    PunctuationMapped::Question,
+                ),
             ),
             Token::Ident(
                 `MnistLabel`,
             ),
             Token::Punctuation(
-                Punctuation::Colon,
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
             ),
             Token::Keyword(
                 Keyword::Stmt(
@@ -171,21 +201,27 @@ Ok(
                 `upper_excess`,
             ),
             Token::Punctuation(
-                Punctuation::Eq,
+                Punctuation(
+                    PunctuationMapped::Eq,
+                ),
             ),
             Token::Ident(
                 `major_connected_component`,
             ),
             Token::Punctuation(
-                Punctuation::Dot,
+                Punctuation(
+                    PunctuationMapped::Dot,
+                ),
             ),
             Token::Ident(
                 `upper_mass`,
             ),
             Token::Punctuation(
-                Punctuation::Binary(
-                    Closed(
-                        Sub,
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        Closed(
+                            Sub,
+                        ),
                     ),
                 ),
             ),
@@ -193,7 +229,9 @@ Ok(
                 `major_connected_component`,
             ),
             Token::Punctuation(
-                Punctuation::Dot,
+                Punctuation(
+                    PunctuationMapped::Dot,
+                ),
             ),
             Token::Ident(
                 `lower_mass`,
@@ -207,20 +245,26 @@ Ok(
                 `major_connected_component`,
             ),
             Token::Punctuation(
-                Punctuation::Dot,
+                Punctuation(
+                    PunctuationMapped::Dot,
+                ),
             ),
             Token::Ident(
                 `eff_holes`,
             ),
             Token::Punctuation(
-                Punctuation::Dot,
+                Punctuation(
+                    PunctuationMapped::Dot,
+                ),
             ),
             Token::Ident(
                 `matches`,
             ),
             Token::Punctuation(
-                Punctuation::Bra(
-                    Box,
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Box,
+                    ),
                 ),
             ),
             Token::Literal(
@@ -229,8 +273,10 @@ Ok(
                 ),
             ),
             Token::Punctuation(
-                Punctuation::Ket(
-                    Box,
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Box,
+                    ),
                 ),
             ),
             Token::WordOpr(
@@ -240,7 +286,9 @@ Ok(
                 `none`,
             ),
             Token::Punctuation(
-                Punctuation::Colon,
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
             ),
             Token::Keyword(
                 Keyword::Stmt(
@@ -251,20 +299,26 @@ Ok(
                 `major_connected_component`,
             ),
             Token::Punctuation(
-                Punctuation::Dot,
+                Punctuation(
+                    PunctuationMapped::Dot,
+                ),
             ),
             Token::Ident(
                 `eff_holes`,
             ),
             Token::Punctuation(
-                Punctuation::Dot,
+                Punctuation(
+                    PunctuationMapped::Dot,
+                ),
             ),
             Token::Ident(
                 `matches`,
             ),
             Token::Punctuation(
-                Punctuation::Bra(
-                    Box,
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Box,
+                    ),
                 ),
             ),
             Token::Literal(
@@ -273,8 +327,10 @@ Ok(
                 ),
             ),
             Token::Punctuation(
-                Punctuation::Ket(
-                    Box,
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Box,
+                    ),
                 ),
             ),
             Token::WordOpr(
@@ -284,7 +340,9 @@ Ok(
                 `none`,
             ),
             Token::Punctuation(
-                Punctuation::Colon,
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
             ),
             Token::Keyword(
                 Keyword::Stmt(
@@ -310,7 +368,11 @@ Ok(
                 `MnistLabel`,
             ),
             Token::Punctuation(
-                Punctuation::ColonColon,
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
             ),
             Token::Ident(
                 `Eight`,
@@ -324,40 +386,54 @@ Ok(
                 `big_mouth`,
             ),
             Token::Punctuation(
-                Punctuation::Bra(
-                    Par,
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
                 ),
             ),
             Token::Ident(
                 `cc`,
             ),
             Token::Punctuation(
-                Punctuation::Colon,
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
             ),
             Token::Punctuation(
-                Punctuation::Tilde,
+                Punctuation(
+                    PunctuationMapped::Tilde,
+                ),
             ),
             Token::Ident(
                 `ConcaveComponent`,
             ),
             Token::Punctuation(
-                Punctuation::Ket(
-                    Par,
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
                 ),
             ),
             Token::Punctuation(
-                Punctuation::Binary(
-                    Curry,
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        Curry,
+                    ),
                 ),
             ),
             Token::Punctuation(
-                Punctuation::Question,
+                Punctuation(
+                    PunctuationMapped::Question,
+                ),
             ),
             Token::Ident(
                 `f32`,
             ),
             Token::Punctuation(
-                Punctuation::Colon,
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
             ),
             Token::Keyword(
                 Keyword::Stmt(
@@ -368,29 +444,39 @@ Ok(
                 `cc`,
             ),
             Token::Punctuation(
-                Punctuation::Dot,
+                Punctuation(
+                    PunctuationMapped::Dot,
+                ),
             ),
             Token::Ident(
                 `relative_bounding_box`,
             ),
             Token::Punctuation(
-                Punctuation::Dot,
+                Punctuation(
+                    PunctuationMapped::Dot,
+                ),
             ),
             Token::Ident(
                 `ymax`,
             ),
             Token::Punctuation(
-                Punctuation::Bra(
-                    Par,
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
                 ),
             ),
             Token::Punctuation(
-                Punctuation::Ket(
-                    Par,
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
                 ),
             ),
             Token::Punctuation(
-                Punctuation::RaOrGt,
+                Punctuation(
+                    PunctuationMapped::RaOrGt,
+                ),
             ),
             Token::Literal(
                 Literal::Float(
@@ -398,7 +484,9 @@ Ok(
                 ),
             ),
             Token::Punctuation(
-                Punctuation::Colon,
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
             ),
             Token::Keyword(
                 Keyword::Stmt(
@@ -409,75 +497,101 @@ Ok(
                 `cc`,
             ),
             Token::Punctuation(
-                Punctuation::Dot,
+                Punctuation(
+                    PunctuationMapped::Dot,
+                ),
             ),
             Token::Ident(
                 `strokes`,
             ),
             Token::Punctuation(
-                Punctuation::Dot,
+                Punctuation(
+                    PunctuationMapped::Dot,
+                ),
             ),
             Token::Ident(
                 `firstx`,
             ),
             Token::Punctuation(
-                Punctuation::Bra(
-                    Par,
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
                 ),
             ),
             Token::Punctuation(
-                Punctuation::Ket(
-                    Par,
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
                 ),
             ),
             Token::Punctuation(
-                Punctuation::Dot,
+                Punctuation(
+                    PunctuationMapped::Dot,
+                ),
             ),
             Token::Ident(
                 `start`,
             ),
             Token::Punctuation(
-                Punctuation::Dot,
+                Punctuation(
+                    PunctuationMapped::Dot,
+                ),
             ),
             Token::Ident(
                 `x`,
             ),
             Token::Punctuation(
-                Punctuation::RaOrGt,
+                Punctuation(
+                    PunctuationMapped::RaOrGt,
+                ),
             ),
             Token::Ident(
                 `cc`,
             ),
             Token::Punctuation(
-                Punctuation::Dot,
+                Punctuation(
+                    PunctuationMapped::Dot,
+                ),
             ),
             Token::Ident(
                 `strokes`,
             ),
             Token::Punctuation(
-                Punctuation::Dot,
+                Punctuation(
+                    PunctuationMapped::Dot,
+                ),
             ),
             Token::Ident(
                 `firstx`,
             ),
             Token::Punctuation(
-                Punctuation::Bra(
-                    Par,
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
                 ),
             ),
             Token::Punctuation(
-                Punctuation::Ket(
-                    Par,
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
                 ),
             ),
             Token::Punctuation(
-                Punctuation::Dot,
+                Punctuation(
+                    PunctuationMapped::Dot,
+                ),
             ),
             Token::Ident(
                 `end`,
             ),
             Token::Punctuation(
-                Punctuation::Dot,
+                Punctuation(
+                    PunctuationMapped::Dot,
+                ),
             ),
             Token::Ident(
                 `x`,
@@ -486,25 +600,33 @@ Ok(
                 `cc`,
             ),
             Token::Punctuation(
-                Punctuation::Dot,
+                Punctuation(
+                    PunctuationMapped::Dot,
+                ),
             ),
             Token::Ident(
                 `relative_bounding_box`,
             ),
             Token::Punctuation(
-                Punctuation::Dot,
+                Punctuation(
+                    PunctuationMapped::Dot,
+                ),
             ),
             Token::Ident(
                 `ymax`,
             ),
             Token::Punctuation(
-                Punctuation::Bra(
-                    Par,
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
                 ),
             ),
             Token::Punctuation(
-                Punctuation::Ket(
-                    Par,
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
                 ),
             ),
         ],

@@ -10,12 +10,20 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `std`,
                             ),
-                            symbol: Submodule(
-                                SubmoduleSymbol(
-                                    Id {
-                                        value: 31,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `std::prelude`,
+                                    visibility: Visibility::PubUnder(
+                                        `std`,
+                                    ),
+                                    ast_idx: 0,
+                                    ident_token: IdentToken {
+                                        ident: `prelude`,
+                                        token_idx: TokenIdx(
+                                            1,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -23,12 +31,20 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `std`,
                             ),
-                            symbol: Submodule(
-                                SubmoduleSymbol(
-                                    Id {
-                                        value: 32,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `std::logic`,
+                                    visibility: Visibility::PubUnder(
+                                        `std`,
+                                    ),
+                                    ast_idx: 1,
+                                    ident_token: IdentToken {
+                                        ident: `logic`,
+                                        token_idx: TokenIdx(
+                                            3,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -36,12 +52,20 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `std`,
                             ),
-                            symbol: Submodule(
-                                SubmoduleSymbol(
-                                    Id {
-                                        value: 33,
+                            symbol: EntitySymbol::Submodule(
+                                SubmoduleSymbol {
+                                    path: `std::ops`,
+                                    visibility: Visibility::PubUnder(
+                                        `std`,
+                                    ),
+                                    ast_idx: 2,
+                                    ident_token: IdentToken {
+                                        ident: `ops`,
+                                        token_idx: TokenIdx(
+                                            5,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                     ],
@@ -124,12 +148,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `std::ops`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 107,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Trait(
+                                        TraitPath(`std::ops::Add`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `std::ops`,
+                                    ),
+                                    ast_idx: 3,
+                                    ident_token: IdentToken {
+                                        ident: `Add`,
+                                        token_idx: TokenIdx(
+                                            7,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                     ],

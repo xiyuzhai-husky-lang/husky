@@ -8,12 +8,8 @@ Ok(
                     0,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: CrateRoot {
-                        root_module: ModulePath(
-                            Id {
-                                value: 40,
-                            },
-                        ),
+                    original_symbol: EntitySymbol::CrateRoot {
+                        root_module_path: `mnist_classifier`,
                     },
                 },
             },
@@ -24,12 +20,20 @@ Ok(
                     1,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 37,
+                    original_symbol: EntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `mnist_classifier::line_segment_sketch`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            ast_idx: 14,
+                            ident_token: IdentToken {
+                                ident: `line_segment_sketch`,
+                                token_idx: TokenIdx(
+                                    7,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },

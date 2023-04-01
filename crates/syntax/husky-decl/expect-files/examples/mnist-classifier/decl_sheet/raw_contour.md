@@ -9,14 +9,192 @@ Ok(
                         ),
                     ),
                 ),
-                Err(
-                    DeclError::Original(
-                        OriginalDeclError::Expr(
-                            OriginalDeclExprError::ExpectRightCurlyBrace(
-                                TokenIdx(
-                                    33,
+                Ok(
+                    Decl::Type(
+                        TypeDecl::RegularStruct(
+                            RegularStructTypeDecl {
+                                path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                ast_idx: 199,
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: None,
+                                        path: RegionPath::Decl(
+                                            DeclRegionPath::Entity(
+                                                EntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 0,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::Prefix {
+                                                    opr: Ref,
+                                                    opr_token_idx: TokenIdx(
+                                                        28,
+                                                    ),
+                                                    opd: 0,
+                                                },
+                                                Expr::List {
+                                                    lbox_token_idx: TokenIdx(
+                                                        33,
+                                                    ),
+                                                    items: ArenaIdxRange(
+                                                        2..2,
+                                                    ),
+                                                    rbox_token_idx: TokenIdx(
+                                                        34,
+                                                    ),
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 1,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::ExplicitApplication {
+                                                    function: 2,
+                                                    argument: 3,
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        29,
+                                                    ),
+                                                    ident: `ConnectedComponent`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        35,
+                                                    ),
+                                                    ident: `Point2d`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: FieldType,
+                                                expr: 1,
+                                            },
+                                            ExprRoot {
+                                                kind: FieldType,
+                                                expr: 4,
+                                            },
+                                        ],
+                                    },
+                                },
+                                implicit_parameter_decl_list: None,
+                                lcurl: LeftCurlyBraceToken(
+                                    TokenIdx(
+                                        25,
+                                    ),
                                 ),
-                            ),
+                                field_comma_list: (
+                                    [
+                                        FieldDeclPattern {
+                                            decorators: [],
+                                            visibility: None,
+                                            ident_token: IdentToken {
+                                                ident: `cc`,
+                                                token_idx: TokenIdx(
+                                                    26,
+                                                ),
+                                            },
+                                            colon: ColonToken(
+                                                TokenIdx(
+                                                    27,
+                                                ),
+                                            ),
+                                            ty: 1,
+                                        },
+                                        FieldDeclPattern {
+                                            decorators: [],
+                                            visibility: None,
+                                            ident_token: IdentToken {
+                                                ident: `points`,
+                                                token_idx: TokenIdx(
+                                                    31,
+                                                ),
+                                            },
+                                            colon: ColonToken(
+                                                TokenIdx(
+                                                    32,
+                                                ),
+                                            ),
+                                            ty: 4,
+                                        },
+                                    ],
+                                    [
+                                        CommaToken(
+                                            TokenIdx(
+                                                30,
+                                            ),
+                                        ),
+                                        CommaToken(
+                                            TokenIdx(
+                                                36,
+                                            ),
+                                        ),
+                                    ],
+                                ),
+                                rcurl: RightCurlyBraceToken(
+                                    TokenIdx(
+                                        37,
+                                    ),
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -2125,14 +2303,209 @@ Ok(
                         ),
                     ),
                 ),
-                Err(
-                    DeclError::Original(
-                        OriginalDeclError::Expr(
-                            OriginalDeclExprError::ExpectRightParenthesisInParameterList(
-                                TokenIdx(
-                                    924,
+                Ok(
+                    Decl::Form(
+                        FormDecl::Fn(
+                            FnDecl {
+                                path: FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
+                                ast_idx: 213,
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: None,
+                                        path: RegionPath::Decl(
+                                            DeclRegionPath::Entity(
+                                                EntityPath::ModuleItem(
+                                                    ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                Expr::List {
+                                                    lbox_token_idx: TokenIdx(
+                                                        924,
+                                                    ),
+                                                    items: ArenaIdxRange(
+                                                        0..0,
+                                                    ),
+                                                    rbox_token_idx: TokenIdx(
+                                                        925,
+                                                    ),
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 0,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::ExplicitApplication {
+                                                    function: 0,
+                                                    argument: 1,
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 1,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        926,
+                                                    ),
+                                                    ident: `Point2d`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        929,
+                                                    ),
+                                                    ident: `Point2d`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [
+                                                    PatternExpr::Ident {
+                                                        modifier: None,
+                                                        ident_token: IdentToken {
+                                                            ident: `points`,
+                                                            token_idx: TokenIdx(
+                                                                922,
+                                                            ),
+                                                        },
+                                                    },
+                                                ],
+                                            },
+                                            pattern_infos: [
+                                                Parameter,
+                                            ],
+                                            pattern_symbol_maps: [
+                                                [
+                                                    (
+                                                        `points`,
+                                                        0,
+                                                    ),
+                                                ],
+                                            ],
+                                            pattern_symbol_arena: Arena {
+                                                data: [
+                                                    PatternSymbol::Atom(
+                                                        0,
+                                                    ),
+                                                ],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [
+                                                    CurrentSymbol {
+                                                        access_start: TokenIdx(
+                                                            923,
+                                                        ),
+                                                        access_end: None,
+                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                            ident: `points`,
+                                                            pattern_symbol_idx: 0,
+                                                        },
+                                                    },
+                                                ],
+                                            },
+                                            allow_self_type: False,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [
+                                                ExplicitParameter {
+                                                    pattern: 0,
+                                                    ty: 2,
+                                                },
+                                            ],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: ReturnType,
+                                                expr: 3,
+                                            },
+                                        ],
+                                    },
+                                },
+                                implicit_parameter_decl_list: None,
+                                parameter_decl_list: ExplicitParameterDeclList {
+                                    lpar: LeftParenthesisToken(
+                                        TokenIdx(
+                                            921,
+                                        ),
+                                    ),
+                                    self_parameter: None,
+                                    regular_parameters: [
+                                        RegularParameterDeclPattern {
+                                            pattern: 0,
+                                            variables: ArenaIdxRange(
+                                                0..1,
+                                            ),
+                                            colon: ColonToken(
+                                                TokenIdx(
+                                                    923,
+                                                ),
+                                            ),
+                                            ty: 2,
+                                        },
+                                    ],
+                                    commas: [],
+                                    rpar: RightParenthesisToken(
+                                        TokenIdx(
+                                            927,
+                                        ),
+                                    ),
+                                },
+                                curry_token: Some(
+                                    CurryToken(
+                                        TokenIdx(
+                                            928,
+                                        ),
+                                    ),
                                 ),
-                            ),
+                                return_ty: Some(
+                                    ReturnTypeExpr {
+                                        expr: 3,
+                                    },
+                                ),
+                                eol_colon: EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            930,
+                                        ),
+                                    },
+                                ),
+                            },
                         ),
                     ),
                 ),
@@ -2145,14 +2518,216 @@ Ok(
                         ),
                     ),
                 ),
-                Err(
-                    DeclError::Original(
-                        OriginalDeclError::Expr(
-                            OriginalDeclExprError::ExpectOutputType(
-                                TokenIdx(
-                                    993,
+                Ok(
+                    Decl::Form(
+                        FormDecl::Fn(
+                            FnDecl {
+                                path: FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                ast_idx: 214,
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: None,
+                                        path: RegionPath::Decl(
+                                            DeclRegionPath::Entity(
+                                                EntityPath::ModuleItem(
+                                                    ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 0,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::Prefix {
+                                                    opr: Ref,
+                                                    opr_token_idx: TokenIdx(
+                                                        989,
+                                                    ),
+                                                    opd: 0,
+                                                },
+                                                Expr::List {
+                                                    lbox_token_idx: TokenIdx(
+                                                        993,
+                                                    ),
+                                                    items: ArenaIdxRange(
+                                                        2..2,
+                                                    ),
+                                                    rbox_token_idx: TokenIdx(
+                                                        994,
+                                                    ),
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 1,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::ExplicitApplication {
+                                                    function: 2,
+                                                    argument: 3,
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        990,
+                                                    ),
+                                                    ident: `ConnectedComponent`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        995,
+                                                    ),
+                                                    ident: `RawContour`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [
+                                                    PatternExpr::Ident {
+                                                        modifier: None,
+                                                        ident_token: IdentToken {
+                                                            ident: `cc`,
+                                                            token_idx: TokenIdx(
+                                                                987,
+                                                            ),
+                                                        },
+                                                    },
+                                                ],
+                                            },
+                                            pattern_infos: [
+                                                Parameter,
+                                            ],
+                                            pattern_symbol_maps: [
+                                                [
+                                                    (
+                                                        `cc`,
+                                                        0,
+                                                    ),
+                                                ],
+                                            ],
+                                            pattern_symbol_arena: Arena {
+                                                data: [
+                                                    PatternSymbol::Atom(
+                                                        0,
+                                                    ),
+                                                ],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [
+                                                    CurrentSymbol {
+                                                        access_start: TokenIdx(
+                                                            988,
+                                                        ),
+                                                        access_end: None,
+                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                            ident: `cc`,
+                                                            pattern_symbol_idx: 0,
+                                                        },
+                                                    },
+                                                ],
+                                            },
+                                            allow_self_type: False,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [
+                                                ExplicitParameter {
+                                                    pattern: 0,
+                                                    ty: 1,
+                                                },
+                                            ],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: ReturnType,
+                                                expr: 4,
+                                            },
+                                        ],
+                                    },
+                                },
+                                implicit_parameter_decl_list: None,
+                                parameter_decl_list: ExplicitParameterDeclList {
+                                    lpar: LeftParenthesisToken(
+                                        TokenIdx(
+                                            986,
+                                        ),
+                                    ),
+                                    self_parameter: None,
+                                    regular_parameters: [
+                                        RegularParameterDeclPattern {
+                                            pattern: 0,
+                                            variables: ArenaIdxRange(
+                                                0..1,
+                                            ),
+                                            colon: ColonToken(
+                                                TokenIdx(
+                                                    988,
+                                                ),
+                                            ),
+                                            ty: 1,
+                                        },
+                                    ],
+                                    commas: [],
+                                    rpar: RightParenthesisToken(
+                                        TokenIdx(
+                                            991,
+                                        ),
+                                    ),
+                                },
+                                curry_token: Some(
+                                    CurryToken(
+                                        TokenIdx(
+                                            992,
+                                        ),
+                                    ),
                                 ),
-                            ),
+                                return_ty: Some(
+                                    ReturnTypeExpr {
+                                        expr: 4,
+                                    },
+                                ),
+                                eol_colon: EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            996,
+                                        ),
+                                    },
+                                ),
+                            },
                         ),
                     ),
                 ),

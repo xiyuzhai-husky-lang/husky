@@ -36,7 +36,13 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Derived(
-                        ExprError,
+                        TypeError(
+                            RawTypeError(
+                                Derived(
+                                    SignatureError,
+                                ),
+                            ),
+                        ),
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -431,7 +437,7 @@
         expr_local_terms: [
             Err(
                 ExprTermError::Derived(
-                    DerivedExprTermError::ExprError,
+                    DerivedExprTermError::AmbiguousTypePath,
                 ),
             ),
             Err(

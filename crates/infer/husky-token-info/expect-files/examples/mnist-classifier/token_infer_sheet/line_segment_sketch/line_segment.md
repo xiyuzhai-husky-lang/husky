@@ -8,12 +8,8 @@ Ok(
                     0,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: CrateRoot {
-                        root_module: ModulePath(
-                            Id {
-                                value: 40,
-                            },
-                        ),
+                    original_symbol: EntitySymbol::CrateRoot {
+                        root_module_path: `mnist_classifier`,
                     },
                 },
             },
@@ -24,12 +20,20 @@ Ok(
                     1,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 36,
+                    original_symbol: EntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `mnist_classifier::geom2d`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            ast_idx: 13,
+                            ident_token: IdentToken {
+                                ident: `geom2d`,
+                                token_idx: TokenIdx(
+                                    5,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },

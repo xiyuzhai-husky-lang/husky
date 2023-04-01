@@ -8,12 +8,20 @@ Ok(
                         EntitySymbolEntry {
                             ident: `quick_sort`,
                             visibility: Visibility::Pub,
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 108,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`quick_sort::quick_sort`, `Fn`),
+                                    ),
+                                    visibility: Visibility::Pub,
+                                    ast_idx: 30,
+                                    ident_token: IdentToken {
+                                        ident: `quick_sort`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -21,12 +29,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `quick_sort`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 109,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`quick_sort::quick_sort_aux`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `quick_sort`,
+                                    ),
+                                    ast_idx: 31,
+                                    ident_token: IdentToken {
+                                        ident: `quick_sort_aux`,
+                                        token_idx: TokenIdx(
+                                            41,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -34,12 +52,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `quick_sort`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 110,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`quick_sort::partition`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `quick_sort`,
+                                    ),
+                                    ast_idx: 32,
+                                    ident_token: IdentToken {
+                                        ident: `partition`,
+                                        token_idx: TokenIdx(
+                                            102,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -47,12 +75,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `quick_sort`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 111,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `quick_sort`,
+                                    ),
+                                    ast_idx: 34,
+                                    ident_token: IdentToken {
+                                        ident: `quick_sort_works_for_integers`,
+                                        token_idx: TokenIdx(
+                                            227,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                         EntitySymbolEntry {
@@ -60,12 +98,22 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `quick_sort`,
                             ),
-                            symbol: ModuleItem(
-                                ModuleItemSymbol(
-                                    Id {
-                                        value: 112,
+                            symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `quick_sort`,
+                                    ),
+                                    ast_idx: 36,
+                                    ident_token: IdentToken {
+                                        ident: `quick_sort_works_for_strs`,
+                                        token_idx: TokenIdx(
+                                            287,
+                                        ),
                                     },
-                                ),
+                                },
                             ),
                         },
                     ],

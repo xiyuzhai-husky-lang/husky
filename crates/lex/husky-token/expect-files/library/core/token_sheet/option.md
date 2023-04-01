@@ -13,35 +13,47 @@ Ok(
                 `Option`,
             ),
             Token::Punctuation(
-                Punctuation::LaOrLt,
+                Punctuation(
+                    PunctuationMapped::LaOrLt,
+                ),
             ),
             Token::Ident(
                 `T`,
             ),
             Token::Punctuation(
-                Punctuation::RaOrGt,
+                Punctuation(
+                    PunctuationMapped::RaOrGt,
+                ),
             ),
             Token::Punctuation(
-                Punctuation::Vertical,
+                Punctuation(
+                    PunctuationMapped::Vertical,
+                ),
             ),
             Token::Ident(
                 `Some`,
             ),
             Token::Punctuation(
-                Punctuation::Bra(
-                    Par,
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
                 ),
             ),
             Token::Ident(
                 `T`,
             ),
             Token::Punctuation(
-                Punctuation::Ket(
-                    Par,
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
                 ),
             ),
             Token::Punctuation(
-                Punctuation::Vertical,
+                Punctuation(
+                    PunctuationMapped::Vertical,
+                ),
             ),
             Token::Ident(
                 `None`,

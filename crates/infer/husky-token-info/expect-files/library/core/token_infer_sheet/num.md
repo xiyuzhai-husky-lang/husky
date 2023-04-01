@@ -8,12 +8,8 @@ Ok(
                     0,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: CrateRoot {
-                        root_module: ModulePath(
-                            Id {
-                                value: 1,
-                            },
-                        ),
+                    original_symbol: EntitySymbol::CrateRoot {
+                        root_module_path: `core`,
                     },
                 },
             },
@@ -24,12 +20,18 @@ Ok(
                     1,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 6,
+                    original_symbol: EntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `core::ops`,
+                            visibility: Visibility::Pub,
+                            ast_idx: 5,
+                            ident_token: IdentToken {
+                                ident: `ops`,
+                                token_idx: TokenIdx(
+                                    17,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },
@@ -40,12 +42,20 @@ Ok(
                     2,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: ModuleItem(
-                        ModuleItemSymbol(
-                            Id {
-                                value: 26,
+                    original_symbol: EntitySymbol::ModuleItem(
+                        ModuleItemSymbol {
+                            path: ModuleItemPath::Trait(
+                                TraitPath(`core::ops::Add`),
+                            ),
+                            visibility: Visibility::Pub,
+                            ast_idx: 26,
+                            ident_token: IdentToken {
+                                ident: `Add`,
+                                token_idx: TokenIdx(
+                                    9,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },

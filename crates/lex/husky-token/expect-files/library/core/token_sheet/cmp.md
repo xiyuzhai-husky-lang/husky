@@ -11,7 +11,9 @@ Ok(
                 `PartialEq`,
             ),
             Token::Punctuation(
-                Punctuation::Semicolon,
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
             ),
             Token::Keyword(
                 Keyword::Pub,
@@ -23,7 +25,9 @@ Ok(
                 `Eq`,
             ),
             Token::Punctuation(
-                Punctuation::Semicolon,
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
             ),
             Token::Keyword(
                 Keyword::Pub,
@@ -35,7 +39,9 @@ Ok(
                 `PartialOrd`,
             ),
             Token::Punctuation(
-                Punctuation::Semicolon,
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
             ),
             Token::Keyword(
                 Keyword::Pub,
@@ -47,7 +53,9 @@ Ok(
                 `Ord`,
             ),
             Token::Punctuation(
-                Punctuation::Semicolon,
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
             ),
         ],
         group_starts: [

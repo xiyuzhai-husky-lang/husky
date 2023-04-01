@@ -174,7 +174,7 @@ where
     type Error = TokenError;
 
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(ctx, Punctuation::RPAR, LeftParenthesisToken)
+        parse_specific_punctuation_from(ctx, Punctuation::LPAR, LeftParenthesisToken)
     }
 }
 
@@ -234,7 +234,7 @@ where
     type Error = TokenError;
 
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(ctx, Punctuation::RBOX, LeftBoxBracketToken)
+        parse_specific_punctuation_from(ctx, Punctuation::LBOX, LeftBoxBracketToken)
     }
 }
 

@@ -8,12 +8,8 @@ Ok(
                     0,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: CrateRoot {
-                        root_module: ModulePath(
-                            Id {
-                                value: 40,
-                            },
-                        ),
+                    original_symbol: EntitySymbol::CrateRoot {
+                        root_module_path: `mnist_classifier`,
                     },
                 },
             },
@@ -24,12 +20,20 @@ Ok(
                     3,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 37,
+                    original_symbol: EntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `mnist_classifier::line_segment_sketch`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            ast_idx: 14,
+                            ident_token: IdentToken {
+                                ident: `line_segment_sketch`,
+                                token_idx: TokenIdx(
+                                    7,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },
@@ -42,12 +46,8 @@ Ok(
                     1,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: CrateRoot {
-                        root_module: ModulePath(
-                            Id {
-                                value: 40,
-                            },
-                        ),
+                    original_symbol: EntitySymbol::CrateRoot {
+                        root_module_path: `mnist_classifier`,
                     },
                 },
             },
@@ -58,12 +58,20 @@ Ok(
                     4,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 35,
+                    original_symbol: EntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `mnist_classifier::raw_contour`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            ast_idx: 12,
+                            ident_token: IdentToken {
+                                ident: `raw_contour`,
+                                token_idx: TokenIdx(
+                                    3,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },
@@ -76,12 +84,8 @@ Ok(
                     2,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: CrateRoot {
-                        root_module: ModulePath(
-                            Id {
-                                value: 40,
-                            },
-                        ),
+                    original_symbol: EntitySymbol::CrateRoot {
+                        root_module_path: `mnist_classifier`,
                     },
                 },
             },
@@ -92,12 +96,20 @@ Ok(
                     5,
                 ),
                 state: UseExprRuleState::Resolved {
-                    original_symbol: Submodule(
-                        SubmoduleSymbol(
-                            Id {
-                                value: 36,
+                    original_symbol: EntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `mnist_classifier::geom2d`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            ast_idx: 13,
+                            ident_token: IdentToken {
+                                ident: `geom2d`,
+                                token_idx: TokenIdx(
+                                    5,
+                                ),
                             },
-                        ),
+                        },
                     ),
                 },
             },

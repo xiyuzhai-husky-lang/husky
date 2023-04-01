@@ -13,7 +13,9 @@ Ok(
                 `Ref`,
             ),
             Token::Punctuation(
-                Punctuation::LaOrLt,
+                Punctuation(
+                    PunctuationMapped::LaOrLt,
+                ),
             ),
             Token::Keyword(
                 Keyword::Pattern(
@@ -24,7 +26,9 @@ Ok(
                 `'a`,
             ),
             Token::Punctuation(
-                Punctuation::Comma,
+                Punctuation(
+                    PunctuationMapped::Comma,
+                ),
             ),
             Token::Keyword(
                 Keyword::Pattern(
@@ -35,10 +39,14 @@ Ok(
                 `E`,
             ),
             Token::Punctuation(
-                Punctuation::RaOrGt,
+                Punctuation(
+                    PunctuationMapped::RaOrGt,
+                ),
             ),
             Token::Punctuation(
-                Punctuation::Semicolon,
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
             ),
             Token::Keyword(
                 Keyword::Pub,
@@ -52,7 +60,9 @@ Ok(
                 `RefMut`,
             ),
             Token::Punctuation(
-                Punctuation::LaOrLt,
+                Punctuation(
+                    PunctuationMapped::LaOrLt,
+                ),
             ),
             Token::Keyword(
                 Keyword::Pattern(
@@ -63,7 +73,9 @@ Ok(
                 `'a`,
             ),
             Token::Punctuation(
-                Punctuation::Comma,
+                Punctuation(
+                    PunctuationMapped::Comma,
+                ),
             ),
             Token::Keyword(
                 Keyword::Pattern(
@@ -74,10 +86,14 @@ Ok(
                 `E`,
             ),
             Token::Punctuation(
-                Punctuation::RaOrGt,
+                Punctuation(
+                    PunctuationMapped::RaOrGt,
+                ),
             ),
             Token::Punctuation(
-                Punctuation::Semicolon,
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
             ),
             Token::Keyword(
                 Keyword::Pub,
@@ -91,7 +107,9 @@ Ok(
                 `Leash`,
             ),
             Token::Punctuation(
-                Punctuation::LaOrLt,
+                Punctuation(
+                    PunctuationMapped::LaOrLt,
+                ),
             ),
             Token::Keyword(
                 Keyword::Pattern(
@@ -102,10 +120,14 @@ Ok(
                 `E`,
             ),
             Token::Punctuation(
-                Punctuation::RaOrGt,
+                Punctuation(
+                    PunctuationMapped::RaOrGt,
+                ),
             ),
             Token::Punctuation(
-                Punctuation::Semicolon,
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
             ),
         ],
         group_starts: [

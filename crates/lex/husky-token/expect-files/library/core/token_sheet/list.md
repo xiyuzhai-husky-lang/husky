@@ -13,7 +13,9 @@ Ok(
                 `List`,
             ),
             Token::Punctuation(
-                Punctuation::LaOrLt,
+                Punctuation(
+                    PunctuationMapped::LaOrLt,
+                ),
             ),
             Token::Keyword(
                 Keyword::Pattern(
@@ -24,22 +26,30 @@ Ok(
                 `E`,
             ),
             Token::Punctuation(
-                Punctuation::RaOrGt,
+                Punctuation(
+                    PunctuationMapped::RaOrGt,
+                ),
             ),
             Token::Punctuation(
-                Punctuation::Semicolon,
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
             ),
             Token::Keyword(
                 Keyword::Impl,
             ),
             Token::Punctuation(
-                Punctuation::LaOrLt,
+                Punctuation(
+                    PunctuationMapped::LaOrLt,
+                ),
             ),
             Token::Ident(
                 `E`,
             ),
             Token::Punctuation(
-                Punctuation::RaOrGt,
+                Punctuation(
+                    PunctuationMapped::RaOrGt,
+                ),
             ),
             Token::Ident(
                 `List`,
@@ -48,7 +58,9 @@ Ok(
                 `E`,
             ),
             Token::Punctuation(
-                Punctuation::Colon,
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
             ),
             Token::Keyword(
                 Keyword::Form(
@@ -59,25 +71,33 @@ Ok(
                 `ilen`,
             ),
             Token::Punctuation(
-                Punctuation::Bra(
-                    Par,
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
                 ),
             ),
             Token::Punctuation(
-                Punctuation::Ket(
-                    Par,
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
                 ),
             ),
             Token::Punctuation(
-                Punctuation::Binary(
-                    Curry,
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        Curry,
+                    ),
                 ),
             ),
             Token::Ident(
                 `i32`,
             ),
             Token::Punctuation(
-                Punctuation::Semicolon,
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
             ),
         ],
         group_starts: [
