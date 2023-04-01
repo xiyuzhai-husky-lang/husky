@@ -1,6 +1,3 @@
-task:
-    mnist::new_binary_dataset()
-    
 mod connected_component
 mod raw_contour
 mod geom2d
@@ -9,15 +6,15 @@ mod fermi
 mod digits
 mod major
 
-use mnist::BinaryImage28
-use mnist::MnistLabel
-use major::*
-use digits::*
-use fermi::*;
-use raw_contour::find_raw_contours
-use line_segment_sketch::*
-use domains::ml::models::naive::naive_i32
+use self::major::*
+use self::digits::*
+use self::fermi::*;
+use self::raw_contour::*
+use self::line_segment_sketch::*
 use mnist::*
+
+task:
+    new_binary_dataset()
 
 main:
     is_one?

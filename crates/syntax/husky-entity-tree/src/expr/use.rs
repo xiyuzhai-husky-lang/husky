@@ -1,4 +1,5 @@
 use crate::*;
+use husky_opn_syntax::BinaryOpr;
 use husky_token::*;
 use parsec::{OriginalError, ParseContext, ParseFrom, StreamWrapper};
 use thiserror::Error;
@@ -18,7 +19,7 @@ pub struct ParentUseExpr {
 pub enum UseExpr {
     All { star_token: StarToken },
     Leaf { ident_token: IdentToken },
-    SelfOne { self_token: SelfValueToken },
+    SelfOne { self_value_token: SelfValueToken },
     Parent(ParentUseExpr),
     Err(UseExprError),
 }
@@ -270,7 +271,9 @@ impl<'a, 'b> UseExprParser<'a, 'b> {
                 ident_token,
             }
             .into()),
-            UseExpr::SelfOne { self_token } => Err(OriginalUseExprError::InvalidSelfAsRoot {
+            UseExpr::SelfOne {
+                self_value_token: self_token,
+            } => Err(OriginalUseExprError::InvalidSelfAsRoot {
                 use_token,
                 self_token,
             }
@@ -330,13 +333,29 @@ impl<'a, 'b> ParseFrom<UseExprParser<'a, 'b>> for UseExpr {
                 children: ctx.parse_children(),
             })));
         }
-        if let Some(_self_value_token) = ctx.parse::<SelfValueToken>()? {
+        if let Some(self_value_token) = ctx.parse::<SelfValueToken>()? {
             // differentiate betwee self one and self children
-            todo!()
+            if ctx.peek()
+                == Some(&Token::Punctuation(Punctuation::Binary(
+                    BinaryOpr::ScopeResolution,
+                )))
+            {
+                Ok(Some(UseExpr::Parent(ParentUseExpr {
+                    parent_name_token: self_value_token.into(),
+                    scope_resolution_token: Ok(ctx
+                        .parse()
+                        .expect("guaranteed by peek")
+                        .expect("guaranteed by peek")),
+                    children: ctx.parse_children(),
+                })))
+            } else {
+                Ok(Some(UseExpr::SelfOne { self_value_token }))
+            }
+        } else {
+            let Some(ident_token) = ctx.parse::<IdentToken>()? else {
+                return Ok(None);
+            };
+            Ok(Some(ctx.parse_use_expr_after_ident(ident_token)?))
         }
-        let Some(ident_token) = ctx.parse::<IdentToken>()? else {
-            return Ok(None);
-        };
-        Ok(Some(ctx.parse_use_expr_after_ident(ident_token)?))
     }
 }

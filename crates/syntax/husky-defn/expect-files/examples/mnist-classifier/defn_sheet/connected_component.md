@@ -5590,16 +5590,16 @@ Ok(
                                             ),
                                             expr_arena: Arena {
                                                 data: [
-                                                    Expr::EntityPath {
-                                                        entity_path_expr: 0,
-                                                        path: Some(
-                                                            EntityPath::ModuleItem(
-                                                                ModuleItemPath::Form(
-                                                                    FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                    Expr::Err(
+                                                        ExprError::Original(
+                                                            OriginalExprError::UnrecognizedIdent {
+                                                                token_idx: TokenIdx(
+                                                                    87,
                                                                 ),
-                                                            ),
+                                                                ident: `find_raw_contours`,
+                                                            },
                                                         ),
-                                                    },
+                                                    ),
                                                     Expr::SelfValue(
                                                         TokenIdx(
                                                             89,
@@ -5627,19 +5627,7 @@ Ok(
                                                 ],
                                             },
                                             entity_path_expr_arena: Arena {
-                                                data: [
-                                                    EntityPathExpr::Root {
-                                                        token_idx: TokenIdx(
-                                                            87,
-                                                        ),
-                                                        ident: `find_raw_contours`,
-                                                        entity_path: EntityPath::ModuleItem(
-                                                            ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ],
+                                                data: [],
                                             },
                                             stmt_arena: Arena {
                                                 data: [
