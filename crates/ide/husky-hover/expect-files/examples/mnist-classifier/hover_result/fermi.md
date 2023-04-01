@@ -130,7 +130,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 44;\n\ntoken_line_group_idx = 5\n\ntoken = Token::Ident(\n    `ilen`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 44;\n\ntoken_line_group_idx = 5\n\ntoken = Token::Ident(\n    `ilen`,\n);\n\ntoken_info = TokenInfo::Method;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -190,7 +190,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 66;\n\ntoken_line_group_idx = 8\n\ntoken = Token::Ident(\n    `rel_norm`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 66;\n\ntoken_line_group_idx = 8\n\ntoken = Token::Ident(\n    `rel_norm`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::AssociatedItem(\n            AssociatedItemPath::TypeItem(\n                TypeItemPath {\n                    parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),\n                    ident: `rel_norm`,\n                    item_kind: Memo,\n                },\n            ),\n        ),\n    ),\n    Some(\n        AssociatedItem {\n            associated_item_kind: TypeItem(\n                Memo,\n            ),\n        },\n    ),\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -220,7 +220,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 77;\n\ntoken_line_group_idx = 10\n\ntoken = Token::Ident(\n    `i`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 77;\n\ntoken_line_group_idx = 10\n\ntoken = Token::Ident(\n    `i`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 1,\n    current_symbol_kind: CurrentSymbolKind::FrameVariable(\n        3,\n    ),\n    expr_region: ExprRegionLeash(_),\n};\n\nCurrentSymbol {\n    access_start: TokenIdx(\n        87,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                102,\n            ),\n        ),\n    ),\n    variant: CurrentSymbolVariant::FrameVariable {\n        ident: `i`,\n        expr_idx: 3,\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -370,7 +370,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 132;\n\ntoken_line_group_idx = 16\n\ntoken = Token::Keyword(\n    Keyword::Pronoun(\n        SelfValue,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "Other\ntoken_idx = 132;\n\ntoken_line_group_idx = 16\n\ntoken = Token::Keyword(\n    Keyword::Pronoun(\n        SelfValue,\n    ),\n);\n\ntoken_info = TokenInfo::SelfValue;\n\nself value\n",
                             },
                         ),
                         range: Some(

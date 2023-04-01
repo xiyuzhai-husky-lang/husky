@@ -1,17 +1,18 @@
 use super::*;
 
+/// used for memo, var, const, constexpr
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct VarTypeExpr {
+pub struct FormTypeExpr {
     expr: ExprIdx,
 }
 
-impl VarTypeExpr {
+impl FormTypeExpr {
     pub fn expr(&self) -> ExprIdx {
         self.expr
     }
 }
 
-impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for VarTypeExpr {
+impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for FormTypeExpr {
     type Error = ExprError;
 
     fn parse_from_without_guaranteed_rollback(
@@ -19,7 +20,7 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for VarTypeExpr {
     ) -> ExprResult<Option<Self>> {
         if let Some(expr) = ctx.parse_expr(Some(ExprEnvironment::TypeBeforeEq)) {
             ctx.add_expr_root(ExprRoot::new(ExprRootKind::VarType, expr));
-            Ok(Some(VarTypeExpr { expr }))
+            Ok(Some(FormTypeExpr { expr }))
         } else {
             Ok(None)
         }

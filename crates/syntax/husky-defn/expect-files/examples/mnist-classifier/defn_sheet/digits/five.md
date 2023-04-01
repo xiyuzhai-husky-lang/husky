@@ -25,7 +25,7 @@ Ok(
                                         ),
                                     ),
                                     var_ty: Some(
-                                        VarTypeExpr {
+                                        FormTypeExpr {
                                             expr: 1,
                                         },
                                     ),

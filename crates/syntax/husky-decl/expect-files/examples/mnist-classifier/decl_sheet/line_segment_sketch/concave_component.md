@@ -583,13 +583,249 @@ Ok(
                         ident: `norm`,
                     },
                 ),
-                Err(
-                    DeclError::Original(
-                        OriginalDeclError::Expr(
-                            OriginalDeclExprError::ExpectEolColon(
-                                TokenIdx(
-                                    54,
-                                ),
+                Ok(
+                    Decl::AssociatedItem(
+                        AssociatedItemDecl::TypeItem(
+                            TypeItemDecl::Memo(
+                                TypeMemoDecl {
+                                    path: Some(
+                                        TypeItemPath {
+                                            parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            ident: `norm`,
+                                            item_kind: Memo,
+                                        },
+                                    ),
+                                    associated_item: AssociatedItem {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                            ident: `norm`,
+                                        },
+                                        path: Some(
+                                            AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    ident: `norm`,
+                                                    item_kind: Memo,
+                                                },
+                                            ),
+                                        ),
+                                        impl_block: ImplBlock::Type(
+                                            TypeImplBlock {
+                                                id: TypeImplBlockId {
+                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                                ast_idx: 75,
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        49,
+                                                    ),
+                                                },
+                                                ty_expr: 8,
+                                                body: ArenaIdxRange(
+                                                    39..53,
+                                                ),
+                                            },
+                                        ),
+                                        ast_idx: 39,
+                                        ident: `norm`,
+                                        associated_item_kind: TypeItem(
+                                            Memo,
+                                        ),
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::line_segment_sketch::concave_component`,
+                                        ),
+                                        is_generic: false,
+                                    },
+                                    ast_idx: 39,
+                                    colon_token: Some(
+                                        ColonToken(
+                                            TokenIdx(
+                                                54,
+                                            ),
+                                        ),
+                                    ),
+                                    memo_ty: Some(
+                                        FormTypeExpr {
+                                            expr: 0,
+                                        },
+                                    ),
+                                    eq_token: EqToken(
+                                        TokenIdx(
+                                            56,
+                                        ),
+                                    ),
+                                    expr_or_eol_token: Left(
+                                        EolToken::Colon(
+                                            EolColonToken {
+                                                token_idx: TokenIdx(
+                                                    57,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                    expr_region: ExprRegion {
+                                        data: ExprRegionData {
+                                            parent: Some(
+                                                ExprRegion {
+                                                    data: ExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            DeclRegionPath::ImplBlock(
+                                                                ImplBlockId::Type(
+                                                                    TypeImplBlockId {
+                                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 0,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        entity_path_expr_arena: Arena {
+                                                            data: [
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        50,
+                                                                    ),
+                                                                    ident: `ConcaveComponent`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: PatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            ExprRoot {
+                                                                kind: SelfType,
+                                                                expr: 0,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                DeclRegionPath::AssociatedItem(
+                                                    AssociatedItemId {
+                                                        impl_block_id: ImplBlockId::Type(
+                                                            TypeImplBlockId {
+                                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        ident: `norm`,
+                                                    },
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 0,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            entity_path_expr_arena: Arena {
+                                                data: [
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            55,
+                                                        ),
+                                                        ident: `f32`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_infos: [],
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                            },
+                                            symbol_region: SymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [],
+                                            },
+                                            roots: [
+                                                ExprRoot {
+                                                    kind: VarType,
+                                                    expr: 0,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                },
                             ),
                         ),
                     ),
@@ -608,13 +844,249 @@ Ok(
                         ident: `rel_norm`,
                     },
                 ),
-                Err(
-                    DeclError::Original(
-                        OriginalDeclError::Expr(
-                            OriginalDeclExprError::ExpectEolColon(
-                                TokenIdx(
-                                    63,
-                                ),
+                Ok(
+                    Decl::AssociatedItem(
+                        AssociatedItemDecl::TypeItem(
+                            TypeItemDecl::Memo(
+                                TypeMemoDecl {
+                                    path: Some(
+                                        TypeItemPath {
+                                            parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            ident: `rel_norm`,
+                                            item_kind: Memo,
+                                        },
+                                    ),
+                                    associated_item: AssociatedItem {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                            ident: `rel_norm`,
+                                        },
+                                        path: Some(
+                                            AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    ident: `rel_norm`,
+                                                    item_kind: Memo,
+                                                },
+                                            ),
+                                        ),
+                                        impl_block: ImplBlock::Type(
+                                            TypeImplBlock {
+                                                id: TypeImplBlockId {
+                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                                ast_idx: 75,
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        49,
+                                                    ),
+                                                },
+                                                ty_expr: 8,
+                                                body: ArenaIdxRange(
+                                                    39..53,
+                                                ),
+                                            },
+                                        ),
+                                        ast_idx: 40,
+                                        ident: `rel_norm`,
+                                        associated_item_kind: TypeItem(
+                                            Memo,
+                                        ),
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::line_segment_sketch::concave_component`,
+                                        ),
+                                        is_generic: false,
+                                    },
+                                    ast_idx: 40,
+                                    colon_token: Some(
+                                        ColonToken(
+                                            TokenIdx(
+                                                63,
+                                            ),
+                                        ),
+                                    ),
+                                    memo_ty: Some(
+                                        FormTypeExpr {
+                                            expr: 0,
+                                        },
+                                    ),
+                                    eq_token: EqToken(
+                                        TokenIdx(
+                                            65,
+                                        ),
+                                    ),
+                                    expr_or_eol_token: Left(
+                                        EolToken::Colon(
+                                            EolColonToken {
+                                                token_idx: TokenIdx(
+                                                    66,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                    expr_region: ExprRegion {
+                                        data: ExprRegionData {
+                                            parent: Some(
+                                                ExprRegion {
+                                                    data: ExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            DeclRegionPath::ImplBlock(
+                                                                ImplBlockId::Type(
+                                                                    TypeImplBlockId {
+                                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 0,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        entity_path_expr_arena: Arena {
+                                                            data: [
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        50,
+                                                                    ),
+                                                                    ident: `ConcaveComponent`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: PatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            ExprRoot {
+                                                                kind: SelfType,
+                                                                expr: 0,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                DeclRegionPath::AssociatedItem(
+                                                    AssociatedItemId {
+                                                        impl_block_id: ImplBlockId::Type(
+                                                            TypeImplBlockId {
+                                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        ident: `rel_norm`,
+                                                    },
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 0,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            entity_path_expr_arena: Arena {
+                                                data: [
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            64,
+                                                        ),
+                                                        ident: `f32`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_infos: [],
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                            },
+                                            symbol_region: SymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [],
+                                            },
+                                            roots: [
+                                                ExprRoot {
+                                                    kind: VarType,
+                                                    expr: 0,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                },
                             ),
                         ),
                     ),
@@ -633,13 +1105,249 @@ Ok(
                         ident: `hausdorff_norm`,
                     },
                 ),
-                Err(
-                    DeclError::Original(
-                        OriginalDeclError::Expr(
-                            OriginalDeclExprError::ExpectEolColon(
-                                TokenIdx(
-                                    82,
-                                ),
+                Ok(
+                    Decl::AssociatedItem(
+                        AssociatedItemDecl::TypeItem(
+                            TypeItemDecl::Memo(
+                                TypeMemoDecl {
+                                    path: Some(
+                                        TypeItemPath {
+                                            parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            ident: `hausdorff_norm`,
+                                            item_kind: Memo,
+                                        },
+                                    ),
+                                    associated_item: AssociatedItem {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                            ident: `hausdorff_norm`,
+                                        },
+                                        path: Some(
+                                            AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    ident: `hausdorff_norm`,
+                                                    item_kind: Memo,
+                                                },
+                                            ),
+                                        ),
+                                        impl_block: ImplBlock::Type(
+                                            TypeImplBlock {
+                                                id: TypeImplBlockId {
+                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                                ast_idx: 75,
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        49,
+                                                    ),
+                                                },
+                                                ty_expr: 8,
+                                                body: ArenaIdxRange(
+                                                    39..53,
+                                                ),
+                                            },
+                                        ),
+                                        ast_idx: 41,
+                                        ident: `hausdorff_norm`,
+                                        associated_item_kind: TypeItem(
+                                            Memo,
+                                        ),
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::line_segment_sketch::concave_component`,
+                                        ),
+                                        is_generic: false,
+                                    },
+                                    ast_idx: 41,
+                                    colon_token: Some(
+                                        ColonToken(
+                                            TokenIdx(
+                                                82,
+                                            ),
+                                        ),
+                                    ),
+                                    memo_ty: Some(
+                                        FormTypeExpr {
+                                            expr: 0,
+                                        },
+                                    ),
+                                    eq_token: EqToken(
+                                        TokenIdx(
+                                            84,
+                                        ),
+                                    ),
+                                    expr_or_eol_token: Left(
+                                        EolToken::Colon(
+                                            EolColonToken {
+                                                token_idx: TokenIdx(
+                                                    85,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                    expr_region: ExprRegion {
+                                        data: ExprRegionData {
+                                            parent: Some(
+                                                ExprRegion {
+                                                    data: ExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            DeclRegionPath::ImplBlock(
+                                                                ImplBlockId::Type(
+                                                                    TypeImplBlockId {
+                                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 0,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        entity_path_expr_arena: Arena {
+                                                            data: [
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        50,
+                                                                    ),
+                                                                    ident: `ConcaveComponent`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: PatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            ExprRoot {
+                                                                kind: SelfType,
+                                                                expr: 0,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                DeclRegionPath::AssociatedItem(
+                                                    AssociatedItemId {
+                                                        impl_block_id: ImplBlockId::Type(
+                                                            TypeImplBlockId {
+                                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        ident: `hausdorff_norm`,
+                                                    },
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 0,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            entity_path_expr_arena: Arena {
+                                                data: [
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            83,
+                                                        ),
+                                                        ident: `f32`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_infos: [],
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                            },
+                                            symbol_region: SymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [],
+                                            },
+                                            roots: [
+                                                ExprRoot {
+                                                    kind: VarType,
+                                                    expr: 0,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                },
                             ),
                         ),
                     ),
@@ -658,13 +1366,249 @@ Ok(
                         ident: `angle_change`,
                     },
                 ),
-                Err(
-                    DeclError::Original(
-                        OriginalDeclError::Expr(
-                            OriginalDeclExprError::ExpectEolColon(
-                                TokenIdx(
-                                    170,
-                                ),
+                Ok(
+                    Decl::AssociatedItem(
+                        AssociatedItemDecl::TypeItem(
+                            TypeItemDecl::Memo(
+                                TypeMemoDecl {
+                                    path: Some(
+                                        TypeItemPath {
+                                            parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            ident: `angle_change`,
+                                            item_kind: Memo,
+                                        },
+                                    ),
+                                    associated_item: AssociatedItem {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                            ident: `angle_change`,
+                                        },
+                                        path: Some(
+                                            AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    ident: `angle_change`,
+                                                    item_kind: Memo,
+                                                },
+                                            ),
+                                        ),
+                                        impl_block: ImplBlock::Type(
+                                            TypeImplBlock {
+                                                id: TypeImplBlockId {
+                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                                ast_idx: 75,
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        49,
+                                                    ),
+                                                },
+                                                ty_expr: 8,
+                                                body: ArenaIdxRange(
+                                                    39..53,
+                                                ),
+                                            },
+                                        ),
+                                        ast_idx: 42,
+                                        ident: `angle_change`,
+                                        associated_item_kind: TypeItem(
+                                            Memo,
+                                        ),
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::line_segment_sketch::concave_component`,
+                                        ),
+                                        is_generic: false,
+                                    },
+                                    ast_idx: 42,
+                                    colon_token: Some(
+                                        ColonToken(
+                                            TokenIdx(
+                                                170,
+                                            ),
+                                        ),
+                                    ),
+                                    memo_ty: Some(
+                                        FormTypeExpr {
+                                            expr: 0,
+                                        },
+                                    ),
+                                    eq_token: EqToken(
+                                        TokenIdx(
+                                            172,
+                                        ),
+                                    ),
+                                    expr_or_eol_token: Left(
+                                        EolToken::Colon(
+                                            EolColonToken {
+                                                token_idx: TokenIdx(
+                                                    173,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                    expr_region: ExprRegion {
+                                        data: ExprRegionData {
+                                            parent: Some(
+                                                ExprRegion {
+                                                    data: ExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            DeclRegionPath::ImplBlock(
+                                                                ImplBlockId::Type(
+                                                                    TypeImplBlockId {
+                                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 0,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        entity_path_expr_arena: Arena {
+                                                            data: [
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        50,
+                                                                    ),
+                                                                    ident: `ConcaveComponent`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: PatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            ExprRoot {
+                                                                kind: SelfType,
+                                                                expr: 0,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                DeclRegionPath::AssociatedItem(
+                                                    AssociatedItemId {
+                                                        impl_block_id: ImplBlockId::Type(
+                                                            TypeImplBlockId {
+                                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        ident: `angle_change`,
+                                                    },
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 0,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            entity_path_expr_arena: Arena {
+                                                data: [
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            171,
+                                                        ),
+                                                        ident: `f32`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_infos: [],
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                            },
+                                            symbol_region: SymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [],
+                                            },
+                                            roots: [
+                                                ExprRoot {
+                                                    kind: VarType,
+                                                    expr: 0,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                },
                             ),
                         ),
                     ),
@@ -683,13 +1627,249 @@ Ok(
                         ident: `bounding_box`,
                     },
                 ),
-                Err(
-                    DeclError::Original(
-                        OriginalDeclError::Expr(
-                            OriginalDeclExprError::ExpectEolColon(
-                                TokenIdx(
-                                    242,
-                                ),
+                Ok(
+                    Decl::AssociatedItem(
+                        AssociatedItemDecl::TypeItem(
+                            TypeItemDecl::Memo(
+                                TypeMemoDecl {
+                                    path: Some(
+                                        TypeItemPath {
+                                            parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            ident: `bounding_box`,
+                                            item_kind: Memo,
+                                        },
+                                    ),
+                                    associated_item: AssociatedItem {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                            ident: `bounding_box`,
+                                        },
+                                        path: Some(
+                                            AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    ident: `bounding_box`,
+                                                    item_kind: Memo,
+                                                },
+                                            ),
+                                        ),
+                                        impl_block: ImplBlock::Type(
+                                            TypeImplBlock {
+                                                id: TypeImplBlockId {
+                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                                ast_idx: 75,
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        49,
+                                                    ),
+                                                },
+                                                ty_expr: 8,
+                                                body: ArenaIdxRange(
+                                                    39..53,
+                                                ),
+                                            },
+                                        ),
+                                        ast_idx: 43,
+                                        ident: `bounding_box`,
+                                        associated_item_kind: TypeItem(
+                                            Memo,
+                                        ),
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::line_segment_sketch::concave_component`,
+                                        ),
+                                        is_generic: false,
+                                    },
+                                    ast_idx: 43,
+                                    colon_token: Some(
+                                        ColonToken(
+                                            TokenIdx(
+                                                242,
+                                            ),
+                                        ),
+                                    ),
+                                    memo_ty: Some(
+                                        FormTypeExpr {
+                                            expr: 0,
+                                        },
+                                    ),
+                                    eq_token: EqToken(
+                                        TokenIdx(
+                                            244,
+                                        ),
+                                    ),
+                                    expr_or_eol_token: Left(
+                                        EolToken::Colon(
+                                            EolColonToken {
+                                                token_idx: TokenIdx(
+                                                    245,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                    expr_region: ExprRegion {
+                                        data: ExprRegionData {
+                                            parent: Some(
+                                                ExprRegion {
+                                                    data: ExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            DeclRegionPath::ImplBlock(
+                                                                ImplBlockId::Type(
+                                                                    TypeImplBlockId {
+                                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 0,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        entity_path_expr_arena: Arena {
+                                                            data: [
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        50,
+                                                                    ),
+                                                                    ident: `ConcaveComponent`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: PatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            ExprRoot {
+                                                                kind: SelfType,
+                                                                expr: 0,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                DeclRegionPath::AssociatedItem(
+                                                    AssociatedItemId {
+                                                        impl_block_id: ImplBlockId::Type(
+                                                            TypeImplBlockId {
+                                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        ident: `bounding_box`,
+                                                    },
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 0,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            entity_path_expr_arena: Arena {
+                                                data: [
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            243,
+                                                        ),
+                                                        ident: `BoundingBox`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_infos: [],
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                            },
+                                            symbol_region: SymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [],
+                                            },
+                                            roots: [
+                                                ExprRoot {
+                                                    kind: VarType,
+                                                    expr: 0,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                },
                             ),
                         ),
                     ),
@@ -708,13 +1888,249 @@ Ok(
                         ident: `relative_bounding_box`,
                     },
                 ),
-                Err(
-                    DeclError::Original(
-                        OriginalDeclError::Expr(
-                            OriginalDeclExprError::ExpectEolColon(
-                                TokenIdx(
-                                    372,
-                                ),
+                Ok(
+                    Decl::AssociatedItem(
+                        AssociatedItemDecl::TypeItem(
+                            TypeItemDecl::Memo(
+                                TypeMemoDecl {
+                                    path: Some(
+                                        TypeItemPath {
+                                            parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            ident: `relative_bounding_box`,
+                                            item_kind: Memo,
+                                        },
+                                    ),
+                                    associated_item: AssociatedItem {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                            ident: `relative_bounding_box`,
+                                        },
+                                        path: Some(
+                                            AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    ident: `relative_bounding_box`,
+                                                    item_kind: Memo,
+                                                },
+                                            ),
+                                        ),
+                                        impl_block: ImplBlock::Type(
+                                            TypeImplBlock {
+                                                id: TypeImplBlockId {
+                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                                ast_idx: 75,
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        49,
+                                                    ),
+                                                },
+                                                ty_expr: 8,
+                                                body: ArenaIdxRange(
+                                                    39..53,
+                                                ),
+                                            },
+                                        ),
+                                        ast_idx: 44,
+                                        ident: `relative_bounding_box`,
+                                        associated_item_kind: TypeItem(
+                                            Memo,
+                                        ),
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::line_segment_sketch::concave_component`,
+                                        ),
+                                        is_generic: false,
+                                    },
+                                    ast_idx: 44,
+                                    colon_token: Some(
+                                        ColonToken(
+                                            TokenIdx(
+                                                372,
+                                            ),
+                                        ),
+                                    ),
+                                    memo_ty: Some(
+                                        FormTypeExpr {
+                                            expr: 0,
+                                        },
+                                    ),
+                                    eq_token: EqToken(
+                                        TokenIdx(
+                                            374,
+                                        ),
+                                    ),
+                                    expr_or_eol_token: Left(
+                                        EolToken::Colon(
+                                            EolColonToken {
+                                                token_idx: TokenIdx(
+                                                    375,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                    expr_region: ExprRegion {
+                                        data: ExprRegionData {
+                                            parent: Some(
+                                                ExprRegion {
+                                                    data: ExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            DeclRegionPath::ImplBlock(
+                                                                ImplBlockId::Type(
+                                                                    TypeImplBlockId {
+                                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 0,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        entity_path_expr_arena: Arena {
+                                                            data: [
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        50,
+                                                                    ),
+                                                                    ident: `ConcaveComponent`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: PatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            ExprRoot {
+                                                                kind: SelfType,
+                                                                expr: 0,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                DeclRegionPath::AssociatedItem(
+                                                    AssociatedItemId {
+                                                        impl_block_id: ImplBlockId::Type(
+                                                            TypeImplBlockId {
+                                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        ident: `relative_bounding_box`,
+                                                    },
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 0,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            entity_path_expr_arena: Arena {
+                                                data: [
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            373,
+                                                        ),
+                                                        ident: `RelativeBoundingBox`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_infos: [],
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                            },
+                                            symbol_region: SymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [],
+                                            },
+                                            roots: [
+                                                ExprRoot {
+                                                    kind: VarType,
+                                                    expr: 0,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                },
                             ),
                         ),
                     ),

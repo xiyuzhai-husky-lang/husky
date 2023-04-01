@@ -70,7 +70,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 64;\n\ntoken_line_group_idx = 9\n\ntoken = Token::Ident(\n    `f32`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 64;\n\ntoken_line_group_idx = 9\n\ntoken = Token::Ident(\n    `f32`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::ModuleItem(\n            ModuleItemPath::Type(\n                TypePath(`core::num::f32`, `Extern`),\n            ),\n        ),\n    ),\n    None,\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -100,7 +100,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 96;\n\ntoken_line_group_idx = 13\n\ntoken = Token::Ident(\n    `strokes`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 96;\n\ntoken_line_group_idx = 13\n\ntoken = Token::Ident(\n    `strokes`,\n);\n\ntoken_info = TokenInfo::Field;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -130,7 +130,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 128;\n\ntoken_line_group_idx = 16\n\ntoken = Token::Ident(\n    `start`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 128;\n\ntoken_line_group_idx = 16\n\ntoken = Token::Ident(\n    `start`,\n);\n\ntoken_info = TokenInfo::Field;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -310,7 +310,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 320;\n\ntoken_line_group_idx = 38\n\ntoken = Token::Ident(\n    `x`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 320;\n\ntoken_line_group_idx = 38\n\ntoken = Token::Ident(\n    `x`,\n);\n\ntoken_info = TokenInfo::Field;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -370,7 +370,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 384;\n\ntoken_line_group_idx = 44\n\ntoken = Token::Keyword(\n    Keyword::Pronoun(\n        SelfValue,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "Other\ntoken_idx = 384;\n\ntoken_line_group_idx = 44\n\ntoken = Token::Keyword(\n    Keyword::Pronoun(\n        SelfValue,\n    ),\n);\n\ntoken_info = TokenInfo::SelfValue;\n\nself value\n",
                             },
                         ),
                         range: Some(
