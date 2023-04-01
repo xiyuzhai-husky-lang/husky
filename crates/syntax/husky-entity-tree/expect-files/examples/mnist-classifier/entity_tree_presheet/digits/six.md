@@ -57,7 +57,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::six::is_six`, `Gn`),
+                                FormPath(`mnist_classifier::digits::six::is_six`, `Var`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
@@ -89,7 +89,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `upmost`,
                                 token_idx: TokenIdx(
-                                    300,
+                                    301,
                                 ),
                             },
                         },
@@ -112,7 +112,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `bottom1`,
                                 token_idx: TokenIdx(
-                                    329,
+                                    330,
                                 ),
                             },
                         },

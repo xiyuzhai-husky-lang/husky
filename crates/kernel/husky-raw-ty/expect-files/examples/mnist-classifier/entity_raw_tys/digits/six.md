@@ -26,7 +26,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::digits::six::is_six`, `Gn`),
+                FormPath(`mnist_classifier::digits::six::is_six`, `Var`),
             ),
         ),
         Err(

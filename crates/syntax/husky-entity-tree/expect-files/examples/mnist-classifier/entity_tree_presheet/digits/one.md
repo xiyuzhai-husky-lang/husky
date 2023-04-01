@@ -11,7 +11,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Fn`),
+                                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Var`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::one`,
@@ -32,14 +32,14 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::one::is_one`, `Gn`),
+                                FormPath(`mnist_classifier::digits::one::is_one`, `Var`),
                             ),
                             visibility: Visibility::Pub,
                             ast_idx: 63,
                             ident_token: IdentToken {
                                 ident: `is_one`,
                                 token_idx: TokenIdx(
-                                    23,
+                                    24,
                                 ),
                             },
                         },
@@ -62,7 +62,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `upmost`,
                                 token_idx: TokenIdx(
-                                    500,
+                                    502,
                                 ),
                             },
                         },
@@ -85,7 +85,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `downmost`,
                                 token_idx: TokenIdx(
-                                    529,
+                                    531,
                                 ),
                             },
                         },
@@ -108,7 +108,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `hat`,
                                 token_idx: TokenIdx(
-                                    563,
+                                    565,
                                 ),
                             },
                         },

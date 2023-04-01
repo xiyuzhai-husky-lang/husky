@@ -45,7 +45,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Gn,
+                    Var,
                 ),
             ),
             Token::Ident(
@@ -53,9 +53,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Binary(
-                        Curry,
-                    ),
+                    PunctuationMapped::Colon,
                 ),
             ),
             Token::Punctuation(
@@ -65,6 +63,11 @@ Ok(
             ),
             Token::Ident(
                 `MnistLabel`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Eq,
+                ),
             ),
             Token::Punctuation(
                 Punctuation(
@@ -88,7 +91,7 @@ Ok(
         group_starts: [
             0,
             4,
-            14,
+            15,
         ],
         indents: [
             0,

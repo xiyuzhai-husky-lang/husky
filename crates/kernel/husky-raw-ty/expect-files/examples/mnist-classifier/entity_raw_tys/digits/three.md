@@ -2,7 +2,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Fn`),
+                FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Var`),
             ),
         ),
         Err(
@@ -14,7 +14,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::digits::three::is_three`, `Gn`),
+                FormPath(`mnist_classifier::digits::three::is_three`, `Var`),
             ),
         ),
         Err(

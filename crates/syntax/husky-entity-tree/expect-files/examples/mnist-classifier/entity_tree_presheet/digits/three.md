@@ -11,7 +11,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Fn`),
+                                FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Var`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::three`,
@@ -34,7 +34,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::three::is_three`, `Gn`),
+                                FormPath(`mnist_classifier::digits::three::is_three`, `Var`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
@@ -43,7 +43,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `is_three`,
                                 token_idx: TokenIdx(
-                                    26,
+                                    27,
                                 ),
                             },
                         },
@@ -66,7 +66,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `uparc`,
                                 token_idx: TokenIdx(
-                                    156,
+                                    158,
                                 ),
                             },
                         },
@@ -89,7 +89,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `downarc`,
                                 token_idx: TokenIdx(
-                                    190,
+                                    192,
                                 ),
                             },
                         },
@@ -112,7 +112,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `back`,
                                 token_idx: TokenIdx(
-                                    224,
+                                    226,
                                 ),
                             },
                         },

@@ -200,6 +200,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::Entity(
                 Some(
                     EntityPath::ModuleItem(

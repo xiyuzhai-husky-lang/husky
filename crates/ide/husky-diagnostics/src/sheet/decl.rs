@@ -83,9 +83,15 @@ impl Diagnose for OriginalDeclExprError {
             OriginalDeclExprError::ExpectImplicitParameterDecl(_) => {
                 format!("Syntax Error: expect implicit parameter declaration",)
             }
-            OriginalDeclExprError::ExpectRightParenthesisInParameterList(_) => todo!(),
-            OriginalDeclExprError::ExpectVariableType(_) => todo!(),
-            OriginalDeclExprError::ExpectEqTokenForVariable(_) => todo!(),
+            OriginalDeclExprError::ExpectRightParenthesisInParameterList(_) => {
+                format!("Syntax Error: ExpectRightParenthesisInParameterList",)
+            }
+            OriginalDeclExprError::ExpectVariableType(_) => {
+                format!("Syntax Error: ExpectVariableType",)
+            }
+            OriginalDeclExprError::ExpectEqTokenForVariable(_) => {
+                format!("Syntax Error: ExpectEqTokenForVariable",)
+            }
         }
     }
 
@@ -106,11 +112,11 @@ impl Diagnose for OriginalDeclExprError {
             }
             | OriginalDeclExprError::ExpectParameterDeclList(token_idx)
             | OriginalDeclExprError::ExpectImplicitParameterDecl(token_idx)
-            | OriginalDeclExprError::ExpectRightParenthesisInParameterList(token_idx) => {
+            | OriginalDeclExprError::ExpectRightParenthesisInParameterList(token_idx)
+            | OriginalDeclExprError::ExpectVariableType(token_idx)
+            | OriginalDeclExprError::ExpectEqTokenForVariable(token_idx) => {
                 ctx.ranged_token_sheet().token_text_range(*token_idx)
             }
-            OriginalDeclExprError::ExpectVariableType(_) => todo!(),
-            OriginalDeclExprError::ExpectEqTokenForVariable(_) => todo!(),
         }
     }
 }

@@ -23,7 +23,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Fn,
+                    Var,
                 ),
             ),
             Token::Ident(
@@ -31,13 +31,16 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Binary(
-                        Curry,
-                    ),
+                    PunctuationMapped::Colon,
                 ),
             ),
             Token::Ident(
                 `FermiMatchResult`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Eq,
+                ),
             ),
             Token::Punctuation(
                 Punctuation(
@@ -88,7 +91,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Fn,
+                    Var,
                 ),
             ),
             Token::Ident(
@@ -96,13 +99,16 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Binary(
-                        Curry,
-                    ),
+                    PunctuationMapped::Colon,
                 ),
             ),
             Token::Ident(
                 `FermiMatchResult`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Eq,
+                ),
             ),
             Token::Punctuation(
                 Punctuation(
@@ -175,7 +181,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Gn,
+                    Var,
                 ),
             ),
             Token::Ident(
@@ -183,9 +189,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Binary(
-                        Curry,
-                    ),
+                    PunctuationMapped::Colon,
                 ),
             ),
             Token::Punctuation(
@@ -195,6 +199,11 @@ Ok(
             ),
             Token::Ident(
                 `MnistLabel`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Eq,
+                ),
             ),
             Token::Punctuation(
                 Punctuation(
@@ -1283,44 +1292,44 @@ Ok(
         group_starts: [
             0,
             4,
-            9,
-            17,
-            22,
-            30,
-            40,
-            44,
-            48,
-            54,
-            63,
-            72,
-            76,
-            86,
-            96,
-            100,
-            110,
-            118,
-            127,
-            131,
-            137,
-            147,
-            156,
-            160,
-            170,
-            177,
-            183,
-            192,
-            196,
-            200,
+            10,
+            18,
+            24,
+            32,
+            43,
+            47,
+            51,
+            57,
+            66,
+            75,
+            79,
+            89,
+            99,
+            103,
+            113,
+            121,
+            130,
+            134,
+            140,
+            150,
+            159,
+            163,
+            173,
+            180,
+            186,
+            195,
+            199,
             203,
             206,
-            218,
-            226,
-            232,
+            209,
+            221,
+            229,
             235,
-            247,
-            255,
-            261,
-            271,
+            238,
+            250,
+            258,
+            264,
+            274,
         ],
         indents: [
             0,

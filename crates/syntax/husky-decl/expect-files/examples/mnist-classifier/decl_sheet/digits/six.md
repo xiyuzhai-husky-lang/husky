@@ -45,18 +45,111 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Gn`),
+                            FormPath(`mnist_classifier::digits::six::is_six`, `Var`),
                         ),
                     ),
                 ),
-                Err(
-                    DeclError::Original(
-                        OriginalDeclError::Expr(
-                            OriginalDeclExprError::ExpectParameterDeclList(
-                                TokenIdx(
-                                    38,
+                Ok(
+                    Decl::Form(
+                        FormDecl::Feature(
+                            FeatureDecl {
+                                path: FormPath(`mnist_classifier::digits::six::is_six`, `Var`),
+                                ast_idx: 52,
+                                colon_token: Some(
+                                    ColonToken(
+                                        TokenIdx(
+                                            38,
+                                        ),
+                                    ),
                                 ),
-                            ),
+                                var_ty: Some(
+                                    VarTypeExpr {
+                                        expr: 1,
+                                    },
+                                ),
+                                eq_token: EqToken(
+                                    TokenIdx(
+                                        41,
+                                    ),
+                                ),
+                                expr_or_eol_token: Left(
+                                    EolToken::Colon(
+                                        EolColonToken {
+                                            token_idx: TokenIdx(
+                                                42,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: None,
+                                        path: RegionPath::Decl(
+                                            DeclRegionPath::Entity(
+                                                EntityPath::ModuleItem(
+                                                    ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::digits::six::is_six`, `Var`),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                Expr::Err(
+                                                    ExprError::Original(
+                                                        OriginalExprError::UnrecognizedIdent {
+                                                            token_idx: TokenIdx(
+                                                                40,
+                                                            ),
+                                                            ident: `MnistLabel`,
+                                                        },
+                                                    ),
+                                                ),
+                                                Expr::Prefix {
+                                                    opr: Option,
+                                                    opr_token_idx: TokenIdx(
+                                                        39,
+                                                    ),
+                                                    opd: 0,
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: False,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: VarType,
+                                                expr: 1,
+                                            },
+                                        ],
+                                    },
+                                },
+                            },
                         ),
                     ),
                 ),
@@ -93,7 +186,7 @@ Ok(
                                                     ExprError::Original(
                                                         OriginalExprError::UnrecognizedIdent {
                                                             token_idx: TokenIdx(
-                                                                305,
+                                                                306,
                                                             ),
                                                             ident: `ConcaveComponent`,
                                                         },
@@ -102,7 +195,7 @@ Ok(
                                                 Expr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
-                                                        304,
+                                                        305,
                                                     ),
                                                     opd: 0,
                                                 },
@@ -119,7 +212,7 @@ Ok(
                                                 Expr::Prefix {
                                                     opr: Option,
                                                     opr_token_idx: TokenIdx(
-                                                        308,
+                                                        309,
                                                     ),
                                                     opd: 2,
                                                 },
@@ -129,7 +222,7 @@ Ok(
                                             data: [
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        309,
+                                                        310,
                                                     ),
                                                     ident: `f32`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -151,7 +244,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `cc`,
                                                             token_idx: TokenIdx(
-                                                                302,
+                                                                303,
                                                             ),
                                                         },
                                                     },
@@ -184,7 +277,7 @@ Ok(
                                                 data: [
                                                     CurrentSymbol {
                                                         access_start: TokenIdx(
-                                                            303,
+                                                            304,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ExplicitParameter {
@@ -215,7 +308,7 @@ Ok(
                                 parameter_decl_list: ExplicitParameterDeclList {
                                     lpar: LeftParenthesisToken(
                                         TokenIdx(
-                                            301,
+                                            302,
                                         ),
                                     ),
                                     self_parameter: None,
@@ -227,7 +320,7 @@ Ok(
                                             ),
                                             colon: ColonToken(
                                                 TokenIdx(
-                                                    303,
+                                                    304,
                                                 ),
                                             ),
                                             ty: 1,
@@ -236,14 +329,14 @@ Ok(
                                     commas: [],
                                     rpar: RightParenthesisToken(
                                         TokenIdx(
-                                            306,
+                                            307,
                                         ),
                                     ),
                                 },
                                 curry_token: Some(
                                     CurryToken(
                                         TokenIdx(
-                                            307,
+                                            308,
                                         ),
                                     ),
                                 ),
@@ -255,7 +348,7 @@ Ok(
                                 eol_colon: EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            310,
+                                            311,
                                         ),
                                     },
                                 ),
@@ -296,7 +389,7 @@ Ok(
                                                     ExprError::Original(
                                                         OriginalExprError::UnrecognizedIdent {
                                                             token_idx: TokenIdx(
-                                                                334,
+                                                                335,
                                                             ),
                                                             ident: `ConcaveComponent`,
                                                         },
@@ -305,7 +398,7 @@ Ok(
                                                 Expr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
-                                                        333,
+                                                        334,
                                                     ),
                                                     opd: 0,
                                                 },
@@ -322,7 +415,7 @@ Ok(
                                                 Expr::Prefix {
                                                     opr: Option,
                                                     opr_token_idx: TokenIdx(
-                                                        337,
+                                                        338,
                                                     ),
                                                     opd: 2,
                                                 },
@@ -332,7 +425,7 @@ Ok(
                                             data: [
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        338,
+                                                        339,
                                                     ),
                                                     ident: `f32`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -354,7 +447,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `cc`,
                                                             token_idx: TokenIdx(
-                                                                331,
+                                                                332,
                                                             ),
                                                         },
                                                     },
@@ -387,7 +480,7 @@ Ok(
                                                 data: [
                                                     CurrentSymbol {
                                                         access_start: TokenIdx(
-                                                            332,
+                                                            333,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ExplicitParameter {
@@ -418,7 +511,7 @@ Ok(
                                 parameter_decl_list: ExplicitParameterDeclList {
                                     lpar: LeftParenthesisToken(
                                         TokenIdx(
-                                            330,
+                                            331,
                                         ),
                                     ),
                                     self_parameter: None,
@@ -430,7 +523,7 @@ Ok(
                                             ),
                                             colon: ColonToken(
                                                 TokenIdx(
-                                                    332,
+                                                    333,
                                                 ),
                                             ),
                                             ty: 1,
@@ -439,14 +532,14 @@ Ok(
                                     commas: [],
                                     rpar: RightParenthesisToken(
                                         TokenIdx(
-                                            335,
+                                            336,
                                         ),
                                     ),
                                 },
                                 curry_token: Some(
                                     CurryToken(
                                         TokenIdx(
-                                            336,
+                                            337,
                                         ),
                                     ),
                                 ),
@@ -458,7 +551,7 @@ Ok(
                                 eol_colon: EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            339,
+                                            340,
                                         ),
                                     },
                                 ),

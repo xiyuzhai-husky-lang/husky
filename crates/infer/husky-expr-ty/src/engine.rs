@@ -104,12 +104,14 @@ impl<'a> ExprTypeEngine<'a> {
     fn infer_all_exprs(&mut self, local_term_region: &mut LocalTermRegion) {
         for root in self.expr_region_data.roots() {
             match root.kind() {
-                ExprRootKind::SelfType | ExprRootKind::ReturnType | ExprRootKind::FieldType => self
-                    .infer_new_expr_ty_discarded(
-                        root.expr(),
-                        ExpectEqsCategory::new_expect_eqs_ty_kind(),
-                        local_term_region,
-                    ),
+                ExprRootKind::SelfType
+                | ExprRootKind::ReturnType
+                | ExprRootKind::VarType
+                | ExprRootKind::FieldType => self.infer_new_expr_ty_discarded(
+                    root.expr(),
+                    ExpectEqsCategory::new_expect_eqs_ty_kind(),
+                    local_term_region,
+                ),
                 ExprRootKind::Trait => self.infer_new_expr_ty_discarded(
                     root.expr(),
                     ExpectSubtype {

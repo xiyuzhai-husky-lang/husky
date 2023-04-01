@@ -5,14 +5,14 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::two::two_match`, `Fn`),
+                            FormPath(`mnist_classifier::digits::two::two_match`, `Var`),
                         ),
                     ),
                 ),
                 Err(
                     DeclError::Original(
                         OriginalDeclError::Expr(
-                            OriginalDeclExprError::ExpectParameterDeclList(
+                            OriginalDeclExprError::ExpectEqTokenForVariable(
                                 TokenIdx(
                                     6,
                                 ),
@@ -634,18 +634,111 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::two::is_two`, `Gn`),
+                            FormPath(`mnist_classifier::digits::two::is_two`, `Var`),
                         ),
                     ),
                 ),
-                Err(
-                    DeclError::Original(
-                        OriginalDeclError::Expr(
-                            OriginalDeclExprError::ExpectParameterDeclList(
-                                TokenIdx(
-                                    114,
+                Ok(
+                    Decl::Form(
+                        FormDecl::Feature(
+                            FeatureDecl {
+                                path: FormPath(`mnist_classifier::digits::two::is_two`, `Var`),
+                                ast_idx: 54,
+                                colon_token: Some(
+                                    ColonToken(
+                                        TokenIdx(
+                                            114,
+                                        ),
+                                    ),
                                 ),
-                            ),
+                                var_ty: Some(
+                                    VarTypeExpr {
+                                        expr: 1,
+                                    },
+                                ),
+                                eq_token: EqToken(
+                                    TokenIdx(
+                                        117,
+                                    ),
+                                ),
+                                expr_or_eol_token: Left(
+                                    EolToken::Colon(
+                                        EolColonToken {
+                                            token_idx: TokenIdx(
+                                                118,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: None,
+                                        path: RegionPath::Decl(
+                                            DeclRegionPath::Entity(
+                                                EntityPath::ModuleItem(
+                                                    ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::digits::two::is_two`, `Var`),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                Expr::Err(
+                                                    ExprError::Original(
+                                                        OriginalExprError::UnrecognizedIdent {
+                                                            token_idx: TokenIdx(
+                                                                116,
+                                                            ),
+                                                            ident: `MnistLabel`,
+                                                        },
+                                                    ),
+                                                ),
+                                                Expr::Prefix {
+                                                    opr: Option,
+                                                    opr_token_idx: TokenIdx(
+                                                        115,
+                                                    ),
+                                                    opd: 0,
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: False,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: VarType,
+                                                expr: 1,
+                                            },
+                                        ],
+                                    },
+                                },
+                            },
                         ),
                     ),
                 ),

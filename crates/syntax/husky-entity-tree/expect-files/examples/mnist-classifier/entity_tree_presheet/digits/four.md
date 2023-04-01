@@ -11,7 +11,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::four::left_components`, `Fn`),
+                                FormPath(`mnist_classifier::digits::four::left_components`, `Var`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
@@ -43,7 +43,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `left_coordinate_max`,
                                 token_idx: TokenIdx(
-                                    20,
+                                    21,
                                 ),
                             },
                         },
@@ -57,7 +57,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Fn`),
+                                FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Var`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
@@ -66,7 +66,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `components_max_downwards`,
                                 token_idx: TokenIdx(
-                                    39,
+                                    40,
                                 ),
                             },
                         },
@@ -80,7 +80,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::four::components_max_heights`, `Fn`),
+                                FormPath(`mnist_classifier::digits::four::components_max_heights`, `Var`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
@@ -89,7 +89,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `components_max_heights`,
                                 token_idx: TokenIdx(
-                                    52,
+                                    54,
                                 ),
                             },
                         },
@@ -103,7 +103,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::four::is_four`, `Gn`),
+                                FormPath(`mnist_classifier::digits::four::is_four`, `Var`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
@@ -112,7 +112,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `is_four`,
                                 token_idx: TokenIdx(
-                                    65,
+                                    68,
                                 ),
                             },
                         },
@@ -135,7 +135,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `displacement_downwards`,
                                 token_idx: TokenIdx(
-                                    247,
+                                    251,
                                 ),
                             },
                         },
@@ -158,7 +158,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `cc_box_heights`,
                                 token_idx: TokenIdx(
-                                    276,
+                                    280,
                                 ),
                             },
                         },

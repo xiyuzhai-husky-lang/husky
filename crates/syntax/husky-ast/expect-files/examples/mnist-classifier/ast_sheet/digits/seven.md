@@ -343,14 +343,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Fn,
+                            Var,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Fn`),
+                                FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Var`),
                             ),
                         ),
                     ),
@@ -399,12 +399,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `simple_leftdown_pattern`,
                         token_idx: TokenIdx(
-                            18,
+                            19,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        19,
+                        20,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -427,26 +427,26 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Fn,
+                            Var,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Fn`),
+                                FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Var`),
                             ),
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `special_seven_match`,
                         token_idx: TokenIdx(
-                            48,
+                            49,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        49,
+                        50,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -483,12 +483,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `leftupcc_pattern`,
                         token_idx: TokenIdx(
-                            63,
+                            65,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        64,
+                        66,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -525,12 +525,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `leftdowncc_pattern`,
                         token_idx: TokenIdx(
-                            106,
+                            108,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        107,
+                        109,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -552,50 +552,50 @@ Ok(
                         variant: PubUnder {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    159,
+                                    161,
                                 ),
                             },
                             lpar: LeftParenthesisToken(
                                 TokenIdx(
-                                    160,
+                                    162,
                                 ),
                             ),
                             scope: Super(
                                 SuperToken {
                                     token_idx: TokenIdx(
-                                        161,
+                                        163,
                                     ),
                                 },
                             ),
                             rpar: RightParenthesisToken(
                                 TokenIdx(
-                                    162,
+                                    164,
                                 ),
                             ),
                         },
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Gn,
+                            Var,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::is_seven`, `Gn`),
+                                FormPath(`mnist_classifier::digits::seven::is_seven`, `Var`),
                             ),
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `is_seven`,
                         token_idx: TokenIdx(
-                            164,
+                            166,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        165,
+                        167,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(

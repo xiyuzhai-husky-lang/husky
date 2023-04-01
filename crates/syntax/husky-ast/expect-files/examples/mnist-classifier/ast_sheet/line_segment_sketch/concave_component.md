@@ -329,7 +329,7 @@ Ok(
                     },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            MethodFn,
+                            Memo,
                         ),
                     },
                     entity_path: None,
@@ -364,19 +364,19 @@ Ok(
                     },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            MethodFn,
+                            Memo,
                         ),
                     },
                     entity_path: None,
                     ident_token: IdentToken {
                         ident: `rel_norm`,
                         token_idx: TokenIdx(
-                            61,
+                            62,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        62,
+                        63,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -399,19 +399,19 @@ Ok(
                     },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            MethodFn,
+                            Memo,
                         ),
                     },
                     entity_path: None,
                     ident_token: IdentToken {
                         ident: `hausdorff_norm`,
                         token_idx: TokenIdx(
-                            79,
+                            81,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        80,
+                        82,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -434,19 +434,19 @@ Ok(
                     },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            MethodFn,
+                            Memo,
                         ),
                     },
                     entity_path: None,
                     ident_token: IdentToken {
                         ident: `angle_change`,
                         token_idx: TokenIdx(
-                            166,
+                            169,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        167,
+                        170,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -469,19 +469,19 @@ Ok(
                     },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            MethodFn,
+                            Memo,
                         ),
                     },
                     entity_path: None,
                     ident_token: IdentToken {
                         ident: `bounding_box`,
                         token_idx: TokenIdx(
-                            237,
+                            241,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        238,
+                        242,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -504,19 +504,19 @@ Ok(
                     },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            MethodFn,
+                            Memo,
                         ),
                     },
                     entity_path: None,
                     ident_token: IdentToken {
                         ident: `relative_bounding_box`,
                         token_idx: TokenIdx(
-                            366,
+                            371,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        367,
+                        372,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -546,12 +546,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `line_segment`,
                         token_idx: TokenIdx(
-                            383,
+                            389,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        384,
+                        390,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -581,12 +581,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `start`,
                         token_idx: TokenIdx(
-                            420,
+                            426,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        421,
+                        427,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -616,12 +616,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `end`,
                         token_idx: TokenIdx(
-                            440,
+                            446,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        441,
+                        447,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -651,12 +651,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `displacement`,
                         token_idx: TokenIdx(
-                            460,
+                            466,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        461,
+                        467,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -686,12 +686,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `start_tangent`,
                         token_idx: TokenIdx(
-                            476,
+                            482,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        477,
+                        483,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -721,12 +721,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `end_tangent`,
                         token_idx: TokenIdx(
-                            494,
+                            500,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        495,
+                        501,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -740,7 +740,7 @@ Ok(
                     error: AstError::Original(
                         OriginalAstError::ExpectedIdent(
                             TokenIdx(
-                                512,
+                                518,
                             ),
                         ),
                     ),
@@ -1019,7 +1019,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    514,
+                                    520,
                                 ),
                             },
                         },
@@ -1040,12 +1040,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `find_concave_components`,
                         token_idx: TokenIdx(
-                            516,
+                            522,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        517,
+                        523,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(

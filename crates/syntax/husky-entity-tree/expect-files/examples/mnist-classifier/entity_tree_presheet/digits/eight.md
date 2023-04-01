@@ -11,7 +11,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Fn`),
+                                FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Var`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::eight`,
@@ -34,7 +34,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::eight::is_eight`, `Gn`),
+                                FormPath(`mnist_classifier::digits::eight::is_eight`, `Var`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
@@ -43,7 +43,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `is_eight`,
                                 token_idx: TokenIdx(
-                                    22,
+                                    23,
                                 ),
                             },
                         },
@@ -66,7 +66,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `big_mouth`,
                                 token_idx: TokenIdx(
-                                    85,
+                                    87,
                                 ),
                             },
                         },

@@ -5,18 +5,104 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Fn`),
+                            FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Var`),
                         ),
                     ),
                 ),
-                Err(
-                    DeclError::Original(
-                        OriginalDeclError::Expr(
-                            OriginalDeclExprError::ExpectParameterDeclList(
-                                TokenIdx(
-                                    6,
+                Ok(
+                    Decl::Form(
+                        FormDecl::Feature(
+                            FeatureDecl {
+                                path: FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Var`),
+                                ast_idx: 18,
+                                colon_token: Some(
+                                    ColonToken(
+                                        TokenIdx(
+                                            6,
+                                        ),
+                                    ),
                                 ),
-                            ),
+                                var_ty: Some(
+                                    VarTypeExpr {
+                                        expr: 0,
+                                    },
+                                ),
+                                eq_token: EqToken(
+                                    TokenIdx(
+                                        8,
+                                    ),
+                                ),
+                                expr_or_eol_token: Left(
+                                    EolToken::Colon(
+                                        EolColonToken {
+                                            token_idx: TokenIdx(
+                                                9,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: None,
+                                        path: RegionPath::Decl(
+                                            DeclRegionPath::Entity(
+                                                EntityPath::ModuleItem(
+                                                    ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Var`),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                Expr::Err(
+                                                    ExprError::Original(
+                                                        OriginalExprError::UnrecognizedIdent {
+                                                            token_idx: TokenIdx(
+                                                                7,
+                                                            ),
+                                                            ident: `FermiMatchResult`,
+                                                        },
+                                                    ),
+                                                ),
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: False,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: VarType,
+                                                expr: 0,
+                                            },
+                                        ],
+                                    },
+                                },
+                            },
                         ),
                     ),
                 ),
@@ -25,18 +111,111 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::eight::is_eight`, `Gn`),
+                            FormPath(`mnist_classifier::digits::eight::is_eight`, `Var`),
                         ),
                     ),
                 ),
-                Err(
-                    DeclError::Original(
-                        OriginalDeclError::Expr(
-                            OriginalDeclExprError::ExpectParameterDeclList(
-                                TokenIdx(
-                                    23,
+                Ok(
+                    Decl::Form(
+                        FormDecl::Feature(
+                            FeatureDecl {
+                                path: FormPath(`mnist_classifier::digits::eight::is_eight`, `Var`),
+                                ast_idx: 19,
+                                colon_token: Some(
+                                    ColonToken(
+                                        TokenIdx(
+                                            24,
+                                        ),
+                                    ),
                                 ),
-                            ),
+                                var_ty: Some(
+                                    VarTypeExpr {
+                                        expr: 1,
+                                    },
+                                ),
+                                eq_token: EqToken(
+                                    TokenIdx(
+                                        27,
+                                    ),
+                                ),
+                                expr_or_eol_token: Left(
+                                    EolToken::Colon(
+                                        EolColonToken {
+                                            token_idx: TokenIdx(
+                                                28,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: None,
+                                        path: RegionPath::Decl(
+                                            DeclRegionPath::Entity(
+                                                EntityPath::ModuleItem(
+                                                    ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::digits::eight::is_eight`, `Var`),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                Expr::Err(
+                                                    ExprError::Original(
+                                                        OriginalExprError::UnrecognizedIdent {
+                                                            token_idx: TokenIdx(
+                                                                26,
+                                                            ),
+                                                            ident: `MnistLabel`,
+                                                        },
+                                                    ),
+                                                ),
+                                                Expr::Prefix {
+                                                    opr: Option,
+                                                    opr_token_idx: TokenIdx(
+                                                        25,
+                                                    ),
+                                                    opd: 0,
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: False,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: VarType,
+                                                expr: 1,
+                                            },
+                                        ],
+                                    },
+                                },
+                            },
                         ),
                     ),
                 ),
@@ -73,7 +252,7 @@ Ok(
                                                     ExprError::Original(
                                                         OriginalExprError::UnrecognizedIdent {
                                                             token_idx: TokenIdx(
-                                                                90,
+                                                                92,
                                                             ),
                                                             ident: `ConcaveComponent`,
                                                         },
@@ -82,7 +261,7 @@ Ok(
                                                 Expr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
-                                                        89,
+                                                        91,
                                                     ),
                                                     opd: 0,
                                                 },
@@ -99,7 +278,7 @@ Ok(
                                                 Expr::Prefix {
                                                     opr: Option,
                                                     opr_token_idx: TokenIdx(
-                                                        93,
+                                                        95,
                                                     ),
                                                     opd: 2,
                                                 },
@@ -109,7 +288,7 @@ Ok(
                                             data: [
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        94,
+                                                        96,
                                                     ),
                                                     ident: `f32`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -131,7 +310,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `cc`,
                                                             token_idx: TokenIdx(
-                                                                87,
+                                                                89,
                                                             ),
                                                         },
                                                     },
@@ -164,7 +343,7 @@ Ok(
                                                 data: [
                                                     CurrentSymbol {
                                                         access_start: TokenIdx(
-                                                            88,
+                                                            90,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ExplicitParameter {
@@ -195,7 +374,7 @@ Ok(
                                 parameter_decl_list: ExplicitParameterDeclList {
                                     lpar: LeftParenthesisToken(
                                         TokenIdx(
-                                            86,
+                                            88,
                                         ),
                                     ),
                                     self_parameter: None,
@@ -207,7 +386,7 @@ Ok(
                                             ),
                                             colon: ColonToken(
                                                 TokenIdx(
-                                                    88,
+                                                    90,
                                                 ),
                                             ),
                                             ty: 1,
@@ -216,14 +395,14 @@ Ok(
                                     commas: [],
                                     rpar: RightParenthesisToken(
                                         TokenIdx(
-                                            91,
+                                            93,
                                         ),
                                     ),
                                 },
                                 curry_token: Some(
                                     CurryToken(
                                         TokenIdx(
-                                            92,
+                                            94,
                                         ),
                                     ),
                                 ),
@@ -235,7 +414,7 @@ Ok(
                                 eol_colon: EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            95,
+                                            97,
                                         ),
                                     },
                                 ),

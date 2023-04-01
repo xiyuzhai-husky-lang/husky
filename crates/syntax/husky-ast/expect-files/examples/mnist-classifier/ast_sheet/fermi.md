@@ -114,7 +114,7 @@ Ok(
                     },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            MethodFn,
+                            Memo,
                         ),
                     },
                     entity_path: None,
@@ -149,19 +149,19 @@ Ok(
                     },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            MethodFn,
+                            Memo,
                         ),
                     },
                     entity_path: None,
                     ident_token: IdentToken {
                         ident: `rel_norm`,
                         token_idx: TokenIdx(
-                            65,
+                            66,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        66,
+                        67,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -184,19 +184,19 @@ Ok(
                     },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            MethodFn,
+                            Memo,
                         ),
                     },
                     entity_path: None,
                     ident_token: IdentToken {
                         ident: `angle_change_norm`,
                         token_idx: TokenIdx(
-                            103,
+                            105,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        104,
+                        106,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -326,7 +326,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    144,
+                                    147,
                                 ),
                             },
                         },
@@ -347,12 +347,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `fermi_match`,
                         token_idx: TokenIdx(
-                            146,
+                            149,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        147,
+                        150,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(

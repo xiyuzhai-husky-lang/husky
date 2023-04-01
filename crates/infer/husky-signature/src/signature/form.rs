@@ -1,14 +1,14 @@
-mod feature;
 mod r#fn;
 mod gn;
 mod type_alias;
 mod value;
+mod var;
 
-pub use self::feature::*;
 pub use self::gn::*;
 pub use self::r#fn::*;
 pub use self::type_alias::*;
 pub use self::value::*;
+pub use self::var::*;
 
 use crate::*;
 
@@ -17,7 +17,7 @@ use crate::*;
 #[enum_class::from_variants]
 pub enum FormSignature {
     Fn(FnSignature),
-    Feature(FeatureSignature),
+    Feature(VarSignature),
     Gn(GnSignature),
     Value(ValueSignature),
 }

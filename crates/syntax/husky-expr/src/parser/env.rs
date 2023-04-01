@@ -4,7 +4,7 @@ use husky_print_utils::p;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum ExprEnvironment {
-    LetVariablesType,
+    TypeBeforeEq,
     WithinBracket(Bracket),
 }
 
@@ -31,7 +31,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     pub(super) fn env_bra(&self) -> Option<Bracket> {
         match self.env()? {
             ExprEnvironment::WithinBracket(bra) => Some(bra),
-            ExprEnvironment::LetVariablesType => todo!(),
+            ExprEnvironment::TypeBeforeEq => todo!(),
         }
     }
 }

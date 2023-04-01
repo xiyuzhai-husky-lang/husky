@@ -40,18 +40,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 30;\n\ntoken_line_group_idx = 4\n\ntoken = Token::Ident(\n    `MnistLabel`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 30;\n\ntoken_line_group_idx = 4\n\ntoken = Token::Ident(\n    `narrow_down`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 7,
-                                    character: 8,
+                                    line: 6,
+                                    character: 4,
                                 },
                                 end: Position {
-                                    line: 7,
-                                    character: 18,
+                                    line: 6,
+                                    character: 15,
                                 },
                             },
                         ),
@@ -70,18 +70,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 60;\n\ntoken_line_group_idx = 7\n\ntoken = Token::Ident(\n    `narrow_down`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 60;\n\ntoken_line_group_idx = 6\n\ntoken = Token::Literal(\n    Literal::Float(\n        Unspecified,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 14,
-                                    character: 8,
+                                    line: 13,
+                                    character: 29,
                                 },
                                 end: Position {
-                                    line: 14,
-                                    character: 19,
+                                    line: 13,
+                                    character: 32,
                                 },
                             },
                         ),
@@ -100,18 +100,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 90;\n\ntoken_line_group_idx = 11\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Colon,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 90;\n\ntoken_line_group_idx = 10\n\ntoken = Token::Ident(\n    `One`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 22,
-                                    character: 8,
+                                    line: 21,
+                                    character: 20,
                                 },
                                 end: Position {
-                                    line: 22,
-                                    character: 9,
+                                    line: 21,
+                                    character: 23,
                                 },
                             },
                         ),
@@ -130,18 +130,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 120;\n\ntoken_line_group_idx = 16\n\ntoken = Token::Ident(\n    `hat`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 120;\n\ntoken_line_group_idx = 15\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Ket(\n            Box,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 27,
-                                    character: 12,
+                                    line: 26,
+                                    character: 46,
                                 },
                                 end: Position {
-                                    line: 27,
-                                    character: 15,
+                                    line: 26,
+                                    character: 47,
                                 },
                             },
                         ),
@@ -167,11 +167,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 33,
-                                    character: 48,
+                                    character: 30,
                                 },
                                 end: Position {
                                     line: 33,
-                                    character: 49,
+                                    character: 31,
                                 },
                             },
                         ),
@@ -190,18 +190,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 180;\n\ntoken_line_group_idx = 22\n\ntoken = Token::Ident(\n    `downmost`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 180;\n\ntoken_line_group_idx = 22\n\ntoken = Token::Ident(\n    `end`,\n);\n\ntoken_info = TokenInfo::Field;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 37,
-                                    character: 64,
+                                    character: 58,
                                 },
                                 end: Position {
                                     line: 37,
-                                    character: 72,
+                                    character: 61,
                                 },
                             },
                         ),
@@ -220,18 +220,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 210;\n\ntoken_line_group_idx = 24\n\ntoken = Token::Ident(\n    `one_fermi_match`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 210;\n\ntoken_line_group_idx = 24\n\ntoken = Token::Ident(\n    `norm`,\n);\n\ntoken_info = TokenInfo::Field;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 44,
-                                    character: 12,
+                                    line: 43,
+                                    character: 28,
                                 },
                                 end: Position {
-                                    line: 44,
-                                    character: 27,
+                                    line: 43,
+                                    character: 32,
                                 },
                             },
                         ),
@@ -250,18 +250,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 240;\n\ntoken_line_group_idx = 25\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Bra(\n            Box,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 240;\n\ntoken_line_group_idx = 25\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Dot,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 51,
-                                    character: 35,
+                                    character: 27,
                                 },
                                 end: Position {
                                     line: 51,
-                                    character: 36,
+                                    character: 28,
                                 },
                             },
                         ),
@@ -280,18 +280,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 270;\n\ntoken_line_group_idx = 27\n\ntoken = Token::Literal(\n    Literal::Integer(\n        Unspecified,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 270;\n\ntoken_line_group_idx = 27\n\ntoken = Token::Ident(\n    `start`,\n);\n\ntoken_info = TokenInfo::Field;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 55,
-                                    character: 65,
+                                    character: 56,
                                 },
                                 end: Position {
                                     line: 55,
-                                    character: 66,
+                                    character: 61,
                                 },
                             },
                         ),
@@ -310,18 +310,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 300;\n\ntoken_line_group_idx = 31\n\ntoken = Token::Ident(\n    `narrow_down`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 300;\n\ntoken_line_group_idx = 30\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::RaOrGt,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 59,
-                                    character: 12,
+                                    line: 58,
+                                    character: 39,
                                 },
                                 end: Position {
-                                    line: 59,
-                                    character: 23,
+                                    line: 58,
+                                    character: 40,
                                 },
                             },
                         ),
@@ -340,18 +340,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 330;\n\ntoken_line_group_idx = 32\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Comma,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 330;\n\ntoken_line_group_idx = 32\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Binary(\n            ScopeResolution,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 67,
-                                    character: 31,
+                                    character: 26,
                                 },
                                 end: Position {
                                     line: 67,
-                                    character: 32,
+                                    character: 28,
                                 },
                             },
                         ),
@@ -376,12 +376,12 @@ Ok(
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 75,
-                                    character: 17,
+                                    line: 74,
+                                    character: 31,
                                 },
                                 end: Position {
-                                    line: 75,
-                                    character: 18,
+                                    line: 74,
+                                    character: 32,
                                 },
                             },
                         ),
@@ -400,18 +400,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 390;\n\ntoken_line_group_idx = 34\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Ket(\n            Par,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 390;\n\ntoken_line_group_idx = 34\n\ntoken = Token::Ident(\n    `abs`,\n);\n\ntoken_info = TokenInfo::Method;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 78,
-                                    character: 60,
+                                    character: 56,
                                 },
                                 end: Position {
                                     line: 78,
-                                    character: 61,
+                                    character: 59,
                                 },
                             },
                         ),
@@ -430,18 +430,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 420;\n\ntoken_line_group_idx = 38\n\ntoken = Token::Ident(\n    `downmost_feet`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 420;\n\ntoken_line_group_idx = 37\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Ket(\n            Par,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 84,
-                                    character: 12,
+                                    line: 83,
+                                    character: 56,
                                 },
                                 end: Position {
-                                    line: 84,
-                                    character: 25,
+                                    line: 83,
+                                    character: 57,
                                 },
                             },
                         ),
@@ -460,18 +460,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 450;\n\ntoken_line_group_idx = 40\n\ntoken = Token::Ident(\n    `downmost_hat_dp`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 450;\n\ntoken_line_group_idx = 40\n\ntoken = Token::Literal(\n    Literal::Integer(\n        Unspecified,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 89,
+                                    line: 88,
                                     character: 12,
                                 },
                                 end: Position {
-                                    line: 89,
-                                    character: 27,
+                                    line: 88,
+                                    character: 14,
                                 },
                             },
                         ),
@@ -490,18 +490,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 480;\n\ntoken_line_group_idx = 44\n\ntoken = Token::Ident(\n    `b`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 480;\n\ntoken_line_group_idx = 44\n\ntoken = Token::Ident(\n    `a`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 11,\n    current_symbol_kind: CurrentSymbolKind::LetVariable {\n        pattern_symbol_idx: 14,\n    },\n    expr_region: ExprRegionLeash(_),\n};\n\nCurrentSymbol {\n    access_start: TokenIdx(\n        467,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                501,\n            ),\n        ),\n    ),\n    variant: CurrentSymbolVariant::LetVariable {\n        ident: `a`,\n        pattern_symbol_idx: 14,\n    },\n}\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 95,
-                                    character: 20,
+                                    character: 16,
                                 },
                                 end: Position {
                                     line: 95,
-                                    character: 21,
+                                    character: 17,
                                 },
                             },
                         ),
@@ -520,18 +520,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 510;\n\ntoken_line_group_idx = 49\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Colon,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 510;\n\ntoken_line_group_idx = 49\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Question,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 101,
-                                    character: 40,
+                                    character: 36,
                                 },
                                 end: Position {
                                     line: 101,
-                                    character: 41,
+                                    character: 37,
                                 },
                             },
                         ),
@@ -550,18 +550,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 540;\n\ntoken_line_group_idx = 54\n\ntoken = Token::Keyword(\n    Keyword::Stmt(\n        Let,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 540;\n\ntoken_line_group_idx = 53\n\ntoken = Token::Ident(\n    `f32`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::ModuleItem(\n            ModuleItemPath::Type(\n                TypePath(`core::num::f32`, `Extern`),\n            ),\n        ),\n    ),\n    None,\n);\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 107,
-                                    character: 4,
+                                    line: 106,
+                                    character: 39,
                                 },
                                 end: Position {
-                                    line: 107,
-                                    character: 7,
+                                    line: 106,
+                                    character: 42,
                                 },
                             },
                         ),
@@ -580,18 +580,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 570;\n\ntoken_line_group_idx = 57\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Binary(\n            Curry,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 570;\n\ntoken_line_group_idx = 57\n\ntoken = Token::Ident(\n    `ConcaveComponent`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 111,
-                                    character: 30,
+                                    character: 12,
                                 },
                                 end: Position {
                                     line: 111,
-                                    character: 32,
+                                    character: 28,
                                 },
                             },
                         ),
@@ -610,18 +610,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 600;\n\ntoken_line_group_idx = 61\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Dot,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 600;\n\ntoken_line_group_idx = 61\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Binary(\n            Closed(\n                Sub,\n            ),\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 115,
-                                    character: 12,
+                                    character: 9,
                                 },
                                 end: Position {
                                     line: 115,
-                                    character: 13,
+                                    character: 10,
                                 },
                             },
                         ),

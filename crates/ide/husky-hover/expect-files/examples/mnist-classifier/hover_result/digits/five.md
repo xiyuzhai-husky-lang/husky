@@ -250,7 +250,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "This is a paradigm\ntoken_idx = 8;\n\ntoken_line_group_idx = 1\n\ntoken = Token::Keyword(\n    Keyword::Form(\n        Gn,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "This is a paradigm\ntoken_idx = 8;\n\ntoken_line_group_idx = 1\n\ntoken = Token::Keyword(\n    Keyword::Form(\n        Var,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -261,7 +261,7 @@ Ok(
                                 },
                                 end: Position {
                                     line: 2,
-                                    character: 13,
+                                    character: 14,
                                 },
                             },
                         ),
@@ -280,18 +280,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 9;\n\ntoken_line_group_idx = 1\n\ntoken = Token::Ident(\n    `is_five`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 9;\n\ntoken_line_group_idx = 1\n\ntoken = Token::Ident(\n    `is_five`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::ModuleItem(\n            ModuleItemPath::Form(\n                FormPath(`mnist_classifier::digits::five::is_five`, `Var`),\n            ),\n        ),\n    ),\n    Some(\n        ModuleItem {\n            module_item_kind: Form(\n                Var,\n            ),\n            connection: Connected,\n        },\n    ),\n);\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 2,
-                                    character: 14,
+                                    character: 15,
                                 },
                                 end: Position {
                                     line: 2,
-                                    character: 21,
+                                    character: 22,
                                 },
                             },
                         ),
@@ -310,7 +310,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 10;\n\ntoken_line_group_idx = 1\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Binary(\n            Curry,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 10;\n\ntoken_line_group_idx = 1\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Colon,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -321,7 +321,7 @@ Ok(
                                 },
                                 end: Position {
                                     line: 2,
-                                    character: 24,
+                                    character: 23,
                                 },
                             },
                         ),
@@ -347,11 +347,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 2,
-                                    character: 25,
+                                    character: 24,
                                 },
                                 end: Position {
                                     line: 2,
-                                    character: 26,
+                                    character: 25,
                                 },
                             },
                         ),
@@ -377,11 +377,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 2,
-                                    character: 26,
+                                    character: 25,
                                 },
                                 end: Position {
                                     line: 2,
-                                    character: 36,
+                                    character: 35,
                                 },
                             },
                         ),
@@ -400,7 +400,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 13;\n\ntoken_line_group_idx = 1\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Colon,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 13;\n\ntoken_line_group_idx = 1\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Eq,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -430,7 +430,37 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 14;\n\ntoken_line_group_idx = 2\n\ntoken = Token::Ident(\n    `MnistLabel`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 14;\n\ntoken_line_group_idx = 1\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Colon,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 2,
+                                    character: 37,
+                                },
+                                end: Position {
+                                    line: 2,
+                                    character: 38,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                15,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "\ntoken_idx = 15;\n\ntoken_line_group_idx = 2\n\ntoken = Token::Ident(\n    `MnistLabel`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -452,7 +482,7 @@ Ok(
         ),
         (
             TokenIdx(
-                15,
+                16,
             ),
             Some(
                 HoverResult {
@@ -460,7 +490,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 15;\n\ntoken_line_group_idx = 2\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Binary(\n            ScopeResolution,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 16;\n\ntoken_line_group_idx = 2\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Binary(\n            ScopeResolution,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -482,7 +512,7 @@ Ok(
         ),
         (
             TokenIdx(
-                16,
+                17,
             ),
             Some(
                 HoverResult {
@@ -490,7 +520,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 16;\n\ntoken_line_group_idx = 2\n\ntoken = Token::Ident(\n    `Five`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 17;\n\ntoken_line_group_idx = 2\n\ntoken = Token::Ident(\n    `Five`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(

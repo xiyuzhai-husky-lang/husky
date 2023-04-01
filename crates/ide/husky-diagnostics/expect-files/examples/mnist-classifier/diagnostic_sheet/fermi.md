@@ -15,19 +15,19 @@ DiagnosticSheet {
     decl_diagnostic_sheet: DeclDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Syntax Error: ExpectParameterDeclList",
+                message: "Syntax Error: expect end-of-line colon",
                 severity: Error,
-                range: [10:13, 10:15),
+                range: [10:13, 10:14),
             },
             Diagnostic {
-                message: "Syntax Error: ExpectParameterDeclList",
+                message: "Syntax Error: expect end-of-line colon",
                 severity: Error,
-                range: [16:17, 16:19),
+                range: [16:17, 16:18),
             },
             Diagnostic {
-                message: "Syntax Error: ExpectParameterDeclList",
+                message: "Syntax Error: expect end-of-line colon",
                 severity: Error,
-                range: [22:26, 22:28),
+                range: [22:26, 22:27),
             },
         ],
     },

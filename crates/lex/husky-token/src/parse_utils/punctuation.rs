@@ -143,13 +143,14 @@ where
 }
 
 #[test]
-fn assign_token_works() {
+fn eq_token_works() {
     fn t(db: &DB, input: &str) -> TokenResult<Option<EqToken>> {
         quick_parse(db, input)
     }
 
     let db = DB::default();
     assert!(t(&db, "=").unwrap().is_some());
+    assert!(t(&db, "=:").unwrap().is_some());
     assert!(t(&db, ")").unwrap().is_none());
     assert!(t(&db, "a").unwrap().is_none());
     assert!(t(&db, "'").is_err());

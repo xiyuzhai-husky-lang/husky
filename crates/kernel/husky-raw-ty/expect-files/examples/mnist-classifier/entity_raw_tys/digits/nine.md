@@ -2,7 +2,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::digits::nine::nine_match`, `Fn`),
+                FormPath(`mnist_classifier::digits::nine::nine_match`, `Var`),
             ),
         ),
         Err(
@@ -14,7 +14,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Fn`),
+                FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Var`),
             ),
         ),
         Err(
@@ -26,7 +26,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::digits::nine::is_nine`, `Gn`),
+                FormPath(`mnist_classifier::digits::nine::is_nine`, `Var`),
             ),
         ),
         Err(

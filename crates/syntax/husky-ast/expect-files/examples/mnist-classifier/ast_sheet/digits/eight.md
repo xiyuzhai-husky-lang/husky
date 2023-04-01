@@ -167,14 +167,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Fn,
+                            Var,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Fn`),
+                                FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Var`),
                             ),
                         ),
                     ),
@@ -208,50 +208,50 @@ Ok(
                         variant: PubUnder {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    17,
+                                    18,
                                 ),
                             },
                             lpar: LeftParenthesisToken(
                                 TokenIdx(
-                                    18,
+                                    19,
                                 ),
                             ),
                             scope: Super(
                                 SuperToken {
                                     token_idx: TokenIdx(
-                                        19,
+                                        20,
                                     ),
                                 },
                             ),
                             rpar: RightParenthesisToken(
                                 TokenIdx(
-                                    20,
+                                    21,
                                 ),
                             ),
                         },
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Gn,
+                            Var,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::eight::is_eight`, `Gn`),
+                                FormPath(`mnist_classifier::digits::eight::is_eight`, `Var`),
                             ),
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `is_eight`,
                         token_idx: TokenIdx(
-                            22,
+                            23,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        23,
+                        24,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -288,12 +288,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `big_mouth`,
                         token_idx: TokenIdx(
-                            85,
+                            87,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        86,
+                        88,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(

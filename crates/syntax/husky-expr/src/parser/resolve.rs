@@ -200,7 +200,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 }
                 PunctuationMapped::Eq => match self.env() {
                     Some(env) => match env {
-                        ExprEnvironment::LetVariablesType => match self.last_bra() {
+                        ExprEnvironment::TypeBeforeEq => match self.last_bra() {
                             Some(_) => todo!(),
                             None => return TokenResolveResult::Break(()),
                         },

@@ -228,18 +228,111 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Gn`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Var`),
                         ),
                     ),
                 ),
-                Err(
-                    DeclError::Original(
-                        OriginalDeclError::Expr(
-                            OriginalDeclExprError::ExpectParameterDeclList(
-                                TokenIdx(
-                                    50,
+                Ok(
+                    Decl::Form(
+                        FormDecl::Feature(
+                            FeatureDecl {
+                                path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Var`),
+                                ast_idx: 28,
+                                colon_token: Some(
+                                    ColonToken(
+                                        TokenIdx(
+                                            50,
+                                        ),
+                                    ),
                                 ),
-                            ),
+                                var_ty: Some(
+                                    VarTypeExpr {
+                                        expr: 1,
+                                    },
+                                ),
+                                eq_token: EqToken(
+                                    TokenIdx(
+                                        53,
+                                    ),
+                                ),
+                                expr_or_eol_token: Left(
+                                    EolToken::Colon(
+                                        EolColonToken {
+                                            token_idx: TokenIdx(
+                                                54,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: None,
+                                        path: RegionPath::Decl(
+                                            DeclRegionPath::Entity(
+                                                EntityPath::ModuleItem(
+                                                    ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::digits::zero::is_zero`, `Var`),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                Expr::Err(
+                                                    ExprError::Original(
+                                                        OriginalExprError::UnrecognizedIdent {
+                                                            token_idx: TokenIdx(
+                                                                52,
+                                                            ),
+                                                            ident: `MnistLabel`,
+                                                        },
+                                                    ),
+                                                ),
+                                                Expr::Prefix {
+                                                    opr: Option,
+                                                    opr_token_idx: TokenIdx(
+                                                        51,
+                                                    ),
+                                                    opd: 0,
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: False,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: VarType,
+                                                expr: 1,
+                                            },
+                                        ],
+                                    },
+                                },
+                            },
                         ),
                     ),
                 ),

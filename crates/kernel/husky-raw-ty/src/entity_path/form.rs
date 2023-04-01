@@ -41,7 +41,7 @@ pub(crate) fn form_fn_entity_raw_ty(
 
 pub(crate) fn feature_entity_raw_ty(
     db: &dyn RawTypeDb,
-    signature: FeatureSignature,
+    signature: VarSignature,
     _raw_term_menu: &RawTermMenu,
 ) -> RawTypeResult<RawTerm> {
     Ok(signature.return_ty(db))

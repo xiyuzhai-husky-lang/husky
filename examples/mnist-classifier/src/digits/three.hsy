@@ -1,6 +1,6 @@
 use super::*
 
-fn three_fermi_match -> FermiMatchResult:
+var three_fermi_match: FermiMatchResult =:
     fermi_match(major_concave_components, [downarc, uparc, back])
 
     // tried:
@@ -13,7 +13,7 @@ fn three_fermi_match -> FermiMatchResult:
     // a = uparc.norm 
     // require a > 2.0 and a < 10.0
 
-pub(super) gn is_three -> ?MnistLabel:
+pub(super) var is_three: ?MnistLabel =:
     require major_concave_components.ilen() >= 2
     require major_concave_components.ilen() <= 4
     let downarc = three_fermi_match.matches[0]

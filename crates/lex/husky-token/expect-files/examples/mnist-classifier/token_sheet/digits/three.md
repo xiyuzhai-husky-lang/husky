@@ -23,7 +23,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Fn,
+                    Var,
                 ),
             ),
             Token::Ident(
@@ -31,13 +31,16 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Binary(
-                        Curry,
-                    ),
+                    PunctuationMapped::Colon,
                 ),
             ),
             Token::Ident(
                 `FermiMatchResult`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Eq,
+                ),
             ),
             Token::Punctuation(
                 Punctuation(
@@ -126,7 +129,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Gn,
+                    Var,
                 ),
             ),
             Token::Ident(
@@ -134,9 +137,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Binary(
-                        Curry,
-                    ),
+                    PunctuationMapped::Colon,
                 ),
             ),
             Token::Punctuation(
@@ -146,6 +147,11 @@ Ok(
             ),
             Token::Ident(
                 `MnistLabel`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Eq,
+                ),
             ),
             Token::Punctuation(
                 Punctuation(
@@ -1228,37 +1234,37 @@ Ok(
         group_starts: [
             0,
             4,
-            9,
-            21,
-            31,
-            39,
-            47,
-            56,
-            65,
-            74,
-            78,
-            84,
-            88,
-            101,
-            110,
-            118,
-            126,
-            135,
-            139,
-            145,
-            152,
-            155,
-            167,
-            175,
-            181,
-            189,
-            201,
-            209,
-            215,
-            223,
-            235,
-            243,
-            249,
+            10,
+            22,
+            33,
+            41,
+            49,
+            58,
+            67,
+            76,
+            80,
+            86,
+            90,
+            103,
+            112,
+            120,
+            128,
+            137,
+            141,
+            147,
+            154,
+            157,
+            169,
+            177,
+            183,
+            191,
+            203,
+            211,
+            217,
+            225,
+            237,
+            245,
+            251,
         ],
         indents: [
             0,

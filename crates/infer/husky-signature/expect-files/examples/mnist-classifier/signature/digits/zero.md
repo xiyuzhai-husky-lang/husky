@@ -4,4 +4,7 @@
             0,
         ),
     ),
+    Err(
+        RawTermError,
+    ),
 ]

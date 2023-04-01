@@ -1,4 +1,4 @@
 use super::*
 
-pub(super) gn is_five -> ?MnistLabel:
+pub(super) var is_five: ?MnistLabel =:
     MnistLabel::Five

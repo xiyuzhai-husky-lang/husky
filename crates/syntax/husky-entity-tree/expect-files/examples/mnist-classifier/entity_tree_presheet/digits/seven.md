@@ -11,7 +11,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Fn`),
+                                FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Var`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::seven`,
@@ -43,7 +43,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `simple_leftdown_pattern`,
                                 token_idx: TokenIdx(
-                                    18,
+                                    19,
                                 ),
                             },
                         },
@@ -57,7 +57,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Fn`),
+                                FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Var`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::seven`,
@@ -66,7 +66,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `special_seven_match`,
                                 token_idx: TokenIdx(
-                                    48,
+                                    49,
                                 ),
                             },
                         },
@@ -89,7 +89,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `leftupcc_pattern`,
                                 token_idx: TokenIdx(
-                                    63,
+                                    65,
                                 ),
                             },
                         },
@@ -112,7 +112,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `leftdowncc_pattern`,
                                 token_idx: TokenIdx(
-                                    106,
+                                    108,
                                 ),
                             },
                         },
@@ -126,7 +126,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::is_seven`, `Gn`),
+                                FormPath(`mnist_classifier::digits::seven::is_seven`, `Var`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
@@ -135,7 +135,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `is_seven`,
                                 token_idx: TokenIdx(
-                                    164,
+                                    166,
                                 ),
                             },
                         },

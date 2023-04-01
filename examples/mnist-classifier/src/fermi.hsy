@@ -7,19 +7,19 @@ struct FermiMatchResult {
 
 impl FermiMatchResult:
     // todo: change this to func
-    fn norm -> f32:
+    var norm: f32 =:
         let mut norm = 0.0
         for i < self.others.ilen():
             norm = norm.max(self.others[i].norm)
         return norm
     
-    fn rel_norm -> f32:
+    var rel_norm: f32 =:
         let mut norm = 0.0
         for i < self.others.ilen():
             norm = norm.max(self.others[i].rel_norm)
         return norm
 
-    fn angle_change_norm -> f32:
+    var angle_change_norm: f32 =:
         let mut norm = 0.0
         for i < self.others.ilen():
             norm = norm.max(self.others[i].angle_change.abs())

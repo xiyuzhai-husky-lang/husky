@@ -11,7 +11,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::nine::nine_match`, `Fn`),
+                                FormPath(`mnist_classifier::digits::nine::nine_match`, `Var`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::nine`,
@@ -34,7 +34,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Fn`),
+                                FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Var`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::nine`,
@@ -43,7 +43,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `nine_match_refine`,
                                 token_idx: TokenIdx(
-                                    18,
+                                    19,
                                 ),
                             },
                         },
@@ -57,7 +57,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::nine::is_nine`, `Gn`),
+                                FormPath(`mnist_classifier::digits::nine::is_nine`, `Var`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
@@ -66,7 +66,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `is_nine`,
                                 token_idx: TokenIdx(
-                                    35,
+                                    37,
                                 ),
                             },
                         },
@@ -89,7 +89,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `downmost`,
                                 token_idx: TokenIdx(
-                                    207,
+                                    210,
                                 ),
                             },
                         },
@@ -112,7 +112,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `big_cc`,
                                 token_idx: TokenIdx(
-                                    236,
+                                    239,
                                 ),
                             },
                         },
