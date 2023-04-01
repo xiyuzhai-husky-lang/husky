@@ -82,11 +82,14 @@ impl<'a> EntityTreePresheetMut<'a> {
                             ctx.resolve_ident(ident_token.ident()).ok_or(*ident_token),
                         ),
                         UseExprRuleVariant::Parent {
-                            parent_name_token: NameToken::SelfValue(_self_value_token),
+                            parent_name_token: NameToken::SelfValue(self_value_token),
                             children: _,
-                        } => {
-                            todo!()
-                        }
+                        } => (
+                            (*self_value_token).into(),
+                            Ok(EntitySymbol::SelfModule {
+                                module_path: self.module_path,
+                            }),
+                        ),
                         UseExprRuleVariant::Parent {
                             parent_name_token: NameToken::Super(_),
                             children: _,
@@ -97,7 +100,7 @@ impl<'a> EntityTreePresheetMut<'a> {
                         } => (
                             (*crate_token).into(),
                             Ok(EntitySymbol::CrateRoot {
-                                root_module: ctx.crate_root(),
+                                root_module_path: ctx.crate_root(),
                             }),
                         ),
                     },

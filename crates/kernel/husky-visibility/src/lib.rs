@@ -12,7 +12,7 @@ use with_db::PartialOrdWithDb;
 pub enum Visibility {
     Pub,                  // everyone can access it
     PubUnder(ModulePath), // everyone under a path can access it
-    Private,              // only self
+    Private(ModulePath),  // only self
     Disconnected {
         module_path: ModulePath,
         file_visibility: FileVisibility,
@@ -34,26 +34,40 @@ impl<Db: VfsDb + ?Sized> PartialOrdWithDb<Db> for Visibility {
             (Visibility::PubUnder(module_path0), Visibility::PubUnder(module_path1)) => {
                 module_path0.partial_cmp_with_db(db, module_path1)
             }
-            (Visibility::PubUnder(_), Visibility::Private | Visibility::Disconnected { .. }) => {
+            (Visibility::PubUnder(_), Visibility::Private(_) | Visibility::Disconnected { .. }) => {
                 Some(Ordering::Greater)
             }
-            (Visibility::Private, Visibility::Pub) => {
+            (Visibility::Private(_), Visibility::Pub) => {
                 todo!()
             }
-            (Visibility::Private, Visibility::PubUnder(_)) => todo!(),
-            (Visibility::Private, Visibility::Private) => Some(Ordering::Equal),
-            (Visibility::Private, Visibility::Disconnected { .. }) => Some(Ordering::Greater),
+            (Visibility::Private(_), Visibility::PubUnder(_)) => todo!(),
+            (Visibility::Private(module_path1), Visibility::Private(module_path2))
+                if module_path1 == module_path2 =>
+            {
+                Some(Ordering::Equal)
+            }
+            (Visibility::Private(_), Visibility::Private(_)) => None,
+            (
+                Visibility::Private(module_path1),
+                Visibility::Disconnected {
+                    module_path: module_path2,
+                    ..
+                },
+            ) if module_path1 == module_path2 => Some(Ordering::Greater),
+            (Visibility::Private(_), Visibility::Disconnected { .. }) => None,
             (Visibility::Disconnected { .. }, _) => todo!(),
         }
     }
 }
 
 impl Visibility {
-    pub fn is_visible_from(self, db: &dyn VfsDb, module_path: ModulePath) -> bool {
+    pub fn is_visible_from(self, db: &dyn VfsDb, target_module_path: ModulePath) -> bool {
         match self {
             Visibility::Pub => true,
-            Visibility::PubUnder(parent_module) => module_path.starts_with(db, parent_module),
-            Visibility::Private => todo!(),
+            Visibility::PubUnder(parent_module) => {
+                target_module_path.starts_with(db, parent_module)
+            }
+            Visibility::Private(module_path) => module_path == target_module_path,
             Visibility::Disconnected { .. } => todo!(),
         }
     }
