@@ -81,11 +81,11 @@ pub struct EntitySymbolEntry {
 
 impl EntitySymbolEntry {
     pub(crate) fn new_crate_root(db: &dyn EntityTreeDb, crate_path: CratePath) -> Self {
-        let root_module = ModulePath::new_root(db, crate_path);
+        let root_module_path = ModulePath::new_root(db, crate_path);
         Self {
             ident: db.word_menu().crate_ident(),
-            visibility: Visibility::PubUnder(root_module),
-            symbol: EntitySymbol::CrateRoot { root_module },
+            visibility: Visibility::PubUnder(root_module_path),
+            symbol: EntitySymbol::CrateRoot { root_module_path },
         }
     }
 

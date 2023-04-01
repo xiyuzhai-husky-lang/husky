@@ -42,10 +42,11 @@ impl ModuleItemSymbol {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-// #[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 #[enum_class::from_variants]
 pub enum EntitySymbol {
-    CrateRoot { root_module: ModulePath },
+    CrateRoot { root_module_path: ModulePath },
+    SelfModule { module_path: ModulePath },
     PackageDependency { entity_path: EntityPath },
     Submodule(SubmoduleSymbol),
     ModuleItem(ModuleItemSymbol),
@@ -53,9 +54,10 @@ pub enum EntitySymbol {
 }
 
 impl EntitySymbol {
-    fn visibility(&self, db: &dyn EntityTreeDb) -> Visibility {
+    fn visibility(self, db: &dyn EntityTreeDb) -> Visibility {
         match self {
-            EntitySymbol::CrateRoot { root_module } => Visibility::PubUnder(*root_module),
+            EntitySymbol::CrateRoot { root_module_path } => Visibility::PubUnder(root_module_path),
+            EntitySymbol::SelfModule { module_path } => Visibility::Private(module_path),
             EntitySymbol::PackageDependency { .. } => Visibility::Pub,
             EntitySymbol::Submodule(symbol) => symbol.visibility(db),
             EntitySymbol::ModuleItem(symbol) => symbol.visibility(db),
@@ -69,7 +71,8 @@ impl EntitySymbol {
 
     pub fn path(self, db: &dyn EntityTreeDb) -> EntityPath {
         match self {
-            EntitySymbol::CrateRoot { root_module } => root_module.into(),
+            EntitySymbol::CrateRoot { root_module_path } => root_module_path.into(),
+            EntitySymbol::SelfModule { module_path } => module_path.into(),
             EntitySymbol::PackageDependency { entity_path } => entity_path.into(),
             EntitySymbol::Submodule(symbol) => symbol.path(db).into(),
             EntitySymbol::ModuleItem(symbol) => symbol.path(db).into(),
