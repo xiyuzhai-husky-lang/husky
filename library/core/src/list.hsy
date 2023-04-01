@@ -3,4 +3,4 @@
 pub extern List<covariant E>;
 
 impl<E> List E:
-    fn ilen() -> i32;
+    pub fn ilen() -> i32;

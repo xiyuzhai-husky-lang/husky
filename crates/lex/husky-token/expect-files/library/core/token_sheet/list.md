@@ -63,6 +63,9 @@ Ok(
                 ),
             ),
             Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
                 Keyword::Form(
                     Fn,
                 ),
