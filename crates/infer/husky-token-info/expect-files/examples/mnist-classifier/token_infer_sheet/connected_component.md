@@ -324,16 +324,7 @@ Ok(
                 None,
             ),
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::SelfValue,
             TokenInfo::None,

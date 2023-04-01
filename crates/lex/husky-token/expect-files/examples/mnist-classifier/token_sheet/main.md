@@ -2,33 +2,6 @@ Ok(
     TokenSheetData {
         tokens: [
             Token::Keyword(
-                Keyword::Config(
-                    Task,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation::Colon,
-            ),
-            Token::Ident(
-                `mnist`,
-            ),
-            Token::Punctuation(
-                Punctuation::ColonColon,
-            ),
-            Token::Ident(
-                `new_binary_dataset`,
-            ),
-            Token::Punctuation(
-                Punctuation::Bra(
-                    Par,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation::Ket(
-                    Par,
-                ),
-            ),
-            Token::Keyword(
                 Keyword::Mod,
             ),
             Token::Ident(
@@ -73,29 +46,13 @@ Ok(
             Token::Keyword(
                 Keyword::Use,
             ),
-            Token::Ident(
-                `mnist`,
+            Token::Keyword(
+                Keyword::Pronoun(
+                    SelfValue,
+                ),
             ),
             Token::Punctuation(
                 Punctuation::ColonColon,
-            ),
-            Token::Ident(
-                `BinaryImage28`,
-            ),
-            Token::Keyword(
-                Keyword::Use,
-            ),
-            Token::Ident(
-                `mnist`,
-            ),
-            Token::Punctuation(
-                Punctuation::ColonColon,
-            ),
-            Token::Ident(
-                `MnistLabel`,
-            ),
-            Token::Keyword(
-                Keyword::Use,
             ),
             Token::Ident(
                 `major`,
@@ -109,6 +66,14 @@ Ok(
             Token::Keyword(
                 Keyword::Use,
             ),
+            Token::Keyword(
+                Keyword::Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation::ColonColon,
+            ),
             Token::Ident(
                 `digits`,
             ),
@@ -120,6 +85,14 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Use,
+            ),
+            Token::Keyword(
+                Keyword::Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation::ColonColon,
             ),
             Token::Ident(
                 `fermi`,
@@ -136,17 +109,33 @@ Ok(
             Token::Keyword(
                 Keyword::Use,
             ),
+            Token::Keyword(
+                Keyword::Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation::ColonColon,
+            ),
             Token::Ident(
                 `raw_contour`,
             ),
             Token::Punctuation(
                 Punctuation::ColonColon,
             ),
-            Token::Ident(
-                `find_raw_contours`,
+            Token::Punctuation(
+                Punctuation::Star,
             ),
             Token::Keyword(
                 Keyword::Use,
+            ),
+            Token::Keyword(
+                Keyword::Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation::ColonColon,
             ),
             Token::Ident(
                 `line_segment_sketch`,
@@ -161,36 +150,6 @@ Ok(
                 Keyword::Use,
             ),
             Token::Ident(
-                `domains`,
-            ),
-            Token::Punctuation(
-                Punctuation::ColonColon,
-            ),
-            Token::Ident(
-                `ml`,
-            ),
-            Token::Punctuation(
-                Punctuation::ColonColon,
-            ),
-            Token::Ident(
-                `models`,
-            ),
-            Token::Punctuation(
-                Punctuation::ColonColon,
-            ),
-            Token::Ident(
-                `naive`,
-            ),
-            Token::Punctuation(
-                Punctuation::ColonColon,
-            ),
-            Token::Ident(
-                `naive_i32`,
-            ),
-            Token::Keyword(
-                Keyword::Use,
-            ),
-            Token::Ident(
                 `mnist`,
             ),
             Token::Punctuation(
@@ -198,6 +157,27 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation::Star,
+            ),
+            Token::Keyword(
+                Keyword::Config(
+                    Task,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation::Colon,
+            ),
+            Token::Ident(
+                `new_binary_dataset`,
+            ),
+            Token::Punctuation(
+                Punctuation::Bra(
+                    Par,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation::Ket(
+                    Par,
+                ),
             ),
             Token::Keyword(
                 Keyword::Main,
@@ -272,53 +252,47 @@ Ok(
         group_starts: [
             0,
             2,
-            7,
-            9,
-            11,
-            13,
-            15,
-            17,
-            19,
-            21,
-            25,
-            29,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            20,
+            26,
             33,
-            37,
-            42,
-            46,
-            50,
+            39,
+            45,
+            49,
+            51,
+            54,
+            56,
+            58,
             60,
+            62,
             64,
             66,
             68,
             70,
             72,
             74,
-            76,
-            78,
-            80,
-            82,
-            84,
         ],
         indents: [
             0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
             4,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
             0,
             4,
             4,

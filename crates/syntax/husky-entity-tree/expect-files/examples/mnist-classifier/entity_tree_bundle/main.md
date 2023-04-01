@@ -96,458 +96,14 @@ Ok(
                                 ),
                             ),
                         },
-                        EntitySymbolEntry {
-                            ident: `MnistLabel`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 61,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `find_raw_contours`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 62,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `connected_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 63,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_connected_component`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 64,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `ignored_connected_components_row_span_sum_sum`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 65,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_raw_contours`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 66,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_raw_contour`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 67,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_line_segment_sketch`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 68,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_concave_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 69,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `fermi_match`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 81,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `LineSegmentStroke`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 86,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `LineSegmentSketch`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 87,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `is_one`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 234,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `ConcaveComponent`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 280,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `find_concave_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 281,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `LineSegment`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 282,
-                                    },
-                                ),
-                            ),
-                        },
                     ],
                 ),
                 impl_blocks: [],
                 use_expr_rules: UseExprRules(
                     [
                         UseExprRule {
-                            ast_idx: 19,
-                            use_expr_idx: 1,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `mnist`,
-                                        token_idx: TokenIdx(
-                                            22,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    0..1,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: PackageDependency {
-                                    entity_path: Module(
-                                        ModulePath(
-                                            Id {
-                                                value: 62,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 20,
-                            use_expr_idx: 3,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `mnist`,
-                                        token_idx: TokenIdx(
-                                            26,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    2..3,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: PackageDependency {
-                                    entity_path: Module(
-                                        ModulePath(
-                                            Id {
-                                                value: 62,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 21,
-                            use_expr_idx: 5,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `major`,
-                                        token_idx: TokenIdx(
-                                            30,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    4..5,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 22,
-                            use_expr_idx: 7,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `digits`,
-                                        token_idx: TokenIdx(
-                                            34,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    6..7,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
                             ast_idx: 23,
-                            use_expr_idx: 9,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `fermi`,
-                                        token_idx: TokenIdx(
-                                            38,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    8..9,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 38,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 24,
-                            use_expr_idx: 11,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `raw_contour`,
-                                        token_idx: TokenIdx(
-                                            43,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    10..11,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 35,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 25,
-                            use_expr_idx: 13,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `line_segment_sketch`,
-                                        token_idx: TokenIdx(
-                                            47,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    12..13,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 37,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 26,
-                            use_expr_idx: 18,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `domains`,
-                                        token_idx: TokenIdx(
-                                            51,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    17..18,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 27,
-                            use_expr_idx: 20,
+                            use_expr_idx: 6,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
@@ -556,12 +112,12 @@ Ok(
                                     IdentToken {
                                         ident: `mnist`,
                                         token_idx: TokenIdx(
-                                            61,
+                                            46,
                                         ),
                                     },
                                 ),
                                 children: ArenaIdxRange(
-                                    19..20,
+                                    5..6,
                                 ),
                             },
                             parent: None,
@@ -575,175 +131,12 @@ Ok(
                                         ),
                                     ),
                                 },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 19,
-                            use_expr_idx: 0,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier`,
-                            ),
-                            variant: UseExprRuleVariant::Leaf {
-                                ident_token: IdentToken {
-                                    ident: `BinaryImage28`,
-                                    token_idx: TokenIdx(
-                                        24,
-                                    ),
-                                },
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 20,
-                            use_expr_idx: 2,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier`,
-                            ),
-                            variant: UseExprRuleVariant::Leaf {
-                                ident_token: IdentToken {
-                                    ident: `MnistLabel`,
-                                    token_idx: TokenIdx(
-                                        28,
-                                    ),
-                                },
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: PackageDependency {
-                                    entity_path: ModuleItem(
-                                        Type(
-                                            TypePath(
-                                                Id {
-                                                    value: 79,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 24,
-                            use_expr_idx: 10,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier`,
-                            ),
-                            variant: UseExprRuleVariant::Leaf {
-                                ident_token: IdentToken {
-                                    ident: `find_raw_contours`,
-                                    token_idx: TokenIdx(
-                                        45,
-                                    ),
-                                },
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier::raw_contour`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: ModuleItem(
-                                    ModuleItemSymbol(
-                                        Id {
-                                            value: 129,
-                                        },
-                                    ),
-                                ),
                             },
                         },
                     ],
                 ),
                 use_all_rules: UseAllRules(
                     [
-                        UseAllRule {
-                            parent: KinshipedModulePath {
-                                kinship: Inside,
-                                path: ModulePath(
-                                    Id {
-                                        value: 47,
-                                    },
-                                ),
-                            },
-                            ast_idx: 21,
-                            use_expr_idx: 4,
-                            visibility: PubUnder(
-                                ModulePath(
-                                    Id {
-                                        value: 40,
-                                    },
-                                ),
-                            ),
-                            progress: 28,
-                        },
-                        UseAllRule {
-                            parent: KinshipedModulePath {
-                                kinship: Inside,
-                                path: ModulePath(
-                                    Id {
-                                        value: 46,
-                                    },
-                                ),
-                            },
-                            ast_idx: 22,
-                            use_expr_idx: 6,
-                            visibility: PubUnder(
-                                ModulePath(
-                                    Id {
-                                        value: 40,
-                                    },
-                                ),
-                            ),
-                            progress: 41,
-                        },
-                        UseAllRule {
-                            parent: KinshipedModulePath {
-                                kinship: Inside,
-                                path: ModulePath(
-                                    Id {
-                                        value: 45,
-                                    },
-                                ),
-                            },
-                            ast_idx: 23,
-                            use_expr_idx: 8,
-                            visibility: PubUnder(
-                                ModulePath(
-                                    Id {
-                                        value: 40,
-                                    },
-                                ),
-                            ),
-                            progress: 24,
-                        },
-                        UseAllRule {
-                            parent: KinshipedModulePath {
-                                kinship: Inside,
-                                path: ModulePath(
-                                    Id {
-                                        value: 44,
-                                    },
-                                ),
-                            },
-                            ast_idx: 25,
-                            use_expr_idx: 12,
-                            visibility: PubUnder(
-                                ModulePath(
-                                    Id {
-                                        value: 40,
-                                    },
-                                ),
-                            ),
-                            progress: 21,
-                        },
                         UseAllRule {
                             parent: KinshipedModulePath {
                                 kinship: Outside,
@@ -753,8 +146,8 @@ Ok(
                                     },
                                 ),
                             },
-                            ast_idx: 27,
-                            use_expr_idx: 19,
+                            ast_idx: 23,
+                            use_expr_idx: 5,
                             visibility: PubUnder(
                                 ModulePath(
                                     Id {
@@ -766,38 +159,7 @@ Ok(
                         },
                     ],
                 ),
-                errors: [
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `domains`,
-                                token_idx: TokenIdx(
-                                    51,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `BinaryImage28`,
-                                token_idx: TokenIdx(
-                                    24,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::SymbolExistsButNotAccessible(
-                            IdentToken {
-                                ident: `find_raw_contours`,
-                                token_idx: TokenIdx(
-                                    45,
-                                ),
-                            },
-                        ),
-                    ),
-                ],
+                errors: [],
             },
             EntityTreeSheet {
                 module_path: `mnist_classifier::connected_component`,
@@ -881,7 +243,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 94,
+                                        value: 62,
                                     },
                                 ),
                             ),
@@ -894,7 +256,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 95,
+                                        value: 63,
                                     },
                                 ),
                             ),
@@ -907,7 +269,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 96,
+                                        value: 64,
                                     },
                                 ),
                             ),
@@ -920,7 +282,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 97,
+                                        value: 65,
                                     },
                                 ),
                             ),
@@ -933,7 +295,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 98,
+                                        value: 66,
                                     },
                                 ),
                             ),
@@ -946,7 +308,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 99,
+                                        value: 67,
                                     },
                                 ),
                             ),
@@ -959,163 +321,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 100,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `MnistLabel`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::connected_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 101,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `find_raw_contours`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::connected_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 102,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `connected_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::connected_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 103,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_connected_component`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::connected_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 104,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `ignored_connected_components_row_span_sum_sum`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::connected_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 105,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_raw_contours`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::connected_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 106,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_raw_contour`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::connected_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 107,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_line_segment_sketch`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::connected_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 108,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_concave_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::connected_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 109,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `fermi_match`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::connected_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 110,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `LineSegmentStroke`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::connected_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 111,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `LineSegmentSketch`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::connected_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 112,
+                                        value: 68,
                                     },
                                 ),
                             ),
@@ -1128,59 +334,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 283,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `is_one`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::connected_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 611,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `ConcaveComponent`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::connected_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 612,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `find_concave_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::connected_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 613,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `LineSegment`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::connected_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 614,
+                                        value: 118,
                                     },
                                 ),
                             ),
@@ -1324,7 +478,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 23,
+                            progress: 7,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -1344,7 +498,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 43,
+                            progress: 33,
                         },
                     ],
                 ),
@@ -1503,7 +657,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 113,
+                                        value: 69,
                                     },
                                 ),
                             ),
@@ -1516,7 +670,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 114,
+                                        value: 70,
                                     },
                                 ),
                             ),
@@ -1529,7 +683,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 115,
+                                        value: 71,
                                     },
                                 ),
                             ),
@@ -1542,7 +696,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 116,
+                                        value: 72,
                                     },
                                 ),
                             ),
@@ -1555,7 +709,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 117,
+                                        value: 73,
                                     },
                                 ),
                             ),
@@ -1568,7 +722,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 118,
+                                        value: 74,
                                     },
                                 ),
                             ),
@@ -1581,150 +735,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 119,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `MnistLabel`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::raw_contour`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 120,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `connected_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::raw_contour`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 122,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_connected_component`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::raw_contour`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 123,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `ignored_connected_components_row_span_sum_sum`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::raw_contour`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 124,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_raw_contours`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::raw_contour`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 125,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_raw_contour`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::raw_contour`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 126,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_line_segment_sketch`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::raw_contour`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 127,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_concave_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::raw_contour`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 128,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `fermi_match`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::raw_contour`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 129,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `LineSegmentStroke`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::raw_contour`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 130,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `LineSegmentSketch`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::raw_contour`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 131,
+                                        value: 75,
                                     },
                                 ),
                             ),
@@ -1737,7 +748,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 312,
+                                        value: 136,
                                     },
                                 ),
                             ),
@@ -1750,7 +761,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 313,
+                                        value: 137,
                                     },
                                 ),
                             ),
@@ -1763,7 +774,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 314,
+                                        value: 138,
                                     },
                                 ),
                             ),
@@ -1776,7 +787,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 315,
+                                        value: 139,
                                     },
                                 ),
                             ),
@@ -1789,7 +800,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 316,
+                                        value: 140,
                                     },
                                 ),
                             ),
@@ -1802,7 +813,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 317,
+                                        value: 141,
                                     },
                                 ),
                             ),
@@ -1815,7 +826,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 318,
+                                        value: 142,
                                     },
                                 ),
                             ),
@@ -1828,7 +839,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 319,
+                                        value: 143,
                                     },
                                 ),
                             ),
@@ -1841,7 +852,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 321,
+                                        value: 145,
                                     },
                                 ),
                             ),
@@ -1854,7 +865,33 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 323,
+                                        value: 147,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegmentStroke`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 160,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegmentSketch`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 161,
                                     },
                                 ),
                             ),
@@ -1867,7 +904,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 355,
+                                        value: 167,
                                     },
                                 ),
                             ),
@@ -1880,7 +917,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 356,
+                                        value: 168,
                                     },
                                 ),
                             ),
@@ -1893,20 +930,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 357,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `is_one`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::raw_contour`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 628,
+                                        value: 169,
                                     },
                                 ),
                             ),
@@ -2176,7 +1200,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 23,
+                            progress: 7,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -2216,7 +1240,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 30,
+                            progress: 14,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -2578,7 +1602,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 132,
+                                        value: 76,
                                     },
                                 ),
                             ),
@@ -2589,7 +1613,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 133,
+                                        value: 77,
                                     },
                                 ),
                             ),
@@ -2600,7 +1624,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 135,
+                                        value: 79,
                                     },
                                 ),
                             ),
@@ -2613,7 +1637,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 358,
+                                        value: 170,
                                     },
                                 ),
                             ),
@@ -2626,7 +1650,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 378,
+                                        value: 178,
                                     },
                                 ),
                             ),
@@ -2639,7 +1663,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 379,
+                                        value: 179,
                                     },
                                 ),
                             ),
@@ -2652,7 +1676,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 380,
+                                        value: 180,
                                     },
                                 ),
                             ),
@@ -2665,7 +1689,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 381,
+                                        value: 181,
                                     },
                                 ),
                             ),
@@ -2678,7 +1702,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 382,
+                                        value: 182,
                                     },
                                 ),
                             ),
@@ -2691,7 +1715,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 383,
+                                        value: 183,
                                     },
                                 ),
                             ),
@@ -3025,7 +2049,7 @@ Ok(
                             ast_idx: 163,
                             use_expr_idx: 0,
                             visibility: Pub,
-                            progress: 40,
+                            progress: 29,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -3133,7 +2157,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 137,
+                                        value: 81,
                                     },
                                 ),
                             ),
@@ -3146,7 +2170,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 138,
+                                        value: 82,
                                     },
                                 ),
                             ),
@@ -3159,7 +2183,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 139,
+                                        value: 83,
                                     },
                                 ),
                             ),
@@ -3172,7 +2196,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 140,
+                                        value: 84,
                                     },
                                 ),
                             ),
@@ -3185,7 +2209,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 141,
+                                        value: 85,
                                     },
                                 ),
                             ),
@@ -3198,7 +2222,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 142,
+                                        value: 86,
                                     },
                                 ),
                             ),
@@ -3211,163 +2235,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 143,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `MnistLabel`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::line_segment_sketch::concave_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 144,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `find_raw_contours`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::line_segment_sketch::concave_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 145,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `connected_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::line_segment_sketch::concave_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 146,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_connected_component`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::line_segment_sketch::concave_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 147,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `ignored_connected_components_row_span_sum_sum`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::line_segment_sketch::concave_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 148,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_raw_contours`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::line_segment_sketch::concave_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 149,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_raw_contour`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::line_segment_sketch::concave_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 150,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_line_segment_sketch`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::line_segment_sketch::concave_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 151,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_concave_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::line_segment_sketch::concave_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 152,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `fermi_match`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::line_segment_sketch::concave_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 153,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `LineSegmentStroke`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::line_segment_sketch::concave_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 154,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `LineSegmentSketch`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::line_segment_sketch::concave_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 155,
+                                        value: 87,
                                     },
                                 ),
                             ),
@@ -3380,7 +2248,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 384,
+                                        value: 184,
                                     },
                                 ),
                             ),
@@ -3393,7 +2261,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 385,
+                                        value: 185,
                                     },
                                 ),
                             ),
@@ -3406,7 +2274,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 386,
+                                        value: 186,
                                     },
                                 ),
                             ),
@@ -3419,7 +2287,33 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 387,
+                                        value: 187,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegmentStroke`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 188,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegmentSketch`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 189,
                                     },
                                 ),
                             ),
@@ -3432,7 +2326,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 390,
+                                        value: 190,
                                     },
                                 ),
                             ),
@@ -3445,7 +2339,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 391,
+                                        value: 191,
                                     },
                                 ),
                             ),
@@ -3458,7 +2352,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 392,
+                                        value: 192,
                                     },
                                 ),
                             ),
@@ -3471,7 +2365,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 393,
+                                        value: 193,
                                     },
                                 ),
                             ),
@@ -3484,7 +2378,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 394,
+                                        value: 194,
                                     },
                                 ),
                             ),
@@ -3497,7 +2391,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 397,
+                                        value: 197,
                                     },
                                 ),
                             ),
@@ -3510,7 +2404,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 398,
+                                        value: 198,
                                     },
                                 ),
                             ),
@@ -3523,7 +2417,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 399,
+                                        value: 199,
                                     },
                                 ),
                             ),
@@ -3536,7 +2430,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 400,
+                                        value: 200,
                                     },
                                 ),
                             ),
@@ -3549,7 +2443,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 401,
+                                        value: 201,
                                     },
                                 ),
                             ),
@@ -3562,7 +2456,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 402,
+                                        value: 202,
                                     },
                                 ),
                             ),
@@ -3575,7 +2469,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 403,
+                                        value: 203,
                                     },
                                 ),
                             ),
@@ -3588,20 +2482,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 404,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `is_one`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::line_segment_sketch::concave_component`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 689,
+                                        value: 204,
                                     },
                                 ),
                             ),
@@ -3614,7 +2495,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 700,
+                                        value: 447,
                                     },
                                 ),
                             ),
@@ -4015,7 +2896,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 23,
+                            progress: 7,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -4126,7 +3007,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 411,
+                                        value: 211,
                                     },
                                 ),
                             ),
@@ -4139,7 +3020,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 412,
+                                        value: 212,
                                     },
                                 ),
                             ),
@@ -4152,7 +3033,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 413,
+                                        value: 213,
                                     },
                                 ),
                             ),
@@ -4165,7 +3046,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 414,
+                                        value: 214,
                                     },
                                 ),
                             ),
@@ -4178,7 +3059,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 415,
+                                        value: 215,
                                     },
                                 ),
                             ),
@@ -4191,7 +3072,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 416,
+                                        value: 216,
                                     },
                                 ),
                             ),
@@ -4204,7 +3085,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 417,
+                                        value: 217,
                                     },
                                 ),
                             ),
@@ -4217,7 +3098,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 418,
+                                        value: 218,
                                     },
                                 ),
                             ),
@@ -4230,7 +3111,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 419,
+                                        value: 219,
                                     },
                                 ),
                             ),
@@ -4243,7 +3124,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 420,
+                                        value: 220,
                                     },
                                 ),
                             ),
@@ -4256,7 +3137,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 421,
+                                        value: 221,
                                     },
                                 ),
                             ),
@@ -4269,7 +3150,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 422,
+                                        value: 222,
                                     },
                                 ),
                             ),
@@ -4282,7 +3163,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 423,
+                                        value: 223,
                                     },
                                 ),
                             ),
@@ -4295,7 +3176,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 424,
+                                        value: 224,
                                     },
                                 ),
                             ),
@@ -4308,7 +3189,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 425,
+                                        value: 225,
                                     },
                                 ),
                             ),
@@ -4321,7 +3202,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 426,
+                                        value: 226,
                                     },
                                 ),
                             ),
@@ -4334,7 +3215,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 427,
+                                        value: 227,
                                     },
                                 ),
                             ),
@@ -4347,7 +3228,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 428,
+                                        value: 228,
                                     },
                                 ),
                             ),
@@ -4360,7 +3241,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 429,
+                                        value: 229,
                                     },
                                 ),
                             ),
@@ -4373,7 +3254,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 430,
+                                        value: 230,
                                     },
                                 ),
                             ),
@@ -4386,7 +3267,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 431,
+                                        value: 231,
                                     },
                                 ),
                             ),
@@ -4530,7 +3411,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 432,
+                                        value: 232,
                                     },
                                 ),
                             ),
@@ -4543,7 +3424,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 433,
+                                        value: 233,
                                     },
                                 ),
                             ),
@@ -4556,7 +3437,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 434,
+                                        value: 234,
                                     },
                                 ),
                             ),
@@ -4569,7 +3450,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 435,
+                                        value: 235,
                                     },
                                 ),
                             ),
@@ -4582,7 +3463,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 436,
+                                        value: 236,
                                     },
                                 ),
                             ),
@@ -4595,7 +3476,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 437,
+                                        value: 237,
                                     },
                                 ),
                             ),
@@ -4608,7 +3489,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 438,
+                                        value: 238,
                                     },
                                 ),
                             ),
@@ -4621,7 +3502,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 439,
+                                        value: 239,
                                     },
                                 ),
                             ),
@@ -4634,7 +3515,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 440,
+                                        value: 240,
                                     },
                                 ),
                             ),
@@ -4647,7 +3528,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 441,
+                                        value: 241,
                                     },
                                 ),
                             ),
@@ -4660,7 +3541,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 442,
+                                        value: 242,
                                     },
                                 ),
                             ),
@@ -4673,7 +3554,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 443,
+                                        value: 243,
                                     },
                                 ),
                             ),
@@ -4686,7 +3567,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 444,
+                                        value: 244,
                                     },
                                 ),
                             ),
@@ -4699,7 +3580,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 445,
+                                        value: 245,
                                     },
                                 ),
                             ),
@@ -4712,7 +3593,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 446,
+                                        value: 246,
                                     },
                                 ),
                             ),
@@ -4725,7 +3606,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 447,
+                                        value: 247,
                                     },
                                 ),
                             ),
@@ -4738,7 +3619,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 448,
+                                        value: 248,
                                     },
                                 ),
                             ),
@@ -4751,7 +3632,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 449,
+                                        value: 249,
                                     },
                                 ),
                             ),
@@ -4764,7 +3645,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 450,
+                                        value: 250,
                                     },
                                 ),
                             ),
@@ -4777,7 +3658,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 451,
+                                        value: 251,
                                     },
                                 ),
                             ),
@@ -4790,7 +3671,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 452,
+                                        value: 252,
                                     },
                                 ),
                             ),
@@ -5031,7 +3912,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 43,
+                            progress: 33,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -5080,7 +3961,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 501,
+                                        value: 292,
                                     },
                                 ),
                             ),
@@ -5093,7 +3974,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 502,
+                                        value: 293,
                                     },
                                 ),
                             ),
@@ -5106,7 +3987,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 503,
+                                        value: 294,
                                     },
                                 ),
                             ),
@@ -5119,7 +4000,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 504,
+                                        value: 295,
                                     },
                                 ),
                             ),
@@ -5132,7 +4013,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 505,
+                                        value: 296,
                                     },
                                 ),
                             ),
@@ -5145,7 +4026,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 506,
+                                        value: 297,
                                     },
                                 ),
                             ),
@@ -5302,7 +4183,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 156,
+                                        value: 88,
                                     },
                                 ),
                             ),
@@ -5315,7 +4196,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 157,
+                                        value: 89,
                                     },
                                 ),
                             ),
@@ -5328,7 +4209,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 158,
+                                        value: 90,
                                     },
                                 ),
                             ),
@@ -5341,7 +4222,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 159,
+                                        value: 91,
                                     },
                                 ),
                             ),
@@ -5354,7 +4235,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 160,
+                                        value: 92,
                                     },
                                 ),
                             ),
@@ -5367,7 +4248,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 161,
+                                        value: 93,
                                     },
                                 ),
                             ),
@@ -5380,202 +4261,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 162,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `MnistLabel`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::fermi`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 163,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `find_raw_contours`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::fermi`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 164,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `connected_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::fermi`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 165,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_connected_component`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::fermi`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 166,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `ignored_connected_components_row_span_sum_sum`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::fermi`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 167,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_raw_contours`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::fermi`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 168,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_raw_contour`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::fermi`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 169,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_line_segment_sketch`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::fermi`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 170,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_concave_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::fermi`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 171,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `LineSegmentStroke`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::fermi`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 173,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `LineSegmentSketch`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::fermi`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 174,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `is_one`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::fermi`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 722,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `ConcaveComponent`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::fermi`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 723,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `find_concave_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::fermi`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 724,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `LineSegment`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::fermi`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 725,
+                                        value: 94,
                                     },
                                 ),
                             ),
@@ -5656,7 +4342,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 23,
+                            progress: 7,
                         },
                     ],
                 ),
@@ -5802,7 +4488,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 175,
+                                        value: 95,
                                     },
                                 ),
                             ),
@@ -5815,7 +4501,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 176,
+                                        value: 96,
                                     },
                                 ),
                             ),
@@ -5828,7 +4514,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 177,
+                                        value: 97,
                                     },
                                 ),
                             ),
@@ -5841,7 +4527,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 178,
+                                        value: 98,
                                     },
                                 ),
                             ),
@@ -5854,7 +4540,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 179,
+                                        value: 99,
                                     },
                                 ),
                             ),
@@ -5867,7 +4553,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 180,
+                                        value: 100,
                                     },
                                 ),
                             ),
@@ -5880,7 +4566,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 181,
+                                        value: 101,
                                     },
                                 ),
                             ),
@@ -5893,7 +4579,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 182,
+                                        value: 102,
                                     },
                                 ),
                             ),
@@ -5906,7 +4592,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 183,
+                                        value: 103,
                                     },
                                 ),
                             ),
@@ -5919,7 +4605,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 184,
+                                        value: 104,
                                     },
                                 ),
                             ),
@@ -5932,7 +4618,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 185,
+                                        value: 105,
                                     },
                                 ),
                             ),
@@ -5945,7 +4631,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 186,
+                                        value: 106,
                                     },
                                 ),
                             ),
@@ -5958,7 +4644,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 187,
+                                        value: 107,
                                     },
                                 ),
                             ),
@@ -5971,7 +4657,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 188,
+                                        value: 108,
                                     },
                                 ),
                             ),
@@ -5984,7 +4670,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 189,
+                                        value: 109,
                                     },
                                 ),
                             ),
@@ -5997,202 +4683,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 190,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `MnistLabel`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 191,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `find_raw_contours`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 192,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `connected_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 193,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_connected_component`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 194,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `ignored_connected_components_row_span_sum_sum`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 195,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_raw_contours`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 196,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_raw_contour`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 197,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_line_segment_sketch`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 198,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_concave_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 199,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `fermi_match`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 200,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `LineSegmentStroke`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 201,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `LineSegmentSketch`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 202,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `ConcaveComponent`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 727,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `find_concave_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 728,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `LineSegment`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 729,
+                                        value: 110,
                                     },
                                 ),
                             ),
@@ -6780,7 +5271,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 23,
+                            progress: 7,
                         },
                     ],
                 ),
@@ -7608,7 +6099,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 203,
+                                        value: 111,
                                     },
                                 ),
                             ),
@@ -7621,7 +6112,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 204,
+                                        value: 112,
                                     },
                                 ),
                             ),
@@ -7634,7 +6125,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 205,
+                                        value: 113,
                                     },
                                 ),
                             ),
@@ -7647,7 +6138,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 206,
+                                        value: 114,
                                     },
                                 ),
                             ),
@@ -7660,7 +6151,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 207,
+                                        value: 115,
                                     },
                                 ),
                             ),
@@ -7673,7 +6164,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 208,
+                                        value: 116,
                                     },
                                 ),
                             ),
@@ -7686,72 +6177,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 209,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `MnistLabel`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::major`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 210,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `find_raw_contours`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::major`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 211,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `fermi_match`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::major`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 219,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `LineSegmentStroke`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::major`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 220,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `LineSegmentSketch`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::major`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 221,
+                                        value: 117,
                                     },
                                 ),
                             ),
@@ -7764,7 +6190,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 507,
+                                        value: 298,
                                     },
                                 ),
                             ),
@@ -7777,7 +6203,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 508,
+                                        value: 299,
                                     },
                                 ),
                             ),
@@ -7790,7 +6216,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 510,
+                                        value: 301,
                                     },
                                 ),
                             ),
@@ -7803,7 +6229,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 512,
+                                        value: 303,
                                     },
                                 ),
                             ),
@@ -7816,7 +6242,33 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 533,
+                                        value: 312,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegmentStroke`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::major`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 349,
+                                    },
+                                ),
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `LineSegmentSketch`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::major`,
+                            ),
+                            symbol: Use(
+                                UseSymbol(
+                                    Id {
+                                        value: 350,
                                     },
                                 ),
                             ),
@@ -7829,7 +6281,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 586,
+                                        value: 356,
                                     },
                                 ),
                             ),
@@ -7842,7 +6294,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 587,
+                                        value: 357,
                                     },
                                 ),
                             ),
@@ -7855,20 +6307,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 588,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `is_one`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::major`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 730,
+                                        value: 358,
                                     },
                                 ),
                             ),
@@ -8215,7 +6654,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 23,
+                            progress: 7,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -8235,7 +6674,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 30,
+                            progress: 14,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -8255,7 +6694,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 43,
+                            progress: 33,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -8295,7 +6734,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 40,
+                            progress: 29,
                         },
                     ],
                 ),

@@ -1,24 +1,24 @@
 Ok(
     [
         FoldingRange {
-            start_line: 0,
+            start_line: 15,
             start_character: Some(
                 0,
             ),
-            end_line: 1,
+            end_line: 16,
             end_character: Some(
-                31,
+                24,
             ),
             kind: Some(
                 Region,
             ),
         },
         FoldingRange {
-            start_line: 21,
+            start_line: 18,
             start_character: Some(
                 0,
             ),
-            end_line: 31,
+            end_line: 28,
             end_character: Some(
                 20,
             ),

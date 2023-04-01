@@ -4594,20 +4594,7 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Derived(
-                        TypeError(
-                            ExpectFinalDestinationEqsNonSortTypePath {
-                                path_expected: TypePath(
-                                    Id {
-                                        value: 66,
-                                    },
-                                ),
-                                path: TypePath(
-                                    Id {
-                                        value: 72,
-                                    },
-                                ),
-                            },
-                        ),
+                        ExprError,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -5040,7 +5027,7 @@
                                 ident: Ident(
                                     Word(
                                         Id {
-                                            value: 210,
+                                            value: 205,
                                         },
                                     ),
                                 ),
@@ -5095,7 +5082,7 @@
                                 ident: Ident(
                                     Word(
                                         Id {
-                                            value: 210,
+                                            value: 205,
                                         },
                                     ),
                                 ),

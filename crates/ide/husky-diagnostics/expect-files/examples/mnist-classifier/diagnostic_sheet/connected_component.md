@@ -37,6 +37,11 @@ DiagnosticSheet {
                 severity: Error,
                 range: [132:28, 132:41),
             },
+            Diagnostic {
+                message: "Syntax Error: unrecognized identifier",
+                severity: Error,
+                range: [27:9, 27:26),
+            },
         ],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {

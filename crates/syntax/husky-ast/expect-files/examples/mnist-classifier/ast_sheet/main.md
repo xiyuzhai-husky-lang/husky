@@ -4,10 +4,34 @@ Ok(
             data: [
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        1,
+                        14,
                     ),
                     body: ArenaIdxRange(
                         0..0,
+                    ),
+                },
+                Ast::BasicStmtOrBranch {
+                    token_group_idx: TokenGroupIdx(
+                        16,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
+                },
+                Ast::BasicStmtOrBranch {
+                    token_group_idx: TokenGroupIdx(
+                        17,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
+                    ),
+                },
+                Ast::BasicStmtOrBranch {
+                    token_group_idx: TokenGroupIdx(
+                        18,
+                    ),
+                    body: ArenaIdxRange(
+                        1..1,
                     ),
                 },
                 Ast::BasicStmtOrBranch {
@@ -66,41 +90,9 @@ Ok(
                         1..1,
                     ),
                 },
-                Ast::BasicStmtOrBranch {
-                    token_group_idx: TokenGroupIdx(
-                        26,
-                    ),
-                    body: ArenaIdxRange(
-                        1..1,
-                    ),
-                },
-                Ast::BasicStmtOrBranch {
-                    token_group_idx: TokenGroupIdx(
-                        27,
-                    ),
-                    body: ArenaIdxRange(
-                        1..1,
-                    ),
-                },
-                Ast::BasicStmtOrBranch {
-                    token_group_idx: TokenGroupIdx(
-                        28,
-                    ),
-                    body: ArenaIdxRange(
-                        1..1,
-                    ),
-                },
-                Ast::Config {
-                    token_group_idx: TokenGroupIdx(
-                        0,
-                    ),
-                    body: ArenaIdxRange(
-                        0..1,
-                    ),
-                },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        2,
+                        0,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: PubUnder(
@@ -121,12 +113,82 @@ Ok(
                     ident_token: IdentToken {
                         ident: `connected_component`,
                         token_idx: TokenIdx(
-                            8,
+                            1,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        9,
+                        2,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        1,
+                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 22,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
+                    entity_kind: Module,
+                    entity_path: Some(
+                        EntityPath::Module(
+                            `mnist_classifier::raw_contour`,
+                        ),
+                    ),
+                    ident_token: IdentToken {
+                        ident: `raw_contour`,
+                        token_idx: TokenIdx(
+                            3,
+                        ),
+                    },
+                    is_generic: false,
+                    saved_stream_state: TokenIdx(
+                        4,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        2,
+                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 22,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
+                    entity_kind: Module,
+                    entity_path: Some(
+                        EntityPath::Module(
+                            `mnist_classifier::geom2d`,
+                        ),
+                    ),
+                    ident_token: IdentToken {
+                        ident: `geom2d`,
+                        token_idx: TokenIdx(
+                            5,
+                        ),
+                    },
+                    is_generic: false,
+                    saved_stream_state: TokenIdx(
+                        6,
                     ),
                     body_kind: None,
                     body: ArenaIdxRange(
@@ -150,18 +212,18 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         EntityPath::Module(
-                            `mnist_classifier::raw_contour`,
+                            `mnist_classifier::line_segment_sketch`,
                         ),
                     ),
                     ident_token: IdentToken {
-                        ident: `raw_contour`,
+                        ident: `line_segment_sketch`,
                         token_idx: TokenIdx(
-                            10,
+                            7,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        11,
+                        8,
                     ),
                     body_kind: None,
                     body: ArenaIdxRange(
@@ -185,18 +247,18 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         EntityPath::Module(
-                            `mnist_classifier::geom2d`,
+                            `mnist_classifier::fermi`,
                         ),
                     ),
                     ident_token: IdentToken {
-                        ident: `geom2d`,
+                        ident: `fermi`,
                         token_idx: TokenIdx(
-                            12,
+                            9,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        13,
+                        10,
                     ),
                     body_kind: None,
                     body: ArenaIdxRange(
@@ -220,18 +282,18 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         EntityPath::Module(
-                            `mnist_classifier::line_segment_sketch`,
+                            `mnist_classifier::digits`,
                         ),
                     ),
                     ident_token: IdentToken {
-                        ident: `line_segment_sketch`,
+                        ident: `digits`,
                         token_idx: TokenIdx(
-                            14,
+                            11,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        15,
+                        12,
                     ),
                     body_kind: None,
                     body: ArenaIdxRange(
@@ -255,25 +317,25 @@ Ok(
                     entity_kind: Module,
                     entity_path: Some(
                         EntityPath::Module(
-                            `mnist_classifier::fermi`,
+                            `mnist_classifier::major`,
                         ),
                     ),
                     ident_token: IdentToken {
-                        ident: `fermi`,
+                        ident: `major`,
                         token_idx: TokenIdx(
-                            16,
+                            13,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        17,
+                        14,
                     ),
                     body_kind: None,
                     body: ArenaIdxRange(
                         0..0,
                     ),
                 },
-                Ast::Defn {
+                Ast::Use {
                     token_group_idx: TokenGroupIdx(
                         7,
                     ),
@@ -287,28 +349,9 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: Module,
-                    entity_path: Some(
-                        EntityPath::Module(
-                            `mnist_classifier::digits`,
-                        ),
-                    ),
-                    ident_token: IdentToken {
-                        ident: `digits`,
-                        token_idx: TokenIdx(
-                            18,
-                        ),
-                    },
-                    is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        19,
-                    ),
-                    body_kind: None,
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
+                    state_after_visibility_expr: None,
                 },
-                Ast::Defn {
+                Ast::Use {
                     token_group_idx: TokenGroupIdx(
                         8,
                     ),
@@ -322,26 +365,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: Module,
-                    entity_path: Some(
-                        EntityPath::Module(
-                            `mnist_classifier::major`,
-                        ),
-                    ),
-                    ident_token: IdentToken {
-                        ident: `major`,
-                        token_idx: TokenIdx(
-                            20,
-                        ),
-                    },
-                    is_generic: false,
-                    saved_stream_state: TokenIdx(
-                        21,
-                    ),
-                    body_kind: None,
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
+                    state_after_visibility_expr: None,
                 },
                 Ast::Use {
                     token_group_idx: TokenGroupIdx(
@@ -407,89 +431,17 @@ Ok(
                     },
                     state_after_visibility_expr: None,
                 },
-                Ast::Use {
+                Ast::Config {
                     token_group_idx: TokenGroupIdx(
                         13,
                     ),
-                    visibility_expr: VisibilityExpr {
-                        visibility: PubUnder(
-                            ModulePath(
-                                Id {
-                                    value: 22,
-                                },
-                            ),
-                        ),
-                        variant: Protected,
-                    },
-                    state_after_visibility_expr: None,
-                },
-                Ast::Use {
-                    token_group_idx: TokenGroupIdx(
-                        14,
+                    body: ArenaIdxRange(
+                        0..1,
                     ),
-                    visibility_expr: VisibilityExpr {
-                        visibility: PubUnder(
-                            ModulePath(
-                                Id {
-                                    value: 22,
-                                },
-                            ),
-                        ),
-                        variant: Protected,
-                    },
-                    state_after_visibility_expr: None,
-                },
-                Ast::Use {
-                    token_group_idx: TokenGroupIdx(
-                        15,
-                    ),
-                    visibility_expr: VisibilityExpr {
-                        visibility: PubUnder(
-                            ModulePath(
-                                Id {
-                                    value: 22,
-                                },
-                            ),
-                        ),
-                        variant: Protected,
-                    },
-                    state_after_visibility_expr: None,
-                },
-                Ast::Use {
-                    token_group_idx: TokenGroupIdx(
-                        16,
-                    ),
-                    visibility_expr: VisibilityExpr {
-                        visibility: PubUnder(
-                            ModulePath(
-                                Id {
-                                    value: 22,
-                                },
-                            ),
-                        ),
-                        variant: Protected,
-                    },
-                    state_after_visibility_expr: None,
-                },
-                Ast::Use {
-                    token_group_idx: TokenGroupIdx(
-                        17,
-                    ),
-                    visibility_expr: VisibilityExpr {
-                        visibility: PubUnder(
-                            ModulePath(
-                                Id {
-                                    value: 22,
-                                },
-                            ),
-                        ),
-                        variant: Protected,
-                    },
-                    state_after_visibility_expr: None,
                 },
                 Ast::Main {
                     token_group_idx: TokenGroupIdx(
-                        18,
+                        15,
                     ),
                     body: ArenaIdxRange(
                         1..11,
@@ -498,9 +450,30 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            11..29,
+            11..26,
         ),
         siblings: [
+            ArenaIdxRange(
+                0..0,
+            ),
+            ArenaIdxRange(
+                0..0,
+            ),
+            ArenaIdxRange(
+                0..0,
+            ),
+            ArenaIdxRange(
+                0..0,
+            ),
+            ArenaIdxRange(
+                0..0,
+            ),
+            ArenaIdxRange(
+                0..0,
+            ),
+            ArenaIdxRange(
+                0..0,
+            ),
             ArenaIdxRange(
                 0..0,
             ),
@@ -538,31 +511,10 @@ Ok(
                 1..1,
             ),
             ArenaIdxRange(
-                1..1,
-            ),
-            ArenaIdxRange(
-                1..1,
-            ),
-            ArenaIdxRange(
-                1..1,
-            ),
-            ArenaIdxRange(
-                1..1,
-            ),
-            ArenaIdxRange(
-                1..1,
-            ),
-            ArenaIdxRange(
-                1..1,
-            ),
-            ArenaIdxRange(
-                1..1,
-            ),
-            ArenaIdxRange(
                 1..11,
             ),
             ArenaIdxRange(
-                11..29,
+                11..26,
             ),
         ],
     },
