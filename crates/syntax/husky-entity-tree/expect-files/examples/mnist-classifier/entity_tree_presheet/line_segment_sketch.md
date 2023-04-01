@@ -142,7 +142,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `go_right`,
                                 token_idx: TokenIdx(
-                                    346,
+                                    348,
                                 ),
                             },
                         },
@@ -165,7 +165,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `go_left`,
                                 token_idx: TokenIdx(
-                                    443,
+                                    445,
                                 ),
                             },
                         },
@@ -188,7 +188,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `extend_end`,
                                 token_idx: TokenIdx(
-                                    540,
+                                    542,
                                 ),
                             },
                         },
@@ -211,7 +211,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `extend_start`,
                                 token_idx: TokenIdx(
-                                    773,
+                                    775,
                                 ),
                             },
                         },
@@ -234,7 +234,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `find_line_segments`,
                                 token_idx: TokenIdx(
-                                    1039,
+                                    1041,
                                 ),
                             },
                         },

@@ -371,7 +371,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Fn,
+                    Memo,
                 ),
             ),
             Token::Ident(
@@ -379,9 +379,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Binary(
-                        Curry,
-                    ),
+                    PunctuationMapped::Colon,
                 ),
             ),
             Token::Punctuation(
@@ -400,6 +398,11 @@ Ok(
             ),
             Token::Ident(
                 `RawContour`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Eq,
+                ),
             ),
             Token::Punctuation(
                 Punctuation(
@@ -430,7 +433,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Fn,
+                    Memo,
                 ),
             ),
             Token::Ident(
@@ -438,13 +441,16 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Binary(
-                        Curry,
-                    ),
+                    PunctuationMapped::Colon,
                 ),
             ),
             Token::Ident(
                 `EffHoles`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Eq,
+                ),
             ),
             Token::Punctuation(
                 Punctuation(
@@ -734,7 +740,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Fn,
+                    Memo,
                 ),
             ),
             Token::Ident(
@@ -742,13 +748,16 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Binary(
-                        Curry,
-                    ),
+                    PunctuationMapped::Colon,
                 ),
             ),
             Token::Ident(
                 `f32`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Eq,
+                ),
             ),
             Token::Punctuation(
                 Punctuation(
@@ -968,7 +977,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Fn,
+                    Memo,
                 ),
             ),
             Token::Ident(
@@ -976,13 +985,16 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Binary(
-                        Curry,
-                    ),
+                    PunctuationMapped::Colon,
                 ),
             ),
             Token::Ident(
                 `f32`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Eq,
+                ),
             ),
             Token::Punctuation(
                 Punctuation(
@@ -1146,7 +1158,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Fn,
+                    Memo,
                 ),
             ),
             Token::Ident(
@@ -1154,13 +1166,16 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Binary(
-                        Curry,
-                    ),
+                    PunctuationMapped::Colon,
                 ),
             ),
             Token::Ident(
                 `f32`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Eq,
+                ),
             ),
             Token::Punctuation(
                 Punctuation(
@@ -1303,7 +1318,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Fn,
+                    Memo,
                 ),
             ),
             Token::Ident(
@@ -1311,13 +1326,16 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Binary(
-                        Curry,
-                    ),
+                    PunctuationMapped::Colon,
                 ),
             ),
             Token::Ident(
                 `ConnectedComponentDistribution`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Eq,
+                ),
             ),
             Token::Punctuation(
                 Punctuation(
@@ -1901,7 +1919,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Fn,
+                    Memo,
                 ),
             ),
             Token::Ident(
@@ -1909,13 +1927,16 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Binary(
-                        Curry,
-                    ),
+                    PunctuationMapped::Colon,
                 ),
             ),
             Token::Ident(
                 `f32`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Eq,
+                ),
             ),
             Token::Punctuation(
                 Punctuation(
@@ -1951,7 +1972,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Fn,
+                    Memo,
                 ),
             ),
             Token::Ident(
@@ -1959,13 +1980,16 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::Binary(
-                        Curry,
-                    ),
+                    PunctuationMapped::Colon,
                 ),
             ),
             Token::Ident(
                 `f32`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Eq,
+                ),
             ),
             Token::Punctuation(
                 Punctuation(
@@ -4186,114 +4210,114 @@ Ok(
             69,
             77,
             80,
-            87,
-            91,
-            96,
-            107,
-            119,
-            126,
-            137,
-            148,
-            153,
-            158,
-            163,
-            169,
-            180,
-            193,
-            198,
+            88,
+            92,
+            98,
+            109,
+            121,
+            128,
+            139,
+            150,
+            155,
+            161,
+            166,
+            172,
+            183,
+            196,
             201,
-            205,
-            210,
-            215,
-            222,
-            239,
+            204,
+            208,
+            214,
+            219,
+            226,
             243,
-            248,
+            247,
             253,
-            260,
-            272,
-            276,
+            258,
+            265,
+            277,
             281,
-            286,
-            291,
-            299,
-            300,
-            307,
-            312,
-            321,
-            322,
+            287,
+            292,
+            297,
+            305,
+            306,
+            313,
+            318,
+            327,
             328,
             334,
-            339,
-            348,
-            360,
-            365,
-            374,
-            386,
-            398,
-            403,
+            340,
+            345,
+            354,
+            366,
+            371,
+            380,
+            392,
+            404,
             410,
-            415,
-            422,
-            432,
-            437,
-            441,
-            446,
-            451,
+            417,
+            423,
+            430,
+            440,
+            445,
+            449,
+            454,
             459,
-            460,
-            469,
-            481,
-            485,
-            495,
-            500,
-            504,
-            509,
-            514,
+            467,
+            468,
+            477,
+            489,
+            493,
+            503,
+            508,
+            512,
+            517,
             522,
-            523,
-            532,
-            544,
-            548,
-            550,
-            551,
-            565,
-            586,
-            607,
-            612,
+            530,
+            531,
+            540,
+            552,
+            556,
+            558,
+            559,
+            573,
+            594,
             615,
-            634,
-            636,
-            649,
-            659,
-            668,
-            673,
-            679,
-            686,
+            620,
+            623,
+            642,
+            644,
+            657,
+            667,
+            676,
+            681,
+            687,
             694,
-            701,
-            714,
-            719,
-            723,
-            726,
+            702,
+            709,
+            722,
+            727,
             731,
-            738,
-            747,
-            766,
-            770,
-            771,
-            776,
+            734,
+            739,
+            746,
+            755,
+            774,
+            778,
             779,
+            784,
             787,
-            792,
-            799,
-            818,
-            823,
+            795,
+            800,
+            807,
             826,
-            832,
-            839,
-            851,
-            860,
+            831,
+            834,
+            840,
+            847,
+            859,
+            868,
         ],
         indents: [
             0,
