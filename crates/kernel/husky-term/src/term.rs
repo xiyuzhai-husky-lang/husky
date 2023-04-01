@@ -3,10 +3,10 @@ mod application;
 mod as_trai_subentity;
 mod constraint;
 mod curry;
+mod placeholder;
 mod ritchie;
 mod subentity;
 mod symbol;
-mod variable;
 
 use std::fmt::{Debug, Display};
 
@@ -15,10 +15,10 @@ pub use self::application::*;
 pub use self::as_trai_subentity::*;
 pub use self::constraint::*;
 pub use self::curry::*;
+pub use self::placeholder::*;
 pub use self::ritchie::*;
 pub use self::subentity::*;
 pub use self::symbol::*;
-pub use self::variable::*;
 
 use crate::*;
 use husky_entity_path::EntityPath;
