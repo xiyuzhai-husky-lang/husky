@@ -146,8 +146,8 @@ impl From<TermSymbol> for LocalTerm {
     }
 }
 
-impl From<TermVariable> for LocalTerm {
-    fn from(value: TermVariable) -> Self {
+impl From<TermPlaceholder> for LocalTerm {
+    fn from(value: TermPlaceholder) -> Self {
         LocalTerm::Resolved(value.into())
     }
 }

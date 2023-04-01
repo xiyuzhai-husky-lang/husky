@@ -30,7 +30,7 @@ impl TermShowContext {
     pub(crate) fn fmt_variable(
         &mut self,
         db: &dyn TermDb,
-        variable: TermVariable,
+        variable: TermPlaceholder,
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
         todo!()
@@ -51,7 +51,7 @@ impl TermShowContext {
     pub(crate) fn fmt_with_variable(
         &mut self,
         db: &dyn TermDb,
-        variable: TermVariable,
+        variable: TermPlaceholder,
         f: impl FnOnce(&mut Self) -> std::fmt::Result,
     ) -> std::fmt::Result {
         todo!()

@@ -4,9 +4,9 @@ use vec_like::AsVecMapEntry;
 use super::*;
 
 #[derive(Debug, Hash, PartialEq, Eq)]
-pub(crate) struct RawTermVariableShowEntry {
-    variable: RawTermVariable,
-    show_kind: RawTermVariableShowKind,
+pub(crate) struct RawTermPlaceholderShowEntry {
+    variable: RawTermPlaceholder,
+    show_kind: RawTermPlaceholderShowKind,
     idx: u8,
     /// number of lambdas using this variable
     /// level 0 means this variable is external
@@ -14,7 +14,7 @@ pub(crate) struct RawTermVariableShowEntry {
     external_variable_ident: Option<Ident>,
 }
 
-impl RawTermVariableShowEntry {
+impl RawTermPlaceholderShowEntry {
     pub(crate) fn show(
         &self,
         _db: &dyn RawTermDb,
@@ -24,7 +24,7 @@ impl RawTermVariableShowEntry {
             todo!()
         } else {
             match self.show_kind {
-                RawTermVariableShowKind::Lifetime => {
+                RawTermPlaceholderShowKind::Lifetime => {
                     match self.idx {
                         0 => f.write_str("'a"),
                         1 => f.write_str("'b"),
@@ -35,7 +35,7 @@ impl RawTermVariableShowEntry {
                         idx => f.write_fmt(format_args!("'a{}", idx))
                     }
                 },
-                RawTermVariableShowKind::Binding => {
+                RawTermPlaceholderShowKind::Binding => {
                     match self.idx {
                         0 => f.write_str("'α"),
                         1 => f.write_str("'β"),
@@ -47,21 +47,21 @@ impl RawTermVariableShowEntry {
                         idx => f.write_fmt(format_args!("'α{}", idx))
                     }
                 },
-                RawTermVariableShowKind::Prop => {
+                RawTermPlaceholderShowKind::Prop => {
                     match self.idx {
                         0 => f.write_str("p"),
                         1 => f.write_str("q"),
                         idx => f.write_fmt(format_args!("p{}", idx))
                     }
                 },
-                RawTermVariableShowKind::Type => {
+                RawTermPlaceholderShowKind::Type => {
                     match self.idx {
                         0 => f.write_str("t"),
                         1 => f.write_str("s"),
                         idx => f.write_fmt(format_args!("t{}", idx))
                     }
                 },
-                RawTermVariableShowKind::Kind => {
+                RawTermPlaceholderShowKind::Kind => {
                     match self.idx {
                         0 => f.write_str("α"),
                         1 => f.write_str("β"),
@@ -73,7 +73,7 @@ impl RawTermVariableShowEntry {
                         idx => f.write_fmt(format_args!("α{}", idx))
                     }
                 },
-                RawTermVariableShowKind::Other => {
+                RawTermPlaceholderShowKind::Other => {
                     match self.idx {
                         0 => f.write_str("a"),
                         1 => f.write_str("b"),
@@ -85,8 +85,8 @@ impl RawTermVariableShowEntry {
     }
 }
 
-impl AsVecMapEntry for RawTermVariableShowEntry {
-    type K = RawTermVariable;
+impl AsVecMapEntry for RawTermPlaceholderShowEntry {
+    type K = RawTermPlaceholder;
 
     fn key(&self) -> Self::K
     where
@@ -101,7 +101,7 @@ impl AsVecMapEntry for RawTermVariableShowEntry {
 }
 
 #[derive(Debug, Clone, Copy, Hash, PartialEq, Eq)]
-pub(crate) enum RawTermVariableShowKind {
+pub(crate) enum RawTermPlaceholderShowKind {
     Lifetime,
     Binding,
     Prop,
@@ -114,30 +114,30 @@ impl RawTermShowContext {
     pub(super) fn new_external_entry(
         &self,
         db: &dyn RawTermDb,
-        variable: RawTermVariable,
+        variable: RawTermPlaceholder,
         external_variable_ident: Option<Ident>,
-    ) -> RawTermVariableShowEntry {
+    ) -> RawTermPlaceholderShowEntry {
         self.new_entry(db, variable, 0, external_variable_ident)
     }
 
     pub(super) fn new_internal_entry(
         &self,
         db: &dyn RawTermDb,
-        variable: RawTermVariable,
-    ) -> RawTermVariableShowEntry {
+        variable: RawTermPlaceholder,
+    ) -> RawTermPlaceholderShowEntry {
         self.new_entry(db, variable, 1, None)
     }
 
     fn new_entry(
         &self,
         db: &dyn RawTermDb,
-        variable: RawTermVariable,
+        variable: RawTermPlaceholder,
         level: u8,
         external_variable_ident: Option<Ident>,
-    ) -> RawTermVariableShowEntry {
+    ) -> RawTermPlaceholderShowEntry {
         let show_kind = variable_show_kind(variable, db);
         let idx = self.issue_idx(show_kind);
-        RawTermVariableShowEntry {
+        RawTermPlaceholderShowEntry {
             variable,
             show_kind,
             idx,
@@ -146,7 +146,7 @@ impl RawTermShowContext {
         }
     }
 
-    fn issue_idx(&self, show_kind: RawTermVariableShowKind) -> u8 {
+    fn issue_idx(&self, show_kind: RawTermPlaceholderShowKind) -> u8 {
         let last_idx = self
             .entries
             .data()
@@ -161,7 +161,7 @@ impl RawTermShowContext {
     }
 
     // todo: put this into an internal table struct
-    pub(super) fn with_variable(&mut self, db: &dyn RawTermDb, variable: RawTermVariable) {
+    pub(super) fn with_variable(&mut self, db: &dyn RawTermDb, variable: RawTermPlaceholder) {
         if let Some(entry) = self.entries.get_entry_mut(variable) {
             entry.level += 1
         } else {
@@ -170,19 +170,22 @@ impl RawTermShowContext {
         }
     }
 
-    pub(super) fn without_variable(&mut self, variable: RawTermVariable) {
+    pub(super) fn without_variable(&mut self, variable: RawTermPlaceholder) {
         self.entries.get_entry_mut(variable).unwrap().level -= 1
     }
 }
 
-fn variable_show_kind(variable: RawTermVariable, db: &dyn RawTermDb) -> RawTermVariableShowKind {
+fn variable_show_kind(
+    variable: RawTermPlaceholder,
+    db: &dyn RawTermDb,
+) -> RawTermPlaceholderShowKind {
     match variable.ty(db) {
         Ok(RawTerm::EntityPath(RawTermEntityPath::Type(ty))) if ty.eqs_lifetime_ty_path(db) => {
-            RawTermVariableShowKind::Lifetime
+            RawTermPlaceholderShowKind::Lifetime
         }
-        Ok(RawTerm::Category(cat)) if cat.universe().raw() == 0 => RawTermVariableShowKind::Prop,
-        Ok(RawTerm::Category(cat)) if cat.universe().raw() == 1 => RawTermVariableShowKind::Type,
-        Ok(RawTerm::Category(_)) => RawTermVariableShowKind::Kind,
-        _ => RawTermVariableShowKind::Other,
+        Ok(RawTerm::Category(cat)) if cat.universe().raw() == 0 => RawTermPlaceholderShowKind::Prop,
+        Ok(RawTerm::Category(cat)) if cat.universe().raw() == 1 => RawTermPlaceholderShowKind::Type,
+        Ok(RawTerm::Category(_)) => RawTermPlaceholderShowKind::Kind,
+        _ => RawTermPlaceholderShowKind::Other,
     }
 }

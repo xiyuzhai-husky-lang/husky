@@ -8,7 +8,7 @@ pub struct TermCurry {
     pub curry_kind: CurryKind,
     pub variance: Variance,
     /// a
-    pub parameter_variable: Option<TermVariable>,
+    pub parameter_variable: Option<TermPlaceholder>,
     /// X
     pub parameter_ty: Term,
     /// Y
@@ -83,7 +83,7 @@ pub(crate) fn term_curry_from_raw_unchecked(
         raw_term_curry.variance(db),
         match raw_term_curry.parameter_variable(db) {
             Some(parameter_variable) => {
-                Some(TermVariable::from_raw_unchecked(db, parameter_variable)?)
+                Some(TermPlaceholder::from_raw_unchecked(db, parameter_variable)?)
             }
             None => None,
         },
