@@ -7,12 +7,18 @@ pub(crate) fn trai_for_ty_method_signature(
     db: &dyn SignatureDb,
     decl: TraitForTypeMethodDecl,
 ) -> SignatureResult<TraitForTypeMethodSignature> {
-    let impl_block = decl.associated_item(db).impl_block(db);
-    let self_parameter = match impl_block {
-        ImplBlock::TraitForType(impl_block) => {
-            ExplicitParameterSignature::new(todo!(), impl_block.signature(db)?.ty(db))
+    let self_parameter = {
+        let impl_block = decl.associated_item(db).impl_block(db);
+        let liason = match decl.self_parameter(db) {
+            Some(self_parameter) => todo!(),
+            None => Liason::Pure,
+        };
+        match impl_block {
+            ImplBlock::TraitForType(impl_block) => {
+                ExplicitParameterSignature::new(liason, impl_block.signature(db)?.ty(db))
+            }
+            ImplBlock::Type(_) | ImplBlock::IllFormed(_) => unreachable!(),
         }
-        ImplBlock::Type(_) | ImplBlock::IllFormed(_) => unreachable!(),
     };
     let expr_region = decl.expr_region(db);
     let signature_term_region = signature_term_region(db, expr_region);

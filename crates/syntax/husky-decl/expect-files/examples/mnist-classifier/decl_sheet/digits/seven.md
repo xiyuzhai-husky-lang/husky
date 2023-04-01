@@ -27,10 +27,12 @@ Ok(
                                         expr: 0,
                                     },
                                 ),
-                                eol_colon: EolColonToken(
-                                    TokenIdx(
-                                        64,
-                                    ),
+                                eol_colon: EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            64,
+                                        ),
+                                    },
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -300,10 +302,12 @@ Ok(
                                         expr: 3,
                                     },
                                 ),
-                                eol_colon: EolColonToken(
-                                    TokenIdx(
-                                        84,
-                                    ),
+                                eol_colon: EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            84,
+                                        ),
+                                    },
                                 ),
                             },
                         ),
@@ -336,10 +340,12 @@ Ok(
                                         expr: 0,
                                     },
                                 ),
-                                eol_colon: EolColonToken(
-                                    TokenIdx(
-                                        107,
-                                    ),
+                                eol_colon: EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            107,
+                                        ),
+                                    },
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -609,10 +615,12 @@ Ok(
                                         expr: 3,
                                     },
                                 ),
-                                eol_colon: EolColonToken(
-                                    TokenIdx(
-                                        129,
-                                    ),
+                                eol_colon: EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            129,
+                                        ),
+                                    },
                                 ),
                             },
                         ),
@@ -821,10 +829,12 @@ Ok(
                                         expr: 3,
                                     },
                                 ),
-                                eol_colon: EolColonToken(
-                                    TokenIdx(
-                                        172,
-                                    ),
+                                eol_colon: EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            172,
+                                        ),
+                                    },
                                 ),
                             },
                         ),
@@ -857,10 +867,12 @@ Ok(
                                         expr: 1,
                                     },
                                 ),
-                                eol_colon: EolColonToken(
-                                    TokenIdx(
-                                        224,
-                                    ),
+                                eol_colon: EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            224,
+                                        ),
+                                    },
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {

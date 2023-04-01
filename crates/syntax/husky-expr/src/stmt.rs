@@ -44,31 +44,31 @@ pub enum Stmt {
         for_token: StmtForToken,
         particulars: ForBetweenParticulars,
         frame_var_symbol_idx: CurrentSymbolIdx,
-        eol_colon: ExprResult<EolColonToken>,
+        eol_colon: ExprResult<EolToken>,
         block: ExprResult<StmtIdxRange>,
     },
     ForIn {
         for_token: StmtForToken,
         condition: ExprResult<ExprIdx>,
-        eol_colon: ExprResult<EolColonToken>,
+        eol_colon: ExprResult<EolToken>,
         block: ExprResult<StmtIdxRange>,
     },
     ForExt {
         forext_token: ForextToken,
-        eol_colon: ExprResult<EolColonToken>,
+        eol_colon: ExprResult<EolToken>,
         block: ExprResult<StmtIdxRange>,
     },
     While {
         while_token: WhileToken,
         condition: ExprResult<ExprIdx>,
-        eol_colon: ExprResult<EolColonToken>,
+        eol_colon: ExprResult<EolToken>,
         block: ExprResult<StmtIdxRange>,
     },
     DoWhile {
         do_token: DoToken,
         while_token: WhileToken,
         condition: ExprResult<ExprIdx>,
-        eol_colon: ExprResult<EolColonToken>,
+        eol_colon: ExprResult<EolToken>,
         block: ExprResult<StmtIdxRange>,
     },
     IfElse {
@@ -95,7 +95,7 @@ impl From<StmtResult<Stmt>> for Stmt {
 pub struct IfBranch {
     pub if_token: IfToken,
     pub condition: ExprResult<ExprIdx>,
-    pub eol_colon: ExprResult<EolColonToken>,
+    pub eol_colon: ExprResult<EolToken>,
     pub block: ExprResult<StmtIdxRange>,
 }
 
@@ -104,7 +104,7 @@ impl IfBranch {
         self.condition.as_ref()
     }
 
-    pub fn eol_colon_token(&self) -> Result<&EolColonToken, &ExprError> {
+    pub fn eol_colon_token(&self) -> Result<&EolToken, &ExprError> {
         self.eol_colon.as_ref()
     }
 
@@ -117,7 +117,7 @@ impl IfBranch {
 pub struct ElifBranch {
     pub elif_token: ElifToken,
     pub condition: ExprResult<ExprIdx>,
-    pub eol_colon: ExprResult<EolColonToken>,
+    pub eol_colon: ExprResult<EolToken>,
     pub block: ExprResult<StmtIdxRange>,
 }
 
@@ -126,7 +126,7 @@ impl ElifBranch {
         self.condition.as_ref()
     }
 
-    pub fn eol_colon(&self) -> Result<&EolColonToken, &ExprError> {
+    pub fn eol_colon(&self) -> Result<&EolToken, &ExprError> {
         self.eol_colon.as_ref()
     }
 
@@ -138,7 +138,7 @@ impl ElifBranch {
 #[derive(Debug, PartialEq, Eq)]
 pub struct ElseBranch {
     pub else_token: ElseToken,
-    pub eol_colon: ExprResult<EolColonToken>,
+    pub eol_colon: ExprResult<EolToken>,
     pub block: ExprResult<StmtIdxRange>,
 }
 

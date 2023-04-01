@@ -252,10 +252,12 @@ Ok(
                                 },
                                 curry_token: None,
                                 return_ty: None,
-                                eol_colon: EolColonToken(
-                                    TokenIdx(
-                                        17,
-                                    ),
+                                eol_colon: EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            17,
+                                        ),
+                                    },
                                 ),
                             },
                         ),
@@ -656,10 +658,12 @@ Ok(
                                 },
                                 curry_token: None,
                                 return_ty: None,
-                                eol_colon: EolColonToken(
-                                    TokenIdx(
-                                        64,
-                                    ),
+                                eol_colon: EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            64,
+                                        ),
+                                    },
                                 ),
                             },
                         ),
@@ -1096,10 +1100,12 @@ Ok(
                                         expr: 6,
                                     },
                                 ),
-                                eol_colon: EolColonToken(
-                                    TokenIdx(
-                                        127,
-                                    ),
+                                eol_colon: EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            127,
+                                        ),
+                                    },
                                 ),
                             },
                         ),

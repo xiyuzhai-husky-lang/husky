@@ -264,10 +264,12 @@ Ok(
                                 ty_expr: TypeExpr {
                                     expr: 0,
                                 },
-                                eol_colon: EolColonToken(
-                                    TokenIdx(
-                                        24,
-                                    ),
+                                eol_colon: EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            24,
+                                        ),
+                                    },
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {

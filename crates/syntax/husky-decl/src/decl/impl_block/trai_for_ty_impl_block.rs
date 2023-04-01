@@ -14,7 +14,7 @@ pub struct TraitForTypeImplBlockDecl {
     #[return_ref]
     pub for_token: ConnectionForToken,
     pub ty_expr: TypeExpr,
-    pub eol_colon: EolColonToken,
+    pub eol_colon: EolToken,
     pub expr_region: ExprRegion,
 }
 

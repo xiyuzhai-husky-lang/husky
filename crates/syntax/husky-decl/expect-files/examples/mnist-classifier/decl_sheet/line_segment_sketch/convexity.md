@@ -261,10 +261,12 @@ Ok(
                                         expr: 2,
                                     },
                                 ),
-                                eol_colon: EolColonToken(
-                                    TokenIdx(
-                                        32,
-                                    ),
+                                eol_colon: EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            32,
+                                        ),
+                                    },
                                 ),
                             },
                         ),
