@@ -7,10 +7,10 @@ mod explicit_application;
 mod explicit_application_or_ritchie_call;
 mod list;
 mod literal;
+mod placeholder;
 mod ritchie;
 mod subentity;
 mod symbol;
-mod variable;
 
 pub use self::abstraction::*;
 pub use self::as_trai_subentity::*;
@@ -21,10 +21,10 @@ pub use self::explicit_application::*;
 pub use self::explicit_application_or_ritchie_call::*;
 pub use self::list::*;
 pub use self::literal::*;
+pub use self::placeholder::*;
 pub use self::ritchie::*;
 pub use self::subentity::*;
 pub use self::symbol::*;
-pub use self::variable::*;
 
 use crate::*;
 use std::fmt::Debug;
