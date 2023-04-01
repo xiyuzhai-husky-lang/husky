@@ -1,3 +1,6 @@
 // todo: change to
 // pub type List<universe u, covariant E: Sort u>;
 pub extern List<covariant E>;
+
+impl<E> List E:
+    fn ilen() -> i32;

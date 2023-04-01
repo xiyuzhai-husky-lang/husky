@@ -14,7 +14,7 @@ Ok(
                         TypeDecl::Extern(
                             ExternTypeDecl {
                                 path: TypePath(`core::list::List`, `Extern`),
-                                ast_idx: 0,
+                                ast_idx: 1,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -126,6 +126,21 @@ Ok(
                                 ),
                             },
                         ),
+                    ),
+                ),
+            ),
+            (
+                DeclRegionPath::ImplBlock(
+                    ImplBlockId::IllFormed(
+                        IllFormedImplBlockId {
+                            module: `core::list`,
+                            disambiguator: 0,
+                        },
+                    ),
+                ),
+                Err(
+                    DeclError::Derived(
+                        DerivedDeclError::ImplErr,
                     ),
                 ),
             ),

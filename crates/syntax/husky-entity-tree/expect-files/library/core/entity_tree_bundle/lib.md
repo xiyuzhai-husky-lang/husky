@@ -2387,7 +2387,34 @@ Ok(
                         },
                     ],
                 ),
-                impl_blocks: [],
+                impl_blocks: [
+                    ImplBlock::IllFormed(
+                        IllFormedImplBlock {
+                            id: IllFormedImplBlockId {
+                                module: `core::list`,
+                                disambiguator: 0,
+                            },
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    8,
+                                ),
+                            },
+                            ast_idx: 2,
+                            body: ArenaIdxRange(
+                                0..1,
+                            ),
+                            ill_form: ImplBlockIllForm::MajorPath(
+                                MajorPathExprError::Original(
+                                    OriginalMajorPathExprError::ExpectIdent(
+                                        TokenIdx(
+                                            15,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ],
                 use_expr_rules: UseExprRules(
                     [],
                 ),
