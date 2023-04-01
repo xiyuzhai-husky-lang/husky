@@ -1,12 +1,12 @@
 use super::*;
 
 pub struct RawTermSubstitution {
-    src: RawTermVariable,
+    src: RawTermPlaceholder,
     dst: RawTerm,
 }
 
 impl RawTermSubstitution {
-    pub fn src(&self) -> RawTermVariable {
+    pub fn src(&self) -> RawTermPlaceholder {
         self.src
     }
 

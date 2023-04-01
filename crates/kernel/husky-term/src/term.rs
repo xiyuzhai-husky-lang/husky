@@ -36,7 +36,7 @@ pub enum Term {
     /// literal: 1,1.0, true, false; variable, entityPath
     Literal(TermLiteral),
     Symbol(TermSymbol),
-    Variable(TermVariable),
+    Variable(TermPlaceholder),
     EntityPath(TermEntityPath),
     Category(TermCategory),
     Universe(TermUniverse),

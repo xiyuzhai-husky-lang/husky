@@ -54,7 +54,7 @@ impl RawTermSymbol {
     }
 }
 
-impl RawTermVariable {
+impl RawTermPlaceholder {
     pub(crate) fn ty_family(self, db: &dyn RawTermDb) -> RawTermFamily {
         self.ty(db)
             .ok()

@@ -38,7 +38,7 @@ pub enum RawTerm {
     Literal(RawTermLiteral),
     Symbol(RawTermSymbol),
     /// variables are derived from symbols
-    Variable(RawTermVariable),
+    Variable(RawTermPlaceholder),
     EntityPath(RawTermEntityPath),
     Category(TermCategory),
     Universe(TermUniverse),

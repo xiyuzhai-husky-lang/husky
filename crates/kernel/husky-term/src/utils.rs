@@ -45,7 +45,7 @@ impl TermSymbol {
     }
 }
 
-impl TermVariable {
+impl TermPlaceholder {
     fn toolchain(self, db: &dyn TermDb) -> Option<Toolchain> {
         self.ty(db).toolchain(db)
     }

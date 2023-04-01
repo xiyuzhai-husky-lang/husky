@@ -50,7 +50,7 @@ pub struct TermJar(
     term_ritchie_symbols,
     term_application_symbols,
     // variable
-    TermVariable,
+    TermPlaceholder,
     // curry
     TermCurry,
     term_curry_from_raw_unchecked,
