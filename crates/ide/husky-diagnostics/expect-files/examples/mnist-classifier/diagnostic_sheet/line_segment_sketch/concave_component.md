@@ -35,38 +35,7 @@ DiagnosticSheet {
         ],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Syntax Error: expect end-of-line colon",
-                severity: Error,
-                range: [13:14, 13:15),
-            },
-            Diagnostic {
-                message: "Syntax Error: expect end-of-line colon",
-                severity: Error,
-                range: [17:18, 17:19),
-            },
-            Diagnostic {
-                message: "Syntax Error: expect end-of-line colon",
-                severity: Error,
-                range: [20:24, 20:25),
-            },
-            Diagnostic {
-                message: "Syntax Error: expect end-of-line colon",
-                severity: Error,
-                range: [33:22, 33:23),
-            },
-            Diagnostic {
-                message: "Syntax Error: expect end-of-line colon",
-                severity: Error,
-                range: [43:22, 43:23),
-            },
-            Diagnostic {
-                message: "Syntax Error: expect end-of-line colon",
-                severity: Error,
-                range: [60:31, 60:32),
-            },
-        ],
+        diagnostics: [],
     },
     defn_diagnostic_sheet: DefnDiagnosticSheet {
         diagnostics: [],

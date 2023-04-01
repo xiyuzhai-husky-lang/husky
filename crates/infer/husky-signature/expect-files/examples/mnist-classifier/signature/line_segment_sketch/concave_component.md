@@ -45,6 +45,72 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemSignature::TypeItem(
+                TypeItemSignature::Memo(
+                    TypeMemoSignature {
+                        return_ty: RawTerm(`core::num::f32`),
+                    },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
+                TypeItemSignature::Memo(
+                    TypeMemoSignature {
+                        return_ty: RawTerm(`core::num::f32`),
+                    },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
+                TypeItemSignature::Memo(
+                    TypeMemoSignature {
+                        return_ty: RawTerm(`core::num::f32`),
+                    },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
+                TypeItemSignature::Memo(
+                    TypeMemoSignature {
+                        return_ty: RawTerm(`core::num::f32`),
+                    },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
+                TypeItemSignature::Memo(
+                    TypeMemoSignature {
+                        return_ty: RawTerm(`mnist_classifier::geom2d::BoundingBox`),
+                    },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
+                TypeItemSignature::Memo(
+                    TypeMemoSignature {
+                        return_ty: RawTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
+                    },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
                 TypeItemSignature::MethodFn(
                     TypeMethodSignature {
                         implicit_parameters: ImplicitParameterSignatures {

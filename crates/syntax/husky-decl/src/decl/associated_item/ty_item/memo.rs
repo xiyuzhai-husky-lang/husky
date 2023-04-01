@@ -8,10 +8,11 @@ pub struct TypeMemoDecl {
     pub path: Option<TypeItemPath>,
     pub associated_item: AssociatedItem,
     pub ast_idx: AstIdx,
+    pub colon_token: Option<ColonToken>,
+    pub memo_ty: Option<FormTypeExpr>,
+    pub eq_token: EqToken,
+    pub expr_or_eol_token: Either<EolToken, ExprIdx>,
     pub expr_region: ExprRegion,
-    pub curry_token: Option<CurryToken>,
-    pub return_ty: Option<ReturnTypeExpr>,
-    pub eol_colon: EolToken,
 }
 
 impl<'a> DeclParseContext<'a> {
@@ -38,22 +39,28 @@ impl<'a> DeclParseContext<'a> {
             _ => unreachable!(),
         };
 
-        let curry_token = ctx.parse()?;
-        let return_ty = if curry_token.is_some() {
+        let colon_token = ctx.parse()?;
+        let form_ty = if colon_token.is_some() {
             Some(ctx.parse_expected(OriginalDeclExprError::ExpectOutputType)?)
         } else {
             None
         };
-        let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon)?;
+        let eq_token = ctx.parse_expected(OriginalDeclExprError::ExpectEqTokenForVariable)?;
+        let expr_or_eol_token = if let Some(eol_token) = ctx.parse::<EolToken>()? {
+            Left(eol_token)
+        } else {
+            Right(todo!("parse expr"))
+        };
         Ok(TypeMemoDecl::new(
             self.db(),
             path,
             associated_item,
             ast_idx,
+            colon_token,
+            form_ty,
+            eq_token,
+            expr_or_eol_token,
             parser.finish(),
-            curry_token,
-            return_ty,
-            eol_colon,
         )
         .into())
     }

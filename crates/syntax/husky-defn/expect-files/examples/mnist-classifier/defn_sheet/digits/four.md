@@ -25,7 +25,7 @@ Ok(
                                         ),
                                     ),
                                     var_ty: Some(
-                                        VarTypeExpr {
+                                        FormTypeExpr {
                                             expr: 0,
                                         },
                                     ),
@@ -748,7 +748,7 @@ Ok(
                                         ),
                                     ),
                                     var_ty: Some(
-                                        VarTypeExpr {
+                                        FormTypeExpr {
                                             expr: 0,
                                         },
                                     ),
@@ -991,7 +991,7 @@ Ok(
                                         ),
                                     ),
                                     var_ty: Some(
-                                        VarTypeExpr {
+                                        FormTypeExpr {
                                             expr: 0,
                                         },
                                     ),
@@ -1234,7 +1234,7 @@ Ok(
                                         ),
                                     ),
                                     var_ty: Some(
-                                        VarTypeExpr {
+                                        FormTypeExpr {
                                             expr: 1,
                                         },
                                     ),

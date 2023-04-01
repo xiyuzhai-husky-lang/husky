@@ -9,11 +9,11 @@ pub(crate) fn ty_memo_signature(
     let expr_region = decl.expr_region(db);
     let signature_term_region = signature_term_region(db, expr_region);
     let raw_term_menu = db.raw_term_menu(expr_region.toolchain(db)).unwrap();
-    let return_ty = match decl.return_ty(db) {
-        Some(return_ty) => signature_term_region.expr_term(return_ty.expr())?,
+    let memo_ty = match decl.memo_ty(db) {
+        Some(memo_ty) => signature_term_region.expr_term(memo_ty.expr())?,
         None => raw_term_menu.unit(),
     };
-    Ok(TypeMemoSignature::new(db, return_ty))
+    Ok(TypeMemoSignature::new(db, memo_ty))
 }
 
 #[salsa::interned(db = SignatureDb, jar = SignatureJar)]

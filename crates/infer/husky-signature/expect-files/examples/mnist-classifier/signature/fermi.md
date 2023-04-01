@@ -68,4 +68,37 @@
             ),
         ),
     ),
+    Ok(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
+                TypeItemSignature::Memo(
+                    TypeMemoSignature {
+                        return_ty: RawTerm(`core::num::f32`),
+                    },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
+                TypeItemSignature::Memo(
+                    TypeMemoSignature {
+                        return_ty: RawTerm(`core::num::f32`),
+                    },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        Signature::AssociatedItem(
+            AssociatedItemSignature::TypeItem(
+                TypeItemSignature::Memo(
+                    TypeMemoSignature {
+                        return_ty: RawTerm(`core::num::f32`),
+                    },
+                ),
+            ),
+        ),
+    ),
 ]

@@ -1705,13 +1705,797 @@ Ok(
                         ident: `norm`,
                     },
                 ),
-                Err(
-                    DeclError::Original(
-                        OriginalDeclError::Expr(
-                            OriginalDeclExprError::ExpectEolColon(
-                                TokenIdx(
-                                    28,
-                                ),
+                Ok(
+                    Defn::AssociatedItem(
+                        AssociatedItemDefn::TypeItem(
+                            TypeItemDefn::Memo(
+                                TypeMemoDefn {
+                                    path: Some(
+                                        TypeItemPath {
+                                            parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                            ident: `norm`,
+                                            item_kind: Memo,
+                                        },
+                                    ),
+                                    decl: TypeMemoDecl {
+                                        path: Some(
+                                            TypeItemPath {
+                                                parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                ident: `norm`,
+                                                item_kind: Memo,
+                                            },
+                                        ),
+                                        associated_item: AssociatedItem {
+                                            id: AssociatedItemId {
+                                                impl_block_id: ImplBlockId::Type(
+                                                    TypeImplBlockId {
+                                                        module_path: `mnist_classifier::fermi`,
+                                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                ident: `norm`,
+                                            },
+                                            path: Some(
+                                                AssociatedItemPath::TypeItem(
+                                                    TypeItemPath {
+                                                        parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                        ident: `norm`,
+                                                        item_kind: Memo,
+                                                    },
+                                                ),
+                                            ),
+                                            impl_block: ImplBlock::Type(
+                                                TypeImplBlock {
+                                                    id: TypeImplBlockId {
+                                                        module_path: `mnist_classifier::fermi`,
+                                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ast_idx: 23,
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            23,
+                                                        ),
+                                                    },
+                                                    ty_expr: 11,
+                                                    body: ArenaIdxRange(
+                                                        12..15,
+                                                    ),
+                                                },
+                                            ),
+                                            ast_idx: 12,
+                                            ident: `norm`,
+                                            associated_item_kind: TypeItem(
+                                                Memo,
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::fermi`,
+                                            ),
+                                            is_generic: false,
+                                        },
+                                        ast_idx: 12,
+                                        colon_token: Some(
+                                            ColonToken(
+                                                TokenIdx(
+                                                    28,
+                                                ),
+                                            ),
+                                        ),
+                                        memo_ty: Some(
+                                            FormTypeExpr {
+                                                expr: 0,
+                                            },
+                                        ),
+                                        eq_token: EqToken(
+                                            TokenIdx(
+                                                30,
+                                            ),
+                                        ),
+                                        expr_or_eol_token: Left(
+                                            EolToken::Colon(
+                                                EolColonToken {
+                                                    token_idx: TokenIdx(
+                                                        31,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                        expr_region: ExprRegion {
+                                            data: ExprRegionData {
+                                                parent: Some(
+                                                    ExprRegion {
+                                                        data: ExprRegionData {
+                                                            parent: None,
+                                                            path: RegionPath::Decl(
+                                                                DeclRegionPath::ImplBlock(
+                                                                    ImplBlockId::Type(
+                                                                        TypeImplBlockId {
+                                                                            module_path: `mnist_classifier::fermi`,
+                                                                            ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            expr_arena: Arena {
+                                                                data: [
+                                                                    Expr::EntityPath {
+                                                                        entity_path_expr: 0,
+                                                                        path: Some(
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                                ),
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            entity_path_expr_arena: Arena {
+                                                                data: [
+                                                                    EntityPathExpr::Root {
+                                                                        token_idx: TokenIdx(
+                                                                            24,
+                                                                        ),
+                                                                        ident: `FermiMatchResult`,
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            stmt_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_region: PatternExprRegion {
+                                                                pattern_expr_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_infos: [],
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                            },
+                                                            symbol_region: SymbolRegion {
+                                                                inherited_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                current_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                allow_self_type: True,
+                                                                allow_self_value: False,
+                                                                pattern_ty_constraints: [],
+                                                            },
+                                                            roots: [
+                                                                ExprRoot {
+                                                                    kind: SelfType,
+                                                                    expr: 0,
+                                                                },
+                                                            ],
+                                                        },
+                                                    },
+                                                ),
+                                                path: RegionPath::Decl(
+                                                    DeclRegionPath::AssociatedItem(
+                                                        AssociatedItemId {
+                                                            impl_block_id: ImplBlockId::Type(
+                                                                TypeImplBlockId {
+                                                                    module_path: `mnist_classifier::fermi`,
+                                                                    ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                            ident: `norm`,
+                                                        },
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        Expr::EntityPath {
+                                                            entity_path_expr: 0,
+                                                            path: Some(
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::f32`, `Extern`),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                entity_path_expr_arena: Arena {
+                                                    data: [
+                                                        EntityPathExpr::Root {
+                                                            token_idx: TokenIdx(
+                                                                29,
+                                                            ),
+                                                            ident: `f32`,
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: PatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: True,
+                                                    pattern_ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    ExprRoot {
+                                                        kind: VarType,
+                                                        expr: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    },
+                                    expr_region: ExprRegion {
+                                        data: ExprRegionData {
+                                            parent: Some(
+                                                ExprRegion {
+                                                    data: ExprRegionData {
+                                                        parent: Some(
+                                                            ExprRegion {
+                                                                data: ExprRegionData {
+                                                                    parent: None,
+                                                                    path: RegionPath::Decl(
+                                                                        DeclRegionPath::ImplBlock(
+                                                                            ImplBlockId::Type(
+                                                                                TypeImplBlockId {
+                                                                                    module_path: `mnist_classifier::fermi`,
+                                                                                    ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                                    disambiguator: 0,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                    expr_arena: Arena {
+                                                                        data: [
+                                                                            Expr::EntityPath {
+                                                                                entity_path_expr: 0,
+                                                                                path: Some(
+                                                                                    EntityPath::ModuleItem(
+                                                                                        ModuleItemPath::Type(
+                                                                                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                                        ),
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ],
+                                                                    },
+                                                                    entity_path_expr_arena: Arena {
+                                                                        data: [
+                                                                            EntityPathExpr::Root {
+                                                                                token_idx: TokenIdx(
+                                                                                    24,
+                                                                                ),
+                                                                                ident: `FermiMatchResult`,
+                                                                                entity_path: EntityPath::ModuleItem(
+                                                                                    ModuleItemPath::Type(
+                                                                                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ],
+                                                                    },
+                                                                    stmt_arena: Arena {
+                                                                        data: [],
+                                                                    },
+                                                                    pattern_expr_region: PatternExprRegion {
+                                                                        pattern_expr_arena: Arena {
+                                                                            data: [],
+                                                                        },
+                                                                        pattern_infos: [],
+                                                                        pattern_symbol_maps: [],
+                                                                        pattern_symbol_arena: Arena {
+                                                                            data: [],
+                                                                        },
+                                                                    },
+                                                                    symbol_region: SymbolRegion {
+                                                                        inherited_symbol_arena: Arena {
+                                                                            data: [],
+                                                                        },
+                                                                        current_symbol_arena: Arena {
+                                                                            data: [],
+                                                                        },
+                                                                        allow_self_type: True,
+                                                                        allow_self_value: False,
+                                                                        pattern_ty_constraints: [],
+                                                                    },
+                                                                    roots: [
+                                                                        ExprRoot {
+                                                                            kind: SelfType,
+                                                                            expr: 0,
+                                                                        },
+                                                                    ],
+                                                                },
+                                                            },
+                                                        ),
+                                                        path: RegionPath::Decl(
+                                                            DeclRegionPath::AssociatedItem(
+                                                                AssociatedItemId {
+                                                                    impl_block_id: ImplBlockId::Type(
+                                                                        TypeImplBlockId {
+                                                                            module_path: `mnist_classifier::fermi`,
+                                                                            ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    ),
+                                                                    ident: `norm`,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 0,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`core::num::f32`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        entity_path_expr_arena: Arena {
+                                                            data: [
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        29,
+                                                                    ),
+                                                                    ident: `f32`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::f32`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: PatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: True,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            ExprRoot {
+                                                                kind: VarType,
+                                                                expr: 0,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Defn(
+                                                DefnRegionPath::AssociatedItem(
+                                                    AssociatedItemId {
+                                                        impl_block_id: ImplBlockId::Type(
+                                                            TypeImplBlockId {
+                                                                module_path: `mnist_classifier::fermi`,
+                                                                ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        ident: `norm`,
+                                                    },
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    Expr::Literal(
+                                                        TokenIdx(
+                                                            36,
+                                                        ),
+                                                    ),
+                                                    Expr::SelfValue(
+                                                        TokenIdx(
+                                                            40,
+                                                        ),
+                                                    ),
+                                                    Expr::Field {
+                                                        owner: 1,
+                                                        dot_token_idx: TokenIdx(
+                                                            41,
+                                                        ),
+                                                        ident_token: IdentToken {
+                                                            ident: `others`,
+                                                            token_idx: TokenIdx(
+                                                                42,
+                                                            ),
+                                                        },
+                                                    },
+                                                    Expr::FrameVarDecl {
+                                                        token_idx: TokenIdx(
+                                                            38,
+                                                        ),
+                                                        ident: `i`,
+                                                        frame_var_symbol_idx: 1,
+                                                        current_symbol_kind: CurrentSymbolKind::FrameVariable(
+                                                            3,
+                                                        ),
+                                                    },
+                                                    Expr::MethodCall {
+                                                        self_argument: 2,
+                                                        dot_token_idx: TokenIdx(
+                                                            43,
+                                                        ),
+                                                        ident_token: IdentToken {
+                                                            ident: `ilen`,
+                                                            token_idx: TokenIdx(
+                                                                44,
+                                                            ),
+                                                        },
+                                                        implicit_arguments: None,
+                                                        lpar_token_idx: TokenIdx(
+                                                            45,
+                                                        ),
+                                                        nonself_arguments: ArenaIdxRange(
+                                                            3..3,
+                                                        ),
+                                                        rpar_token_idx: TokenIdx(
+                                                            46,
+                                                        ),
+                                                    },
+                                                    Expr::Binary {
+                                                        lopd: 3,
+                                                        opr: Comparison(
+                                                            Less,
+                                                        ),
+                                                        opr_token_idx: TokenIdx(
+                                                            39,
+                                                        ),
+                                                        ropd: 4,
+                                                    },
+                                                    Expr::CurrentSymbol {
+                                                        ident: `norm`,
+                                                        token_idx: TokenIdx(
+                                                            50,
+                                                        ),
+                                                        current_symbol_idx: 0,
+                                                        current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                                            pattern_symbol_idx: 0,
+                                                        },
+                                                    },
+                                                    Expr::SelfValue(
+                                                        TokenIdx(
+                                                            54,
+                                                        ),
+                                                    ),
+                                                    Expr::Field {
+                                                        owner: 7,
+                                                        dot_token_idx: TokenIdx(
+                                                            55,
+                                                        ),
+                                                        ident_token: IdentToken {
+                                                            ident: `others`,
+                                                            token_idx: TokenIdx(
+                                                                56,
+                                                            ),
+                                                        },
+                                                    },
+                                                    Expr::CurrentSymbol {
+                                                        ident: `i`,
+                                                        token_idx: TokenIdx(
+                                                            58,
+                                                        ),
+                                                        current_symbol_idx: 1,
+                                                        current_symbol_kind: CurrentSymbolKind::FrameVariable(
+                                                            3,
+                                                        ),
+                                                    },
+                                                    Expr::IndexOrCompositionWithList {
+                                                        owner: 8,
+                                                        lbox_token_idx: TokenIdx(
+                                                            57,
+                                                        ),
+                                                        items: ArenaIdxRange(
+                                                            9..10,
+                                                        ),
+                                                        rbox_token_idx: TokenIdx(
+                                                            59,
+                                                        ),
+                                                    },
+                                                    Expr::Field {
+                                                        owner: 10,
+                                                        dot_token_idx: TokenIdx(
+                                                            60,
+                                                        ),
+                                                        ident_token: IdentToken {
+                                                            ident: `norm`,
+                                                            token_idx: TokenIdx(
+                                                                61,
+                                                            ),
+                                                        },
+                                                    },
+                                                    Expr::CurrentSymbol {
+                                                        ident: `norm`,
+                                                        token_idx: TokenIdx(
+                                                            48,
+                                                        ),
+                                                        current_symbol_idx: 0,
+                                                        current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                                            pattern_symbol_idx: 0,
+                                                        },
+                                                    },
+                                                    Expr::MethodCall {
+                                                        self_argument: 6,
+                                                        dot_token_idx: TokenIdx(
+                                                            51,
+                                                        ),
+                                                        ident_token: IdentToken {
+                                                            ident: `max`,
+                                                            token_idx: TokenIdx(
+                                                                52,
+                                                            ),
+                                                        },
+                                                        implicit_arguments: None,
+                                                        lpar_token_idx: TokenIdx(
+                                                            53,
+                                                        ),
+                                                        nonself_arguments: ArenaIdxRange(
+                                                            11..12,
+                                                        ),
+                                                        rpar_token_idx: TokenIdx(
+                                                            62,
+                                                        ),
+                                                    },
+                                                    Expr::Binary {
+                                                        lopd: 12,
+                                                        opr: Assign,
+                                                        opr_token_idx: TokenIdx(
+                                                            49,
+                                                        ),
+                                                        ropd: 13,
+                                                    },
+                                                    Expr::CurrentSymbol {
+                                                        ident: `norm`,
+                                                        token_idx: TokenIdx(
+                                                            64,
+                                                        ),
+                                                        current_symbol_idx: 0,
+                                                        current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                                            pattern_symbol_idx: 0,
+                                                        },
+                                                    },
+                                                    Expr::Block {
+                                                        stmts: ArenaIdxRange(
+                                                            1..4,
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            entity_path_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [
+                                                    Stmt::Eval {
+                                                        expr_idx: 14,
+                                                    },
+                                                    Stmt::Let {
+                                                        let_token: LetToken {
+                                                            token_idx: TokenIdx(
+                                                                32,
+                                                            ),
+                                                        },
+                                                        let_variable_pattern: Ok(
+                                                            LetVariablesPattern {
+                                                                pattern: 0,
+                                                                variables: ArenaIdxRange(
+                                                                    0..1,
+                                                                ),
+                                                                colon_token: Ok(
+                                                                    None,
+                                                                ),
+                                                                ty: None,
+                                                            },
+                                                        ),
+                                                        assign_token: Ok(
+                                                            EqToken(
+                                                                TokenIdx(
+                                                                    35,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        initial_value: Ok(
+                                                            0,
+                                                        ),
+                                                    },
+                                                    Stmt::ForBetween {
+                                                        for_token: StmtForToken {
+                                                            token_idx: TokenIdx(
+                                                                37,
+                                                            ),
+                                                        },
+                                                        particulars: ForBetweenParticulars {
+                                                            frame_var_token_idx: TokenIdx(
+                                                                38,
+                                                            ),
+                                                            frame_var_expr_idx: 3,
+                                                            frame_var_ident: `i`,
+                                                            range: ForBetweenRange {
+                                                                initial_boundary: LoopBoundary {
+                                                                    bound_expr: None,
+                                                                    kind: LowerClosed,
+                                                                },
+                                                                final_boundary: LoopBoundary {
+                                                                    bound_expr: Some(
+                                                                        4,
+                                                                    ),
+                                                                    kind: UpperOpen,
+                                                                },
+                                                                step: Constant(
+                                                                    1,
+                                                                ),
+                                                            },
+                                                        },
+                                                        frame_var_symbol_idx: 1,
+                                                        eol_colon: Ok(
+                                                            EolToken::Colon(
+                                                                EolColonToken {
+                                                                    token_idx: TokenIdx(
+                                                                        47,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        ),
+                                                        block: Ok(
+                                                            ArenaIdxRange(
+                                                                0..1,
+                                                            ),
+                                                        ),
+                                                    },
+                                                    Stmt::Return {
+                                                        return_token: ReturnToken {
+                                                            token_idx: TokenIdx(
+                                                                63,
+                                                            ),
+                                                        },
+                                                        result: Ok(
+                                                            15,
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [
+                                                        PatternExpr::Ident {
+                                                            modifier: None,
+                                                            ident_token: IdentToken {
+                                                                ident: `norm`,
+                                                                token_idx: TokenIdx(
+                                                                    34,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                pattern_infos: [
+                                                    Let,
+                                                ],
+                                                pattern_symbol_maps: [
+                                                    [
+                                                        (
+                                                            `norm`,
+                                                            0,
+                                                        ),
+                                                    ],
+                                                ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        PatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                    ],
+                                                },
+                                            },
+                                            symbol_region: SymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [
+                                                        CurrentSymbol {
+                                                            access_start: TokenIdx(
+                                                                35,
+                                                            ),
+                                                            access_end: Some(
+                                                                TokenIdxRangeEnd(
+                                                                    TokenIdx(
+                                                                        65,
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            variant: CurrentSymbolVariant::LetVariable {
+                                                                ident: `norm`,
+                                                                pattern_symbol_idx: 0,
+                                                            },
+                                                        },
+                                                        CurrentSymbol {
+                                                            access_start: TokenIdx(
+                                                                48,
+                                                            ),
+                                                            access_end: Some(
+                                                                TokenIdxRangeEnd(
+                                                                    TokenIdx(
+                                                                        63,
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            variant: CurrentSymbolVariant::FrameVariable {
+                                                                ident: `i`,
+                                                                expr_idx: 3,
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [
+                                                    FrameVariable,
+                                                ],
+                                            },
+                                            roots: [
+                                                ExprRoot {
+                                                    kind: BlockExpr,
+                                                    expr: 16,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                    body: Ok(
+                                        16,
+                                    ),
+                                },
                             ),
                         ),
                     ),
@@ -1730,13 +2514,797 @@ Ok(
                         ident: `rel_norm`,
                     },
                 ),
-                Err(
-                    DeclError::Original(
-                        OriginalDeclError::Expr(
-                            OriginalDeclExprError::ExpectEolColon(
-                                TokenIdx(
-                                    67,
-                                ),
+                Ok(
+                    Defn::AssociatedItem(
+                        AssociatedItemDefn::TypeItem(
+                            TypeItemDefn::Memo(
+                                TypeMemoDefn {
+                                    path: Some(
+                                        TypeItemPath {
+                                            parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                            ident: `rel_norm`,
+                                            item_kind: Memo,
+                                        },
+                                    ),
+                                    decl: TypeMemoDecl {
+                                        path: Some(
+                                            TypeItemPath {
+                                                parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                ident: `rel_norm`,
+                                                item_kind: Memo,
+                                            },
+                                        ),
+                                        associated_item: AssociatedItem {
+                                            id: AssociatedItemId {
+                                                impl_block_id: ImplBlockId::Type(
+                                                    TypeImplBlockId {
+                                                        module_path: `mnist_classifier::fermi`,
+                                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                ident: `rel_norm`,
+                                            },
+                                            path: Some(
+                                                AssociatedItemPath::TypeItem(
+                                                    TypeItemPath {
+                                                        parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                        ident: `rel_norm`,
+                                                        item_kind: Memo,
+                                                    },
+                                                ),
+                                            ),
+                                            impl_block: ImplBlock::Type(
+                                                TypeImplBlock {
+                                                    id: TypeImplBlockId {
+                                                        module_path: `mnist_classifier::fermi`,
+                                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ast_idx: 23,
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            23,
+                                                        ),
+                                                    },
+                                                    ty_expr: 11,
+                                                    body: ArenaIdxRange(
+                                                        12..15,
+                                                    ),
+                                                },
+                                            ),
+                                            ast_idx: 13,
+                                            ident: `rel_norm`,
+                                            associated_item_kind: TypeItem(
+                                                Memo,
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::fermi`,
+                                            ),
+                                            is_generic: false,
+                                        },
+                                        ast_idx: 13,
+                                        colon_token: Some(
+                                            ColonToken(
+                                                TokenIdx(
+                                                    67,
+                                                ),
+                                            ),
+                                        ),
+                                        memo_ty: Some(
+                                            FormTypeExpr {
+                                                expr: 0,
+                                            },
+                                        ),
+                                        eq_token: EqToken(
+                                            TokenIdx(
+                                                69,
+                                            ),
+                                        ),
+                                        expr_or_eol_token: Left(
+                                            EolToken::Colon(
+                                                EolColonToken {
+                                                    token_idx: TokenIdx(
+                                                        70,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                        expr_region: ExprRegion {
+                                            data: ExprRegionData {
+                                                parent: Some(
+                                                    ExprRegion {
+                                                        data: ExprRegionData {
+                                                            parent: None,
+                                                            path: RegionPath::Decl(
+                                                                DeclRegionPath::ImplBlock(
+                                                                    ImplBlockId::Type(
+                                                                        TypeImplBlockId {
+                                                                            module_path: `mnist_classifier::fermi`,
+                                                                            ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            expr_arena: Arena {
+                                                                data: [
+                                                                    Expr::EntityPath {
+                                                                        entity_path_expr: 0,
+                                                                        path: Some(
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                                ),
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            entity_path_expr_arena: Arena {
+                                                                data: [
+                                                                    EntityPathExpr::Root {
+                                                                        token_idx: TokenIdx(
+                                                                            24,
+                                                                        ),
+                                                                        ident: `FermiMatchResult`,
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            stmt_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_region: PatternExprRegion {
+                                                                pattern_expr_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_infos: [],
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                            },
+                                                            symbol_region: SymbolRegion {
+                                                                inherited_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                current_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                allow_self_type: True,
+                                                                allow_self_value: False,
+                                                                pattern_ty_constraints: [],
+                                                            },
+                                                            roots: [
+                                                                ExprRoot {
+                                                                    kind: SelfType,
+                                                                    expr: 0,
+                                                                },
+                                                            ],
+                                                        },
+                                                    },
+                                                ),
+                                                path: RegionPath::Decl(
+                                                    DeclRegionPath::AssociatedItem(
+                                                        AssociatedItemId {
+                                                            impl_block_id: ImplBlockId::Type(
+                                                                TypeImplBlockId {
+                                                                    module_path: `mnist_classifier::fermi`,
+                                                                    ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                            ident: `rel_norm`,
+                                                        },
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        Expr::EntityPath {
+                                                            entity_path_expr: 0,
+                                                            path: Some(
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::f32`, `Extern`),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                entity_path_expr_arena: Arena {
+                                                    data: [
+                                                        EntityPathExpr::Root {
+                                                            token_idx: TokenIdx(
+                                                                68,
+                                                            ),
+                                                            ident: `f32`,
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: PatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: True,
+                                                    pattern_ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    ExprRoot {
+                                                        kind: VarType,
+                                                        expr: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    },
+                                    expr_region: ExprRegion {
+                                        data: ExprRegionData {
+                                            parent: Some(
+                                                ExprRegion {
+                                                    data: ExprRegionData {
+                                                        parent: Some(
+                                                            ExprRegion {
+                                                                data: ExprRegionData {
+                                                                    parent: None,
+                                                                    path: RegionPath::Decl(
+                                                                        DeclRegionPath::ImplBlock(
+                                                                            ImplBlockId::Type(
+                                                                                TypeImplBlockId {
+                                                                                    module_path: `mnist_classifier::fermi`,
+                                                                                    ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                                    disambiguator: 0,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                    expr_arena: Arena {
+                                                                        data: [
+                                                                            Expr::EntityPath {
+                                                                                entity_path_expr: 0,
+                                                                                path: Some(
+                                                                                    EntityPath::ModuleItem(
+                                                                                        ModuleItemPath::Type(
+                                                                                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                                        ),
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ],
+                                                                    },
+                                                                    entity_path_expr_arena: Arena {
+                                                                        data: [
+                                                                            EntityPathExpr::Root {
+                                                                                token_idx: TokenIdx(
+                                                                                    24,
+                                                                                ),
+                                                                                ident: `FermiMatchResult`,
+                                                                                entity_path: EntityPath::ModuleItem(
+                                                                                    ModuleItemPath::Type(
+                                                                                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ],
+                                                                    },
+                                                                    stmt_arena: Arena {
+                                                                        data: [],
+                                                                    },
+                                                                    pattern_expr_region: PatternExprRegion {
+                                                                        pattern_expr_arena: Arena {
+                                                                            data: [],
+                                                                        },
+                                                                        pattern_infos: [],
+                                                                        pattern_symbol_maps: [],
+                                                                        pattern_symbol_arena: Arena {
+                                                                            data: [],
+                                                                        },
+                                                                    },
+                                                                    symbol_region: SymbolRegion {
+                                                                        inherited_symbol_arena: Arena {
+                                                                            data: [],
+                                                                        },
+                                                                        current_symbol_arena: Arena {
+                                                                            data: [],
+                                                                        },
+                                                                        allow_self_type: True,
+                                                                        allow_self_value: False,
+                                                                        pattern_ty_constraints: [],
+                                                                    },
+                                                                    roots: [
+                                                                        ExprRoot {
+                                                                            kind: SelfType,
+                                                                            expr: 0,
+                                                                        },
+                                                                    ],
+                                                                },
+                                                            },
+                                                        ),
+                                                        path: RegionPath::Decl(
+                                                            DeclRegionPath::AssociatedItem(
+                                                                AssociatedItemId {
+                                                                    impl_block_id: ImplBlockId::Type(
+                                                                        TypeImplBlockId {
+                                                                            module_path: `mnist_classifier::fermi`,
+                                                                            ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    ),
+                                                                    ident: `rel_norm`,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 0,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`core::num::f32`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        entity_path_expr_arena: Arena {
+                                                            data: [
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        68,
+                                                                    ),
+                                                                    ident: `f32`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::f32`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: PatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: True,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            ExprRoot {
+                                                                kind: VarType,
+                                                                expr: 0,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Defn(
+                                                DefnRegionPath::AssociatedItem(
+                                                    AssociatedItemId {
+                                                        impl_block_id: ImplBlockId::Type(
+                                                            TypeImplBlockId {
+                                                                module_path: `mnist_classifier::fermi`,
+                                                                ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        ident: `rel_norm`,
+                                                    },
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    Expr::Literal(
+                                                        TokenIdx(
+                                                            75,
+                                                        ),
+                                                    ),
+                                                    Expr::SelfValue(
+                                                        TokenIdx(
+                                                            79,
+                                                        ),
+                                                    ),
+                                                    Expr::Field {
+                                                        owner: 1,
+                                                        dot_token_idx: TokenIdx(
+                                                            80,
+                                                        ),
+                                                        ident_token: IdentToken {
+                                                            ident: `others`,
+                                                            token_idx: TokenIdx(
+                                                                81,
+                                                            ),
+                                                        },
+                                                    },
+                                                    Expr::FrameVarDecl {
+                                                        token_idx: TokenIdx(
+                                                            77,
+                                                        ),
+                                                        ident: `i`,
+                                                        frame_var_symbol_idx: 1,
+                                                        current_symbol_kind: CurrentSymbolKind::FrameVariable(
+                                                            3,
+                                                        ),
+                                                    },
+                                                    Expr::MethodCall {
+                                                        self_argument: 2,
+                                                        dot_token_idx: TokenIdx(
+                                                            82,
+                                                        ),
+                                                        ident_token: IdentToken {
+                                                            ident: `ilen`,
+                                                            token_idx: TokenIdx(
+                                                                83,
+                                                            ),
+                                                        },
+                                                        implicit_arguments: None,
+                                                        lpar_token_idx: TokenIdx(
+                                                            84,
+                                                        ),
+                                                        nonself_arguments: ArenaIdxRange(
+                                                            3..3,
+                                                        ),
+                                                        rpar_token_idx: TokenIdx(
+                                                            85,
+                                                        ),
+                                                    },
+                                                    Expr::Binary {
+                                                        lopd: 3,
+                                                        opr: Comparison(
+                                                            Less,
+                                                        ),
+                                                        opr_token_idx: TokenIdx(
+                                                            78,
+                                                        ),
+                                                        ropd: 4,
+                                                    },
+                                                    Expr::CurrentSymbol {
+                                                        ident: `norm`,
+                                                        token_idx: TokenIdx(
+                                                            89,
+                                                        ),
+                                                        current_symbol_idx: 0,
+                                                        current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                                            pattern_symbol_idx: 0,
+                                                        },
+                                                    },
+                                                    Expr::SelfValue(
+                                                        TokenIdx(
+                                                            93,
+                                                        ),
+                                                    ),
+                                                    Expr::Field {
+                                                        owner: 7,
+                                                        dot_token_idx: TokenIdx(
+                                                            94,
+                                                        ),
+                                                        ident_token: IdentToken {
+                                                            ident: `others`,
+                                                            token_idx: TokenIdx(
+                                                                95,
+                                                            ),
+                                                        },
+                                                    },
+                                                    Expr::CurrentSymbol {
+                                                        ident: `i`,
+                                                        token_idx: TokenIdx(
+                                                            97,
+                                                        ),
+                                                        current_symbol_idx: 1,
+                                                        current_symbol_kind: CurrentSymbolKind::FrameVariable(
+                                                            3,
+                                                        ),
+                                                    },
+                                                    Expr::IndexOrCompositionWithList {
+                                                        owner: 8,
+                                                        lbox_token_idx: TokenIdx(
+                                                            96,
+                                                        ),
+                                                        items: ArenaIdxRange(
+                                                            9..10,
+                                                        ),
+                                                        rbox_token_idx: TokenIdx(
+                                                            98,
+                                                        ),
+                                                    },
+                                                    Expr::Field {
+                                                        owner: 10,
+                                                        dot_token_idx: TokenIdx(
+                                                            99,
+                                                        ),
+                                                        ident_token: IdentToken {
+                                                            ident: `rel_norm`,
+                                                            token_idx: TokenIdx(
+                                                                100,
+                                                            ),
+                                                        },
+                                                    },
+                                                    Expr::CurrentSymbol {
+                                                        ident: `norm`,
+                                                        token_idx: TokenIdx(
+                                                            87,
+                                                        ),
+                                                        current_symbol_idx: 0,
+                                                        current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                                            pattern_symbol_idx: 0,
+                                                        },
+                                                    },
+                                                    Expr::MethodCall {
+                                                        self_argument: 6,
+                                                        dot_token_idx: TokenIdx(
+                                                            90,
+                                                        ),
+                                                        ident_token: IdentToken {
+                                                            ident: `max`,
+                                                            token_idx: TokenIdx(
+                                                                91,
+                                                            ),
+                                                        },
+                                                        implicit_arguments: None,
+                                                        lpar_token_idx: TokenIdx(
+                                                            92,
+                                                        ),
+                                                        nonself_arguments: ArenaIdxRange(
+                                                            11..12,
+                                                        ),
+                                                        rpar_token_idx: TokenIdx(
+                                                            101,
+                                                        ),
+                                                    },
+                                                    Expr::Binary {
+                                                        lopd: 12,
+                                                        opr: Assign,
+                                                        opr_token_idx: TokenIdx(
+                                                            88,
+                                                        ),
+                                                        ropd: 13,
+                                                    },
+                                                    Expr::CurrentSymbol {
+                                                        ident: `norm`,
+                                                        token_idx: TokenIdx(
+                                                            103,
+                                                        ),
+                                                        current_symbol_idx: 0,
+                                                        current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                                            pattern_symbol_idx: 0,
+                                                        },
+                                                    },
+                                                    Expr::Block {
+                                                        stmts: ArenaIdxRange(
+                                                            1..4,
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            entity_path_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [
+                                                    Stmt::Eval {
+                                                        expr_idx: 14,
+                                                    },
+                                                    Stmt::Let {
+                                                        let_token: LetToken {
+                                                            token_idx: TokenIdx(
+                                                                71,
+                                                            ),
+                                                        },
+                                                        let_variable_pattern: Ok(
+                                                            LetVariablesPattern {
+                                                                pattern: 0,
+                                                                variables: ArenaIdxRange(
+                                                                    0..1,
+                                                                ),
+                                                                colon_token: Ok(
+                                                                    None,
+                                                                ),
+                                                                ty: None,
+                                                            },
+                                                        ),
+                                                        assign_token: Ok(
+                                                            EqToken(
+                                                                TokenIdx(
+                                                                    74,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        initial_value: Ok(
+                                                            0,
+                                                        ),
+                                                    },
+                                                    Stmt::ForBetween {
+                                                        for_token: StmtForToken {
+                                                            token_idx: TokenIdx(
+                                                                76,
+                                                            ),
+                                                        },
+                                                        particulars: ForBetweenParticulars {
+                                                            frame_var_token_idx: TokenIdx(
+                                                                77,
+                                                            ),
+                                                            frame_var_expr_idx: 3,
+                                                            frame_var_ident: `i`,
+                                                            range: ForBetweenRange {
+                                                                initial_boundary: LoopBoundary {
+                                                                    bound_expr: None,
+                                                                    kind: LowerClosed,
+                                                                },
+                                                                final_boundary: LoopBoundary {
+                                                                    bound_expr: Some(
+                                                                        4,
+                                                                    ),
+                                                                    kind: UpperOpen,
+                                                                },
+                                                                step: Constant(
+                                                                    1,
+                                                                ),
+                                                            },
+                                                        },
+                                                        frame_var_symbol_idx: 1,
+                                                        eol_colon: Ok(
+                                                            EolToken::Colon(
+                                                                EolColonToken {
+                                                                    token_idx: TokenIdx(
+                                                                        86,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        ),
+                                                        block: Ok(
+                                                            ArenaIdxRange(
+                                                                0..1,
+                                                            ),
+                                                        ),
+                                                    },
+                                                    Stmt::Return {
+                                                        return_token: ReturnToken {
+                                                            token_idx: TokenIdx(
+                                                                102,
+                                                            ),
+                                                        },
+                                                        result: Ok(
+                                                            15,
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [
+                                                        PatternExpr::Ident {
+                                                            modifier: None,
+                                                            ident_token: IdentToken {
+                                                                ident: `norm`,
+                                                                token_idx: TokenIdx(
+                                                                    73,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                pattern_infos: [
+                                                    Let,
+                                                ],
+                                                pattern_symbol_maps: [
+                                                    [
+                                                        (
+                                                            `norm`,
+                                                            0,
+                                                        ),
+                                                    ],
+                                                ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        PatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                    ],
+                                                },
+                                            },
+                                            symbol_region: SymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [
+                                                        CurrentSymbol {
+                                                            access_start: TokenIdx(
+                                                                74,
+                                                            ),
+                                                            access_end: Some(
+                                                                TokenIdxRangeEnd(
+                                                                    TokenIdx(
+                                                                        104,
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            variant: CurrentSymbolVariant::LetVariable {
+                                                                ident: `norm`,
+                                                                pattern_symbol_idx: 0,
+                                                            },
+                                                        },
+                                                        CurrentSymbol {
+                                                            access_start: TokenIdx(
+                                                                87,
+                                                            ),
+                                                            access_end: Some(
+                                                                TokenIdxRangeEnd(
+                                                                    TokenIdx(
+                                                                        102,
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            variant: CurrentSymbolVariant::FrameVariable {
+                                                                ident: `i`,
+                                                                expr_idx: 3,
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [
+                                                    FrameVariable,
+                                                ],
+                                            },
+                                            roots: [
+                                                ExprRoot {
+                                                    kind: BlockExpr,
+                                                    expr: 16,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                    body: Ok(
+                                        16,
+                                    ),
+                                },
                             ),
                         ),
                     ),
@@ -1755,13 +3323,819 @@ Ok(
                         ident: `angle_change_norm`,
                     },
                 ),
-                Err(
-                    DeclError::Original(
-                        OriginalDeclError::Expr(
-                            OriginalDeclExprError::ExpectEolColon(
-                                TokenIdx(
-                                    106,
-                                ),
+                Ok(
+                    Defn::AssociatedItem(
+                        AssociatedItemDefn::TypeItem(
+                            TypeItemDefn::Memo(
+                                TypeMemoDefn {
+                                    path: Some(
+                                        TypeItemPath {
+                                            parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                            ident: `angle_change_norm`,
+                                            item_kind: Memo,
+                                        },
+                                    ),
+                                    decl: TypeMemoDecl {
+                                        path: Some(
+                                            TypeItemPath {
+                                                parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                ident: `angle_change_norm`,
+                                                item_kind: Memo,
+                                            },
+                                        ),
+                                        associated_item: AssociatedItem {
+                                            id: AssociatedItemId {
+                                                impl_block_id: ImplBlockId::Type(
+                                                    TypeImplBlockId {
+                                                        module_path: `mnist_classifier::fermi`,
+                                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                                ident: `angle_change_norm`,
+                                            },
+                                            path: Some(
+                                                AssociatedItemPath::TypeItem(
+                                                    TypeItemPath {
+                                                        parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                        ident: `angle_change_norm`,
+                                                        item_kind: Memo,
+                                                    },
+                                                ),
+                                            ),
+                                            impl_block: ImplBlock::Type(
+                                                TypeImplBlock {
+                                                    id: TypeImplBlockId {
+                                                        module_path: `mnist_classifier::fermi`,
+                                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                    ast_idx: 23,
+                                                    impl_token: ImplToken {
+                                                        token_idx: TokenIdx(
+                                                            23,
+                                                        ),
+                                                    },
+                                                    ty_expr: 11,
+                                                    body: ArenaIdxRange(
+                                                        12..15,
+                                                    ),
+                                                },
+                                            ),
+                                            ast_idx: 14,
+                                            ident: `angle_change_norm`,
+                                            associated_item_kind: TypeItem(
+                                                Memo,
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::fermi`,
+                                            ),
+                                            is_generic: false,
+                                        },
+                                        ast_idx: 14,
+                                        colon_token: Some(
+                                            ColonToken(
+                                                TokenIdx(
+                                                    106,
+                                                ),
+                                            ),
+                                        ),
+                                        memo_ty: Some(
+                                            FormTypeExpr {
+                                                expr: 0,
+                                            },
+                                        ),
+                                        eq_token: EqToken(
+                                            TokenIdx(
+                                                108,
+                                            ),
+                                        ),
+                                        expr_or_eol_token: Left(
+                                            EolToken::Colon(
+                                                EolColonToken {
+                                                    token_idx: TokenIdx(
+                                                        109,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                        expr_region: ExprRegion {
+                                            data: ExprRegionData {
+                                                parent: Some(
+                                                    ExprRegion {
+                                                        data: ExprRegionData {
+                                                            parent: None,
+                                                            path: RegionPath::Decl(
+                                                                DeclRegionPath::ImplBlock(
+                                                                    ImplBlockId::Type(
+                                                                        TypeImplBlockId {
+                                                                            module_path: `mnist_classifier::fermi`,
+                                                                            ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            expr_arena: Arena {
+                                                                data: [
+                                                                    Expr::EntityPath {
+                                                                        entity_path_expr: 0,
+                                                                        path: Some(
+                                                                            EntityPath::ModuleItem(
+                                                                                ModuleItemPath::Type(
+                                                                                    TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                                ),
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            entity_path_expr_arena: Arena {
+                                                                data: [
+                                                                    EntityPathExpr::Root {
+                                                                        token_idx: TokenIdx(
+                                                                            24,
+                                                                        ),
+                                                                        ident: `FermiMatchResult`,
+                                                                        entity_path: EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ],
+                                                            },
+                                                            stmt_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_region: PatternExprRegion {
+                                                                pattern_expr_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_infos: [],
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                            },
+                                                            symbol_region: SymbolRegion {
+                                                                inherited_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                current_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                allow_self_type: True,
+                                                                allow_self_value: False,
+                                                                pattern_ty_constraints: [],
+                                                            },
+                                                            roots: [
+                                                                ExprRoot {
+                                                                    kind: SelfType,
+                                                                    expr: 0,
+                                                                },
+                                                            ],
+                                                        },
+                                                    },
+                                                ),
+                                                path: RegionPath::Decl(
+                                                    DeclRegionPath::AssociatedItem(
+                                                        AssociatedItemId {
+                                                            impl_block_id: ImplBlockId::Type(
+                                                                TypeImplBlockId {
+                                                                    module_path: `mnist_classifier::fermi`,
+                                                                    ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                            ident: `angle_change_norm`,
+                                                        },
+                                                    ),
+                                                ),
+                                                expr_arena: Arena {
+                                                    data: [
+                                                        Expr::EntityPath {
+                                                            entity_path_expr: 0,
+                                                            path: Some(
+                                                                EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`core::num::f32`, `Extern`),
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                entity_path_expr_arena: Arena {
+                                                    data: [
+                                                        EntityPathExpr::Root {
+                                                            token_idx: TokenIdx(
+                                                                107,
+                                                            ),
+                                                            ident: `f32`,
+                                                            entity_path: EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ],
+                                                },
+                                                stmt_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_expr_region: PatternExprRegion {
+                                                    pattern_expr_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_infos: [],
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                },
+                                                symbol_region: SymbolRegion {
+                                                    inherited_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    current_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    allow_self_type: True,
+                                                    allow_self_value: True,
+                                                    pattern_ty_constraints: [],
+                                                },
+                                                roots: [
+                                                    ExprRoot {
+                                                        kind: VarType,
+                                                        expr: 0,
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    },
+                                    expr_region: ExprRegion {
+                                        data: ExprRegionData {
+                                            parent: Some(
+                                                ExprRegion {
+                                                    data: ExprRegionData {
+                                                        parent: Some(
+                                                            ExprRegion {
+                                                                data: ExprRegionData {
+                                                                    parent: None,
+                                                                    path: RegionPath::Decl(
+                                                                        DeclRegionPath::ImplBlock(
+                                                                            ImplBlockId::Type(
+                                                                                TypeImplBlockId {
+                                                                                    module_path: `mnist_classifier::fermi`,
+                                                                                    ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                                    disambiguator: 0,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                    expr_arena: Arena {
+                                                                        data: [
+                                                                            Expr::EntityPath {
+                                                                                entity_path_expr: 0,
+                                                                                path: Some(
+                                                                                    EntityPath::ModuleItem(
+                                                                                        ModuleItemPath::Type(
+                                                                                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                                        ),
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ],
+                                                                    },
+                                                                    entity_path_expr_arena: Arena {
+                                                                        data: [
+                                                                            EntityPathExpr::Root {
+                                                                                token_idx: TokenIdx(
+                                                                                    24,
+                                                                                ),
+                                                                                ident: `FermiMatchResult`,
+                                                                                entity_path: EntityPath::ModuleItem(
+                                                                                    ModuleItemPath::Type(
+                                                                                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ],
+                                                                    },
+                                                                    stmt_arena: Arena {
+                                                                        data: [],
+                                                                    },
+                                                                    pattern_expr_region: PatternExprRegion {
+                                                                        pattern_expr_arena: Arena {
+                                                                            data: [],
+                                                                        },
+                                                                        pattern_infos: [],
+                                                                        pattern_symbol_maps: [],
+                                                                        pattern_symbol_arena: Arena {
+                                                                            data: [],
+                                                                        },
+                                                                    },
+                                                                    symbol_region: SymbolRegion {
+                                                                        inherited_symbol_arena: Arena {
+                                                                            data: [],
+                                                                        },
+                                                                        current_symbol_arena: Arena {
+                                                                            data: [],
+                                                                        },
+                                                                        allow_self_type: True,
+                                                                        allow_self_value: False,
+                                                                        pattern_ty_constraints: [],
+                                                                    },
+                                                                    roots: [
+                                                                        ExprRoot {
+                                                                            kind: SelfType,
+                                                                            expr: 0,
+                                                                        },
+                                                                    ],
+                                                                },
+                                                            },
+                                                        ),
+                                                        path: RegionPath::Decl(
+                                                            DeclRegionPath::AssociatedItem(
+                                                                AssociatedItemId {
+                                                                    impl_block_id: ImplBlockId::Type(
+                                                                        TypeImplBlockId {
+                                                                            module_path: `mnist_classifier::fermi`,
+                                                                            ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    ),
+                                                                    ident: `angle_change_norm`,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 0,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`core::num::f32`, `Extern`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        entity_path_expr_arena: Arena {
+                                                            data: [
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        107,
+                                                                    ),
+                                                                    ident: `f32`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`core::num::f32`, `Extern`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: PatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: True,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            ExprRoot {
+                                                                kind: VarType,
+                                                                expr: 0,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Defn(
+                                                DefnRegionPath::AssociatedItem(
+                                                    AssociatedItemId {
+                                                        impl_block_id: ImplBlockId::Type(
+                                                            TypeImplBlockId {
+                                                                module_path: `mnist_classifier::fermi`,
+                                                                ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        ident: `angle_change_norm`,
+                                                    },
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    Expr::Literal(
+                                                        TokenIdx(
+                                                            114,
+                                                        ),
+                                                    ),
+                                                    Expr::SelfValue(
+                                                        TokenIdx(
+                                                            118,
+                                                        ),
+                                                    ),
+                                                    Expr::Field {
+                                                        owner: 1,
+                                                        dot_token_idx: TokenIdx(
+                                                            119,
+                                                        ),
+                                                        ident_token: IdentToken {
+                                                            ident: `others`,
+                                                            token_idx: TokenIdx(
+                                                                120,
+                                                            ),
+                                                        },
+                                                    },
+                                                    Expr::FrameVarDecl {
+                                                        token_idx: TokenIdx(
+                                                            116,
+                                                        ),
+                                                        ident: `i`,
+                                                        frame_var_symbol_idx: 1,
+                                                        current_symbol_kind: CurrentSymbolKind::FrameVariable(
+                                                            3,
+                                                        ),
+                                                    },
+                                                    Expr::MethodCall {
+                                                        self_argument: 2,
+                                                        dot_token_idx: TokenIdx(
+                                                            121,
+                                                        ),
+                                                        ident_token: IdentToken {
+                                                            ident: `ilen`,
+                                                            token_idx: TokenIdx(
+                                                                122,
+                                                            ),
+                                                        },
+                                                        implicit_arguments: None,
+                                                        lpar_token_idx: TokenIdx(
+                                                            123,
+                                                        ),
+                                                        nonself_arguments: ArenaIdxRange(
+                                                            3..3,
+                                                        ),
+                                                        rpar_token_idx: TokenIdx(
+                                                            124,
+                                                        ),
+                                                    },
+                                                    Expr::Binary {
+                                                        lopd: 3,
+                                                        opr: Comparison(
+                                                            Less,
+                                                        ),
+                                                        opr_token_idx: TokenIdx(
+                                                            117,
+                                                        ),
+                                                        ropd: 4,
+                                                    },
+                                                    Expr::CurrentSymbol {
+                                                        ident: `norm`,
+                                                        token_idx: TokenIdx(
+                                                            128,
+                                                        ),
+                                                        current_symbol_idx: 0,
+                                                        current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                                            pattern_symbol_idx: 0,
+                                                        },
+                                                    },
+                                                    Expr::SelfValue(
+                                                        TokenIdx(
+                                                            132,
+                                                        ),
+                                                    ),
+                                                    Expr::Field {
+                                                        owner: 7,
+                                                        dot_token_idx: TokenIdx(
+                                                            133,
+                                                        ),
+                                                        ident_token: IdentToken {
+                                                            ident: `others`,
+                                                            token_idx: TokenIdx(
+                                                                134,
+                                                            ),
+                                                        },
+                                                    },
+                                                    Expr::CurrentSymbol {
+                                                        ident: `i`,
+                                                        token_idx: TokenIdx(
+                                                            136,
+                                                        ),
+                                                        current_symbol_idx: 1,
+                                                        current_symbol_kind: CurrentSymbolKind::FrameVariable(
+                                                            3,
+                                                        ),
+                                                    },
+                                                    Expr::IndexOrCompositionWithList {
+                                                        owner: 8,
+                                                        lbox_token_idx: TokenIdx(
+                                                            135,
+                                                        ),
+                                                        items: ArenaIdxRange(
+                                                            9..10,
+                                                        ),
+                                                        rbox_token_idx: TokenIdx(
+                                                            137,
+                                                        ),
+                                                    },
+                                                    Expr::Field {
+                                                        owner: 10,
+                                                        dot_token_idx: TokenIdx(
+                                                            138,
+                                                        ),
+                                                        ident_token: IdentToken {
+                                                            ident: `angle_change`,
+                                                            token_idx: TokenIdx(
+                                                                139,
+                                                            ),
+                                                        },
+                                                    },
+                                                    Expr::MethodCall {
+                                                        self_argument: 11,
+                                                        dot_token_idx: TokenIdx(
+                                                            140,
+                                                        ),
+                                                        ident_token: IdentToken {
+                                                            ident: `abs`,
+                                                            token_idx: TokenIdx(
+                                                                141,
+                                                            ),
+                                                        },
+                                                        implicit_arguments: None,
+                                                        lpar_token_idx: TokenIdx(
+                                                            142,
+                                                        ),
+                                                        nonself_arguments: ArenaIdxRange(
+                                                            12..12,
+                                                        ),
+                                                        rpar_token_idx: TokenIdx(
+                                                            143,
+                                                        ),
+                                                    },
+                                                    Expr::CurrentSymbol {
+                                                        ident: `norm`,
+                                                        token_idx: TokenIdx(
+                                                            126,
+                                                        ),
+                                                        current_symbol_idx: 0,
+                                                        current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                                            pattern_symbol_idx: 0,
+                                                        },
+                                                    },
+                                                    Expr::MethodCall {
+                                                        self_argument: 6,
+                                                        dot_token_idx: TokenIdx(
+                                                            129,
+                                                        ),
+                                                        ident_token: IdentToken {
+                                                            ident: `max`,
+                                                            token_idx: TokenIdx(
+                                                                130,
+                                                            ),
+                                                        },
+                                                        implicit_arguments: None,
+                                                        lpar_token_idx: TokenIdx(
+                                                            131,
+                                                        ),
+                                                        nonself_arguments: ArenaIdxRange(
+                                                            12..13,
+                                                        ),
+                                                        rpar_token_idx: TokenIdx(
+                                                            144,
+                                                        ),
+                                                    },
+                                                    Expr::Binary {
+                                                        lopd: 13,
+                                                        opr: Assign,
+                                                        opr_token_idx: TokenIdx(
+                                                            127,
+                                                        ),
+                                                        ropd: 14,
+                                                    },
+                                                    Expr::CurrentSymbol {
+                                                        ident: `norm`,
+                                                        token_idx: TokenIdx(
+                                                            146,
+                                                        ),
+                                                        current_symbol_idx: 0,
+                                                        current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                                            pattern_symbol_idx: 0,
+                                                        },
+                                                    },
+                                                    Expr::Block {
+                                                        stmts: ArenaIdxRange(
+                                                            1..4,
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            entity_path_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [
+                                                    Stmt::Eval {
+                                                        expr_idx: 15,
+                                                    },
+                                                    Stmt::Let {
+                                                        let_token: LetToken {
+                                                            token_idx: TokenIdx(
+                                                                110,
+                                                            ),
+                                                        },
+                                                        let_variable_pattern: Ok(
+                                                            LetVariablesPattern {
+                                                                pattern: 0,
+                                                                variables: ArenaIdxRange(
+                                                                    0..1,
+                                                                ),
+                                                                colon_token: Ok(
+                                                                    None,
+                                                                ),
+                                                                ty: None,
+                                                            },
+                                                        ),
+                                                        assign_token: Ok(
+                                                            EqToken(
+                                                                TokenIdx(
+                                                                    113,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        initial_value: Ok(
+                                                            0,
+                                                        ),
+                                                    },
+                                                    Stmt::ForBetween {
+                                                        for_token: StmtForToken {
+                                                            token_idx: TokenIdx(
+                                                                115,
+                                                            ),
+                                                        },
+                                                        particulars: ForBetweenParticulars {
+                                                            frame_var_token_idx: TokenIdx(
+                                                                116,
+                                                            ),
+                                                            frame_var_expr_idx: 3,
+                                                            frame_var_ident: `i`,
+                                                            range: ForBetweenRange {
+                                                                initial_boundary: LoopBoundary {
+                                                                    bound_expr: None,
+                                                                    kind: LowerClosed,
+                                                                },
+                                                                final_boundary: LoopBoundary {
+                                                                    bound_expr: Some(
+                                                                        4,
+                                                                    ),
+                                                                    kind: UpperOpen,
+                                                                },
+                                                                step: Constant(
+                                                                    1,
+                                                                ),
+                                                            },
+                                                        },
+                                                        frame_var_symbol_idx: 1,
+                                                        eol_colon: Ok(
+                                                            EolToken::Colon(
+                                                                EolColonToken {
+                                                                    token_idx: TokenIdx(
+                                                                        125,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        ),
+                                                        block: Ok(
+                                                            ArenaIdxRange(
+                                                                0..1,
+                                                            ),
+                                                        ),
+                                                    },
+                                                    Stmt::Return {
+                                                        return_token: ReturnToken {
+                                                            token_idx: TokenIdx(
+                                                                145,
+                                                            ),
+                                                        },
+                                                        result: Ok(
+                                                            16,
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [
+                                                        PatternExpr::Ident {
+                                                            modifier: None,
+                                                            ident_token: IdentToken {
+                                                                ident: `norm`,
+                                                                token_idx: TokenIdx(
+                                                                    112,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                pattern_infos: [
+                                                    Let,
+                                                ],
+                                                pattern_symbol_maps: [
+                                                    [
+                                                        (
+                                                            `norm`,
+                                                            0,
+                                                        ),
+                                                    ],
+                                                ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        PatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                    ],
+                                                },
+                                            },
+                                            symbol_region: SymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [
+                                                        CurrentSymbol {
+                                                            access_start: TokenIdx(
+                                                                113,
+                                                            ),
+                                                            access_end: Some(
+                                                                TokenIdxRangeEnd(
+                                                                    TokenIdx(
+                                                                        147,
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            variant: CurrentSymbolVariant::LetVariable {
+                                                                ident: `norm`,
+                                                                pattern_symbol_idx: 0,
+                                                            },
+                                                        },
+                                                        CurrentSymbol {
+                                                            access_start: TokenIdx(
+                                                                126,
+                                                            ),
+                                                            access_end: Some(
+                                                                TokenIdxRangeEnd(
+                                                                    TokenIdx(
+                                                                        145,
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                            variant: CurrentSymbolVariant::FrameVariable {
+                                                                ident: `i`,
+                                                                expr_idx: 3,
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [
+                                                    FrameVariable,
+                                                ],
+                                            },
+                                            roots: [
+                                                ExprRoot {
+                                                    kind: BlockExpr,
+                                                    expr: 17,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                    body: Ok(
+                                        17,
+                                    ),
+                                },
                             ),
                         ),
                     ),
