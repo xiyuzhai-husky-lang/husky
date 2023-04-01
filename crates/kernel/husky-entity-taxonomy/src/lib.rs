@@ -51,6 +51,7 @@ pub enum AssociatedItemKind {
 pub enum TypeItemKind {
     MethodFn,
     AssociatedFn,
+    AssociatedVar,
     Memo,
 }
 

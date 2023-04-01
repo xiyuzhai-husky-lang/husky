@@ -59,6 +59,7 @@ impl AstContextKind {
                     TypeItemKind::MethodFn | TypeItemKind::AssociatedFn | TypeItemKind::Memo => {
                         AstContextKind::InsideForm
                     }
+                    TypeItemKind::AssociatedVar => todo!(),
                 },
                 AssociatedItemKind::TraitItem(trai_item_kind) => match trai_item_kind {
                     TraitItemKind::MethodFn => {

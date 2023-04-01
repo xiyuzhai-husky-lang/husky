@@ -131,7 +131,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Var,
+                    Memo,
                 ),
             ),
             Token::Ident(
@@ -312,7 +312,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Var,
+                    Memo,
                 ),
             ),
             Token::Ident(
@@ -493,7 +493,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Form(
-                    Var,
+                    Memo,
                 ),
             ),
             Token::Ident(

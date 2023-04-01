@@ -103,6 +103,8 @@ pub enum OriginalAstError {
     UnexpectedTypeDefnInsideTypeImplBlock,
     #[error("VisibilityExprError")]
     VisibilityExprError(#[from] OriginalVisibilityExprError),
+    #[error("UnexpectedMemoFieldInsideForm")]
+    UnexpectedMemoFieldInsideForm,
 }
 
 impl OriginalError for OriginalAstError {

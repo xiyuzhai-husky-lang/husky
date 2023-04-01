@@ -190,6 +190,7 @@ impl<'a> BasicAuxAstParser<'a> {
                 EntityKeywordGroup::Trait(_) => todo!(),
                 EntityKeywordGroup::Visual(_) => todo!(),
                 EntityKeywordGroup::Var(_) => todo!(),
+                EntityKeywordGroup::Memo(_) => todo!(),
             },
             AstContextKind::InsideModule => {
                 self.determine_module_item_entity_kind(entity_keyword_group)?
@@ -222,6 +223,7 @@ impl<'a> BasicAuxAstParser<'a> {
             EntityKeywordGroup::Type(_) => FormKind::TypeAlias.into(),
             EntityKeywordGroup::Trait(_) => ModuleItemKind::Trait,
             EntityKeywordGroup::Visual(_) => todo!(),
+            EntityKeywordGroup::Memo(_) => todo!(),
         };
         Ok(EntityKind::ModuleItem {
             module_item_kind,
@@ -247,7 +249,8 @@ impl<'a> BasicAuxAstParser<'a> {
             EntityKeywordGroup::Type(_) => todo!(),
             EntityKeywordGroup::Trait(_) => todo!(),
             EntityKeywordGroup::Visual(_) => todo!(),
-            EntityKeywordGroup::Var(_) => TypeItemKind::Memo,
+            EntityKeywordGroup::Var(_) => TypeItemKind::AssociatedVar,
+            EntityKeywordGroup::Memo(_) => TypeItemKind::Memo,
         };
         Ok(EntityKind::AssociatedItem {
             associated_item_kind: AssociatedItemKind::TypeItem(ty_item_kind),
@@ -271,6 +274,7 @@ impl<'a> BasicAuxAstParser<'a> {
             EntityKeywordGroup::Trait(_) => Err(OriginalAstError::UnexpectedTraitInsideTrait)?,
             EntityKeywordGroup::Visual(_) => todo!(),
             EntityKeywordGroup::Var(_) => todo!(),
+            EntityKeywordGroup::Memo(_) => todo!(),
         };
         Ok(EntityKind::AssociatedItem {
             associated_item_kind: AssociatedItemKind::TraitItem(trai_item_kind),
@@ -294,6 +298,7 @@ impl<'a> BasicAuxAstParser<'a> {
             EntityKeywordGroup::Trait(_) => todo!(),
             EntityKeywordGroup::Visual(_) => todo!(),
             EntityKeywordGroup::Var(_) => FormKind::Var.into(),
+            EntityKeywordGroup::Memo(_) => Err(OriginalAstError::UnexpectedMemoFieldInsideForm)?,
         };
         Ok(EntityKind::ModuleItem {
             module_item_kind,
