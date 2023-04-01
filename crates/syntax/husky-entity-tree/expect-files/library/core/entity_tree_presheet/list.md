@@ -12,7 +12,7 @@ Ok(
                                 TypePath(`core::list::List`, `Extern`),
                             ),
                             visibility: Visibility::Pub,
-                            ast_idx: 0,
+                            ast_idx: 1,
                             ident_token: IdentToken {
                                 ident: `List`,
                                 token_idx: TokenIdx(

@@ -4,6 +4,41 @@ Ok(
             data: [
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
+                        2,
+                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 7,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            MethodFn,
+                        ),
+                    },
+                    entity_path: None,
+                    ident_token: IdentToken {
+                        ident: `ilen`,
+                        token_idx: TokenIdx(
+                            16,
+                        ),
+                    },
+                    is_generic: false,
+                    saved_stream_state: TokenIdx(
+                        17,
+                    ),
+                    body_kind: None,
+                    body: ArenaIdxRange(
+                        0..0,
+                    ),
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
                         0,
                     ),
                     visibility_expr: VisibilityExpr {
@@ -44,17 +79,31 @@ Ok(
                         0..0,
                     ),
                 },
+                Ast::Impl {
+                    token_group_idx: TokenGroupIdx(
+                        1,
+                    ),
+                    body: ArenaIdxRange(
+                        0..1,
+                    ),
+                },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            0..1,
+            1..3,
         ),
         siblings: [
             ArenaIdxRange(
                 0..0,
             ),
             ArenaIdxRange(
+                0..0,
+            ),
+            ArenaIdxRange(
                 0..1,
+            ),
+            ArenaIdxRange(
+                1..3,
             ),
         ],
     },

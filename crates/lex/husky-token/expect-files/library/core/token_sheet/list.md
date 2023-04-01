@@ -29,12 +29,66 @@ Ok(
             Token::Punctuation(
                 Punctuation::Semicolon,
             ),
+            Token::Keyword(
+                Keyword::Impl,
+            ),
+            Token::Punctuation(
+                Punctuation::LaOrLt,
+            ),
+            Token::Ident(
+                `E`,
+            ),
+            Token::Punctuation(
+                Punctuation::RaOrGt,
+            ),
+            Token::Ident(
+                `List`,
+            ),
+            Token::Ident(
+                `E`,
+            ),
+            Token::Punctuation(
+                Punctuation::Colon,
+            ),
+            Token::Keyword(
+                Keyword::Form(
+                    Fn,
+                ),
+            ),
+            Token::Ident(
+                `ilen`,
+            ),
+            Token::Punctuation(
+                Punctuation::Bra(
+                    Par,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation::Ket(
+                    Par,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation::Binary(
+                    Curry,
+                ),
+            ),
+            Token::Ident(
+                `i32`,
+            ),
+            Token::Punctuation(
+                Punctuation::Semicolon,
+            ),
         ],
         group_starts: [
             0,
+            8,
+            15,
         ],
         indents: [
             0,
+            0,
+            4,
         ],
     },
 )

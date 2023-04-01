@@ -200,10 +200,11 @@ pub enum ImplError {
 pub type ImplResult<T> = Result<T, ImplError>;
 
 fn ignore_implicit_parameters<'a>(token_stream: &mut TokenStream<'a>) -> ImplResult<()> {
-    let layer = 1;
+    let mut layer = 1;
     while let Some(token) = token_stream.next() {
         match token {
-            Token::Punctuation(_) => todo!(),
+            Token::Punctuation(Punctuation::LaOrLt) => layer += 1,
+            Token::Punctuation(Punctuation::RaOrGt) => layer -= 1,
             Token::Error(e) => return Err(e.clone().into()),
             _ => (),
         }

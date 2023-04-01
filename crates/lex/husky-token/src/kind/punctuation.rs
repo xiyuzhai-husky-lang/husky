@@ -16,7 +16,8 @@ pub enum Punctuation {
     Bra(Bracket),
     Ket(Bracket),
     Suffix(SuffixOpr),
-    LaOrLt,           // <
+    /// `<`
+    LaOrLt, // <
     ColonColonLAngle, // ::<
     /// `>`, represents one of several cases:
     /// 1) right angle bracket
