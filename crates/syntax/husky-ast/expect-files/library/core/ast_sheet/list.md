@@ -7,14 +7,14 @@ Ok(
                         2,
                     ),
                     visibility_expr: VisibilityExpr {
-                        visibility: PubUnder(
-                            ModulePath(
-                                Id {
-                                    value: 7,
-                                },
-                            ),
-                        ),
-                        variant: Protected,
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    15,
+                                ),
+                            },
+                        },
                     },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -25,12 +25,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `ilen`,
                         token_idx: TokenIdx(
-                            16,
+                            17,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        17,
+                        18,
                     ),
                     body_kind: None,
                     body: ArenaIdxRange(
