@@ -449,7 +449,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Stmt(
-                    For,
+                    NonImplFor,
                 ),
             ),
             Token::Keyword(
@@ -722,7 +722,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Stmt(
-                    For,
+                    NonImplFor,
                 ),
             ),
             Token::Keyword(
@@ -1044,7 +1044,7 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Stmt(
-                    For,
+                    NonImplFor,
                 ),
             ),
             Token::Keyword(

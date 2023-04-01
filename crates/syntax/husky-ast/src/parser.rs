@@ -96,10 +96,9 @@ impl<'a> AstParser<'a> {
                         StmtKeyword::Match => self.parse_match_stmts(token_group_idx, &context),
                         StmtKeyword::While
                         | StmtKeyword::Do
-                        | StmtKeyword::For
+                        | StmtKeyword::NonImplFor
                         | StmtKeyword::ForExt
                         | StmtKeyword::Let
-                        | StmtKeyword::Var
                         | StmtKeyword::Break
                         | StmtKeyword::Return
                         | StmtKeyword::Assert

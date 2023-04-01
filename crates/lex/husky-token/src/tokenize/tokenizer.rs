@@ -82,7 +82,7 @@ impl<'token> Tokenizer<'token> {
                         ranged_pretoken.range,
                     )),
                     None => TokenizerAction::Push((
-                        Token::Keyword(StmtKeyword::For.into()),
+                        Token::Keyword(StmtKeyword::NonImplFor.into()),
                         ranged_pretoken.range,
                     )),
                 },

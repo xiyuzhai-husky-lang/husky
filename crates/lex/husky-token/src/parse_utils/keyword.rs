@@ -162,33 +162,21 @@ where
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Keyword(Keyword::Stmt(StmtKeyword::Let)) => {
-                    Ok(Some(LetToken { token_idx }.into()))
-                }
-                Token::Keyword(Keyword::Stmt(StmtKeyword::Return)) => {
-                    Ok(Some(ReturnToken { token_idx }.into()))
-                }
-                Token::Keyword(Keyword::Stmt(StmtKeyword::Require)) => {
-                    Ok(Some(RequireToken { token_idx }.into()))
-                }
-                Token::Keyword(Keyword::Stmt(StmtKeyword::Assert)) => {
-                    Ok(Some(AssertToken { token_idx }.into()))
-                }
-                Token::Keyword(Keyword::Stmt(StmtKeyword::Break)) => {
-                    Ok(Some(BreakToken { token_idx }.into()))
-                }
-                Token::Keyword(Keyword::Stmt(StmtKeyword::For)) => {
-                    Ok(Some(StmtForToken { token_idx }.into()))
-                }
-                Token::Keyword(Keyword::Stmt(StmtKeyword::ForExt)) => {
-                    Ok(Some(ForextToken { token_idx }.into()))
-                }
-                Token::Keyword(Keyword::Stmt(StmtKeyword::While)) => {
-                    Ok(Some(WhileToken { token_idx }.into()))
-                }
-                Token::Keyword(Keyword::Stmt(StmtKeyword::Do)) => {
-                    Ok(Some(DoToken { token_idx }.into()))
-                }
+                Token::Keyword(Keyword::Stmt(stmt_keyword)) => match stmt_keyword {
+                    StmtKeyword::Let => Ok(Some(LetToken { token_idx }.into())),
+                    StmtKeyword::Return => Ok(Some(ReturnToken { token_idx }.into())),
+                    StmtKeyword::Require => Ok(Some(RequireToken { token_idx }.into())),
+                    StmtKeyword::Assert => Ok(Some(AssertToken { token_idx }.into())),
+                    StmtKeyword::Break => Ok(Some(BreakToken { token_idx }.into())),
+                    StmtKeyword::NonImplFor => Ok(Some(StmtForToken { token_idx }.into())),
+                    StmtKeyword::ForExt => Ok(Some(ForextToken { token_idx }.into())),
+                    StmtKeyword::While => Ok(Some(WhileToken { token_idx }.into())),
+                    StmtKeyword::Do => Ok(Some(DoToken { token_idx }.into())),
+                    StmtKeyword::If => todo!(),
+                    StmtKeyword::Elif => todo!(),
+                    StmtKeyword::Else => todo!(),
+                    StmtKeyword::Match => todo!(),
+                },
                 Token::Error(error) => Err(error),
                 Token::Label(_)
                 | Token::Keyword(_)
@@ -893,6 +881,7 @@ where
                             Ok(Some(EntityKeywordGroup::Type(TypeToken { token_idx })))
                         }
                         FormKeyword::Const => todo!(),
+                        FormKeyword::Var => todo!(),
                         FormKeyword::Gn => Ok(Some(EntityKeywordGroup::Gn(GnToken { token_idx }))),
                     },
                     Keyword::TypeEntity(keyword) => {
