@@ -15,7 +15,7 @@ pub struct TypeAssociatedFnDecl {
     pub parameter_decl_list: ExplicitParameterDeclList,
     pub curry_token: Option<CurryToken>,
     pub return_ty: Option<ReturnTypeExpr>,
-    pub eol_colon: EolColonToken,
+    pub eol_colon: EolToken,
 }
 
 impl TypeAssociatedFnDecl {

@@ -1,5 +1,5 @@
 use super::*;
-use husky_token::EolColonToken;
+use husky_token::EolToken;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeImplBlockDecl {
@@ -9,7 +9,7 @@ pub struct TypeImplBlockDecl {
     #[return_ref]
     implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
     pub ty_expr: TypeExpr,
-    pub eol_colon: EolColonToken,
+    pub eol_colon: EolToken,
     pub expr_region: ExprRegion,
 }
 

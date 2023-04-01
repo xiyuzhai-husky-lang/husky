@@ -9,17 +9,23 @@ pub struct TraitForTypeMethodDecl {
     pub ast_idx: AstIdx,
     pub expr_region: ExprRegion,
     #[return_ref]
-    implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
+    pub implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
     #[return_ref]
-    parameter_decl_list: ExplicitParameterDeclList,
+    pub explicit_parameter_decl_list: ExplicitParameterDeclList,
     pub curry_token: Option<CurryToken>,
     pub return_ty: Option<ReturnTypeExpr>,
-    pub eol_colon: EolColonToken,
+    pub eol_colon: EolToken,
 }
 
 impl TraitForTypeMethodDecl {
+    pub fn self_parameter<'a>(self, db: &'a dyn DeclDb) -> Option<&'a SelfParameterDeclPattern> {
+        self.explicit_parameter_decl_list(db)
+            .self_parameter()
+            .as_ref()
+    }
+
     pub fn regular_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [RegularParameterDeclPattern] {
-        self.parameter_decl_list(db).regular_parameters()
+        self.explicit_parameter_decl_list(db).regular_parameters()
     }
 
     pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDecl] {

@@ -1,4 +1,4 @@
-use husky_token::{CurryToken, EolColonToken};
+use husky_token::{CurryToken, EolToken};
 
 use crate::*;
 
@@ -14,7 +14,7 @@ pub struct FnDecl {
     parameter_decl_list: ExplicitParameterDeclList,
     pub curry_token: Option<CurryToken>,
     pub return_ty: Option<ReturnTypeExpr>,
-    pub eol_colon: EolColonToken,
+    pub eol_colon: EolToken,
 }
 
 impl FnDecl {

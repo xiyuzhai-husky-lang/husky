@@ -208,7 +208,7 @@ impl<'a> BlockExprParser<'a> {
         &mut self,
         expr: ExprIdx,
         for_token: StmtForToken,
-        eol_colon: ExprResult<EolColonToken>,
+        eol_colon: ExprResult<EolToken>,
         token_group_idx: TokenGroupIdx,
         body: AstIdxRange,
     ) -> StmtResult<Stmt> {

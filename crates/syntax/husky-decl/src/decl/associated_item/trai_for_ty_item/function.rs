@@ -8,7 +8,7 @@ pub struct TraitForTypeAssociatedFunctionDecl {
     pub expr_region: ExprRegion,
     pub curry_token: Option<CurryToken>,
     pub return_ty: Option<ReturnTypeExpr>,
-    pub eol_colon: EolColonToken,
+    pub eol_colon: EolToken,
 }
 
 impl<'a> DeclParseContext<'a> {}

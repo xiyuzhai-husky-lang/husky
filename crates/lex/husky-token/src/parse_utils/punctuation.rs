@@ -551,15 +551,33 @@ fn dotdot_token_works() {
 /// `:` at the end of line
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = TokenDb)]
-pub struct EolColonToken(TokenIdx);
+pub enum EolToken {
+    Colon(EolColonToken),
+    Semicolon(EolSemicolonToken),
+}
 
-impl EolColonToken {
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = TokenDb)]
+pub struct EolColonToken {
+    token_idx: TokenIdx,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = TokenDb)]
+pub struct EolSemicolonToken {
+    token_idx: TokenIdx,
+}
+
+impl EolToken {
     pub fn token_idx(&self) -> TokenIdx {
-        self.0
+        match self {
+            EolToken::Colon(token) => token.token_idx,
+            EolToken::Semicolon(token) => token.token_idx,
+        }
     }
 }
 
-impl<'a, Context> parsec::ParseFrom<Context> for EolColonToken
+impl<'a, Context> parsec::ParseFrom<Context> for EolToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -571,7 +589,11 @@ where
             match token {
                 Token::Punctuation(Punctuation::Colon) => match token_stream.peek() {
                     Some(_) => Ok(None),
-                    None => Ok(Some(EolColonToken(token_idx))),
+                    None => Ok(Some(EolToken::Colon(EolColonToken { token_idx }))),
+                },
+                Token::Punctuation(Punctuation::Semicolon) => match token_stream.peek() {
+                    Some(_) => Ok(None),
+                    None => Ok(Some(EolToken::Semicolon(EolSemicolonToken { token_idx }))),
                 },
                 Token::Error(error) => Err(error),
                 Token::Label(_)
@@ -589,7 +611,7 @@ where
 
 #[test]
 fn eol_colon_token_works() {
-    fn t(db: &DB, input: &str) -> TokenResult<Option<EolColonToken>> {
+    fn t(db: &DB, input: &str) -> TokenResult<Option<EolToken>> {
         quick_parse(db, input)
     }
 

@@ -524,10 +524,12 @@ Ok(
                                         expr: 2,
                                     },
                                 ),
-                                eol_colon: EolColonToken(
-                                    TokenIdx(
-                                        412,
-                                    ),
+                                eol_colon: EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            412,
+                                        ),
+                                    },
                                 ),
                             },
                         ),
@@ -794,10 +796,12 @@ Ok(
                                         expr: 2,
                                     },
                                 ),
-                                eol_colon: EolColonToken(
-                                    TokenIdx(
-                                        437,
-                                    ),
+                                eol_colon: EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            437,
+                                        ),
+                                    },
                                 ),
                             },
                         ),
@@ -1064,10 +1068,12 @@ Ok(
                                         expr: 2,
                                     },
                                 ),
-                                eol_colon: EolColonToken(
-                                    TokenIdx(
-                                        458,
-                                    ),
+                                eol_colon: EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            458,
+                                        ),
+                                    },
                                 ),
                             },
                         ),
@@ -1410,10 +1416,12 @@ Ok(
                                         expr: 3,
                                     },
                                 ),
-                                eol_colon: EolColonToken(
-                                    TokenIdx(
-                                        488,
-                                    ),
+                                eol_colon: EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            488,
+                                        ),
+                                    },
                                 ),
                             },
                         ),
@@ -1680,10 +1688,12 @@ Ok(
                                         expr: 2,
                                     },
                                 ),
-                                eol_colon: EolColonToken(
-                                    TokenIdx(
-                                        629,
-                                    ),
+                                eol_colon: EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            629,
+                                        ),
+                                    },
                                 ),
                             },
                         ),
@@ -2097,10 +2107,12 @@ Ok(
                                         expr: 4,
                                     },
                                 ),
-                                eol_colon: EolColonToken(
-                                    TokenIdx(
-                                        702,
-                                    ),
+                                eol_colon: EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            702,
+                                        ),
+                                    },
                                 ),
                             },
                         ),
@@ -2486,10 +2498,12 @@ Ok(
                                         expr: 3,
                                     },
                                 ),
-                                eol_colon: EolColonToken(
-                                    TokenIdx(
-                                        930,
-                                    ),
+                                eol_colon: EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            930,
+                                        ),
+                                    },
                                 ),
                             },
                         ),
@@ -2706,10 +2720,12 @@ Ok(
                                         expr: 4,
                                     },
                                 ),
-                                eol_colon: EolColonToken(
-                                    TokenIdx(
-                                        996,
-                                    ),
+                                eol_colon: EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            996,
+                                        ),
+                                    },
                                 ),
                             },
                         ),
@@ -2757,10 +2773,12 @@ Ok(
                                 ty_expr: TypeExpr {
                                     expr: 0,
                                 },
-                                eol_colon: EolColonToken(
-                                    TokenIdx(
-                                        40,
-                                    ),
+                                eol_colon: EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            40,
+                                        ),
+                                    },
                                 ),
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -3083,10 +3101,12 @@ Ok(
                                             expr: 0,
                                         },
                                     ),
-                                    eol_colon: EolColonToken(
-                                        TokenIdx(
-                                            45,
-                                        ),
+                                    eol_colon: EolToken::Colon(
+                                        EolColonToken {
+                                            token_idx: TokenIdx(
+                                                45,
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -3335,10 +3355,12 @@ Ok(
                                             expr: 0,
                                         },
                                     ),
-                                    eol_colon: EolColonToken(
-                                        TokenIdx(
-                                            58,
-                                        ),
+                                    eol_colon: EolToken::Colon(
+                                        EolColonToken {
+                                            token_idx: TokenIdx(
+                                                58,
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -3587,10 +3609,12 @@ Ok(
                                             expr: 0,
                                         },
                                     ),
-                                    eol_colon: EolColonToken(
-                                        TokenIdx(
-                                            178,
-                                        ),
+                                    eol_colon: EolToken::Colon(
+                                        EolColonToken {
+                                            token_idx: TokenIdx(
+                                                178,
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -3839,10 +3863,12 @@ Ok(
                                             expr: 0,
                                         },
                                     ),
-                                    eol_colon: EolColonToken(
-                                        TokenIdx(
-                                            200,
-                                        ),
+                                    eol_colon: EolToken::Colon(
+                                        EolColonToken {
+                                            token_idx: TokenIdx(
+                                                200,
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -4262,10 +4288,12 @@ Ok(
                                             expr: 2,
                                         },
                                     ),
-                                    eol_colon: EolColonToken(
-                                        TokenIdx(
-                                            338,
-                                        ),
+                                    eol_colon: EolToken::Colon(
+                                        EolColonToken {
+                                            token_idx: TokenIdx(
+                                                338,
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
