@@ -1300,7 +1300,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 361,
                                                             ),
@@ -1339,7 +1339,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 389,
                                                             ),
@@ -1368,7 +1368,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 409,
                                                             ),
@@ -1397,7 +1397,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 419,
                                                             ),
@@ -2689,7 +2689,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 458,
                                                             ),
@@ -2728,7 +2728,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 486,
                                                             ),
@@ -2757,7 +2757,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 506,
                                                             ),
@@ -2786,7 +2786,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 517,
                                                             ),
@@ -4969,7 +4969,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 710,
                                                             ),
@@ -4998,7 +4998,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 719,
                                                             ),
@@ -5083,7 +5083,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 681,
                                                             ),
@@ -5199,7 +5199,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 561,
                                                             ),
@@ -5228,7 +5228,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 566,
                                                             ),
@@ -5257,7 +5257,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 579,
                                                             ),
@@ -5286,7 +5286,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 589,
                                                             ),
@@ -5367,7 +5367,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 634,
                                                             ),
@@ -5396,7 +5396,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 644,
                                                             ),
@@ -5425,7 +5425,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 654,
                                                             ),
@@ -8109,7 +8109,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 943,
                                                             ),
@@ -8138,7 +8138,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 952,
                                                             ),
@@ -8268,7 +8268,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 901,
                                                             ),
@@ -8297,7 +8297,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 914,
                                                             ),
@@ -8477,7 +8477,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 798,
                                                             ),
@@ -8506,7 +8506,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 803,
                                                             ),
@@ -8535,7 +8535,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 816,
                                                             ),
@@ -8616,7 +8616,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 872,
                                                             ),
@@ -8645,7 +8645,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 882,
                                                             ),
@@ -8674,7 +8674,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 892,
                                                             ),
@@ -12219,7 +12219,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 1172,
                                                             ),
@@ -12254,7 +12254,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 1129,
                                                             ),
@@ -12283,7 +12283,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 1137,
                                                             ),
@@ -12340,7 +12340,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 1329,
                                                             ),
@@ -12372,7 +12372,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 1247,
                                                             ),
@@ -12401,7 +12401,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 1255,
                                                             ),
@@ -12430,7 +12430,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 1263,
                                                             ),
@@ -12459,7 +12459,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 1271,
                                                             ),
@@ -12522,7 +12522,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 1225,
                                                             ),
@@ -12607,7 +12607,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 1102,
                                                             ),
@@ -12636,7 +12636,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 1116,
                                                             ),
@@ -12727,7 +12727,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 1425,
                                                             ),
@@ -12759,7 +12759,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 1058,
                                                             ),
@@ -12788,7 +12788,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 1067,
                                                             ),
@@ -12817,7 +12817,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 1072,
                                                             ),
@@ -12846,7 +12846,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 1077,
                                                             ),
@@ -12899,7 +12899,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 1384,
                                                             ),
@@ -12928,7 +12928,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 1394,
                                                             ),
@@ -12957,7 +12957,7 @@ Ok(
                                                         },
                                                     ),
                                                     assign_token: Ok(
-                                                        AssignToken(
+                                                        EqToken(
                                                             TokenIdx(
                                                                 1406,
                                                             ),
@@ -15615,545 +15615,13 @@ Ok(
                         ident: `concave_components`,
                     },
                 ),
-                Ok(
-                    Defn::AssociatedItem(
-                        AssociatedItemDefn::TypeItem(
-                            TypeItemDefn::Memo(
-                                TypeMemoDefn {
-                                    path: Some(
-                                        TypeItemPath {
-                                            parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                            ident: `concave_components`,
-                                            item_kind: Memo,
-                                        },
-                                    ),
-                                    decl: TypeMemoDecl {
-                                        path: Some(
-                                            TypeItemPath {
-                                                parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                ident: `concave_components`,
-                                                item_kind: Memo,
-                                            },
-                                        ),
-                                        associated_item: AssociatedItem {
-                                            id: AssociatedItemId {
-                                                impl_block_id: ImplBlockId::Type(
-                                                    TypeImplBlockId {
-                                                        module_path: `mnist_classifier::line_segment_sketch`,
-                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                                ident: `concave_components`,
-                                            },
-                                            path: Some(
-                                                AssociatedItemPath::TypeItem(
-                                                    TypeItemPath {
-                                                        parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                        ident: `concave_components`,
-                                                        item_kind: Memo,
-                                                    },
-                                                ),
-                                            ),
-                                            impl_block: ImplBlock::Type(
-                                                TypeImplBlock {
-                                                    id: TypeImplBlockId {
-                                                        module_path: `mnist_classifier::line_segment_sketch`,
-                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                    ast_idx: 172,
-                                                    impl_token: ImplToken {
-                                                        token_idx: TokenIdx(
-                                                            175,
-                                                        ),
-                                                    },
-                                                    ty_expr: 7,
-                                                    body: ArenaIdxRange(
-                                                        21..26,
-                                                    ),
-                                                },
-                                            ),
-                                            ast_idx: 21,
-                                            ident: `concave_components`,
-                                            associated_item_kind: TypeItem(
-                                                Memo,
-                                            ),
-                                            visibility: Visibility::PubUnder(
-                                                `mnist_classifier::line_segment_sketch`,
-                                            ),
-                                            is_generic: false,
-                                        },
-                                        ast_idx: 21,
-                                        expr_region: ExprRegion {
-                                            data: ExprRegionData {
-                                                parent: Some(
-                                                    ExprRegion {
-                                                        data: ExprRegionData {
-                                                            parent: None,
-                                                            path: RegionPath::Decl(
-                                                                DeclRegionPath::ImplBlock(
-                                                                    ImplBlockId::Type(
-                                                                        TypeImplBlockId {
-                                                                            module_path: `mnist_classifier::line_segment_sketch`,
-                                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                                            disambiguator: 0,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                            expr_arena: Arena {
-                                                                data: [
-                                                                    Expr::EntityPath {
-                                                                        entity_path_expr: 0,
-                                                                        path: Some(
-                                                                            EntityPath::ModuleItem(
-                                                                                ModuleItemPath::Type(
-                                                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                                                ),
-                                                                            ),
-                                                                        ),
-                                                                    },
-                                                                ],
-                                                            },
-                                                            entity_path_expr_arena: Arena {
-                                                                data: [
-                                                                    EntityPathExpr::Root {
-                                                                        token_idx: TokenIdx(
-                                                                            176,
-                                                                        ),
-                                                                        ident: `LineSegmentSketch`,
-                                                                        entity_path: EntityPath::ModuleItem(
-                                                                            ModuleItemPath::Type(
-                                                                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                                            ),
-                                                                        ),
-                                                                    },
-                                                                ],
-                                                            },
-                                                            stmt_arena: Arena {
-                                                                data: [],
-                                                            },
-                                                            pattern_expr_region: PatternExprRegion {
-                                                                pattern_expr_arena: Arena {
-                                                                    data: [],
-                                                                },
-                                                                pattern_infos: [],
-                                                                pattern_symbol_maps: [],
-                                                                pattern_symbol_arena: Arena {
-                                                                    data: [],
-                                                                },
-                                                            },
-                                                            symbol_region: SymbolRegion {
-                                                                inherited_symbol_arena: Arena {
-                                                                    data: [],
-                                                                },
-                                                                current_symbol_arena: Arena {
-                                                                    data: [],
-                                                                },
-                                                                allow_self_type: True,
-                                                                allow_self_value: False,
-                                                                pattern_ty_constraints: [],
-                                                            },
-                                                            roots: [
-                                                                ExprRoot {
-                                                                    kind: SelfType,
-                                                                    expr: 0,
-                                                                },
-                                                            ],
-                                                        },
-                                                    },
-                                                ),
-                                                path: RegionPath::Decl(
-                                                    DeclRegionPath::AssociatedItem(
-                                                        AssociatedItemId {
-                                                            impl_block_id: ImplBlockId::Type(
-                                                                TypeImplBlockId {
-                                                                    module_path: `mnist_classifier::line_segment_sketch`,
-                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                            ident: `concave_components`,
-                                                        },
-                                                    ),
-                                                ),
-                                                expr_arena: Arena {
-                                                    data: [
-                                                        Expr::List {
-                                                            lbox_token_idx: TokenIdx(
-                                                                181,
-                                                            ),
-                                                            items: ArenaIdxRange(
-                                                                0..0,
-                                                            ),
-                                                            rbox_token_idx: TokenIdx(
-                                                                182,
-                                                            ),
-                                                        },
-                                                        Expr::EntityPath {
-                                                            entity_path_expr: 0,
-                                                            path: Some(
-                                                                EntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
-                                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        },
-                                                        Expr::ExplicitApplication {
-                                                            function: 0,
-                                                            argument: 1,
-                                                        },
-                                                    ],
-                                                },
-                                                entity_path_expr_arena: Arena {
-                                                    data: [
-                                                        EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                183,
-                                                            ),
-                                                            ident: `ConcaveComponent`,
-                                                            entity_path: EntityPath::ModuleItem(
-                                                                ModuleItemPath::Type(
-                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                ),
-                                                            ),
-                                                        },
-                                                    ],
-                                                },
-                                                stmt_arena: Arena {
-                                                    data: [],
-                                                },
-                                                pattern_expr_region: PatternExprRegion {
-                                                    pattern_expr_arena: Arena {
-                                                        data: [],
-                                                    },
-                                                    pattern_infos: [],
-                                                    pattern_symbol_maps: [],
-                                                    pattern_symbol_arena: Arena {
-                                                        data: [],
-                                                    },
-                                                },
-                                                symbol_region: SymbolRegion {
-                                                    inherited_symbol_arena: Arena {
-                                                        data: [],
-                                                    },
-                                                    current_symbol_arena: Arena {
-                                                        data: [],
-                                                    },
-                                                    allow_self_type: True,
-                                                    allow_self_value: True,
-                                                    pattern_ty_constraints: [],
-                                                },
-                                                roots: [
-                                                    ExprRoot {
-                                                        kind: ReturnType,
-                                                        expr: 2,
-                                                    },
-                                                ],
-                                            },
-                                        },
-                                        curry_token: Some(
-                                            CurryToken(
-                                                TokenIdx(
-                                                    180,
-                                                ),
-                                            ),
-                                        ),
-                                        return_ty: Some(
-                                            ReturnTypeExpr {
-                                                expr: 2,
-                                            },
-                                        ),
-                                        eol_colon: EolToken::Colon(
-                                            EolColonToken {
-                                                token_idx: TokenIdx(
-                                                    184,
-                                                ),
-                                            },
-                                        ),
-                                    },
-                                    expr_region: ExprRegion {
-                                        data: ExprRegionData {
-                                            parent: Some(
-                                                ExprRegion {
-                                                    data: ExprRegionData {
-                                                        parent: Some(
-                                                            ExprRegion {
-                                                                data: ExprRegionData {
-                                                                    parent: None,
-                                                                    path: RegionPath::Decl(
-                                                                        DeclRegionPath::ImplBlock(
-                                                                            ImplBlockId::Type(
-                                                                                TypeImplBlockId {
-                                                                                    module_path: `mnist_classifier::line_segment_sketch`,
-                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                                                    disambiguator: 0,
-                                                                                },
-                                                                            ),
-                                                                        ),
-                                                                    ),
-                                                                    expr_arena: Arena {
-                                                                        data: [
-                                                                            Expr::EntityPath {
-                                                                                entity_path_expr: 0,
-                                                                                path: Some(
-                                                                                    EntityPath::ModuleItem(
-                                                                                        ModuleItemPath::Type(
-                                                                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                                                        ),
-                                                                                    ),
-                                                                                ),
-                                                                            },
-                                                                        ],
-                                                                    },
-                                                                    entity_path_expr_arena: Arena {
-                                                                        data: [
-                                                                            EntityPathExpr::Root {
-                                                                                token_idx: TokenIdx(
-                                                                                    176,
-                                                                                ),
-                                                                                ident: `LineSegmentSketch`,
-                                                                                entity_path: EntityPath::ModuleItem(
-                                                                                    ModuleItemPath::Type(
-                                                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                                                    ),
-                                                                                ),
-                                                                            },
-                                                                        ],
-                                                                    },
-                                                                    stmt_arena: Arena {
-                                                                        data: [],
-                                                                    },
-                                                                    pattern_expr_region: PatternExprRegion {
-                                                                        pattern_expr_arena: Arena {
-                                                                            data: [],
-                                                                        },
-                                                                        pattern_infos: [],
-                                                                        pattern_symbol_maps: [],
-                                                                        pattern_symbol_arena: Arena {
-                                                                            data: [],
-                                                                        },
-                                                                    },
-                                                                    symbol_region: SymbolRegion {
-                                                                        inherited_symbol_arena: Arena {
-                                                                            data: [],
-                                                                        },
-                                                                        current_symbol_arena: Arena {
-                                                                            data: [],
-                                                                        },
-                                                                        allow_self_type: True,
-                                                                        allow_self_value: False,
-                                                                        pattern_ty_constraints: [],
-                                                                    },
-                                                                    roots: [
-                                                                        ExprRoot {
-                                                                            kind: SelfType,
-                                                                            expr: 0,
-                                                                        },
-                                                                    ],
-                                                                },
-                                                            },
-                                                        ),
-                                                        path: RegionPath::Decl(
-                                                            DeclRegionPath::AssociatedItem(
-                                                                AssociatedItemId {
-                                                                    impl_block_id: ImplBlockId::Type(
-                                                                        TypeImplBlockId {
-                                                                            module_path: `mnist_classifier::line_segment_sketch`,
-                                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                                            disambiguator: 0,
-                                                                        },
-                                                                    ),
-                                                                    ident: `concave_components`,
-                                                                },
-                                                            ),
-                                                        ),
-                                                        expr_arena: Arena {
-                                                            data: [
-                                                                Expr::List {
-                                                                    lbox_token_idx: TokenIdx(
-                                                                        181,
-                                                                    ),
-                                                                    items: ArenaIdxRange(
-                                                                        0..0,
-                                                                    ),
-                                                                    rbox_token_idx: TokenIdx(
-                                                                        182,
-                                                                    ),
-                                                                },
-                                                                Expr::EntityPath {
-                                                                    entity_path_expr: 0,
-                                                                    path: Some(
-                                                                        EntityPath::ModuleItem(
-                                                                            ModuleItemPath::Type(
-                                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                            ),
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                                Expr::ExplicitApplication {
-                                                                    function: 0,
-                                                                    argument: 1,
-                                                                },
-                                                            ],
-                                                        },
-                                                        entity_path_expr_arena: Arena {
-                                                            data: [
-                                                                EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        183,
-                                                                    ),
-                                                                    ident: `ConcaveComponent`,
-                                                                    entity_path: EntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
-                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ],
-                                                        },
-                                                        stmt_arena: Arena {
-                                                            data: [],
-                                                        },
-                                                        pattern_expr_region: PatternExprRegion {
-                                                            pattern_expr_arena: Arena {
-                                                                data: [],
-                                                            },
-                                                            pattern_infos: [],
-                                                            pattern_symbol_maps: [],
-                                                            pattern_symbol_arena: Arena {
-                                                                data: [],
-                                                            },
-                                                        },
-                                                        symbol_region: SymbolRegion {
-                                                            inherited_symbol_arena: Arena {
-                                                                data: [],
-                                                            },
-                                                            current_symbol_arena: Arena {
-                                                                data: [],
-                                                            },
-                                                            allow_self_type: True,
-                                                            allow_self_value: True,
-                                                            pattern_ty_constraints: [],
-                                                        },
-                                                        roots: [
-                                                            ExprRoot {
-                                                                kind: ReturnType,
-                                                                expr: 2,
-                                                            },
-                                                        ],
-                                                    },
-                                                },
-                                            ),
-                                            path: RegionPath::Defn(
-                                                DefnRegionPath::AssociatedItem(
-                                                    AssociatedItemId {
-                                                        impl_block_id: ImplBlockId::Type(
-                                                            TypeImplBlockId {
-                                                                module_path: `mnist_classifier::line_segment_sketch`,
-                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                        ident: `concave_components`,
-                                                    },
-                                                ),
-                                            ),
-                                            expr_arena: Arena {
-                                                data: [
-                                                    Expr::EntityPath {
-                                                        entity_path_expr: 0,
-                                                        path: Some(
-                                                            EntityPath::ModuleItem(
-                                                                ModuleItemPath::Form(
-                                                                    FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                    Expr::SelfValue(
-                                                        TokenIdx(
-                                                            187,
-                                                        ),
-                                                    ),
-                                                    Expr::ExplicitApplicationOrRitchieCall {
-                                                        function: 0,
-                                                        implicit_arguments: None,
-                                                        lpar_token_idx: TokenIdx(
-                                                            186,
-                                                        ),
-                                                        items: ArenaIdxRange(
-                                                            1..2,
-                                                        ),
-                                                        commas: [],
-                                                        rpar_token_idx: TokenIdx(
-                                                            188,
-                                                        ),
-                                                    },
-                                                    Expr::Block {
-                                                        stmts: ArenaIdxRange(
-                                                            0..1,
-                                                        ),
-                                                    },
-                                                ],
-                                            },
-                                            entity_path_expr_arena: Arena {
-                                                data: [
-                                                    EntityPathExpr::Root {
-                                                        token_idx: TokenIdx(
-                                                            185,
-                                                        ),
-                                                        ident: `find_concave_components`,
-                                                        entity_path: EntityPath::ModuleItem(
-                                                            ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ],
-                                            },
-                                            stmt_arena: Arena {
-                                                data: [
-                                                    Stmt::Eval {
-                                                        expr_idx: 2,
-                                                    },
-                                                ],
-                                            },
-                                            pattern_expr_region: PatternExprRegion {
-                                                pattern_expr_arena: Arena {
-                                                    data: [],
-                                                },
-                                                pattern_infos: [],
-                                                pattern_symbol_maps: [],
-                                                pattern_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                            },
-                                            symbol_region: SymbolRegion {
-                                                inherited_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                current_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                allow_self_type: True,
-                                                allow_self_value: True,
-                                                pattern_ty_constraints: [],
-                                            },
-                                            roots: [
-                                                ExprRoot {
-                                                    kind: BlockExpr,
-                                                    expr: 3,
-                                                },
-                                            ],
-                                        },
-                                    },
-                                    body: Ok(
-                                        3,
-                                    ),
-                                },
+                Err(
+                    DeclError::Original(
+                        OriginalDeclError::Expr(
+                            OriginalDeclExprError::ExpectParameterDeclList(
+                                TokenIdx(
+                                    180,
+                                ),
                             ),
                         ),
                     ),
@@ -16172,1637 +15640,13 @@ Ok(
                         ident: `bounding_box`,
                     },
                 ),
-                Ok(
-                    Defn::AssociatedItem(
-                        AssociatedItemDefn::TypeItem(
-                            TypeItemDefn::Memo(
-                                TypeMemoDefn {
-                                    path: Some(
-                                        TypeItemPath {
-                                            parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                            ident: `bounding_box`,
-                                            item_kind: Memo,
-                                        },
-                                    ),
-                                    decl: TypeMemoDecl {
-                                        path: Some(
-                                            TypeItemPath {
-                                                parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                ident: `bounding_box`,
-                                                item_kind: Memo,
-                                            },
-                                        ),
-                                        associated_item: AssociatedItem {
-                                            id: AssociatedItemId {
-                                                impl_block_id: ImplBlockId::Type(
-                                                    TypeImplBlockId {
-                                                        module_path: `mnist_classifier::line_segment_sketch`,
-                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                                ident: `bounding_box`,
-                                            },
-                                            path: Some(
-                                                AssociatedItemPath::TypeItem(
-                                                    TypeItemPath {
-                                                        parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                        ident: `bounding_box`,
-                                                        item_kind: Memo,
-                                                    },
-                                                ),
-                                            ),
-                                            impl_block: ImplBlock::Type(
-                                                TypeImplBlock {
-                                                    id: TypeImplBlockId {
-                                                        module_path: `mnist_classifier::line_segment_sketch`,
-                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                    ast_idx: 172,
-                                                    impl_token: ImplToken {
-                                                        token_idx: TokenIdx(
-                                                            175,
-                                                        ),
-                                                    },
-                                                    ty_expr: 7,
-                                                    body: ArenaIdxRange(
-                                                        21..26,
-                                                    ),
-                                                },
-                                            ),
-                                            ast_idx: 22,
-                                            ident: `bounding_box`,
-                                            associated_item_kind: TypeItem(
-                                                Memo,
-                                            ),
-                                            visibility: Visibility::PubUnder(
-                                                `mnist_classifier::line_segment_sketch`,
-                                            ),
-                                            is_generic: false,
-                                        },
-                                        ast_idx: 22,
-                                        expr_region: ExprRegion {
-                                            data: ExprRegionData {
-                                                parent: Some(
-                                                    ExprRegion {
-                                                        data: ExprRegionData {
-                                                            parent: None,
-                                                            path: RegionPath::Decl(
-                                                                DeclRegionPath::ImplBlock(
-                                                                    ImplBlockId::Type(
-                                                                        TypeImplBlockId {
-                                                                            module_path: `mnist_classifier::line_segment_sketch`,
-                                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                                            disambiguator: 0,
-                                                                        },
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                            expr_arena: Arena {
-                                                                data: [
-                                                                    Expr::EntityPath {
-                                                                        entity_path_expr: 0,
-                                                                        path: Some(
-                                                                            EntityPath::ModuleItem(
-                                                                                ModuleItemPath::Type(
-                                                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                                                ),
-                                                                            ),
-                                                                        ),
-                                                                    },
-                                                                ],
-                                                            },
-                                                            entity_path_expr_arena: Arena {
-                                                                data: [
-                                                                    EntityPathExpr::Root {
-                                                                        token_idx: TokenIdx(
-                                                                            176,
-                                                                        ),
-                                                                        ident: `LineSegmentSketch`,
-                                                                        entity_path: EntityPath::ModuleItem(
-                                                                            ModuleItemPath::Type(
-                                                                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                                            ),
-                                                                        ),
-                                                                    },
-                                                                ],
-                                                            },
-                                                            stmt_arena: Arena {
-                                                                data: [],
-                                                            },
-                                                            pattern_expr_region: PatternExprRegion {
-                                                                pattern_expr_arena: Arena {
-                                                                    data: [],
-                                                                },
-                                                                pattern_infos: [],
-                                                                pattern_symbol_maps: [],
-                                                                pattern_symbol_arena: Arena {
-                                                                    data: [],
-                                                                },
-                                                            },
-                                                            symbol_region: SymbolRegion {
-                                                                inherited_symbol_arena: Arena {
-                                                                    data: [],
-                                                                },
-                                                                current_symbol_arena: Arena {
-                                                                    data: [],
-                                                                },
-                                                                allow_self_type: True,
-                                                                allow_self_value: False,
-                                                                pattern_ty_constraints: [],
-                                                            },
-                                                            roots: [
-                                                                ExprRoot {
-                                                                    kind: SelfType,
-                                                                    expr: 0,
-                                                                },
-                                                            ],
-                                                        },
-                                                    },
-                                                ),
-                                                path: RegionPath::Decl(
-                                                    DeclRegionPath::AssociatedItem(
-                                                        AssociatedItemId {
-                                                            impl_block_id: ImplBlockId::Type(
-                                                                TypeImplBlockId {
-                                                                    module_path: `mnist_classifier::line_segment_sketch`,
-                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                            ident: `bounding_box`,
-                                                        },
-                                                    ),
-                                                ),
-                                                expr_arena: Arena {
-                                                    data: [
-                                                        Expr::EntityPath {
-                                                            entity_path_expr: 0,
-                                                            path: Some(
-                                                                EntityPath::ModuleItem(
-                                                                    ModuleItemPath::Type(
-                                                                        TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                        },
-                                                    ],
-                                                },
-                                                entity_path_expr_arena: Arena {
-                                                    data: [
-                                                        EntityPathExpr::Root {
-                                                            token_idx: TokenIdx(
-                                                                192,
-                                                            ),
-                                                            ident: `BoundingBox`,
-                                                            entity_path: EntityPath::ModuleItem(
-                                                                ModuleItemPath::Type(
-                                                                    TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                ),
-                                                            ),
-                                                        },
-                                                    ],
-                                                },
-                                                stmt_arena: Arena {
-                                                    data: [],
-                                                },
-                                                pattern_expr_region: PatternExprRegion {
-                                                    pattern_expr_arena: Arena {
-                                                        data: [],
-                                                    },
-                                                    pattern_infos: [],
-                                                    pattern_symbol_maps: [],
-                                                    pattern_symbol_arena: Arena {
-                                                        data: [],
-                                                    },
-                                                },
-                                                symbol_region: SymbolRegion {
-                                                    inherited_symbol_arena: Arena {
-                                                        data: [],
-                                                    },
-                                                    current_symbol_arena: Arena {
-                                                        data: [],
-                                                    },
-                                                    allow_self_type: True,
-                                                    allow_self_value: True,
-                                                    pattern_ty_constraints: [],
-                                                },
-                                                roots: [
-                                                    ExprRoot {
-                                                        kind: ReturnType,
-                                                        expr: 0,
-                                                    },
-                                                ],
-                                            },
-                                        },
-                                        curry_token: Some(
-                                            CurryToken(
-                                                TokenIdx(
-                                                    191,
-                                                ),
-                                            ),
-                                        ),
-                                        return_ty: Some(
-                                            ReturnTypeExpr {
-                                                expr: 0,
-                                            },
-                                        ),
-                                        eol_colon: EolToken::Colon(
-                                            EolColonToken {
-                                                token_idx: TokenIdx(
-                                                    193,
-                                                ),
-                                            },
-                                        ),
-                                    },
-                                    expr_region: ExprRegion {
-                                        data: ExprRegionData {
-                                            parent: Some(
-                                                ExprRegion {
-                                                    data: ExprRegionData {
-                                                        parent: Some(
-                                                            ExprRegion {
-                                                                data: ExprRegionData {
-                                                                    parent: None,
-                                                                    path: RegionPath::Decl(
-                                                                        DeclRegionPath::ImplBlock(
-                                                                            ImplBlockId::Type(
-                                                                                TypeImplBlockId {
-                                                                                    module_path: `mnist_classifier::line_segment_sketch`,
-                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                                                    disambiguator: 0,
-                                                                                },
-                                                                            ),
-                                                                        ),
-                                                                    ),
-                                                                    expr_arena: Arena {
-                                                                        data: [
-                                                                            Expr::EntityPath {
-                                                                                entity_path_expr: 0,
-                                                                                path: Some(
-                                                                                    EntityPath::ModuleItem(
-                                                                                        ModuleItemPath::Type(
-                                                                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                                                        ),
-                                                                                    ),
-                                                                                ),
-                                                                            },
-                                                                        ],
-                                                                    },
-                                                                    entity_path_expr_arena: Arena {
-                                                                        data: [
-                                                                            EntityPathExpr::Root {
-                                                                                token_idx: TokenIdx(
-                                                                                    176,
-                                                                                ),
-                                                                                ident: `LineSegmentSketch`,
-                                                                                entity_path: EntityPath::ModuleItem(
-                                                                                    ModuleItemPath::Type(
-                                                                                        TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                                                    ),
-                                                                                ),
-                                                                            },
-                                                                        ],
-                                                                    },
-                                                                    stmt_arena: Arena {
-                                                                        data: [],
-                                                                    },
-                                                                    pattern_expr_region: PatternExprRegion {
-                                                                        pattern_expr_arena: Arena {
-                                                                            data: [],
-                                                                        },
-                                                                        pattern_infos: [],
-                                                                        pattern_symbol_maps: [],
-                                                                        pattern_symbol_arena: Arena {
-                                                                            data: [],
-                                                                        },
-                                                                    },
-                                                                    symbol_region: SymbolRegion {
-                                                                        inherited_symbol_arena: Arena {
-                                                                            data: [],
-                                                                        },
-                                                                        current_symbol_arena: Arena {
-                                                                            data: [],
-                                                                        },
-                                                                        allow_self_type: True,
-                                                                        allow_self_value: False,
-                                                                        pattern_ty_constraints: [],
-                                                                    },
-                                                                    roots: [
-                                                                        ExprRoot {
-                                                                            kind: SelfType,
-                                                                            expr: 0,
-                                                                        },
-                                                                    ],
-                                                                },
-                                                            },
-                                                        ),
-                                                        path: RegionPath::Decl(
-                                                            DeclRegionPath::AssociatedItem(
-                                                                AssociatedItemId {
-                                                                    impl_block_id: ImplBlockId::Type(
-                                                                        TypeImplBlockId {
-                                                                            module_path: `mnist_classifier::line_segment_sketch`,
-                                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                                            disambiguator: 0,
-                                                                        },
-                                                                    ),
-                                                                    ident: `bounding_box`,
-                                                                },
-                                                            ),
-                                                        ),
-                                                        expr_arena: Arena {
-                                                            data: [
-                                                                Expr::EntityPath {
-                                                                    entity_path_expr: 0,
-                                                                    path: Some(
-                                                                        EntityPath::ModuleItem(
-                                                                            ModuleItemPath::Type(
-                                                                                TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                            ),
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ],
-                                                        },
-                                                        entity_path_expr_arena: Arena {
-                                                            data: [
-                                                                EntityPathExpr::Root {
-                                                                    token_idx: TokenIdx(
-                                                                        192,
-                                                                    ),
-                                                                    ident: `BoundingBox`,
-                                                                    entity_path: EntityPath::ModuleItem(
-                                                                        ModuleItemPath::Type(
-                                                                            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ],
-                                                        },
-                                                        stmt_arena: Arena {
-                                                            data: [],
-                                                        },
-                                                        pattern_expr_region: PatternExprRegion {
-                                                            pattern_expr_arena: Arena {
-                                                                data: [],
-                                                            },
-                                                            pattern_infos: [],
-                                                            pattern_symbol_maps: [],
-                                                            pattern_symbol_arena: Arena {
-                                                                data: [],
-                                                            },
-                                                        },
-                                                        symbol_region: SymbolRegion {
-                                                            inherited_symbol_arena: Arena {
-                                                                data: [],
-                                                            },
-                                                            current_symbol_arena: Arena {
-                                                                data: [],
-                                                            },
-                                                            allow_self_type: True,
-                                                            allow_self_value: True,
-                                                            pattern_ty_constraints: [],
-                                                        },
-                                                        roots: [
-                                                            ExprRoot {
-                                                                kind: ReturnType,
-                                                                expr: 0,
-                                                            },
-                                                        ],
-                                                    },
-                                                },
-                                            ),
-                                            path: RegionPath::Defn(
-                                                DefnRegionPath::AssociatedItem(
-                                                    AssociatedItemId {
-                                                        impl_block_id: ImplBlockId::Type(
-                                                            TypeImplBlockId {
-                                                                module_path: `mnist_classifier::line_segment_sketch`,
-                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                        ident: `bounding_box`,
-                                                    },
-                                                ),
-                                            ),
-                                            expr_arena: Arena {
-                                                data: [
-                                                    Expr::SelfValue(
-                                                        TokenIdx(
-                                                            197,
-                                                        ),
-                                                    ),
-                                                    Expr::Field {
-                                                        owner: 0,
-                                                        dot_token_idx: TokenIdx(
-                                                            198,
-                                                        ),
-                                                        ident_token: IdentToken {
-                                                            ident: `strokes`,
-                                                            token_idx: TokenIdx(
-                                                                199,
-                                                            ),
-                                                        },
-                                                    },
-                                                    Expr::Literal(
-                                                        TokenIdx(
-                                                            201,
-                                                        ),
-                                                    ),
-                                                    Expr::IndexOrCompositionWithList {
-                                                        owner: 1,
-                                                        lbox_token_idx: TokenIdx(
-                                                            200,
-                                                        ),
-                                                        items: ArenaIdxRange(
-                                                            2..3,
-                                                        ),
-                                                        rbox_token_idx: TokenIdx(
-                                                            202,
-                                                        ),
-                                                    },
-                                                    Expr::Field {
-                                                        owner: 3,
-                                                        dot_token_idx: TokenIdx(
-                                                            203,
-                                                        ),
-                                                        ident_token: IdentToken {
-                                                            ident: `start`,
-                                                            token_idx: TokenIdx(
-                                                                204,
-                                                            ),
-                                                        },
-                                                    },
-                                                    Expr::CurrentSymbol {
-                                                        ident: `start_point`,
-                                                        token_idx: TokenIdx(
-                                                            209,
-                                                        ),
-                                                        current_symbol_idx: 0,
-                                                        current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                            pattern_symbol_idx: 0,
-                                                        },
-                                                    },
-                                                    Expr::Field {
-                                                        owner: 5,
-                                                        dot_token_idx: TokenIdx(
-                                                            210,
-                                                        ),
-                                                        ident_token: IdentToken {
-                                                            ident: `x`,
-                                                            token_idx: TokenIdx(
-                                                                211,
-                                                            ),
-                                                        },
-                                                    },
-                                                    Expr::CurrentSymbol {
-                                                        ident: `start_point`,
-                                                        token_idx: TokenIdx(
-                                                            216,
-                                                        ),
-                                                        current_symbol_idx: 0,
-                                                        current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                            pattern_symbol_idx: 0,
-                                                        },
-                                                    },
-                                                    Expr::Field {
-                                                        owner: 7,
-                                                        dot_token_idx: TokenIdx(
-                                                            217,
-                                                        ),
-                                                        ident_token: IdentToken {
-                                                            ident: `x`,
-                                                            token_idx: TokenIdx(
-                                                                218,
-                                                            ),
-                                                        },
-                                                    },
-                                                    Expr::CurrentSymbol {
-                                                        ident: `start_point`,
-                                                        token_idx: TokenIdx(
-                                                            223,
-                                                        ),
-                                                        current_symbol_idx: 0,
-                                                        current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                            pattern_symbol_idx: 0,
-                                                        },
-                                                    },
-                                                    Expr::Field {
-                                                        owner: 9,
-                                                        dot_token_idx: TokenIdx(
-                                                            224,
-                                                        ),
-                                                        ident_token: IdentToken {
-                                                            ident: `y`,
-                                                            token_idx: TokenIdx(
-                                                                225,
-                                                            ),
-                                                        },
-                                                    },
-                                                    Expr::CurrentSymbol {
-                                                        ident: `start_point`,
-                                                        token_idx: TokenIdx(
-                                                            230,
-                                                        ),
-                                                        current_symbol_idx: 0,
-                                                        current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                            pattern_symbol_idx: 0,
-                                                        },
-                                                    },
-                                                    Expr::Field {
-                                                        owner: 11,
-                                                        dot_token_idx: TokenIdx(
-                                                            231,
-                                                        ),
-                                                        ident_token: IdentToken {
-                                                            ident: `y`,
-                                                            token_idx: TokenIdx(
-                                                                232,
-                                                            ),
-                                                        },
-                                                    },
-                                                    Expr::SelfValue(
-                                                        TokenIdx(
-                                                            236,
-                                                        ),
-                                                    ),
-                                                    Expr::Field {
-                                                        owner: 13,
-                                                        dot_token_idx: TokenIdx(
-                                                            237,
-                                                        ),
-                                                        ident_token: IdentToken {
-                                                            ident: `strokes`,
-                                                            token_idx: TokenIdx(
-                                                                238,
-                                                            ),
-                                                        },
-                                                    },
-                                                    Expr::FrameVarDecl {
-                                                        token_idx: TokenIdx(
-                                                            234,
-                                                        ),
-                                                        ident: `i`,
-                                                        frame_var_symbol_idx: 5,
-                                                        current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                                                            15,
-                                                        ),
-                                                    },
-                                                    Expr::MethodCall {
-                                                        self_argument: 14,
-                                                        dot_token_idx: TokenIdx(
-                                                            239,
-                                                        ),
-                                                        ident_token: IdentToken {
-                                                            ident: `ilen`,
-                                                            token_idx: TokenIdx(
-                                                                240,
-                                                            ),
-                                                        },
-                                                        implicit_arguments: None,
-                                                        lpar_token_idx: TokenIdx(
-                                                            241,
-                                                        ),
-                                                        nonself_arguments: ArenaIdxRange(
-                                                            15..15,
-                                                        ),
-                                                        rpar_token_idx: TokenIdx(
-                                                            242,
-                                                        ),
-                                                    },
-                                                    Expr::Binary {
-                                                        lopd: 15,
-                                                        opr: Comparison(
-                                                            Less,
-                                                        ),
-                                                        opr_token_idx: TokenIdx(
-                                                            235,
-                                                        ),
-                                                        ropd: 16,
-                                                    },
-                                                    Expr::SelfValue(
-                                                        TokenIdx(
-                                                            247,
-                                                        ),
-                                                    ),
-                                                    Expr::Field {
-                                                        owner: 18,
-                                                        dot_token_idx: TokenIdx(
-                                                            248,
-                                                        ),
-                                                        ident_token: IdentToken {
-                                                            ident: `strokes`,
-                                                            token_idx: TokenIdx(
-                                                                249,
-                                                            ),
-                                                        },
-                                                    },
-                                                    Expr::CurrentSymbol {
-                                                        ident: `i`,
-                                                        token_idx: TokenIdx(
-                                                            251,
-                                                        ),
-                                                        current_symbol_idx: 5,
-                                                        current_symbol_kind: CurrentSymbolKind::FrameVariable(
-                                                            15,
-                                                        ),
-                                                    },
-                                                    Expr::IndexOrCompositionWithList {
-                                                        owner: 19,
-                                                        lbox_token_idx: TokenIdx(
-                                                            250,
-                                                        ),
-                                                        items: ArenaIdxRange(
-                                                            20..21,
-                                                        ),
-                                                        rbox_token_idx: TokenIdx(
-                                                            252,
-                                                        ),
-                                                    },
-                                                    Expr::Field {
-                                                        owner: 21,
-                                                        dot_token_idx: TokenIdx(
-                                                            253,
-                                                        ),
-                                                        ident_token: IdentToken {
-                                                            ident: `end`,
-                                                            token_idx: TokenIdx(
-                                                                254,
-                                                            ),
-                                                        },
-                                                    },
-                                                    Expr::CurrentSymbol {
-                                                        ident: `xmin`,
-                                                        token_idx: TokenIdx(
-                                                            257,
-                                                        ),
-                                                        current_symbol_idx: 1,
-                                                        current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                            pattern_symbol_idx: 1,
-                                                        },
-                                                    },
-                                                    Expr::CurrentSymbol {
-                                                        ident: `point`,
-                                                        token_idx: TokenIdx(
-                                                            261,
-                                                        ),
-                                                        current_symbol_idx: 6,
-                                                        current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                            pattern_symbol_idx: 5,
-                                                        },
-                                                    },
-                                                    Expr::Field {
-                                                        owner: 24,
-                                                        dot_token_idx: TokenIdx(
-                                                            262,
-                                                        ),
-                                                        ident_token: IdentToken {
-                                                            ident: `x`,
-                                                            token_idx: TokenIdx(
-                                                                263,
-                                                            ),
-                                                        },
-                                                    },
-                                                    Expr::CurrentSymbol {
-                                                        ident: `xmin`,
-                                                        token_idx: TokenIdx(
-                                                            255,
-                                                        ),
-                                                        current_symbol_idx: 1,
-                                                        current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                            pattern_symbol_idx: 1,
-                                                        },
-                                                    },
-                                                    Expr::MethodCall {
-                                                        self_argument: 23,
-                                                        dot_token_idx: TokenIdx(
-                                                            258,
-                                                        ),
-                                                        ident_token: IdentToken {
-                                                            ident: `min`,
-                                                            token_idx: TokenIdx(
-                                                                259,
-                                                            ),
-                                                        },
-                                                        implicit_arguments: None,
-                                                        lpar_token_idx: TokenIdx(
-                                                            260,
-                                                        ),
-                                                        nonself_arguments: ArenaIdxRange(
-                                                            25..26,
-                                                        ),
-                                                        rpar_token_idx: TokenIdx(
-                                                            264,
-                                                        ),
-                                                    },
-                                                    Expr::Binary {
-                                                        lopd: 26,
-                                                        opr: Assign,
-                                                        opr_token_idx: TokenIdx(
-                                                            256,
-                                                        ),
-                                                        ropd: 27,
-                                                    },
-                                                    Expr::CurrentSymbol {
-                                                        ident: `xmax`,
-                                                        token_idx: TokenIdx(
-                                                            267,
-                                                        ),
-                                                        current_symbol_idx: 2,
-                                                        current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                            pattern_symbol_idx: 2,
-                                                        },
-                                                    },
-                                                    Expr::CurrentSymbol {
-                                                        ident: `point`,
-                                                        token_idx: TokenIdx(
-                                                            271,
-                                                        ),
-                                                        current_symbol_idx: 6,
-                                                        current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                            pattern_symbol_idx: 5,
-                                                        },
-                                                    },
-                                                    Expr::Field {
-                                                        owner: 30,
-                                                        dot_token_idx: TokenIdx(
-                                                            272,
-                                                        ),
-                                                        ident_token: IdentToken {
-                                                            ident: `x`,
-                                                            token_idx: TokenIdx(
-                                                                273,
-                                                            ),
-                                                        },
-                                                    },
-                                                    Expr::CurrentSymbol {
-                                                        ident: `xmax`,
-                                                        token_idx: TokenIdx(
-                                                            265,
-                                                        ),
-                                                        current_symbol_idx: 2,
-                                                        current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                            pattern_symbol_idx: 2,
-                                                        },
-                                                    },
-                                                    Expr::MethodCall {
-                                                        self_argument: 29,
-                                                        dot_token_idx: TokenIdx(
-                                                            268,
-                                                        ),
-                                                        ident_token: IdentToken {
-                                                            ident: `max`,
-                                                            token_idx: TokenIdx(
-                                                                269,
-                                                            ),
-                                                        },
-                                                        implicit_arguments: None,
-                                                        lpar_token_idx: TokenIdx(
-                                                            270,
-                                                        ),
-                                                        nonself_arguments: ArenaIdxRange(
-                                                            31..32,
-                                                        ),
-                                                        rpar_token_idx: TokenIdx(
-                                                            274,
-                                                        ),
-                                                    },
-                                                    Expr::Binary {
-                                                        lopd: 32,
-                                                        opr: Assign,
-                                                        opr_token_idx: TokenIdx(
-                                                            266,
-                                                        ),
-                                                        ropd: 33,
-                                                    },
-                                                    Expr::CurrentSymbol {
-                                                        ident: `ymin`,
-                                                        token_idx: TokenIdx(
-                                                            277,
-                                                        ),
-                                                        current_symbol_idx: 3,
-                                                        current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                            pattern_symbol_idx: 3,
-                                                        },
-                                                    },
-                                                    Expr::CurrentSymbol {
-                                                        ident: `point`,
-                                                        token_idx: TokenIdx(
-                                                            281,
-                                                        ),
-                                                        current_symbol_idx: 6,
-                                                        current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                            pattern_symbol_idx: 5,
-                                                        },
-                                                    },
-                                                    Expr::Field {
-                                                        owner: 36,
-                                                        dot_token_idx: TokenIdx(
-                                                            282,
-                                                        ),
-                                                        ident_token: IdentToken {
-                                                            ident: `y`,
-                                                            token_idx: TokenIdx(
-                                                                283,
-                                                            ),
-                                                        },
-                                                    },
-                                                    Expr::CurrentSymbol {
-                                                        ident: `ymin`,
-                                                        token_idx: TokenIdx(
-                                                            275,
-                                                        ),
-                                                        current_symbol_idx: 3,
-                                                        current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                            pattern_symbol_idx: 3,
-                                                        },
-                                                    },
-                                                    Expr::MethodCall {
-                                                        self_argument: 35,
-                                                        dot_token_idx: TokenIdx(
-                                                            278,
-                                                        ),
-                                                        ident_token: IdentToken {
-                                                            ident: `min`,
-                                                            token_idx: TokenIdx(
-                                                                279,
-                                                            ),
-                                                        },
-                                                        implicit_arguments: None,
-                                                        lpar_token_idx: TokenIdx(
-                                                            280,
-                                                        ),
-                                                        nonself_arguments: ArenaIdxRange(
-                                                            37..38,
-                                                        ),
-                                                        rpar_token_idx: TokenIdx(
-                                                            284,
-                                                        ),
-                                                    },
-                                                    Expr::Binary {
-                                                        lopd: 38,
-                                                        opr: Assign,
-                                                        opr_token_idx: TokenIdx(
-                                                            276,
-                                                        ),
-                                                        ropd: 39,
-                                                    },
-                                                    Expr::CurrentSymbol {
-                                                        ident: `ymax`,
-                                                        token_idx: TokenIdx(
-                                                            287,
-                                                        ),
-                                                        current_symbol_idx: 4,
-                                                        current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                            pattern_symbol_idx: 4,
-                                                        },
-                                                    },
-                                                    Expr::CurrentSymbol {
-                                                        ident: `point`,
-                                                        token_idx: TokenIdx(
-                                                            291,
-                                                        ),
-                                                        current_symbol_idx: 6,
-                                                        current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                            pattern_symbol_idx: 5,
-                                                        },
-                                                    },
-                                                    Expr::Field {
-                                                        owner: 42,
-                                                        dot_token_idx: TokenIdx(
-                                                            292,
-                                                        ),
-                                                        ident_token: IdentToken {
-                                                            ident: `y`,
-                                                            token_idx: TokenIdx(
-                                                                293,
-                                                            ),
-                                                        },
-                                                    },
-                                                    Expr::CurrentSymbol {
-                                                        ident: `ymax`,
-                                                        token_idx: TokenIdx(
-                                                            285,
-                                                        ),
-                                                        current_symbol_idx: 4,
-                                                        current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                            pattern_symbol_idx: 4,
-                                                        },
-                                                    },
-                                                    Expr::MethodCall {
-                                                        self_argument: 41,
-                                                        dot_token_idx: TokenIdx(
-                                                            288,
-                                                        ),
-                                                        ident_token: IdentToken {
-                                                            ident: `max`,
-                                                            token_idx: TokenIdx(
-                                                                289,
-                                                            ),
-                                                        },
-                                                        implicit_arguments: None,
-                                                        lpar_token_idx: TokenIdx(
-                                                            290,
-                                                        ),
-                                                        nonself_arguments: ArenaIdxRange(
-                                                            43..44,
-                                                        ),
-                                                        rpar_token_idx: TokenIdx(
-                                                            294,
-                                                        ),
-                                                    },
-                                                    Expr::Binary {
-                                                        lopd: 44,
-                                                        opr: Assign,
-                                                        opr_token_idx: TokenIdx(
-                                                            286,
-                                                        ),
-                                                        ropd: 45,
-                                                    },
-                                                    Expr::EntityPath {
-                                                        entity_path_expr: 0,
-                                                        path: Some(
-                                                            EntityPath::ModuleItem(
-                                                                ModuleItemPath::Type(
-                                                                    TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                    Expr::EntityPath {
-                                                        entity_path_expr: 1,
-                                                        path: Some(
-                                                            EntityPath::ModuleItem(
-                                                                ModuleItemPath::Type(
-                                                                    TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                    Expr::CurrentSymbol {
-                                                        ident: `xmin`,
-                                                        token_idx: TokenIdx(
-                                                            300,
-                                                        ),
-                                                        current_symbol_idx: 1,
-                                                        current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                            pattern_symbol_idx: 1,
-                                                        },
-                                                    },
-                                                    Expr::CurrentSymbol {
-                                                        ident: `xmax`,
-                                                        token_idx: TokenIdx(
-                                                            302,
-                                                        ),
-                                                        current_symbol_idx: 2,
-                                                        current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                            pattern_symbol_idx: 2,
-                                                        },
-                                                    },
-                                                    Expr::EntityPath {
-                                                        entity_path_expr: 2,
-                                                        path: Some(
-                                                            EntityPath::ModuleItem(
-                                                                ModuleItemPath::Type(
-                                                                    TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                    },
-                                                    Expr::CurrentSymbol {
-                                                        ident: `ymin`,
-                                                        token_idx: TokenIdx(
-                                                            307,
-                                                        ),
-                                                        current_symbol_idx: 3,
-                                                        current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                            pattern_symbol_idx: 3,
-                                                        },
-                                                    },
-                                                    Expr::CurrentSymbol {
-                                                        ident: `ymax`,
-                                                        token_idx: TokenIdx(
-                                                            309,
-                                                        ),
-                                                        current_symbol_idx: 4,
-                                                        current_symbol_kind: CurrentSymbolKind::LetVariable {
-                                                            pattern_symbol_idx: 4,
-                                                        },
-                                                    },
-                                                    Expr::ExplicitApplicationOrRitchieCall {
-                                                        function: 48,
-                                                        implicit_arguments: None,
-                                                        lpar_token_idx: TokenIdx(
-                                                            299,
-                                                        ),
-                                                        items: ArenaIdxRange(
-                                                            49..51,
-                                                        ),
-                                                        commas: [
-                                                            TokenIdx(
-                                                                301,
-                                                            ),
-                                                        ],
-                                                        rpar_token_idx: TokenIdx(
-                                                            303,
-                                                        ),
-                                                    },
-                                                    Expr::ExplicitApplicationOrRitchieCall {
-                                                        function: 51,
-                                                        implicit_arguments: None,
-                                                        lpar_token_idx: TokenIdx(
-                                                            306,
-                                                        ),
-                                                        items: ArenaIdxRange(
-                                                            52..54,
-                                                        ),
-                                                        commas: [
-                                                            TokenIdx(
-                                                                308,
-                                                            ),
-                                                        ],
-                                                        rpar_token_idx: TokenIdx(
-                                                            310,
-                                                        ),
-                                                    },
-                                                    Expr::ExplicitApplicationOrRitchieCall {
-                                                        function: 47,
-                                                        implicit_arguments: None,
-                                                        lpar_token_idx: TokenIdx(
-                                                            297,
-                                                        ),
-                                                        items: ArenaIdxRange(
-                                                            54..56,
-                                                        ),
-                                                        commas: [
-                                                            TokenIdx(
-                                                                304,
-                                                            ),
-                                                            TokenIdx(
-                                                                311,
-                                                            ),
-                                                        ],
-                                                        rpar_token_idx: TokenIdx(
-                                                            312,
-                                                        ),
-                                                    },
-                                                    Expr::Block {
-                                                        stmts: ArenaIdxRange(
-                                                            5..12,
-                                                        ),
-                                                    },
-                                                ],
-                                            },
-                                            entity_path_expr_arena: Arena {
-                                                data: [
-                                                    EntityPathExpr::Root {
-                                                        token_idx: TokenIdx(
-                                                            296,
-                                                        ),
-                                                        ident: `BoundingBox`,
-                                                        entity_path: EntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
-                                                                TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                            ),
-                                                        ),
-                                                    },
-                                                    EntityPathExpr::Root {
-                                                        token_idx: TokenIdx(
-                                                            298,
-                                                        ),
-                                                        ident: `ClosedRange`,
-                                                        entity_path: EntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
-                                                                TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                                            ),
-                                                        ),
-                                                    },
-                                                    EntityPathExpr::Root {
-                                                        token_idx: TokenIdx(
-                                                            305,
-                                                        ),
-                                                        ident: `ClosedRange`,
-                                                        entity_path: EntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
-                                                                TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                                            ),
-                                                        ),
-                                                    },
-                                                ],
-                                            },
-                                            stmt_arena: Arena {
-                                                data: [
-                                                    Stmt::Let {
-                                                        let_token: LetToken {
-                                                            token_idx: TokenIdx(
-                                                                244,
-                                                            ),
-                                                        },
-                                                        let_variable_pattern: Ok(
-                                                            LetVariablesPattern {
-                                                                pattern: 5,
-                                                                variables: ArenaIdxRange(
-                                                                    6..7,
-                                                                ),
-                                                                colon_token: Ok(
-                                                                    None,
-                                                                ),
-                                                                ty: None,
-                                                            },
-                                                        ),
-                                                        assign_token: Ok(
-                                                            AssignToken(
-                                                                TokenIdx(
-                                                                    246,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        initial_value: Ok(
-                                                            22,
-                                                        ),
-                                                    },
-                                                    Stmt::Eval {
-                                                        expr_idx: 28,
-                                                    },
-                                                    Stmt::Eval {
-                                                        expr_idx: 34,
-                                                    },
-                                                    Stmt::Eval {
-                                                        expr_idx: 40,
-                                                    },
-                                                    Stmt::Eval {
-                                                        expr_idx: 46,
-                                                    },
-                                                    Stmt::Let {
-                                                        let_token: LetToken {
-                                                            token_idx: TokenIdx(
-                                                                194,
-                                                            ),
-                                                        },
-                                                        let_variable_pattern: Ok(
-                                                            LetVariablesPattern {
-                                                                pattern: 0,
-                                                                variables: ArenaIdxRange(
-                                                                    0..1,
-                                                                ),
-                                                                colon_token: Ok(
-                                                                    None,
-                                                                ),
-                                                                ty: None,
-                                                            },
-                                                        ),
-                                                        assign_token: Ok(
-                                                            AssignToken(
-                                                                TokenIdx(
-                                                                    196,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        initial_value: Ok(
-                                                            4,
-                                                        ),
-                                                    },
-                                                    Stmt::Let {
-                                                        let_token: LetToken {
-                                                            token_idx: TokenIdx(
-                                                                205,
-                                                            ),
-                                                        },
-                                                        let_variable_pattern: Ok(
-                                                            LetVariablesPattern {
-                                                                pattern: 1,
-                                                                variables: ArenaIdxRange(
-                                                                    1..2,
-                                                                ),
-                                                                colon_token: Ok(
-                                                                    None,
-                                                                ),
-                                                                ty: None,
-                                                            },
-                                                        ),
-                                                        assign_token: Ok(
-                                                            AssignToken(
-                                                                TokenIdx(
-                                                                    208,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        initial_value: Ok(
-                                                            6,
-                                                        ),
-                                                    },
-                                                    Stmt::Let {
-                                                        let_token: LetToken {
-                                                            token_idx: TokenIdx(
-                                                                212,
-                                                            ),
-                                                        },
-                                                        let_variable_pattern: Ok(
-                                                            LetVariablesPattern {
-                                                                pattern: 2,
-                                                                variables: ArenaIdxRange(
-                                                                    2..3,
-                                                                ),
-                                                                colon_token: Ok(
-                                                                    None,
-                                                                ),
-                                                                ty: None,
-                                                            },
-                                                        ),
-                                                        assign_token: Ok(
-                                                            AssignToken(
-                                                                TokenIdx(
-                                                                    215,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        initial_value: Ok(
-                                                            8,
-                                                        ),
-                                                    },
-                                                    Stmt::Let {
-                                                        let_token: LetToken {
-                                                            token_idx: TokenIdx(
-                                                                219,
-                                                            ),
-                                                        },
-                                                        let_variable_pattern: Ok(
-                                                            LetVariablesPattern {
-                                                                pattern: 3,
-                                                                variables: ArenaIdxRange(
-                                                                    3..4,
-                                                                ),
-                                                                colon_token: Ok(
-                                                                    None,
-                                                                ),
-                                                                ty: None,
-                                                            },
-                                                        ),
-                                                        assign_token: Ok(
-                                                            AssignToken(
-                                                                TokenIdx(
-                                                                    222,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        initial_value: Ok(
-                                                            10,
-                                                        ),
-                                                    },
-                                                    Stmt::Let {
-                                                        let_token: LetToken {
-                                                            token_idx: TokenIdx(
-                                                                226,
-                                                            ),
-                                                        },
-                                                        let_variable_pattern: Ok(
-                                                            LetVariablesPattern {
-                                                                pattern: 4,
-                                                                variables: ArenaIdxRange(
-                                                                    4..5,
-                                                                ),
-                                                                colon_token: Ok(
-                                                                    None,
-                                                                ),
-                                                                ty: None,
-                                                            },
-                                                        ),
-                                                        assign_token: Ok(
-                                                            AssignToken(
-                                                                TokenIdx(
-                                                                    229,
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        initial_value: Ok(
-                                                            12,
-                                                        ),
-                                                    },
-                                                    Stmt::ForBetween {
-                                                        for_token: StmtForToken {
-                                                            token_idx: TokenIdx(
-                                                                233,
-                                                            ),
-                                                        },
-                                                        particulars: ForBetweenParticulars {
-                                                            frame_var_token_idx: TokenIdx(
-                                                                234,
-                                                            ),
-                                                            frame_var_expr_idx: 15,
-                                                            frame_var_ident: `i`,
-                                                            range: ForBetweenRange {
-                                                                initial_boundary: LoopBoundary {
-                                                                    bound_expr: None,
-                                                                    kind: LowerClosed,
-                                                                },
-                                                                final_boundary: LoopBoundary {
-                                                                    bound_expr: Some(
-                                                                        16,
-                                                                    ),
-                                                                    kind: UpperOpen,
-                                                                },
-                                                                step: Constant(
-                                                                    1,
-                                                                ),
-                                                            },
-                                                        },
-                                                        frame_var_symbol_idx: 5,
-                                                        eol_colon: Ok(
-                                                            EolToken::Colon(
-                                                                EolColonToken {
-                                                                    token_idx: TokenIdx(
-                                                                        243,
-                                                                    ),
-                                                                },
-                                                            ),
-                                                        ),
-                                                        block: Ok(
-                                                            ArenaIdxRange(
-                                                                0..5,
-                                                            ),
-                                                        ),
-                                                    },
-                                                    Stmt::Return {
-                                                        return_token: ReturnToken {
-                                                            token_idx: TokenIdx(
-                                                                295,
-                                                            ),
-                                                        },
-                                                        result: Ok(
-                                                            56,
-                                                        ),
-                                                    },
-                                                ],
-                                            },
-                                            pattern_expr_region: PatternExprRegion {
-                                                pattern_expr_arena: Arena {
-                                                    data: [
-                                                        PatternExpr::Ident {
-                                                            modifier: None,
-                                                            ident_token: IdentToken {
-                                                                ident: `start_point`,
-                                                                token_idx: TokenIdx(
-                                                                    195,
-                                                                ),
-                                                            },
-                                                        },
-                                                        PatternExpr::Ident {
-                                                            modifier: None,
-                                                            ident_token: IdentToken {
-                                                                ident: `xmin`,
-                                                                token_idx: TokenIdx(
-                                                                    207,
-                                                                ),
-                                                            },
-                                                        },
-                                                        PatternExpr::Ident {
-                                                            modifier: None,
-                                                            ident_token: IdentToken {
-                                                                ident: `xmax`,
-                                                                token_idx: TokenIdx(
-                                                                    214,
-                                                                ),
-                                                            },
-                                                        },
-                                                        PatternExpr::Ident {
-                                                            modifier: None,
-                                                            ident_token: IdentToken {
-                                                                ident: `ymin`,
-                                                                token_idx: TokenIdx(
-                                                                    221,
-                                                                ),
-                                                            },
-                                                        },
-                                                        PatternExpr::Ident {
-                                                            modifier: None,
-                                                            ident_token: IdentToken {
-                                                                ident: `ymax`,
-                                                                token_idx: TokenIdx(
-                                                                    228,
-                                                                ),
-                                                            },
-                                                        },
-                                                        PatternExpr::Ident {
-                                                            modifier: None,
-                                                            ident_token: IdentToken {
-                                                                ident: `point`,
-                                                                token_idx: TokenIdx(
-                                                                    245,
-                                                                ),
-                                                            },
-                                                        },
-                                                    ],
-                                                },
-                                                pattern_infos: [
-                                                    Let,
-                                                    Let,
-                                                    Let,
-                                                    Let,
-                                                    Let,
-                                                    Let,
-                                                ],
-                                                pattern_symbol_maps: [
-                                                    [
-                                                        (
-                                                            `start_point`,
-                                                            0,
-                                                        ),
-                                                    ],
-                                                    [
-                                                        (
-                                                            `xmin`,
-                                                            1,
-                                                        ),
-                                                    ],
-                                                    [
-                                                        (
-                                                            `xmax`,
-                                                            2,
-                                                        ),
-                                                    ],
-                                                    [
-                                                        (
-                                                            `ymin`,
-                                                            3,
-                                                        ),
-                                                    ],
-                                                    [
-                                                        (
-                                                            `ymax`,
-                                                            4,
-                                                        ),
-                                                    ],
-                                                    [
-                                                        (
-                                                            `point`,
-                                                            5,
-                                                        ),
-                                                    ],
-                                                ],
-                                                pattern_symbol_arena: Arena {
-                                                    data: [
-                                                        PatternSymbol::Atom(
-                                                            0,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            1,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            2,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            3,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            4,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            5,
-                                                        ),
-                                                    ],
-                                                },
-                                            },
-                                            symbol_region: SymbolRegion {
-                                                inherited_symbol_arena: Arena {
-                                                    data: [],
-                                                },
-                                                current_symbol_arena: Arena {
-                                                    data: [
-                                                        CurrentSymbol {
-                                                            access_start: TokenIdx(
-                                                                196,
-                                                            ),
-                                                            access_end: Some(
-                                                                TokenIdxRangeEnd(
-                                                                    TokenIdx(
-                                                                        313,
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                            variant: CurrentSymbolVariant::LetVariable {
-                                                                ident: `start_point`,
-                                                                pattern_symbol_idx: 0,
-                                                            },
-                                                        },
-                                                        CurrentSymbol {
-                                                            access_start: TokenIdx(
-                                                                208,
-                                                            ),
-                                                            access_end: Some(
-                                                                TokenIdxRangeEnd(
-                                                                    TokenIdx(
-                                                                        313,
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                            variant: CurrentSymbolVariant::LetVariable {
-                                                                ident: `xmin`,
-                                                                pattern_symbol_idx: 1,
-                                                            },
-                                                        },
-                                                        CurrentSymbol {
-                                                            access_start: TokenIdx(
-                                                                215,
-                                                            ),
-                                                            access_end: Some(
-                                                                TokenIdxRangeEnd(
-                                                                    TokenIdx(
-                                                                        313,
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                            variant: CurrentSymbolVariant::LetVariable {
-                                                                ident: `xmax`,
-                                                                pattern_symbol_idx: 2,
-                                                            },
-                                                        },
-                                                        CurrentSymbol {
-                                                            access_start: TokenIdx(
-                                                                222,
-                                                            ),
-                                                            access_end: Some(
-                                                                TokenIdxRangeEnd(
-                                                                    TokenIdx(
-                                                                        313,
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                            variant: CurrentSymbolVariant::LetVariable {
-                                                                ident: `ymin`,
-                                                                pattern_symbol_idx: 3,
-                                                            },
-                                                        },
-                                                        CurrentSymbol {
-                                                            access_start: TokenIdx(
-                                                                229,
-                                                            ),
-                                                            access_end: Some(
-                                                                TokenIdxRangeEnd(
-                                                                    TokenIdx(
-                                                                        313,
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                            variant: CurrentSymbolVariant::LetVariable {
-                                                                ident: `ymax`,
-                                                                pattern_symbol_idx: 4,
-                                                            },
-                                                        },
-                                                        CurrentSymbol {
-                                                            access_start: TokenIdx(
-                                                                244,
-                                                            ),
-                                                            access_end: Some(
-                                                                TokenIdxRangeEnd(
-                                                                    TokenIdx(
-                                                                        295,
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                            variant: CurrentSymbolVariant::FrameVariable {
-                                                                ident: `i`,
-                                                                expr_idx: 15,
-                                                            },
-                                                        },
-                                                        CurrentSymbol {
-                                                            access_start: TokenIdx(
-                                                                246,
-                                                            ),
-                                                            access_end: Some(
-                                                                TokenIdxRangeEnd(
-                                                                    TokenIdx(
-                                                                        295,
-                                                                    ),
-                                                                ),
-                                                            ),
-                                                            variant: CurrentSymbolVariant::LetVariable {
-                                                                ident: `point`,
-                                                                pattern_symbol_idx: 5,
-                                                            },
-                                                        },
-                                                    ],
-                                                },
-                                                allow_self_type: True,
-                                                allow_self_value: True,
-                                                pattern_ty_constraints: [
-                                                    FrameVariable,
-                                                ],
-                                            },
-                                            roots: [
-                                                ExprRoot {
-                                                    kind: BlockExpr,
-                                                    expr: 57,
-                                                },
-                                            ],
-                                        },
-                                    },
-                                    body: Ok(
-                                        57,
-                                    ),
-                                },
+                Err(
+                    DeclError::Original(
+                        OriginalDeclError::Expr(
+                            OriginalDeclExprError::ExpectParameterDeclList(
+                                TokenIdx(
+                                    191,
+                                ),
                             ),
                         ),
                     ),

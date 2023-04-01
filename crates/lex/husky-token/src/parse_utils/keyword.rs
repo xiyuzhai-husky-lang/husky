@@ -829,6 +829,8 @@ pub enum EntityKeywordGroup {
     StaticFn(StaticToken, FormFnToken),
     // `static const fn`
     StaticConstFn(StaticToken, ConstToken, FormFnToken),
+    // `var`
+    Var(VarToken),
     // `gn`
     Gn(GnToken),
     //
@@ -839,6 +841,17 @@ pub enum EntityKeywordGroup {
     Type(TypeToken),
     Trait(TraitToken),
     Visual(VisualToken),
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct VarToken {
+    token_idx: TokenIdx,
+}
+
+impl VarToken {
+    pub fn token_idx(&self) -> TokenIdx {
+        self.token_idx
+    }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]

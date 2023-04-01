@@ -5,97 +5,18 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::zero::open_one_match`, `Feature`),
+                            FormPath(`mnist_classifier::digits::zero::open_one_match`, `Fn`),
                         ),
                     ),
                 ),
-                Ok(
-                    Decl::Form(
-                        FormDecl::Feature(
-                            FeatureDecl {
-                                path: FormPath(`mnist_classifier::digits::zero::open_one_match`, `Feature`),
-                                ast_idx: 26,
-                                curry_token: Some(
-                                    CurryToken(
-                                        TokenIdx(
-                                            6,
-                                        ),
-                                    ),
+                Err(
+                    DeclError::Original(
+                        OriginalDeclError::Expr(
+                            OriginalDeclExprError::ExpectParameterDeclList(
+                                TokenIdx(
+                                    6,
                                 ),
-                                return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 0,
-                                    },
-                                ),
-                                eol_colon: EolToken::Colon(
-                                    EolColonToken {
-                                        token_idx: TokenIdx(
-                                            8,
-                                        ),
-                                    },
-                                ),
-                                expr_region: ExprRegion {
-                                    data: ExprRegionData {
-                                        parent: None,
-                                        path: RegionPath::Decl(
-                                            DeclRegionPath::Entity(
-                                                EntityPath::ModuleItem(
-                                                    ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::zero::open_one_match`, `Feature`),
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                        expr_arena: Arena {
-                                            data: [
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdent {
-                                                            token_idx: TokenIdx(
-                                                                7,
-                                                            ),
-                                                            ident: `FermiMatchResult`,
-                                                        },
-                                                    ),
-                                                ),
-                                            ],
-                                        },
-                                        entity_path_expr_arena: Arena {
-                                            data: [],
-                                        },
-                                        stmt_arena: Arena {
-                                            data: [],
-                                        },
-                                        pattern_expr_region: PatternExprRegion {
-                                            pattern_expr_arena: Arena {
-                                                data: [],
-                                            },
-                                            pattern_infos: [],
-                                            pattern_symbol_maps: [],
-                                            pattern_symbol_arena: Arena {
-                                                data: [],
-                                            },
-                                        },
-                                        symbol_region: SymbolRegion {
-                                            inherited_symbol_arena: Arena {
-                                                data: [],
-                                            },
-                                            current_symbol_arena: Arena {
-                                                data: [],
-                                            },
-                                            allow_self_type: False,
-                                            allow_self_value: False,
-                                            pattern_ty_constraints: [],
-                                        },
-                                        roots: [
-                                            ExprRoot {
-                                                kind: ReturnType,
-                                                expr: 0,
-                                            },
-                                        ],
-                                    },
-                                },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -307,104 +228,18 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
+                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Gn`),
                         ),
                     ),
                 ),
-                Ok(
-                    Decl::Form(
-                        FormDecl::Feature(
-                            FeatureDecl {
-                                path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
-                                ast_idx: 28,
-                                curry_token: Some(
-                                    CurryToken(
-                                        TokenIdx(
-                                            50,
-                                        ),
-                                    ),
+                Err(
+                    DeclError::Original(
+                        OriginalDeclError::Expr(
+                            OriginalDeclExprError::ExpectParameterDeclList(
+                                TokenIdx(
+                                    50,
                                 ),
-                                return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 1,
-                                    },
-                                ),
-                                eol_colon: EolToken::Colon(
-                                    EolColonToken {
-                                        token_idx: TokenIdx(
-                                            53,
-                                        ),
-                                    },
-                                ),
-                                expr_region: ExprRegion {
-                                    data: ExprRegionData {
-                                        parent: None,
-                                        path: RegionPath::Decl(
-                                            DeclRegionPath::Entity(
-                                                EntityPath::ModuleItem(
-                                                    ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
-                                                    ),
-                                                ),
-                                            ),
-                                        ),
-                                        expr_arena: Arena {
-                                            data: [
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdent {
-                                                            token_idx: TokenIdx(
-                                                                52,
-                                                            ),
-                                                            ident: `MnistLabel`,
-                                                        },
-                                                    ),
-                                                ),
-                                                Expr::Prefix {
-                                                    opr: Option,
-                                                    opr_token_idx: TokenIdx(
-                                                        51,
-                                                    ),
-                                                    opd: 0,
-                                                },
-                                            ],
-                                        },
-                                        entity_path_expr_arena: Arena {
-                                            data: [],
-                                        },
-                                        stmt_arena: Arena {
-                                            data: [],
-                                        },
-                                        pattern_expr_region: PatternExprRegion {
-                                            pattern_expr_arena: Arena {
-                                                data: [],
-                                            },
-                                            pattern_infos: [],
-                                            pattern_symbol_maps: [],
-                                            pattern_symbol_arena: Arena {
-                                                data: [],
-                                            },
-                                        },
-                                        symbol_region: SymbolRegion {
-                                            inherited_symbol_arena: Arena {
-                                                data: [],
-                                            },
-                                            current_symbol_arena: Arena {
-                                                data: [],
-                                            },
-                                            allow_self_type: False,
-                                            allow_self_value: False,
-                                            pattern_ty_constraints: [],
-                                        },
-                                        roots: [
-                                            ExprRoot {
-                                                kind: ReturnType,
-                                                expr: 1,
-                                            },
-                                        ],
-                                    },
-                                },
-                            },
+                            ),
                         ),
                     ),
                 ),

@@ -11,7 +11,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::zero::open_one_match`, `Feature`),
+                                FormPath(`mnist_classifier::digits::zero::open_one_match`, `Fn`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::zero`,
@@ -57,7 +57,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
+                                FormPath(`mnist_classifier::digits::zero::is_zero`, `Gn`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,

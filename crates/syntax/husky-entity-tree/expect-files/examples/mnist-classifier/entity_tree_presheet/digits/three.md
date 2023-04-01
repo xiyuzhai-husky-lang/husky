@@ -11,7 +11,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Feature`),
+                                FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Fn`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::three`,
@@ -34,7 +34,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::three::is_three`, `Feature`),
+                                FormPath(`mnist_classifier::digits::three::is_three`, `Gn`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,

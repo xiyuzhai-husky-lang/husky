@@ -420,14 +420,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Feature,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::six::six_match`, `Feature`),
+                                FormPath(`mnist_classifier::digits::six::six_match`, `Fn`),
                             ),
                         ),
                     ),
@@ -462,14 +462,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Feature,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Feature`),
+                                FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Fn`),
                             ),
                         ),
                     ),
@@ -527,14 +527,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Feature,
+                            Gn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
+                                FormPath(`mnist_classifier::digits::six::is_six`, `Gn`),
                             ),
                         ),
                     ),

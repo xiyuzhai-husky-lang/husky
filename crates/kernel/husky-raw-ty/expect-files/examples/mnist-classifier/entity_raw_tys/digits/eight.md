@@ -2,7 +2,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Feature`),
+                FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Fn`),
             ),
         ),
         Err(
@@ -14,7 +14,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
+                FormPath(`mnist_classifier::digits::eight::is_eight`, `Gn`),
             ),
         ),
         Err(

@@ -241,14 +241,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Feature,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::major::connected_components`, `Feature`),
+                                FormPath(`mnist_classifier::major::connected_components`, `Fn`),
                             ),
                         ),
                     ),
@@ -283,14 +283,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Feature,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
+                                FormPath(`mnist_classifier::major::major_connected_component`, `Fn`),
                             ),
                         ),
                     ),
@@ -325,14 +325,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Feature,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Feature`),
+                                FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Fn`),
                             ),
                         ),
                     ),
@@ -367,14 +367,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Feature,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_raw_contours`, `Feature`),
+                                FormPath(`mnist_classifier::major::major_raw_contours`, `Fn`),
                             ),
                         ),
                     ),
@@ -409,14 +409,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Feature,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_raw_contour`, `Feature`),
+                                FormPath(`mnist_classifier::major::major_raw_contour`, `Fn`),
                             ),
                         ),
                     ),
@@ -451,14 +451,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Feature,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Feature`),
+                                FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Fn`),
                             ),
                         ),
                     ),
@@ -493,14 +493,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Feature,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
+                                FormPath(`mnist_classifier::major::major_concave_components`, `Fn`),
                             ),
                         ),
                     ),

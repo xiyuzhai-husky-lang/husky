@@ -175,18 +175,11 @@ impl<'a> BasicAuxAstParser<'a> {
             }
             AstContextKind::InsideTraitForTypeImplBlock => match entity_keyword_group {
                 EntityKeywordGroup::Mod(_) => todo!(),
-                EntityKeywordGroup::Fn(_) => {
-                    EntityKind::AssociatedItem {
-                        associated_item_kind: AssociatedItemKind::TraitForTypeItem(
-                            match self.token_stream_mut().peek() {
-                                Some(Token::Punctuation(Punctuation::THIN_ARROW)) => {
-                                    todo!()
-                                } // TraitItemKind::Memo
-                                _ => TraitItemKind::MethodFn,
-                            },
-                        ),
-                    }
-                }
+                EntityKeywordGroup::Fn(_) => EntityKind::AssociatedItem {
+                    associated_item_kind: AssociatedItemKind::TraitForTypeItem(
+                        TraitItemKind::MethodFn,
+                    ),
+                },
                 EntityKeywordGroup::ConstFn(_, _) => todo!(),
                 EntityKeywordGroup::StaticFn(_, _) => todo!(),
                 EntityKeywordGroup::StaticConstFn(_, _, _) => todo!(),
@@ -196,6 +189,7 @@ impl<'a> BasicAuxAstParser<'a> {
                 EntityKeywordGroup::Type(_) => todo!(),
                 EntityKeywordGroup::Trait(_) => todo!(),
                 EntityKeywordGroup::Visual(_) => todo!(),
+                EntityKeywordGroup::Var(_) => todo!(),
             },
             AstContextKind::InsideModule => {
                 self.determine_module_item_entity_kind(entity_keyword_group)?
@@ -217,19 +211,12 @@ impl<'a> BasicAuxAstParser<'a> {
     ) -> AstResult<EntityKind> {
         let module_item_kind: ModuleItemKind = match entity_keyword_group {
             EntityKeywordGroup::Mod(_) => return Ok(EntityKind::Module),
-            EntityKeywordGroup::Fn(_) => match self.token_stream().peek() {
-                Some(Token::Punctuation(Punctuation::THIN_ARROW)) => FormKind::Feature,
-                _ => FormKind::Fn,
-            }
-            .into(),
-            EntityKeywordGroup::Gn(_) => match self.token_stream().peek() {
-                Some(Token::Punctuation(Punctuation::THIN_ARROW)) => FormKind::Feature,
-                _ => FormKind::Fn,
-            }
-            .into(),
+            EntityKeywordGroup::Fn(_) => FormKind::Fn.into(),
             EntityKeywordGroup::ConstFn(_, _) => todo!(),
             EntityKeywordGroup::StaticFn(_, _) => todo!(),
             EntityKeywordGroup::StaticConstFn(_, _, _) => todo!(),
+            EntityKeywordGroup::Var(_) => FormKind::Var.into(),
+            EntityKeywordGroup::Gn(_) => FormKind::Gn.into(),
             EntityKeywordGroup::GeneralDef(_) => todo!(),
             EntityKeywordGroup::TypeEntity(token) => token.type_kind().into(),
             EntityKeywordGroup::Type(_) => FormKind::TypeAlias.into(),
@@ -248,10 +235,7 @@ impl<'a> BasicAuxAstParser<'a> {
     ) -> AstResult<EntityKind> {
         let ty_item_kind = match entity_keyword_group {
             EntityKeywordGroup::Mod(_) => todo!(),
-            EntityKeywordGroup::Fn(_) => match self.token_stream().peek() {
-                Some(Token::Punctuation(Punctuation::THIN_ARROW)) => TypeItemKind::Memo,
-                _ => TypeItemKind::MethodFn,
-            },
+            EntityKeywordGroup::Fn(_) => TypeItemKind::MethodFn,
             EntityKeywordGroup::ConstFn(_, _) => todo!(),
             EntityKeywordGroup::StaticFn(_, _) => TypeItemKind::AssociatedFn,
             EntityKeywordGroup::StaticConstFn(_, _, _) => todo!(),
@@ -263,6 +247,7 @@ impl<'a> BasicAuxAstParser<'a> {
             EntityKeywordGroup::Type(_) => todo!(),
             EntityKeywordGroup::Trait(_) => todo!(),
             EntityKeywordGroup::Visual(_) => todo!(),
+            EntityKeywordGroup::Var(_) => TypeItemKind::Memo,
         };
         Ok(EntityKind::AssociatedItem {
             associated_item_kind: AssociatedItemKind::TypeItem(ty_item_kind),
@@ -275,10 +260,7 @@ impl<'a> BasicAuxAstParser<'a> {
     ) -> AstResult<EntityKind> {
         let trai_item_kind = match entity_keyword_group {
             EntityKeywordGroup::Mod(_) => todo!(),
-            EntityKeywordGroup::Fn(_) => match self.token_stream().peek() {
-                Some(Token::Punctuation(Punctuation::THIN_ARROW)) => todo!(),
-                _ => TraitItemKind::MethodFn,
-            },
+            EntityKeywordGroup::Fn(_) => TraitItemKind::MethodFn,
             EntityKeywordGroup::ConstFn(_, _) => todo!(),
             EntityKeywordGroup::StaticFn(_, _) => todo!(),
             EntityKeywordGroup::StaticConstFn(_, _, _) => todo!(),
@@ -288,6 +270,7 @@ impl<'a> BasicAuxAstParser<'a> {
             EntityKeywordGroup::Type(_) => TraitItemKind::AssociatedType,
             EntityKeywordGroup::Trait(_) => Err(OriginalAstError::UnexpectedTraitInsideTrait)?,
             EntityKeywordGroup::Visual(_) => todo!(),
+            EntityKeywordGroup::Var(_) => todo!(),
         };
         Ok(EntityKind::AssociatedItem {
             associated_item_kind: AssociatedItemKind::TraitItem(trai_item_kind),
@@ -300,11 +283,7 @@ impl<'a> BasicAuxAstParser<'a> {
     ) -> AstResult<EntityKind> {
         let module_item_kind = match entity_keyword_group {
             EntityKeywordGroup::Mod(_) => Err(OriginalAstError::UnexpectedModInsideForm)?,
-            EntityKeywordGroup::Fn(_) => match self.token_stream().peek() {
-                Some(Token::Punctuation(Punctuation::THIN_ARROW)) => FormKind::Feature,
-                _ => FormKind::Fn,
-            }
-            .into(),
+            EntityKeywordGroup::Fn(_) => FormKind::Fn.into(),
             EntityKeywordGroup::ConstFn(_, _) => todo!(),
             EntityKeywordGroup::StaticFn(_, _) => todo!(),
             EntityKeywordGroup::StaticConstFn(_, _, _) => todo!(),
@@ -314,6 +293,7 @@ impl<'a> BasicAuxAstParser<'a> {
             EntityKeywordGroup::Type(_) => todo!(),
             EntityKeywordGroup::Trait(_) => todo!(),
             EntityKeywordGroup::Visual(_) => todo!(),
+            EntityKeywordGroup::Var(_) => FormKind::Var.into(),
         };
         Ok(EntityKind::ModuleItem {
             module_item_kind,

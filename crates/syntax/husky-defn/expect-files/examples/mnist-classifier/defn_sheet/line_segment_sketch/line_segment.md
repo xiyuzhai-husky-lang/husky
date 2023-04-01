@@ -1921,7 +1921,7 @@ Ok(
                                                             },
                                                         ),
                                                         assign_token: Ok(
-                                                            AssignToken(
+                                                            EqToken(
                                                                 TokenIdx(
                                                                     87,
                                                                 ),
@@ -2000,7 +2000,7 @@ Ok(
                                                             },
                                                         ),
                                                         assign_token: Ok(
-                                                            AssignToken(
+                                                            EqToken(
                                                                 TokenIdx(
                                                                     51,
                                                                 ),
@@ -2029,7 +2029,7 @@ Ok(
                                                             },
                                                         ),
                                                         assign_token: Ok(
-                                                            AssignToken(
+                                                            EqToken(
                                                                 TokenIdx(
                                                                     59,
                                                                 ),

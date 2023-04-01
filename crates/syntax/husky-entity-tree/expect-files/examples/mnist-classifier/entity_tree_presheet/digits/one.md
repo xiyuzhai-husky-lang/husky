@@ -11,7 +11,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Feature`),
+                                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Fn`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::one`,
@@ -32,7 +32,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
+                                FormPath(`mnist_classifier::digits::one::is_one`, `Gn`),
                             ),
                             visibility: Visibility::Pub,
                             ast_idx: 63,

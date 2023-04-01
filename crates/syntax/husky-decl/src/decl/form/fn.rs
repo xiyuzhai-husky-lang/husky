@@ -1,6 +1,5 @@
+use super::*;
 use husky_token::{CurryToken, EolToken};
-
-use crate::*;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct FnDecl {

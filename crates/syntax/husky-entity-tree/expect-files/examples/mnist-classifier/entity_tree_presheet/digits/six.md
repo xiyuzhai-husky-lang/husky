@@ -11,7 +11,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::six::six_match`, `Feature`),
+                                FormPath(`mnist_classifier::digits::six::six_match`, `Fn`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::six`,
@@ -34,7 +34,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Feature`),
+                                FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Fn`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::six`,
@@ -57,7 +57,7 @@ Ok(
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::six::is_six`, `Feature`),
+                                FormPath(`mnist_classifier::digits::six::is_six`, `Gn`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,

@@ -2,7 +2,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::digits::zero::open_one_match`, `Feature`),
+                FormPath(`mnist_classifier::digits::zero::open_one_match`, `Fn`),
             ),
         ),
         Err(
@@ -26,7 +26,7 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
-                FormPath(`mnist_classifier::digits::zero::is_zero`, `Feature`),
+                FormPath(`mnist_classifier::digits::zero::is_zero`, `Gn`),
             ),
         ),
         Err(

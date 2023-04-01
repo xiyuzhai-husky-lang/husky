@@ -167,14 +167,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Feature,
+                            Fn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Feature`),
+                                FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Fn`),
                             ),
                         ),
                     ),
@@ -232,14 +232,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Feature,
+                            Gn,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::eight::is_eight`, `Feature`),
+                                FormPath(`mnist_classifier::digits::eight::is_eight`, `Gn`),
                             ),
                         ),
                     ),

@@ -35,7 +35,38 @@ DiagnosticSheet {
         ],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Syntax Error: ExpectParameterDeclList",
+                severity: Error,
+                range: [13:13, 13:15),
+            },
+            Diagnostic {
+                message: "Syntax Error: ExpectParameterDeclList",
+                severity: Error,
+                range: [17:17, 17:19),
+            },
+            Diagnostic {
+                message: "Syntax Error: ExpectParameterDeclList",
+                severity: Error,
+                range: [20:23, 20:25),
+            },
+            Diagnostic {
+                message: "Syntax Error: ExpectParameterDeclList",
+                severity: Error,
+                range: [33:21, 33:23),
+            },
+            Diagnostic {
+                message: "Syntax Error: ExpectParameterDeclList",
+                severity: Error,
+                range: [43:21, 43:23),
+            },
+            Diagnostic {
+                message: "Syntax Error: ExpectParameterDeclList",
+                severity: Error,
+                range: [60:30, 60:32),
+            },
+        ],
     },
     defn_diagnostic_sheet: DefnDiagnosticSheet {
         diagnostics: [],

@@ -14,112 +14,7 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [3:23, 3:39),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [4:5, 4:16),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [4:17, 4:41),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
                 range: [6:29, 6:45),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [10:32, 10:48),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [11:5, 11:16),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [11:17, 11:41),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [13:30, 13:46),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [14:5, 14:16),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [14:17, 14:41),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [16:16, 16:26),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [51:21, 51:46),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [68:25, 68:50),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [68:64, 68:89),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [72:17, 72:41),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [76:29, 76:54),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [76:68, 76:93),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [82:17, 82:42),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [86:9, 86:19),
-            },
-            Diagnostic {
-                message: "Syntax Error: unresolved subentity",
-                severity: Error,
-                range: [86:21, 86:25),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [98:5, 98:15),
-            },
-            Diagnostic {
-                message: "Syntax Error: unresolved subentity",
-                severity: Error,
-                range: [98:17, 98:21),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
@@ -134,23 +29,33 @@ DiagnosticSheet {
         ],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Syntax Error: ExpectParameterDeclList",
+                severity: Error,
+                range: [3:20, 3:22),
+            },
+            Diagnostic {
+                message: "Syntax Error: ExpectParameterDeclList",
+                severity: Error,
+                range: [10:29, 10:31),
+            },
+            Diagnostic {
+                message: "Syntax Error: ExpectParameterDeclList",
+                severity: Error,
+                range: [13:27, 13:29),
+            },
+            Diagnostic {
+                message: "Syntax Error: ExpectParameterDeclList",
+                severity: Error,
+                range: [16:12, 16:14),
+            },
+        ],
     },
     defn_diagnostic_sheet: DefnDiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Type Error: TodoScopeResolution",
-                severity: Error,
-                range: [86:9, 86:25),
-            },
-            Diagnostic {
-                message: "Type Error: TodoScopeResolution",
-                severity: Error,
-                range: [98:5, 98:21),
-            },
-        ],
+        diagnostics: [],
     },
 }
