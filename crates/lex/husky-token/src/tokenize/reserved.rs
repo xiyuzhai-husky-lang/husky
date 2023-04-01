@@ -31,6 +31,7 @@ pub(crate) fn reserved_words(_db: &dyn TokenDb) -> VecPairMap<&'static str, Pret
         FormKeyword::Lemma,
         FormKeyword::Proposition,
         FormKeyword::Const,
+        FormKeyword::Constexpr,
         FormKeyword::Var,
         FormKeyword::Type,
         FormKeyword::Gn,

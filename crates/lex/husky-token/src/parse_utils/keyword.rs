@@ -883,6 +883,7 @@ where
                         FormKeyword::Const => todo!(),
                         FormKeyword::Var => todo!(),
                         FormKeyword::Gn => Ok(Some(EntityKeywordGroup::Gn(GnToken { token_idx }))),
+                        FormKeyword::Constexpr => todo!(),
                     },
                     Keyword::TypeEntity(keyword) => {
                         Ok(Some(EntityKeywordGroup::TypeEntity(TypeEntityToken {
