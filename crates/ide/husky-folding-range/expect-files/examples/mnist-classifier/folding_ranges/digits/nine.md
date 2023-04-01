@@ -1,11 +1,11 @@
 Ok(
     [
         FoldingRange {
-            start_line: 30,
+            start_line: 22,
             start_character: Some(
                 4,
             ),
-            end_line: 45,
+            end_line: 37,
             end_character: Some(
                 24,
             ),
@@ -14,11 +14,11 @@ Ok(
             ),
         },
         FoldingRange {
-            start_line: 10,
+            start_line: 2,
             start_character: Some(
                 0,
             ),
-            end_line: 11,
+            end_line: 3,
             end_character: Some(
                 53,
             ),
@@ -27,11 +27,11 @@ Ok(
             ),
         },
         FoldingRange {
-            start_line: 13,
+            start_line: 5,
             start_character: Some(
                 0,
             ),
-            end_line: 14,
+            end_line: 6,
             end_character: Some(
                 51,
             ),
@@ -40,11 +40,11 @@ Ok(
             ),
         },
         FoldingRange {
-            start_line: 16,
+            start_line: 8,
             start_character: Some(
                 0,
             ),
-            end_line: 57,
+            end_line: 49,
             end_character: Some(
                 20,
             ),
@@ -53,11 +53,11 @@ Ok(
             ),
         },
         FoldingRange {
-            start_line: 59,
+            start_line: 51,
             start_character: Some(
                 0,
             ),
-            end_line: 62,
+            end_line: 54,
             end_character: Some(
                 8,
             ),
@@ -66,11 +66,11 @@ Ok(
             ),
         },
         FoldingRange {
-            start_line: 64,
+            start_line: 56,
             start_character: Some(
                 0,
             ),
-            end_line: 70,
+            end_line: 62,
             end_character: Some(
                 35,
             ),

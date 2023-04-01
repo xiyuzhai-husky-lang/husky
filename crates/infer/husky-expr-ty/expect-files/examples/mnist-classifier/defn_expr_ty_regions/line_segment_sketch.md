@@ -706,7 +706,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 7,
+                                            value: 6,
                                         },
                                     ),
                                 ),
@@ -1436,7 +1436,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 7,
+                                            value: 6,
                                         },
                                     ),
                                 ),
@@ -2431,7 +2431,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 7,
+                                            value: 6,
                                         },
                                     ),
                                 ),
@@ -3161,7 +3161,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 7,
+                                            value: 6,
                                         },
                                     ),
                                 ),
@@ -3578,7 +3578,7 @@
                                 TypeMethodFn(
                                     TypeMethodFnCard(
                                         Id {
-                                            value: 11,
+                                            value: 9,
                                         },
                                     ),
                                 ),
@@ -4044,7 +4044,7 @@
                                 TypeMethodFn(
                                     TypeMethodFnCard(
                                         Id {
-                                            value: 11,
+                                            value: 9,
                                         },
                                     ),
                                 ),
@@ -5828,7 +5828,7 @@
                                 TypeMethodFn(
                                     TypeMethodFnCard(
                                         Id {
-                                            value: 11,
+                                            value: 9,
                                         },
                                     ),
                                 ),
@@ -8058,7 +8058,7 @@
                                 TypeMethodFn(
                                     TypeMethodFnCard(
                                         Id {
-                                            value: 11,
+                                            value: 9,
                                         },
                                     ),
                                 ),
@@ -8510,7 +8510,7 @@
                                 TypeMethodFn(
                                     TypeMethodFnCard(
                                         Id {
-                                            value: 11,
+                                            value: 9,
                                         },
                                     ),
                                 ),
@@ -9172,7 +9172,7 @@
                                 TypeMethodFn(
                                     TypeMethodFnCard(
                                         Id {
-                                            value: 11,
+                                            value: 9,
                                         },
                                     ),
                                 ),

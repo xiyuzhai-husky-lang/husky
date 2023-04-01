@@ -260,7 +260,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 253,
+                                        value: 234,
                                     },
                                 ),
                             ),
@@ -273,7 +273,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 299,
+                                        value: 280,
                                     },
                                 ),
                             ),
@@ -286,7 +286,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 300,
+                                        value: 281,
                                     },
                                 ),
                             ),
@@ -299,7 +299,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 301,
+                                        value: 282,
                                     },
                                 ),
                             ),
@@ -1128,7 +1128,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 302,
+                                        value: 283,
                                     },
                                 ),
                             ),
@@ -1141,7 +1141,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1007,
+                                        value: 611,
                                     },
                                 ),
                             ),
@@ -1154,7 +1154,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1008,
+                                        value: 612,
                                     },
                                 ),
                             ),
@@ -1167,7 +1167,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1009,
+                                        value: 613,
                                     },
                                 ),
                             ),
@@ -1180,7 +1180,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1010,
+                                        value: 614,
                                     },
                                 ),
                             ),
@@ -1737,7 +1737,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 331,
+                                        value: 312,
                                     },
                                 ),
                             ),
@@ -1750,7 +1750,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 332,
+                                        value: 313,
                                     },
                                 ),
                             ),
@@ -1763,7 +1763,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 333,
+                                        value: 314,
                                     },
                                 ),
                             ),
@@ -1776,7 +1776,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 334,
+                                        value: 315,
                                     },
                                 ),
                             ),
@@ -1789,7 +1789,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 335,
+                                        value: 316,
                                     },
                                 ),
                             ),
@@ -1802,7 +1802,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 336,
+                                        value: 317,
                                     },
                                 ),
                             ),
@@ -1815,7 +1815,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 337,
+                                        value: 318,
                                     },
                                 ),
                             ),
@@ -1828,7 +1828,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 338,
+                                        value: 319,
                                     },
                                 ),
                             ),
@@ -1841,7 +1841,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 340,
+                                        value: 321,
                                     },
                                 ),
                             ),
@@ -1854,7 +1854,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 342,
+                                        value: 323,
                                     },
                                 ),
                             ),
@@ -1867,7 +1867,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 374,
+                                        value: 355,
                                     },
                                 ),
                             ),
@@ -1880,7 +1880,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 375,
+                                        value: 356,
                                     },
                                 ),
                             ),
@@ -1893,7 +1893,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 376,
+                                        value: 357,
                                     },
                                 ),
                             ),
@@ -1906,7 +1906,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1024,
+                                        value: 628,
                                     },
                                 ),
                             ),
@@ -2613,7 +2613,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 377,
+                                        value: 358,
                                     },
                                 ),
                             ),
@@ -2626,7 +2626,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 397,
+                                        value: 378,
                                     },
                                 ),
                             ),
@@ -2639,7 +2639,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 398,
+                                        value: 379,
                                     },
                                 ),
                             ),
@@ -2652,7 +2652,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 399,
+                                        value: 380,
                                     },
                                 ),
                             ),
@@ -2665,7 +2665,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 400,
+                                        value: 381,
                                     },
                                 ),
                             ),
@@ -2678,7 +2678,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 401,
+                                        value: 382,
                                     },
                                 ),
                             ),
@@ -2691,7 +2691,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 402,
+                                        value: 383,
                                     },
                                 ),
                             ),
@@ -3380,7 +3380,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 403,
+                                        value: 384,
                                     },
                                 ),
                             ),
@@ -3393,7 +3393,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 404,
+                                        value: 385,
                                     },
                                 ),
                             ),
@@ -3406,7 +3406,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 405,
+                                        value: 386,
                                     },
                                 ),
                             ),
@@ -3419,7 +3419,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 406,
+                                        value: 387,
                                     },
                                 ),
                             ),
@@ -3432,7 +3432,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 409,
+                                        value: 390,
                                     },
                                 ),
                             ),
@@ -3445,7 +3445,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 410,
+                                        value: 391,
                                     },
                                 ),
                             ),
@@ -3458,7 +3458,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 411,
+                                        value: 392,
                                     },
                                 ),
                             ),
@@ -3471,7 +3471,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 412,
+                                        value: 393,
                                     },
                                 ),
                             ),
@@ -3484,7 +3484,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 413,
+                                        value: 394,
                                     },
                                 ),
                             ),
@@ -3497,7 +3497,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 416,
+                                        value: 397,
                                     },
                                 ),
                             ),
@@ -3510,7 +3510,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 417,
+                                        value: 398,
                                     },
                                 ),
                             ),
@@ -3523,7 +3523,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 418,
+                                        value: 399,
                                     },
                                 ),
                             ),
@@ -3536,7 +3536,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 419,
+                                        value: 400,
                                     },
                                 ),
                             ),
@@ -3549,7 +3549,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 420,
+                                        value: 401,
                                     },
                                 ),
                             ),
@@ -3562,7 +3562,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 421,
+                                        value: 402,
                                     },
                                 ),
                             ),
@@ -3575,7 +3575,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 422,
+                                        value: 403,
                                     },
                                 ),
                             ),
@@ -3588,7 +3588,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 423,
+                                        value: 404,
                                     },
                                 ),
                             ),
@@ -3601,7 +3601,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1085,
+                                        value: 689,
                                     },
                                 ),
                             ),
@@ -3614,7 +3614,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1096,
+                                        value: 700,
                                     },
                                 ),
                             ),
@@ -4126,7 +4126,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 430,
+                                        value: 411,
                                     },
                                 ),
                             ),
@@ -4139,7 +4139,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 431,
+                                        value: 412,
                                     },
                                 ),
                             ),
@@ -4152,7 +4152,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 432,
+                                        value: 413,
                                     },
                                 ),
                             ),
@@ -4165,7 +4165,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 433,
+                                        value: 414,
                                     },
                                 ),
                             ),
@@ -4178,7 +4178,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 434,
+                                        value: 415,
                                     },
                                 ),
                             ),
@@ -4191,7 +4191,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 435,
+                                        value: 416,
                                     },
                                 ),
                             ),
@@ -4204,7 +4204,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 436,
+                                        value: 417,
                                     },
                                 ),
                             ),
@@ -4217,7 +4217,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 437,
+                                        value: 418,
                                     },
                                 ),
                             ),
@@ -4230,7 +4230,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 438,
+                                        value: 419,
                                     },
                                 ),
                             ),
@@ -4243,7 +4243,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 439,
+                                        value: 420,
                                     },
                                 ),
                             ),
@@ -4256,7 +4256,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 440,
+                                        value: 421,
                                     },
                                 ),
                             ),
@@ -4269,7 +4269,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 441,
+                                        value: 422,
                                     },
                                 ),
                             ),
@@ -4282,7 +4282,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 442,
+                                        value: 423,
                                     },
                                 ),
                             ),
@@ -4295,7 +4295,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 443,
+                                        value: 424,
                                     },
                                 ),
                             ),
@@ -4308,7 +4308,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 444,
+                                        value: 425,
                                     },
                                 ),
                             ),
@@ -4321,7 +4321,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 445,
+                                        value: 426,
                                     },
                                 ),
                             ),
@@ -4334,7 +4334,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 446,
+                                        value: 427,
                                     },
                                 ),
                             ),
@@ -4347,7 +4347,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 447,
+                                        value: 428,
                                     },
                                 ),
                             ),
@@ -4360,7 +4360,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 448,
+                                        value: 429,
                                     },
                                 ),
                             ),
@@ -4373,7 +4373,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 449,
+                                        value: 430,
                                     },
                                 ),
                             ),
@@ -4386,7 +4386,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 450,
+                                        value: 431,
                                     },
                                 ),
                             ),
@@ -4530,7 +4530,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 451,
+                                        value: 432,
                                     },
                                 ),
                             ),
@@ -4543,7 +4543,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 452,
+                                        value: 433,
                                     },
                                 ),
                             ),
@@ -4556,7 +4556,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 453,
+                                        value: 434,
                                     },
                                 ),
                             ),
@@ -4569,7 +4569,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 454,
+                                        value: 435,
                                     },
                                 ),
                             ),
@@ -4582,7 +4582,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 455,
+                                        value: 436,
                                     },
                                 ),
                             ),
@@ -4595,7 +4595,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 456,
+                                        value: 437,
                                     },
                                 ),
                             ),
@@ -4608,7 +4608,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 457,
+                                        value: 438,
                                     },
                                 ),
                             ),
@@ -4621,7 +4621,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 458,
+                                        value: 439,
                                     },
                                 ),
                             ),
@@ -4634,7 +4634,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 459,
+                                        value: 440,
                                     },
                                 ),
                             ),
@@ -4647,7 +4647,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 460,
+                                        value: 441,
                                     },
                                 ),
                             ),
@@ -4660,7 +4660,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 461,
+                                        value: 442,
                                     },
                                 ),
                             ),
@@ -4673,7 +4673,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 462,
+                                        value: 443,
                                     },
                                 ),
                             ),
@@ -4686,7 +4686,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 463,
+                                        value: 444,
                                     },
                                 ),
                             ),
@@ -4699,7 +4699,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 464,
+                                        value: 445,
                                     },
                                 ),
                             ),
@@ -4712,7 +4712,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 465,
+                                        value: 446,
                                     },
                                 ),
                             ),
@@ -4725,7 +4725,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 466,
+                                        value: 447,
                                     },
                                 ),
                             ),
@@ -4738,7 +4738,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 467,
+                                        value: 448,
                                     },
                                 ),
                             ),
@@ -4751,7 +4751,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 468,
+                                        value: 449,
                                     },
                                 ),
                             ),
@@ -4764,7 +4764,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 469,
+                                        value: 450,
                                     },
                                 ),
                             ),
@@ -4777,7 +4777,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 470,
+                                        value: 451,
                                     },
                                 ),
                             ),
@@ -4790,7 +4790,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 471,
+                                        value: 452,
                                     },
                                 ),
                             ),
@@ -5080,7 +5080,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 520,
+                                        value: 501,
                                     },
                                 ),
                             ),
@@ -5093,7 +5093,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 521,
+                                        value: 502,
                                     },
                                 ),
                             ),
@@ -5106,7 +5106,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 522,
+                                        value: 503,
                                     },
                                 ),
                             ),
@@ -5119,7 +5119,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 523,
+                                        value: 504,
                                     },
                                 ),
                             ),
@@ -5132,7 +5132,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 524,
+                                        value: 505,
                                     },
                                 ),
                             ),
@@ -5145,7 +5145,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 525,
+                                        value: 506,
                                     },
                                 ),
                             ),
@@ -5536,7 +5536,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1118,
+                                        value: 722,
                                     },
                                 ),
                             ),
@@ -5549,7 +5549,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1119,
+                                        value: 723,
                                     },
                                 ),
                             ),
@@ -5562,7 +5562,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1120,
+                                        value: 724,
                                     },
                                 ),
                             ),
@@ -5575,7 +5575,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1121,
+                                        value: 725,
                                     },
                                 ),
                             ),
@@ -6166,7 +6166,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1123,
+                                        value: 727,
                                     },
                                 ),
                             ),
@@ -6179,7 +6179,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1124,
+                                        value: 728,
                                     },
                                 ),
                             ),
@@ -6192,7 +6192,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1125,
+                                        value: 729,
                                     },
                                 ),
                             ),
@@ -6829,635 +6829,16 @@ Ok(
                                 ),
                             ),
                         },
-                        EntitySymbolEntry {
-                            ident: `connected_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::zero`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 526,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_connected_component`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::zero`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 527,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `ignored_connected_components_row_span_sum_sum`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::zero`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 528,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_raw_contours`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::zero`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 529,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_raw_contour`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::zero`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 530,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_line_segment_sketch`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::zero`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 531,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_concave_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::zero`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 532,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `fermi_match`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::zero`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 546,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `ConcaveComponent`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::zero`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 1134,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `find_concave_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::zero`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 1135,
-                                    },
-                                ),
-                            ),
-                        },
                     ],
                 ),
                 impl_blocks: [],
                 use_expr_rules: UseExprRules(
-                    [
-                        UseExprRule {
-                            ast_idx: 25,
-                            use_expr_idx: 3,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::zero`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `cv`,
-                                        token_idx: TokenIdx(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    2..3,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 26,
-                            use_expr_idx: 8,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::zero`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `domains`,
-                                        token_idx: TokenIdx(
-                                            9,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    7..8,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 27,
-                            use_expr_idx: 13,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::zero`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `domains`,
-                                        token_idx: TokenIdx(
-                                            19,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    12..13,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 28,
-                            use_expr_idx: 18,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::zero`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `domains`,
-                                        token_idx: TokenIdx(
-                                            29,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    17..18,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 29,
-                            use_expr_idx: 21,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::zero`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            39,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    20..21,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 30,
-                            use_expr_idx: 24,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::zero`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            45,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    23..24,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 31,
-                            use_expr_idx: 28,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::zero`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            51,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    27..28,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 32,
-                            use_expr_idx: 31,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::zero`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            59,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    30..31,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 29,
-                            use_expr_idx: 20,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::zero`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `major`,
-                                        token_idx: TokenIdx(
-                                            41,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    19..20,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 30,
-                            use_expr_idx: 23,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::zero`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `fermi`,
-                                        token_idx: TokenIdx(
-                                            47,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    22..23,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 38,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 31,
-                            use_expr_idx: 27,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::zero`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `line_segment_sketch`,
-                                        token_idx: TokenIdx(
-                                            53,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    26..27,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 37,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 32,
-                            use_expr_idx: 30,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::zero`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `one`,
-                                        token_idx: TokenIdx(
-                                            61,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    29..30,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 31,
-                            use_expr_idx: 26,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::zero`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `concave_component`,
-                                        token_idx: TokenIdx(
-                                            55,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    25..26,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier::line_segment_sketch`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 41,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                    ],
+                    [],
                 ),
                 use_all_rules: UseAllRules(
-                    [
-                        UseAllRule {
-                            parent: KinshipedModulePath {
-                                kinship: Inside,
-                                path: ModulePath(
-                                    Id {
-                                        value: 47,
-                                    },
-                                ),
-                            },
-                            ast_idx: 29,
-                            use_expr_idx: 19,
-                            visibility: PubUnder(
-                                ModulePath(
-                                    Id {
-                                        value: 52,
-                                    },
-                                ),
-                            ),
-                            progress: 28,
-                        },
-                        UseAllRule {
-                            parent: KinshipedModulePath {
-                                kinship: Inside,
-                                path: ModulePath(
-                                    Id {
-                                        value: 45,
-                                    },
-                                ),
-                            },
-                            ast_idx: 30,
-                            use_expr_idx: 22,
-                            visibility: PubUnder(
-                                ModulePath(
-                                    Id {
-                                        value: 52,
-                                    },
-                                ),
-                            ),
-                            progress: 24,
-                        },
-                        UseAllRule {
-                            parent: KinshipedModulePath {
-                                kinship: Inside,
-                                path: ModulePath(
-                                    Id {
-                                        value: 48,
-                                    },
-                                ),
-                            },
-                            ast_idx: 31,
-                            use_expr_idx: 25,
-                            visibility: PubUnder(
-                                ModulePath(
-                                    Id {
-                                        value: 52,
-                                    },
-                                ),
-                            ),
-                            progress: 40,
-                        },
-                    ],
+                    [],
                 ),
-                errors: [
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `cv`,
-                                token_idx: TokenIdx(
-                                    1,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `domains`,
-                                token_idx: TokenIdx(
-                                    9,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `domains`,
-                                token_idx: TokenIdx(
-                                    19,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `domains`,
-                                token_idx: TokenIdx(
-                                    29,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `one`,
-                                token_idx: TokenIdx(
-                                    61,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::SymbolExistsButNotAccessible(
-                            IdentToken {
-                                ident: `concave_component`,
-                                token_idx: TokenIdx(
-                                    55,
-                                ),
-                            },
-                        ),
-                    ),
-                ],
+                errors: [],
             },
             EntityTreeSheet {
                 module_path: `mnist_classifier::digits::one`,
@@ -7526,570 +6907,16 @@ Ok(
                                 ),
                             ),
                         },
-                        EntitySymbolEntry {
-                            ident: `connected_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::one`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 565,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_connected_component`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::one`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 566,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `ignored_connected_components_row_span_sum_sum`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::one`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 567,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_raw_contours`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::one`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 568,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_raw_contour`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::one`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 569,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_line_segment_sketch`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::one`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 570,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_concave_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::one`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 571,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `fermi_match`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::one`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 585,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `ConcaveComponent`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::one`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 1182,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `find_concave_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::one`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 1183,
-                                    },
-                                ),
-                            ),
-                        },
                     ],
                 ),
                 impl_blocks: [],
                 use_expr_rules: UseExprRules(
-                    [
-                        UseExprRule {
-                            ast_idx: 61,
-                            use_expr_idx: 3,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::one`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `cv`,
-                                        token_idx: TokenIdx(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    2..3,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 62,
-                            use_expr_idx: 8,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::one`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `domains`,
-                                        token_idx: TokenIdx(
-                                            9,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    7..8,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 63,
-                            use_expr_idx: 13,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::one`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `domains`,
-                                        token_idx: TokenIdx(
-                                            19,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    12..13,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 64,
-                            use_expr_idx: 18,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::one`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `domains`,
-                                        token_idx: TokenIdx(
-                                            29,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    17..18,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 65,
-                            use_expr_idx: 21,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::one`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            39,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    20..21,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 66,
-                            use_expr_idx: 24,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::one`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            45,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    23..24,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 67,
-                            use_expr_idx: 28,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::one`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            51,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    27..28,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 65,
-                            use_expr_idx: 20,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::one`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `major`,
-                                        token_idx: TokenIdx(
-                                            41,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    19..20,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 66,
-                            use_expr_idx: 23,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::one`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `fermi`,
-                                        token_idx: TokenIdx(
-                                            47,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    22..23,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 38,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 67,
-                            use_expr_idx: 27,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::one`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `line_segment_sketch`,
-                                        token_idx: TokenIdx(
-                                            53,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    26..27,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 37,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 67,
-                            use_expr_idx: 26,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::one`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `concave_component`,
-                                        token_idx: TokenIdx(
-                                            55,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    25..26,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier::line_segment_sketch`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 41,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                    ],
+                    [],
                 ),
                 use_all_rules: UseAllRules(
-                    [
-                        UseAllRule {
-                            parent: KinshipedModulePath {
-                                kinship: Inside,
-                                path: ModulePath(
-                                    Id {
-                                        value: 47,
-                                    },
-                                ),
-                            },
-                            ast_idx: 65,
-                            use_expr_idx: 19,
-                            visibility: PubUnder(
-                                ModulePath(
-                                    Id {
-                                        value: 53,
-                                    },
-                                ),
-                            ),
-                            progress: 28,
-                        },
-                        UseAllRule {
-                            parent: KinshipedModulePath {
-                                kinship: Inside,
-                                path: ModulePath(
-                                    Id {
-                                        value: 45,
-                                    },
-                                ),
-                            },
-                            ast_idx: 66,
-                            use_expr_idx: 22,
-                            visibility: PubUnder(
-                                ModulePath(
-                                    Id {
-                                        value: 53,
-                                    },
-                                ),
-                            ),
-                            progress: 24,
-                        },
-                        UseAllRule {
-                            parent: KinshipedModulePath {
-                                kinship: Inside,
-                                path: ModulePath(
-                                    Id {
-                                        value: 48,
-                                    },
-                                ),
-                            },
-                            ast_idx: 67,
-                            use_expr_idx: 25,
-                            visibility: PubUnder(
-                                ModulePath(
-                                    Id {
-                                        value: 53,
-                                    },
-                                ),
-                            ),
-                            progress: 40,
-                        },
-                    ],
+                    [],
                 ),
-                errors: [
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `cv`,
-                                token_idx: TokenIdx(
-                                    1,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `domains`,
-                                token_idx: TokenIdx(
-                                    9,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `domains`,
-                                token_idx: TokenIdx(
-                                    19,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `domains`,
-                                token_idx: TokenIdx(
-                                    29,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::SymbolExistsButNotAccessible(
-                            IdentToken {
-                                ident: `concave_component`,
-                                token_idx: TokenIdx(
-                                    55,
-                                ),
-                            },
-                        ),
-                    ),
-                ],
+                errors: [],
             },
             EntityTreeSheet {
                 module_path: `mnist_classifier::digits::six`,
@@ -8160,635 +6987,16 @@ Ok(
                                 ),
                             ),
                         },
-                        EntitySymbolEntry {
-                            ident: `connected_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::six`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 604,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_connected_component`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::six`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 605,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `ignored_connected_components_row_span_sum_sum`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::six`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 606,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_raw_contours`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::six`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 607,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_raw_contour`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::six`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 608,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_line_segment_sketch`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::six`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 609,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_concave_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::six`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 610,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `fermi_match`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::six`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 624,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `ConcaveComponent`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::six`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 1230,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `find_concave_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::six`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 1231,
-                                    },
-                                ),
-                            ),
-                        },
                     ],
                 ),
                 impl_blocks: [],
                 use_expr_rules: UseExprRules(
-                    [
-                        UseExprRule {
-                            ast_idx: 49,
-                            use_expr_idx: 3,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::six`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `cv`,
-                                        token_idx: TokenIdx(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    2..3,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 50,
-                            use_expr_idx: 8,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::six`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `domains`,
-                                        token_idx: TokenIdx(
-                                            9,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    7..8,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 51,
-                            use_expr_idx: 13,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::six`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `domains`,
-                                        token_idx: TokenIdx(
-                                            19,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    12..13,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 52,
-                            use_expr_idx: 18,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::six`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `domains`,
-                                        token_idx: TokenIdx(
-                                            29,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    17..18,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 53,
-                            use_expr_idx: 21,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::six`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            39,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    20..21,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 54,
-                            use_expr_idx: 24,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::six`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            45,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    23..24,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 55,
-                            use_expr_idx: 28,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::six`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            51,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    27..28,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 56,
-                            use_expr_idx: 31,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::six`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            59,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    30..31,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 53,
-                            use_expr_idx: 20,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::six`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `major`,
-                                        token_idx: TokenIdx(
-                                            41,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    19..20,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 54,
-                            use_expr_idx: 23,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::six`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `fermi`,
-                                        token_idx: TokenIdx(
-                                            47,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    22..23,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 38,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 55,
-                            use_expr_idx: 27,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::six`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `line_segment_sketch`,
-                                        token_idx: TokenIdx(
-                                            53,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    26..27,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 37,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 56,
-                            use_expr_idx: 30,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::six`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `one`,
-                                        token_idx: TokenIdx(
-                                            61,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    29..30,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 55,
-                            use_expr_idx: 26,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::six`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `concave_component`,
-                                        token_idx: TokenIdx(
-                                            55,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    25..26,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier::line_segment_sketch`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 41,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                    ],
+                    [],
                 ),
                 use_all_rules: UseAllRules(
-                    [
-                        UseAllRule {
-                            parent: KinshipedModulePath {
-                                kinship: Inside,
-                                path: ModulePath(
-                                    Id {
-                                        value: 47,
-                                    },
-                                ),
-                            },
-                            ast_idx: 53,
-                            use_expr_idx: 19,
-                            visibility: PubUnder(
-                                ModulePath(
-                                    Id {
-                                        value: 54,
-                                    },
-                                ),
-                            ),
-                            progress: 28,
-                        },
-                        UseAllRule {
-                            parent: KinshipedModulePath {
-                                kinship: Inside,
-                                path: ModulePath(
-                                    Id {
-                                        value: 45,
-                                    },
-                                ),
-                            },
-                            ast_idx: 54,
-                            use_expr_idx: 22,
-                            visibility: PubUnder(
-                                ModulePath(
-                                    Id {
-                                        value: 54,
-                                    },
-                                ),
-                            ),
-                            progress: 24,
-                        },
-                        UseAllRule {
-                            parent: KinshipedModulePath {
-                                kinship: Inside,
-                                path: ModulePath(
-                                    Id {
-                                        value: 48,
-                                    },
-                                ),
-                            },
-                            ast_idx: 55,
-                            use_expr_idx: 25,
-                            visibility: PubUnder(
-                                ModulePath(
-                                    Id {
-                                        value: 54,
-                                    },
-                                ),
-                            ),
-                            progress: 40,
-                        },
-                    ],
+                    [],
                 ),
-                errors: [
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `cv`,
-                                token_idx: TokenIdx(
-                                    1,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `domains`,
-                                token_idx: TokenIdx(
-                                    9,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `domains`,
-                                token_idx: TokenIdx(
-                                    19,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `domains`,
-                                token_idx: TokenIdx(
-                                    29,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `one`,
-                                token_idx: TokenIdx(
-                                    61,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::SymbolExistsButNotAccessible(
-                            IdentToken {
-                                ident: `concave_component`,
-                                token_idx: TokenIdx(
-                                    55,
-                                ),
-                            },
-                        ),
-                    ),
-                ],
+                errors: [],
             },
             EntityTreeSheet {
                 module_path: `mnist_classifier::digits::three`,
@@ -8859,570 +7067,16 @@ Ok(
                                 ),
                             ),
                         },
-                        EntitySymbolEntry {
-                            ident: `connected_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::three`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 643,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_connected_component`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::three`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 644,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `ignored_connected_components_row_span_sum_sum`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::three`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 645,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_raw_contours`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::three`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 646,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_raw_contour`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::three`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 647,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_line_segment_sketch`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::three`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 648,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_concave_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::three`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 649,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `fermi_match`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::three`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 663,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `ConcaveComponent`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::three`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 1278,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `find_concave_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::three`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 1279,
-                                    },
-                                ),
-                            ),
-                        },
                     ],
                 ),
                 impl_blocks: [],
                 use_expr_rules: UseExprRules(
-                    [
-                        UseExprRule {
-                            ast_idx: 27,
-                            use_expr_idx: 5,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::three`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `domains`,
-                                        token_idx: TokenIdx(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    4..5,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 28,
-                            use_expr_idx: 10,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::three`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `domains`,
-                                        token_idx: TokenIdx(
-                                            13,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    9..10,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 29,
-                            use_expr_idx: 15,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::three`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `domains`,
-                                        token_idx: TokenIdx(
-                                            23,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    14..15,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 30,
-                            use_expr_idx: 20,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::three`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `domains`,
-                                        token_idx: TokenIdx(
-                                            33,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    19..20,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 31,
-                            use_expr_idx: 23,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::three`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            43,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    22..23,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 32,
-                            use_expr_idx: 26,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::three`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            49,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    25..26,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 33,
-                            use_expr_idx: 30,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::three`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            55,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    29..30,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 31,
-                            use_expr_idx: 22,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::three`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `major`,
-                                        token_idx: TokenIdx(
-                                            45,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    21..22,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 32,
-                            use_expr_idx: 25,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::three`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `fermi`,
-                                        token_idx: TokenIdx(
-                                            51,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    24..25,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 38,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 33,
-                            use_expr_idx: 29,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::three`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `line_segment_sketch`,
-                                        token_idx: TokenIdx(
-                                            57,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    28..29,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 37,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 33,
-                            use_expr_idx: 28,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::three`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `concave_component`,
-                                        token_idx: TokenIdx(
-                                            59,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    27..28,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier::line_segment_sketch`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 41,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                    ],
+                    [],
                 ),
                 use_all_rules: UseAllRules(
-                    [
-                        UseAllRule {
-                            parent: KinshipedModulePath {
-                                kinship: Inside,
-                                path: ModulePath(
-                                    Id {
-                                        value: 47,
-                                    },
-                                ),
-                            },
-                            ast_idx: 31,
-                            use_expr_idx: 21,
-                            visibility: PubUnder(
-                                ModulePath(
-                                    Id {
-                                        value: 55,
-                                    },
-                                ),
-                            ),
-                            progress: 28,
-                        },
-                        UseAllRule {
-                            parent: KinshipedModulePath {
-                                kinship: Inside,
-                                path: ModulePath(
-                                    Id {
-                                        value: 45,
-                                    },
-                                ),
-                            },
-                            ast_idx: 32,
-                            use_expr_idx: 24,
-                            visibility: PubUnder(
-                                ModulePath(
-                                    Id {
-                                        value: 55,
-                                    },
-                                ),
-                            ),
-                            progress: 24,
-                        },
-                        UseAllRule {
-                            parent: KinshipedModulePath {
-                                kinship: Inside,
-                                path: ModulePath(
-                                    Id {
-                                        value: 48,
-                                    },
-                                ),
-                            },
-                            ast_idx: 33,
-                            use_expr_idx: 27,
-                            visibility: PubUnder(
-                                ModulePath(
-                                    Id {
-                                        value: 55,
-                                    },
-                                ),
-                            ),
-                            progress: 40,
-                        },
-                    ],
+                    [],
                 ),
-                errors: [
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `domains`,
-                                token_idx: TokenIdx(
-                                    1,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `domains`,
-                                token_idx: TokenIdx(
-                                    13,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `domains`,
-                                token_idx: TokenIdx(
-                                    23,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `domains`,
-                                token_idx: TokenIdx(
-                                    33,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::SymbolExistsButNotAccessible(
-                            IdentToken {
-                                ident: `concave_component`,
-                                token_idx: TokenIdx(
-                                    59,
-                                ),
-                            },
-                        ),
-                    ),
-                ],
+                errors: [],
             },
             EntityTreeSheet {
                 module_path: `mnist_classifier::digits::four`,
@@ -9519,570 +7173,16 @@ Ok(
                                 ),
                             ),
                         },
-                        EntitySymbolEntry {
-                            ident: `connected_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::four`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 682,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_connected_component`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::four`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 683,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `ignored_connected_components_row_span_sum_sum`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::four`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 684,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_raw_contours`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::four`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 685,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_raw_contour`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::four`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 686,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_line_segment_sketch`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::four`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 687,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_concave_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::four`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 688,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `fermi_match`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::four`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 702,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `ConcaveComponent`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::four`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 1326,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `find_concave_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::four`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 1327,
-                                    },
-                                ),
-                            ),
-                        },
                     ],
                 ),
                 impl_blocks: [],
                 use_expr_rules: UseExprRules(
-                    [
-                        UseExprRule {
-                            ast_idx: 37,
-                            use_expr_idx: 5,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::four`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `domains`,
-                                        token_idx: TokenIdx(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    4..5,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 38,
-                            use_expr_idx: 10,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::four`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `domains`,
-                                        token_idx: TokenIdx(
-                                            13,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    9..10,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 39,
-                            use_expr_idx: 15,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::four`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `domains`,
-                                        token_idx: TokenIdx(
-                                            23,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    14..15,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 40,
-                            use_expr_idx: 20,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::four`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `domains`,
-                                        token_idx: TokenIdx(
-                                            33,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    19..20,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 41,
-                            use_expr_idx: 23,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::four`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            43,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    22..23,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 42,
-                            use_expr_idx: 26,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::four`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            49,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    25..26,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 43,
-                            use_expr_idx: 30,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::four`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            55,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    29..30,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 41,
-                            use_expr_idx: 22,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::four`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `major`,
-                                        token_idx: TokenIdx(
-                                            45,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    21..22,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 42,
-                            use_expr_idx: 25,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::four`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `fermi`,
-                                        token_idx: TokenIdx(
-                                            51,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    24..25,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 38,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 43,
-                            use_expr_idx: 29,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::four`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `line_segment_sketch`,
-                                        token_idx: TokenIdx(
-                                            57,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    28..29,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 37,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 43,
-                            use_expr_idx: 28,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::four`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `concave_component`,
-                                        token_idx: TokenIdx(
-                                            59,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    27..28,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier::line_segment_sketch`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 41,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                    ],
+                    [],
                 ),
                 use_all_rules: UseAllRules(
-                    [
-                        UseAllRule {
-                            parent: KinshipedModulePath {
-                                kinship: Inside,
-                                path: ModulePath(
-                                    Id {
-                                        value: 47,
-                                    },
-                                ),
-                            },
-                            ast_idx: 41,
-                            use_expr_idx: 21,
-                            visibility: PubUnder(
-                                ModulePath(
-                                    Id {
-                                        value: 56,
-                                    },
-                                ),
-                            ),
-                            progress: 28,
-                        },
-                        UseAllRule {
-                            parent: KinshipedModulePath {
-                                kinship: Inside,
-                                path: ModulePath(
-                                    Id {
-                                        value: 45,
-                                    },
-                                ),
-                            },
-                            ast_idx: 42,
-                            use_expr_idx: 24,
-                            visibility: PubUnder(
-                                ModulePath(
-                                    Id {
-                                        value: 56,
-                                    },
-                                ),
-                            ),
-                            progress: 24,
-                        },
-                        UseAllRule {
-                            parent: KinshipedModulePath {
-                                kinship: Inside,
-                                path: ModulePath(
-                                    Id {
-                                        value: 48,
-                                    },
-                                ),
-                            },
-                            ast_idx: 43,
-                            use_expr_idx: 27,
-                            visibility: PubUnder(
-                                ModulePath(
-                                    Id {
-                                        value: 56,
-                                    },
-                                ),
-                            ),
-                            progress: 40,
-                        },
-                    ],
+                    [],
                 ),
-                errors: [
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `domains`,
-                                token_idx: TokenIdx(
-                                    1,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `domains`,
-                                token_idx: TokenIdx(
-                                    13,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `domains`,
-                                token_idx: TokenIdx(
-                                    23,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `domains`,
-                                token_idx: TokenIdx(
-                                    33,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::SymbolExistsButNotAccessible(
-                            IdentToken {
-                                ident: `concave_component`,
-                                token_idx: TokenIdx(
-                                    59,
-                                ),
-                            },
-                        ),
-                    ),
-                ],
+                errors: [],
             },
             EntityTreeSheet {
                 module_path: `mnist_classifier::digits::five`,
@@ -10194,1163 +7294,16 @@ Ok(
                                 ),
                             ),
                         },
-                        EntitySymbolEntry {
-                            ident: `major_concave_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 721,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_connected_component`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 722,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `connected_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 723,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `ignored_connected_components_row_span_sum_sum`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 725,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_raw_contours`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 726,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_raw_contour`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 727,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_line_segment_sketch`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 728,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `fermi_match`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 743,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `zero`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 762,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `one`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 763,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `six`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 764,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `three`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 765,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `four`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 766,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `five`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 767,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `seven`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 768,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `eight`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 769,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `nine`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 770,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `two`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 771,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `is_one`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 772,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `is_six`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 773,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `is_zero`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 774,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `is_two`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 775,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `is_three`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 776,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `is_five`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 777,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `is_eight`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 779,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `is_nine`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 780,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `connected_component`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 781,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `raw_contour`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 782,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `geom2d`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 783,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `line_segment_sketch`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 784,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `fermi`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 785,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `digits`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 786,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 787,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `MnistLabel`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 788,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `find_raw_contours`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 789,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `LineSegmentStroke`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 798,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `LineSegmentSketch`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 799,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `ConcaveComponent`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 1374,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `find_concave_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 1375,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `LineSegment`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 1598,
-                                    },
-                                ),
-                            ),
-                        },
                     ],
                 ),
                 impl_blocks: [],
                 use_expr_rules: UseExprRules(
-                    [
-                        UseExprRule {
-                            ast_idx: 39,
-                            use_expr_idx: 5,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `domains`,
-                                        token_idx: TokenIdx(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    4..5,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 40,
-                            use_expr_idx: 8,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            13,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    7..8,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 41,
-                            use_expr_idx: 11,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            19,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    10..11,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 42,
-                            use_expr_idx: 16,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `domains`,
-                                        token_idx: TokenIdx(
-                                            25,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    15..16,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 43,
-                            use_expr_idx: 19,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            35,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    18..19,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 44,
-                            use_expr_idx: 22,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            41,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    21..22,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 45,
-                            use_expr_idx: 26,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            47,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    25..26,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 46,
-                            use_expr_idx: 29,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            55,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    28..29,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 40,
-                            use_expr_idx: 7,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `major`,
-                                        token_idx: TokenIdx(
-                                            15,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    6..7,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 41,
-                            use_expr_idx: 10,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `major`,
-                                        token_idx: TokenIdx(
-                                            21,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    9..10,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 43,
-                            use_expr_idx: 18,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `major`,
-                                        token_idx: TokenIdx(
-                                            37,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    17..18,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 44,
-                            use_expr_idx: 21,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `fermi`,
-                                        token_idx: TokenIdx(
-                                            43,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    20..21,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 38,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 45,
-                            use_expr_idx: 25,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `line_segment_sketch`,
-                                        token_idx: TokenIdx(
-                                            49,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    24..25,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 37,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 46,
-                            use_expr_idx: 28,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `digits`,
-                                        token_idx: TokenIdx(
-                                            57,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    27..28,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 40,
-                            use_expr_idx: 6,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            variant: UseExprRuleVariant::Leaf {
-                                ident_token: IdentToken {
-                                    ident: `major_concave_components`,
-                                    token_idx: TokenIdx(
-                                        17,
-                                    ),
-                                },
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier::major`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: ModuleItem(
-                                    ModuleItemSymbol(
-                                        Id {
-                                            value: 201,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 41,
-                            use_expr_idx: 9,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            variant: UseExprRuleVariant::Leaf {
-                                ident_token: IdentToken {
-                                    ident: `major_connected_component`,
-                                    token_idx: TokenIdx(
-                                        23,
-                                    ),
-                                },
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier::major`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: ModuleItem(
-                                    ModuleItemSymbol(
-                                        Id {
-                                            value: 196,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 45,
-                            use_expr_idx: 24,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::seven`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `concave_component`,
-                                        token_idx: TokenIdx(
-                                            51,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    23..24,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier::line_segment_sketch`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 41,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                    ],
+                    [],
                 ),
                 use_all_rules: UseAllRules(
-                    [
-                        UseAllRule {
-                            parent: KinshipedModulePath {
-                                kinship: Inside,
-                                path: ModulePath(
-                                    Id {
-                                        value: 47,
-                                    },
-                                ),
-                            },
-                            ast_idx: 43,
-                            use_expr_idx: 17,
-                            visibility: PubUnder(
-                                ModulePath(
-                                    Id {
-                                        value: 58,
-                                    },
-                                ),
-                            ),
-                            progress: 28,
-                        },
-                        UseAllRule {
-                            parent: KinshipedModulePath {
-                                kinship: Inside,
-                                path: ModulePath(
-                                    Id {
-                                        value: 45,
-                                    },
-                                ),
-                            },
-                            ast_idx: 44,
-                            use_expr_idx: 20,
-                            visibility: PubUnder(
-                                ModulePath(
-                                    Id {
-                                        value: 58,
-                                    },
-                                ),
-                            ),
-                            progress: 24,
-                        },
-                        UseAllRule {
-                            parent: KinshipedModulePath {
-                                kinship: Inside,
-                                path: ModulePath(
-                                    Id {
-                                        value: 46,
-                                    },
-                                ),
-                            },
-                            ast_idx: 46,
-                            use_expr_idx: 27,
-                            visibility: PubUnder(
-                                ModulePath(
-                                    Id {
-                                        value: 58,
-                                    },
-                                ),
-                            ),
-                            progress: 41,
-                        },
-                        UseAllRule {
-                            parent: KinshipedModulePath {
-                                kinship: Inside,
-                                path: ModulePath(
-                                    Id {
-                                        value: 48,
-                                    },
-                                ),
-                            },
-                            ast_idx: 45,
-                            use_expr_idx: 23,
-                            visibility: PubUnder(
-                                ModulePath(
-                                    Id {
-                                        value: 58,
-                                    },
-                                ),
-                            ),
-                            progress: 40,
-                        },
-                    ],
+                    [],
                 ),
-                errors: [
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `domains`,
-                                token_idx: TokenIdx(
-                                    1,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `domains`,
-                                token_idx: TokenIdx(
-                                    25,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::SymbolExistsButNotAccessible(
-                            IdentToken {
-                                ident: `concave_component`,
-                                token_idx: TokenIdx(
-                                    51,
-                                ),
-                            },
-                        ),
-                    ),
-                ],
+                errors: [],
             },
             EntityTreeSheet {
                 module_path: `mnist_classifier::digits::eight`,
@@ -11395,898 +7348,16 @@ Ok(
                                 ),
                             ),
                         },
-                        EntitySymbolEntry {
-                            ident: `major_concave_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::eight`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 800,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_connected_component`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::eight`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 801,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `fermi_match`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::eight`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 803,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `RawContour`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::eight`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 822,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `ConcaveComponent`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::eight`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 1414,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `find_concave_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::eight`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 1415,
-                                    },
-                                ),
-                            ),
-                        },
                     ],
                 ),
                 impl_blocks: [],
                 use_expr_rules: UseExprRules(
-                    [
-                        UseExprRule {
-                            ast_idx: 17,
-                            use_expr_idx: 5,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::eight`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `domains`,
-                                        token_idx: TokenIdx(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    4..5,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 18,
-                            use_expr_idx: 8,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::eight`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            13,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    7..8,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 19,
-                            use_expr_idx: 11,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::eight`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            19,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    10..11,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 20,
-                            use_expr_idx: 16,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::eight`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `domains`,
-                                        token_idx: TokenIdx(
-                                            25,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    15..16,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 21,
-                            use_expr_idx: 19,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::eight`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            35,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    18..19,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 22,
-                            use_expr_idx: 22,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::eight`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            41,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    21..22,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 23,
-                            use_expr_idx: 25,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::eight`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            47,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    24..25,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 24,
-                            use_expr_idx: 28,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::eight`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            53,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    27..28,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 25,
-                            use_expr_idx: 32,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::eight`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            59,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    31..32,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 26,
-                            use_expr_idx: 35,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::eight`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            67,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    34..35,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 27,
-                            use_expr_idx: 38,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::eight`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            73,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    37..38,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 18,
-                            use_expr_idx: 7,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::eight`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `major`,
-                                        token_idx: TokenIdx(
-                                            15,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    6..7,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 19,
-                            use_expr_idx: 10,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::eight`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `major`,
-                                        token_idx: TokenIdx(
-                                            21,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    9..10,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 21,
-                            use_expr_idx: 18,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::eight`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `one`,
-                                        token_idx: TokenIdx(
-                                            37,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    17..18,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 22,
-                            use_expr_idx: 21,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::eight`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `six`,
-                                        token_idx: TokenIdx(
-                                            43,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    20..21,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 23,
-                            use_expr_idx: 24,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::eight`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `zero`,
-                                        token_idx: TokenIdx(
-                                            49,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    23..24,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 24,
-                            use_expr_idx: 27,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::eight`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `seven`,
-                                        token_idx: TokenIdx(
-                                            55,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    26..27,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 25,
-                            use_expr_idx: 31,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::eight`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `line_segment_sketch`,
-                                        token_idx: TokenIdx(
-                                            61,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    30..31,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 37,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 26,
-                            use_expr_idx: 34,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::eight`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `fermi`,
-                                        token_idx: TokenIdx(
-                                            69,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    33..34,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 38,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 27,
-                            use_expr_idx: 37,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::eight`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `raw_contour`,
-                                        token_idx: TokenIdx(
-                                            75,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    36..37,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 35,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 18,
-                            use_expr_idx: 6,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::eight`,
-                            ),
-                            variant: UseExprRuleVariant::Leaf {
-                                ident_token: IdentToken {
-                                    ident: `major_concave_components`,
-                                    token_idx: TokenIdx(
-                                        17,
-                                    ),
-                                },
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier::major`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: ModuleItem(
-                                    ModuleItemSymbol(
-                                        Id {
-                                            value: 201,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 19,
-                            use_expr_idx: 9,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::eight`,
-                            ),
-                            variant: UseExprRuleVariant::Leaf {
-                                ident_token: IdentToken {
-                                    ident: `major_connected_component`,
-                                    token_idx: TokenIdx(
-                                        23,
-                                    ),
-                                },
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier::major`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: ModuleItem(
-                                    ModuleItemSymbol(
-                                        Id {
-                                            value: 196,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 25,
-                            use_expr_idx: 30,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::eight`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `concave_component`,
-                                        token_idx: TokenIdx(
-                                            63,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    29..30,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier::line_segment_sketch`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 41,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                    ],
+                    [],
                 ),
                 use_all_rules: UseAllRules(
-                    [
-                        UseAllRule {
-                            parent: KinshipedModulePath {
-                                kinship: Inside,
-                                path: ModulePath(
-                                    Id {
-                                        value: 45,
-                                    },
-                                ),
-                            },
-                            ast_idx: 26,
-                            use_expr_idx: 33,
-                            visibility: PubUnder(
-                                ModulePath(
-                                    Id {
-                                        value: 59,
-                                    },
-                                ),
-                            ),
-                            progress: 24,
-                        },
-                        UseAllRule {
-                            parent: KinshipedModulePath {
-                                kinship: Inside,
-                                path: ModulePath(
-                                    Id {
-                                        value: 42,
-                                    },
-                                ),
-                            },
-                            ast_idx: 27,
-                            use_expr_idx: 36,
-                            visibility: PubUnder(
-                                ModulePath(
-                                    Id {
-                                        value: 59,
-                                    },
-                                ),
-                            ),
-                            progress: 43,
-                        },
-                        UseAllRule {
-                            parent: KinshipedModulePath {
-                                kinship: Inside,
-                                path: ModulePath(
-                                    Id {
-                                        value: 48,
-                                    },
-                                ),
-                            },
-                            ast_idx: 25,
-                            use_expr_idx: 29,
-                            visibility: PubUnder(
-                                ModulePath(
-                                    Id {
-                                        value: 59,
-                                    },
-                                ),
-                            ),
-                            progress: 40,
-                        },
-                    ],
+                    [],
                 ),
-                errors: [
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `domains`,
-                                token_idx: TokenIdx(
-                                    1,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `domains`,
-                                token_idx: TokenIdx(
-                                    25,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `one`,
-                                token_idx: TokenIdx(
-                                    37,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `six`,
-                                token_idx: TokenIdx(
-                                    43,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `zero`,
-                                token_idx: TokenIdx(
-                                    49,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `seven`,
-                                token_idx: TokenIdx(
-                                    55,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::SymbolExistsButNotAccessible(
-                            IdentToken {
-                                ident: `concave_component`,
-                                token_idx: TokenIdx(
-                                    63,
-                                ),
-                            },
-                        ),
-                    ),
-                ],
+                errors: [],
             },
             EntityTreeSheet {
                 module_path: `mnist_classifier::digits::nine`,
@@ -12357,700 +7428,16 @@ Ok(
                                 ),
                             ),
                         },
-                        EntitySymbolEntry {
-                            ident: `connected_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::nine`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 864,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_connected_component`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::nine`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 865,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `ignored_connected_components_row_span_sum_sum`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::nine`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 866,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_raw_contours`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::nine`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 867,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_raw_contour`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::nine`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 868,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_line_segment_sketch`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::nine`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 869,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_concave_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::nine`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 870,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `fermi_match`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::nine`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 884,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `ConcaveComponent`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::nine`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 1462,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `find_concave_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::nine`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 1463,
-                                    },
-                                ),
-                            ),
-                        },
                     ],
                 ),
                 impl_blocks: [],
                 use_expr_rules: UseExprRules(
-                    [
-                        UseExprRule {
-                            ast_idx: 35,
-                            use_expr_idx: 5,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::nine`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `domains`,
-                                        token_idx: TokenIdx(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    4..5,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 36,
-                            use_expr_idx: 10,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::nine`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `domains`,
-                                        token_idx: TokenIdx(
-                                            13,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    9..10,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 37,
-                            use_expr_idx: 15,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::nine`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `domains`,
-                                        token_idx: TokenIdx(
-                                            23,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    14..15,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 38,
-                            use_expr_idx: 20,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::nine`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `domains`,
-                                        token_idx: TokenIdx(
-                                            33,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    19..20,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 39,
-                            use_expr_idx: 23,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::nine`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            43,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    22..23,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 40,
-                            use_expr_idx: 26,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::nine`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            49,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    25..26,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 41,
-                            use_expr_idx: 30,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::nine`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            55,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    29..30,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 42,
-                            use_expr_idx: 33,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::nine`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            63,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    32..33,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 43,
-                            use_expr_idx: 36,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::nine`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            69,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    35..36,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 39,
-                            use_expr_idx: 22,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::nine`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `major`,
-                                        token_idx: TokenIdx(
-                                            45,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    21..22,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 40,
-                            use_expr_idx: 25,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::nine`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `fermi`,
-                                        token_idx: TokenIdx(
-                                            51,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    24..25,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 38,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 41,
-                            use_expr_idx: 29,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::nine`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `line_segment_sketch`,
-                                        token_idx: TokenIdx(
-                                            57,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    28..29,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 37,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 42,
-                            use_expr_idx: 32,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::nine`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `zero`,
-                                        token_idx: TokenIdx(
-                                            65,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    31..32,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 43,
-                            use_expr_idx: 35,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::nine`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `six`,
-                                        token_idx: TokenIdx(
-                                            71,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    34..35,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 41,
-                            use_expr_idx: 28,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::nine`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `concave_component`,
-                                        token_idx: TokenIdx(
-                                            59,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    27..28,
-                                ),
-                            },
-                            parent: Some(
-                                EntityPath::Module(
-                                    `mnist_classifier::line_segment_sketch`,
-                                ),
-                            ),
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: Submodule(
-                                    SubmoduleSymbol(
-                                        Id {
-                                            value: 41,
-                                        },
-                                    ),
-                                ),
-                            },
-                        },
-                    ],
+                    [],
                 ),
                 use_all_rules: UseAllRules(
-                    [
-                        UseAllRule {
-                            parent: KinshipedModulePath {
-                                kinship: Inside,
-                                path: ModulePath(
-                                    Id {
-                                        value: 47,
-                                    },
-                                ),
-                            },
-                            ast_idx: 39,
-                            use_expr_idx: 21,
-                            visibility: PubUnder(
-                                ModulePath(
-                                    Id {
-                                        value: 60,
-                                    },
-                                ),
-                            ),
-                            progress: 28,
-                        },
-                        UseAllRule {
-                            parent: KinshipedModulePath {
-                                kinship: Inside,
-                                path: ModulePath(
-                                    Id {
-                                        value: 45,
-                                    },
-                                ),
-                            },
-                            ast_idx: 40,
-                            use_expr_idx: 24,
-                            visibility: PubUnder(
-                                ModulePath(
-                                    Id {
-                                        value: 60,
-                                    },
-                                ),
-                            ),
-                            progress: 24,
-                        },
-                        UseAllRule {
-                            parent: KinshipedModulePath {
-                                kinship: Inside,
-                                path: ModulePath(
-                                    Id {
-                                        value: 48,
-                                    },
-                                ),
-                            },
-                            ast_idx: 41,
-                            use_expr_idx: 27,
-                            visibility: PubUnder(
-                                ModulePath(
-                                    Id {
-                                        value: 60,
-                                    },
-                                ),
-                            ),
-                            progress: 40,
-                        },
-                    ],
+                    [],
                 ),
-                errors: [
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `domains`,
-                                token_idx: TokenIdx(
-                                    1,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `domains`,
-                                token_idx: TokenIdx(
-                                    13,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `domains`,
-                                token_idx: TokenIdx(
-                                    23,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `domains`,
-                                token_idx: TokenIdx(
-                                    33,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `zero`,
-                                token_idx: TokenIdx(
-                                    65,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `six`,
-                                token_idx: TokenIdx(
-                                    71,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::SymbolExistsButNotAccessible(
-                            IdentToken {
-                                ident: `concave_component`,
-                                token_idx: TokenIdx(
-                                    59,
-                                ),
-                            },
-                        ),
-                    ),
-                ],
+                errors: [],
             },
             EntityTreeSheet {
                 module_path: `mnist_classifier::digits::two`,
@@ -13121,495 +7508,16 @@ Ok(
                                 ),
                             ),
                         },
-                        EntitySymbolEntry {
-                            ident: `connected_component`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::two`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 203,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `raw_contour`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::two`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 204,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `geom2d`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::two`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 205,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `line_segment_sketch`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::two`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 206,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `fermi`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::two`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 207,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `digits`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::two`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 208,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::two`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 209,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `MnistLabel`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::two`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 210,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `find_raw_contours`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::two`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 211,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `connected_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::two`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 212,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_connected_component`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::two`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 213,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `ignored_connected_components_row_span_sum_sum`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::two`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 214,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_raw_contours`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::two`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 215,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_raw_contour`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::two`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 216,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_line_segment_sketch`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::two`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 217,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major_concave_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::two`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 218,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `fermi_match`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::two`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 219,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `LineSegmentStroke`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::two`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 220,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `LineSegmentSketch`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::two`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 221,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `is_one`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::two`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 1502,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `ConcaveComponent`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::two`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 1503,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `find_concave_components`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::two`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 1504,
-                                    },
-                                ),
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `LineSegment`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::two`,
-                            ),
-                            symbol: Use(
-                                UseSymbol(
-                                    Id {
-                                        value: 1505,
-                                    },
-                                ),
-                            ),
-                        },
                     ],
                 ),
                 impl_blocks: [],
                 use_expr_rules: UseExprRules(
-                    [
-                        UseExprRule {
-                            ast_idx: 49,
-                            use_expr_idx: 5,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::two`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `domains`,
-                                        token_idx: TokenIdx(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    4..5,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 50,
-                            use_expr_idx: 10,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::two`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `domains`,
-                                        token_idx: TokenIdx(
-                                            13,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    9..10,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 51,
-                            use_expr_idx: 15,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::two`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `domains`,
-                                        token_idx: TokenIdx(
-                                            23,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    14..15,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 52,
-                            use_expr_idx: 20,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::two`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `domains`,
-                                        token_idx: TokenIdx(
-                                            33,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    19..20,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Erroneous,
-                        },
-                        UseExprRule {
-                            ast_idx: 53,
-                            use_expr_idx: 22,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits::two`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Crate(
-                                    CrateToken {
-                                        token_idx: TokenIdx(
-                                            43,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    21..22,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: CrateRoot {
-                                    root_module: ModulePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
-                                },
-                            },
-                        },
-                    ],
+                    [],
                 ),
                 use_all_rules: UseAllRules(
-                    [
-                        UseAllRule {
-                            parent: KinshipedModulePath {
-                                kinship: Inside,
-                                path: ModulePath(
-                                    Id {
-                                        value: 40,
-                                    },
-                                ),
-                            },
-                            ast_idx: 53,
-                            use_expr_idx: 21,
-                            visibility: PubUnder(
-                                ModulePath(
-                                    Id {
-                                        value: 61,
-                                    },
-                                ),
-                            ),
-                            progress: 23,
-                        },
-                    ],
+                    [],
                 ),
-                errors: [
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `domains`,
-                                token_idx: TokenIdx(
-                                    1,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `domains`,
-                                token_idx: TokenIdx(
-                                    13,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `domains`,
-                                token_idx: TokenIdx(
-                                    23,
-                                ),
-                            },
-                        ),
-                    ),
-                    EntityTreeError::Original(
-                        OriginalEntityTreeError::UnresolvedIdent(
-                            IdentToken {
-                                ident: `domains`,
-                                token_idx: TokenIdx(
-                                    33,
-                                ),
-                            },
-                        ),
-                    ),
-                ],
+                errors: [],
             },
             EntityTreeSheet {
                 module_path: `mnist_classifier::major`,
@@ -13700,7 +7608,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 222,
+                                        value: 203,
                                     },
                                 ),
                             ),
@@ -13713,7 +7621,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 223,
+                                        value: 204,
                                     },
                                 ),
                             ),
@@ -13726,7 +7634,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 224,
+                                        value: 205,
                                     },
                                 ),
                             ),
@@ -13739,7 +7647,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 225,
+                                        value: 206,
                                     },
                                 ),
                             ),
@@ -13752,7 +7660,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 226,
+                                        value: 207,
                                     },
                                 ),
                             ),
@@ -13765,7 +7673,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 227,
+                                        value: 208,
                                     },
                                 ),
                             ),
@@ -13778,7 +7686,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 228,
+                                        value: 209,
                                     },
                                 ),
                             ),
@@ -13791,7 +7699,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 229,
+                                        value: 210,
                                     },
                                 ),
                             ),
@@ -13804,7 +7712,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 230,
+                                        value: 211,
                                     },
                                 ),
                             ),
@@ -13817,7 +7725,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 238,
+                                        value: 219,
                                     },
                                 ),
                             ),
@@ -13830,7 +7738,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 239,
+                                        value: 220,
                                     },
                                 ),
                             ),
@@ -13843,7 +7751,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 240,
+                                        value: 221,
                                     },
                                 ),
                             ),
@@ -13856,7 +7764,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 903,
+                                        value: 507,
                                     },
                                 ),
                             ),
@@ -13869,7 +7777,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 904,
+                                        value: 508,
                                     },
                                 ),
                             ),
@@ -13882,7 +7790,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 906,
+                                        value: 510,
                                     },
                                 ),
                             ),
@@ -13895,7 +7803,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 908,
+                                        value: 512,
                                     },
                                 ),
                             ),
@@ -13908,7 +7816,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 929,
+                                        value: 533,
                                     },
                                 ),
                             ),
@@ -13921,7 +7829,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 982,
+                                        value: 586,
                                     },
                                 ),
                             ),
@@ -13934,7 +7842,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 983,
+                                        value: 587,
                                     },
                                 ),
                             ),
@@ -13947,7 +7855,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 984,
+                                        value: 588,
                                     },
                                 ),
                             ),
@@ -13960,7 +7868,7 @@ Ok(
                             symbol: Use(
                                 UseSymbol(
                                     Id {
-                                        value: 1506,
+                                        value: 730,
                                     },
                                 ),
                             ),

@@ -1,9 +1,4 @@
-
-use domains::ml::datasets::cv::mnist::MnistLabel
-use domains::ml::models::normalize::normalize_vmax_f32
-use domains::ml::models::boosting::boosting_with_vmax_normalized
-use domains::ml::models::narrow::narrow_down
-use crate::*
+use super::*
 
 fn two_match -> FermiMatchResult:
     fermi_match(major_concave_components,[left_cc_pattern, right_cc_pattern,down_cc_pattern])

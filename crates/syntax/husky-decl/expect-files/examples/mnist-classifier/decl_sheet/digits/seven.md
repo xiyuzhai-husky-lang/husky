@@ -14,11 +14,11 @@ Ok(
                         FormDecl::Feature(
                             FeatureDecl {
                                 path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Feature`),
-                                ast_idx: 47,
+                                ast_idx: 40,
                                 curry_token: Some(
                                     CurryToken(
                                         TokenIdx(
-                                            62,
+                                            6,
                                         ),
                                     ),
                                 ),
@@ -30,7 +30,7 @@ Ok(
                                 eol_colon: EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            64,
+                                            8,
                                         ),
                                     },
                                 ),
@@ -52,7 +52,7 @@ Ok(
                                                     ExprError::Original(
                                                         OriginalExprError::UnrecognizedIdent {
                                                             token_idx: TokenIdx(
-                                                                63,
+                                                                7,
                                                             ),
                                                             ident: `FermiMatchResult`,
                                                         },
@@ -113,7 +113,7 @@ Ok(
                         FormDecl::Fn(
                             FnDecl {
                                 path: FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
-                                ast_idx: 48,
+                                ast_idx: 41,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -128,25 +128,25 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                Expr::EntityPath {
-                                                    entity_path_expr: 0,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
-                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                Expr::Err(
+                                                    ExprError::Original(
+                                                        OriginalExprError::UnrecognizedIdent {
+                                                            token_idx: TokenIdx(
+                                                                23,
                                                             ),
-                                                        ),
+                                                            ident: `ConcaveComponent`,
+                                                        },
                                                     ),
-                                                },
+                                                ),
                                                 Expr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
-                                                        78,
+                                                        22,
                                                     ),
                                                     opd: 0,
                                                 },
                                                 Expr::EntityPath {
-                                                    entity_path_expr: 1,
+                                                    entity_path_expr: 0,
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
@@ -158,7 +158,7 @@ Ok(
                                                 Expr::Prefix {
                                                     opr: Option,
                                                     opr_token_idx: TokenIdx(
-                                                        82,
+                                                        26,
                                                     ),
                                                     opd: 2,
                                                 },
@@ -168,18 +168,7 @@ Ok(
                                             data: [
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        79,
-                                                    ),
-                                                    ident: `ConcaveComponent`,
-                                                    entity_path: EntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
-                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        ),
-                                                    ),
-                                                },
-                                                EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        83,
+                                                        27,
                                                     ),
                                                     ident: `f32`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -201,7 +190,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `cc`,
                                                             token_idx: TokenIdx(
-                                                                76,
+                                                                20,
                                                             ),
                                                         },
                                                     },
@@ -234,7 +223,7 @@ Ok(
                                                 data: [
                                                     CurrentSymbol {
                                                         access_start: TokenIdx(
-                                                            77,
+                                                            21,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ExplicitParameter {
@@ -265,7 +254,7 @@ Ok(
                                 parameter_decl_list: ExplicitParameterDeclList {
                                     lpar: LeftParenthesisToken(
                                         TokenIdx(
-                                            75,
+                                            19,
                                         ),
                                     ),
                                     self_parameter: None,
@@ -277,7 +266,7 @@ Ok(
                                             ),
                                             colon: ColonToken(
                                                 TokenIdx(
-                                                    77,
+                                                    21,
                                                 ),
                                             ),
                                             ty: 1,
@@ -286,14 +275,14 @@ Ok(
                                     commas: [],
                                     rpar: RightParenthesisToken(
                                         TokenIdx(
-                                            80,
+                                            24,
                                         ),
                                     ),
                                 },
                                 curry_token: Some(
                                     CurryToken(
                                         TokenIdx(
-                                            81,
+                                            25,
                                         ),
                                     ),
                                 ),
@@ -305,7 +294,7 @@ Ok(
                                 eol_colon: EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            84,
+                                            28,
                                         ),
                                     },
                                 ),
@@ -327,11 +316,11 @@ Ok(
                         FormDecl::Feature(
                             FeatureDecl {
                                 path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Feature`),
-                                ast_idx: 49,
+                                ast_idx: 42,
                                 curry_token: Some(
                                     CurryToken(
                                         TokenIdx(
-                                            105,
+                                            49,
                                         ),
                                     ),
                                 ),
@@ -343,7 +332,7 @@ Ok(
                                 eol_colon: EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            107,
+                                            51,
                                         ),
                                     },
                                 ),
@@ -365,7 +354,7 @@ Ok(
                                                     ExprError::Original(
                                                         OriginalExprError::UnrecognizedIdent {
                                                             token_idx: TokenIdx(
-                                                                106,
+                                                                50,
                                                             ),
                                                             ident: `FermiMatchResult`,
                                                         },
@@ -426,7 +415,7 @@ Ok(
                         FormDecl::Fn(
                             FnDecl {
                                 path: FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
-                                ast_idx: 50,
+                                ast_idx: 43,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -441,25 +430,25 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                Expr::EntityPath {
-                                                    entity_path_expr: 0,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
-                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                Expr::Err(
+                                                    ExprError::Original(
+                                                        OriginalExprError::UnrecognizedIdent {
+                                                            token_idx: TokenIdx(
+                                                                68,
                                                             ),
-                                                        ),
+                                                            ident: `ConcaveComponent`,
+                                                        },
                                                     ),
-                                                },
+                                                ),
                                                 Expr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
-                                                        123,
+                                                        67,
                                                     ),
                                                     opd: 0,
                                                 },
                                                 Expr::EntityPath {
-                                                    entity_path_expr: 1,
+                                                    entity_path_expr: 0,
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
@@ -471,7 +460,7 @@ Ok(
                                                 Expr::Prefix {
                                                     opr: Option,
                                                     opr_token_idx: TokenIdx(
-                                                        127,
+                                                        71,
                                                     ),
                                                     opd: 2,
                                                 },
@@ -481,18 +470,7 @@ Ok(
                                             data: [
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        124,
-                                                    ),
-                                                    ident: `ConcaveComponent`,
-                                                    entity_path: EntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
-                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        ),
-                                                    ),
-                                                },
-                                                EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        128,
+                                                        72,
                                                     ),
                                                     ident: `f32`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -514,7 +492,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `cc`,
                                                             token_idx: TokenIdx(
-                                                                121,
+                                                                65,
                                                             ),
                                                         },
                                                     },
@@ -547,7 +525,7 @@ Ok(
                                                 data: [
                                                     CurrentSymbol {
                                                         access_start: TokenIdx(
-                                                            122,
+                                                            66,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ExplicitParameter {
@@ -578,7 +556,7 @@ Ok(
                                 parameter_decl_list: ExplicitParameterDeclList {
                                     lpar: LeftParenthesisToken(
                                         TokenIdx(
-                                            120,
+                                            64,
                                         ),
                                     ),
                                     self_parameter: None,
@@ -590,7 +568,7 @@ Ok(
                                             ),
                                             colon: ColonToken(
                                                 TokenIdx(
-                                                    122,
+                                                    66,
                                                 ),
                                             ),
                                             ty: 1,
@@ -599,14 +577,14 @@ Ok(
                                     commas: [],
                                     rpar: RightParenthesisToken(
                                         TokenIdx(
-                                            125,
+                                            69,
                                         ),
                                     ),
                                 },
                                 curry_token: Some(
                                     CurryToken(
                                         TokenIdx(
-                                            126,
+                                            70,
                                         ),
                                     ),
                                 ),
@@ -618,7 +596,7 @@ Ok(
                                 eol_colon: EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            129,
+                                            73,
                                         ),
                                     },
                                 ),
@@ -640,7 +618,7 @@ Ok(
                         FormDecl::Fn(
                             FnDecl {
                                 path: FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
-                                ast_idx: 51,
+                                ast_idx: 44,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -655,25 +633,25 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                Expr::EntityPath {
-                                                    entity_path_expr: 0,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
-                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                Expr::Err(
+                                                    ExprError::Original(
+                                                        OriginalExprError::UnrecognizedIdent {
+                                                            token_idx: TokenIdx(
+                                                                111,
                                                             ),
-                                                        ),
+                                                            ident: `ConcaveComponent`,
+                                                        },
                                                     ),
-                                                },
+                                                ),
                                                 Expr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
-                                                        166,
+                                                        110,
                                                     ),
                                                     opd: 0,
                                                 },
                                                 Expr::EntityPath {
-                                                    entity_path_expr: 1,
+                                                    entity_path_expr: 0,
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
@@ -685,7 +663,7 @@ Ok(
                                                 Expr::Prefix {
                                                     opr: Option,
                                                     opr_token_idx: TokenIdx(
-                                                        170,
+                                                        114,
                                                     ),
                                                     opd: 2,
                                                 },
@@ -695,18 +673,7 @@ Ok(
                                             data: [
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        167,
-                                                    ),
-                                                    ident: `ConcaveComponent`,
-                                                    entity_path: EntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
-                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        ),
-                                                    ),
-                                                },
-                                                EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        171,
+                                                        115,
                                                     ),
                                                     ident: `f32`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -728,7 +695,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `cc`,
                                                             token_idx: TokenIdx(
-                                                                164,
+                                                                108,
                                                             ),
                                                         },
                                                     },
@@ -761,7 +728,7 @@ Ok(
                                                 data: [
                                                     CurrentSymbol {
                                                         access_start: TokenIdx(
-                                                            165,
+                                                            109,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ExplicitParameter {
@@ -792,7 +759,7 @@ Ok(
                                 parameter_decl_list: ExplicitParameterDeclList {
                                     lpar: LeftParenthesisToken(
                                         TokenIdx(
-                                            163,
+                                            107,
                                         ),
                                     ),
                                     self_parameter: None,
@@ -804,7 +771,7 @@ Ok(
                                             ),
                                             colon: ColonToken(
                                                 TokenIdx(
-                                                    165,
+                                                    109,
                                                 ),
                                             ),
                                             ty: 1,
@@ -813,14 +780,14 @@ Ok(
                                     commas: [],
                                     rpar: RightParenthesisToken(
                                         TokenIdx(
-                                            168,
+                                            112,
                                         ),
                                     ),
                                 },
                                 curry_token: Some(
                                     CurryToken(
                                         TokenIdx(
-                                            169,
+                                            113,
                                         ),
                                     ),
                                 ),
@@ -832,7 +799,7 @@ Ok(
                                 eol_colon: EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            172,
+                                            116,
                                         ),
                                     },
                                 ),
@@ -854,11 +821,11 @@ Ok(
                         FormDecl::Feature(
                             FeatureDecl {
                                 path: FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
-                                ast_idx: 52,
+                                ast_idx: 45,
                                 curry_token: Some(
                                     CurryToken(
                                         TokenIdx(
-                                            221,
+                                            165,
                                         ),
                                     ),
                                 ),
@@ -870,7 +837,7 @@ Ok(
                                 eol_colon: EolToken::Colon(
                                     EolColonToken {
                                         token_idx: TokenIdx(
-                                            224,
+                                            168,
                                         ),
                                     },
                                 ),
@@ -888,39 +855,27 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                Expr::EntityPath {
-                                                    entity_path_expr: 0,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
-                                                                TypePath(`mnist::MnistLabel`, `Enum`),
+                                                Expr::Err(
+                                                    ExprError::Original(
+                                                        OriginalExprError::UnrecognizedIdent {
+                                                            token_idx: TokenIdx(
+                                                                167,
                                                             ),
-                                                        ),
+                                                            ident: `MnistLabel`,
+                                                        },
                                                     ),
-                                                },
+                                                ),
                                                 Expr::Prefix {
                                                     opr: Option,
                                                     opr_token_idx: TokenIdx(
-                                                        222,
+                                                        166,
                                                     ),
                                                     opd: 0,
                                                 },
                                             ],
                                         },
                                         entity_path_expr_arena: Arena {
-                                            data: [
-                                                EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        223,
-                                                    ),
-                                                    ident: `MnistLabel`,
-                                                    entity_path: EntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
-                                                            TypePath(`mnist::MnistLabel`, `Enum`),
-                                                        ),
-                                                    ),
-                                                },
-                                            ],
+                                            data: [],
                                         },
                                         stmt_arena: Arena {
                                             data: [],

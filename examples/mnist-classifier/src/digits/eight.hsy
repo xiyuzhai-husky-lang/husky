@@ -1,14 +1,4 @@
-use domains::ml::datasets::cv::mnist::MnistLabel
-use crate::major::major_concave_components
-use crate::major::major_connected_component
-use domains::ml::models::narrow::narrow_down
-use crate::one::is_one
-use crate::six::is_six
-use crate::zero::is_zero
-use crate::seven::is_seven
-use crate::line_segment_sketch::concave_component::*
-use crate::fermi::*
-use crate::raw_contour::*
+use super::*
 
 fn upper_mouth_match -> FermiMatchResult:
     fermi_match(major_concave_components, [big_mouth])
