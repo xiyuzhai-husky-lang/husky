@@ -841,6 +841,12 @@ pub enum EntityKeywordGroup {
     Type(TypeToken),
     Trait(TraitToken),
     Visual(VisualToken),
+    Memo(MemoToken),
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct MemoToken {
+    token_idx: TokenIdx,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -899,6 +905,9 @@ where
                         }
                         FormKeyword::Gn => Ok(Some(EntityKeywordGroup::Gn(GnToken { token_idx }))),
                         FormKeyword::Constexpr => todo!(),
+                        FormKeyword::Memo => {
+                            Ok(Some(EntityKeywordGroup::Memo(MemoToken { token_idx })))
+                        }
                     },
                     Keyword::TypeEntity(keyword) => {
                         Ok(Some(EntityKeywordGroup::TypeEntity(TypeEntityToken {

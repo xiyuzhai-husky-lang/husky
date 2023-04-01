@@ -17,17 +17,17 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Syntax Error: expect end-of-line colon",
                 severity: Error,
-                range: [10:13, 10:14),
+                range: [10:14, 10:15),
             },
             Diagnostic {
                 message: "Syntax Error: expect end-of-line colon",
                 severity: Error,
-                range: [16:17, 16:18),
+                range: [16:18, 16:19),
             },
             Diagnostic {
                 message: "Syntax Error: expect end-of-line colon",
                 severity: Error,
-                range: [22:26, 22:27),
+                range: [22:27, 22:28),
             },
         ],
     },

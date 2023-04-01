@@ -78,6 +78,7 @@ impl SemanticToken {
                         TypeItemKind::MethodFn => ext::SemanticTokenType::METHOD,
                         TypeItemKind::AssociatedFn => ext::SemanticTokenType::FUNCTION,
                         TypeItemKind::Memo => ext::SemanticTokenType::PROPERTY,
+                        TypeItemKind::AssociatedVar => ext::SemanticTokenType::VARIABLE,
                     },
                     AssociatedItemKind::TraitItem(_) => todo!(),
                     AssociatedItemKind::TraitForTypeItem(trai_for_ty_kind) => {

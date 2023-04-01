@@ -39,32 +39,32 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Syntax Error: expect end-of-line colon",
                 severity: Error,
-                range: [13:13, 13:14),
+                range: [13:14, 13:15),
             },
             Diagnostic {
                 message: "Syntax Error: expect end-of-line colon",
                 severity: Error,
-                range: [17:17, 17:18),
+                range: [17:18, 17:19),
             },
             Diagnostic {
                 message: "Syntax Error: expect end-of-line colon",
                 severity: Error,
-                range: [20:23, 20:24),
+                range: [20:24, 20:25),
             },
             Diagnostic {
                 message: "Syntax Error: expect end-of-line colon",
                 severity: Error,
-                range: [33:21, 33:22),
+                range: [33:22, 33:23),
             },
             Diagnostic {
                 message: "Syntax Error: expect end-of-line colon",
                 severity: Error,
-                range: [43:21, 43:22),
+                range: [43:22, 43:23),
             },
             Diagnostic {
                 message: "Syntax Error: expect end-of-line colon",
                 severity: Error,
-                range: [60:30, 60:31),
+                range: [60:31, 60:32),
             },
         ],
     },

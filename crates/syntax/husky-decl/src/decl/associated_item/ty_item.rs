@@ -140,6 +140,7 @@ impl<'a> DeclParseContext<'a> {
                     saved_stream_state,
                 )?
                 .into(),
+            TypeItemKind::AssociatedVar => todo!(),
         }))
     }
 }
