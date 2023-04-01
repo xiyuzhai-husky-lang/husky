@@ -11,6 +11,7 @@ use husky_word::Label;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = TokenDb)]
+#[enum_class::from_variants]
 pub enum Token {
     Keyword(Keyword),
     Ident(Ident),

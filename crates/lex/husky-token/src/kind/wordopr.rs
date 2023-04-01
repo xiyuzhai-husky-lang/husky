@@ -11,12 +11,6 @@ pub enum WordOpr {
     Be,
 }
 
-impl const From<WordOpr> for Token {
-    fn from(wordopr: WordOpr) -> Self {
-        Token::WordOpr(wordopr)
-    }
-}
-
 impl Deref for WordOpr {
     type Target = str;
 

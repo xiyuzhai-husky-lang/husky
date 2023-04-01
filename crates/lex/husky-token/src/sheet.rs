@@ -432,8 +432,13 @@ pub(crate) fn produce_group_starts(tokens: &[Token], token_ranges: &[TextRange])
                     // detect an indentation
                     match tokens[line_start1 - 1] {
                         Token::Keyword(Keyword::End(_))
-                        | Token::Punctuation(Punctuation::Colon) => Break,
-                        Token::Punctuation(Punctuation::Bra(_)) => Continue,
+                        | Token::Punctuation(Punctuation::COLON) => Break,
+                        Token::Punctuation(
+                            Punctuation::LPAR
+                            | Punctuation::LBOX
+                            | Punctuation::LCURL
+                            | Punctuation::LA_OR_LT,
+                        ) => Continue,
                         _ => match line_start_token {
                             Token::Keyword(
                                 Keyword::Pronoun(_)
@@ -448,7 +453,12 @@ pub(crate) fn produce_group_starts(tokens: &[Token], token_ranges: &[TextRange])
                 } else {
                     if line_indent1 == line0_indent {
                         match line_start_token {
-                            Token::Punctuation(Punctuation::Ket(_)) => Continue,
+                            Token::Punctuation(
+                                Punctuation::RPAR
+                                | Punctuation::RBOX
+                                | Punctuation::RCURL
+                                | Punctuation::RA_OR_GT,
+                            ) => Continue,
                             _ => Break,
                         }
                     } else {

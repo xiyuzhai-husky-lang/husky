@@ -18,12 +18,6 @@ pub use ty::*;
 
 use crate::*;
 
-impl const From<Keyword> for Token {
-    fn from(keyword: Keyword) -> Self {
-        Token::Keyword(keyword)
-    }
-}
-
 pub use pattern::*;
 
 use serde::{Deserialize, Serialize};

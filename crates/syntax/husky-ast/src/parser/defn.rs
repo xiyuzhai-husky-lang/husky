@@ -78,7 +78,7 @@ impl<'a> AstParser<'a> {
                 {
                     Some((_token_group_idx, token_group, first_noncomment_token)) => {
                         match first_noncomment_token {
-                            Token::Punctuation(Punctuation::Vertical) => (
+                            Token::Punctuation(Punctuation::VERTICAL) => (
                                 self.parse_enum_variants(ctx.subcontext(ast_ctx_kind)),
                                 DefnBodyKind::EnumVariants,
                             ),
@@ -124,7 +124,7 @@ impl<'a> AstParser<'a> {
             .peek_token_group_of_exact_indent_with_its_first_token(context.indent())
         {
             match first_noncomment_token {
-                Token::Punctuation(Punctuation::Vertical) => {
+                Token::Punctuation(Punctuation::VERTICAL) => {
                     self.token_groups.next();
                     verticals.push(self.parse_enum_variant(idx, &context))
                 }
@@ -179,7 +179,7 @@ impl<'a> BasicAuxAstParser<'a> {
                     EntityKind::AssociatedItem {
                         associated_item_kind: AssociatedItemKind::TraitForTypeItem(
                             match self.token_stream_mut().peek() {
-                                Some(Token::Punctuation(Punctuation::Binary(BinaryOpr::Curry))) => {
+                                Some(Token::Punctuation(Punctuation::THIN_ARROW)) => {
                                     todo!()
                                 } // TraitItemKind::Memo
                                 _ => TraitItemKind::MethodFn,
@@ -218,16 +218,12 @@ impl<'a> BasicAuxAstParser<'a> {
         let module_item_kind: ModuleItemKind = match entity_keyword_group {
             EntityKeywordGroup::Mod(_) => return Ok(EntityKind::Module),
             EntityKeywordGroup::Fn(_) => match self.token_stream().peek() {
-                Some(Token::Punctuation(Punctuation::Binary(BinaryOpr::Curry))) => {
-                    FormKind::Feature
-                }
+                Some(Token::Punctuation(Punctuation::THIN_ARROW)) => FormKind::Feature,
                 _ => FormKind::Fn,
             }
             .into(),
             EntityKeywordGroup::Gn(_) => match self.token_stream().peek() {
-                Some(Token::Punctuation(Punctuation::Binary(BinaryOpr::Curry))) => {
-                    FormKind::Feature
-                }
+                Some(Token::Punctuation(Punctuation::THIN_ARROW)) => FormKind::Feature,
                 _ => FormKind::Fn,
             }
             .into(),
@@ -253,9 +249,7 @@ impl<'a> BasicAuxAstParser<'a> {
         let ty_item_kind = match entity_keyword_group {
             EntityKeywordGroup::Mod(_) => todo!(),
             EntityKeywordGroup::Fn(_) => match self.token_stream().peek() {
-                Some(Token::Punctuation(Punctuation::Binary(BinaryOpr::Curry))) => {
-                    TypeItemKind::Memo
-                }
+                Some(Token::Punctuation(Punctuation::THIN_ARROW)) => TypeItemKind::Memo,
                 _ => TypeItemKind::MethodFn,
             },
             EntityKeywordGroup::ConstFn(_, _) => todo!(),
@@ -282,7 +276,7 @@ impl<'a> BasicAuxAstParser<'a> {
         let trai_item_kind = match entity_keyword_group {
             EntityKeywordGroup::Mod(_) => todo!(),
             EntityKeywordGroup::Fn(_) => match self.token_stream().peek() {
-                Some(Token::Punctuation(Punctuation::Binary(BinaryOpr::Curry))) => todo!(),
+                Some(Token::Punctuation(Punctuation::THIN_ARROW)) => todo!(),
                 _ => TraitItemKind::MethodFn,
             },
             EntityKeywordGroup::ConstFn(_, _) => todo!(),
@@ -307,9 +301,7 @@ impl<'a> BasicAuxAstParser<'a> {
         let module_item_kind = match entity_keyword_group {
             EntityKeywordGroup::Mod(_) => Err(OriginalAstError::UnexpectedModInsideForm)?,
             EntityKeywordGroup::Fn(_) => match self.token_stream().peek() {
-                Some(Token::Punctuation(Punctuation::Binary(BinaryOpr::Curry))) => {
-                    FormKind::Feature
-                }
+                Some(Token::Punctuation(Punctuation::THIN_ARROW)) => FormKind::Feature,
                 _ => FormKind::Fn,
             }
             .into(),

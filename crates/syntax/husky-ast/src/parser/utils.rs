@@ -28,7 +28,7 @@ pub(super) trait AstTokenParseContext<'a>: TokenParseContext<'a> {
             .token_stream_mut()
             .peek() else { return false };
         match token {
-            Token::Punctuation(Punctuation::LaOrLt) => true,
+            Token::Punctuation(Punctuation::LA_OR_LT) => true,
             _ => false,
         }
     }

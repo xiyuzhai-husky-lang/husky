@@ -72,7 +72,7 @@ where
     type Error = TokenError;
 
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(ctx, Punctuation::Colon, ColonToken)
+        parse_specific_punctuation_from(ctx, Punctuation::COLON, ColonToken)
     }
 }
 
@@ -102,7 +102,7 @@ where
     type Error = TokenError;
 
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(ctx, Punctuation::Comma, CommaToken)
+        parse_specific_punctuation_from(ctx, Punctuation::COMMA, CommaToken)
     }
 }
 
@@ -138,7 +138,7 @@ where
     type Error = TokenError;
 
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(ctx, Punctuation::Eq, AssignToken)
+        parse_specific_punctuation_from(ctx, Punctuation::EQ, AssignToken)
     }
 }
 
@@ -174,7 +174,7 @@ where
     type Error = TokenError;
 
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(ctx, Punctuation::Bra(Bracket::Par), LeftParenthesisToken)
+        parse_specific_punctuation_from(ctx, Punctuation::RPAR, LeftParenthesisToken)
     }
 }
 
@@ -204,7 +204,7 @@ where
     type Error = TokenError;
 
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(ctx, Punctuation::Ket(Bracket::Par), RightParenthesisToken)
+        parse_specific_punctuation_from(ctx, Punctuation::RPAR, RightParenthesisToken)
     }
 }
 
@@ -234,7 +234,7 @@ where
     type Error = TokenError;
 
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(ctx, Punctuation::Bra(Bracket::Box), LeftBoxBracketToken)
+        parse_specific_punctuation_from(ctx, Punctuation::RBOX, LeftBoxBracketToken)
     }
 }
 
@@ -270,7 +270,7 @@ where
     type Error = TokenError;
 
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(ctx, Punctuation::Ket(Bracket::Box), RightBoxBracketToken)
+        parse_specific_punctuation_from(ctx, Punctuation::RBOX, RightBoxBracketToken)
     }
 }
 
@@ -300,7 +300,7 @@ where
     type Error = TokenError;
 
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(ctx, Punctuation::Bra(Bracket::Curl), LeftCurlyBraceToken)
+        parse_specific_punctuation_from(ctx, Punctuation::LCURL, LeftCurlyBraceToken)
     }
 }
 
@@ -330,7 +330,7 @@ where
     type Error = TokenError;
 
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(ctx, Punctuation::Ket(Bracket::Curl), RightCurlyBraceToken)
+        parse_specific_punctuation_from(ctx, Punctuation::RCURL, RightCurlyBraceToken)
     }
 }
 
@@ -366,7 +366,7 @@ where
     type Error = TokenError;
 
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(ctx, Punctuation::LaOrLt, LeftAngleBracketOrLessThanToken)
+        parse_specific_punctuation_from(ctx, Punctuation::LA_OR_LT, LeftAngleBracketOrLessThanToken)
     }
 }
 
@@ -405,7 +405,7 @@ where
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         parse_specific_punctuation_from(
             ctx,
-            Punctuation::ColonColonLAngle,
+            Punctuation::COLON_COLON_LA,
             ColonColonLeftAngleBracketToken,
         )
     }
@@ -438,7 +438,7 @@ where
     type Error = TokenError;
 
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(ctx, Punctuation::RaOrGt, RightAngleBracketToken)
+        parse_specific_punctuation_from(ctx, Punctuation::RA_OR_GT, RightAngleBracketToken)
     }
 }
 
@@ -468,7 +468,7 @@ where
     type Error = TokenError;
 
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(ctx, Punctuation::Vertical, VerticalToken)
+        parse_specific_punctuation_from(ctx, Punctuation::VERTICAL, VerticalToken)
     }
 }
 
@@ -498,7 +498,7 @@ where
     type Error = TokenError;
 
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(ctx, Punctuation::At, AtToken)
+        parse_specific_punctuation_from(ctx, Punctuation::AT, AtToken)
     }
 }
 
@@ -529,7 +529,7 @@ where
     type Error = TokenError;
 
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        parse_specific_punctuation_from(ctx, Punctuation::DotDot, DotDotToken)
+        parse_specific_punctuation_from(ctx, Punctuation::DOT_DOT, DotDotToken)
     }
 }
 
@@ -587,11 +587,11 @@ where
         let token_stream = ctx.token_stream_mut();
         if let Some((token_idx, token)) = token_stream.next_indexed() {
             match token {
-                Token::Punctuation(Punctuation::Colon) => match token_stream.peek() {
+                Token::Punctuation(Punctuation::COLON) => match token_stream.peek() {
                     Some(_) => Ok(None),
                     None => Ok(Some(EolToken::Colon(EolColonToken { token_idx }))),
                 },
-                Token::Punctuation(Punctuation::Semicolon) => match token_stream.peek() {
+                Token::Punctuation(Punctuation::SEMICOLON) => match token_stream.peek() {
                     Some(_) => Ok(None),
                     None => Ok(Some(EolToken::Semicolon(EolSemicolonToken { token_idx }))),
                 },
@@ -645,7 +645,7 @@ where
         let token_stream = ctx.token_stream_mut();
         if let Some((token_idx, token)) = token_stream.next_indexed() {
             match token {
-                Token::Punctuation(Punctuation::ColonColon) => {
+                Token::Punctuation(Punctuation::COLON_COLON) => {
                     Ok(Some(ScopeResolutionToken(token_idx)))
                 }
                 Token::Error(error) => Err(error),
@@ -699,7 +699,7 @@ where
         let token_stream = ctx.token_stream_mut();
         if let Some((token_idx, token)) = token_stream.next_indexed() {
             match token {
-                Token::Punctuation(Punctuation::Star) => Ok(Some(StarToken(token_idx))),
+                Token::Punctuation(Punctuation::STAR) => Ok(Some(StarToken(token_idx))),
                 Token::Error(error) => Err(error),
                 Token::Label(_)
                 | Token::Punctuation(_)
@@ -745,9 +745,7 @@ where
         let token_stream = ctx.token_stream_mut();
         if let Some((token_idx, token)) = token_stream.next_indexed() {
             match token {
-                Token::Punctuation(Punctuation::Binary(BinaryOpr::Curry)) => {
-                    Ok(Some(CurryToken(token_idx)))
-                }
+                Token::Punctuation(Punctuation::THIN_ARROW) => Ok(Some(CurryToken(token_idx))),
                 Token::Error(error) => Err(error),
                 Token::Label(_)
                 | Token::Punctuation(_)
@@ -793,7 +791,7 @@ where
         let token_stream = ctx.token_stream_mut();
         if let Some((token_idx, token)) = token_stream.next_indexed() {
             match token {
-                Token::Punctuation(Punctuation::DoubleExclamation) => {
+                Token::Punctuation(Punctuation::DOUBLE_EXCLAMATION) => {
                     Ok(Some(OwnedToken(token_idx)))
                 }
                 Token::Error(error) => Err(error),

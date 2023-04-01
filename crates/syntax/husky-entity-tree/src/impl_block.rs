@@ -203,8 +203,8 @@ fn ignore_implicit_parameters<'a>(token_stream: &mut TokenStream<'a>) -> ImplRes
     let mut layer = 1;
     while let Some(token) = token_stream.next() {
         match token {
-            Token::Punctuation(Punctuation::LaOrLt) => layer += 1,
-            Token::Punctuation(Punctuation::RaOrGt) => layer -= 1,
+            Token::Punctuation(Punctuation::LA_OR_LT) => layer += 1,
+            Token::Punctuation(Punctuation::RA_OR_GT) => layer -= 1,
             Token::Error(e) => return Err(e.clone().into()),
             _ => (),
         }
