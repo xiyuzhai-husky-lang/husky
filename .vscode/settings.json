@@ -6,5 +6,6 @@
         "defns",
         "morphism",
         "trai"
-    ]
+    ],
+    "rust-analyzer.showUnlinkedFileNotification": false
 }
