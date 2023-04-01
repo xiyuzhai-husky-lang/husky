@@ -951,7 +951,7 @@
                                 TypeMethodFn(
                                     TypeMethodFnCard(
                                         Id {
-                                            value: 11,
+                                            value: 9,
                                         },
                                     ),
                                 ),
@@ -1422,7 +1422,7 @@
                                 TypeMethodFn(
                                     TypeMethodFnCard(
                                         Id {
-                                            value: 11,
+                                            value: 9,
                                         },
                                     ),
                                 ),

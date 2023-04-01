@@ -2,87 +2,7 @@ Ok(
     TokenInfoSheet {
         token_infos: [
             TokenInfo::None,
-            TokenInfo::UseExpr {
-                use_expr_idx: 5,
-                rule_idx: UseExprRuleIdx(
-                    0,
-                ),
-                state: UseExprRuleState::Erroneous,
-            },
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::UseExpr {
-                use_expr_idx: 10,
-                rule_idx: UseExprRuleIdx(
-                    1,
-                ),
-                state: UseExprRuleState::Erroneous,
-            },
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::UseExpr {
-                use_expr_idx: 15,
-                rule_idx: UseExprRuleIdx(
-                    2,
-                ),
-                state: UseExprRuleState::Erroneous,
-            },
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::UseExpr {
-                use_expr_idx: 20,
-                rule_idx: UseExprRuleIdx(
-                    3,
-                ),
-                state: UseExprRuleState::Erroneous,
-            },
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::UseExpr {
-                use_expr_idx: 22,
-                rule_idx: UseExprRuleIdx(
-                    4,
-                ),
-                state: UseExprRuleState::Resolved {
-                    original_symbol: CrateRoot {
-                        root_module: ModulePath(
-                            Id {
-                                value: 40,
-                            },
-                        ),
-                    },
-                },
-            },
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -106,27 +26,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
+            TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
@@ -191,16 +93,7 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -284,16 +177,7 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -377,16 +261,7 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -466,16 +341,6 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist::MnistLabel`, `Enum`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -490,16 +355,8 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Feature`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
+            TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -519,16 +376,7 @@ Ok(
                 expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::major::major_concave_components`, `Feature`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Method,
             TokenInfo::None,
@@ -542,16 +390,7 @@ Ok(
                 expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Field,
             TokenInfo::None,
@@ -660,29 +499,11 @@ Ok(
                 expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Field,
             TokenInfo::None,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::major::major_connected_component`, `Feature`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Field,
             TokenInfo::None,
@@ -1059,16 +880,7 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::Field,
-            TokenInfo::Entity(
-                Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist::MnistLabel`, `Enum`),
-                        ),
-                    ),
-                ),
-                None,
-            ),
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
         ],

@@ -1,12 +1,4 @@
-use domains::ml::datasets::cv::mnist::MnistLabel
-use crate::major::major_concave_components
-use crate::major::major_connected_component
-use domains::ml::models::narrow::narrow_down
-use crate::major::*
-use crate::fermi::*
-use crate::line_segment_sketch::concave_component::*
-
-use crate::digits::*
+use super::*
 
 fn simple_seven_match -> FermiMatchResult:
     fermi_match(major_concave_components,[simple_leftdown_pattern])

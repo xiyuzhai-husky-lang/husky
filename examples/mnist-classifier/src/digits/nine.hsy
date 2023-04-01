@@ -1,12 +1,4 @@
-use domains::ml::datasets::cv::mnist::MnistLabel
-use domains::ml::models::normalize::normalize_vmax_f32
-use domains::ml::models::boosting::boosting_with_vmax_normalized
-use domains::ml::models::narrow::narrow_down
-use crate::major::*
-use crate::fermi::*
-use crate::line_segment_sketch::concave_component::*
-use crate::zero::is_zero
-use crate::six::is_six
+use super::*
 
 fn nine_match -> FermiMatchResult:
     fermi_match(major_concave_components, [downmost])

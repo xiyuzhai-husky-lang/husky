@@ -17,8 +17,10 @@
                 FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
             ),
         ),
-        Ok(
-            RawTerm(`Fp(~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent) -> core::option::Option core::num::f32`),
+        Err(
+            RawTypeError::Derived(
+                DerivedRawTypeError::SignatureError,
+            ),
         ),
     ),
     (
@@ -39,8 +41,10 @@
                 FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
             ),
         ),
-        Ok(
-            RawTerm(`Fp(~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent) -> core::option::Option core::num::f32`),
+        Err(
+            RawTypeError::Derived(
+                DerivedRawTypeError::SignatureError,
+            ),
         ),
     ),
     (
@@ -49,8 +53,10 @@
                 FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
             ),
         ),
-        Ok(
-            RawTerm(`Fp(~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent) -> core::option::Option core::num::f32`),
+        Err(
+            RawTypeError::Derived(
+                DerivedRawTypeError::SignatureError,
+            ),
         ),
     ),
     (
@@ -59,8 +65,10 @@
                 FormPath(`mnist_classifier::digits::seven::is_seven`, `Feature`),
             ),
         ),
-        Ok(
-            RawTerm(`core::option::Option mnist::MnistLabel`),
+        Err(
+            RawTypeError::Derived(
+                DerivedRawTypeError::SignatureError,
+            ),
         ),
     ),
 ]

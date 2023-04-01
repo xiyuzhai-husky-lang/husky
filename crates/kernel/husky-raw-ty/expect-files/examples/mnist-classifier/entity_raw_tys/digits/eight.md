@@ -29,8 +29,10 @@
                 FormPath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
             ),
         ),
-        Ok(
-            RawTerm(`Fp(~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent) -> core::option::Option core::num::f32`),
+        Err(
+            RawTypeError::Derived(
+                DerivedRawTypeError::SignatureError,
+            ),
         ),
     ),
 ]

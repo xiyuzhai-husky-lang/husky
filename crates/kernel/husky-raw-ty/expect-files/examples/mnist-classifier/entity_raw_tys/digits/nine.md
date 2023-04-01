@@ -41,8 +41,10 @@
                 FormPath(`mnist_classifier::digits::nine::downmost`, `Fn`),
             ),
         ),
-        Ok(
-            RawTerm(`Fp(~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent) -> core::option::Option core::num::f32`),
+        Err(
+            RawTypeError::Derived(
+                DerivedRawTypeError::SignatureError,
+            ),
         ),
     ),
     (
@@ -51,8 +53,10 @@
                 FormPath(`mnist_classifier::digits::nine::big_cc`, `Fn`),
             ),
         ),
-        Ok(
-            RawTerm(`Fp(~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent) -> core::option::Option core::num::f32`),
+        Err(
+            RawTypeError::Derived(
+                DerivedRawTypeError::SignatureError,
+            ),
         ),
     ),
 ]

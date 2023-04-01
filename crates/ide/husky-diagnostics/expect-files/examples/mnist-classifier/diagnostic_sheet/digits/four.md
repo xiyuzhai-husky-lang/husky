@@ -1,33 +1,7 @@
 DiagnosticSheet {
     [salsa id]: 25,
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "unresolved identifier",
-                severity: Error,
-                range: [1:5, 1:12),
-            },
-            Diagnostic {
-                message: "unresolved identifier",
-                severity: Error,
-                range: [2:5, 2:12),
-            },
-            Diagnostic {
-                message: "unresolved identifier",
-                severity: Error,
-                range: [3:5, 3:12),
-            },
-            Diagnostic {
-                message: "unresolved identifier",
-                severity: Error,
-                range: [4:5, 4:12),
-            },
-            Diagnostic {
-                message: "SymbolNotAccessible",
-                severity: Error,
-                range: [7:33, 7:50),
-            },
-        ],
+        diagnostics: [],
     },
     token_diagnostic_sheet: TokenDiagnosticSheet {
         diagnostics: [],
@@ -40,42 +14,122 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [9:23, 9:39),
+                range: [3:23, 3:39),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [16:32, 16:48),
+                range: [4:5, 4:16),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [19:30, 19:46),
+                range: [4:17, 4:41),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [22:16, 22:26),
+                range: [6:29, 6:45),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [92:9, 92:19),
+                range: [10:32, 10:48),
+            },
+            Diagnostic {
+                message: "Syntax Error: unrecognized identifier",
+                severity: Error,
+                range: [11:5, 11:16),
+            },
+            Diagnostic {
+                message: "Syntax Error: unrecognized identifier",
+                severity: Error,
+                range: [11:17, 11:41),
+            },
+            Diagnostic {
+                message: "Syntax Error: unrecognized identifier",
+                severity: Error,
+                range: [13:30, 13:46),
+            },
+            Diagnostic {
+                message: "Syntax Error: unrecognized identifier",
+                severity: Error,
+                range: [14:5, 14:16),
+            },
+            Diagnostic {
+                message: "Syntax Error: unrecognized identifier",
+                severity: Error,
+                range: [14:17, 14:41),
+            },
+            Diagnostic {
+                message: "Syntax Error: unrecognized identifier",
+                severity: Error,
+                range: [16:16, 16:26),
+            },
+            Diagnostic {
+                message: "Syntax Error: unrecognized identifier",
+                severity: Error,
+                range: [51:21, 51:46),
+            },
+            Diagnostic {
+                message: "Syntax Error: unrecognized identifier",
+                severity: Error,
+                range: [68:25, 68:50),
+            },
+            Diagnostic {
+                message: "Syntax Error: unrecognized identifier",
+                severity: Error,
+                range: [68:64, 68:89),
+            },
+            Diagnostic {
+                message: "Syntax Error: unrecognized identifier",
+                severity: Error,
+                range: [72:17, 72:41),
+            },
+            Diagnostic {
+                message: "Syntax Error: unrecognized identifier",
+                severity: Error,
+                range: [76:29, 76:54),
+            },
+            Diagnostic {
+                message: "Syntax Error: unrecognized identifier",
+                severity: Error,
+                range: [76:68, 76:93),
+            },
+            Diagnostic {
+                message: "Syntax Error: unrecognized identifier",
+                severity: Error,
+                range: [82:17, 82:42),
+            },
+            Diagnostic {
+                message: "Syntax Error: unrecognized identifier",
+                severity: Error,
+                range: [86:9, 86:19),
             },
             Diagnostic {
                 message: "Syntax Error: unresolved subentity",
                 severity: Error,
-                range: [92:21, 92:25),
+                range: [86:21, 86:25),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [104:5, 104:15),
+                range: [98:5, 98:15),
             },
             Diagnostic {
                 message: "Syntax Error: unresolved subentity",
                 severity: Error,
-                range: [104:17, 104:21),
+                range: [98:17, 98:21),
+            },
+            Diagnostic {
+                message: "Syntax Error: unrecognized identifier",
+                severity: Error,
+                range: [100:32, 100:48),
+            },
+            Diagnostic {
+                message: "Syntax Error: unrecognized identifier",
+                severity: Error,
+                range: [105:24, 105:40),
             },
         ],
     },
@@ -90,12 +144,12 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Type Error: TodoScopeResolution",
                 severity: Error,
-                range: [92:9, 92:25),
+                range: [86:9, 86:25),
             },
             Diagnostic {
                 message: "Type Error: TodoScopeResolution",
                 severity: Error,
-                range: [104:5, 104:21),
+                range: [98:5, 98:21),
             },
         ],
     },
