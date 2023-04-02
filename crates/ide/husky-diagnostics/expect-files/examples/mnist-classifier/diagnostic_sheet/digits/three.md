@@ -12,17 +12,7 @@ DiagnosticSheet {
     expr_diagnostic_sheet: ExprDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [16:27, 16:37),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [37:5, 37:15),
-            },
-            Diagnostic {
-                message: "Syntax Error: unresolved subentity",
+                message: "entity tree error EntityTreeError::Original(OriginalEntityTreeError::NoSubentity)",
                 severity: Error,
                 range: [37:17, 37:22),
             },
@@ -40,11 +30,6 @@ DiagnosticSheet {
                 message: "Type Error: NoSuchField",
                 severity: Error,
                 range: [34:13, 34:35),
-            },
-            Diagnostic {
-                message: "Type Error: TodoScopeResolution",
-                severity: Error,
-                range: [37:5, 37:22),
             },
         ],
     },

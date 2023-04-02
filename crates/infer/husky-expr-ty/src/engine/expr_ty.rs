@@ -163,7 +163,11 @@ impl<'a> ExprTypeEngine<'a> {
             } => {
                 match self.infer_new_expr_ty(src, ExpectAnyOriginal, local_term_region) {
                     Some(src_ty) => match target {
-                        Ok(target) => todo!(),
+                        Ok(target) => self.infer_pattern_and_symbols_ty(
+                            target.pattern_expr(),
+                            src_ty,
+                            target.variables(),
+                        ),
                         Err(_) => (),
                     },
                     None => (),

@@ -63,32 +63,32 @@ pub enum OriginalExprError {
     ExpectItemBeforeComma { comma_token_idx: TokenIdx },
     #[error("expect item before `be`")]
     ExpectItemBeforeBe { be_token_idx: TokenIdx },
-    #[error("expect pattern expression after `be`")]
-    ExpectedPatternExprAfterBe(TokenIdx),
     #[error("expect variable pattern")]
-    ExpectLetVariablePattern(TokenIdx),
+    ExpectedLetVariablesPattern(TokenIdx),
+    #[error("expect pattern expression after `be`")]
+    ExpectedBeVariablesPattern(TokenIdx),
     #[error("expect `=`")]
-    ExpectAssign(TokenIdx),
+    ExpectedAssign(TokenIdx),
     #[error("expect initial value")]
-    ExpectInitialValue(TokenIdx),
+    ExpectedInitialValue(TokenIdx),
     #[error("unexpected keyword")]
     UnexpectedKeyword(TokenIdx),
     #[error("expect result")]
-    ExpectResult(TokenIdx),
+    ExpectedResult(TokenIdx),
     #[error("expect condition")]
-    ExpectCondition(TokenIdx),
+    ExpectedCondition(TokenIdx),
     #[error("expect for expr")]
-    ExpectForExpr(TokenIdx),
+    ExpectedForExpr(TokenIdx),
     #[error("expect be pattern")]
-    ExpectBePattern(TokenIdx),
+    ExpectedBePattern(TokenIdx),
     #[error("expect paramter pattern")]
-    ExpectParameterPattern(TokenIdx),
+    ExpectedParameterPattern(TokenIdx),
     #[error("unterminated list")]
     UnterminatedList { bra_token_idx: TokenIdx },
     #[error("expect `:` at end of line")]
-    ExpectEolColon(TokenIdx),
+    ExpectedEolColon(TokenIdx),
     #[error("expect identifier after `mut`")]
-    ExpectIdentAfterMut(TokenIdx),
+    ExpectedIdentAfterMut(TokenIdx),
     #[error("expect block")]
     ExpectBlock(TokenGroupIdx),
     #[error("unexpected `$`")]
@@ -102,7 +102,7 @@ pub enum OriginalExprError {
     #[error("expect field type")]
     ExpectedFieldType(TokenIdx),
     #[error("expect parameter type")]
-    ExpectParameterType(TokenIdx),
+    ExpectedParameterType(TokenIdx),
     #[error("SelfTypeNotAllowed")]
     SelfTypeNotAllowed(TokenIdx),
     #[error("SelfValueNotAllowed")]

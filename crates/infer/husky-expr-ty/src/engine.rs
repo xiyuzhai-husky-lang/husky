@@ -5,6 +5,7 @@ mod stmt;
 mod symbol;
 #[macro_use]
 mod utils;
+mod pattern_and_symbols;
 
 pub(crate) use self::utils::*;
 

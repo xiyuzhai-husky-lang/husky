@@ -45,10 +45,8 @@
                 FormPath(`mnist_classifier::digits::four::is_four`, `Val`),
             ),
         ),
-        Err(
-            RawTypeError::Derived(
-                DerivedRawTypeError::SignatureError,
-            ),
+        Ok(
+            RawTerm(`core::option::Option mnist::MnistLabel`),
         ),
     ),
     (

@@ -951,7 +951,7 @@ Ok(
                     ast_idx: 163,
                     use_expr_idx: 0,
                     visibility: Visibility::Pub,
-                    progress: 39,
+                    progress: 40,
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {

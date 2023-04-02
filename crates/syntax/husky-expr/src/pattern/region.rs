@@ -36,12 +36,12 @@ impl PatternExprRegion {
 
     pub fn pattern_symbol_map(
         &self,
-        pattern_expr_idx: ArenaIdx<PatternExpr>,
+        pattern_expr_idx: PatternExprIdx,
     ) -> &IdentPairMap<PatternSymbolIdx> {
         &self.pattern_symbol_maps[pattern_expr_idx.raw()]
     }
 
-    pub fn pattern_info(&self, pattern_expr_idx: ArenaIdx<PatternExpr>) -> PatternExprInfo {
+    pub fn pattern_info(&self, pattern_expr_idx: PatternExprIdx) -> PatternExprInfo {
         self.pattern_infos[pattern_expr_idx.raw()]
     }
 

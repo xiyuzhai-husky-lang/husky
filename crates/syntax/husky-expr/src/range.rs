@@ -229,7 +229,7 @@ impl<'a> ExprRangeCalculator<'a> {
             } => {
                 let start = self[src].start().token_idx();
                 let end = if let Ok(target) = target {
-                    self[target.pattern_expr_idx()].end()
+                    self[target.pattern_expr()].end()
                 } else {
                     TokenIdxRangeEnd::new_after(*be_token_idx)
                 };
@@ -339,27 +339,27 @@ impl<'a> ExprRangeCalculator<'a> {
                     | OriginalExprError::ExpectItemBeforeBe {
                         be_token_idx: token_idx,
                     }
-                    | OriginalExprError::ExpectLetVariablePattern(token_idx)
-                    | OriginalExprError::ExpectAssign(token_idx)
-                    | OriginalExprError::ExpectInitialValue(token_idx)
+                    | OriginalExprError::ExpectedLetVariablesPattern(token_idx)
+                    | OriginalExprError::ExpectedBeVariablesPattern(token_idx)
+                    | OriginalExprError::ExpectedLetVariablesType(token_idx)
+                    | OriginalExprError::ExpectedAssign(token_idx)
+                    | OriginalExprError::ExpectedInitialValue(token_idx)
                     | OriginalExprError::UnexpectedKeyword(token_idx)
-                    | OriginalExprError::ExpectResult(token_idx)
-                    | OriginalExprError::ExpectCondition(token_idx)
-                    | OriginalExprError::ExpectForExpr(token_idx)
-                    | OriginalExprError::ExpectBePattern(token_idx)
-                    | OriginalExprError::ExpectParameterPattern(token_idx)
+                    | OriginalExprError::ExpectedResult(token_idx)
+                    | OriginalExprError::ExpectedCondition(token_idx)
+                    | OriginalExprError::ExpectedForExpr(token_idx)
+                    | OriginalExprError::ExpectedBePattern(token_idx)
+                    | OriginalExprError::ExpectedParameterPattern(token_idx)
                     | OriginalExprError::UnterminatedList {
                         bra_token_idx: token_idx,
                     }
-                    | OriginalExprError::ExpectEolColon(token_idx)
-                    | OriginalExprError::ExpectIdentAfterMut(token_idx)
+                    | OriginalExprError::ExpectedEolColon(token_idx)
+                    | OriginalExprError::ExpectedIdentAfterMut(token_idx)
                     | OriginalExprError::UnexpectedSheba(token_idx)
                     | OriginalExprError::UnrecognizedIdent { token_idx, .. }
                     | OriginalExprError::UnresolvedSubentity { token_idx, .. }
-                    | OriginalExprError::ExpectedLetVariablesType(token_idx)
                     | OriginalExprError::ExpectedFieldType(token_idx)
-                    | OriginalExprError::ExpectedPatternExprAfterBe(token_idx)
-                    | OriginalExprError::ExpectParameterType(token_idx)
+                    | OriginalExprError::ExpectedParameterType(token_idx)
                     | OriginalExprError::SelfTypeNotAllowed(token_idx)
                     | OriginalExprError::SelfValueNotAllowed(token_idx)
                     | OriginalExprError::ExpectedIdentAfterDot {

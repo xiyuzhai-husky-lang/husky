@@ -900,7 +900,7 @@ Ok(
                                                     },
                                                     let_variable_pattern: Ok(
                                                         LetVariablesPattern {
-                                                            pattern: 0,
+                                                            pattern_expr: 0,
                                                             variables: ArenaIdxRange(
                                                                 0..1,
                                                             ),
@@ -2102,7 +2102,7 @@ Ok(
                                                     },
                                                     let_variable_pattern: Ok(
                                                         LetVariablesPattern {
-                                                            pattern: 0,
+                                                            pattern_expr: 0,
                                                             variables: ArenaIdxRange(
                                                                 0..1,
                                                             ),
@@ -2131,7 +2131,7 @@ Ok(
                                                     },
                                                     let_variable_pattern: Ok(
                                                         LetVariablesPattern {
-                                                            pattern: 1,
+                                                            pattern_expr: 1,
                                                             variables: ArenaIdxRange(
                                                                 1..2,
                                                             ),
@@ -3913,7 +3913,7 @@ Ok(
                                                     },
                                                     let_variable_pattern: Ok(
                                                         LetVariablesPattern {
-                                                            pattern: 7,
+                                                            pattern_expr: 7,
                                                             variables: ArenaIdxRange(
                                                                 8..9,
                                                             ),
@@ -3942,7 +3942,7 @@ Ok(
                                                     },
                                                     let_variable_pattern: Ok(
                                                         LetVariablesPattern {
-                                                            pattern: 8,
+                                                            pattern_expr: 8,
                                                             variables: ArenaIdxRange(
                                                                 9..10,
                                                             ),
@@ -4033,7 +4033,7 @@ Ok(
                                                     },
                                                     let_variable_pattern: Ok(
                                                         LetVariablesPattern {
-                                                            pattern: 9,
+                                                            pattern_expr: 9,
                                                             variables: ArenaIdxRange(
                                                                 10..11,
                                                             ),
@@ -4062,7 +4062,7 @@ Ok(
                                                     },
                                                     let_variable_pattern: Ok(
                                                         LetVariablesPattern {
-                                                            pattern: 10,
+                                                            pattern_expr: 10,
                                                             variables: ArenaIdxRange(
                                                                 11..12,
                                                             ),
@@ -4122,7 +4122,7 @@ Ok(
                                                     },
                                                     let_variable_pattern: Ok(
                                                         LetVariablesPattern {
-                                                            pattern: 6,
+                                                            pattern_expr: 6,
                                                             variables: ArenaIdxRange(
                                                                 7..8,
                                                             ),
@@ -4151,7 +4151,7 @@ Ok(
                                                     },
                                                     eol_colon: Err(
                                                         ExprError::Original(
-                                                            OriginalExprError::ExpectEolColon(
+                                                            OriginalExprError::ExpectedEolColon(
                                                                 TokenIdx(
                                                                     740,
                                                                 ),
@@ -4172,7 +4172,7 @@ Ok(
                                                     },
                                                     eol_colon: Err(
                                                         ExprError::Original(
-                                                            OriginalExprError::ExpectEolColon(
+                                                            OriginalExprError::ExpectedEolColon(
                                                                 TokenIdx(
                                                                     796,
                                                                 ),
@@ -4196,7 +4196,7 @@ Ok(
                                                     },
                                                     let_variable_pattern: Ok(
                                                         LetVariablesPattern {
-                                                            pattern: 2,
+                                                            pattern_expr: 2,
                                                             variables: ArenaIdxRange(
                                                                 3..4,
                                                             ),
@@ -4225,7 +4225,7 @@ Ok(
                                                     },
                                                     let_variable_pattern: Ok(
                                                         LetVariablesPattern {
-                                                            pattern: 3,
+                                                            pattern_expr: 3,
                                                             variables: ArenaIdxRange(
                                                                 4..5,
                                                             ),
@@ -4254,7 +4254,7 @@ Ok(
                                                     },
                                                     let_variable_pattern: Ok(
                                                         LetVariablesPattern {
-                                                            pattern: 4,
+                                                            pattern_expr: 4,
                                                             variables: ArenaIdxRange(
                                                                 5..6,
                                                             ),
@@ -4286,7 +4286,7 @@ Ok(
                                                     },
                                                     let_variable_pattern: Ok(
                                                         LetVariablesPattern {
-                                                            pattern: 5,
+                                                            pattern_expr: 5,
                                                             variables: ArenaIdxRange(
                                                                 6..7,
                                                             ),
@@ -4412,7 +4412,7 @@ Ok(
                                                     },
                                                     let_variable_pattern: Ok(
                                                         LetVariablesPattern {
-                                                            pattern: 0,
+                                                            pattern_expr: 0,
                                                             variables: ArenaIdxRange(
                                                                 0..1,
                                                             ),
@@ -4449,7 +4449,7 @@ Ok(
                                                     },
                                                     let_variable_pattern: Ok(
                                                         LetVariablesPattern {
-                                                            pattern: 1,
+                                                            pattern_expr: 1,
                                                             variables: ArenaIdxRange(
                                                                 1..2,
                                                             ),
@@ -6508,7 +6508,7 @@ Ok(
                                                         },
                                                         let_variable_pattern: Ok(
                                                             LetVariablesPattern {
-                                                                pattern: 0,
+                                                                pattern_expr: 0,
                                                                 variables: ArenaIdxRange(
                                                                     0..1,
                                                                 ),
@@ -6537,7 +6537,7 @@ Ok(
                                                         },
                                                         let_variable_pattern: Ok(
                                                             LetVariablesPattern {
-                                                                pattern: 1,
+                                                                pattern_expr: 1,
                                                                 variables: ArenaIdxRange(
                                                                     1..2,
                                                                 ),
@@ -7419,7 +7419,7 @@ Ok(
                                                         },
                                                         let_variable_pattern: Ok(
                                                             LetVariablesPattern {
-                                                                pattern: 2,
+                                                                pattern_expr: 2,
                                                                 variables: ArenaIdxRange(
                                                                     3..4,
                                                                 ),
@@ -7476,7 +7476,7 @@ Ok(
                                                         },
                                                         let_variable_pattern: Ok(
                                                             LetVariablesPattern {
-                                                                pattern: 0,
+                                                                pattern_expr: 0,
                                                                 variables: ArenaIdxRange(
                                                                     0..1,
                                                                 ),
@@ -7505,7 +7505,7 @@ Ok(
                                                         },
                                                         let_variable_pattern: Ok(
                                                             LetVariablesPattern {
-                                                                pattern: 1,
+                                                                pattern_expr: 1,
                                                                 variables: ArenaIdxRange(
                                                                     1..2,
                                                                 ),
@@ -8407,7 +8407,7 @@ Ok(
                                                         },
                                                         let_variable_pattern: Ok(
                                                             LetVariablesPattern {
-                                                                pattern: 0,
+                                                                pattern_expr: 0,
                                                                 variables: ArenaIdxRange(
                                                                     0..1,
                                                                 ),
@@ -9209,7 +9209,7 @@ Ok(
                                                         },
                                                         let_variable_pattern: Ok(
                                                             LetVariablesPattern {
-                                                                pattern: 0,
+                                                                pattern_expr: 0,
                                                                 variables: ArenaIdxRange(
                                                                     0..1,
                                                                 ),
@@ -10489,7 +10489,7 @@ Ok(
                                                         },
                                                         let_variable_pattern: Ok(
                                                             LetVariablesPattern {
-                                                                pattern: 0,
+                                                                pattern_expr: 0,
                                                                 variables: ArenaIdxRange(
                                                                     0..1,
                                                                 ),
@@ -10518,7 +10518,7 @@ Ok(
                                                         },
                                                         eol_colon: Err(
                                                             ExprError::Original(
-                                                                OriginalExprError::ExpectEolColon(
+                                                                OriginalExprError::ExpectedEolColon(
                                                                     TokenIdx(
                                                                         293,
                                                                     ),
@@ -10539,7 +10539,7 @@ Ok(
                                                         },
                                                         let_variable_pattern: Ok(
                                                             LetVariablesPattern {
-                                                                pattern: 1,
+                                                                pattern_expr: 1,
                                                                 variables: ArenaIdxRange(
                                                                     1..2,
                                                                 ),
@@ -10568,7 +10568,7 @@ Ok(
                                                         },
                                                         eol_colon: Err(
                                                             ExprError::Original(
-                                                                OriginalExprError::ExpectEolColon(
+                                                                OriginalExprError::ExpectedEolColon(
                                                                     TokenIdx(
                                                                         314,
                                                                     ),
@@ -10589,7 +10589,7 @@ Ok(
                                                         },
                                                         let_variable_pattern: Ok(
                                                             LetVariablesPattern {
-                                                                pattern: 2,
+                                                                pattern_expr: 2,
                                                                 variables: ArenaIdxRange(
                                                                     2..3,
                                                                 ),
@@ -10618,7 +10618,7 @@ Ok(
                                                         },
                                                         let_variable_pattern: Ok(
                                                             LetVariablesPattern {
-                                                                pattern: 3,
+                                                                pattern_expr: 3,
                                                                 variables: ArenaIdxRange(
                                                                     3..4,
                                                                 ),
@@ -10647,7 +10647,7 @@ Ok(
                                                         },
                                                         let_variable_pattern: Ok(
                                                             LetVariablesPattern {
-                                                                pattern: 4,
+                                                                pattern_expr: 4,
                                                                 variables: ArenaIdxRange(
                                                                     4..5,
                                                                 ),
@@ -10722,7 +10722,7 @@ Ok(
                                                         },
                                                         let_variable_pattern: Ok(
                                                             LetVariablesPattern {
-                                                                pattern: 5,
+                                                                pattern_expr: 5,
                                                                 variables: ArenaIdxRange(
                                                                     6..7,
                                                                 ),
@@ -13109,7 +13109,7 @@ Ok(
                                                         },
                                                         let_variable_pattern: Ok(
                                                             LetVariablesPattern {
-                                                                pattern: 0,
+                                                                pattern_expr: 0,
                                                                 variables: ArenaIdxRange(
                                                                     0..1,
                                                                 ),
@@ -13148,7 +13148,7 @@ Ok(
                                                         },
                                                         let_variable_pattern: Ok(
                                                             LetVariablesPattern {
-                                                                pattern: 1,
+                                                                pattern_expr: 1,
                                                                 variables: ArenaIdxRange(
                                                                     1..2,
                                                                 ),
@@ -13177,7 +13177,7 @@ Ok(
                                                         },
                                                         eol_colon: Err(
                                                             ExprError::Original(
-                                                                OriginalExprError::ExpectEolColon(
+                                                                OriginalExprError::ExpectedEolColon(
                                                                     TokenIdx(
                                                                         455,
                                                                     ),
@@ -14304,7 +14304,7 @@ Ok(
                                                         },
                                                         let_variable_pattern: Ok(
                                                             LetVariablesPattern {
-                                                                pattern: 0,
+                                                                pattern_expr: 0,
                                                                 variables: ArenaIdxRange(
                                                                     0..1,
                                                                 ),
@@ -14343,7 +14343,7 @@ Ok(
                                                         },
                                                         let_variable_pattern: Ok(
                                                             LetVariablesPattern {
-                                                                pattern: 1,
+                                                                pattern_expr: 1,
                                                                 variables: ArenaIdxRange(
                                                                     1..2,
                                                                 ),
@@ -14372,7 +14372,7 @@ Ok(
                                                         },
                                                         eol_colon: Err(
                                                             ExprError::Original(
-                                                                OriginalExprError::ExpectEolColon(
+                                                                OriginalExprError::ExpectedEolColon(
                                                                     TokenIdx(
                                                                         518,
                                                                     ),

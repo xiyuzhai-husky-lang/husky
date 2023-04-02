@@ -151,6 +151,41 @@ Ok(
                     ),
                 },
                 EntitySymbolEntry {
+                    ident: `MnistLabel`,
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier`,
+                    ),
+                    symbol: EntitySymbol::Use(
+                        UseSymbol {
+                            original_symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Type(
+                                        TypePath(`mnist::MnistLabel`, `Enum`),
+                                    ),
+                                    visibility: Visibility::Pub,
+                                    ast_idx: 0,
+                                    ident_token: IdentToken {
+                                        ident: `MnistLabel`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
+                                },
+                            ),
+                            path: EntityPath::ModuleItem(
+                                ModuleItemPath::Type(
+                                    TypePath(`mnist::MnistLabel`, `Enum`),
+                                ),
+                            ),
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            ast_idx: 23,
+                            use_expr_idx: 15,
+                        },
+                    ),
+                },
+                EntitySymbolEntry {
                     ident: `connected_components`,
                     visibility: Visibility::PubUnder(
                         `mnist_classifier`,
@@ -1152,7 +1187,7 @@ Ok(
                     visibility: Visibility::PubUnder(
                         `mnist_classifier`,
                     ),
-                    progress: 23,
+                    progress: 24,
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {
@@ -1164,7 +1199,7 @@ Ok(
                     visibility: Visibility::PubUnder(
                         `mnist_classifier`,
                     ),
-                    progress: 41,
+                    progress: 42,
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {
@@ -1176,7 +1211,7 @@ Ok(
                     visibility: Visibility::PubUnder(
                         `mnist_classifier`,
                     ),
-                    progress: 23,
+                    progress: 24,
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {
@@ -1188,7 +1223,7 @@ Ok(
                     visibility: Visibility::PubUnder(
                         `mnist_classifier`,
                     ),
-                    progress: 43,
+                    progress: 44,
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {

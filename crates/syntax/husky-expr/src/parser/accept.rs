@@ -239,10 +239,18 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             OriginalExprError::ExpectItemBeforeBe { be_token_idx }.into(),
         ));
         let src = self.alloc_expr(src);
+        let end = match self.env() {
+            Some(env) => match env {
+                ExprEnvironment::TypeBeforeEq => todo!(),
+                ExprEnvironment::WithinBracket(_) => todo!(),
+                ExprEnvironment::Condition(end) => end,
+            },
+            None => todo!(),
+        };
         let expr = Expr::Be {
             src,
             be_token_idx,
-            target: self.parse_expected(OriginalExprError::ExpectedPatternExprAfterBe),
+            target: self.parse_be_variables_pattern_expected(end),
         };
         self.set_top_expr(expr.into())
     }

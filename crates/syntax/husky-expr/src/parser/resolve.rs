@@ -205,6 +205,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             None => return TokenResolveResult::Break(()),
                         },
                         ExprEnvironment::WithinBracket(_) => todo!(),
+                        ExprEnvironment::Condition(_) => todo!(),
                     },
                     None => ResolvedToken::BinaryOpr(token_idx, BinaryOpr::Assign),
                 },
