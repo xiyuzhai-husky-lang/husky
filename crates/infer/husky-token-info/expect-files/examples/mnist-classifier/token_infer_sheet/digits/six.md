@@ -17,31 +17,146 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                        ),
+                    ),
+                ),
+                Some(
+                    ModuleItem {
+                        module_item_kind: Form(
+                            Val,
+                        ),
+                        connection: Connected,
+                    },
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::digits::six::upmost`, `Fn`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                        ),
+                    ),
+                ),
+                Some(
+                    ModuleItem {
+                        module_item_kind: Form(
+                            Val,
+                        ),
+                        connection: Connected,
+                    },
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::digits::six::upmost`, `Fn`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::digits::six::bottom1`, `Fn`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -97,7 +212,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::six::six_match`, `Fn`),
+                            FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                         ),
                     ),
                 ),
@@ -201,7 +316,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::six::six_match`, `Fn`),
+                            FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                         ),
                     ),
                 ),
@@ -214,7 +329,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Fn`),
+                            FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                         ),
                     ),
                 ),
@@ -237,7 +352,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Fn`),
+                            FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                         ),
                     ),
                 ),
@@ -321,7 +436,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Fn`),
+                            FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                         ),
                     ),
                 ),
@@ -334,7 +449,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Fn`),
+                            FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                         ),
                     ),
                 ),
@@ -519,7 +634,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::six::six_match`, `Fn`),
+                            FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                         ),
                     ),
                 ),
@@ -534,7 +649,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::six::six_match`, `Fn`),
+                            FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                         ),
                     ),
                 ),
@@ -550,7 +665,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::six::six_match`, `Fn`),
+                            FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                         ),
                     ),
                 ),

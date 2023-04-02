@@ -11,7 +11,7 @@ Ok(
                     symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::zero::open_one_match`, `Fn`),
+                                FormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                             ),
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::zero`,
@@ -43,7 +43,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `almost_closed`,
                                 token_idx: TokenIdx(
-                                    18,
+                                    19,
                                 ),
                             },
                         },
@@ -66,7 +66,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `is_zero`,
                                 token_idx: TokenIdx(
-                                    49,
+                                    50,
                                 ),
                             },
                         },
@@ -785,7 +785,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `is_six`,
                                                 token_idx: TokenIdx(
-                                                    37,
+                                                    39,
                                                 ),
                                             },
                                         },
@@ -836,7 +836,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `is_two`,
                                                 token_idx: TokenIdx(
-                                                    113,
+                                                    114,
                                                 ),
                                             },
                                         },

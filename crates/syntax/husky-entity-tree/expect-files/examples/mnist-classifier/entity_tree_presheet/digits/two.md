@@ -43,7 +43,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `left_cc_pattern`,
                                 token_idx: TokenIdx(
-                                    22,
+                                    23,
                                 ),
                             },
                         },
@@ -66,7 +66,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `right_cc_pattern`,
                                 token_idx: TokenIdx(
-                                    51,
+                                    52,
                                 ),
                             },
                         },
@@ -89,7 +89,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `down_cc_pattern`,
                                 token_idx: TokenIdx(
-                                    80,
+                                    81,
                                 ),
                             },
                         },
@@ -112,7 +112,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `is_two`,
                                 token_idx: TokenIdx(
-                                    113,
+                                    114,
                                 ),
                             },
                         },
