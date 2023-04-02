@@ -11536,6 +11536,237 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `connected_component`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::connected_component`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 11,
+                                            ident_token: IdentToken {
+                                                ident: `connected_component`,
+                                                token_idx: TokenIdx(
+                                                    1,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 26,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `raw_contour`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::raw_contour`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 12,
+                                            ident_token: IdentToken {
+                                                ident: `raw_contour`,
+                                                token_idx: TokenIdx(
+                                                    3,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 26,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `geom2d`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::geom2d`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 13,
+                                            ident_token: IdentToken {
+                                                ident: `geom2d`,
+                                                token_idx: TokenIdx(
+                                                    5,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::geom2d`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 26,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `line_segment_sketch`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::line_segment_sketch`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 14,
+                                            ident_token: IdentToken {
+                                                ident: `line_segment_sketch`,
+                                                token_idx: TokenIdx(
+                                                    7,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::line_segment_sketch`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 26,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `fermi`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::fermi`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 15,
+                                            ident_token: IdentToken {
+                                                ident: `fermi`,
+                                                token_idx: TokenIdx(
+                                                    9,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 26,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `digits`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::digits`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 16,
+                                            ident_token: IdentToken {
+                                                ident: `digits`,
+                                                token_idx: TokenIdx(
+                                                    11,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 26,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `major`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Submodule(
+                                        SubmoduleSymbol {
+                                            path: `mnist_classifier::major`,
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 17,
+                                            ident_token: IdentToken {
+                                                ident: `major`,
+                                                token_idx: TokenIdx(
+                                                    13,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::Module(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 26,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `is_six`,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
@@ -11605,7 +11836,7 @@ Ok(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 12,
-                                    use_expr_idx: 4,
+                                    use_expr_idx: 5,
                                 },
                             ),
                         },
@@ -11642,7 +11873,7 @@ Ok(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 13,
-                                    use_expr_idx: 6,
+                                    use_expr_idx: 8,
                                 },
                             ),
                         },
@@ -11679,7 +11910,7 @@ Ok(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 14,
-                                    use_expr_idx: 8,
+                                    use_expr_idx: 11,
                                 },
                             ),
                         },
@@ -11716,7 +11947,7 @@ Ok(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 15,
-                                    use_expr_idx: 10,
+                                    use_expr_idx: 14,
                                 },
                             ),
                         },
@@ -11753,7 +11984,7 @@ Ok(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 16,
-                                    use_expr_idx: 12,
+                                    use_expr_idx: 17,
                                 },
                             ),
                         },
@@ -11790,7 +12021,7 @@ Ok(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 17,
-                                    use_expr_idx: 14,
+                                    use_expr_idx: 20,
                                 },
                             ),
                         },
@@ -11827,238 +12058,7 @@ Ok(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 18,
-                                    use_expr_idx: 16,
-                                },
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `connected_component`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits`,
-                            ),
-                            symbol: EntitySymbol::Use(
-                                UseSymbol {
-                                    original_symbol: EntitySymbol::Submodule(
-                                        SubmoduleSymbol {
-                                            path: `mnist_classifier::connected_component`,
-                                            visibility: Visibility::PubUnder(
-                                                `mnist_classifier`,
-                                            ),
-                                            ast_idx: 11,
-                                            ident_token: IdentToken {
-                                                ident: `connected_component`,
-                                                token_idx: TokenIdx(
-                                                    1,
-                                                ),
-                                            },
-                                        },
-                                    ),
-                                    path: EntityPath::Module(
-                                        `mnist_classifier::connected_component`,
-                                    ),
-                                    visibility: Visibility::PubUnder(
-                                        `mnist_classifier::digits`,
-                                    ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 18,
-                                },
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `raw_contour`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits`,
-                            ),
-                            symbol: EntitySymbol::Use(
-                                UseSymbol {
-                                    original_symbol: EntitySymbol::Submodule(
-                                        SubmoduleSymbol {
-                                            path: `mnist_classifier::raw_contour`,
-                                            visibility: Visibility::PubUnder(
-                                                `mnist_classifier`,
-                                            ),
-                                            ast_idx: 12,
-                                            ident_token: IdentToken {
-                                                ident: `raw_contour`,
-                                                token_idx: TokenIdx(
-                                                    3,
-                                                ),
-                                            },
-                                        },
-                                    ),
-                                    path: EntityPath::Module(
-                                        `mnist_classifier::raw_contour`,
-                                    ),
-                                    visibility: Visibility::PubUnder(
-                                        `mnist_classifier::digits`,
-                                    ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 18,
-                                },
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `geom2d`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits`,
-                            ),
-                            symbol: EntitySymbol::Use(
-                                UseSymbol {
-                                    original_symbol: EntitySymbol::Submodule(
-                                        SubmoduleSymbol {
-                                            path: `mnist_classifier::geom2d`,
-                                            visibility: Visibility::PubUnder(
-                                                `mnist_classifier`,
-                                            ),
-                                            ast_idx: 13,
-                                            ident_token: IdentToken {
-                                                ident: `geom2d`,
-                                                token_idx: TokenIdx(
-                                                    5,
-                                                ),
-                                            },
-                                        },
-                                    ),
-                                    path: EntityPath::Module(
-                                        `mnist_classifier::geom2d`,
-                                    ),
-                                    visibility: Visibility::PubUnder(
-                                        `mnist_classifier::digits`,
-                                    ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 18,
-                                },
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `line_segment_sketch`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits`,
-                            ),
-                            symbol: EntitySymbol::Use(
-                                UseSymbol {
-                                    original_symbol: EntitySymbol::Submodule(
-                                        SubmoduleSymbol {
-                                            path: `mnist_classifier::line_segment_sketch`,
-                                            visibility: Visibility::PubUnder(
-                                                `mnist_classifier`,
-                                            ),
-                                            ast_idx: 14,
-                                            ident_token: IdentToken {
-                                                ident: `line_segment_sketch`,
-                                                token_idx: TokenIdx(
-                                                    7,
-                                                ),
-                                            },
-                                        },
-                                    ),
-                                    path: EntityPath::Module(
-                                        `mnist_classifier::line_segment_sketch`,
-                                    ),
-                                    visibility: Visibility::PubUnder(
-                                        `mnist_classifier::digits`,
-                                    ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 18,
-                                },
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `fermi`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits`,
-                            ),
-                            symbol: EntitySymbol::Use(
-                                UseSymbol {
-                                    original_symbol: EntitySymbol::Submodule(
-                                        SubmoduleSymbol {
-                                            path: `mnist_classifier::fermi`,
-                                            visibility: Visibility::PubUnder(
-                                                `mnist_classifier`,
-                                            ),
-                                            ast_idx: 15,
-                                            ident_token: IdentToken {
-                                                ident: `fermi`,
-                                                token_idx: TokenIdx(
-                                                    9,
-                                                ),
-                                            },
-                                        },
-                                    ),
-                                    path: EntityPath::Module(
-                                        `mnist_classifier::fermi`,
-                                    ),
-                                    visibility: Visibility::PubUnder(
-                                        `mnist_classifier::digits`,
-                                    ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 18,
-                                },
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `digits`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits`,
-                            ),
-                            symbol: EntitySymbol::Use(
-                                UseSymbol {
-                                    original_symbol: EntitySymbol::Submodule(
-                                        SubmoduleSymbol {
-                                            path: `mnist_classifier::digits`,
-                                            visibility: Visibility::PubUnder(
-                                                `mnist_classifier`,
-                                            ),
-                                            ast_idx: 16,
-                                            ident_token: IdentToken {
-                                                ident: `digits`,
-                                                token_idx: TokenIdx(
-                                                    11,
-                                                ),
-                                            },
-                                        },
-                                    ),
-                                    path: EntityPath::Module(
-                                        `mnist_classifier::digits`,
-                                    ),
-                                    visibility: Visibility::PubUnder(
-                                        `mnist_classifier::digits`,
-                                    ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 18,
-                                },
-                            ),
-                        },
-                        EntitySymbolEntry {
-                            ident: `major`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits`,
-                            ),
-                            symbol: EntitySymbol::Use(
-                                UseSymbol {
-                                    original_symbol: EntitySymbol::Submodule(
-                                        SubmoduleSymbol {
-                                            path: `mnist_classifier::major`,
-                                            visibility: Visibility::PubUnder(
-                                                `mnist_classifier`,
-                                            ),
-                                            ast_idx: 17,
-                                            ident_token: IdentToken {
-                                                ident: `major`,
-                                                token_idx: TokenIdx(
-                                                    13,
-                                                ),
-                                            },
-                                        },
-                                    ),
-                                    path: EntityPath::Module(
-                                        `mnist_classifier::major`,
-                                    ),
-                                    visibility: Visibility::PubUnder(
-                                        `mnist_classifier::digits`,
-                                    ),
-                                    ast_idx: 19,
-                                    use_expr_idx: 18,
+                                    use_expr_idx: 23,
                                 },
                             ),
                         },
@@ -12107,7 +12107,7 @@ Ok(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
-                                    use_expr_idx: 18,
+                                    use_expr_idx: 26,
                                 },
                             ),
                         },
@@ -12156,7 +12156,7 @@ Ok(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
-                                    use_expr_idx: 18,
+                                    use_expr_idx: 26,
                                 },
                             ),
                         },
@@ -12205,7 +12205,7 @@ Ok(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
-                                    use_expr_idx: 18,
+                                    use_expr_idx: 26,
                                 },
                             ),
                         },
@@ -12254,7 +12254,7 @@ Ok(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
-                                    use_expr_idx: 18,
+                                    use_expr_idx: 26,
                                 },
                             ),
                         },
@@ -12303,7 +12303,7 @@ Ok(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
-                                    use_expr_idx: 18,
+                                    use_expr_idx: 26,
                                 },
                             ),
                         },
@@ -12352,7 +12352,7 @@ Ok(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
-                                    use_expr_idx: 18,
+                                    use_expr_idx: 26,
                                 },
                             ),
                         },
@@ -12401,7 +12401,7 @@ Ok(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
-                                    use_expr_idx: 18,
+                                    use_expr_idx: 26,
                                 },
                             ),
                         },
@@ -12450,7 +12450,7 @@ Ok(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
-                                    use_expr_idx: 18,
+                                    use_expr_idx: 26,
                                 },
                             ),
                         },
@@ -12499,7 +12499,7 @@ Ok(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
-                                    use_expr_idx: 18,
+                                    use_expr_idx: 26,
                                 },
                             ),
                         },
@@ -12548,7 +12548,7 @@ Ok(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
-                                    use_expr_idx: 18,
+                                    use_expr_idx: 26,
                                 },
                             ),
                         },
@@ -12597,7 +12597,7 @@ Ok(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
-                                    use_expr_idx: 18,
+                                    use_expr_idx: 26,
                                 },
                             ),
                         },
@@ -12658,7 +12658,7 @@ Ok(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
-                                    use_expr_idx: 18,
+                                    use_expr_idx: 26,
                                 },
                             ),
                         },
@@ -12719,7 +12719,7 @@ Ok(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
-                                    use_expr_idx: 18,
+                                    use_expr_idx: 26,
                                 },
                             ),
                         },
@@ -12780,7 +12780,7 @@ Ok(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
-                                    use_expr_idx: 18,
+                                    use_expr_idx: 26,
                                 },
                             ),
                         },
@@ -12827,92 +12827,40 @@ Ok(
                         },
                         UseExprRule {
                             ast_idx: 11,
-                            use_expr_idx: 3,
+                            use_expr_idx: 4,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `six`,
+                                parent_name_token: NameToken::SelfValue(
+                                    SelfValueToken {
                                         token_idx: TokenIdx(
                                             26,
                                         ),
                                     },
                                 ),
                                 children: ArenaIdxRange(
-                                    2..3,
+                                    3..4,
                                 ),
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: EntitySymbol::Submodule(
-                                    SubmoduleSymbol {
-                                        path: `mnist_classifier::digits::six`,
-                                        visibility: Visibility::PubUnder(
-                                            `mnist_classifier::digits`,
-                                        ),
-                                        ast_idx: 2,
-                                        ident_token: IdentToken {
-                                            ident: `six`,
-                                            token_idx: TokenIdx(
-                                                5,
-                                            ),
-                                        },
-                                    },
-                                ),
+                                original_symbol: EntitySymbol::SelfModule {
+                                    module_path: `mnist_classifier::digits`,
+                                },
                             },
                         },
                         UseExprRule {
                             ast_idx: 12,
-                            use_expr_idx: 5,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `zero`,
-                                        token_idx: TokenIdx(
-                                            30,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    4..5,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: EntitySymbol::Submodule(
-                                    SubmoduleSymbol {
-                                        path: `mnist_classifier::digits::zero`,
-                                        visibility: Visibility::PubUnder(
-                                            `mnist_classifier::digits`,
-                                        ),
-                                        ast_idx: 0,
-                                        ident_token: IdentToken {
-                                            ident: `zero`,
-                                            token_idx: TokenIdx(
-                                                1,
-                                            ),
-                                        },
-                                    },
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 13,
                             use_expr_idx: 7,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `two`,
+                                parent_name_token: NameToken::SelfValue(
+                                    SelfValueToken {
                                         token_idx: TokenIdx(
-                                            34,
+                                            32,
                                         ),
                                     },
                                 ),
@@ -12922,111 +12870,47 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: EntitySymbol::Submodule(
-                                    SubmoduleSymbol {
-                                        path: `mnist_classifier::digits::two`,
-                                        visibility: Visibility::PubUnder(
-                                            `mnist_classifier::digits`,
-                                        ),
-                                        ast_idx: 9,
-                                        ident_token: IdentToken {
-                                            ident: `two`,
-                                            token_idx: TokenIdx(
-                                                19,
-                                            ),
-                                        },
-                                    },
-                                ),
+                                original_symbol: EntitySymbol::SelfModule {
+                                    module_path: `mnist_classifier::digits`,
+                                },
                             },
                         },
                         UseExprRule {
-                            ast_idx: 14,
-                            use_expr_idx: 9,
+                            ast_idx: 13,
+                            use_expr_idx: 10,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `three`,
+                                parent_name_token: NameToken::SelfValue(
+                                    SelfValueToken {
                                         token_idx: TokenIdx(
                                             38,
                                         ),
                                     },
                                 ),
                                 children: ArenaIdxRange(
-                                    8..9,
+                                    9..10,
                                 ),
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: EntitySymbol::Submodule(
-                                    SubmoduleSymbol {
-                                        path: `mnist_classifier::digits::three`,
-                                        visibility: Visibility::PubUnder(
-                                            `mnist_classifier::digits`,
-                                        ),
-                                        ast_idx: 3,
-                                        ident_token: IdentToken {
-                                            ident: `three`,
-                                            token_idx: TokenIdx(
-                                                7,
-                                            ),
-                                        },
-                                    },
-                                ),
+                                original_symbol: EntitySymbol::SelfModule {
+                                    module_path: `mnist_classifier::digits`,
+                                },
                             },
                         },
                         UseExprRule {
-                            ast_idx: 15,
-                            use_expr_idx: 11,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::digits`,
-                            ),
-                            variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `five`,
-                                        token_idx: TokenIdx(
-                                            42,
-                                        ),
-                                    },
-                                ),
-                                children: ArenaIdxRange(
-                                    10..11,
-                                ),
-                            },
-                            parent: None,
-                            state: UseExprRuleState::Resolved {
-                                original_symbol: EntitySymbol::Submodule(
-                                    SubmoduleSymbol {
-                                        path: `mnist_classifier::digits::five`,
-                                        visibility: Visibility::PubUnder(
-                                            `mnist_classifier::digits`,
-                                        ),
-                                        ast_idx: 5,
-                                        ident_token: IdentToken {
-                                            ident: `five`,
-                                            token_idx: TokenIdx(
-                                                11,
-                                            ),
-                                        },
-                                    },
-                                ),
-                            },
-                        },
-                        UseExprRule {
-                            ast_idx: 16,
+                            ast_idx: 14,
                             use_expr_idx: 13,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `seven`,
+                                parent_name_token: NameToken::SelfValue(
+                                    SelfValueToken {
                                         token_idx: TokenIdx(
-                                            46,
+                                            44,
                                         ),
                                     },
                                 ),
@@ -13036,102 +12920,114 @@ Ok(
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: EntitySymbol::Submodule(
-                                    SubmoduleSymbol {
-                                        path: `mnist_classifier::digits::seven`,
-                                        visibility: Visibility::PubUnder(
-                                            `mnist_classifier::digits`,
-                                        ),
-                                        ast_idx: 6,
-                                        ident_token: IdentToken {
-                                            ident: `seven`,
-                                            token_idx: TokenIdx(
-                                                13,
-                                            ),
-                                        },
-                                    },
-                                ),
+                                original_symbol: EntitySymbol::SelfModule {
+                                    module_path: `mnist_classifier::digits`,
+                                },
                             },
                         },
                         UseExprRule {
-                            ast_idx: 17,
-                            use_expr_idx: 15,
+                            ast_idx: 15,
+                            use_expr_idx: 16,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `eight`,
+                                parent_name_token: NameToken::SelfValue(
+                                    SelfValueToken {
                                         token_idx: TokenIdx(
                                             50,
                                         ),
                                     },
                                 ),
                                 children: ArenaIdxRange(
-                                    14..15,
+                                    15..16,
                                 ),
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: EntitySymbol::Submodule(
-                                    SubmoduleSymbol {
-                                        path: `mnist_classifier::digits::eight`,
-                                        visibility: Visibility::PubUnder(
-                                            `mnist_classifier::digits`,
-                                        ),
-                                        ast_idx: 7,
-                                        ident_token: IdentToken {
-                                            ident: `eight`,
-                                            token_idx: TokenIdx(
-                                                15,
-                                            ),
-                                        },
-                                    },
-                                ),
+                                original_symbol: EntitySymbol::SelfModule {
+                                    module_path: `mnist_classifier::digits`,
+                                },
                             },
                         },
                         UseExprRule {
-                            ast_idx: 18,
-                            use_expr_idx: 17,
+                            ast_idx: 16,
+                            use_expr_idx: 19,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
                             variant: UseExprRuleVariant::Parent {
-                                parent_name_token: NameToken::Ident(
-                                    IdentToken {
-                                        ident: `nine`,
+                                parent_name_token: NameToken::SelfValue(
+                                    SelfValueToken {
                                         token_idx: TokenIdx(
-                                            54,
+                                            56,
                                         ),
                                     },
                                 ),
                                 children: ArenaIdxRange(
-                                    16..17,
+                                    18..19,
                                 ),
                             },
                             parent: None,
                             state: UseExprRuleState::Resolved {
-                                original_symbol: EntitySymbol::Submodule(
-                                    SubmoduleSymbol {
-                                        path: `mnist_classifier::digits::nine`,
-                                        visibility: Visibility::PubUnder(
-                                            `mnist_classifier::digits`,
+                                original_symbol: EntitySymbol::SelfModule {
+                                    module_path: `mnist_classifier::digits`,
+                                },
+                            },
+                        },
+                        UseExprRule {
+                            ast_idx: 17,
+                            use_expr_idx: 22,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            variant: UseExprRuleVariant::Parent {
+                                parent_name_token: NameToken::SelfValue(
+                                    SelfValueToken {
+                                        token_idx: TokenIdx(
+                                            62,
                                         ),
-                                        ast_idx: 8,
-                                        ident_token: IdentToken {
-                                            ident: `nine`,
-                                            token_idx: TokenIdx(
-                                                17,
-                                            ),
-                                        },
                                     },
                                 ),
+                                children: ArenaIdxRange(
+                                    21..22,
+                                ),
+                            },
+                            parent: None,
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: EntitySymbol::SelfModule {
+                                    module_path: `mnist_classifier::digits`,
+                                },
+                            },
+                        },
+                        UseExprRule {
+                            ast_idx: 18,
+                            use_expr_idx: 25,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            variant: UseExprRuleVariant::Parent {
+                                parent_name_token: NameToken::SelfValue(
+                                    SelfValueToken {
+                                        token_idx: TokenIdx(
+                                            68,
+                                        ),
+                                    },
+                                ),
+                                children: ArenaIdxRange(
+                                    24..25,
+                                ),
+                            },
+                            parent: None,
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: EntitySymbol::SelfModule {
+                                    module_path: `mnist_classifier::digits`,
+                                },
                             },
                         },
                         UseExprRule {
                             ast_idx: 19,
-                            use_expr_idx: 19,
+                            use_expr_idx: 27,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
@@ -13139,12 +13035,12 @@ Ok(
                                 parent_name_token: NameToken::Crate(
                                     CrateToken {
                                         token_idx: TokenIdx(
-                                            58,
+                                            74,
                                         ),
                                     },
                                 ),
                                 children: ArenaIdxRange(
-                                    18..19,
+                                    26..27,
                                 ),
                             },
                             parent: None,
@@ -13191,6 +13087,342 @@ Ok(
                         },
                         UseExprRule {
                             ast_idx: 11,
+                            use_expr_idx: 3,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            variant: UseExprRuleVariant::Parent {
+                                parent_name_token: NameToken::Ident(
+                                    IdentToken {
+                                        ident: `six`,
+                                        token_idx: TokenIdx(
+                                            28,
+                                        ),
+                                    },
+                                ),
+                                children: ArenaIdxRange(
+                                    2..3,
+                                ),
+                            },
+                            parent: Some(
+                                EntityPath::Module(
+                                    `mnist_classifier::digits`,
+                                ),
+                            ),
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::digits::six`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 2,
+                                        ident_token: IdentToken {
+                                            ident: `six`,
+                                            token_idx: TokenIdx(
+                                                5,
+                                            ),
+                                        },
+                                    },
+                                ),
+                            },
+                        },
+                        UseExprRule {
+                            ast_idx: 12,
+                            use_expr_idx: 6,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            variant: UseExprRuleVariant::Parent {
+                                parent_name_token: NameToken::Ident(
+                                    IdentToken {
+                                        ident: `zero`,
+                                        token_idx: TokenIdx(
+                                            34,
+                                        ),
+                                    },
+                                ),
+                                children: ArenaIdxRange(
+                                    5..6,
+                                ),
+                            },
+                            parent: Some(
+                                EntityPath::Module(
+                                    `mnist_classifier::digits`,
+                                ),
+                            ),
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::digits::zero`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 0,
+                                        ident_token: IdentToken {
+                                            ident: `zero`,
+                                            token_idx: TokenIdx(
+                                                1,
+                                            ),
+                                        },
+                                    },
+                                ),
+                            },
+                        },
+                        UseExprRule {
+                            ast_idx: 13,
+                            use_expr_idx: 9,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            variant: UseExprRuleVariant::Parent {
+                                parent_name_token: NameToken::Ident(
+                                    IdentToken {
+                                        ident: `two`,
+                                        token_idx: TokenIdx(
+                                            40,
+                                        ),
+                                    },
+                                ),
+                                children: ArenaIdxRange(
+                                    8..9,
+                                ),
+                            },
+                            parent: Some(
+                                EntityPath::Module(
+                                    `mnist_classifier::digits`,
+                                ),
+                            ),
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::digits::two`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 9,
+                                        ident_token: IdentToken {
+                                            ident: `two`,
+                                            token_idx: TokenIdx(
+                                                19,
+                                            ),
+                                        },
+                                    },
+                                ),
+                            },
+                        },
+                        UseExprRule {
+                            ast_idx: 14,
+                            use_expr_idx: 12,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            variant: UseExprRuleVariant::Parent {
+                                parent_name_token: NameToken::Ident(
+                                    IdentToken {
+                                        ident: `three`,
+                                        token_idx: TokenIdx(
+                                            46,
+                                        ),
+                                    },
+                                ),
+                                children: ArenaIdxRange(
+                                    11..12,
+                                ),
+                            },
+                            parent: Some(
+                                EntityPath::Module(
+                                    `mnist_classifier::digits`,
+                                ),
+                            ),
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::digits::three`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 3,
+                                        ident_token: IdentToken {
+                                            ident: `three`,
+                                            token_idx: TokenIdx(
+                                                7,
+                                            ),
+                                        },
+                                    },
+                                ),
+                            },
+                        },
+                        UseExprRule {
+                            ast_idx: 15,
+                            use_expr_idx: 15,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            variant: UseExprRuleVariant::Parent {
+                                parent_name_token: NameToken::Ident(
+                                    IdentToken {
+                                        ident: `five`,
+                                        token_idx: TokenIdx(
+                                            52,
+                                        ),
+                                    },
+                                ),
+                                children: ArenaIdxRange(
+                                    14..15,
+                                ),
+                            },
+                            parent: Some(
+                                EntityPath::Module(
+                                    `mnist_classifier::digits`,
+                                ),
+                            ),
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::digits::five`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 5,
+                                        ident_token: IdentToken {
+                                            ident: `five`,
+                                            token_idx: TokenIdx(
+                                                11,
+                                            ),
+                                        },
+                                    },
+                                ),
+                            },
+                        },
+                        UseExprRule {
+                            ast_idx: 16,
+                            use_expr_idx: 18,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            variant: UseExprRuleVariant::Parent {
+                                parent_name_token: NameToken::Ident(
+                                    IdentToken {
+                                        ident: `seven`,
+                                        token_idx: TokenIdx(
+                                            58,
+                                        ),
+                                    },
+                                ),
+                                children: ArenaIdxRange(
+                                    17..18,
+                                ),
+                            },
+                            parent: Some(
+                                EntityPath::Module(
+                                    `mnist_classifier::digits`,
+                                ),
+                            ),
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::digits::seven`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 6,
+                                        ident_token: IdentToken {
+                                            ident: `seven`,
+                                            token_idx: TokenIdx(
+                                                13,
+                                            ),
+                                        },
+                                    },
+                                ),
+                            },
+                        },
+                        UseExprRule {
+                            ast_idx: 17,
+                            use_expr_idx: 21,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            variant: UseExprRuleVariant::Parent {
+                                parent_name_token: NameToken::Ident(
+                                    IdentToken {
+                                        ident: `eight`,
+                                        token_idx: TokenIdx(
+                                            64,
+                                        ),
+                                    },
+                                ),
+                                children: ArenaIdxRange(
+                                    20..21,
+                                ),
+                            },
+                            parent: Some(
+                                EntityPath::Module(
+                                    `mnist_classifier::digits`,
+                                ),
+                            ),
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::digits::eight`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 7,
+                                        ident_token: IdentToken {
+                                            ident: `eight`,
+                                            token_idx: TokenIdx(
+                                                15,
+                                            ),
+                                        },
+                                    },
+                                ),
+                            },
+                        },
+                        UseExprRule {
+                            ast_idx: 18,
+                            use_expr_idx: 24,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            variant: UseExprRuleVariant::Parent {
+                                parent_name_token: NameToken::Ident(
+                                    IdentToken {
+                                        ident: `nine`,
+                                        token_idx: TokenIdx(
+                                            70,
+                                        ),
+                                    },
+                                ),
+                                children: ArenaIdxRange(
+                                    23..24,
+                                ),
+                            },
+                            parent: Some(
+                                EntityPath::Module(
+                                    `mnist_classifier::digits`,
+                                ),
+                            ),
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::digits::nine`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier::digits`,
+                                        ),
+                                        ast_idx: 8,
+                                        ident_token: IdentToken {
+                                            ident: `nine`,
+                                            token_idx: TokenIdx(
+                                                17,
+                                            ),
+                                        },
+                                    },
+                                ),
+                            },
+                        },
+                        UseExprRule {
+                            ast_idx: 11,
                             use_expr_idx: 2,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
@@ -13199,7 +13431,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `is_six`,
                                     token_idx: TokenIdx(
-                                        28,
+                                        30,
                                     ),
                                 },
                             },
@@ -13230,7 +13462,7 @@ Ok(
                         },
                         UseExprRule {
                             ast_idx: 12,
-                            use_expr_idx: 4,
+                            use_expr_idx: 5,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
@@ -13238,7 +13470,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `is_zero`,
                                     token_idx: TokenIdx(
-                                        32,
+                                        36,
                                     ),
                                 },
                             },
@@ -13269,7 +13501,7 @@ Ok(
                         },
                         UseExprRule {
                             ast_idx: 13,
-                            use_expr_idx: 6,
+                            use_expr_idx: 8,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
@@ -13277,7 +13509,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `is_two`,
                                     token_idx: TokenIdx(
-                                        36,
+                                        42,
                                     ),
                                 },
                             },
@@ -13308,7 +13540,7 @@ Ok(
                         },
                         UseExprRule {
                             ast_idx: 14,
-                            use_expr_idx: 8,
+                            use_expr_idx: 11,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
@@ -13316,7 +13548,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `is_three`,
                                     token_idx: TokenIdx(
-                                        40,
+                                        48,
                                     ),
                                 },
                             },
@@ -13347,7 +13579,7 @@ Ok(
                         },
                         UseExprRule {
                             ast_idx: 15,
-                            use_expr_idx: 10,
+                            use_expr_idx: 14,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
@@ -13355,7 +13587,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `is_five`,
                                     token_idx: TokenIdx(
-                                        44,
+                                        54,
                                     ),
                                 },
                             },
@@ -13386,7 +13618,7 @@ Ok(
                         },
                         UseExprRule {
                             ast_idx: 16,
-                            use_expr_idx: 12,
+                            use_expr_idx: 17,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
@@ -13394,7 +13626,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `is_seven`,
                                     token_idx: TokenIdx(
-                                        48,
+                                        60,
                                     ),
                                 },
                             },
@@ -13425,7 +13657,7 @@ Ok(
                         },
                         UseExprRule {
                             ast_idx: 17,
-                            use_expr_idx: 14,
+                            use_expr_idx: 20,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
@@ -13433,7 +13665,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `is_eight`,
                                     token_idx: TokenIdx(
-                                        52,
+                                        66,
                                     ),
                                 },
                             },
@@ -13464,7 +13696,7 @@ Ok(
                         },
                         UseExprRule {
                             ast_idx: 18,
-                            use_expr_idx: 16,
+                            use_expr_idx: 23,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
@@ -13472,7 +13704,7 @@ Ok(
                                 ident_token: IdentToken {
                                     ident: `is_nine`,
                                     token_idx: TokenIdx(
-                                        56,
+                                        72,
                                     ),
                                 },
                             },
@@ -13515,7 +13747,7 @@ Ok(
                                 ),
                             },
                             ast_idx: 19,
-                            use_expr_idx: 18,
+                            use_expr_idx: 26,
                             visibility: PubUnder(
                                 ModulePath(
                                     Id {

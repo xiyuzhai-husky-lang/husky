@@ -11,13 +11,13 @@ mod two
 
 pub use one::is_one
 
-use six::is_six
-use zero::is_zero
-use two::is_two
-use three::is_three
-use five::is_five
-use seven::is_seven
-use eight::is_eight
-use nine::is_nine
+use self::six::is_six
+use self::zero::is_zero
+use self::two::is_two
+use self::three::is_three
+use self::five::is_five
+use self::seven::is_seven
+use self::eight::is_eight
+use self::nine::is_nine
 
 use crate::*
