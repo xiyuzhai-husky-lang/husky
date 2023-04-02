@@ -34,7 +34,7 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for RegularParameterDeclPattern
             let colon = ctx.parse_expected(OriginalExprError::ExpectColon)?;
             let ty = ctx.parse_expr_expected2(
                 Some(ExprEnvironment::WithinBracket(Bracket::Par)),
-                OriginalExprError::ExpectParameterType,
+                OriginalExprError::ExpectedParameterType,
             );
             let variables = ctx.define_symbols(
                 variables,
@@ -53,11 +53,11 @@ impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for RegularParameterDeclPattern
 }
 
 impl RegularParameterDeclPattern {
-    pub fn pattern_expr_idx(&self) -> ArenaIdx<PatternExpr> {
+    pub fn pattern_expr_idx(&self) -> PatternExprIdx {
         self.pattern
     }
 
-    pub fn pattern(&self) -> ArenaIdx<PatternExpr> {
+    pub fn pattern(&self) -> PatternExprIdx {
         self.pattern
     }
 

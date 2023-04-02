@@ -106,28 +106,31 @@ impl Diagnose for OriginalExprError {
             OriginalExprError::ExpectItemBeforeBe { .. } => {
                 format!("Syntax Error: expect item before `be`")
             }
-            OriginalExprError::ExpectLetVariablePattern(_) => {
+            OriginalExprError::ExpectedLetVariablesPattern(_) => {
                 format!("Syntax Error: expect variable pattern")
             }
-            OriginalExprError::ExpectAssign(_) => format!("Syntax Error: expect `=`"),
-            OriginalExprError::ExpectInitialValue(_) => {
+            OriginalExprError::ExpectedBeVariablesPattern(_) => {
+                format!("Syntax Error: expected pattern expression after `be`")
+            }
+            OriginalExprError::ExpectedAssign(_) => format!("Syntax Error: expect `=`"),
+            OriginalExprError::ExpectedInitialValue(_) => {
                 format!("Syntax Error: expect initial value")
             }
             OriginalExprError::UnexpectedKeyword(_) => format!("Syntax Error: unexpected keyword"),
-            OriginalExprError::ExpectResult(_) => format!("Syntax Error: expect result"),
-            OriginalExprError::ExpectCondition(_) => format!("Syntax Error: expect condition"),
-            OriginalExprError::ExpectForExpr(_) => format!("Syntax Error: expect for expr"),
-            OriginalExprError::ExpectBePattern(_) => format!("Syntax Error: expect be pattern"),
-            OriginalExprError::ExpectParameterPattern(_) => {
+            OriginalExprError::ExpectedResult(_) => format!("Syntax Error: expect result"),
+            OriginalExprError::ExpectedCondition(_) => format!("Syntax Error: expect condition"),
+            OriginalExprError::ExpectedForExpr(_) => format!("Syntax Error: expect for expr"),
+            OriginalExprError::ExpectedBePattern(_) => format!("Syntax Error: expect be pattern"),
+            OriginalExprError::ExpectedParameterPattern(_) => {
                 format!("Syntax Error: expect paramter pattern")
             }
             OriginalExprError::UnterminatedList { .. } => {
                 format!("Syntax Error: unterminated list")
             }
-            OriginalExprError::ExpectEolColon(_) => {
+            OriginalExprError::ExpectedEolColon(_) => {
                 format!("Syntax Error: expect `:` at end of line")
             }
-            OriginalExprError::ExpectIdentAfterMut(_) => {
+            OriginalExprError::ExpectedIdentAfterMut(_) => {
                 format!("Syntax Error: expect identifier after `mut`")
             }
             OriginalExprError::ExpectBlock(_) => format!("Syntax Error: expect block"),
@@ -150,10 +153,7 @@ impl Diagnose for OriginalExprError {
             OriginalExprError::ExpectedFieldType(_) => {
                 format!("Syntax Error: expected field type")
             }
-            OriginalExprError::ExpectedPatternExprAfterBe(_) => {
-                format!("Syntax Error: expected pattern expression after `be`")
-            }
-            OriginalExprError::ExpectParameterType(_) => {
+            OriginalExprError::ExpectedParameterType(_) => {
                 format!("Syntax Error: expected parameter type")
             }
             OriginalExprError::SelfTypeNotAllowed(_) => {
@@ -212,27 +212,27 @@ impl Diagnose for OriginalExprError {
             | OriginalExprError::ExpectItemBeforeBe {
                 be_token_idx: token_idx,
             }
-            | OriginalExprError::ExpectLetVariablePattern(token_idx)
-            | OriginalExprError::ExpectAssign(token_idx)
-            | OriginalExprError::ExpectInitialValue(token_idx)
+            | OriginalExprError::ExpectedLetVariablesPattern(token_idx)
+            | OriginalExprError::ExpectedBeVariablesPattern(token_idx)
+            | OriginalExprError::ExpectedAssign(token_idx)
+            | OriginalExprError::ExpectedInitialValue(token_idx)
             | OriginalExprError::UnexpectedKeyword(token_idx)
-            | OriginalExprError::ExpectResult(token_idx)
-            | OriginalExprError::ExpectCondition(token_idx)
-            | OriginalExprError::ExpectForExpr(token_idx)
-            | OriginalExprError::ExpectBePattern(token_idx)
-            | OriginalExprError::ExpectParameterPattern(token_idx)
+            | OriginalExprError::ExpectedResult(token_idx)
+            | OriginalExprError::ExpectedCondition(token_idx)
+            | OriginalExprError::ExpectedForExpr(token_idx)
+            | OriginalExprError::ExpectedBePattern(token_idx)
+            | OriginalExprError::ExpectedParameterPattern(token_idx)
             | OriginalExprError::UnterminatedList {
                 bra_token_idx: token_idx,
             }
-            | OriginalExprError::ExpectEolColon(token_idx)
-            | OriginalExprError::ExpectIdentAfterMut(token_idx)
+            | OriginalExprError::ExpectedEolColon(token_idx)
+            | OriginalExprError::ExpectedIdentAfterMut(token_idx)
             | OriginalExprError::UnexpectedSheba(token_idx)
             | OriginalExprError::UnrecognizedIdent { token_idx, .. }
             | OriginalExprError::UnresolvedSubentity { token_idx, .. }
             | OriginalExprError::ExpectedLetVariablesType(token_idx)
             | OriginalExprError::ExpectedFieldType(token_idx)
-            | OriginalExprError::ExpectedPatternExprAfterBe(token_idx)
-            | OriginalExprError::ExpectParameterType(token_idx)
+            | OriginalExprError::ExpectedParameterType(token_idx)
             | OriginalExprError::SelfTypeNotAllowed(token_idx)
             | OriginalExprError::SelfValueNotAllowed(token_idx)
             | OriginalExprError::ExpectedIdentAfterDot {

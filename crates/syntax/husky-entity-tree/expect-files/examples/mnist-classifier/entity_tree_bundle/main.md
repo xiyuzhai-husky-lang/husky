@@ -153,6 +153,41 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `MnistLabel`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist::MnistLabel`, `Enum`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 0,
+                                            ident_token: IdentToken {
+                                                ident: `MnistLabel`,
+                                                token_idx: TokenIdx(
+                                                    2,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 23,
+                                    use_expr_idx: 15,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `connected_components`,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
@@ -1154,7 +1189,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
-                            progress: 23,
+                            progress: 24,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -1166,7 +1201,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
-                            progress: 41,
+                            progress: 42,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -1178,7 +1213,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
-                            progress: 23,
+                            progress: 24,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -1190,7 +1225,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
-                            progress: 43,
+                            progress: 44,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -1556,6 +1591,55 @@ Ok(
                                     ),
                                     path: EntityPath::Module(
                                         `mnist_classifier::major`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 119,
+                                    use_expr_idx: 3,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `MnistLabel`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist::MnistLabel`, `Enum`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 0,
+                                                    ident_token: IdentToken {
+                                                        ident: `MnistLabel`,
+                                                        token_idx: TokenIdx(
+                                                            2,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist::MnistLabel`, `Enum`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 23,
+                                            use_expr_idx: 15,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                        ),
                                     ),
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier::connected_component`,
@@ -2514,7 +2598,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            progress: 23,
+                            progress: 24,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -2526,7 +2610,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            progress: 43,
+                            progress: 44,
                         },
                     ],
                 ),
@@ -3007,6 +3091,55 @@ Ok(
                                     ),
                                     path: EntityPath::Module(
                                         `mnist_classifier::major`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 198,
+                                    use_expr_idx: 9,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `MnistLabel`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist::MnistLabel`, `Enum`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 0,
+                                                    ident_token: IdentToken {
+                                                        ident: `MnistLabel`,
+                                                        token_idx: TokenIdx(
+                                                            2,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist::MnistLabel`, `Enum`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 23,
+                                            use_expr_idx: 15,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                        ),
                                     ),
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier::raw_contour`,
@@ -4344,7 +4477,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            progress: 23,
+                            progress: 24,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -4368,7 +4501,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            progress: 29,
+                            progress: 30,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -5573,7 +5706,7 @@ Ok(
                             ast_idx: 163,
                             use_expr_idx: 0,
                             visibility: Visibility::Pub,
-                            progress: 39,
+                            progress: 40,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -5887,6 +6020,55 @@ Ok(
                                     ),
                                     path: EntityPath::Module(
                                         `mnist_classifier::major`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 73,
+                                    use_expr_idx: 14,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `MnistLabel`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist::MnistLabel`, `Enum`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 0,
+                                                    ident_token: IdentToken {
+                                                        ident: `MnistLabel`,
+                                                        token_idx: TokenIdx(
+                                                            2,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist::MnistLabel`, `Enum`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 23,
+                                            use_expr_idx: 15,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                        ),
                                     ),
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier::line_segment_sketch::concave_component`,
@@ -7626,7 +7808,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            progress: 23,
+                            progress: 24,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -9816,7 +9998,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            progress: 43,
+                            progress: 44,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -10443,6 +10625,55 @@ Ok(
                                     ),
                                     path: EntityPath::Module(
                                         `mnist_classifier::major`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `MnistLabel`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist::MnistLabel`, `Enum`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 0,
+                                                    ident_token: IdentToken {
+                                                        ident: `MnistLabel`,
+                                                        token_idx: TokenIdx(
+                                                            2,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist::MnistLabel`, `Enum`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 23,
+                                            use_expr_idx: 15,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                        ),
                                     ),
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier::fermi`,
@@ -11250,7 +11481,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::fermi`,
                             ),
-                            progress: 23,
+                            progress: 24,
                         },
                     ],
                 ),
@@ -11723,6 +11954,55 @@ Ok(
                                     ),
                                     path: EntityPath::Module(
                                         `mnist_classifier::major`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 26,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `MnistLabel`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist::MnistLabel`, `Enum`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 0,
+                                                    ident_token: IdentToken {
+                                                        ident: `MnistLabel`,
+                                                        token_idx: TokenIdx(
+                                                            2,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist::MnistLabel`, `Enum`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 23,
+                                            use_expr_idx: 15,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                        ),
                                     ),
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier::digits`,
@@ -13762,7 +14042,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            progress: 23,
+                            progress: 24,
                         },
                     ],
                 ),
@@ -14524,6 +14804,69 @@ Ok(
                                     ),
                                     path: EntityPath::Module(
                                         `mnist_classifier::major`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::zero`,
+                                    ),
+                                    ast_idx: 25,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `MnistLabel`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist::MnistLabel`, `Enum`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 0,
+                                                            ident_token: IdentToken {
+                                                                ident: `MnistLabel`,
+                                                                token_idx: TokenIdx(
+                                                                    2,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist::MnistLabel`, `Enum`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                        ),
                                     ),
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier::digits::zero`,
@@ -15916,7 +16259,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::zero`,
                             ),
-                            progress: 41,
+                            progress: 42,
                         },
                     ],
                 ),
@@ -16673,6 +17016,69 @@ Ok(
                                     ),
                                     path: EntityPath::Module(
                                         `mnist_classifier::major`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::one`,
+                                    ),
+                                    ast_idx: 61,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `MnistLabel`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::one`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist::MnistLabel`, `Enum`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 0,
+                                                            ident_token: IdentToken {
+                                                                ident: `MnistLabel`,
+                                                                token_idx: TokenIdx(
+                                                                    2,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist::MnistLabel`, `Enum`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                        ),
                                     ),
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier::digits::one`,
@@ -18116,7 +18522,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::one`,
                             ),
-                            progress: 41,
+                            progress: 42,
                         },
                     ],
                 ),
@@ -18924,6 +19330,69 @@ Ok(
                                     ),
                                     path: EntityPath::Module(
                                         `mnist_classifier::major`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::six`,
+                                    ),
+                                    ast_idx: 49,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `MnistLabel`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist::MnistLabel`, `Enum`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 0,
+                                                            ident_token: IdentToken {
+                                                                ident: `MnistLabel`,
+                                                                token_idx: TokenIdx(
+                                                                    2,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist::MnistLabel`, `Enum`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                        ),
                                     ),
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier::digits::six`,
@@ -20316,7 +20785,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::six`,
                             ),
-                            progress: 41,
+                            progress: 42,
                         },
                     ],
                 ),
@@ -21124,6 +21593,69 @@ Ok(
                                     ),
                                     path: EntityPath::Module(
                                         `mnist_classifier::major`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::three`,
+                                    ),
+                                    ast_idx: 27,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `MnistLabel`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::three`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist::MnistLabel`, `Enum`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 0,
+                                                            ident_token: IdentToken {
+                                                                ident: `MnistLabel`,
+                                                                token_idx: TokenIdx(
+                                                                    2,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist::MnistLabel`, `Enum`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                        ),
                                     ),
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier::digits::three`,
@@ -22516,7 +23048,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::three`,
                             ),
-                            progress: 41,
+                            progress: 42,
                         },
                     ],
                 ),
@@ -23370,6 +23902,69 @@ Ok(
                                     ),
                                     path: EntityPath::Module(
                                         `mnist_classifier::major`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::four`,
+                                    ),
+                                    ast_idx: 37,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `MnistLabel`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist::MnistLabel`, `Enum`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 0,
+                                                            ident_token: IdentToken {
+                                                                ident: `MnistLabel`,
+                                                                token_idx: TokenIdx(
+                                                                    2,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist::MnistLabel`, `Enum`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                        ),
                                     ),
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier::digits::four`,
@@ -24813,7 +25408,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            progress: 41,
+                            progress: 42,
                         },
                     ],
                 ),
@@ -25529,6 +26124,69 @@ Ok(
                                     ),
                                     path: EntityPath::Module(
                                         `mnist_classifier::major`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::five`,
+                                    ),
+                                    ast_idx: 1,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `MnistLabel`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::five`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist::MnistLabel`, `Enum`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 0,
+                                                            ident_token: IdentToken {
+                                                                ident: `MnistLabel`,
+                                                                token_idx: TokenIdx(
+                                                                    2,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist::MnistLabel`, `Enum`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                        ),
                                     ),
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier::digits::five`,
@@ -26921,7 +27579,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::five`,
                             ),
-                            progress: 41,
+                            progress: 42,
                         },
                     ],
                 ),
@@ -27752,6 +28410,69 @@ Ok(
                                     ),
                                     path: EntityPath::Module(
                                         `mnist_classifier::major`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::seven`,
+                                    ),
+                                    ast_idx: 39,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `MnistLabel`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist::MnistLabel`, `Enum`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 0,
+                                                            ident_token: IdentToken {
+                                                                ident: `MnistLabel`,
+                                                                token_idx: TokenIdx(
+                                                                    2,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist::MnistLabel`, `Enum`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                        ),
                                     ),
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier::digits::seven`,
@@ -29144,7 +29865,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            progress: 41,
+                            progress: 42,
                         },
                     ],
                 ),
@@ -29906,6 +30627,69 @@ Ok(
                                     ),
                                     path: EntityPath::Module(
                                         `mnist_classifier::major`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::eight`,
+                                    ),
+                                    ast_idx: 17,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `MnistLabel`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist::MnistLabel`, `Enum`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 0,
+                                                            ident_token: IdentToken {
+                                                                ident: `MnistLabel`,
+                                                                token_idx: TokenIdx(
+                                                                    2,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist::MnistLabel`, `Enum`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                        ),
                                     ),
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier::digits::eight`,
@@ -31298,7 +32082,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
-                            progress: 41,
+                            progress: 42,
                         },
                     ],
                 ),
@@ -32106,6 +32890,69 @@ Ok(
                                     ),
                                     path: EntityPath::Module(
                                         `mnist_classifier::major`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::nine`,
+                                    ),
+                                    ast_idx: 35,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `MnistLabel`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist::MnistLabel`, `Enum`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 0,
+                                                            ident_token: IdentToken {
+                                                                ident: `MnistLabel`,
+                                                                token_idx: TokenIdx(
+                                                                    2,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist::MnistLabel`, `Enum`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                        ),
                                     ),
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier::digits::nine`,
@@ -33498,7 +34345,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
-                            progress: 41,
+                            progress: 42,
                         },
                     ],
                 ),
@@ -34306,6 +35153,69 @@ Ok(
                                     ),
                                     path: EntityPath::Module(
                                         `mnist_classifier::major`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::two`,
+                                    ),
+                                    ast_idx: 49,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `MnistLabel`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::two`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist::MnistLabel`, `Enum`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 0,
+                                                            ident_token: IdentToken {
+                                                                ident: `MnistLabel`,
+                                                                token_idx: TokenIdx(
+                                                                    2,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist::MnistLabel`, `Enum`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                        ),
                                     ),
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier::digits::two`,
@@ -35698,7 +36608,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
                             ),
-                            progress: 41,
+                            progress: 42,
                         },
                     ],
                 ),
@@ -36063,6 +36973,55 @@ Ok(
                                     ),
                                     path: EntityPath::Module(
                                         `mnist_classifier::major`,
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    ast_idx: 18,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `MnistLabel`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::major`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist::MnistLabel`, `Enum`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 0,
+                                                    ident_token: IdentToken {
+                                                        ident: `MnistLabel`,
+                                                        token_idx: TokenIdx(
+                                                            2,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist::MnistLabel`, `Enum`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 23,
+                                            use_expr_idx: 15,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                        ),
                                     ),
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier::major`,
@@ -36605,7 +37564,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
-                            progress: 23,
+                            progress: 24,
                         },
                     ],
                 ),

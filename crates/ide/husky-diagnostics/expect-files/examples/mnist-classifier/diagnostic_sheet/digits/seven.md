@@ -12,37 +12,17 @@ DiagnosticSheet {
     expr_diagnostic_sheet: ExprDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [30:27, 30:37),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [43:9, 43:19),
-            },
-            Diagnostic {
-                message: "Syntax Error: unresolved subentity",
+                message: "entity tree error EntityTreeError::Original(OriginalEntityTreeError::NoSubentity)",
                 severity: Error,
                 range: [43:21, 43:26),
             },
             Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [47:9, 47:19),
-            },
-            Diagnostic {
-                message: "Syntax Error: unresolved subentity",
+                message: "entity tree error EntityTreeError::Original(OriginalEntityTreeError::NoSubentity)",
                 severity: Error,
                 range: [47:21, 47:26),
             },
             Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [51:5, 51:15),
-            },
-            Diagnostic {
-                message: "Syntax Error: unresolved subentity",
+                message: "entity tree error EntityTreeError::Original(OriginalEntityTreeError::NoSubentity)",
                 severity: Error,
                 range: [51:17, 51:22),
             },
@@ -60,21 +40,6 @@ DiagnosticSheet {
                 message: "Type Error: NoSuchField",
                 severity: Error,
                 range: [35:29, 35:52),
-            },
-            Diagnostic {
-                message: "Type Error: TodoScopeResolution",
-                severity: Error,
-                range: [43:9, 43:26),
-            },
-            Diagnostic {
-                message: "Type Error: TodoScopeResolution",
-                severity: Error,
-                range: [47:9, 47:26),
-            },
-            Diagnostic {
-                message: "Type Error: TodoScopeResolution",
-                severity: Error,
-                range: [51:5, 51:22),
             },
         ],
     },

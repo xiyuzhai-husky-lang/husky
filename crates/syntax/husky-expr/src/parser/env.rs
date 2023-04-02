@@ -6,6 +6,7 @@ use husky_print_utils::p;
 pub enum ExprEnvironment {
     TypeBeforeEq,
     WithinBracket(Bracket),
+    Condition(TokenIdxRangeEnd),
 }
 
 pub struct ExprEnvironmentStack(smallvec::SmallVec<[ExprEnvironment; 2]>);
@@ -31,7 +32,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     pub(super) fn env_bra(&self) -> Option<Bracket> {
         match self.env()? {
             ExprEnvironment::WithinBracket(bra) => Some(bra),
-            ExprEnvironment::TypeBeforeEq => todo!(),
+            ExprEnvironment::TypeBeforeEq => None,
+            ExprEnvironment::Condition(_) => None,
         }
     }
 }

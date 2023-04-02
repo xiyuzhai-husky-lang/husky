@@ -3,59 +3,60 @@ use super::*;
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct LetVariablesPattern {
-    pattern: PatternExprIdx,
+    pattern_expr: PatternExprIdx,
     variables: CurrentSymbolIdxRange,
     colon_token: ExprResult<Option<ColonToken>>,
     ty: Option<ExprIdx>,
 }
 
 impl<'a, 'b> ExprParseContext<'a, 'b> {
-    pub(crate) fn parse_let_variable_pattern(
+    pub(crate) fn parse_let_variables_pattern_expected(
         &mut self,
         access_end: TokenIdxRangeEnd,
     ) -> ExprResult<LetVariablesPattern> {
         let state = self.state();
-        if let Some(pattern) = self.parse_pattern_expr(PatternExprInfo::Let)? {
-            let symbols = self.pattern_expr_region().pattern_symbol_map(pattern);
-            let access_start = self.state();
-            let symbols = symbols
-                .iter()
-                .map(|(ident, pattern_symbol)| {
-                    CurrentSymbol::new(
-                        access_start,
-                        Some(access_end),
-                        CurrentSymbolVariant::LetVariable {
-                            ident: *ident,
-                            pattern_symbol_idx: *pattern_symbol,
-                        },
-                    )
-                })
-                .collect::<Vec<_>>();
-            let colon_token = self.parse::<ColonToken>().map_err(|e| e.into());
-            let ty = match colon_token {
-                Ok(Some(_)) => Some(self.parse_expr_expected2(
-                    Some(ExprEnvironment::TypeBeforeEq),
-                    OriginalExprError::ExpectedLetVariablesType,
-                )),
-                _ => None,
-            };
-            let ty_constraint = ty.map(|ty| PatternTypeConstraint::LetVariables { pattern, ty });
-            let variables = self.define_symbols(symbols, ty_constraint);
-            Ok(LetVariablesPattern {
-                pattern,
-                variables,
-                colon_token,
-                ty,
+        let Some(pattern) = self.parse_pattern_expr(
+            PatternExprInfo::Let
+        )? else {
+            Err(OriginalExprError::ExpectedLetVariablesPattern(state))?
+        };
+        let symbols = self.pattern_expr_region().pattern_symbol_map(pattern);
+        let access_start = self.state();
+        let symbols = symbols
+            .iter()
+            .map(|(ident, pattern_symbol)| {
+                CurrentSymbol::new(
+                    access_start,
+                    Some(access_end),
+                    CurrentSymbolVariant::LetVariable {
+                        ident: *ident,
+                        pattern_symbol_idx: *pattern_symbol,
+                    },
+                )
             })
-        } else {
-            Err(OriginalExprError::ExpectLetVariablePattern(state).into())
-        }
+            .collect::<Vec<_>>();
+        let colon_token = self.parse::<ColonToken>().map_err(|e| e.into());
+        let ty = match colon_token {
+            Ok(Some(_)) => Some(self.parse_expr_expected2(
+                Some(ExprEnvironment::TypeBeforeEq),
+                OriginalExprError::ExpectedLetVariablesType,
+            )),
+            _ => None,
+        };
+        let ty_constraint = ty.map(|ty| PatternTypeConstraint::LetVariables { pattern, ty });
+        let variables = self.define_symbols(symbols, ty_constraint);
+        Ok(LetVariablesPattern {
+            pattern_expr: pattern,
+            variables,
+            colon_token,
+            ty,
+        })
     }
 }
 
 impl LetVariablesPattern {
-    pub fn pattern_expr_idx(&self) -> ArenaIdx<PatternExpr> {
-        self.pattern
+    pub fn pattern_expr_idx(&self) -> PatternExprIdx {
+        self.pattern_expr
     }
 
     pub fn ty(&self) -> Option<ExprIdx> {
@@ -63,7 +64,7 @@ impl LetVariablesPattern {
     }
 
     pub fn pattern_expr(&self) -> PatternExprIdx {
-        self.pattern
+        self.pattern_expr
     }
 
     pub fn variables(&self) -> CurrentSymbolIdxRange {

@@ -55,10 +55,8 @@
                 FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
             ),
         ),
-        Err(
-            RawTypeError::Derived(
-                DerivedRawTypeError::SignatureError,
-            ),
+        Ok(
+            RawTerm(`core::option::Option mnist::MnistLabel`),
         ),
     ),
 ]

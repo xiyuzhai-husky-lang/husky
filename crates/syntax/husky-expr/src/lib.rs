@@ -106,7 +106,7 @@ pub enum Expr {
     Be {
         src: ExprIdx,
         be_token_idx: TokenIdx,
-        target: ExprResult<BeVariableDeclPattern>,
+        target: ExprResult<BeVariablesPattern>,
     },
     Prefix {
         opr: PrefixOpr,

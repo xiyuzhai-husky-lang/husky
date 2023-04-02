@@ -269,7 +269,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
     ) -> ExprResult<Option<PatternExprIdx>> {
         if let Some(mut_token) = self.parse::<MutToken>()? {
             let ident_token: IdentToken =
-                self.parse_expected(OriginalExprError::ExpectIdentAfterMut)?;
+                self.parse_expected(OriginalExprError::ExpectedIdentAfterMut)?;
             Ok(Some(self.alloc_pattern_expr(
                 PatternExpr::Ident {
                     ident_token,

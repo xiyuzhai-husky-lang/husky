@@ -1,7 +1,7 @@
 use super::*;
 
 impl<'a> ExprTypeEngine<'a> {
-    pub(super) fn calc_let_init_stmt(
+    pub(super) fn calc_let_stmt(
         &mut self,
         let_variable_pattern: &ExprResult<LetVariablesPattern>,
         initial_value: &ExprResult<ExprIdx>,

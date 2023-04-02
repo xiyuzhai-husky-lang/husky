@@ -5,10 +5,8 @@
                 FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
             ),
         ),
-        Err(
-            RawTypeError::Derived(
-                DerivedRawTypeError::SignatureError,
-            ),
+        Ok(
+            RawTerm(`core::option::Option mnist::MnistLabel`),
         ),
     ),
 ]

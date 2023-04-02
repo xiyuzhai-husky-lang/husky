@@ -1125,7 +1125,7 @@ Ok(
                     visibility: Visibility::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
-                    progress: 43,
+                    progress: 44,
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {

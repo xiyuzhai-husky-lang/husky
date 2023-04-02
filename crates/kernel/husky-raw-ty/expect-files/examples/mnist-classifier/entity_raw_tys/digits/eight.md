@@ -15,10 +15,8 @@
                 FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
             ),
         ),
-        Err(
-            RawTypeError::Derived(
-                DerivedRawTypeError::SignatureError,
-            ),
+        Ok(
+            RawTerm(`core::option::Option mnist::MnistLabel`),
         ),
     ),
     (

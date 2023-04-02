@@ -770,7 +770,7 @@ Ok(
                                                     },
                                                     let_variable_pattern: Ok(
                                                         LetVariablesPattern {
-                                                            pattern: 0,
+                                                            pattern_expr: 0,
                                                             variables: ArenaIdxRange(
                                                                 0..1,
                                                             ),
@@ -1756,7 +1756,7 @@ Ok(
                                                     },
                                                     let_variable_pattern: Ok(
                                                         LetVariablesPattern {
-                                                            pattern: 0,
+                                                            pattern_expr: 0,
                                                             variables: ArenaIdxRange(
                                                                 0..1,
                                                             ),
@@ -2504,7 +2504,7 @@ Ok(
                                                     },
                                                     let_variable_pattern: Ok(
                                                         LetVariablesPattern {
-                                                            pattern: 0,
+                                                            pattern_expr: 0,
                                                             variables: ArenaIdxRange(
                                                                 0..1,
                                                             ),
@@ -2553,7 +2553,7 @@ Ok(
                                                     },
                                                     let_variable_pattern: Ok(
                                                         LetVariablesPattern {
-                                                            pattern: 1,
+                                                            pattern_expr: 1,
                                                             variables: ArenaIdxRange(
                                                                 1..2,
                                                             ),
@@ -2766,16 +2766,16 @@ Ok(
                                             ),
                                             expr_arena: Arena {
                                                 data: [
-                                                    Expr::Err(
-                                                        ExprError::Original(
-                                                            OriginalExprError::UnrecognizedIdent {
-                                                                token_idx: TokenIdx(
-                                                                    169,
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 0,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist::MnistLabel`, `Enum`),
                                                                 ),
-                                                                ident: `MnistLabel`,
-                                                            },
+                                                            ),
                                                         ),
-                                                    ),
+                                                    },
                                                     Expr::Prefix {
                                                         opr: Option,
                                                         opr_token_idx: TokenIdx(
@@ -2786,7 +2786,19 @@ Ok(
                                                 ],
                                             },
                                             entity_path_expr_arena: Arena {
-                                                data: [],
+                                                data: [
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            169,
+                                                        ),
+                                                        ident: `MnistLabel`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist::MnistLabel`, `Enum`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
                                             },
                                             stmt_arena: Arena {
                                                 data: [],
@@ -2851,8 +2863,11 @@ Ok(
                                                         174,
                                                     ),
                                                     target: Ok(
-                                                        BeVariableDeclPattern {
-                                                            pattern_expr_idx: 0,
+                                                        BeVariablesPattern {
+                                                            pattern_expr: 0,
+                                                            variables: ArenaIdxRange(
+                                                                0..1,
+                                                            ),
                                                         },
                                                     ),
                                                 },
@@ -2872,8 +2887,11 @@ Ok(
                                                         178,
                                                     ),
                                                     target: Ok(
-                                                        BeVariableDeclPattern {
-                                                            pattern_expr_idx: 1,
+                                                        BeVariablesPattern {
+                                                            pattern_expr: 1,
+                                                            variables: ArenaIdxRange(
+                                                                1..2,
+                                                            ),
                                                         },
                                                     ),
                                                 },
@@ -2893,8 +2911,11 @@ Ok(
                                                         182,
                                                     ),
                                                     target: Ok(
-                                                        BeVariableDeclPattern {
-                                                            pattern_expr_idx: 2,
+                                                        BeVariablesPattern {
+                                                            pattern_expr: 2,
+                                                            variables: ArenaIdxRange(
+                                                                2..3,
+                                                            ),
                                                         },
                                                     ),
                                                 },
@@ -2962,7 +2983,7 @@ Ok(
                                                     token_idx: TokenIdx(
                                                         197,
                                                     ),
-                                                    current_symbol_idx: 0,
+                                                    current_symbol_idx: 3,
                                                     current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 3,
                                                     },
@@ -3027,8 +3048,11 @@ Ok(
                                                         208,
                                                     ),
                                                     target: Ok(
-                                                        BeVariableDeclPattern {
-                                                            pattern_expr_idx: 4,
+                                                        BeVariablesPattern {
+                                                            pattern_expr: 4,
+                                                            variables: ArenaIdxRange(
+                                                                4..5,
+                                                            ),
                                                         },
                                                     ),
                                                 },
@@ -3091,7 +3115,7 @@ Ok(
                                                     token_idx: TokenIdx(
                                                         221,
                                                     ),
-                                                    current_symbol_idx: 1,
+                                                    current_symbol_idx: 5,
                                                     current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 5,
                                                     },
@@ -3177,7 +3201,7 @@ Ok(
                                                     token_idx: TokenIdx(
                                                         241,
                                                     ),
-                                                    current_symbol_idx: 2,
+                                                    current_symbol_idx: 6,
                                                     current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 6,
                                                     },
@@ -3204,7 +3228,7 @@ Ok(
                                                     token_idx: TokenIdx(
                                                         245,
                                                     ),
-                                                    current_symbol_idx: 3,
+                                                    current_symbol_idx: 7,
                                                     current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 7,
                                                     },
@@ -3226,40 +3250,16 @@ Ok(
                                                     ),
                                                     ropd: 37,
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdent {
-                                                            token_idx: TokenIdx(
-                                                                249,
-                                                            ),
-                                                            ident: `MnistLabel`,
-                                                        },
-                                                    ),
-                                                ),
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnresolvedSubentity {
-                                                            token_idx: TokenIdx(
-                                                                251,
-                                                            ),
-                                                            ident: `Seven`,
-                                                        },
-                                                    ),
-                                                ),
-                                                Expr::Binary {
-                                                    lopd: 39,
-                                                    opr: ScopeResolution,
-                                                    opr_token_idx: TokenIdx(
-                                                        250,
-                                                    ),
-                                                    ropd: 40,
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 10,
+                                                    path: None,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `simple_match_norm`,
                                                     token_idx: TokenIdx(
                                                         253,
                                                     ),
-                                                    current_symbol_idx: 0,
+                                                    current_symbol_idx: 3,
                                                     current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 3,
                                                     },
@@ -3270,17 +3270,17 @@ Ok(
                                                     ),
                                                 ),
                                                 Expr::Binary {
-                                                    lopd: 42,
+                                                    lopd: 40,
                                                     opr: Comparison(
                                                         Less,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         254,
                                                     ),
-                                                    ropd: 43,
+                                                    ropd: 41,
                                                 },
                                                 Expr::EntityPath {
-                                                    entity_path_expr: 9,
+                                                    entity_path_expr: 11,
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
@@ -3290,7 +3290,7 @@ Ok(
                                                     ),
                                                 },
                                                 Expr::EntityPath {
-                                                    entity_path_expr: 10,
+                                                    entity_path_expr: 12,
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
@@ -3300,7 +3300,7 @@ Ok(
                                                     ),
                                                 },
                                                 Expr::Field {
-                                                    owner: 45,
+                                                    owner: 43,
                                                     dot_token_idx: TokenIdx(
                                                         261,
                                                     ),
@@ -3312,7 +3312,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Field {
-                                                    owner: 46,
+                                                    owner: 44,
                                                     dot_token_idx: TokenIdx(
                                                         265,
                                                     ),
@@ -3324,21 +3324,21 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Binary {
-                                                    lopd: 47,
+                                                    lopd: 45,
                                                     opr: Closed(
                                                         Sub,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         263,
                                                     ),
-                                                    ropd: 48,
+                                                    ropd: 46,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `upper_excess`,
                                                     token_idx: TokenIdx(
                                                         268,
                                                     ),
-                                                    current_symbol_idx: 4,
+                                                    current_symbol_idx: 8,
                                                     current_symbol_kind: CurrentSymbolKind::LetVariable {
                                                         pattern_symbol_idx: 8,
                                                     },
@@ -3349,45 +3349,21 @@ Ok(
                                                     ),
                                                 ),
                                                 Expr::Binary {
-                                                    lopd: 50,
+                                                    lopd: 48,
                                                     opr: Comparison(
                                                         Greater,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         269,
                                                     ),
-                                                    ropd: 51,
-                                                },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdent {
-                                                            token_idx: TokenIdx(
-                                                                271,
-                                                            ),
-                                                            ident: `MnistLabel`,
-                                                        },
-                                                    ),
-                                                ),
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnresolvedSubentity {
-                                                            token_idx: TokenIdx(
-                                                                273,
-                                                            ),
-                                                            ident: `Seven`,
-                                                        },
-                                                    ),
-                                                ),
-                                                Expr::Binary {
-                                                    lopd: 53,
-                                                    opr: ScopeResolution,
-                                                    opr_token_idx: TokenIdx(
-                                                        272,
-                                                    ),
-                                                    ropd: 54,
+                                                    ropd: 49,
                                                 },
                                                 Expr::EntityPath {
-                                                    entity_path_expr: 11,
+                                                    entity_path_expr: 14,
+                                                    path: None,
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 15,
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
@@ -3397,7 +3373,7 @@ Ok(
                                                     ),
                                                 },
                                                 Expr::Field {
-                                                    owner: 56,
+                                                    owner: 52,
                                                     dot_token_idx: TokenIdx(
                                                         276,
                                                     ),
@@ -3414,30 +3390,33 @@ Ok(
                                                     ),
                                                 ),
                                                 Expr::IndexOrCompositionWithList {
-                                                    owner: 57,
+                                                    owner: 53,
                                                     lbox_token_idx: TokenIdx(
                                                         278,
                                                     ),
                                                     items: ArenaIdxRange(
-                                                        58..59,
+                                                        54..55,
                                                     ),
                                                     rbox_token_idx: TokenIdx(
                                                         280,
                                                     ),
                                                 },
                                                 Expr::Be {
-                                                    src: 59,
+                                                    src: 55,
                                                     be_token_idx: TokenIdx(
                                                         281,
                                                     ),
                                                     target: Ok(
-                                                        BeVariableDeclPattern {
-                                                            pattern_expr_idx: 9,
+                                                        BeVariablesPattern {
+                                                            pattern_expr: 9,
+                                                            variables: ArenaIdxRange(
+                                                                9..10,
+                                                            ),
                                                         },
                                                     ),
                                                 },
                                                 Expr::EntityPath {
-                                                    entity_path_expr: 12,
+                                                    entity_path_expr: 16,
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
@@ -3447,7 +3426,7 @@ Ok(
                                                     ),
                                                 },
                                                 Expr::Field {
-                                                    owner: 61,
+                                                    owner: 57,
                                                     dot_token_idx: TokenIdx(
                                                         287,
                                                     ),
@@ -3463,33 +3442,9 @@ Ok(
                                                         290,
                                                     ),
                                                 ),
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdent {
-                                                            token_idx: TokenIdx(
-                                                                291,
-                                                            ),
-                                                            ident: `MnistLabel`,
-                                                        },
-                                                    ),
-                                                ),
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnresolvedSubentity {
-                                                            token_idx: TokenIdx(
-                                                                293,
-                                                            ),
-                                                            ident: `Seven`,
-                                                        },
-                                                    ),
-                                                ),
-                                                Expr::Binary {
-                                                    lopd: 64,
-                                                    opr: ScopeResolution,
-                                                    opr_token_idx: TokenIdx(
-                                                        292,
-                                                    ),
-                                                    ropd: 65,
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 18,
+                                                    path: None,
                                                 },
                                                 Expr::Block {
                                                     stmts: ArenaIdxRange(
@@ -3601,6 +3556,45 @@ Ok(
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
+                                                        249,
+                                                    ),
+                                                    ident: `MnistLabel`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Subentity {
+                                                    parent: 9,
+                                                    scope_resolution_token: ScopeResolutionToken(
+                                                        TokenIdx(
+                                                            250,
+                                                        ),
+                                                    ),
+                                                    ident_token: Ok(
+                                                        IdentToken {
+                                                            ident: `Seven`,
+                                                            token_idx: TokenIdx(
+                                                                251,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    path: Err(
+                                                        EntityPathExprError::Original(
+                                                            OriginalEntityPathExprError::EntityTree {
+                                                                token_idx: TokenIdx(
+                                                                    251,
+                                                                ),
+                                                                error: EntityTreeError::Original(
+                                                                    OriginalEntityTreeError::NoSubentity,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
                                                         260,
                                                     ),
                                                     ident: `major_connected_component`,
@@ -3618,6 +3612,45 @@ Ok(
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
                                                             FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        271,
+                                                    ),
+                                                    ident: `MnistLabel`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Subentity {
+                                                    parent: 13,
+                                                    scope_resolution_token: ScopeResolutionToken(
+                                                        TokenIdx(
+                                                            272,
+                                                        ),
+                                                    ),
+                                                    ident_token: Ok(
+                                                        IdentToken {
+                                                            ident: `Seven`,
+                                                            token_idx: TokenIdx(
+                                                                273,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    path: Err(
+                                                        EntityPathExprError::Original(
+                                                            OriginalEntityPathExprError::EntityTree {
+                                                                token_idx: TokenIdx(
+                                                                    273,
+                                                                ),
+                                                                error: EntityTreeError::Original(
+                                                                    OriginalEntityTreeError::NoSubentity,
+                                                                ),
+                                                            },
                                                         ),
                                                     ),
                                                 },
@@ -3643,6 +3676,45 @@ Ok(
                                                         ),
                                                     ),
                                                 },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        291,
+                                                    ),
+                                                    ident: `MnistLabel`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Subentity {
+                                                    parent: 17,
+                                                    scope_resolution_token: ScopeResolutionToken(
+                                                        TokenIdx(
+                                                            292,
+                                                        ),
+                                                    ),
+                                                    ident_token: Ok(
+                                                        IdentToken {
+                                                            ident: `Seven`,
+                                                            token_idx: TokenIdx(
+                                                                293,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    path: Err(
+                                                        EntityPathExprError::Original(
+                                                            OriginalEntityPathExprError::EntityTree {
+                                                                token_idx: TokenIdx(
+                                                                    293,
+                                                                ),
+                                                                error: EntityTreeError::Original(
+                                                                    OriginalEntityTreeError::NoSubentity,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
                                             ],
                                         },
                                         stmt_arena: Arena {
@@ -3655,9 +3727,9 @@ Ok(
                                                     },
                                                     let_variable_pattern: Ok(
                                                         LetVariablesPattern {
-                                                            pattern: 6,
+                                                            pattern_expr: 6,
                                                             variables: ArenaIdxRange(
-                                                                2..3,
+                                                                6..7,
                                                             ),
                                                             colon_token: Ok(
                                                                 None,
@@ -3684,9 +3756,9 @@ Ok(
                                                     },
                                                     let_variable_pattern: Ok(
                                                         LetVariablesPattern {
-                                                            pattern: 7,
+                                                            pattern_expr: 7,
                                                             variables: ArenaIdxRange(
-                                                                3..4,
+                                                                7..8,
                                                             ),
                                                             colon_token: Ok(
                                                                 None,
@@ -3733,9 +3805,9 @@ Ok(
                                                     },
                                                     let_variable_pattern: Ok(
                                                         LetVariablesPattern {
-                                                            pattern: 5,
+                                                            pattern_expr: 5,
                                                             variables: ArenaIdxRange(
-                                                                1..2,
+                                                                5..6,
                                                             ),
                                                             colon_token: Ok(
                                                                 None,
@@ -3783,7 +3855,7 @@ Ok(
                                                     else_branch: None,
                                                 },
                                                 Stmt::Eval {
-                                                    expr_idx: 41,
+                                                    expr_idx: 39,
                                                 },
                                                 Stmt::Let {
                                                     let_token: LetToken {
@@ -3793,9 +3865,9 @@ Ok(
                                                     },
                                                     let_variable_pattern: Ok(
                                                         LetVariablesPattern {
-                                                            pattern: 8,
+                                                            pattern_expr: 8,
                                                             variables: ArenaIdxRange(
-                                                                4..5,
+                                                                8..9,
                                                             ),
                                                             colon_token: Ok(
                                                                 None,
@@ -3811,7 +3883,7 @@ Ok(
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        49,
+                                                        47,
                                                     ),
                                                 },
                                                 Stmt::Require {
@@ -3821,11 +3893,11 @@ Ok(
                                                         ),
                                                     },
                                                     condition: Ok(
-                                                        52,
+                                                        50,
                                                     ),
                                                 },
                                                 Stmt::Eval {
-                                                    expr_idx: 55,
+                                                    expr_idx: 51,
                                                 },
                                                 Stmt::Require {
                                                     require_token: RequireToken {
@@ -3875,9 +3947,9 @@ Ok(
                                                     },
                                                     let_variable_pattern: Ok(
                                                         LetVariablesPattern {
-                                                            pattern: 3,
+                                                            pattern_expr: 3,
                                                             variables: ArenaIdxRange(
-                                                                0..1,
+                                                                3..4,
                                                             ),
                                                             colon_token: Ok(
                                                                 None,
@@ -3932,7 +4004,7 @@ Ok(
                                                             ),
                                                         },
                                                         condition: Ok(
-                                                            44,
+                                                            42,
                                                         ),
                                                         eol_colon: Ok(
                                                             Colon(
@@ -3959,7 +4031,7 @@ Ok(
                                                         ),
                                                     },
                                                     condition: Ok(
-                                                        60,
+                                                        56,
                                                     ),
                                                 },
                                                 Stmt::Let {
@@ -3970,9 +4042,9 @@ Ok(
                                                     },
                                                     let_variable_pattern: Ok(
                                                         LetVariablesPattern {
-                                                            pattern: 10,
+                                                            pattern_expr: 10,
                                                             variables: ArenaIdxRange(
-                                                                5..6,
+                                                                10..11,
                                                             ),
                                                             colon_token: Ok(
                                                                 None,
@@ -3988,7 +4060,7 @@ Ok(
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        62,
+                                                        58,
                                                     ),
                                                 },
                                                 Stmt::Require {
@@ -3998,11 +4070,11 @@ Ok(
                                                         ),
                                                     },
                                                     condition: Ok(
-                                                        63,
+                                                        59,
                                                     ),
                                                 },
                                                 Stmt::Eval {
-                                                    expr_idx: 66,
+                                                    expr_idx: 60,
                                                 },
                                             ],
                                         },
@@ -4111,16 +4183,16 @@ Ok(
                                                 ],
                                             },
                                             pattern_infos: [
-                                                Be,
-                                                Be,
-                                                Be,
-                                                Let,
-                                                Be,
                                                 Let,
                                                 Let,
                                                 Let,
                                                 Let,
-                                                Be,
+                                                Let,
+                                                Let,
+                                                Let,
+                                                Let,
+                                                Let,
+                                                Let,
                                                 Let,
                                             ],
                                             pattern_symbol_maps: [
@@ -4237,6 +4309,54 @@ Ok(
                                                 data: [
                                                     CurrentSymbol {
                                                         access_start: TokenIdx(
+                                                            176,
+                                                        ),
+                                                        access_end: Some(
+                                                            TokenIdxRangeEnd(
+                                                                TokenIdx(
+                                                                    294,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        variant: CurrentSymbolVariant::LetVariable {
+                                                            ident: `none`,
+                                                            pattern_symbol_idx: 0,
+                                                        },
+                                                    },
+                                                    CurrentSymbol {
+                                                        access_start: TokenIdx(
+                                                            180,
+                                                        ),
+                                                        access_end: Some(
+                                                            TokenIdxRangeEnd(
+                                                                TokenIdx(
+                                                                    294,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        variant: CurrentSymbolVariant::LetVariable {
+                                                            ident: `none`,
+                                                            pattern_symbol_idx: 1,
+                                                        },
+                                                    },
+                                                    CurrentSymbol {
+                                                        access_start: TokenIdx(
+                                                            184,
+                                                        ),
+                                                        access_end: Some(
+                                                            TokenIdxRangeEnd(
+                                                                TokenIdx(
+                                                                    294,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        variant: CurrentSymbolVariant::LetVariable {
+                                                            ident: `none`,
+                                                            pattern_symbol_idx: 2,
+                                                        },
+                                                    },
+                                                    CurrentSymbol {
+                                                        access_start: TokenIdx(
                                                             192,
                                                         ),
                                                         access_end: Some(
@@ -4249,6 +4369,22 @@ Ok(
                                                         variant: CurrentSymbolVariant::LetVariable {
                                                             ident: `simple_match_norm`,
                                                             pattern_symbol_idx: 3,
+                                                        },
+                                                    },
+                                                    CurrentSymbol {
+                                                        access_start: TokenIdx(
+                                                            210,
+                                                        ),
+                                                        access_end: Some(
+                                                            TokenIdxRangeEnd(
+                                                                TokenIdx(
+                                                                    252,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        variant: CurrentSymbolVariant::LetVariable {
+                                                            ident: `some`,
+                                                            pattern_symbol_idx: 4,
                                                         },
                                                     },
                                                     CurrentSymbol {
@@ -4317,6 +4453,22 @@ Ok(
                                                     },
                                                     CurrentSymbol {
                                                         access_start: TokenIdx(
+                                                            283,
+                                                        ),
+                                                        access_end: Some(
+                                                            TokenIdxRangeEnd(
+                                                                TokenIdx(
+                                                                    294,
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        variant: CurrentSymbolVariant::LetVariable {
+                                                            ident: `some`,
+                                                            pattern_symbol_idx: 9,
+                                                        },
+                                                    },
+                                                    CurrentSymbol {
+                                                        access_start: TokenIdx(
                                                             285,
                                                         ),
                                                         access_end: Some(
@@ -4340,13 +4492,13 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: BlockExpr,
-                                                expr: 67,
+                                                expr: 61,
                                             },
                                         ],
                                     },
                                 },
                                 body: Ok(
-                                    67,
+                                    61,
                                 ),
                             },
                         ),

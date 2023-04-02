@@ -484,6 +484,55 @@ Ok(
                     ),
                 },
                 EntitySymbolEntry {
+                    ident: `MnistLabel`,
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier::raw_contour`,
+                    ),
+                    symbol: EntitySymbol::Use(
+                        UseSymbol {
+                            original_symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist::MnistLabel`, `Enum`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 0,
+                                            ident_token: IdentToken {
+                                                ident: `MnistLabel`,
+                                                token_idx: TokenIdx(
+                                                    2,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 23,
+                                    use_expr_idx: 15,
+                                },
+                            ),
+                            path: EntityPath::ModuleItem(
+                                ModuleItemPath::Type(
+                                    TypePath(`mnist::MnistLabel`, `Enum`),
+                                ),
+                            ),
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            ast_idx: 198,
+                            use_expr_idx: 9,
+                        },
+                    ),
+                },
+                EntitySymbolEntry {
                     ident: `Point2d`,
                     visibility: Visibility::PubUnder(
                         `mnist_classifier::raw_contour`,
@@ -1811,7 +1860,7 @@ Ok(
                     visibility: Visibility::PubUnder(
                         `mnist_classifier::raw_contour`,
                     ),
-                    progress: 23,
+                    progress: 24,
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {
@@ -1835,7 +1884,7 @@ Ok(
                     visibility: Visibility::PubUnder(
                         `mnist_classifier::raw_contour`,
                     ),
-                    progress: 29,
+                    progress: 30,
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {

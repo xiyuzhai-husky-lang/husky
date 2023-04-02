@@ -25,10 +25,8 @@
                 FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
             ),
         ),
-        Err(
-            RawTypeError::Derived(
-                DerivedRawTypeError::SignatureError,
-            ),
+        Ok(
+            RawTerm(`core::option::Option mnist::MnistLabel`),
         ),
     ),
 ]

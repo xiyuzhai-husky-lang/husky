@@ -14,22 +14,7 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [9:25, 9:35),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
                 range: [16:9, 16:20),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [17:13, 17:23),
-            },
-            Diagnostic {
-                message: "Syntax Error: unresolved subentity",
-                severity: Error,
-                range: [17:25, 17:28),
             },
             Diagnostic {
                 message: "Syntax Error: unterminated list",
@@ -44,57 +29,7 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [33:17, 33:27),
-            },
-            Diagnostic {
-                message: "Syntax Error: unresolved subentity",
-                severity: Error,
-                range: [33:29, 33:32),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [37:13, 37:23),
-            },
-            Diagnostic {
-                message: "Syntax Error: unresolved subentity",
-                severity: Error,
-                range: [37:25, 37:28),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
                 range: [41:9, 41:20),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [42:13, 42:23),
-            },
-            Diagnostic {
-                message: "Syntax Error: unresolved subentity",
-                severity: Error,
-                range: [42:25, 42:28),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [50:13, 50:23),
-            },
-            Diagnostic {
-                message: "Syntax Error: unresolved subentity",
-                severity: Error,
-                range: [50:25, 50:28),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [51:9, 51:19),
-            },
-            Diagnostic {
-                message: "Syntax Error: unresolved subentity",
-                severity: Error,
-                range: [51:21, 51:24),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
@@ -102,22 +37,42 @@ DiagnosticSheet {
                 range: [53:5, 53:16),
             },
             Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
+                message: "entity tree error EntityTreeError::Original(OriginalEntityTreeError::NoSubentity)",
                 severity: Error,
-                range: [54:9, 54:19),
+                range: [17:25, 17:28),
             },
             Diagnostic {
-                message: "Syntax Error: unresolved subentity",
+                message: "entity tree error EntityTreeError::Original(OriginalEntityTreeError::NoSubentity)",
+                severity: Error,
+                range: [33:29, 33:32),
+            },
+            Diagnostic {
+                message: "entity tree error EntityTreeError::Original(OriginalEntityTreeError::NoSubentity)",
+                severity: Error,
+                range: [37:25, 37:28),
+            },
+            Diagnostic {
+                message: "entity tree error EntityTreeError::Original(OriginalEntityTreeError::NoSubentity)",
+                severity: Error,
+                range: [42:25, 42:28),
+            },
+            Diagnostic {
+                message: "entity tree error EntityTreeError::Original(OriginalEntityTreeError::NoSubentity)",
+                severity: Error,
+                range: [50:25, 50:28),
+            },
+            Diagnostic {
+                message: "entity tree error EntityTreeError::Original(OriginalEntityTreeError::NoSubentity)",
+                severity: Error,
+                range: [51:21, 51:24),
+            },
+            Diagnostic {
+                message: "entity tree error EntityTreeError::Original(OriginalEntityTreeError::NoSubentity)",
                 severity: Error,
                 range: [54:21, 54:24),
             },
             Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [64:5, 64:15),
-            },
-            Diagnostic {
-                message: "Syntax Error: unresolved subentity",
+                message: "entity tree error EntityTreeError::Original(OriginalEntityTreeError::NoSubentity)",
                 severity: Error,
                 range: [64:17, 64:20),
             },
@@ -147,11 +102,6 @@ DiagnosticSheet {
                 range: [32:13, 36:15),
             },
             Diagnostic {
-                message: "Type Error: TodoScopeResolution",
-                severity: Error,
-                range: [37:13, 37:28),
-            },
-            Diagnostic {
                 message: "Type Error: NoSuchField",
                 severity: Error,
                 range: [38:36, 38:74),
@@ -160,16 +110,6 @@ DiagnosticSheet {
                 message: "Type Error: TodoSuffix",
                 severity: Error,
                 range: [41:9, 48:11),
-            },
-            Diagnostic {
-                message: "Type Error: TodoScopeResolution",
-                severity: Error,
-                range: [50:13, 50:28),
-            },
-            Diagnostic {
-                message: "Type Error: TodoScopeResolution",
-                severity: Error,
-                range: [51:9, 51:24),
             },
             Diagnostic {
                 message: "Type Error: TodoSuffix",
@@ -185,11 +125,6 @@ DiagnosticSheet {
                 message: "Type Error: NoSuchField",
                 severity: Error,
                 range: [59:17, 59:31),
-            },
-            Diagnostic {
-                message: "Type Error: TodoScopeResolution",
-                severity: Error,
-                range: [64:5, 64:20),
             },
         ],
     },

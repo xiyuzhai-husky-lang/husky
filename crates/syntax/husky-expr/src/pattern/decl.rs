@@ -1,4 +1,4 @@
-mod be_variable;
+mod be_variables;
 mod field;
 mod form_ty_expr;
 mod implicit_parameter;
@@ -9,7 +9,7 @@ mod self_parameter;
 mod trai_expr;
 mod ty_expr;
 
-pub use self::be_variable::*;
+pub use self::be_variables::*;
 pub use self::field::*;
 pub use self::form_ty_expr::*;
 pub use self::implicit_parameter::*;

@@ -1,4 +1,4 @@
-enum MnistLabel
+pub enum MnistLabel
 | Zero
 | One
 | Two

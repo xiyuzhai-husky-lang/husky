@@ -22,7 +22,7 @@
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
                                         Id {
-                                            value: 35,
+                                            value: 36,
                                         },
                                     ),
                                 ),
@@ -34,7 +34,13 @@
             ),
         ),
     ),
-    Err(
-        RawTermError,
+    Ok(
+        Signature::Form(
+            FormSignature::Feature(
+                VarSignature {
+                    return_ty: RawTerm(`core::option::Option mnist::MnistLabel`),
+                },
+            ),
+        ),
     ),
 ]

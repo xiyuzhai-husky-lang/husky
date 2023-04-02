@@ -64,7 +64,7 @@ impl<'a> BlockExprParser<'a> {
         if body.len() == 0 {
             return None;
         }
-        let block_end = self.ast_token_idx_range_sheet[body.end() - 1].end();
+        let block_end = self.body_end(body);
         let stmts = self
             .ast_sheet
             .indexed_iter(body)
@@ -142,31 +142,37 @@ impl<'a> BlockExprParser<'a> {
             Ok(Some(basic_stmt_keyword_token)) => Some(match basic_stmt_keyword_token {
                 BasicStmtKeywordToken::Let(let_token) => Stmt::Let {
                     let_token,
-                    let_variable_pattern: ctx.parse_let_variable_pattern(block_end),
-                    assign_token: ctx.parse_expected(OriginalExprError::ExpectAssign),
+                    let_variable_pattern: ctx.parse_let_variables_pattern_expected(block_end),
+                    assign_token: ctx.parse_expected(OriginalExprError::ExpectedAssign),
                     initial_value: ctx
-                        .parse_expr_expected(None, OriginalExprError::ExpectInitialValue),
+                        .parse_expr_expected(None, OriginalExprError::ExpectedInitialValue),
                 },
                 BasicStmtKeywordToken::Return(return_token) => Stmt::Return {
                     return_token,
-                    result: ctx.parse_expr_expected(None, OriginalExprError::ExpectResult),
+                    result: ctx.parse_expr_expected(None, OriginalExprError::ExpectedResult),
                 },
                 BasicStmtKeywordToken::Require(require_token) => Stmt::Require {
                     require_token,
-                    condition: ctx.parse_expr_expected(None, OriginalExprError::ExpectCondition),
+                    condition: ctx.parse_expr_expected(
+                        Some(ExprEnvironment::Condition(block_end)),
+                        OriginalExprError::ExpectedCondition,
+                    ),
                 },
                 BasicStmtKeywordToken::Assert(assert_token) => Stmt::Assert {
                     assert_token,
-                    condition: ctx.parse_expr_expected(None, OriginalExprError::ExpectCondition),
+                    condition: ctx.parse_expr_expected(
+                        Some(ExprEnvironment::Condition(block_end)),
+                        OriginalExprError::ExpectedCondition,
+                    ),
                 },
                 BasicStmtKeywordToken::Break(break_token) => Stmt::Break { break_token },
                 BasicStmtKeywordToken::For(for_token) => {
                     let expr =
-                        match ctx.parse_expr_expected(None, OriginalExprError::ExpectCondition) {
+                        match ctx.parse_expr_expected(None, OriginalExprError::ExpectedCondition) {
                             Ok(expr) => expr,
                             Err(_) => todo!(),
                         };
-                    let eol_colon = ctx.parse_expected(OriginalExprError::ExpectEolColon);
+                    let eol_colon = ctx.parse_expected(OriginalExprError::ExpectedEolColon);
                     self.parse_for_loop_stmt(expr, for_token, eol_colon, token_group_idx, body)
                         .into()
                 }
@@ -175,22 +181,27 @@ impl<'a> BlockExprParser<'a> {
                     // condition: ctx
                     //     .parse_expr(ExprParseEnvironment::None)
                     //     .ok_or(ExprError::ExpectCondition),
-                    eol_colon: ctx.parse_expected(OriginalExprError::ExpectEolColon),
+                    eol_colon: ctx.parse_expected(OriginalExprError::ExpectedEolColon),
                     block: self.parse_block_stmts_expected(body, token_group_idx),
                 },
                 BasicStmtKeywordToken::While(while_token) => Stmt::While {
                     while_token,
-                    condition: ctx.parse_expr_expected(None, OriginalExprError::ExpectCondition),
-                    eol_colon: ctx.parse_expected(OriginalExprError::ExpectEolColon),
+                    condition: ctx.parse_expr_expected(
+                        Some(ExprEnvironment::Condition(block_end)),
+                        OriginalExprError::ExpectedCondition,
+                    ),
+                    eol_colon: ctx.parse_expected(OriginalExprError::ExpectedEolColon),
                     block: self.parse_block_stmts_expected(body, token_group_idx),
                 },
                 BasicStmtKeywordToken::Do(do_token) => match ctx.parse::<WhileToken>() {
                     Ok(Some(while_token)) => Stmt::DoWhile {
                         do_token,
                         while_token,
-                        condition: ctx
-                            .parse_expr_expected(None, OriginalExprError::ExpectCondition),
-                        eol_colon: ctx.parse_expected(OriginalExprError::ExpectEolColon),
+                        condition: ctx.parse_expr_expected(
+                            Some(ExprEnvironment::Condition(block_end)),
+                            OriginalExprError::ExpectedCondition,
+                        ),
+                        eol_colon: ctx.parse_expected(OriginalExprError::ExpectedEolColon),
                         block: self.parse_block_stmts_expected(body, token_group_idx),
                     },
                     Ok(None) => todo!(),
@@ -331,21 +342,28 @@ impl<'a> BlockExprParser<'a> {
         match self.ast_sheet[if_branch] {
             Ast::BasicStmtOrBranch {
                 token_group_idx,
-                ref body,
+                body,
             } => {
+                let body_end = self.body_end(body);
                 let mut token_stream = self
                     .token_sheet_data
                     .token_group_token_stream(token_group_idx, None);
                 let mut ctx = self.ctx(token_stream);
                 IfBranch {
                     if_token: ctx.parse().unwrap().unwrap(),
-                    condition: ctx.parse_expr_expected(None, OriginalExprError::ExpectCondition),
-                    eol_colon: ctx.parse_expected(OriginalExprError::ExpectEolColon),
-                    block: self.parse_block_stmts_expected(*body, token_group_idx),
+                    condition: ctx.parse_expr_expected(
+                        Some(ExprEnvironment::Condition(body_end)),
+                        OriginalExprError::ExpectedCondition,
+                    ),
+                    eol_colon: ctx.parse_expected(OriginalExprError::ExpectedEolColon),
+                    block: self.parse_block_stmts_expected(body, token_group_idx),
                 }
             }
             _ => unreachable!(),
         }
+    }
+    fn body_end(&self, body: AstIdxRange) -> TokenIdxRangeEnd {
+        self.ast_token_idx_range_sheet[body.end() - 1].end()
     }
 
     fn parse_elif_branches(&mut self, elif_branches: AstIdxRange) -> Vec<ElifBranch> {
@@ -359,17 +377,21 @@ impl<'a> BlockExprParser<'a> {
         match self.ast_sheet[elif_branch] {
             Ast::BasicStmtOrBranch {
                 token_group_idx,
-                ref body,
+                body,
             } => {
+                let body_end = self.body_end(body);
                 let mut token_stream = self
                     .token_sheet_data
                     .token_group_token_stream(token_group_idx, None);
                 let mut ctx = self.ctx(token_stream);
                 ElifBranch {
                     elif_token: ctx.parse().unwrap().unwrap(),
-                    condition: ctx.parse_expr_expected(None, OriginalExprError::ExpectCondition),
-                    eol_colon: ctx.parse_expected(OriginalExprError::ExpectEolColon),
-                    block: self.parse_block_stmts_expected(*body, token_group_idx),
+                    condition: ctx.parse_expr_expected(
+                        Some(ExprEnvironment::Condition(body_end)),
+                        OriginalExprError::ExpectedCondition,
+                    ),
+                    eol_colon: ctx.parse_expected(OriginalExprError::ExpectedEolColon),
+                    block: self.parse_block_stmts_expected(body, token_group_idx),
                 }
             }
             _ => unreachable!(),
@@ -388,7 +410,7 @@ impl<'a> BlockExprParser<'a> {
                 let mut ctx = self.ctx(token_stream);
                 Some(ElseBranch {
                     else_token: ctx.parse().unwrap().unwrap(),
-                    eol_colon: ctx.parse_expected(OriginalExprError::ExpectEolColon),
+                    eol_colon: ctx.parse_expected(OriginalExprError::ExpectedEolColon),
                     block: self.parse_block_stmts_expected(*body, token_group_idx),
                 })
             }
