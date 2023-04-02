@@ -1,6 +1,6 @@
 use crate::*
 
-struct FermiMatchResult {
+pub struct FermiMatchResult {
     matches: []?~ConcaveComponent,
     others: []~ConcaveComponent,
 }
