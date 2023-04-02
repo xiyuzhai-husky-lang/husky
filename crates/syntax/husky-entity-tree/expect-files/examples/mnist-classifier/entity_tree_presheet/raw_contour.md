@@ -231,22 +231,18 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `find_raw_contours`,
-                    visibility: Visibility::PubUnder(
-                        `mnist_classifier::raw_contour`,
-                    ),
+                    visibility: Visibility::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
                                 FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                             ),
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::raw_contour`,
-                            ),
+                            visibility: Visibility::Pub,
                             ast_idx: 214,
                             ident_token: IdentToken {
                                 ident: `find_raw_contours`,
                                 token_idx: TokenIdx(
-                                    989,
+                                    990,
                                 ),
                             },
                         },

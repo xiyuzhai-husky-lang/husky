@@ -4594,7 +4594,20 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Derived(
-                        ExprError,
+                        TypeError(
+                            ExpectFinalDestinationEqsNonSortTypePath {
+                                path_expected: TypePath(
+                                    Id {
+                                        value: 66,
+                                    },
+                                ),
+                                path: TypePath(
+                                    Id {
+                                        value: 72,
+                                    },
+                                ),
+                            },
+                        ),
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -4914,7 +4927,7 @@
                                 Application(
                                     TermApplication(
                                         Id {
-                                            value: 7,
+                                            value: 8,
                                         },
                                     ),
                                 ),
@@ -4993,7 +5006,7 @@
                                 Application(
                                     TermApplication(
                                         Id {
-                                            value: 7,
+                                            value: 8,
                                         },
                                     ),
                                 ),
@@ -5016,7 +5029,7 @@
                                 Application(
                                     TermApplication(
                                         Id {
-                                            value: 7,
+                                            value: 8,
                                         },
                                     ),
                                 ),
@@ -5048,7 +5061,7 @@
                                 Application(
                                     TermApplication(
                                         Id {
-                                            value: 7,
+                                            value: 8,
                                         },
                                     ),
                                 ),
@@ -5071,7 +5084,7 @@
                                 Application(
                                     TermApplication(
                                         Id {
-                                            value: 7,
+                                            value: 8,
                                         },
                                     ),
                                 ),
@@ -5141,7 +5154,7 @@
                                                     Application(
                                                         TermApplication(
                                                             Id {
-                                                                value: 9,
+                                                                value: 10,
                                                             },
                                                         ),
                                                     ),
@@ -5164,7 +5177,7 @@
                                 Application(
                                     TermApplication(
                                         Id {
-                                            value: 7,
+                                            value: 8,
                                         },
                                     ),
                                 ),
@@ -5471,7 +5484,7 @@
                                 Application(
                                     TermApplication(
                                         Id {
-                                            value: 7,
+                                            value: 8,
                                         },
                                     ),
                                 ),
@@ -5482,7 +5495,7 @@
                                         Application(
                                             TermApplication(
                                                 Id {
-                                                    value: 7,
+                                                    value: 8,
                                                 },
                                             ),
                                         ),
@@ -5519,7 +5532,7 @@
                                 Application(
                                     TermApplication(
                                         Id {
-                                            value: 7,
+                                            value: 8,
                                         },
                                     ),
                                 ),
@@ -5535,7 +5548,7 @@
                                 Application(
                                     TermApplication(
                                         Id {
-                                            value: 7,
+                                            value: 8,
                                         },
                                     ),
                                 ),
@@ -5585,7 +5598,7 @@
                                                             Application(
                                                                 TermApplication(
                                                                     Id {
-                                                                        value: 9,
+                                                                        value: 10,
                                                                     },
                                                                 ),
                                                             ),
@@ -5604,7 +5617,7 @@
                                 Application(
                                     TermApplication(
                                         Id {
-                                            value: 7,
+                                            value: 8,
                                         },
                                     ),
                                 ),
@@ -5615,7 +5628,7 @@
                                         Application(
                                             TermApplication(
                                                 Id {
-                                                    value: 9,
+                                                    value: 10,
                                                 },
                                             ),
                                         ),
@@ -5636,7 +5649,7 @@
                                 Application(
                                     TermApplication(
                                         Id {
-                                            value: 6,
+                                            value: 7,
                                         },
                                     ),
                                 ),
@@ -5647,7 +5660,7 @@
                                         Application(
                                             TermApplication(
                                                 Id {
-                                                    value: 8,
+                                                    value: 9,
                                                 },
                                             ),
                                         ),

@@ -1769,6 +1769,69 @@ Ok(
                     ),
                 },
                 EntitySymbolEntry {
+                    ident: `find_raw_contours`,
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier::digits::five`,
+                    ),
+                    symbol: EntitySymbol::Use(
+                        UseSymbol {
+                            original_symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 214,
+                                                    ident_token: IdentToken {
+                                                        ident: `find_raw_contours`,
+                                                        token_idx: TokenIdx(
+                                                            990,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 21,
+                                            use_expr_idx: 9,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 26,
+                                },
+                            ),
+                            path: EntityPath::ModuleItem(
+                                ModuleItemPath::Form(
+                                    FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                ),
+                            ),
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::five`,
+                            ),
+                            ast_idx: 1,
+                            use_expr_idx: 0,
+                        },
+                    ),
+                },
+                EntitySymbolEntry {
                     ident: `LineSegmentStroke`,
                     visibility: Visibility::PubUnder(
                         `mnist_classifier::digits::five`,
@@ -2416,7 +2479,7 @@ Ok(
                     visibility: Visibility::PubUnder(
                         `mnist_classifier::digits::five`,
                     ),
-                    progress: 46,
+                    progress: 47,
                 },
             ],
         ),

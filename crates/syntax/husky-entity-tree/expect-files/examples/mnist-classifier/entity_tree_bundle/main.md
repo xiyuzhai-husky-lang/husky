@@ -585,6 +585,41 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `find_raw_contours`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 214,
+                                            ident_token: IdentToken {
+                                                ident: `find_raw_contours`,
+                                                token_idx: TokenIdx(
+                                                    990,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 9,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `LineSegmentStroke`,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
@@ -1396,7 +1431,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
-                            progress: 28,
+                            progress: 29,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -1408,7 +1443,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
-                            progress: 46,
+                            progress: 47,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -1420,7 +1455,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
-                            progress: 28,
+                            progress: 29,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -1456,7 +1491,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
-                            progress: 30,
+                            progress: 31,
                         },
                     ],
                 ),
@@ -1893,6 +1928,41 @@ Ok(
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 118,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `find_raw_contours`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 214,
+                                            ident_token: IdentToken {
+                                                ident: `find_raw_contours`,
+                                                token_idx: TokenIdx(
+                                                    990,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -2817,7 +2887,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            progress: 28,
+                            progress: 29,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -3067,22 +3137,18 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `find_raw_contours`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::raw_contour`,
-                            ),
+                            visibility: Visibility::Pub,
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
                                         FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                     ),
-                                    visibility: Visibility::PubUnder(
-                                        `mnist_classifier::raw_contour`,
-                                    ),
+                                    visibility: Visibility::Pub,
                                     ast_idx: 214,
                                     ident_token: IdentToken {
                                         ident: `find_raw_contours`,
                                         token_idx: TokenIdx(
-                                            989,
+                                            990,
                                         ),
                                     },
                                 },
@@ -4696,7 +4762,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            progress: 28,
+                            progress: 29,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -4720,7 +4786,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            progress: 30,
+                            progress: 31,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -5925,7 +5991,7 @@ Ok(
                             ast_idx: 163,
                             use_expr_idx: 0,
                             visibility: Visibility::Pub,
-                            progress: 44,
+                            progress: 45,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -7577,6 +7643,55 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `find_raw_contours`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 214,
+                                                    ident_token: IdentToken {
+                                                        ident: `find_raw_contours`,
+                                                        token_idx: TokenIdx(
+                                                            990,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 21,
+                                            use_expr_idx: 9,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 73,
+                                    use_expr_idx: 14,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `ConnectedComponentDistribution`,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
@@ -8223,7 +8338,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            progress: 28,
+                            progress: 29,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -8271,7 +8386,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            progress: 22,
+                            progress: 23,
                         },
                     ],
                 ),
@@ -10181,6 +10296,41 @@ Ok(
                                 },
                             ),
                         },
+                        EntitySymbolEntry {
+                            ident: `find_raw_contours`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::convexity`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 214,
+                                            ident_token: IdentToken {
+                                                ident: `find_raw_contours`,
+                                                token_idx: TokenIdx(
+                                                    990,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                    ),
+                                    ast_idx: 20,
+                                    use_expr_idx: 3,
+                                },
+                            ),
+                        },
                     ],
                 ),
                 impl_blocks: [],
@@ -11552,6 +11702,55 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `find_raw_contours`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 214,
+                                                    ident_token: IdentToken {
+                                                        ident: `find_raw_contours`,
+                                                        token_idx: TokenIdx(
+                                                            990,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 21,
+                                            use_expr_idx: 9,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `LineSegmentStroke`,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::fermi`,
@@ -12092,7 +12291,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::fermi`,
                             ),
-                            progress: 28,
+                            progress: 29,
                         },
                     ],
                 ),
@@ -13399,6 +13598,55 @@ Ok(
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Type(
                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 26,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `find_raw_contours`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 214,
+                                                    ident_token: IdentToken {
+                                                        ident: `find_raw_contours`,
+                                                        token_idx: TokenIdx(
+                                                            990,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 21,
+                                            use_expr_idx: 9,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                         ),
                                     ),
                                     visibility: Visibility::PubUnder(
@@ -14849,7 +15097,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            progress: 28,
+                            progress: 29,
                         },
                     ],
                 ),
@@ -16671,6 +16919,69 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `find_raw_contours`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 214,
+                                                            ident_token: IdentToken {
+                                                                ident: `find_raw_contours`,
+                                                                token_idx: TokenIdx(
+                                                                    990,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 21,
+                                                    use_expr_idx: 9,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::zero`,
+                                    ),
+                                    ast_idx: 25,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `LineSegmentStroke`,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::zero`,
@@ -17318,7 +17629,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::zero`,
                             ),
-                            progress: 46,
+                            progress: 47,
                         },
                     ],
                 ),
@@ -19186,6 +19497,69 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `find_raw_contours`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::one`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 214,
+                                                            ident_token: IdentToken {
+                                                                ident: `find_raw_contours`,
+                                                                token_idx: TokenIdx(
+                                                                    990,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 21,
+                                                    use_expr_idx: 9,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::one`,
+                                    ),
+                                    ast_idx: 61,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `LineSegmentStroke`,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::one`,
@@ -19833,7 +20207,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::one`,
                             ),
-                            progress: 46,
+                            progress: 47,
                         },
                     ],
                 ),
@@ -21701,6 +22075,69 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `find_raw_contours`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 214,
+                                                            ident_token: IdentToken {
+                                                                ident: `find_raw_contours`,
+                                                                token_idx: TokenIdx(
+                                                                    990,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 21,
+                                                    use_expr_idx: 9,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::six`,
+                                    ),
+                                    ast_idx: 49,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `LineSegmentStroke`,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::six`,
@@ -22348,7 +22785,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::six`,
                             ),
-                            progress: 46,
+                            progress: 47,
                         },
                     ],
                 ),
@@ -24216,6 +24653,69 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `find_raw_contours`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::three`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 214,
+                                                            ident_token: IdentToken {
+                                                                ident: `find_raw_contours`,
+                                                                token_idx: TokenIdx(
+                                                                    990,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 21,
+                                                    use_expr_idx: 9,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::three`,
+                                    ),
+                                    ast_idx: 27,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `LineSegmentStroke`,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::three`,
@@ -24863,7 +25363,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::three`,
                             ),
-                            progress: 46,
+                            progress: 47,
                         },
                     ],
                 ),
@@ -26828,6 +27328,69 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `find_raw_contours`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 214,
+                                                            ident_token: IdentToken {
+                                                                ident: `find_raw_contours`,
+                                                                token_idx: TokenIdx(
+                                                                    990,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 21,
+                                                    use_expr_idx: 9,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::four`,
+                                    ),
+                                    ast_idx: 37,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `LineSegmentStroke`,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
@@ -27475,7 +28038,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            progress: 46,
+                            progress: 47,
                         },
                     ],
                 ),
@@ -29251,6 +29814,69 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `find_raw_contours`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::five`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 214,
+                                                            ident_token: IdentToken {
+                                                                ident: `find_raw_contours`,
+                                                                token_idx: TokenIdx(
+                                                                    990,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 21,
+                                                    use_expr_idx: 9,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::five`,
+                                    ),
+                                    ast_idx: 1,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `LineSegmentStroke`,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::five`,
@@ -29898,7 +30524,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::five`,
                             ),
-                            progress: 46,
+                            progress: 47,
                         },
                     ],
                 ),
@@ -31789,6 +32415,69 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `find_raw_contours`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 214,
+                                                            ident_token: IdentToken {
+                                                                ident: `find_raw_contours`,
+                                                                token_idx: TokenIdx(
+                                                                    990,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 21,
+                                                    use_expr_idx: 9,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::seven`,
+                                    ),
+                                    ast_idx: 39,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `LineSegmentStroke`,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::seven`,
@@ -32436,7 +33125,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            progress: 46,
+                            progress: 47,
                         },
                     ],
                 ),
@@ -34258,6 +34947,69 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `find_raw_contours`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 214,
+                                                            ident_token: IdentToken {
+                                                                ident: `find_raw_contours`,
+                                                                token_idx: TokenIdx(
+                                                                    990,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 21,
+                                                    use_expr_idx: 9,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::eight`,
+                                    ),
+                                    ast_idx: 17,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `LineSegmentStroke`,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::eight`,
@@ -34905,7 +35657,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
-                            progress: 46,
+                            progress: 47,
                         },
                     ],
                 ),
@@ -36773,6 +37525,69 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `find_raw_contours`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 214,
+                                                            ident_token: IdentToken {
+                                                                ident: `find_raw_contours`,
+                                                                token_idx: TokenIdx(
+                                                                    990,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 21,
+                                                    use_expr_idx: 9,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::nine`,
+                                    ),
+                                    ast_idx: 35,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `LineSegmentStroke`,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::nine`,
@@ -37420,7 +38235,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
-                            progress: 46,
+                            progress: 47,
                         },
                     ],
                 ),
@@ -39288,6 +40103,69 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `find_raw_contours`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::two`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 214,
+                                                            ident_token: IdentToken {
+                                                                ident: `find_raw_contours`,
+                                                                token_idx: TokenIdx(
+                                                                    990,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 21,
+                                                    use_expr_idx: 9,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::two`,
+                                    ),
+                                    ast_idx: 49,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `LineSegmentStroke`,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
@@ -39935,7 +40813,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
                             ),
-                            progress: 46,
+                            progress: 47,
                         },
                     ],
                 ),
@@ -40567,6 +41445,55 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `find_raw_contours`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::major`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 214,
+                                                    ident_token: IdentToken {
+                                                        ident: `find_raw_contours`,
+                                                        token_idx: TokenIdx(
+                                                            990,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 21,
+                                            use_expr_idx: 9,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    ast_idx: 18,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `LineSegmentStroke`,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
@@ -41087,7 +42014,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
-                            progress: 28,
+                            progress: 29,
                         },
                     ],
                 ),

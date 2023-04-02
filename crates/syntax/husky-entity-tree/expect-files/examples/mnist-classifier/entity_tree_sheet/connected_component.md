@@ -441,6 +441,41 @@ Ok(
                     ),
                 },
                 EntitySymbolEntry {
+                    ident: `find_raw_contours`,
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier::connected_component`,
+                    ),
+                    symbol: EntitySymbol::Use(
+                        UseSymbol {
+                            original_symbol: EntitySymbol::ModuleItem(
+                                ModuleItemSymbol {
+                                    path: ModuleItemPath::Form(
+                                        FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                    ),
+                                    visibility: Visibility::Pub,
+                                    ast_idx: 214,
+                                    ident_token: IdentToken {
+                                        ident: `find_raw_contours`,
+                                        token_idx: TokenIdx(
+                                            990,
+                                        ),
+                                    },
+                                },
+                            ),
+                            path: EntityPath::ModuleItem(
+                                ModuleItemPath::Form(
+                                    FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                ),
+                            ),
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            ast_idx: 118,
+                            use_expr_idx: 0,
+                        },
+                    ),
+                },
+                EntitySymbolEntry {
                     ident: `connected_components`,
                     visibility: Visibility::PubUnder(
                         `mnist_classifier::connected_component`,
@@ -1354,7 +1389,7 @@ Ok(
                     visibility: Visibility::PubUnder(
                         `mnist_classifier::connected_component`,
                     ),
-                    progress: 28,
+                    progress: 29,
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {

@@ -2241,14 +2241,14 @@ Ok(
                         129,
                     ),
                     visibility_expr: VisibilityExpr {
-                        visibility: PubUnder(
-                            ModulePath(
-                                Id {
-                                    value: 43,
-                                },
-                            ),
-                        ),
-                        variant: Protected,
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    988,
+                                ),
+                            },
+                        },
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
@@ -2266,12 +2266,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `find_raw_contours`,
                         token_idx: TokenIdx(
-                            989,
+                            990,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        990,
+                        991,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
