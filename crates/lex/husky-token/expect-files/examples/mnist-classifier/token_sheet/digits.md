@@ -83,6 +83,18 @@ Ok(
             Token::Keyword(
                 Keyword::Use,
             ),
+            Token::Keyword(
+                Keyword::Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
+            ),
             Token::Ident(
                 `six`,
             ),
@@ -98,6 +110,18 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Use,
+            ),
+            Token::Keyword(
+                Keyword::Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
             ),
             Token::Ident(
                 `zero`,
@@ -115,6 +139,18 @@ Ok(
             Token::Keyword(
                 Keyword::Use,
             ),
+            Token::Keyword(
+                Keyword::Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
+            ),
             Token::Ident(
                 `two`,
             ),
@@ -130,6 +166,18 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Use,
+            ),
+            Token::Keyword(
+                Keyword::Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
             ),
             Token::Ident(
                 `three`,
@@ -147,6 +195,18 @@ Ok(
             Token::Keyword(
                 Keyword::Use,
             ),
+            Token::Keyword(
+                Keyword::Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
+            ),
             Token::Ident(
                 `five`,
             ),
@@ -162,6 +222,18 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Use,
+            ),
+            Token::Keyword(
+                Keyword::Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
             ),
             Token::Ident(
                 `seven`,
@@ -179,6 +251,18 @@ Ok(
             Token::Keyword(
                 Keyword::Use,
             ),
+            Token::Keyword(
+                Keyword::Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
+            ),
             Token::Ident(
                 `eight`,
             ),
@@ -194,6 +278,18 @@ Ok(
             ),
             Token::Keyword(
                 Keyword::Use,
+            ),
+            Token::Keyword(
+                Keyword::Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
             ),
             Token::Ident(
                 `nine`,
@@ -242,14 +338,14 @@ Ok(
             18,
             20,
             25,
-            29,
-            33,
+            31,
             37,
-            41,
-            45,
+            43,
             49,
-            53,
-            57,
+            55,
+            61,
+            67,
+            73,
         ],
         indents: [
             0,

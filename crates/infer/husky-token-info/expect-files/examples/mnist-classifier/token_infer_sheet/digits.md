@@ -72,9 +72,21 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 3,
+                use_expr_idx: 4,
                 rule_idx: UseExprRuleIdx(
                     1,
+                ),
+                state: UseExprRuleState::Resolved {
+                    original_symbol: EntitySymbol::SelfModule {
+                        module_path: `mnist_classifier::digits`,
+                    },
+                },
+            },
+            TokenInfo::None,
+            TokenInfo::UseExpr {
+                use_expr_idx: 3,
+                rule_idx: UseExprRuleIdx(
+                    11,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: EntitySymbol::Submodule(
@@ -98,7 +110,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 2,
                 rule_idx: UseExprRuleIdx(
-                    11,
+                    19,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: EntitySymbol::ModuleItem(
@@ -122,9 +134,21 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 5,
+                use_expr_idx: 7,
                 rule_idx: UseExprRuleIdx(
                     2,
+                ),
+                state: UseExprRuleState::Resolved {
+                    original_symbol: EntitySymbol::SelfModule {
+                        module_path: `mnist_classifier::digits`,
+                    },
+                },
+            },
+            TokenInfo::None,
+            TokenInfo::UseExpr {
+                use_expr_idx: 6,
+                rule_idx: UseExprRuleIdx(
+                    12,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: EntitySymbol::Submodule(
@@ -146,9 +170,9 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 4,
+                use_expr_idx: 5,
                 rule_idx: UseExprRuleIdx(
-                    12,
+                    20,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: EntitySymbol::ModuleItem(
@@ -172,9 +196,21 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 7,
+                use_expr_idx: 10,
                 rule_idx: UseExprRuleIdx(
                     3,
+                ),
+                state: UseExprRuleState::Resolved {
+                    original_symbol: EntitySymbol::SelfModule {
+                        module_path: `mnist_classifier::digits`,
+                    },
+                },
+            },
+            TokenInfo::None,
+            TokenInfo::UseExpr {
+                use_expr_idx: 9,
+                rule_idx: UseExprRuleIdx(
+                    13,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: EntitySymbol::Submodule(
@@ -196,9 +232,9 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 6,
+                use_expr_idx: 8,
                 rule_idx: UseExprRuleIdx(
-                    13,
+                    21,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: EntitySymbol::ModuleItem(
@@ -222,9 +258,21 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 9,
+                use_expr_idx: 13,
                 rule_idx: UseExprRuleIdx(
                     4,
+                ),
+                state: UseExprRuleState::Resolved {
+                    original_symbol: EntitySymbol::SelfModule {
+                        module_path: `mnist_classifier::digits`,
+                    },
+                },
+            },
+            TokenInfo::None,
+            TokenInfo::UseExpr {
+                use_expr_idx: 12,
+                rule_idx: UseExprRuleIdx(
+                    14,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: EntitySymbol::Submodule(
@@ -246,9 +294,9 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 8,
+                use_expr_idx: 11,
                 rule_idx: UseExprRuleIdx(
-                    14,
+                    22,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: EntitySymbol::ModuleItem(
@@ -272,9 +320,21 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 11,
+                use_expr_idx: 16,
                 rule_idx: UseExprRuleIdx(
                     5,
+                ),
+                state: UseExprRuleState::Resolved {
+                    original_symbol: EntitySymbol::SelfModule {
+                        module_path: `mnist_classifier::digits`,
+                    },
+                },
+            },
+            TokenInfo::None,
+            TokenInfo::UseExpr {
+                use_expr_idx: 15,
+                rule_idx: UseExprRuleIdx(
+                    15,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: EntitySymbol::Submodule(
@@ -296,9 +356,9 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 10,
+                use_expr_idx: 14,
                 rule_idx: UseExprRuleIdx(
-                    15,
+                    23,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: EntitySymbol::ModuleItem(
@@ -322,9 +382,21 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 13,
+                use_expr_idx: 19,
                 rule_idx: UseExprRuleIdx(
                     6,
+                ),
+                state: UseExprRuleState::Resolved {
+                    original_symbol: EntitySymbol::SelfModule {
+                        module_path: `mnist_classifier::digits`,
+                    },
+                },
+            },
+            TokenInfo::None,
+            TokenInfo::UseExpr {
+                use_expr_idx: 18,
+                rule_idx: UseExprRuleIdx(
+                    16,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: EntitySymbol::Submodule(
@@ -346,9 +418,9 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 12,
+                use_expr_idx: 17,
                 rule_idx: UseExprRuleIdx(
-                    16,
+                    24,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: EntitySymbol::ModuleItem(
@@ -372,9 +444,21 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 15,
+                use_expr_idx: 22,
                 rule_idx: UseExprRuleIdx(
                     7,
+                ),
+                state: UseExprRuleState::Resolved {
+                    original_symbol: EntitySymbol::SelfModule {
+                        module_path: `mnist_classifier::digits`,
+                    },
+                },
+            },
+            TokenInfo::None,
+            TokenInfo::UseExpr {
+                use_expr_idx: 21,
+                rule_idx: UseExprRuleIdx(
+                    17,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: EntitySymbol::Submodule(
@@ -396,9 +480,9 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 14,
+                use_expr_idx: 20,
                 rule_idx: UseExprRuleIdx(
-                    17,
+                    25,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: EntitySymbol::ModuleItem(
@@ -422,9 +506,21 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 17,
+                use_expr_idx: 25,
                 rule_idx: UseExprRuleIdx(
                     8,
+                ),
+                state: UseExprRuleState::Resolved {
+                    original_symbol: EntitySymbol::SelfModule {
+                        module_path: `mnist_classifier::digits`,
+                    },
+                },
+            },
+            TokenInfo::None,
+            TokenInfo::UseExpr {
+                use_expr_idx: 24,
+                rule_idx: UseExprRuleIdx(
+                    18,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: EntitySymbol::Submodule(
@@ -446,9 +542,9 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 16,
+                use_expr_idx: 23,
                 rule_idx: UseExprRuleIdx(
-                    18,
+                    26,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: EntitySymbol::ModuleItem(
@@ -472,7 +568,7 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 19,
+                use_expr_idx: 27,
                 rule_idx: UseExprRuleIdx(
                     9,
                 ),
