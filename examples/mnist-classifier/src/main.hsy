@@ -11,6 +11,7 @@ use self::digits::*
 use self::fermi::*;
 use self::raw_contour::*
 use self::line_segment_sketch::*
+use self::connected_component::*
 use mnist::*
 
 task:

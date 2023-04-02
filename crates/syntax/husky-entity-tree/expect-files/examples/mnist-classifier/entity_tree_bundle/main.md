@@ -182,8 +182,8 @@ Ok(
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier`,
                                     ),
-                                    ast_idx: 23,
-                                    use_expr_idx: 15,
+                                    ast_idx: 24,
+                                    use_expr_idx: 18,
                                 },
                             ),
                         },
@@ -795,6 +795,146 @@ Ok(
                                 },
                             ),
                         },
+                        EntitySymbolEntry {
+                            ident: `ConnectedComponentDistribution`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 120,
+                                            ident_token: IdentToken {
+                                                ident: `ConnectedComponentDistribution`,
+                                                token_idx: TokenIdx(
+                                                    12,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 23,
+                                    use_expr_idx: 15,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `EffHoles`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 121,
+                                            ident_token: IdentToken {
+                                                ident: `EffHoles`,
+                                                token_idx: TokenIdx(
+                                                    33,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 23,
+                                    use_expr_idx: 15,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ConnectedComponent`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 123,
+                                            ident_token: IdentToken {
+                                                ident: `ConnectedComponent`,
+                                                token_idx: TokenIdx(
+                                                    71,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 23,
+                                    use_expr_idx: 15,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `find_connected_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Form(
+                                                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 126,
+                                            ident_token: IdentToken {
+                                                ident: `find_connected_components`,
+                                                token_idx: TokenIdx(
+                                                    646,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 23,
+                                    use_expr_idx: 15,
+                                },
+                            ),
+                        },
                     ],
                 ),
                 impl_blocks: [],
@@ -927,7 +1067,32 @@ Ok(
                         },
                         UseExprRule {
                             ast_idx: 23,
-                            use_expr_idx: 16,
+                            use_expr_idx: 17,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            variant: UseExprRuleVariant::Parent {
+                                parent_name_token: NameToken::SelfValue(
+                                    SelfValueToken {
+                                        token_idx: TokenIdx(
+                                            46,
+                                        ),
+                                    },
+                                ),
+                                children: ArenaIdxRange(
+                                    16..17,
+                                ),
+                            },
+                            parent: None,
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: EntitySymbol::SelfModule {
+                                    module_path: `mnist_classifier`,
+                                },
+                            },
+                        },
+                        UseExprRule {
+                            ast_idx: 24,
+                            use_expr_idx: 19,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
@@ -936,12 +1101,12 @@ Ok(
                                     IdentToken {
                                         ident: `mnist`,
                                         token_idx: TokenIdx(
-                                            46,
+                                            52,
                                         ),
                                     },
                                 ),
                                 children: ArenaIdxRange(
-                                    15..16,
+                                    18..19,
                                 ),
                             },
                             parent: None,
@@ -1163,6 +1328,48 @@ Ok(
                                 ),
                             },
                         },
+                        UseExprRule {
+                            ast_idx: 23,
+                            use_expr_idx: 16,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            variant: UseExprRuleVariant::Parent {
+                                parent_name_token: NameToken::Ident(
+                                    IdentToken {
+                                        ident: `connected_component`,
+                                        token_idx: TokenIdx(
+                                            48,
+                                        ),
+                                    },
+                                ),
+                                children: ArenaIdxRange(
+                                    15..16,
+                                ),
+                            },
+                            parent: Some(
+                                EntityPath::Module(
+                                    `mnist_classifier`,
+                                ),
+                            ),
+                            state: UseExprRuleState::Resolved {
+                                original_symbol: EntitySymbol::Submodule(
+                                    SubmoduleSymbol {
+                                        path: `mnist_classifier::connected_component`,
+                                        visibility: Visibility::PubUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 11,
+                                        ident_token: IdentToken {
+                                            ident: `connected_component`,
+                                            token_idx: TokenIdx(
+                                                1,
+                                            ),
+                                        },
+                                    },
+                                ),
+                            },
+                        },
                     ],
                 ),
                 use_all_rules: UseAllRules(
@@ -1172,8 +1379,8 @@ Ok(
                                 kinship: Outside,
                                 path: `mnist`,
                             },
-                            ast_idx: 23,
-                            use_expr_idx: 15,
+                            ast_idx: 24,
+                            use_expr_idx: 18,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
@@ -1189,7 +1396,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
-                            progress: 24,
+                            progress: 28,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -1201,7 +1408,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
-                            progress: 42,
+                            progress: 46,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -1213,7 +1420,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
                             ),
-                            progress: 24,
+                            progress: 28,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -1238,6 +1445,18 @@ Ok(
                                 `mnist_classifier`,
                             ),
                             progress: 21,
+                        },
+                        UseAllRule {
+                            parent: KinshipedModulePath {
+                                kinship: Inside,
+                                path: `mnist_classifier::connected_component`,
+                            },
+                            ast_idx: 23,
+                            use_expr_idx: 15,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            progress: 30,
                         },
                     ],
                 ),
@@ -1632,8 +1851,8 @@ Ok(
                                             visibility: Visibility::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 23,
-                                            use_expr_idx: 15,
+                                            ast_idx: 24,
+                                            use_expr_idx: 18,
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -2598,7 +2817,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
-                            progress: 24,
+                            progress: 28,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -3132,8 +3351,8 @@ Ok(
                                             visibility: Visibility::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 23,
-                                            use_expr_idx: 15,
+                                            ast_idx: 24,
+                                            use_expr_idx: 18,
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -4477,7 +4696,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            progress: 24,
+                            progress: 28,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -5706,7 +5925,7 @@ Ok(
                             ast_idx: 163,
                             use_expr_idx: 0,
                             visibility: Visibility::Pub,
-                            progress: 40,
+                            progress: 44,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -6061,8 +6280,8 @@ Ok(
                                             visibility: Visibility::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 23,
-                                            use_expr_idx: 15,
+                                            ast_idx: 24,
+                                            use_expr_idx: 18,
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -7358,6 +7577,202 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `ConnectedComponentDistribution`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 120,
+                                                    ident_token: IdentToken {
+                                                        ident: `ConnectedComponentDistribution`,
+                                                        token_idx: TokenIdx(
+                                                            12,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 23,
+                                            use_expr_idx: 15,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 73,
+                                    use_expr_idx: 14,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `EffHoles`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 121,
+                                                    ident_token: IdentToken {
+                                                        ident: `EffHoles`,
+                                                        token_idx: TokenIdx(
+                                                            33,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 23,
+                                            use_expr_idx: 15,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 73,
+                                    use_expr_idx: 14,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ConnectedComponent`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 123,
+                                                    ident_token: IdentToken {
+                                                        ident: `ConnectedComponent`,
+                                                        token_idx: TokenIdx(
+                                                            71,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 23,
+                                            use_expr_idx: 15,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 73,
+                                    use_expr_idx: 14,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `find_connected_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 126,
+                                                    ident_token: IdentToken {
+                                                        ident: `find_connected_components`,
+                                                        token_idx: TokenIdx(
+                                                            646,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 23,
+                                            use_expr_idx: 15,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 73,
+                                    use_expr_idx: 14,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `is_convex`,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
@@ -7808,7 +8223,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            progress: 24,
+                            progress: 28,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -10666,8 +11081,8 @@ Ok(
                                             visibility: Visibility::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 23,
-                                            use_expr_idx: 15,
+                                            ast_idx: 24,
+                                            use_expr_idx: 18,
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -11417,6 +11832,202 @@ Ok(
                                 },
                             ),
                         },
+                        EntitySymbolEntry {
+                            ident: `ConnectedComponentDistribution`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 120,
+                                                    ident_token: IdentToken {
+                                                        ident: `ConnectedComponentDistribution`,
+                                                        token_idx: TokenIdx(
+                                                            12,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 23,
+                                            use_expr_idx: 15,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `EffHoles`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 121,
+                                                    ident_token: IdentToken {
+                                                        ident: `EffHoles`,
+                                                        token_idx: TokenIdx(
+                                                            33,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 23,
+                                            use_expr_idx: 15,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ConnectedComponent`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 123,
+                                                    ident_token: IdentToken {
+                                                        ident: `ConnectedComponent`,
+                                                        token_idx: TokenIdx(
+                                                            71,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 23,
+                                            use_expr_idx: 15,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `find_connected_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 126,
+                                                    ident_token: IdentToken {
+                                                        ident: `find_connected_components`,
+                                                        token_idx: TokenIdx(
+                                                            646,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 23,
+                                            use_expr_idx: 15,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
                     ],
                 ),
                 impl_blocks: [
@@ -11481,7 +12092,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::fermi`,
                             ),
-                            progress: 24,
+                            progress: 28,
                         },
                     ],
                 ),
@@ -11995,8 +12606,8 @@ Ok(
                                             visibility: Visibility::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 23,
-                                            use_expr_idx: 15,
+                                            ast_idx: 24,
+                                            use_expr_idx: 18,
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -13079,6 +13690,202 @@ Ok(
                                 },
                             ),
                         },
+                        EntitySymbolEntry {
+                            ident: `ConnectedComponentDistribution`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 120,
+                                                    ident_token: IdentToken {
+                                                        ident: `ConnectedComponentDistribution`,
+                                                        token_idx: TokenIdx(
+                                                            12,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 23,
+                                            use_expr_idx: 15,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 26,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `EffHoles`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 121,
+                                                    ident_token: IdentToken {
+                                                        ident: `EffHoles`,
+                                                        token_idx: TokenIdx(
+                                                            33,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 23,
+                                            use_expr_idx: 15,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 26,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ConnectedComponent`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 123,
+                                                    ident_token: IdentToken {
+                                                        ident: `ConnectedComponent`,
+                                                        token_idx: TokenIdx(
+                                                            71,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 23,
+                                            use_expr_idx: 15,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 26,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `find_connected_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 126,
+                                                    ident_token: IdentToken {
+                                                        ident: `find_connected_components`,
+                                                        token_idx: TokenIdx(
+                                                            646,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 23,
+                                            use_expr_idx: 15,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 26,
+                                },
+                            ),
+                        },
                     ],
                 ),
                 impl_blocks: [],
@@ -14042,7 +14849,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            progress: 24,
+                            progress: 28,
                         },
                     ],
                 ),
@@ -14847,8 +15654,8 @@ Ok(
                                                     visibility: Visibility::PubUnder(
                                                         `mnist_classifier`,
                                                     ),
-                                                    ast_idx: 23,
-                                                    use_expr_idx: 15,
+                                                    ast_idx: 24,
+                                                    use_expr_idx: 18,
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -16214,6 +17021,258 @@ Ok(
                                 },
                             ),
                         },
+                        EntitySymbolEntry {
+                            ident: `ConnectedComponentDistribution`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 120,
+                                                            ident_token: IdentToken {
+                                                                ident: `ConnectedComponentDistribution`,
+                                                                token_idx: TokenIdx(
+                                                                    12,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::zero`,
+                                    ),
+                                    ast_idx: 25,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `EffHoles`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 121,
+                                                            ident_token: IdentToken {
+                                                                ident: `EffHoles`,
+                                                                token_idx: TokenIdx(
+                                                                    33,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::zero`,
+                                    ),
+                                    ast_idx: 25,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ConnectedComponent`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 123,
+                                                            ident_token: IdentToken {
+                                                                ident: `ConnectedComponent`,
+                                                                token_idx: TokenIdx(
+                                                                    71,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::zero`,
+                                    ),
+                                    ast_idx: 25,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `find_connected_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 126,
+                                                            ident_token: IdentToken {
+                                                                ident: `find_connected_components`,
+                                                                token_idx: TokenIdx(
+                                                                    646,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::zero`,
+                                    ),
+                                    ast_idx: 25,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
                     ],
                 ),
                 impl_blocks: [],
@@ -16259,7 +17318,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::zero`,
                             ),
-                            progress: 42,
+                            progress: 46,
                         },
                     ],
                 ),
@@ -17059,8 +18118,8 @@ Ok(
                                                     visibility: Visibility::PubUnder(
                                                         `mnist_classifier`,
                                                     ),
-                                                    ast_idx: 23,
-                                                    use_expr_idx: 15,
+                                                    ast_idx: 24,
+                                                    use_expr_idx: 18,
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -18477,6 +19536,258 @@ Ok(
                                 },
                             ),
                         },
+                        EntitySymbolEntry {
+                            ident: `ConnectedComponentDistribution`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::one`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 120,
+                                                            ident_token: IdentToken {
+                                                                ident: `ConnectedComponentDistribution`,
+                                                                token_idx: TokenIdx(
+                                                                    12,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::one`,
+                                    ),
+                                    ast_idx: 61,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `EffHoles`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::one`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 121,
+                                                            ident_token: IdentToken {
+                                                                ident: `EffHoles`,
+                                                                token_idx: TokenIdx(
+                                                                    33,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::one`,
+                                    ),
+                                    ast_idx: 61,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ConnectedComponent`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::one`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 123,
+                                                            ident_token: IdentToken {
+                                                                ident: `ConnectedComponent`,
+                                                                token_idx: TokenIdx(
+                                                                    71,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::one`,
+                                    ),
+                                    ast_idx: 61,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `find_connected_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::one`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 126,
+                                                            ident_token: IdentToken {
+                                                                ident: `find_connected_components`,
+                                                                token_idx: TokenIdx(
+                                                                    646,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::one`,
+                                    ),
+                                    ast_idx: 61,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
                     ],
                 ),
                 impl_blocks: [],
@@ -18522,7 +19833,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::one`,
                             ),
-                            progress: 42,
+                            progress: 46,
                         },
                     ],
                 ),
@@ -19373,8 +20684,8 @@ Ok(
                                                     visibility: Visibility::PubUnder(
                                                         `mnist_classifier`,
                                                     ),
-                                                    ast_idx: 23,
-                                                    use_expr_idx: 15,
+                                                    ast_idx: 24,
+                                                    use_expr_idx: 18,
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -20740,6 +22051,258 @@ Ok(
                                 },
                             ),
                         },
+                        EntitySymbolEntry {
+                            ident: `ConnectedComponentDistribution`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 120,
+                                                            ident_token: IdentToken {
+                                                                ident: `ConnectedComponentDistribution`,
+                                                                token_idx: TokenIdx(
+                                                                    12,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::six`,
+                                    ),
+                                    ast_idx: 49,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `EffHoles`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 121,
+                                                            ident_token: IdentToken {
+                                                                ident: `EffHoles`,
+                                                                token_idx: TokenIdx(
+                                                                    33,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::six`,
+                                    ),
+                                    ast_idx: 49,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ConnectedComponent`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 123,
+                                                            ident_token: IdentToken {
+                                                                ident: `ConnectedComponent`,
+                                                                token_idx: TokenIdx(
+                                                                    71,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::six`,
+                                    ),
+                                    ast_idx: 49,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `find_connected_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 126,
+                                                            ident_token: IdentToken {
+                                                                ident: `find_connected_components`,
+                                                                token_idx: TokenIdx(
+                                                                    646,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::six`,
+                                    ),
+                                    ast_idx: 49,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
                     ],
                 ),
                 impl_blocks: [],
@@ -20785,7 +22348,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::six`,
                             ),
-                            progress: 42,
+                            progress: 46,
                         },
                     ],
                 ),
@@ -21636,8 +23199,8 @@ Ok(
                                                     visibility: Visibility::PubUnder(
                                                         `mnist_classifier`,
                                                     ),
-                                                    ast_idx: 23,
-                                                    use_expr_idx: 15,
+                                                    ast_idx: 24,
+                                                    use_expr_idx: 18,
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -23003,6 +24566,258 @@ Ok(
                                 },
                             ),
                         },
+                        EntitySymbolEntry {
+                            ident: `ConnectedComponentDistribution`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::three`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 120,
+                                                            ident_token: IdentToken {
+                                                                ident: `ConnectedComponentDistribution`,
+                                                                token_idx: TokenIdx(
+                                                                    12,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::three`,
+                                    ),
+                                    ast_idx: 27,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `EffHoles`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::three`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 121,
+                                                            ident_token: IdentToken {
+                                                                ident: `EffHoles`,
+                                                                token_idx: TokenIdx(
+                                                                    33,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::three`,
+                                    ),
+                                    ast_idx: 27,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ConnectedComponent`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::three`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 123,
+                                                            ident_token: IdentToken {
+                                                                ident: `ConnectedComponent`,
+                                                                token_idx: TokenIdx(
+                                                                    71,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::three`,
+                                    ),
+                                    ast_idx: 27,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `find_connected_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::three`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 126,
+                                                            ident_token: IdentToken {
+                                                                ident: `find_connected_components`,
+                                                                token_idx: TokenIdx(
+                                                                    646,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::three`,
+                                    ),
+                                    ast_idx: 27,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
                     ],
                 ),
                 impl_blocks: [],
@@ -23048,7 +24863,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::three`,
                             ),
-                            progress: 42,
+                            progress: 46,
                         },
                     ],
                 ),
@@ -23945,8 +25760,8 @@ Ok(
                                                     visibility: Visibility::PubUnder(
                                                         `mnist_classifier`,
                                                     ),
-                                                    ast_idx: 23,
-                                                    use_expr_idx: 15,
+                                                    ast_idx: 24,
+                                                    use_expr_idx: 18,
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -25363,6 +27178,258 @@ Ok(
                                 },
                             ),
                         },
+                        EntitySymbolEntry {
+                            ident: `ConnectedComponentDistribution`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 120,
+                                                            ident_token: IdentToken {
+                                                                ident: `ConnectedComponentDistribution`,
+                                                                token_idx: TokenIdx(
+                                                                    12,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::four`,
+                                    ),
+                                    ast_idx: 37,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `EffHoles`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 121,
+                                                            ident_token: IdentToken {
+                                                                ident: `EffHoles`,
+                                                                token_idx: TokenIdx(
+                                                                    33,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::four`,
+                                    ),
+                                    ast_idx: 37,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ConnectedComponent`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 123,
+                                                            ident_token: IdentToken {
+                                                                ident: `ConnectedComponent`,
+                                                                token_idx: TokenIdx(
+                                                                    71,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::four`,
+                                    ),
+                                    ast_idx: 37,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `find_connected_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 126,
+                                                            ident_token: IdentToken {
+                                                                ident: `find_connected_components`,
+                                                                token_idx: TokenIdx(
+                                                                    646,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::four`,
+                                    ),
+                                    ast_idx: 37,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
                     ],
                 ),
                 impl_blocks: [],
@@ -25408,7 +27475,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
-                            progress: 42,
+                            progress: 46,
                         },
                     ],
                 ),
@@ -26167,8 +28234,8 @@ Ok(
                                                     visibility: Visibility::PubUnder(
                                                         `mnist_classifier`,
                                                     ),
-                                                    ast_idx: 23,
-                                                    use_expr_idx: 15,
+                                                    ast_idx: 24,
+                                                    use_expr_idx: 18,
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -27534,6 +29601,258 @@ Ok(
                                 },
                             ),
                         },
+                        EntitySymbolEntry {
+                            ident: `ConnectedComponentDistribution`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::five`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 120,
+                                                            ident_token: IdentToken {
+                                                                ident: `ConnectedComponentDistribution`,
+                                                                token_idx: TokenIdx(
+                                                                    12,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::five`,
+                                    ),
+                                    ast_idx: 1,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `EffHoles`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::five`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 121,
+                                                            ident_token: IdentToken {
+                                                                ident: `EffHoles`,
+                                                                token_idx: TokenIdx(
+                                                                    33,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::five`,
+                                    ),
+                                    ast_idx: 1,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ConnectedComponent`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::five`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 123,
+                                                            ident_token: IdentToken {
+                                                                ident: `ConnectedComponent`,
+                                                                token_idx: TokenIdx(
+                                                                    71,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::five`,
+                                    ),
+                                    ast_idx: 1,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `find_connected_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::five`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 126,
+                                                            ident_token: IdentToken {
+                                                                ident: `find_connected_components`,
+                                                                token_idx: TokenIdx(
+                                                                    646,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::five`,
+                                    ),
+                                    ast_idx: 1,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
                     ],
                 ),
                 impl_blocks: [],
@@ -27579,7 +29898,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::five`,
                             ),
-                            progress: 42,
+                            progress: 46,
                         },
                     ],
                 ),
@@ -28453,8 +30772,8 @@ Ok(
                                                     visibility: Visibility::PubUnder(
                                                         `mnist_classifier`,
                                                     ),
-                                                    ast_idx: 23,
-                                                    use_expr_idx: 15,
+                                                    ast_idx: 24,
+                                                    use_expr_idx: 18,
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -29820,6 +32139,258 @@ Ok(
                                 },
                             ),
                         },
+                        EntitySymbolEntry {
+                            ident: `ConnectedComponentDistribution`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 120,
+                                                            ident_token: IdentToken {
+                                                                ident: `ConnectedComponentDistribution`,
+                                                                token_idx: TokenIdx(
+                                                                    12,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::seven`,
+                                    ),
+                                    ast_idx: 39,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `EffHoles`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 121,
+                                                            ident_token: IdentToken {
+                                                                ident: `EffHoles`,
+                                                                token_idx: TokenIdx(
+                                                                    33,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::seven`,
+                                    ),
+                                    ast_idx: 39,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ConnectedComponent`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 123,
+                                                            ident_token: IdentToken {
+                                                                ident: `ConnectedComponent`,
+                                                                token_idx: TokenIdx(
+                                                                    71,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::seven`,
+                                    ),
+                                    ast_idx: 39,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `find_connected_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 126,
+                                                            ident_token: IdentToken {
+                                                                ident: `find_connected_components`,
+                                                                token_idx: TokenIdx(
+                                                                    646,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::seven`,
+                                    ),
+                                    ast_idx: 39,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
                     ],
                 ),
                 impl_blocks: [],
@@ -29865,7 +32436,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            progress: 42,
+                            progress: 46,
                         },
                     ],
                 ),
@@ -30670,8 +33241,8 @@ Ok(
                                                     visibility: Visibility::PubUnder(
                                                         `mnist_classifier`,
                                                     ),
-                                                    ast_idx: 23,
-                                                    use_expr_idx: 15,
+                                                    ast_idx: 24,
+                                                    use_expr_idx: 18,
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -32037,6 +34608,258 @@ Ok(
                                 },
                             ),
                         },
+                        EntitySymbolEntry {
+                            ident: `ConnectedComponentDistribution`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 120,
+                                                            ident_token: IdentToken {
+                                                                ident: `ConnectedComponentDistribution`,
+                                                                token_idx: TokenIdx(
+                                                                    12,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::eight`,
+                                    ),
+                                    ast_idx: 17,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `EffHoles`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 121,
+                                                            ident_token: IdentToken {
+                                                                ident: `EffHoles`,
+                                                                token_idx: TokenIdx(
+                                                                    33,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::eight`,
+                                    ),
+                                    ast_idx: 17,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ConnectedComponent`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 123,
+                                                            ident_token: IdentToken {
+                                                                ident: `ConnectedComponent`,
+                                                                token_idx: TokenIdx(
+                                                                    71,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::eight`,
+                                    ),
+                                    ast_idx: 17,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `find_connected_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 126,
+                                                            ident_token: IdentToken {
+                                                                ident: `find_connected_components`,
+                                                                token_idx: TokenIdx(
+                                                                    646,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::eight`,
+                                    ),
+                                    ast_idx: 17,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
                     ],
                 ),
                 impl_blocks: [],
@@ -32082,7 +34905,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
-                            progress: 42,
+                            progress: 46,
                         },
                     ],
                 ),
@@ -32933,8 +35756,8 @@ Ok(
                                                     visibility: Visibility::PubUnder(
                                                         `mnist_classifier`,
                                                     ),
-                                                    ast_idx: 23,
-                                                    use_expr_idx: 15,
+                                                    ast_idx: 24,
+                                                    use_expr_idx: 18,
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -34300,6 +37123,258 @@ Ok(
                                 },
                             ),
                         },
+                        EntitySymbolEntry {
+                            ident: `ConnectedComponentDistribution`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 120,
+                                                            ident_token: IdentToken {
+                                                                ident: `ConnectedComponentDistribution`,
+                                                                token_idx: TokenIdx(
+                                                                    12,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::nine`,
+                                    ),
+                                    ast_idx: 35,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `EffHoles`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 121,
+                                                            ident_token: IdentToken {
+                                                                ident: `EffHoles`,
+                                                                token_idx: TokenIdx(
+                                                                    33,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::nine`,
+                                    ),
+                                    ast_idx: 35,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ConnectedComponent`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 123,
+                                                            ident_token: IdentToken {
+                                                                ident: `ConnectedComponent`,
+                                                                token_idx: TokenIdx(
+                                                                    71,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::nine`,
+                                    ),
+                                    ast_idx: 35,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `find_connected_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 126,
+                                                            ident_token: IdentToken {
+                                                                ident: `find_connected_components`,
+                                                                token_idx: TokenIdx(
+                                                                    646,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::nine`,
+                                    ),
+                                    ast_idx: 35,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
                     ],
                 ),
                 impl_blocks: [],
@@ -34345,7 +37420,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::nine`,
                             ),
-                            progress: 42,
+                            progress: 46,
                         },
                     ],
                 ),
@@ -35196,8 +38271,8 @@ Ok(
                                                     visibility: Visibility::PubUnder(
                                                         `mnist_classifier`,
                                                     ),
-                                                    ast_idx: 23,
-                                                    use_expr_idx: 15,
+                                                    ast_idx: 24,
+                                                    use_expr_idx: 18,
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
@@ -36563,6 +39638,258 @@ Ok(
                                 },
                             ),
                         },
+                        EntitySymbolEntry {
+                            ident: `ConnectedComponentDistribution`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::two`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 120,
+                                                            ident_token: IdentToken {
+                                                                ident: `ConnectedComponentDistribution`,
+                                                                token_idx: TokenIdx(
+                                                                    12,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::two`,
+                                    ),
+                                    ast_idx: 49,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `EffHoles`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::two`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 121,
+                                                            ident_token: IdentToken {
+                                                                ident: `EffHoles`,
+                                                                token_idx: TokenIdx(
+                                                                    33,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::two`,
+                                    ),
+                                    ast_idx: 49,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ConnectedComponent`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::two`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 123,
+                                                            ident_token: IdentToken {
+                                                                ident: `ConnectedComponent`,
+                                                                token_idx: TokenIdx(
+                                                                    71,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::two`,
+                                    ),
+                                    ast_idx: 49,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `find_connected_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits::two`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem(
+                                                        ModuleItemSymbol {
+                                                            path: ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                            ),
+                                                            visibility: Visibility::Pub,
+                                                            ast_idx: 126,
+                                                            ident_token: IdentToken {
+                                                                ident: `find_connected_components`,
+                                                                token_idx: TokenIdx(
+                                                                    646,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ),
+                                                    path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                        ),
+                                                    ),
+                                                    visibility: Visibility::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 23,
+                                                    use_expr_idx: 15,
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits::two`,
+                                    ),
+                                    ast_idx: 49,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
                     ],
                 ),
                 impl_blocks: [],
@@ -36608,7 +39935,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits::two`,
                             ),
-                            progress: 42,
+                            progress: 46,
                         },
                     ],
                 ),
@@ -37014,8 +40341,8 @@ Ok(
                                             visibility: Visibility::PubUnder(
                                                 `mnist_classifier`,
                                             ),
-                                            ast_idx: 23,
-                                            use_expr_idx: 15,
+                                            ast_idx: 24,
+                                            use_expr_idx: 18,
                                         },
                                     ),
                                     path: EntityPath::ModuleItem(
@@ -37520,6 +40847,202 @@ Ok(
                                 },
                             ),
                         },
+                        EntitySymbolEntry {
+                            ident: `ConnectedComponentDistribution`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::major`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 120,
+                                                    ident_token: IdentToken {
+                                                        ident: `ConnectedComponentDistribution`,
+                                                        token_idx: TokenIdx(
+                                                            12,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 23,
+                                            use_expr_idx: 15,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    ast_idx: 18,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `EffHoles`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::major`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 121,
+                                                    ident_token: IdentToken {
+                                                        ident: `EffHoles`,
+                                                        token_idx: TokenIdx(
+                                                            33,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 23,
+                                            use_expr_idx: 15,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    ast_idx: 18,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `ConnectedComponent`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::major`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 123,
+                                                    ident_token: IdentToken {
+                                                        ident: `ConnectedComponent`,
+                                                        token_idx: TokenIdx(
+                                                            71,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 23,
+                                            use_expr_idx: 15,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    ast_idx: 18,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `find_connected_components`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::major`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Form(
+                                                        FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 126,
+                                                    ident_token: IdentToken {
+                                                        ident: `find_connected_components`,
+                                                        token_idx: TokenIdx(
+                                                            646,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Form(
+                                                    FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 23,
+                                            use_expr_idx: 15,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Form(
+                                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    ast_idx: 18,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
                     ],
                 ),
                 impl_blocks: [],
@@ -37564,7 +41087,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
                             ),
-                            progress: 24,
+                            progress: 28,
                         },
                     ],
                 ),
