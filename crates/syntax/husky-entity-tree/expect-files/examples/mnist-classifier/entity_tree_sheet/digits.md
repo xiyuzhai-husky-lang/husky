@@ -786,11 +786,11 @@ Ok(
                                                 FormPath(`mnist_classifier::major::connected_components`, `Val`),
                                             ),
                                             visibility: Visibility::Pub,
-                                            ast_idx: 23,
+                                            ast_idx: 19,
                                             ident_token: IdentToken {
                                                 ident: `connected_components`,
                                                 token_idx: TokenIdx(
-                                                    32,
+                                                    6,
                                                 ),
                                             },
                                         },
@@ -835,11 +835,11 @@ Ok(
                                                 FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                             ),
                                             visibility: Visibility::Pub,
-                                            ast_idx: 24,
+                                            ast_idx: 20,
                                             ident_token: IdentToken {
                                                 ident: `major_connected_component`,
                                                 token_idx: TokenIdx(
-                                                    45,
+                                                    19,
                                                 ),
                                             },
                                         },
@@ -884,11 +884,11 @@ Ok(
                                                 FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                             ),
                                             visibility: Visibility::Pub,
-                                            ast_idx: 25,
+                                            ast_idx: 21,
                                             ident_token: IdentToken {
                                                 ident: `ignored_connected_components_row_span_sum_sum`,
                                                 token_idx: TokenIdx(
-                                                    96,
+                                                    70,
                                                 ),
                                             },
                                         },
@@ -933,11 +933,11 @@ Ok(
                                                 FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
                                             ),
                                             visibility: Visibility::Pub,
-                                            ast_idx: 26,
+                                            ast_idx: 22,
                                             ident_token: IdentToken {
                                                 ident: `major_raw_contours`,
                                                 token_idx: TokenIdx(
-                                                    131,
+                                                    105,
                                                 ),
                                             },
                                         },
@@ -982,11 +982,11 @@ Ok(
                                                 FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                                             ),
                                             visibility: Visibility::Pub,
-                                            ast_idx: 27,
+                                            ast_idx: 23,
                                             ident_token: IdentToken {
                                                 ident: `major_raw_contour`,
                                                 token_idx: TokenIdx(
-                                                    143,
+                                                    117,
                                                 ),
                                             },
                                         },
@@ -1031,11 +1031,11 @@ Ok(
                                                 FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                             ),
                                             visibility: Visibility::Pub,
-                                            ast_idx: 28,
+                                            ast_idx: 24,
                                             ident_token: IdentToken {
                                                 ident: `major_line_segment_sketch`,
                                                 token_idx: TokenIdx(
-                                                    156,
+                                                    130,
                                                 ),
                                             },
                                         },
@@ -1080,11 +1080,11 @@ Ok(
                                                 FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                             ),
                                             visibility: Visibility::Pub,
-                                            ast_idx: 29,
+                                            ast_idx: 25,
                                             ident_token: IdentToken {
                                                 ident: `major_concave_components`,
                                                 token_idx: TokenIdx(
-                                                    166,
+                                                    140,
                                                 ),
                                             },
                                         },
@@ -2498,20 +2498,12 @@ Ok(
                 UseAllRule {
                     parent: KinshipedModulePath {
                         kinship: Inside,
-                        path: ModulePath(
-                            Id {
-                                value: 40,
-                            },
-                        ),
+                        path: `mnist_classifier`,
                     },
                     ast_idx: 19,
                     use_expr_idx: 26,
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 42,
-                            },
-                        ),
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier::digits`,
                     ),
                     progress: 23,
                 },

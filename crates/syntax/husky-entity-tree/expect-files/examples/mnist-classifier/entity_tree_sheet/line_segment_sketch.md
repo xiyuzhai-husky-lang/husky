@@ -946,82 +946,54 @@ Ok(
                 UseAllRule {
                     parent: KinshipedModulePath {
                         kinship: Inside,
-                        path: ModulePath(
-                            Id {
-                                value: 56,
-                            },
-                        ),
+                        path: `mnist_classifier::line_segment_sketch::concave_component`,
                     },
                     ast_idx: 163,
                     use_expr_idx: 0,
-                    visibility: Pub,
+                    visibility: Visibility::Pub,
                     progress: 39,
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {
                         kinship: Inside,
-                        path: ModulePath(
-                            Id {
-                                value: 57,
-                            },
-                        ),
+                        path: `mnist_classifier::line_segment_sketch::convex_component`,
                     },
                     ast_idx: 164,
                     use_expr_idx: 2,
-                    visibility: Pub,
+                    visibility: Visibility::Pub,
                     progress: 22,
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {
                         kinship: Inside,
-                        path: ModulePath(
-                            Id {
-                                value: 59,
-                            },
-                        ),
+                        path: `mnist_classifier::line_segment_sketch::line_segment`,
                     },
                     ast_idx: 165,
                     use_expr_idx: 4,
-                    visibility: Pub,
+                    visibility: Visibility::Pub,
                     progress: 7,
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {
                         kinship: Inside,
-                        path: ModulePath(
-                            Id {
-                                value: 59,
-                            },
-                        ),
+                        path: `mnist_classifier::line_segment_sketch::line_segment`,
                     },
                     ast_idx: 168,
                     use_expr_idx: 12,
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 55,
-                            },
-                        ),
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier::line_segment_sketch`,
                     ),
                     progress: 7,
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {
                         kinship: Inside,
-                        path: ModulePath(
-                            Id {
-                                value: 54,
-                            },
-                        ),
+                        path: `mnist_classifier::geom2d`,
                     },
                     ast_idx: 166,
                     use_expr_idx: 6,
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 55,
-                            },
-                        ),
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier::line_segment_sketch`,
                     ),
                     progress: 6,
                 },

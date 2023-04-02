@@ -996,20 +996,12 @@ Ok(
                 UseAllRule {
                     parent: KinshipedModulePath {
                         kinship: Inside,
-                        path: ModulePath(
-                            Id {
-                                value: 55,
-                            },
-                        ),
+                        path: `mnist_classifier::line_segment_sketch`,
                     },
                     ast_idx: 2,
                     use_expr_idx: 0,
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 57,
-                            },
-                        ),
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier::line_segment_sketch::convex_component`,
                     ),
                     progress: 21,
                 },

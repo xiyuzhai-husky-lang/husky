@@ -1106,60 +1106,36 @@ Ok(
                 UseAllRule {
                     parent: KinshipedModulePath {
                         kinship: Inside,
-                        path: ModulePath(
-                            Id {
-                                value: 55,
-                            },
-                        ),
+                        path: `mnist_classifier::line_segment_sketch`,
                     },
                     ast_idx: 19,
                     use_expr_idx: 0,
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 58,
-                            },
-                        ),
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     progress: 21,
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {
                         kinship: Inside,
-                        path: ModulePath(
-                            Id {
-                                value: 61,
-                            },
-                        ),
+                        path: `mnist_classifier::raw_contour`,
                     },
                     ast_idx: 20,
                     use_expr_idx: 3,
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 58,
-                            },
-                        ),
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     progress: 43,
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {
                         kinship: Inside,
-                        path: ModulePath(
-                            Id {
-                                value: 54,
-                            },
-                        ),
+                        path: `mnist_classifier::geom2d`,
                     },
                     ast_idx: 21,
                     use_expr_idx: 6,
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 58,
-                            },
-                        ),
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     progress: 6,
                 },

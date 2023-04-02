@@ -5,10 +5,8 @@
                 FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
             ),
         ),
-        Err(
-            RawTypeError::Derived(
-                DerivedRawTypeError::SignatureError,
-            ),
+        Ok(
+            RawTerm(`mnist_classifier::fermi::FermiMatchResult`),
         ),
     ),
     (
@@ -17,10 +15,8 @@
                 FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
             ),
         ),
-        Err(
-            RawTypeError::Derived(
-                DerivedRawTypeError::SignatureError,
-            ),
+        Ok(
+            RawTerm(`Fp(~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent) -> core::option::Option core::num::f32`),
         ),
     ),
     (
@@ -29,10 +25,8 @@
                 FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
             ),
         ),
-        Err(
-            RawTypeError::Derived(
-                DerivedRawTypeError::SignatureError,
-            ),
+        Ok(
+            RawTerm(`mnist_classifier::fermi::FermiMatchResult`),
         ),
     ),
     (
@@ -41,10 +35,8 @@
                 FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
             ),
         ),
-        Err(
-            RawTypeError::Derived(
-                DerivedRawTypeError::SignatureError,
-            ),
+        Ok(
+            RawTerm(`mnist_classifier::fermi::FermiMatchResult`),
         ),
     ),
     (
@@ -65,10 +57,8 @@
                 FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
             ),
         ),
-        Err(
-            RawTypeError::Derived(
-                DerivedRawTypeError::SignatureError,
-            ),
+        Ok(
+            RawTerm(`Fp(~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent) -> core::option::Option core::num::f32`),
         ),
     ),
     (
@@ -77,10 +67,8 @@
                 FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
             ),
         ),
-        Err(
-            RawTypeError::Derived(
-                DerivedRawTypeError::SignatureError,
-            ),
+        Ok(
+            RawTerm(`Fp(~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent) -> core::option::Option core::num::f32`),
         ),
     ),
 ]

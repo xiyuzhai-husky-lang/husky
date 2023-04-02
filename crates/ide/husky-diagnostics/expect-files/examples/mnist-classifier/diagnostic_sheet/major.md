@@ -1,13 +1,7 @@
 DiagnosticSheet {
     [salsa id]: 41,
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "SymbolNotAccessible",
-                severity: Error,
-                range: [4:33, 4:50),
-            },
-        ],
+        diagnostics: [],
     },
     token_diagnostic_sheet: TokenDiagnosticSheet {
         diagnostics: [],
@@ -20,7 +14,22 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [8:31, 8:36),
+                range: [3:33, 3:51),
+            },
+            Diagnostic {
+                message: "Syntax Error: unrecognized identifier",
+                severity: Error,
+                range: [4:5, 4:30),
+            },
+            Diagnostic {
+                message: "Syntax Error: unrecognized identifier",
+                severity: Error,
+                range: [4:31, 4:36),
+            },
+            Diagnostic {
+                message: "Syntax Error: unrecognized identifier",
+                severity: Error,
+                range: [6:36, 6:54),
             },
         ],
     },
@@ -35,12 +44,12 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Type Error: NoSuchField",
                 severity: Error,
-                range: [34:5, 34:42),
+                range: [30:5, 30:42),
             },
             Diagnostic {
                 message: "Type Error: NoSuchField",
                 severity: Error,
-                range: [37:5, 37:49),
+                range: [33:5, 33:49),
             },
         ],
     },

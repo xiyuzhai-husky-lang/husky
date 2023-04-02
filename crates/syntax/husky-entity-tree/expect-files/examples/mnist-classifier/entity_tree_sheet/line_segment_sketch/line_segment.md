@@ -331,20 +331,12 @@ Ok(
                 UseAllRule {
                     parent: KinshipedModulePath {
                         kinship: Inside,
-                        path: ModulePath(
-                            Id {
-                                value: 54,
-                            },
-                        ),
+                        path: `mnist_classifier::geom2d`,
                     },
                     ast_idx: 15,
                     use_expr_idx: 0,
-                    visibility: PubUnder(
-                        ModulePath(
-                            Id {
-                                value: 59,
-                            },
-                        ),
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier::line_segment_sketch::line_segment`,
                     ),
                     progress: 6,
                 },

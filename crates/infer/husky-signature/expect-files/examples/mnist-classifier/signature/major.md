@@ -1,21 +1,9 @@
 [
-    Ok(
-        Signature::Form(
-            FormSignature::Feature(
-                VarSignature {
-                    return_ty: RawTerm(`[] mnist_classifier::connected_component::ConnectedComponent`),
-                },
-            ),
-        ),
+    Err(
+        RawTermError,
     ),
-    Ok(
-        Signature::Form(
-            FormSignature::Feature(
-                VarSignature {
-                    return_ty: RawTerm(`mnist_classifier::connected_component::ConnectedComponent`),
-                },
-            ),
-        ),
+    Err(
+        RawTermError,
     ),
     Ok(
         Signature::Form(

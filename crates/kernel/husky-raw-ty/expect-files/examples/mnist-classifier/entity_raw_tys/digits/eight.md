@@ -5,10 +5,8 @@
                 FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
             ),
         ),
-        Err(
-            RawTypeError::Derived(
-                DerivedRawTypeError::SignatureError,
-            ),
+        Ok(
+            RawTerm(`mnist_classifier::fermi::FermiMatchResult`),
         ),
     ),
     (
@@ -29,10 +27,8 @@
                 FormPath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
             ),
         ),
-        Err(
-            RawTypeError::Derived(
-                DerivedRawTypeError::SignatureError,
-            ),
+        Ok(
+            RawTerm(`Fp(~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent) -> core::option::Option core::num::f32`),
         ),
     ),
 ]
