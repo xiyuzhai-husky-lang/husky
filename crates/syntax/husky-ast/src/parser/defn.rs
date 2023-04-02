@@ -95,7 +95,7 @@ impl<'a> AstParser<'a> {
             ident_token,
             is_generic,
             token_group_idx,
-            body: todo!(),
+            children: todo!(),
             entity_kind,
             entity_path,
             saved_stream_state,
