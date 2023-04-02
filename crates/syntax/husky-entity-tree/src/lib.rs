@@ -21,7 +21,7 @@ mod utils;
 
 pub use self::associated_item::*;
 pub use self::bundle::*;
-pub use self::db::EntityTreeDb;
+pub use self::db::*;
 pub use self::error::*;
 pub use self::expr::*;
 pub use self::impl_block::*;
