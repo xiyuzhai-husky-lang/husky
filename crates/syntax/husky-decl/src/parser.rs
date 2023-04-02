@@ -15,7 +15,7 @@ pub(crate) struct DeclParseContext<'a> {
     module_symbol_context: ModuleSymbolContext<'a>,
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
-    module_entity_tree: &'a EntityTreeSheet,
+    entity_tree_sheet: &'a EntityTreeSheet,
     entity_tree_crate_bundle: &'a EntityTreeCrateBundle,
 }
 
@@ -27,7 +27,7 @@ impl<'a> DeclParseContext<'a> {
             module_symbol_context,
             token_sheet_data: db.token_sheet_data(path)?,
             ast_sheet: db.ast_sheet(path)?,
-            module_entity_tree: db.entity_tree_sheet(path)?,
+            entity_tree_sheet: db.entity_tree_sheet(path)?,
             entity_tree_crate_bundle: db.entity_tree_bundle(path.crate_path(db))?,
         })
     }
@@ -41,7 +41,7 @@ impl<'a> DeclParseContext<'a> {
         let path = path.into();
         let ident = path.ident(self.db);
         let Some(entity_symbol) = self
-            .module_entity_tree
+            .entity_tree_sheet
             .module_symbols()
             .resolve_ident(ident)
             else {

@@ -43,6 +43,7 @@ impl Diagnose for OriginalEntityTreeError {
             OriginalEntityTreeError::ExpectIdentAfterKeyword => {
                 format!("ExpectIdentAfterKeyword")
             }
+            OriginalEntityTreeError::InvalidTypePath(_) => todo!(),
         }
     }
 
@@ -61,6 +62,7 @@ impl Diagnose for OriginalEntityTreeError {
                 .ranged_token_sheet()
                 .token_text_range(new.ident_token(ctx.db()).token_idx()),
             OriginalEntityTreeError::ExpectIdentAfterKeyword => todo!(),
+            OriginalEntityTreeError::InvalidTypePath(_) => todo!(),
         }
     }
 }

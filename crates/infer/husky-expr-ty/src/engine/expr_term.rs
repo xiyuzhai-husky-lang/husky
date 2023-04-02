@@ -143,7 +143,7 @@ impl<'a> ExprTypeEngine<'a> {
                     ModuleItemPath::Form(_) => todo!(),
                 },
                 EntityPath::AssociatedItem(_) => todo!(),
-                EntityPath::Variant(_) => todo!(),
+                EntityPath::TypeVariant(_) => todo!(),
             },
             //  Ok(Term::new(db,entity_path.into()).into()),
             None => todo!(),

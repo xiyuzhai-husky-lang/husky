@@ -1,6 +1,6 @@
 use crate::{EntityTreeBundleError, EntityTreeDb, NativeEntitySymbol, PreludeError};
 use husky_ast::AstIdx;
-use husky_entity_path::EntityPathError;
+use husky_entity_path::{EntityPathError, TypePath};
 use husky_manifest::ManifestError;
 use husky_token::{IdentToken, TokenIdx};
 use husky_vfs::{ModulePath, ToolchainError, VfsError};
@@ -39,6 +39,12 @@ impl From<VfsError> for EntityTreeError {
     }
 }
 
+impl From<&EntityTreeError> for EntityTreeError {
+    fn from(e: &EntityTreeError) -> Self {
+        todo!()
+    }
+}
+
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum OriginalEntityTreeError {
@@ -55,6 +61,8 @@ pub enum OriginalEntityTreeError {
     },
     #[error("expect identifier after keyword")]
     ExpectIdentAfterKeyword,
+    #[error("InvalidTypePath")]
+    InvalidTypePath(TypePath),
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
@@ -78,3 +86,4 @@ pub enum DerivedEntityTreeError {
 }
 
 pub type EntityTreeResult<T> = Result<T, EntityTreeError>;
+pub type EntityTreeResultRef<'a, T> = Result<T, &'a EntityTreeError>;

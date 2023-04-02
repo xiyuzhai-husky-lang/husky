@@ -68,7 +68,7 @@ impl<'a> AstRangeCalculator<'a> {
             | Ast::Decr {
                 token_group_idx, ..
             }
-            | Ast::ModuleItemVariant {
+            | Ast::TypeVariant {
                 token_group_idx, ..
             } => self
                 .token_sheet_data

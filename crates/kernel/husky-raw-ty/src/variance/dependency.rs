@@ -43,7 +43,7 @@ pub(crate) fn entity_variance_crate_dependencies(
                 .map(|t| t.as_ref()),
         },
         EntityPath::AssociatedItem(_) => todo!(),
-        EntityPath::Variant(_) => todo!(),
+        EntityPath::TypeVariant(_) => todo!(),
     }
 }
 

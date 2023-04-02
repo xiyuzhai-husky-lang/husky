@@ -3,6 +3,6 @@ use crate::*;
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct UnitVariantDecl {
     #[id]
-    pub path: VariantPath,
+    pub path: TypeVariantPath,
     pub expr_region: ExprRegion,
 }
