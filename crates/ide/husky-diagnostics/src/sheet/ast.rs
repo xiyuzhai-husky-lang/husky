@@ -163,6 +163,7 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
                 format!("Syntax Error: VisibilityExprError")
             }
             OriginalAstError::UnexpectedMemoFieldInsideForm => todo!(),
+            OriginalAstError::ExpectedTraitItems(_) => todo!(),
         }
     }
 
@@ -222,6 +223,7 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             ) => ctx.ranged_token_sheet().token_text_range(*token_idx),
             OriginalAstError::ExpectedEntityKeywordGroup(_) => todo!(),
             OriginalAstError::UnexpectedMemoFieldInsideForm => todo!(),
+            OriginalAstError::ExpectedTraitItems(_) => todo!(),
         }
     }
 }

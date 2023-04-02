@@ -1,7 +1,7 @@
 use crate::*;
 use husky_opn_syntax::BinaryOpr;
 use husky_token::*;
-use parsec::{OriginalError, ParseContext, ParseFrom, StreamWrapper};
+use parsec::{OriginalError, ParseFrom, Parser, StreamWrapper};
 use thiserror::Error;
 
 #[derive(Debug, PartialEq, Eq)]

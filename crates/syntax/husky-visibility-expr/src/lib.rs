@@ -6,7 +6,7 @@ use husky_opn_syntax::Bracket;
 use husky_token::*;
 use husky_vfs::{ModulePath, VfsDb};
 use husky_visibility::Visibility;
-use parsec::ParseContext;
+use parsec::Parser;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct VisibilityExpr {

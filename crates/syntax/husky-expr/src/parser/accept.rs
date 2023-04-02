@@ -1,5 +1,5 @@
 use husky_print_utils::p;
-use parsec::ParseContext;
+use parsec::Parser;
 
 use super::*;
 

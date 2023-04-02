@@ -41,7 +41,7 @@ impl<'a> FoldingRangeCalculator<'a> {
             | Ast::MatchStmts { .. }
             | Ast::TypeVariant { .. } => None,
             Ast::Defn { block, .. } => block
-                .ast_idx_range()
+                .children()?
                 .last()
                 .map(|_| (self.ast_range_sheet[ast_idx], FoldingRangeKind::Region)),
             Ast::ImplBlock { items, .. } => items
@@ -51,7 +51,7 @@ impl<'a> FoldingRangeCalculator<'a> {
             Ast::BasicStmtOrBranch { body, .. }
             | Ast::Main { body, .. }
             | Ast::Config { body, .. } => body
-                .ast_idx_range()
+                .children()
                 .last()
                 .map(|_| (self.ast_range_sheet[ast_idx], FoldingRangeKind::Region)),
         }?;

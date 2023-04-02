@@ -23,9 +23,16 @@ pub(crate) fn ty_method_fn_defn(db: &dyn DefnDb, decl: TypeMethodFnDecl) -> Type
     );
     let ast_idx = decl.ast_idx(db);
     let body = match parser.ast_sheet()[ast_idx] {
-        Ast::Defn { children, .. } => parser
-            .parse_block_expr(children.form_body().expect("todo: deal with form variants"))
-            .ok_or(OriginalDefnError::ExpectBody.into()), // todo: change this to parse expected
+        Ast::Defn {
+            block:
+                DefnBlock::Form {
+                    path,
+                    body: Some(body),
+                },
+            ..
+        } => parser
+            .parse_block_expr(body)
+            .ok_or(OriginalDefnError::ExpectBody.into()),
         _ => unreachable!(),
     };
     let expr_region = parser.finish();
