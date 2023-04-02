@@ -3,7 +3,7 @@
         Signature::Form(
             FormSignature::Feature(
                 VarSignature {
-                    return_ty: RawTerm(`[] mnist_classifier::connected_component::ConnectedComponent`),
+                    return_ty: RawTerm(`~ [] mnist_classifier::connected_component::ConnectedComponent`),
                 },
             ),
         ),
@@ -12,7 +12,7 @@
         Signature::Form(
             FormSignature::Feature(
                 VarSignature {
-                    return_ty: RawTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                    return_ty: RawTerm(`~ mnist_classifier::connected_component::ConnectedComponent`),
                 },
             ),
         ),
@@ -30,7 +30,7 @@
         Signature::Form(
             FormSignature::Feature(
                 VarSignature {
-                    return_ty: RawTerm(`[] mnist_classifier::raw_contour::RawContour`),
+                    return_ty: RawTerm(`~ [] mnist_classifier::raw_contour::RawContour`),
                 },
             ),
         ),
@@ -39,7 +39,7 @@
         Signature::Form(
             FormSignature::Feature(
                 VarSignature {
-                    return_ty: RawTerm(`mnist_classifier::raw_contour::RawContour`),
+                    return_ty: RawTerm(`~ mnist_classifier::raw_contour::RawContour`),
                 },
             ),
         ),
@@ -48,7 +48,7 @@
         Signature::Form(
             FormSignature::Feature(
                 VarSignature {
-                    return_ty: RawTerm(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
+                    return_ty: RawTerm(`~ mnist_classifier::line_segment_sketch::LineSegmentSketch`),
                 },
             ),
         ),
@@ -57,7 +57,7 @@
         Signature::Form(
             FormSignature::Feature(
                 VarSignature {
-                    return_ty: RawTerm(`[] mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                    return_ty: RawTerm(`~ [] mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                 },
             ),
         ),
