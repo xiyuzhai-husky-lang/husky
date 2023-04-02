@@ -75,10 +75,15 @@ impl AstSheet {
         invalid_parent: impl FnOnce() -> E,
     ) -> Result<Vec<D>, E> {
         let decr_parent = match self.ast_arena[target] {
-            Ast::Defn { entity_path, .. } => DecrParent::Defn(match entity_path {
-                Some(entity_path) => entity_path,
-                None => return Err(invalid_parent()),
+            Ast::Defn { block, .. } => DecrParent::Defn(match block {
+                DefnBlock::Form { path, body } => todo!(),
+                DefnBlock::Submodule { path } => todo!(),
+                DefnBlock::Type { path, variants } => todo!(),
+                DefnBlock::Trait { path, items } => todo!(),
+                DefnBlock::AssociatedItem { body } => todo!(),
             }),
+            // Some(entity_path) => entity_path,
+            // None => return Err(invalid_parent()),
             _ => todo!(),
         };
         let mut registry = DecrRegistry::new(decr_parent);

@@ -48,7 +48,7 @@ fn struct_regular_fields_debug_with_db(ident: &Ident, fields: &Fields) -> proc_m
                 );
             };
 
-            quote_spanned! { field.span() =>
+            quote! {
                 #field_debug
             }
         })

@@ -73,12 +73,10 @@ pub enum Ast {
         token_group_idx: TokenGroupIdx,
         visibility_expr: VisibilityExpr,
         entity_kind: EntityKind,
-        /// None only when this is under impl block
-        entity_path: Option<EntityPath>,
         ident_token: IdentToken,
         is_generic: bool,
         saved_stream_state: TokenIdx,
-        children: DefnChildren,
+        block: DefnBlock,
     },
     TypeVariant {
         token_group_idx: TokenGroupIdx,

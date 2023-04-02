@@ -181,20 +181,20 @@ impl<'a> EntityTreePresheetBuilder<'a> {
             }
             Ast::Defn {
                 visibility_expr,
-                entity_path,
                 ident_token,
+                block,
                 ..
             } => {
                 let visibility = visibility_expr.visibility();
                 let ident = ident_token.ident();
-                if let Some(entity_path) = entity_path {
+                if let Some(entity_path) = block.entity_path() {
                     let new_entry = NativeEntitySymbolEntry::new(
                         ident,
                         visibility,
                         match entity_path {
                             EntityPath::Module(module_path) => SubmoduleSymbol::new(
                                 self.db,
-                                *module_path,
+                                module_path,
                                 visibility,
                                 ast_idx,
                                 *ident_token,
@@ -202,7 +202,7 @@ impl<'a> EntityTreePresheetBuilder<'a> {
                             .into(),
                             EntityPath::ModuleItem(module_item_path) => ModuleItemSymbol::new(
                                 self.db,
-                                *module_item_path,
+                                module_item_path,
                                 visibility,
                                 ast_idx,
                                 *ident_token,

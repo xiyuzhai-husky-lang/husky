@@ -42,62 +42,48 @@ impl<'a> AstParser<'a> {
         );
         let (entity_kind, ident_token, is_generic, saved_stream_state) = aux_parser.parse_head()?;
         let ident = ident_token.ident();
-        let entity_path: Option<husky_entity_path::EntityPath> = match entity_kind {
-            EntityKind::Module => {
-                Some(ModulePath::new_child(self.db, self.module_path, ident).into())
-            }
+        let block = match entity_kind {
+            EntityKind::Module => DefnBlock::Submodule {
+                path: ModulePath::new_child(self.db, self.module_path, ident).into(),
+            },
             EntityKind::ModuleItem {
                 module_item_kind,
                 connection,
             } => {
                 let connection = self.new_connection(ident, connection);
-                Some(match module_item_kind {
-                    ModuleItemKind::Type(ty_kind) => {
-                        TypePath::new(self.db, self.module_path, ident, connection, ty_kind).into()
-                    }
-                    ModuleItemKind::Form(form_kind) => {
-                        FormPath::new(self.db, self.module_path, ident, connection, form_kind)
-                            .into()
-                    }
-                    ModuleItemKind::Trait => {
-                        TraitPath::new(self.db, self.module_path, ident, connection).into()
-                    }
-                })
+                match module_item_kind {
+                    ModuleItemKind::Type(ty_kind) => DefnBlock::Type {
+                        path: TypePath::new(self.db, self.module_path, ident, connection, ty_kind)
+                            .into(),
+                        variants: todo!(),
+                    },
+                    ModuleItemKind::Form(form_kind) => DefnBlock::Form {
+                        path: FormPath::new(
+                            self.db,
+                            self.module_path,
+                            ident,
+                            connection,
+                            form_kind,
+                        )
+                        .into(),
+                        body: todo!(),
+                    },
+                    ModuleItemKind::Trait => DefnBlock::Trait {
+                        path: TraitPath::new(self.db, self.module_path, ident, connection).into(),
+                        items: todo!(),
+                    },
+                }
             }
-            EntityKind::AssociatedItem { .. } => None,
+            EntityKind::AssociatedItem { .. } => DefnBlock::AssociatedItem { body: todo!() },
             EntityKind::Variant => todo!(),
         };
-        let ast_ctx_kind = AstContextKind::inside_defn(entity_kind, entity_path);
-        let (body, body_kind) = {
-            let body = self.parse_asts(ctx.subcontext(ast_ctx_kind));
-            match body.last() {
-                Some(_) => (body, DefnBodyKind::Block),
-                None => match self
-                    .token_groups
-                    .peek_token_group_of_exact_indent_with_its_first_token(ctx.indent())
-                {
-                    Some((_, _, first_noncomment_token)) => match first_noncomment_token {
-                        Token::Punctuation(Punctuation::VERTICAL) => (
-                            self.parse_ty_variants(ctx.subcontext(
-                                AstContextKind::ExpectTypeVariants { ty_path: todo!() },
-                            )),
-                            DefnBodyKind::TypeVariants,
-                        ),
-                        _ => (Default::default(), DefnBodyKind::None),
-                    },
-                    None => (Default::default(), DefnBodyKind::None),
-                },
-            }
-        };
         Ok(Ast::Defn {
-            // order matters!
             visibility_expr,
             ident_token,
             is_generic,
             token_group_idx,
-            children: todo!(),
+            block,
             entity_kind,
-            entity_path,
             saved_stream_state,
         })
     }
