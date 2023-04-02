@@ -9,6 +9,7 @@ mod specs;
 pub mod test_utils;
 #[cfg(test)]
 mod tests;
+mod utils;
 
 pub use self::db::AstDb;
 pub use self::decr::*;
@@ -18,7 +19,7 @@ pub use self::specs::*;
 
 use self::parser::*;
 use either::*;
-use husky_entity_path::{EntityPath, VariantPath};
+use husky_entity_path::{EntityPath, TypeVariantPath};
 use husky_entity_taxonomy::EntityKind;
 use husky_token::{DecrIdentToken, IdentToken, TokenGroupIdx, TokenIdx};
 use husky_vfs::*;
@@ -78,9 +79,9 @@ pub enum Ast {
         body_kind: DefnBodyKind,
         body: AstIdxRange,
     },
-    ModuleItemVariant {
+    TypeVariant {
         token_group_idx: TokenGroupIdx,
-        module_item_variant_path: VariantPath,
+        path: TypeVariantPath,
         ident: Ident,
     },
     Impl {

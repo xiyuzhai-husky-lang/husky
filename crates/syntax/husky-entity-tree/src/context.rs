@@ -68,7 +68,7 @@ where
                 }
                 EntityPath::ModuleItem(_) => todo!(),
                 EntityPath::AssociatedItem(_) => todo!(),
-                EntityPath::Variant(_) => todo!(),
+                EntityPath::TypeVariant(_) => todo!(),
             }
         } else {
             self.db

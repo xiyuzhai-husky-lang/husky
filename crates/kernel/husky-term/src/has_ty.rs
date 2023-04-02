@@ -15,7 +15,7 @@ impl HasTypeGivenDisambiguation for EntityPath {
             EntityPath::Module(path) => Ok(db.term_menu(path.toolchain(db)).module_ty_ontology()),
             EntityPath::ModuleItem(path) => path.ty(db, disambiguation),
             EntityPath::AssociatedItem(path) => path.ty(db, disambiguation),
-            EntityPath::Variant(path) => path.ty(db, disambiguation),
+            EntityPath::TypeVariant(path) => path.ty(db, disambiguation),
         }
     }
 }
@@ -76,7 +76,7 @@ impl HasTypeGivenDisambiguation for TraitForTypeItemPath {
     }
 }
 
-impl HasTypeGivenDisambiguation for VariantPath {
+impl HasTypeGivenDisambiguation for TypeVariantPath {
     fn ty(self, db: &dyn TermDb, disambiguation: TypePathDisambiguation) -> TermResult<Term> {
         todo!()
     }

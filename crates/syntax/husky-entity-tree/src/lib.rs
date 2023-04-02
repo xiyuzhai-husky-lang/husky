@@ -18,6 +18,7 @@ mod symbol;
 #[cfg(test)]
 mod tests;
 mod utils;
+mod variant;
 
 pub use self::associated_item::*;
 pub use self::bundle::*;
@@ -30,6 +31,7 @@ pub use self::presheet::*;
 pub use self::region_path::*;
 pub use self::sheet::*;
 pub use self::symbol::*;
+pub use self::variant::*;
 
 use self::collector::*;
 use self::context::*;
@@ -68,4 +70,7 @@ pub struct EntityTreeJar(
     ty_items,
     ty_impl_block_items,
     trai_for_ty_impl_block_items,
+    // variants
+    TypeVariant,
+    ty_path_variants,
 );

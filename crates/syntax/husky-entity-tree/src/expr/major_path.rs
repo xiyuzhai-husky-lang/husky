@@ -103,7 +103,7 @@ impl<'a, 'b> MajorPathExprParser<'a, 'b> {
                 EntityPath::Module(_) => todo!(),
                 EntityPath::ModuleItem(path) => path,
                 EntityPath::AssociatedItem(_) => todo!(),
-                EntityPath::Variant(_) => todo!(),
+                EntityPath::TypeVariant(_) => todo!(),
             },
             EntitySymbol::SuperModule {
                 current_module_path,

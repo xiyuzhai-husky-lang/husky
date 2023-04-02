@@ -1,12 +1,12 @@
 use crate::*;
 
 #[salsa::interned(db = EntityPathDb, jar = EntityPathJar)]
-pub struct VariantPath {
+pub struct TypeVariantPath {
     pub path: TypePath,
     pub ident: Ident,
 }
 
-impl<Db> salsa::DisplayWithDb<Db> for VariantPath
+impl<Db> salsa::DisplayWithDb<Db> for TypeVariantPath
 where
     Db: EntityPathDb + ?Sized,
 {

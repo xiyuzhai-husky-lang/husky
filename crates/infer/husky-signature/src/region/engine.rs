@@ -168,7 +168,7 @@ impl<'a> SignatureRawTermEngine<'a> {
                         ModuleItemPath::Form(path) => path.into(),
                     },
                     EntityPath::AssociatedItem(_) => todo!(),
-                    EntityPath::Variant(_) => todo!(),
+                    EntityPath::TypeVariant(_) => todo!(),
                 })),
                 None => Err(DerivedSignatureRawTermError::InvalidEntityPath.into()),
             },

@@ -121,7 +121,7 @@ impl<'a> BlockExprParser<'a> {
             | Ast::Attr { .. }
             | Ast::Decr { .. }
             | Ast::Defn { .. }
-            | Ast::ModuleItemVariant { .. }
+            | Ast::TypeVariant { .. }
             | Ast::Impl { .. }
             | Ast::Main { .. }
             | Ast::Config { .. } => None,

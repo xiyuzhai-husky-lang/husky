@@ -59,7 +59,7 @@ pub(crate) fn entity_variances(
             ModuleItemPath::Form(path) => form_entity_variances(db, path).as_ref().map(Vec::as_ref),
         },
         EntityPath::AssociatedItem(_) => todo!(),
-        EntityPath::Variant(_) => todo!(),
+        EntityPath::TypeVariant(_) => todo!(),
     }
 }
 

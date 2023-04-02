@@ -208,7 +208,7 @@ impl<'a> EntityTreePresheetBuilder<'a> {
                                 *ident_token,
                             )
                             .into(),
-                            EntityPath::AssociatedItem(_) | EntityPath::Variant(_) => return,
+                            EntityPath::AssociatedItem(_) | EntityPath::TypeVariant(_) => return,
                         },
                     );
                     self.native_symbol_entries
@@ -222,7 +222,7 @@ impl<'a> EntityTreePresheetBuilder<'a> {
             | Ast::BasicStmtOrBranch { .. }
             | Ast::IfElseStmts { .. }
             | Ast::MatchStmts { .. }
-            | Ast::ModuleItemVariant { .. }
+            | Ast::TypeVariant { .. }
             | Ast::Impl { .. }
             | Ast::Main { .. }
             | Ast::Config { .. } => (),

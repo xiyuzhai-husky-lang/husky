@@ -41,7 +41,7 @@ pub(crate) fn entity_variance_reprs(
             AssociatedItemPath::TraitItem(_) => todo!(),
             AssociatedItemPath::TraitForTypeItem(_) => todo!(),
         },
-        EntityPath::Variant(_) => todo!(),
+        EntityPath::TypeVariant(_) => todo!(),
     }
     .as_ref()
     .map(|t| t.as_ref())

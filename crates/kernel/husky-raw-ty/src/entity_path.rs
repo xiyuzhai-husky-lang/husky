@@ -47,7 +47,7 @@ pub fn entity_path_raw_ty(
             ModuleItemPath::Form(path) => form_path_raw_ty(db, path),
         },
         EntityPath::AssociatedItem(_) => todo!(),
-        EntityPath::Variant(_) => todo!(),
+        EntityPath::TypeVariant(_) => todo!(),
     }
 }
 

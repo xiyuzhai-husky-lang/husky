@@ -22,7 +22,7 @@ impl VariantDefn {
         todo!()
     }
 
-    pub fn path(self, _db: &dyn DefnDb) -> VariantPath {
+    pub fn path(self, _db: &dyn DefnDb) -> TypeVariantPath {
         todo!()
     }
 }

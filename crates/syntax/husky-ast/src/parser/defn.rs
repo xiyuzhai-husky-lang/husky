@@ -148,9 +148,9 @@ impl<'a> AstParser<'a> {
             None => todo!(),
         };
         let module_item_path = todo!();
-        Ast::ModuleItemVariant {
+        Ast::TypeVariant {
             token_group_idx,
-            module_item_variant_path: VariantPath::new(self.db, module_item_path, ident),
+            path: TypeVariantPath::new(self.db, module_item_path, ident),
             ident: todo!(),
         }
     }

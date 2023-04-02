@@ -36,7 +36,7 @@ pub struct EntityPathJar(
     TypeItemPath,
     TraitItemPath,
     TraitForTypeItemPath,
-    VariantPath,
+    TypeVariantPath,
     entity_path_menu,
 );
 
@@ -46,7 +46,7 @@ pub enum EntityPath {
     Module(ModulePath),
     ModuleItem(ModuleItemPath),
     AssociatedItem(AssociatedItemPath),
-    Variant(VariantPath),
+    TypeVariant(TypeVariantPath),
 }
 
 impl From<ModulePath> for EntityPath {
@@ -67,7 +67,7 @@ impl EntityPath {
             EntityPath::Module(path) => path.ident(db),
             EntityPath::ModuleItem(path) => path.ident(db),
             EntityPath::AssociatedItem(path) => path.ident(db),
-            EntityPath::Variant(path) => path.ident(db),
+            EntityPath::TypeVariant(path) => path.ident(db),
         }
     }
 
@@ -87,7 +87,7 @@ impl EntityPath {
             EntityPath::Module(path) => path,
             EntityPath::ModuleItem(path) => path.module_path(db),
             EntityPath::AssociatedItem(path) => path.module_path(db),
-            EntityPath::Variant(_) => todo!(),
+            EntityPath::TypeVariant(_) => todo!(),
         }
     }
 
@@ -104,7 +104,7 @@ impl EntityPath {
             EntityPath::Module(_path) => EntityKind::Module,
             EntityPath::ModuleItem(path) => path.entity_kind(db),
             EntityPath::AssociatedItem(path) => path.entity_kind(db),
-            EntityPath::Variant(_) => todo!(),
+            EntityPath::TypeVariant(_) => todo!(),
         }
     }
 }
@@ -124,14 +124,14 @@ where
             EntityPath::Module(path) => path.display_with_db_fmt(f, db, level),
             EntityPath::ModuleItem(path) => path.display_with_db_fmt(f, db, level),
             EntityPath::AssociatedItem(path) => path.display_with_db_fmt(f, db, level),
-            EntityPath::Variant(path) => path.display_with_db_fmt(f, db, level),
+            EntityPath::TypeVariant(path) => path.display_with_db_fmt(f, db, level),
         }
     }
 }
 
-impl From<VariantPath> for EntityPath {
-    fn from(v: VariantPath) -> Self {
-        Self::Variant(v)
+impl From<TypeVariantPath> for EntityPath {
+    fn from(v: TypeVariantPath) -> Self {
+        Self::TypeVariant(v)
     }
 }
 
