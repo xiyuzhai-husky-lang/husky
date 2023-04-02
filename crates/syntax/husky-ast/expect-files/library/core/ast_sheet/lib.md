@@ -17,11 +17,6 @@ Ok(
                         },
                     },
                     entity_kind: Module,
-                    entity_path: Some(
-                        EntityPath::Module(
-                            `core::basic`,
-                        ),
-                    ),
                     ident_token: IdentToken {
                         ident: `basic`,
                         token_idx: TokenIdx(
@@ -32,10 +27,13 @@ Ok(
                     saved_stream_state: TokenIdx(
                         3,
                     ),
-                    body_kind: None,
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
+                    block: Submodule {
+                        path: ModulePath(
+                            Id {
+                                value: 2,
+                            },
+                        ),
+                    },
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -52,11 +50,6 @@ Ok(
                         },
                     },
                     entity_kind: Module,
-                    entity_path: Some(
-                        EntityPath::Module(
-                            `core::default`,
-                        ),
-                    ),
                     ident_token: IdentToken {
                         ident: `default`,
                         token_idx: TokenIdx(
@@ -67,10 +60,13 @@ Ok(
                     saved_stream_state: TokenIdx(
                         6,
                     ),
-                    body_kind: None,
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
+                    block: Submodule {
+                        path: ModulePath(
+                            Id {
+                                value: 5,
+                            },
+                        ),
+                    },
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -87,11 +83,6 @@ Ok(
                         },
                     },
                     entity_kind: Module,
-                    entity_path: Some(
-                        EntityPath::Module(
-                            `core::logic`,
-                        ),
-                    ),
                     ident_token: IdentToken {
                         ident: `logic`,
                         token_idx: TokenIdx(
@@ -102,10 +93,13 @@ Ok(
                     saved_stream_state: TokenIdx(
                         9,
                     ),
-                    body_kind: None,
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
+                    block: Submodule {
+                        path: ModulePath(
+                            Id {
+                                value: 8,
+                            },
+                        ),
+                    },
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -122,11 +116,6 @@ Ok(
                         },
                     },
                     entity_kind: Module,
-                    entity_path: Some(
-                        EntityPath::Module(
-                            `core::mem`,
-                        ),
-                    ),
                     ident_token: IdentToken {
                         ident: `mem`,
                         token_idx: TokenIdx(
@@ -137,10 +126,13 @@ Ok(
                     saved_stream_state: TokenIdx(
                         12,
                     ),
-                    body_kind: None,
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
+                    block: Submodule {
+                        path: ModulePath(
+                            Id {
+                                value: 10,
+                            },
+                        ),
+                    },
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -157,11 +149,6 @@ Ok(
                         },
                     },
                     entity_kind: Module,
-                    entity_path: Some(
-                        EntityPath::Module(
-                            `core::num`,
-                        ),
-                    ),
                     ident_token: IdentToken {
                         ident: `num`,
                         token_idx: TokenIdx(
@@ -172,10 +159,13 @@ Ok(
                     saved_stream_state: TokenIdx(
                         15,
                     ),
-                    body_kind: None,
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
+                    block: Submodule {
+                        path: ModulePath(
+                            Id {
+                                value: 11,
+                            },
+                        ),
+                    },
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -192,11 +182,6 @@ Ok(
                         },
                     },
                     entity_kind: Module,
-                    entity_path: Some(
-                        EntityPath::Module(
-                            `core::ops`,
-                        ),
-                    ),
                     ident_token: IdentToken {
                         ident: `ops`,
                         token_idx: TokenIdx(
@@ -207,10 +192,13 @@ Ok(
                     saved_stream_state: TokenIdx(
                         18,
                     ),
-                    body_kind: None,
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
+                    block: Submodule {
+                        path: ModulePath(
+                            Id {
+                                value: 12,
+                            },
+                        ),
+                    },
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -227,11 +215,6 @@ Ok(
                         },
                     },
                     entity_kind: Module,
-                    entity_path: Some(
-                        EntityPath::Module(
-                            `core::prelude`,
-                        ),
-                    ),
                     ident_token: IdentToken {
                         ident: `prelude`,
                         token_idx: TokenIdx(
@@ -242,10 +225,13 @@ Ok(
                     saved_stream_state: TokenIdx(
                         21,
                     ),
-                    body_kind: None,
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
+                    block: Submodule {
+                        path: ModulePath(
+                            Id {
+                                value: 14,
+                            },
+                        ),
+                    },
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -262,11 +248,6 @@ Ok(
                         },
                     },
                     entity_kind: Module,
-                    entity_path: Some(
-                        EntityPath::Module(
-                            `core::raw_bits`,
-                        ),
-                    ),
                     ident_token: IdentToken {
                         ident: `raw_bits`,
                         token_idx: TokenIdx(
@@ -277,10 +258,13 @@ Ok(
                     saved_stream_state: TokenIdx(
                         24,
                     ),
-                    body_kind: None,
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
+                    block: Submodule {
+                        path: ModulePath(
+                            Id {
+                                value: 15,
+                            },
+                        ),
+                    },
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -297,11 +281,6 @@ Ok(
                         },
                     },
                     entity_kind: Module,
-                    entity_path: Some(
-                        EntityPath::Module(
-                            `core::fmt`,
-                        ),
-                    ),
                     ident_token: IdentToken {
                         ident: `fmt`,
                         token_idx: TokenIdx(
@@ -312,10 +291,13 @@ Ok(
                     saved_stream_state: TokenIdx(
                         27,
                     ),
-                    body_kind: None,
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
+                    block: Submodule {
+                        path: ModulePath(
+                            Id {
+                                value: 6,
+                            },
+                        ),
+                    },
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -332,11 +314,6 @@ Ok(
                         },
                     },
                     entity_kind: Module,
-                    entity_path: Some(
-                        EntityPath::Module(
-                            `core::clone`,
-                        ),
-                    ),
                     ident_token: IdentToken {
                         ident: `clone`,
                         token_idx: TokenIdx(
@@ -347,10 +324,13 @@ Ok(
                     saved_stream_state: TokenIdx(
                         30,
                     ),
-                    body_kind: None,
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
+                    block: Submodule {
+                        path: ModulePath(
+                            Id {
+                                value: 3,
+                            },
+                        ),
+                    },
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -367,11 +347,6 @@ Ok(
                         },
                     },
                     entity_kind: Module,
-                    entity_path: Some(
-                        EntityPath::Module(
-                            `core::marker`,
-                        ),
-                    ),
                     ident_token: IdentToken {
                         ident: `marker`,
                         token_idx: TokenIdx(
@@ -382,10 +357,13 @@ Ok(
                     saved_stream_state: TokenIdx(
                         33,
                     ),
-                    body_kind: None,
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
+                    block: Submodule {
+                        path: ModulePath(
+                            Id {
+                                value: 9,
+                            },
+                        ),
+                    },
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -402,11 +380,6 @@ Ok(
                         },
                     },
                     entity_kind: Module,
-                    entity_path: Some(
-                        EntityPath::Module(
-                            `core::list`,
-                        ),
-                    ),
                     ident_token: IdentToken {
                         ident: `list`,
                         token_idx: TokenIdx(
@@ -417,10 +390,13 @@ Ok(
                     saved_stream_state: TokenIdx(
                         36,
                     ),
-                    body_kind: None,
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
+                    block: Submodule {
+                        path: ModulePath(
+                            Id {
+                                value: 7,
+                            },
+                        ),
+                    },
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -437,11 +413,6 @@ Ok(
                         },
                     },
                     entity_kind: Module,
-                    entity_path: Some(
-                        EntityPath::Module(
-                            `core::cmp`,
-                        ),
-                    ),
                     ident_token: IdentToken {
                         ident: `cmp`,
                         token_idx: TokenIdx(
@@ -452,10 +423,13 @@ Ok(
                     saved_stream_state: TokenIdx(
                         39,
                     ),
-                    body_kind: None,
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
+                    block: Submodule {
+                        path: ModulePath(
+                            Id {
+                                value: 4,
+                            },
+                        ),
+                    },
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -472,11 +446,6 @@ Ok(
                         },
                     },
                     entity_kind: Module,
-                    entity_path: Some(
-                        EntityPath::Module(
-                            `core::str`,
-                        ),
-                    ),
                     ident_token: IdentToken {
                         ident: `str`,
                         token_idx: TokenIdx(
@@ -487,10 +456,13 @@ Ok(
                     saved_stream_state: TokenIdx(
                         42,
                     ),
-                    body_kind: None,
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
+                    block: Submodule {
+                        path: ModulePath(
+                            Id {
+                                value: 16,
+                            },
+                        ),
+                    },
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -507,11 +479,6 @@ Ok(
                         },
                     },
                     entity_kind: Module,
-                    entity_path: Some(
-                        EntityPath::Module(
-                            `core::option`,
-                        ),
-                    ),
                     ident_token: IdentToken {
                         ident: `option`,
                         token_idx: TokenIdx(
@@ -522,10 +489,13 @@ Ok(
                     saved_stream_state: TokenIdx(
                         45,
                     ),
-                    body_kind: None,
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
+                    block: Submodule {
+                        path: ModulePath(
+                            Id {
+                                value: 13,
+                            },
+                        ),
+                    },
                 },
             ],
         },
@@ -533,51 +503,6 @@ Ok(
             0..15,
         ),
         siblings: [
-            ArenaIdxRange(
-                0..0,
-            ),
-            ArenaIdxRange(
-                0..0,
-            ),
-            ArenaIdxRange(
-                0..0,
-            ),
-            ArenaIdxRange(
-                0..0,
-            ),
-            ArenaIdxRange(
-                0..0,
-            ),
-            ArenaIdxRange(
-                0..0,
-            ),
-            ArenaIdxRange(
-                0..0,
-            ),
-            ArenaIdxRange(
-                0..0,
-            ),
-            ArenaIdxRange(
-                0..0,
-            ),
-            ArenaIdxRange(
-                0..0,
-            ),
-            ArenaIdxRange(
-                0..0,
-            ),
-            ArenaIdxRange(
-                0..0,
-            ),
-            ArenaIdxRange(
-                0..0,
-            ),
-            ArenaIdxRange(
-                0..0,
-            ),
-            ArenaIdxRange(
-                0..0,
-            ),
             ArenaIdxRange(
                 0..15,
             ),

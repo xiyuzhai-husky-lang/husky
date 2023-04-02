@@ -15,17 +15,17 @@ pub use parameter::*;
 pub use sheet::*;
 
 use derive_getters::Getters;
+use either::*;
 use husky_ast::*;
 use husky_entity_path::*;
 use husky_entity_tree::*;
 use husky_expr::*;
 use husky_token::*;
 use husky_vfs::ModulePath;
-use parsec::ParseContext;
+use parsec::Parser;
 use parser::*;
 #[cfg(test)]
 use tests::*;
-use either::*;
 
 #[salsa::jar(db = DeclDb)]
 pub struct DeclJar(

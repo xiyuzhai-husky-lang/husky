@@ -105,6 +105,8 @@ pub enum OriginalAstError {
     VisibilityExprError(#[from] OriginalVisibilityExprError),
     #[error("UnexpectedMemoFieldInsideForm")]
     UnexpectedMemoFieldInsideForm,
+    #[error("ExpectedTraitItems")]
+    ExpectedTraitItems(TokenGroupIdx),
 }
 
 impl OriginalError for OriginalAstError {

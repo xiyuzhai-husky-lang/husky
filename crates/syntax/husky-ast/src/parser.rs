@@ -11,6 +11,7 @@ use husky_token::{
     ConnectionKeyword, Keyword, Punctuation, RangedTokenSheet, StmtKeyword, Token, TokenGroupIter,
     TokenSheetData,
 };
+use parsec::{HasParseState, ParseFrom};
 use salsa::DebugWithDb;
 use utils::*;
 
@@ -22,6 +23,18 @@ pub(crate) struct AstParser<'a> {
     ast_arena: AstArena,
     disambiguator_registry: DisambiguatorRegistry,
     siblings: Vec<AstIdxRange>,
+}
+
+impl<'a> HasParseState for AstParser<'a> {
+    type State = TokenGroupIdx;
+
+    fn save_state(&self) -> Self::State {
+        self.token_groups.state()
+    }
+
+    fn rollback(&mut self, state: Self::State) {
+        self.token_groups.rollback(state)
+    }
 }
 
 impl<'a> AstParser<'a> {

@@ -2,12 +2,12 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct TypeVariants {
-    ast_idx_range: AstIdxRange,
+    children: AstIdxRange,
 }
 
 impl TypeVariants {
-    pub fn ast_idx_range(&self) -> AstIdxRange {
-        self.ast_idx_range
+    pub fn children(&self) -> AstIdxRange {
+        self.children
     }
 }
 

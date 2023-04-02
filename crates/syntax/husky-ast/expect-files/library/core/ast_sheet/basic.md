@@ -22,13 +22,6 @@ Ok(
                         ),
                         connection: Connected,
                     },
-                    entity_path: Some(
-                        EntityPath::ModuleItem(
-                            ModuleItemPath::Type(
-                                TypePath(`core::basic::bool`, `Extern`),
-                            ),
-                        ),
-                    ),
                     ident_token: IdentToken {
                         ident: `bool`,
                         token_idx: TokenIdx(
@@ -39,10 +32,14 @@ Ok(
                     saved_stream_state: TokenIdx(
                         3,
                     ),
-                    body_kind: None,
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
+                    block: Type {
+                        path: TypePath(
+                            Id {
+                                value: 1,
+                            },
+                        ),
+                        variants: None,
+                    },
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -64,13 +61,6 @@ Ok(
                         ),
                         connection: Connected,
                     },
-                    entity_path: Some(
-                        EntityPath::ModuleItem(
-                            ModuleItemPath::Type(
-                                TypePath(`core::basic::never`, `Extern`),
-                            ),
-                        ),
-                    ),
                     ident_token: IdentToken {
                         ident: `never`,
                         token_idx: TokenIdx(
@@ -81,10 +71,14 @@ Ok(
                     saved_stream_state: TokenIdx(
                         7,
                     ),
-                    body_kind: None,
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
+                    block: Type {
+                        path: TypePath(
+                            Id {
+                                value: 2,
+                            },
+                        ),
+                        variants: None,
+                    },
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -106,13 +100,6 @@ Ok(
                         ),
                         connection: Connected,
                     },
-                    entity_path: Some(
-                        EntityPath::ModuleItem(
-                            ModuleItemPath::Type(
-                                TypePath(`core::basic::unit`, `Extern`),
-                            ),
-                        ),
-                    ),
                     ident_token: IdentToken {
                         ident: `unit`,
                         token_idx: TokenIdx(
@@ -123,10 +110,14 @@ Ok(
                     saved_stream_state: TokenIdx(
                         11,
                     ),
-                    body_kind: None,
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
+                    block: Type {
+                        path: TypePath(
+                            Id {
+                                value: 3,
+                            },
+                        ),
+                        variants: None,
+                    },
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -148,13 +139,6 @@ Ok(
                         ),
                         connection: Connected,
                     },
-                    entity_path: Some(
-                        EntityPath::ModuleItem(
-                            ModuleItemPath::Type(
-                                TypePath(`core::basic::Trait`, `Structure`),
-                            ),
-                        ),
-                    ),
                     ident_token: IdentToken {
                         ident: `Trait`,
                         token_idx: TokenIdx(
@@ -165,10 +149,14 @@ Ok(
                     saved_stream_state: TokenIdx(
                         15,
                     ),
-                    body_kind: None,
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
+                    block: Type {
+                        path: TypePath(
+                            Id {
+                                value: 4,
+                            },
+                        ),
+                        variants: None,
+                    },
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
@@ -190,13 +178,6 @@ Ok(
                         ),
                         connection: Connected,
                     },
-                    entity_path: Some(
-                        EntityPath::ModuleItem(
-                            ModuleItemPath::Type(
-                                TypePath(`core::basic::Module`, `Structure`),
-                            ),
-                        ),
-                    ),
                     ident_token: IdentToken {
                         ident: `Module`,
                         token_idx: TokenIdx(
@@ -207,10 +188,14 @@ Ok(
                     saved_stream_state: TokenIdx(
                         19,
                     ),
-                    body_kind: None,
-                    body: ArenaIdxRange(
-                        0..0,
-                    ),
+                    block: Type {
+                        path: TypePath(
+                            Id {
+                                value: 5,
+                            },
+                        ),
+                        variants: None,
+                    },
                 },
             ],
         },
@@ -218,21 +203,6 @@ Ok(
             0..5,
         ),
         siblings: [
-            ArenaIdxRange(
-                0..0,
-            ),
-            ArenaIdxRange(
-                0..0,
-            ),
-            ArenaIdxRange(
-                0..0,
-            ),
-            ArenaIdxRange(
-                0..0,
-            ),
-            ArenaIdxRange(
-                0..0,
-            ),
             ArenaIdxRange(
                 0..5,
             ),

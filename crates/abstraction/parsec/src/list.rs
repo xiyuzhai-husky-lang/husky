@@ -4,7 +4,7 @@ pub fn parse_consecutive_list<Context, Element, Error>(
     ctx: &mut Context,
 ) -> Result<Vec<Element>, Error>
 where
-    Context: ParseContext,
+    Context: Parser,
     Element: ParseFrom<Context, Error = Error>,
 {
     let mut elements = vec![];
@@ -18,7 +18,7 @@ pub fn parse_separated_list<Context, Element, Separator, Error>(
     ctx: &mut Context,
 ) -> (Vec<Element>, Vec<Separator>, Result<(), Error>)
 where
-    Context: ParseContext,
+    Context: Parser,
     Element: ParseFrom<Context, Error = Error>,
     Separator: ParseFrom<Context>,
     Error: From<<Separator as ParseFrom<Context>>::Error>,
@@ -47,7 +47,7 @@ pub fn parse_separated_list2<Context, Element, Separator, E1, E2>(
     f: impl FnOnce(E1) -> E2,
 ) -> Result<(Vec<Element>, Vec<Separator>), E2>
 where
-    Context: ParseContext,
+    Context: Parser,
     Element: ParseFrom<Context, Error = E1>,
     Separator: ParseFrom<Context>,
     E1: From<<Separator as ParseFrom<Context>>::Error>,
@@ -91,7 +91,7 @@ pub fn parse_separated_list_expected<Context, Element, Separator, E: OriginalErr
     f: impl FnOnce(<Context as HasParseState>::State) -> E,
 ) -> (Vec<Element>, Vec<Separator>, Result<(), E::Error>)
 where
-    Context: ParseContext,
+    Context: Parser,
     Element: ParseFrom<Context>,
     Separator: ParseFrom<Context>,
     E::Error: From<<Element as ParseFrom<Context>>::Error>,

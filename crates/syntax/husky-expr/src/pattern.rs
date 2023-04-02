@@ -12,7 +12,7 @@ use husky_token::{AtToken, DotDotToken, IdentToken, TokenStream};
 use husky_word::Ident;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 use ordered_float::NotNan;
-use parsec::{ParseContext, ParseFrom};
+use parsec::{ParseFrom, Parser};
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum LiteralData {

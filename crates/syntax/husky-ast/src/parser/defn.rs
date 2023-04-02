@@ -6,7 +6,7 @@ use husky_entity_taxonomy::{
 use husky_opn_syntax::{BinaryOpr, Bracket};
 use husky_print_utils::p;
 use husky_token::{EntityKeywordGroup, FormKeyword, TokenParseContext, TypeEntityKeyword};
-use parsec::{ParseContext, ParseFrom};
+use parsec::{ParseFrom, Parser};
 use salsa::DebugWithDb;
 
 use super::*;
@@ -55,7 +55,10 @@ impl<'a> AstParser<'a> {
                     ModuleItemKind::Type(ty_kind) => DefnBlock::Type {
                         path: TypePath::new(self.db, self.module_path, ident, connection, ty_kind)
                             .into(),
-                        variants: todo!(),
+                        variants: match ty_kind {
+                            TypeKind::Enum | TypeKind::Inductive => todo!(),
+                            _ => None,
+                        },
                     },
                     ModuleItemKind::Form(form_kind) => DefnBlock::Form {
                         path: FormPath::new(
@@ -70,7 +73,8 @@ impl<'a> AstParser<'a> {
                     },
                     ModuleItemKind::Trait => DefnBlock::Trait {
                         path: TraitPath::new(self.db, self.module_path, ident, connection).into(),
-                        items: todo!(),
+                        items: self
+                            .parse_expected2(todo!(), OriginalAstError::ExpectedTraitItems)?,
                     },
                 }
             }

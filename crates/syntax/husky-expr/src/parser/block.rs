@@ -62,7 +62,7 @@ impl<'a> BlockExprParser<'a> {
 
     pub fn parse_block_stmts(&mut self, body: FormBody) -> Option<StmtIdxRange> {
         let block_end = self.form_body_end(body);
-        let body = body.ast_idx_range();
+        let body = body.children();
         if body.len() == 0 {
             return None;
         }
@@ -237,11 +237,10 @@ impl<'a> BlockExprParser<'a> {
                     ident: particulars.frame_var_ident,
                 };
                 let current_symbol_kind = current_symbol_variant.kind();
-                let access_start = self.ast_token_idx_range_sheet[body.ast_idx_range().start()]
+                let access_start = self.ast_token_idx_range_sheet[body.children().start()]
                     .start()
                     .token_idx();
-                let access_end =
-                    self.ast_token_idx_range_sheet[body.ast_idx_range().end() - 1].end();
+                let access_end = self.ast_token_idx_range_sheet[body.children().end() - 1].end();
                 let frame_var_symbol =
                     CurrentSymbol::new(access_start, Some(access_end), current_symbol_variant);
                 let frame_var_symbol_idx = self
@@ -365,7 +364,7 @@ impl<'a> BlockExprParser<'a> {
         }
     }
     fn form_body_end(&self, body: FormBody) -> TokenIdxRangeEnd {
-        self.ast_token_idx_range_sheet[body.ast_idx_range().end() - 1].end()
+        self.ast_token_idx_range_sheet[body.children().end() - 1].end()
     }
 
     fn parse_elif_branches(&mut self, elif_branches: AstIdxRange) -> Vec<ElifBranch> {

@@ -327,6 +327,14 @@ impl<'a> TokenGroupIter<'a> {
         }
     }
 
+    pub fn state(&self) -> TokenGroupIdx {
+        TokenGroupIdx(self.current)
+    }
+
+    pub fn rollback(&mut self, state: TokenGroupIdx) {
+        self.current = state.0
+    }
+
     fn peek(&self) -> Option<(TokenGroupIdx, TokenGroup<'a>)> {
         if self.current >= self.line_group_starts.len() {
             return None;
