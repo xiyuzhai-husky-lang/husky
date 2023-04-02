@@ -100,7 +100,7 @@ impl<'a> InferEngine<'a> {
                 ident_token.token_idx(),
                 TokenInfo::Entity(decl.path(self.db), Some(entity_kind)),
             ),
-            Ast::Impl { .. } => (),
+            Ast::ImplBlock { .. } => (),
             _ => unreachable!(),
         }
         match defn {

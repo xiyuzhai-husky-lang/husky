@@ -82,10 +82,7 @@ impl<'a> DeclParseContext<'a> {
         match self.ast_sheet()[ast_idx] {
             Ast::Defn {
                 token_group_idx,
-                ref body,
-
                 entity_kind,
-
                 saved_stream_state,
                 ..
             } => self.parse_form_decl_aux(
@@ -93,7 +90,6 @@ impl<'a> DeclParseContext<'a> {
                 path,
                 entity_kind,
                 token_group_idx,
-                body,
                 saved_stream_state,
             ),
             _ => unreachable!(),
@@ -106,7 +102,6 @@ impl<'a> DeclParseContext<'a> {
         path: FormPath,
         _entity_kind: EntityKind,
         token_group_idx: TokenGroupIdx,
-        _body: &AstIdxRange,
         saved_stream_state: TokenIdx,
     ) -> Result<FormDecl, DeclError> {
         match path.form_kind(self.db()) {

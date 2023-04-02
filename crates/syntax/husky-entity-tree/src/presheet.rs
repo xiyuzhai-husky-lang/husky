@@ -223,7 +223,7 @@ impl<'a> EntityTreePresheetBuilder<'a> {
             | Ast::IfElseStmts { .. }
             | Ast::MatchStmts { .. }
             | Ast::TypeVariant { .. }
-            | Ast::Impl { .. }
+            | Ast::ImplBlock { .. }
             | Ast::Main { .. }
             | Ast::Config { .. } => (),
         }

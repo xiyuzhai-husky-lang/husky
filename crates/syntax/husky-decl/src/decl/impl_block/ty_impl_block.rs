@@ -43,9 +43,9 @@ impl<'a> DeclParseContext<'a> {
     fn parse_ty_impl_block_decl(&self, impl_block: TypeImplBlock) -> DeclResult<TypeImplBlockDecl> {
         let ast_idx = impl_block.ast_idx(self.db());
         match self.ast_sheet()[ast_idx] {
-            Ast::Impl {
+            Ast::ImplBlock {
                 token_group_idx,
-                body: _,
+                items: _,
             } => Ok(self
                 .parse_ty_impl_block_decl_aux(ast_idx, token_group_idx, impl_block)?
                 .into()),

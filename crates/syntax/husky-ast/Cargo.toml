@@ -8,13 +8,14 @@ description = "Generic LSP server scaffold."
 
 [dependencies]
 lsp-types = { version = "0.93", features = ["proposed"] }
+either = "1.8.1"
 ordered-float = "3.0.0"
 thiserror = "1.0.37"
 # forks
 thin-vec = { path = "../../../forks/thin-vec" }
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
-either = "1.8.1"
+enum-class = { path = "../../abstraction/enum-class" }
 vec-like = { path = "../../abstraction/vec-like" }
 upcast = { path = "../../abstraction/upcast" }
 idx-arena = { path = "../../abstraction/idx-arena" }

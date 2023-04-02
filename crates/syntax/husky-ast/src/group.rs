@@ -1,28 +1,41 @@
-use crate::AstIdxRange;
-pub enum AstGroup {
-    ModuleItems(ModuleItems),
+mod form_body;
+mod module_items;
+mod trai_for_ty_items;
+mod trai_items;
+mod ty_items;
+mod variants;
+
+pub use self::form_body::*;
+pub use self::module_items::*;
+pub use self::trai_for_ty_items::*;
+pub use self::trai_items::*;
+pub use self::ty_items::*;
+pub use self::variants::*;
+
+use crate::*;
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[enum_class::from_variants]
+pub enum DefnBody {
     FormBody(FormBody),
-    TypeImplBlockItems(TypeImplBlockItems),
-    TraitForTypeImplBlockItems(TraitForTypeImplBlockItems),
-    TypeVariants(TypeVariants),
+    Variants(Variants)
 }
 
-pub struct ModuleItems {
-    ast_idx_range: AstIdxRange,
+impl DefnBody {
+    pub fn ast_idx_range(self) -> AstIdxRange {
+        todo!()
+    }
+
+    pub fn form_body(self) -> Option<FormBody> {
+        todo!()
+    }
 }
 
-pub struct FormBody {
-    ast_idx_range: AstIdxRange,
-}
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum ImplBlockItems {}
 
-pub struct TypeImplBlockItems {
-    ast_idx_range: AstIdxRange,
-}
-
-pub struct TraitForTypeImplBlockItems {
-    ast_idx_range: AstIdxRange,
-}
-
-pub struct TypeVariants {
-    ast_idx_range: AstIdxRange,
+impl ImplBlockItems {
+    pub fn ast_idx_range(self) -> AstIdxRange {
+        todo!()
+    }
 }

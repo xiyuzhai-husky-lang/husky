@@ -123,7 +123,7 @@ impl<'a> DeclParseContext<'a> {
         match self.ast_sheet()[ast_idx] {
             Ast::Defn {
                 token_group_idx,
-                ref body,
+                body,
                 entity_kind,
                 saved_stream_state,
                 ..
@@ -147,7 +147,7 @@ impl<'a> DeclParseContext<'a> {
         path: TypePath,
         _entity_kind: EntityKind,
         token_group_idx: TokenGroupIdx,
-        body: &AstIdxRange,
+        body: DefnBody,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeDecl> {
         match type_kind {
@@ -173,7 +173,7 @@ impl<'a> DeclParseContext<'a> {
                 saved_stream_state,
             ),
             TypeKind::Extern => {
-                self.parse_extern_ty_decl(ast_idx, path, token_group_idx, body, saved_stream_state)
+                self.parse_extern_ty_decl(ast_idx, path, token_group_idx, saved_stream_state)
             }
         }
     }

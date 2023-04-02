@@ -110,9 +110,9 @@ impl<'a> EntityTreeCollector<'a> {
             let impl_blocks = ast_sheet
                 .all_ast_indexed_iter()
                 .filter_map(|(ast_idx, ast)| match ast {
-                    Ast::Impl {
+                    Ast::ImplBlock {
                         token_group_idx,
-                        body,
+                        items,
                     } => {
                         let crate_prelude = crate_prelude(
                             self.opt_universal_prelude,
@@ -130,7 +130,7 @@ impl<'a> EntityTreeCollector<'a> {
                             module_symbol_context,
                             module_path,
                             ast_idx,
-                            *body,
+                            items.ast_idx_range(),
                             self.db
                                 .token_sheet_data(module_path)
                                 .unwrap()
