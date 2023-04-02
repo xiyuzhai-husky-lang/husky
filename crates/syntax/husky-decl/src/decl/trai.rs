@@ -39,10 +39,9 @@ impl<'a> DeclParseContext<'a> {
         match self.ast_sheet()[ast_idx] {
             Ast::Defn {
                 token_group_idx,
-                ref body,
                 saved_stream_state,
                 ..
-            } => self.parse_trai_decl_aux(ast_idx, path, token_group_idx, body, saved_stream_state),
+            } => self.parse_trai_decl_aux(ast_idx, path, token_group_idx, saved_stream_state),
             _ => unreachable!(),
         }
     }
@@ -52,7 +51,6 @@ impl<'a> DeclParseContext<'a> {
         ast_idx: AstIdx,
         path: TraitPath,
         token_group_idx: TokenGroupIdx,
-        _body: &AstIdxRange,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TraitDecl> {
         let mut parser = self.expr_parser(

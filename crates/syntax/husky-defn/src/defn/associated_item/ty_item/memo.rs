@@ -22,7 +22,7 @@ pub(crate) fn ty_memo_defn(db: &dyn DefnDb, decl: TypeMemoDecl) -> TypeMemoDefn 
     let ast_idx = decl.ast_idx(db);
     let body = match parser.ast_sheet()[ast_idx] {
         Ast::Defn { body, .. } => parser
-            .parse_block_expr(body)
+            .parse_block_expr(body.form_body().expect("todo: deal with form variants"))
             .ok_or(OriginalDefnError::ExpectBody.into()), // todo: change this to parse expected
         _ => unreachable!(),
     };

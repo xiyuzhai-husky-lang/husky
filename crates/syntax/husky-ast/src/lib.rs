@@ -15,6 +15,7 @@ mod utils;
 pub use self::db::AstDb;
 pub use self::decr::*;
 pub use self::error::*;
+pub use self::group::*;
 pub use self::range::*;
 pub use self::specs::*;
 
@@ -56,7 +57,7 @@ pub enum Ast {
     },
     BasicStmtOrBranch {
         token_group_idx: TokenGroupIdx,
-        body: AstIdxRange,
+        body: FormBody,
     },
     IfElseStmts {
         if_branch: AstIdx,
@@ -77,25 +78,24 @@ pub enum Ast {
         ident_token: IdentToken,
         is_generic: bool,
         saved_stream_state: TokenIdx,
-        body_kind: DefnBodyKind,
-        body: AstIdxRange,
+        body: DefnBody,
     },
     TypeVariant {
         token_group_idx: TokenGroupIdx,
         path: TypeVariantPath,
         ident: Ident,
     },
-    Impl {
+    ImplBlock {
         token_group_idx: TokenGroupIdx,
-        body: AstIdxRange,
+        items: ImplBlockItems,
     },
     Main {
         token_group_idx: TokenGroupIdx,
-        body: AstIdxRange,
+        body: FormBody,
     },
     Config {
         token_group_idx: TokenGroupIdx,
-        body: AstIdxRange,
+        body: FormBody,
     },
 }
 

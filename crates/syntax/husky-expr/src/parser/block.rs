@@ -1,5 +1,5 @@
 use super::*;
-use husky_ast::{AstIdx, AstTokenIdxRangeSheet};
+use husky_ast::{AstIdx, AstTokenIdxRangeSheet, FormBody};
 
 pub struct BlockExprParser<'a> {
     expr_parser: ExprParser<'a>,
@@ -51,7 +51,7 @@ impl<'a> BlockExprParser<'a> {
 
     pub fn parse_block_stmts_expected(
         &mut self,
-        body: AstIdxRange,
+        body: FormBody,
         token_group_idx: TokenGroupIdx,
     ) -> ExprResult<StmtIdxRange> {
         match self.parse_block_stmts(body) {
@@ -60,11 +60,12 @@ impl<'a> BlockExprParser<'a> {
         }
     }
 
-    pub fn parse_block_stmts(&mut self, body: AstIdxRange) -> Option<StmtIdxRange> {
+    pub fn parse_block_stmts(&mut self, body: FormBody) -> Option<StmtIdxRange> {
+        let block_end = self.form_body_end(body);
+        let body = body.ast_idx_range();
         if body.len() == 0 {
             return None;
         }
-        let block_end = self.body_end(body);
         let stmts = self
             .ast_sheet
             .indexed_iter(body)
@@ -75,7 +76,7 @@ impl<'a> BlockExprParser<'a> {
         Some(self.alloc_stmts(stmts))
     }
 
-    pub fn parse_block_expr(&mut self, body: AstIdxRange) -> Option<ExprIdx> {
+    pub fn parse_block_expr(&mut self, body: FormBody) -> Option<ExprIdx> {
         let stmts = self.parse_block_stmts(body)?;
         let expr = self.alloc_expr(Expr::Block { stmts });
         self.expr_roots
@@ -86,7 +87,7 @@ impl<'a> BlockExprParser<'a> {
     fn parse_stmt(
         &mut self,
         ast: &Ast,
-        ast_range: TokenIdxRange,
+        ast_token_idx_range: TokenIdxRange,
         block_end: TokenIdxRangeEnd,
     ) -> Option<Stmt> {
         match ast {
@@ -122,7 +123,7 @@ impl<'a> BlockExprParser<'a> {
             | Ast::Decr { .. }
             | Ast::Defn { .. }
             | Ast::TypeVariant { .. }
-            | Ast::Impl { .. }
+            | Ast::ImplBlock { .. }
             | Ast::Main { .. }
             | Ast::Config { .. } => None,
         }
@@ -132,7 +133,7 @@ impl<'a> BlockExprParser<'a> {
         &mut self,
         token_group_idx: TokenGroupIdx,
         block_end: TokenIdxRangeEnd,
-        body: AstIdxRange,
+        body: FormBody,
     ) -> Option<Stmt> {
         let token_stream = self
             .token_sheet_data
@@ -221,7 +222,7 @@ impl<'a> BlockExprParser<'a> {
         for_token: StmtForToken,
         eol_colon: ExprResult<EolToken>,
         token_group_idx: TokenGroupIdx,
-        body: AstIdxRange,
+        body: FormBody,
     ) -> StmtResult<Stmt> {
         match self.expr_arena[expr] {
             Expr::Binary {
@@ -236,10 +237,11 @@ impl<'a> BlockExprParser<'a> {
                     ident: particulars.frame_var_ident,
                 };
                 let current_symbol_kind = current_symbol_variant.kind();
-                let access_start = self.ast_token_idx_range_sheet[body.start()]
+                let access_start = self.ast_token_idx_range_sheet[body.ast_idx_range().start()]
                     .start()
                     .token_idx();
-                let access_end = self.ast_token_idx_range_sheet[body.end() - 1].end();
+                let access_end =
+                    self.ast_token_idx_range_sheet[body.ast_idx_range().end() - 1].end();
                 let frame_var_symbol =
                     CurrentSymbol::new(access_start, Some(access_end), current_symbol_variant);
                 let frame_var_symbol_idx = self
@@ -344,7 +346,7 @@ impl<'a> BlockExprParser<'a> {
                 token_group_idx,
                 body,
             } => {
-                let body_end = self.body_end(body);
+                let body_end = self.form_body_end(body);
                 let mut token_stream = self
                     .token_sheet_data
                     .token_group_token_stream(token_group_idx, None);
@@ -362,8 +364,8 @@ impl<'a> BlockExprParser<'a> {
             _ => unreachable!(),
         }
     }
-    fn body_end(&self, body: AstIdxRange) -> TokenIdxRangeEnd {
-        self.ast_token_idx_range_sheet[body.end() - 1].end()
+    fn form_body_end(&self, body: FormBody) -> TokenIdxRangeEnd {
+        self.ast_token_idx_range_sheet[body.ast_idx_range().end() - 1].end()
     }
 
     fn parse_elif_branches(&mut self, elif_branches: AstIdxRange) -> Vec<ElifBranch> {
@@ -379,7 +381,7 @@ impl<'a> BlockExprParser<'a> {
                 token_group_idx,
                 body,
             } => {
-                let body_end = self.body_end(body);
+                let body_end = self.form_body_end(body);
                 let mut token_stream = self
                     .token_sheet_data
                     .token_group_token_stream(token_group_idx, None);
@@ -402,7 +404,7 @@ impl<'a> BlockExprParser<'a> {
         match self.ast_sheet[else_branch?] {
             Ast::BasicStmtOrBranch {
                 token_group_idx,
-                ref body,
+                body,
             } => {
                 let mut token_stream = self
                     .token_sheet_data
@@ -411,7 +413,7 @@ impl<'a> BlockExprParser<'a> {
                 Some(ElseBranch {
                     else_token: ctx.parse().unwrap().unwrap(),
                     eol_colon: ctx.parse_expected(OriginalExprError::ExpectedEolColon),
-                    block: self.parse_block_stmts_expected(*body, token_group_idx),
+                    block: self.parse_block_stmts_expected(body, token_group_idx),
                 })
             }
             _ => unreachable!(),
