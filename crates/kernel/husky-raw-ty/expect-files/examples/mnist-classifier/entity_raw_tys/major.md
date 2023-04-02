@@ -6,7 +6,7 @@
             ),
         ),
         Ok(
-            RawTerm(`[] mnist_classifier::connected_component::ConnectedComponent`),
+            RawTerm(`~ [] mnist_classifier::connected_component::ConnectedComponent`),
         ),
     ),
     (
@@ -16,7 +16,7 @@
             ),
         ),
         Ok(
-            RawTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+            RawTerm(`~ mnist_classifier::connected_component::ConnectedComponent`),
         ),
     ),
     (
@@ -36,7 +36,7 @@
             ),
         ),
         Ok(
-            RawTerm(`[] mnist_classifier::raw_contour::RawContour`),
+            RawTerm(`~ [] mnist_classifier::raw_contour::RawContour`),
         ),
     ),
     (
@@ -46,7 +46,7 @@
             ),
         ),
         Ok(
-            RawTerm(`mnist_classifier::raw_contour::RawContour`),
+            RawTerm(`~ mnist_classifier::raw_contour::RawContour`),
         ),
     ),
     (
@@ -56,7 +56,7 @@
             ),
         ),
         Ok(
-            RawTerm(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
+            RawTerm(`~ mnist_classifier::line_segment_sketch::LineSegmentSketch`),
         ),
     ),
     (
@@ -66,7 +66,7 @@
             ),
         ),
         Ok(
-            RawTerm(`[] mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+            RawTerm(`~ [] mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
         ),
     ),
 ]

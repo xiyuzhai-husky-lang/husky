@@ -39,6 +39,11 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
+                    PunctuationMapped::Tilde,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
                     PunctuationMapped::Bra(
                         Box,
                     ),
@@ -98,6 +103,11 @@ Ok(
             Token::Punctuation(
                 Punctuation(
                     PunctuationMapped::Colon,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Tilde,
                 ),
             ),
             Token::Ident(
@@ -492,6 +502,11 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
+                    PunctuationMapped::Tilde,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
                     PunctuationMapped::Bra(
                         Box,
                     ),
@@ -542,6 +557,11 @@ Ok(
             Token::Punctuation(
                 Punctuation(
                     PunctuationMapped::Colon,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Tilde,
                 ),
             ),
             Token::Ident(
@@ -603,6 +623,11 @@ Ok(
                     PunctuationMapped::Colon,
                 ),
             ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Tilde,
+                ),
+            ),
             Token::Ident(
                 `LineSegmentSketch`,
             ),
@@ -641,6 +666,11 @@ Ok(
             Token::Punctuation(
                 Punctuation(
                     PunctuationMapped::Colon,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Tilde,
                 ),
             ),
             Token::Punctuation(
@@ -685,29 +715,29 @@ Ok(
         group_starts: [
             0,
             4,
-            13,
-            17,
-            24,
-            29,
-            34,
-            43,
-            52,
-            57,
-            60,
-            63,
-            68,
-            75,
-            80,
-            89,
-            97,
-            103,
-            112,
+            14,
+            18,
+            26,
+            31,
+            36,
+            45,
+            54,
+            59,
+            62,
+            65,
+            70,
+            77,
+            82,
+            91,
+            99,
+            105,
             115,
-            122,
-            128,
-            135,
-            138,
-            147,
+            118,
+            126,
+            132,
+            140,
+            143,
+            153,
         ],
         indents: [
             0,

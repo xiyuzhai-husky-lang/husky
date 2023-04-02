@@ -212,7 +212,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    17,
+                                    18,
                                 ),
                             },
                         },
@@ -233,12 +233,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `major_connected_component`,
                         token_idx: TokenIdx(
-                            19,
+                            20,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        20,
+                        21,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -254,7 +254,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    68,
+                                    70,
                                 ),
                             },
                         },
@@ -275,12 +275,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `ignored_connected_components_row_span_sum_sum`,
                         token_idx: TokenIdx(
-                            70,
+                            72,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        71,
+                        73,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -296,7 +296,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    103,
+                                    105,
                                 ),
                             },
                         },
@@ -317,12 +317,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `major_raw_contours`,
                         token_idx: TokenIdx(
-                            105,
+                            107,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        106,
+                        108,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -338,7 +338,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    115,
+                                    118,
                                 ),
                             },
                         },
@@ -359,12 +359,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `major_raw_contour`,
                         token_idx: TokenIdx(
-                            117,
+                            120,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        118,
+                        121,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -380,7 +380,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    128,
+                                    132,
                                 ),
                             },
                         },
@@ -401,12 +401,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `major_line_segment_sketch`,
                         token_idx: TokenIdx(
-                            130,
+                            134,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        131,
+                        135,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -422,7 +422,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    138,
+                                    143,
                                 ),
                             },
                         },
@@ -443,12 +443,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `major_concave_components`,
                         token_idx: TokenIdx(
-                            140,
+                            145,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        141,
+                        146,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(

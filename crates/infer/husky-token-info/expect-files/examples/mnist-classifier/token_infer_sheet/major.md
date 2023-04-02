@@ -35,6 +35,7 @@ Ok(
                 ),
             ),
             TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::BoxPrefix,
             TokenInfo::BoxPrefix,
             TokenInfo::Entity(
@@ -81,6 +82,7 @@ Ok(
                     },
                 ),
             ),
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
                 Some(
@@ -374,6 +376,7 @@ Ok(
                 ),
             ),
             TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::BoxPrefix,
             TokenInfo::BoxPrefix,
             TokenInfo::Entity(
@@ -419,6 +422,7 @@ Ok(
                     },
                 ),
             ),
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
                 Some(
@@ -467,6 +471,7 @@ Ok(
                 ),
             ),
             TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::Entity(
                 Some(
                     EntityPath::ModuleItem(
@@ -510,6 +515,7 @@ Ok(
                     },
                 ),
             ),
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::BoxPrefix,
             TokenInfo::BoxPrefix,

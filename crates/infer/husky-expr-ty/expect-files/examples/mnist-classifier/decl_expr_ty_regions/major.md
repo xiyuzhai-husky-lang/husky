@@ -112,6 +112,38 @@
                 resolve_progress: Expected(
                     Resolved(
                         Ok(
+                            EqsExactly(
+                                ExpectSubtypeOutcome,
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Tilde(
+                            Leash,
+                        ),
+                        Ok(
+                            Resolved(
+                                Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    2,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
                             EqsSort(
                                 TermUniverse(
                                     1,
@@ -204,6 +236,38 @@
                                     },
                                 ),
                             ),
+                            expectation: EqsExactly(
+                                ExpectSubtype {
+                                    expected: Resolved(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    EqsExactly(
+                                        ExpectSubtypeOutcome,
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationRule {
+                            src_expr_idx: 3,
+                            expectee: Resolved(
+                                Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                            ),
                             expectation: EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
@@ -255,6 +319,40 @@
                 expectation_rule_idx: None,
                 resolve_progress: Unresolved,
             },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Tilde(
+                            Leash,
+                        ),
+                        Ok(
+                            Resolved(
+                                Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            EqsSort(
+                                TermUniverse(
+                                    1,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            },
         ],
         extra_expr_errors: [],
         expr_local_terms: [],
@@ -270,7 +368,36 @@
             },
             expectations: LocalTermExpectations {
                 arena: Arena {
-                    data: [],
+                    data: [
+                        LocalTermExpectationRule {
+                            src_expr_idx: 1,
+                            expectee: Resolved(
+                                Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                            ),
+                            expectation: EqsSort(
+                                ExpectEqsCategory {
+                                    smallest_universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    EqsSort(
+                                        TermUniverse(
+                                            1,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ],
                 },
                 first_unresolved_expectation: 0,
             },
@@ -505,6 +632,38 @@
                 resolve_progress: Expected(
                     Resolved(
                         Ok(
+                            EqsExactly(
+                                ExpectSubtypeOutcome,
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Tilde(
+                            Leash,
+                        ),
+                        Ok(
+                            Resolved(
+                                Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    3,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
                             EqsSort(
                                 TermUniverse(
                                     1,
@@ -629,6 +788,38 @@
                                     },
                                 ),
                             ),
+                            expectation: EqsExactly(
+                                ExpectSubtype {
+                                    expected: Resolved(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    EqsExactly(
+                                        ExpectSubtypeOutcome,
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationRule {
+                            src_expr_idx: 3,
+                            expectee: Resolved(
+                                Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                            ),
                             expectation: EqsSort(
                                 ExpectEqsCategory {
                                     smallest_universe: TermUniverse(
@@ -690,6 +881,38 @@
                 resolve_progress: Expected(
                     Resolved(
                         Ok(
+                            EqsExactly(
+                                ExpectSubtypeOutcome,
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Tilde(
+                            Leash,
+                        ),
+                        Ok(
+                            Resolved(
+                                Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    1,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
                             EqsSort(
                                 TermUniverse(
                                     1,
@@ -717,6 +940,38 @@
                     data: [
                         LocalTermExpectationRule {
                             src_expr_idx: 0,
+                            expectee: Resolved(
+                                Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                            ),
+                            expectation: EqsExactly(
+                                ExpectSubtype {
+                                    expected: Resolved(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    EqsExactly(
+                                        ExpectSubtypeOutcome,
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationRule {
+                            src_expr_idx: 1,
                             expectee: Resolved(
                                 Category(
                                     TermCategory {
@@ -787,6 +1042,38 @@
                 resolve_progress: Expected(
                     Resolved(
                         Ok(
+                            EqsExactly(
+                                ExpectSubtypeOutcome,
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Tilde(
+                            Leash,
+                        ),
+                        Ok(
+                            Resolved(
+                                Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    1,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
                             EqsSort(
                                 TermUniverse(
                                     1,
@@ -814,6 +1101,38 @@
                     data: [
                         LocalTermExpectationRule {
                             src_expr_idx: 0,
+                            expectee: Resolved(
+                                Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                            ),
+                            expectation: EqsExactly(
+                                ExpectSubtype {
+                                    expected: Resolved(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    EqsExactly(
+                                        ExpectSubtypeOutcome,
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationRule {
+                            src_expr_idx: 1,
                             expectee: Resolved(
                                 Category(
                                     TermCategory {
@@ -961,6 +1280,38 @@
                 resolve_progress: Expected(
                     Resolved(
                         Ok(
+                            EqsExactly(
+                                ExpectSubtypeOutcome,
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Tilde(
+                            Leash,
+                        ),
+                        Ok(
+                            Resolved(
+                                Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    2,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
                             EqsSort(
                                 TermUniverse(
                                     1,
@@ -1044,6 +1395,38 @@
                         },
                         LocalTermExpectationRule {
                             src_expr_idx: 2,
+                            expectee: Resolved(
+                                Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                            ),
+                            expectation: EqsExactly(
+                                ExpectSubtype {
+                                    expected: Resolved(
+                                        Category(
+                                            TermCategory {
+                                                universe: TermUniverse(
+                                                    1,
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                            resolve_progress: Resolved(
+                                Ok(
+                                    EqsExactly(
+                                        ExpectSubtypeOutcome,
+                                    ),
+                                ),
+                            ),
+                        },
+                        LocalTermExpectationRule {
+                            src_expr_idx: 3,
                             expectee: Resolved(
                                 Category(
                                     TermCategory {

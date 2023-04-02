@@ -24,19 +24,19 @@ Ok(
                                 ),
                                 var_ty: Some(
                                     FormTypeExpr {
-                                        expr: 2,
+                                        expr: 3,
                                     },
                                 ),
                                 eq_token: EqToken(
                                     TokenIdx(
-                                        11,
+                                        12,
                                     ),
                                 ),
                                 expr_or_eol_token: Left(
                                     EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                12,
+                                                13,
                                             ),
                                         },
                                     ),
@@ -57,13 +57,13 @@ Ok(
                                             data: [
                                                 Expr::List {
                                                     lbox_token_idx: TokenIdx(
-                                                        8,
+                                                        9,
                                                     ),
                                                     items: ArenaIdxRange(
                                                         0..0,
                                                     ),
                                                     rbox_token_idx: TokenIdx(
-                                                        9,
+                                                        10,
                                                     ),
                                                 },
                                                 Expr::EntityPath {
@@ -80,13 +80,20 @@ Ok(
                                                     function: 0,
                                                     argument: 1,
                                                 },
+                                                Expr::Prefix {
+                                                    opr: Tilde,
+                                                    opr_token_idx: TokenIdx(
+                                                        8,
+                                                    ),
+                                                    opd: 2,
+                                                },
                                             ],
                                         },
                                         entity_path_expr_arena: Arena {
                                             data: [
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        10,
+                                                        11,
                                                     ),
                                                     ident: `ConnectedComponent`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -124,7 +131,7 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: VarType,
-                                                expr: 2,
+                                                expr: 3,
                                             },
                                         ],
                                     },
@@ -151,25 +158,25 @@ Ok(
                                 colon_token: Some(
                                     ColonToken(
                                         TokenIdx(
-                                            20,
+                                            21,
                                         ),
                                     ),
                                 ),
                                 var_ty: Some(
                                     FormTypeExpr {
-                                        expr: 0,
+                                        expr: 1,
                                     },
                                 ),
                                 eq_token: EqToken(
                                     TokenIdx(
-                                        22,
+                                        24,
                                     ),
                                 ),
                                 expr_or_eol_token: Left(
                                     EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                23,
+                                                25,
                                             ),
                                         },
                                     ),
@@ -198,13 +205,20 @@ Ok(
                                                         ),
                                                     ),
                                                 },
+                                                Expr::Prefix {
+                                                    opr: Tilde,
+                                                    opr_token_idx: TokenIdx(
+                                                        22,
+                                                    ),
+                                                    opd: 0,
+                                                },
                                             ],
                                         },
                                         entity_path_expr_arena: Arena {
                                             data: [
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        21,
+                                                        23,
                                                     ),
                                                     ident: `ConnectedComponent`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -242,7 +256,7 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: VarType,
-                                                expr: 0,
+                                                expr: 1,
                                             },
                                         ],
                                     },
@@ -269,7 +283,7 @@ Ok(
                                 colon_token: Some(
                                     ColonToken(
                                         TokenIdx(
-                                            71,
+                                            73,
                                         ),
                                     ),
                                 ),
@@ -280,14 +294,14 @@ Ok(
                                 ),
                                 eq_token: EqToken(
                                     TokenIdx(
-                                        73,
+                                        75,
                                     ),
                                 ),
                                 expr_or_eol_token: Left(
                                     EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                74,
+                                                76,
                                             ),
                                         },
                                     ),
@@ -322,7 +336,7 @@ Ok(
                                             data: [
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        72,
+                                                        74,
                                                     ),
                                                     ident: `f32`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -387,25 +401,25 @@ Ok(
                                 colon_token: Some(
                                     ColonToken(
                                         TokenIdx(
-                                            106,
+                                            108,
                                         ),
                                     ),
                                 ),
                                 var_ty: Some(
                                     FormTypeExpr {
-                                        expr: 2,
+                                        expr: 3,
                                     },
                                 ),
                                 eq_token: EqToken(
                                     TokenIdx(
-                                        110,
+                                        113,
                                     ),
                                 ),
                                 expr_or_eol_token: Left(
                                     EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                111,
+                                                114,
                                             ),
                                         },
                                     ),
@@ -426,13 +440,13 @@ Ok(
                                             data: [
                                                 Expr::List {
                                                     lbox_token_idx: TokenIdx(
-                                                        107,
+                                                        110,
                                                     ),
                                                     items: ArenaIdxRange(
                                                         0..0,
                                                     ),
                                                     rbox_token_idx: TokenIdx(
-                                                        108,
+                                                        111,
                                                     ),
                                                 },
                                                 Expr::EntityPath {
@@ -449,13 +463,20 @@ Ok(
                                                     function: 0,
                                                     argument: 1,
                                                 },
+                                                Expr::Prefix {
+                                                    opr: Tilde,
+                                                    opr_token_idx: TokenIdx(
+                                                        109,
+                                                    ),
+                                                    opd: 2,
+                                                },
                                             ],
                                         },
                                         entity_path_expr_arena: Arena {
                                             data: [
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        109,
+                                                        112,
                                                     ),
                                                     ident: `RawContour`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -493,7 +514,7 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: VarType,
-                                                expr: 2,
+                                                expr: 3,
                                             },
                                         ],
                                     },
@@ -520,25 +541,25 @@ Ok(
                                 colon_token: Some(
                                     ColonToken(
                                         TokenIdx(
-                                            118,
+                                            121,
                                         ),
                                     ),
                                 ),
                                 var_ty: Some(
                                     FormTypeExpr {
-                                        expr: 0,
+                                        expr: 1,
                                     },
                                 ),
                                 eq_token: EqToken(
                                     TokenIdx(
-                                        120,
+                                        124,
                                     ),
                                 ),
                                 expr_or_eol_token: Left(
                                     EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                121,
+                                                125,
                                             ),
                                         },
                                     ),
@@ -567,13 +588,20 @@ Ok(
                                                         ),
                                                     ),
                                                 },
+                                                Expr::Prefix {
+                                                    opr: Tilde,
+                                                    opr_token_idx: TokenIdx(
+                                                        122,
+                                                    ),
+                                                    opd: 0,
+                                                },
                                             ],
                                         },
                                         entity_path_expr_arena: Arena {
                                             data: [
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        119,
+                                                        123,
                                                     ),
                                                     ident: `RawContour`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -611,7 +639,7 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: VarType,
-                                                expr: 0,
+                                                expr: 1,
                                             },
                                         ],
                                     },
@@ -638,25 +666,25 @@ Ok(
                                 colon_token: Some(
                                     ColonToken(
                                         TokenIdx(
-                                            131,
+                                            135,
                                         ),
                                     ),
                                 ),
                                 var_ty: Some(
                                     FormTypeExpr {
-                                        expr: 0,
+                                        expr: 1,
                                     },
                                 ),
                                 eq_token: EqToken(
                                     TokenIdx(
-                                        133,
+                                        138,
                                     ),
                                 ),
                                 expr_or_eol_token: Left(
                                     EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                134,
+                                                139,
                                             ),
                                         },
                                     ),
@@ -685,13 +713,20 @@ Ok(
                                                         ),
                                                     ),
                                                 },
+                                                Expr::Prefix {
+                                                    opr: Tilde,
+                                                    opr_token_idx: TokenIdx(
+                                                        136,
+                                                    ),
+                                                    opd: 0,
+                                                },
                                             ],
                                         },
                                         entity_path_expr_arena: Arena {
                                             data: [
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        132,
+                                                        137,
                                                     ),
                                                     ident: `LineSegmentSketch`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -729,7 +764,7 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: VarType,
-                                                expr: 0,
+                                                expr: 1,
                                             },
                                         ],
                                     },
@@ -756,25 +791,25 @@ Ok(
                                 colon_token: Some(
                                     ColonToken(
                                         TokenIdx(
-                                            141,
+                                            146,
                                         ),
                                     ),
                                 ),
                                 var_ty: Some(
                                     FormTypeExpr {
-                                        expr: 2,
+                                        expr: 3,
                                     },
                                 ),
                                 eq_token: EqToken(
                                     TokenIdx(
-                                        145,
+                                        151,
                                     ),
                                 ),
                                 expr_or_eol_token: Left(
                                     EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                146,
+                                                152,
                                             ),
                                         },
                                     ),
@@ -795,13 +830,13 @@ Ok(
                                             data: [
                                                 Expr::List {
                                                     lbox_token_idx: TokenIdx(
-                                                        142,
+                                                        148,
                                                     ),
                                                     items: ArenaIdxRange(
                                                         0..0,
                                                     ),
                                                     rbox_token_idx: TokenIdx(
-                                                        143,
+                                                        149,
                                                     ),
                                                 },
                                                 Expr::EntityPath {
@@ -818,13 +853,20 @@ Ok(
                                                     function: 0,
                                                     argument: 1,
                                                 },
+                                                Expr::Prefix {
+                                                    opr: Tilde,
+                                                    opr_token_idx: TokenIdx(
+                                                        147,
+                                                    ),
+                                                    opd: 2,
+                                                },
                                             ],
                                         },
                                         entity_path_expr_arena: Arena {
                                             data: [
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        144,
+                                                        150,
                                                     ),
                                                     ident: `ConcaveComponent`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -862,7 +904,7 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: VarType,
-                                                expr: 2,
+                                                expr: 3,
                                             },
                                         ],
                                     },

@@ -1,9 +1,9 @@
 use crate::*
 
-pub val connected_components: []ConnectedComponent =:
+pub val connected_components: ~[]ConnectedComponent =:
     find_connected_components(input)
 
-pub val major_connected_component: ConnectedComponent =:
+pub val major_connected_component: ~ConnectedComponent =:
     let mut i0 = 0
     let mut max_row_span_sum = 0.0
     for i < connected_components.ilen():
@@ -19,15 +19,15 @@ pub val ignored_connected_components_row_span_sum_sum: f32 =:
         sum += connected_components[i].row_span_sum
     return sum - major_connected_component.row_span_sum
 
-pub val major_raw_contours: []RawContour =:
+pub val major_raw_contours: ~[]RawContour =:
     major_connected_component.raw_contours
 
 // todo: change `def` to `func`
-pub val major_raw_contour: RawContour =:
+pub val major_raw_contour: ~RawContour =:
     major_connected_component.raw_contours[0]
 
-pub val major_line_segment_sketch: LineSegmentSketch =:
+pub val major_line_segment_sketch: ~LineSegmentSketch =:
     major_raw_contour.line_segment_sketch
 
-pub val major_concave_components: []ConcaveComponent =:
+pub val major_concave_components: ~[]ConcaveComponent =:
     major_line_segment_sketch.concave_components

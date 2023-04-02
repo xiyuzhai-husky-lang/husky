@@ -706,7 +706,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 7,
+                                            value: 6,
                                         },
                                     ),
                                 ),
@@ -1436,7 +1436,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 7,
+                                            value: 6,
                                         },
                                     ),
                                 ),
@@ -2431,7 +2431,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 7,
+                                            value: 6,
                                         },
                                     ),
                                 ),
@@ -3161,7 +3161,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 7,
+                                            value: 6,
                                         },
                                     ),
                                 ),
@@ -3578,7 +3578,7 @@
                                 TypeMethodFn(
                                     TypeMethodFnCard(
                                         Id {
-                                            value: 11,
+                                            value: 9,
                                         },
                                     ),
                                 ),
@@ -3639,7 +3639,7 @@
                                 Application(
                                     TermApplication(
                                         Id {
-                                            value: 11,
+                                            value: 12,
                                         },
                                     ),
                                 ),
@@ -3662,7 +3662,7 @@
                                 Application(
                                     TermApplication(
                                         Id {
-                                            value: 11,
+                                            value: 12,
                                         },
                                     ),
                                 ),
@@ -4044,7 +4044,7 @@
                                 TypeMethodFn(
                                     TypeMethodFnCard(
                                         Id {
-                                            value: 11,
+                                            value: 9,
                                         },
                                     ),
                                 ),
@@ -5828,7 +5828,7 @@
                                 TypeMethodFn(
                                     TypeMethodFnCard(
                                         Id {
-                                            value: 11,
+                                            value: 9,
                                         },
                                     ),
                                 ),
@@ -6357,7 +6357,7 @@
                                 Application(
                                     TermApplication(
                                         Id {
-                                            value: 11,
+                                            value: 12,
                                         },
                                     ),
                                 ),
@@ -8058,7 +8058,7 @@
                                 TypeMethodFn(
                                     TypeMethodFnCard(
                                         Id {
-                                            value: 11,
+                                            value: 9,
                                         },
                                     ),
                                 ),
@@ -8119,7 +8119,7 @@
                                 Application(
                                     TermApplication(
                                         Id {
-                                            value: 11,
+                                            value: 12,
                                         },
                                     ),
                                 ),
@@ -8168,7 +8168,7 @@
                                 Application(
                                     TermApplication(
                                         Id {
-                                            value: 11,
+                                            value: 12,
                                         },
                                     ),
                                 ),
@@ -8510,7 +8510,7 @@
                                 TypeMethodFn(
                                     TypeMethodFnCard(
                                         Id {
-                                            value: 11,
+                                            value: 9,
                                         },
                                     ),
                                 ),
@@ -9172,7 +9172,7 @@
                                 TypeMethodFn(
                                     TypeMethodFnCard(
                                         Id {
-                                            value: 11,
+                                            value: 9,
                                         },
                                     ),
                                 ),
@@ -11088,7 +11088,7 @@
                                 Application(
                                     TermApplication(
                                         Id {
-                                            value: 11,
+                                            value: 12,
                                         },
                                     ),
                                 ),
@@ -12986,7 +12986,7 @@
                                 Application(
                                     TermApplication(
                                         Id {
-                                            value: 11,
+                                            value: 12,
                                         },
                                     ),
                                 ),
@@ -13009,7 +13009,7 @@
                                 Application(
                                     TermApplication(
                                         Id {
-                                            value: 11,
+                                            value: 12,
                                         },
                                     ),
                                 ),
@@ -13819,7 +13819,7 @@
                                 Application(
                                     TermApplication(
                                         Id {
-                                            value: 11,
+                                            value: 12,
                                         },
                                     ),
                                 ),
@@ -13842,7 +13842,7 @@
                                 Application(
                                     TermApplication(
                                         Id {
-                                            value: 11,
+                                            value: 12,
                                         },
                                     ),
                                 ),
@@ -15635,7 +15635,7 @@
                                 Application(
                                     TermApplication(
                                         Id {
-                                            value: 11,
+                                            value: 12,
                                         },
                                     ),
                                 ),
@@ -15658,7 +15658,7 @@
                                 Application(
                                     TermApplication(
                                         Id {
-                                            value: 11,
+                                            value: 12,
                                         },
                                     ),
                                 ),
@@ -16695,7 +16695,7 @@
                                 Application(
                                     TermApplication(
                                         Id {
-                                            value: 11,
+                                            value: 12,
                                         },
                                     ),
                                 ),
@@ -17178,7 +17178,7 @@
                                 Application(
                                     TermApplication(
                                         Id {
-                                            value: 11,
+                                            value: 12,
                                         },
                                     ),
                                 ),
@@ -18054,7 +18054,7 @@
                                 Application(
                                     TermApplication(
                                         Id {
-                                            value: 11,
+                                            value: 12,
                                         },
                                     ),
                                 ),
@@ -18314,7 +18314,7 @@
                                 Application(
                                     TermApplication(
                                         Id {
-                                            value: 11,
+                                            value: 12,
                                         },
                                     ),
                                 ),
@@ -18337,7 +18337,7 @@
                                 Application(
                                     TermApplication(
                                         Id {
-                                            value: 11,
+                                            value: 12,
                                         },
                                     ),
                                 ),
@@ -18515,7 +18515,7 @@
                                 Application(
                                     TermApplication(
                                         Id {
-                                            value: 11,
+                                            value: 12,
                                         },
                                     ),
                                 ),
