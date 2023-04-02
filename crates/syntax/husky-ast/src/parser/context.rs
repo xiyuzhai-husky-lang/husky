@@ -10,8 +10,8 @@ pub(super) enum AstContextKind {
     InsideTrait {
         module_item_path: ModuleItemPath,
     },
-    InsideEnumLikeType {
-        module_item_path: ModuleItemPath,
+    ExpectTypeVariants {
+        ty_path: TypePath,
     },
     /// inside function, method or inline block or main or config
     InsideForm,
@@ -25,14 +25,15 @@ pub(super) enum AstContextKind {
     /// | 1 => ...
     /// ```
     InsideMatchStmt,
+    // deprecated
     InsideNoChild,
 }
 
 impl AstContextKind {
     pub(super) fn module_item_path(self) -> Option<ModuleItemPath> {
         match self {
-            AstContextKind::InsideTrait { module_item_path }
-            | AstContextKind::InsideEnumLikeType { module_item_path } => Some(module_item_path),
+            AstContextKind::InsideTrait { module_item_path } => Some(module_item_path),
+            AstContextKind::ExpectTypeVariants { ty_path } => Some(ty_path.into()),
             _ => None,
         }
     }
@@ -43,7 +44,7 @@ impl AstContextKind {
             EntityKind::ModuleItem {
                 module_item_kind, ..
             } => match module_item_kind {
-                ModuleItemKind::Type(_) => AstContextKind::InsideNoChild,
+                ModuleItemKind::Type(ty_kind) => AstContextKind::InsideNoChild,
                 ModuleItemKind::Trait => AstContextKind::InsideTrait {
                     module_item_path: match entity_path {
                         Some(EntityPath::ModuleItem(module_item_path)) => module_item_path,
@@ -85,7 +86,9 @@ impl AstContextKind {
             AstContextKind::InsideTrait { module_item_path } => {
                 Err(OriginalAstError::UnexpectedStmtInsideTrait)?
             }
-            AstContextKind::InsideEnumLikeType { module_item_path } => todo!(),
+            AstContextKind::ExpectTypeVariants {
+                ty_path: module_item_path,
+            } => todo!(),
             AstContextKind::InsideForm => Ok(()),
             AstContextKind::InsideTypeImplBlock | AstContextKind::InsideTraitForTypeImplBlock => {
                 Err(OriginalAstError::UnexpectedStmtInsideImplBlock)?
@@ -117,7 +120,7 @@ impl Context {
     #[inline(always)]
     pub(super) fn subcontext(&self, parent: AstContextKind) -> Self {
         let indent = match parent {
-            AstContextKind::InsideMatchStmt | AstContextKind::InsideEnumLikeType { .. } => {
+            AstContextKind::InsideMatchStmt | AstContextKind::ExpectTypeVariants { .. } => {
                 self.indent
             }
             AstContextKind::InsideTrait { .. }

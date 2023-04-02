@@ -63,7 +63,7 @@ Ok(
                     saved_stream_state: TokenIdx(
                         2,
                     ),
-                    body_kind: EnumVariants,
+                    body_kind: TypeVariants,
                     body: ArenaIdxRange(
                         0..0,
                     ),
