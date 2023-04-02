@@ -27,6 +27,12 @@ impl From<EntityTreeBundleError> for EntityTreeError {
     }
 }
 
+impl From<&EntityTreeBundleError> for EntityTreeError {
+    fn from(e: &EntityTreeBundleError) -> Self {
+        todo!()
+    }
+}
+
 impl From<VfsError> for EntityTreeError {
     fn from(e: VfsError) -> Self {
         EntityTreeError::Derived(e.into())

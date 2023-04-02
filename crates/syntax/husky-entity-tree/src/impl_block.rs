@@ -241,6 +241,22 @@ pub(crate) fn ty_impl_blocks(
         .collect())
 }
 
+pub trait HasItems: Copy {
+    fn items<'a>(
+        self,
+        db: &'a dyn EntityTreeDb,
+    ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, AssociatedItem)]>;
+}
+
+impl HasItems for TypePath {
+    fn items<'a>(
+        self,
+        db: &'a dyn EntityTreeDb,
+    ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, AssociatedItem)]> {
+        ty_items(db, self).as_ref().map(|v| v as &[_])
+    }
+}
+
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn ty_items(
     db: &dyn EntityTreeDb,

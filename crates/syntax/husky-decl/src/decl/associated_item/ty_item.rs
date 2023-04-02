@@ -46,8 +46,8 @@ pub(crate) fn ty_item_decls<'a>(
     db: &'a dyn DeclDb,
     path: TypePath,
 ) -> EntityTreeBundleResult<IdentPairMap<Result<TypeItemDecl, ()>>> {
-    let ty_items = db.ty_items(path)?;
-    Ok(ty_items
+    Ok(path
+        .items(db)?
         .iter()
         .copied()
         .map(|(ident, ty_item)| -> (Ident, Result<TypeItemDecl, ()>) {
