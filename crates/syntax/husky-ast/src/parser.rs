@@ -11,6 +11,7 @@ use husky_token::{
     ConnectionKeyword, Keyword, Punctuation, RangedTokenSheet, StmtKeyword, Token, TokenGroupIter,
     TokenSheetData,
 };
+use salsa::DebugWithDb;
 use utils::*;
 
 pub(crate) struct AstParser<'a> {
@@ -235,6 +236,7 @@ impl<'a> AstParser<'a> {
     }
 
     fn parse_stmt(&mut self, token_group_idx: TokenGroupIdx, context: &Context) -> Ast {
+        p!(self.module_path.debug(self.db));
         match context.kind().allow_stmt() {
             Ok(_) => (),
             Err(error) => {
@@ -269,16 +271,6 @@ impl<'a> AstParser<'a> {
     }
 
     fn parse_defn_or_use(&mut self, token_group_idx: TokenGroupIdx, ctx: &Context) -> Ast {
-        // for token in &self.token_sheet[token_group_idx] {
-        //     match token {
-        //         Token::Keyword(Keyword::Pub | Keyword::Pronoun(_)) => (),
-        //         Token::Keyword(Keyword::Use) => {
-        //             return self.parse_use_ast(token_group_idx, context)
-        //         }
-        //         Token::Keyword(_) => return self.parse_defn(context, token_group_idx, todo!()),
-        //         _ => (),
-        //     }
-        // }
         let mut aux_parser = BasicAuxAstParser::new(
             self.db,
             ctx,

@@ -2,6 +2,7 @@
 mod db;
 mod decr;
 mod error;
+mod group;
 mod parser;
 mod range;
 mod specs;
@@ -102,8 +103,8 @@ pub enum Ast {
 pub enum DefnBodyKind {
     None,
     Block,
-    EnumVariants,
-    MatchCases,
+    TypeVariants,
+    FormVariants,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

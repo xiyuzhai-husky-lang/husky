@@ -76,15 +76,15 @@ impl<'a> AstParser<'a> {
                     .token_groups
                     .peek_token_group_of_exact_indent_with_its_first_token(ctx.indent())
                 {
-                    Some((_token_group_idx, token_group, first_noncomment_token)) => {
-                        match first_noncomment_token {
-                            Token::Punctuation(Punctuation::VERTICAL) => (
-                                self.parse_enum_variants(ctx.subcontext(ast_ctx_kind)),
-                                DefnBodyKind::EnumVariants,
-                            ),
-                            _ => (Default::default(), DefnBodyKind::None),
-                        }
-                    }
+                    Some((_, _, first_noncomment_token)) => match first_noncomment_token {
+                        Token::Punctuation(Punctuation::VERTICAL) => (
+                            self.parse_ty_variants(ctx.subcontext(
+                                AstContextKind::ExpectTypeVariants { ty_path: todo!() },
+                            )),
+                            DefnBodyKind::TypeVariants,
+                        ),
+                        _ => (Default::default(), DefnBodyKind::None),
+                    },
                     None => (Default::default(), DefnBodyKind::None),
                 },
             }
@@ -116,25 +116,25 @@ impl<'a> AstParser<'a> {
             }
         }
     }
-
-    fn parse_enum_variants(&mut self, context: Context) -> AstIdxRange {
-        let mut verticals = vec![];
-        while let Some((idx, token_group, first_noncomment_token)) = self
+    /// parse variants of enum or inductive types
+    fn parse_ty_variants(&mut self, context: Context) -> AstIdxRange {
+        let mut ty_variants = vec![];
+        while let Some((token_group_idx, token_group, first_noncomment_token)) = self
             .token_groups
             .peek_token_group_of_exact_indent_with_its_first_token(context.indent())
         {
             match first_noncomment_token {
                 Token::Punctuation(Punctuation::VERTICAL) => {
                     self.token_groups.next();
-                    verticals.push(self.parse_enum_variant(idx, &context))
+                    ty_variants.push(self.parse_ty_variant(token_group_idx, &context))
                 }
                 _ => break,
             }
         }
-        self.alloc_asts(verticals)
+        self.alloc_asts(ty_variants)
     }
 
-    fn parse_enum_variant(&mut self, token_group_idx: TokenGroupIdx, context: &Context) -> Ast {
+    fn parse_ty_variant(&mut self, token_group_idx: TokenGroupIdx, context: &Context) -> Ast {
         let ident = match self.token_sheet[token_group_idx].get(1) {
             Some(token) => match token {
                 Token::Keyword(_) => todo!(),
@@ -166,7 +166,9 @@ impl<'a> BasicAuxAstParser<'a> {
             AstContextKind::InsideTrait { module_item_path } => {
                 self.determine_entity_kind_inside_trai(entity_keyword_group)?
             }
-            AstContextKind::InsideEnumLikeType { module_item_path } => todo!(),
+            AstContextKind::ExpectTypeVariants {
+                ty_path: module_item_path,
+            } => todo!(),
             AstContextKind::InsideForm => {
                 self.determine_form_item_entity_kind(entity_keyword_group)?
             }
