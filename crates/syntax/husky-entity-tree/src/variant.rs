@@ -35,20 +35,24 @@ pub(crate) fn ty_path_variants(
 ) -> EntityTreeResult<IdentPairMap<TypeVariant>> {
     let module_path = path.module_path(db);
     let ast_sheet = db.ast_sheet(module_path)?;
-    let children = ast_sheet
+    let variants = ast_sheet
         .iter()
         .find_map(|ast| match ast {
             Ast::Defn {
-                entity_path,
-                children,
+                block:
+                    DefnBlock::Type {
+                        path: path0,
+                        variants,
+                    },
                 ..
-            } if *entity_path == Some(path.into()) => Some(*children),
+            } if *path0 == path => todo!(),
+            // Some(variants.ast_idx_range()),
             _ => None,
         })
         .ok_or(OriginalEntityTreeError::InvalidTypePath(path))?;
     todo!();
     Ok(ast_sheet
-        .indexed_iter(children.ast_idx_range())
+        .indexed_iter(variants)
         .map(|(ast_idx, variant_ast)| match variant_ast {
             Ast::TypeVariant {
                 token_group_idx,

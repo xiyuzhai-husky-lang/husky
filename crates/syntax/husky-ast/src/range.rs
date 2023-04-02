@@ -80,9 +80,9 @@ impl<'a> AstRangeCalculator<'a> {
             } => self.calc_ast_group(*token_group_idx, body.ast_idx_range()),
             Ast::Defn {
                 token_group_idx,
-                children: body,
+                block,
                 ..
-            } => self.calc_ast_group(*token_group_idx, body.ast_idx_range()),
+            } => self.calc_ast_group(*token_group_idx, block.ast_idx_range()),
             Ast::ImplBlock {
                 token_group_idx,
                 items: body,

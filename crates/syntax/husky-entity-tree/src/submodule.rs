@@ -13,8 +13,8 @@ pub(crate) fn submodules(
     Ok(ast_sheet
         .top_level_asts_iter()
         .filter_map(|ast| match ast {
-            Ast::Defn { entity_path, .. } => match (*entity_path)? {
-                EntityPath::Module(module_path) => Some(module_path),
+            Ast::Defn { block, .. } => match block {
+                DefnBlock::Submodule { path, .. } => Some(*path),
                 _ => None,
             },
             _ => None,

@@ -123,7 +123,7 @@ impl<'a> DeclParseContext<'a> {
         match self.ast_sheet()[ast_idx] {
             Ast::Defn {
                 token_group_idx,
-                children: body,
+                block: DefnBlock::Type { path, variants },
                 entity_kind,
                 saved_stream_state,
                 ..
@@ -133,7 +133,7 @@ impl<'a> DeclParseContext<'a> {
                 path,
                 entity_kind,
                 token_group_idx,
-                body,
+                variants,
                 saved_stream_state,
             ),
             _ => unreachable!(),
@@ -147,7 +147,7 @@ impl<'a> DeclParseContext<'a> {
         path: TypePath,
         _entity_kind: EntityKind,
         token_group_idx: TokenGroupIdx,
-        children: DefnChildren,
+        variants: Option<TypeVariants>,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeDecl> {
         match type_kind {
@@ -155,32 +155,27 @@ impl<'a> DeclParseContext<'a> {
                 ast_idx,
                 path,
                 token_group_idx,
-                children,
+                variants.expect("guaranteed by `husky-ast`"),
                 saved_stream_state,
             ),
             TypeKind::Inductive => self.parse_inductive_ty_decl(
                 ast_idx,
                 path,
                 token_group_idx,
-                children,
+                variants.expect("guaranteed by `husky-ast`"),
                 saved_stream_state,
             ),
             TypeKind::Record => todo!(),
-            TypeKind::Struct => self.parse_struct_ty_decl(
-                ast_idx,
-                path,
-                token_group_idx,
-                children,
-                saved_stream_state,
-            ),
-            TypeKind::Structure => self.parse_structure_ty_decl(
-                ast_idx,
-                path,
-                token_group_idx,
-                children,
-                saved_stream_state,
-            ),
+            TypeKind::Struct => {
+                debug_assert!(variants.is_none());
+                self.parse_struct_ty_decl(ast_idx, path, token_group_idx, saved_stream_state)
+            }
+            TypeKind::Structure => {
+                debug_assert!(variants.is_none());
+                self.parse_structure_ty_decl(ast_idx, path, token_group_idx, saved_stream_state)
+            }
             TypeKind::Extern => {
+                debug_assert!(variants.is_none());
                 self.parse_extern_ty_decl(ast_idx, path, token_group_idx, saved_stream_state)
             }
         }
