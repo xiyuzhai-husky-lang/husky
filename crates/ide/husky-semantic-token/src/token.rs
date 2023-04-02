@@ -116,7 +116,7 @@ impl SemanticToken {
             SemanticToken::Attribute => ext::SemanticTokenType::DECORATOR,
             SemanticToken::WordOpr => ext::SemanticTokenType::KEYWORD,
             SemanticToken::SelfType => ext::SemanticTokenType::TYPE,
-            SemanticToken::SelfValue => ext::SemanticTokenType::VARIABLE,
+            SemanticToken::SelfValue => ext::SemanticTokenType::KEYWORD,
         })
     }
 
