@@ -166,7 +166,7 @@ fn get_concave_middle_point(points: []Point2d) -> Point2d:
         (p0.y + p2.y) / 2.0,
     )
 
-fn find_raw_contours(cc: &ConnectedComponent) -> []RawContour:
+pub fn find_raw_contours(cc: &ConnectedComponent) -> []RawContour:
     let mut result = []RawContour()
     let mut boundary_unsearched = BinaryGrid28()
     for 1 <= i <= 29:
