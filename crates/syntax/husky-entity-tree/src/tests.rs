@@ -32,3 +32,8 @@ pub(crate) struct DB {
 }
 
 impl salsa::Database for DB {}
+
+#[test]
+fn chain_of_super_works() {
+    let package = todo!();
+}

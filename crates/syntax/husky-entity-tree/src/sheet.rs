@@ -117,3 +117,10 @@ pub(crate) fn entity_tree_sheet(
         .get_sheet(module_path)
         .ok_or_else(|| DerivedEntityTreeError::InvalidModulePath(module_path).into())
 }
+
+#[test]
+fn entity_tree_sheet_works() {
+    DB::default().ast_expect_test_debug_with_db("entity_tree_sheet", |db, module_path| {
+        entity_tree_sheet(db, module_path)
+    })
+}
