@@ -854,7 +854,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `is_six`,
                                                 token_idx: TokenIdx(
-                                                    37,
+                                                    39,
                                                 ),
                                             },
                                         },
@@ -905,7 +905,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `is_zero`,
                                                 token_idx: TokenIdx(
-                                                    49,
+                                                    50,
                                                 ),
                                             },
                                         },
@@ -956,7 +956,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `is_two`,
                                                 token_idx: TokenIdx(
-                                                    113,
+                                                    114,
                                                 ),
                                             },
                                         },

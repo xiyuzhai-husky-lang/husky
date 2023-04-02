@@ -480,12 +480,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `left_cc_pattern`,
                         token_idx: TokenIdx(
-                            22,
+                            23,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        23,
+                        24,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -522,12 +522,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `right_cc_pattern`,
                         token_idx: TokenIdx(
-                            51,
+                            52,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        52,
+                        53,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -564,12 +564,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `down_cc_pattern`,
                         token_idx: TokenIdx(
-                            80,
+                            81,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        81,
+                        82,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -591,24 +591,24 @@ Ok(
                         variant: PubUnder {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    108,
+                                    109,
                                 ),
                             },
                             lpar: LeftParenthesisToken(
                                 TokenIdx(
-                                    109,
+                                    110,
                                 ),
                             ),
                             scope: Super(
                                 SuperToken {
                                     token_idx: TokenIdx(
-                                        110,
+                                        111,
                                     ),
                                 },
                             ),
                             rpar: RightParenthesisToken(
                                 TokenIdx(
-                                    111,
+                                    112,
                                 ),
                             ),
                         },
@@ -629,12 +629,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `is_two`,
                         token_idx: TokenIdx(
-                            113,
+                            114,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        114,
+                        115,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(

@@ -233,14 +233,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Fn,
+                            Val,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::zero::open_one_match`, `Fn`),
+                                FormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                             ),
                         ),
                     ),
@@ -289,12 +289,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `almost_closed`,
                         token_idx: TokenIdx(
-                            18,
+                            19,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        19,
+                        20,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -316,24 +316,24 @@ Ok(
                         variant: PubUnder {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    44,
+                                    45,
                                 ),
                             },
                             lpar: LeftParenthesisToken(
                                 TokenIdx(
-                                    45,
+                                    46,
                                 ),
                             ),
                             scope: Super(
                                 SuperToken {
                                     token_idx: TokenIdx(
-                                        46,
+                                        47,
                                     ),
                                 },
                             ),
                             rpar: RightParenthesisToken(
                                 TokenIdx(
-                                    47,
+                                    48,
                                 ),
                             ),
                         },
@@ -354,12 +354,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `is_zero`,
                         token_idx: TokenIdx(
-                            49,
+                            50,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        50,
+                        51,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(

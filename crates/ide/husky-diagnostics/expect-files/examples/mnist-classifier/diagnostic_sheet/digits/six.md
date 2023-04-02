@@ -124,18 +124,7 @@ DiagnosticSheet {
         ],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Syntax Error: ExpectParameterDeclList",
-                severity: Error,
-                range: [3:14, 3:16),
-            },
-            Diagnostic {
-                message: "Syntax Error: ExpectParameterDeclList",
-                severity: Error,
-                range: [6:23, 6:25),
-            },
-        ],
+        diagnostics: [],
     },
     defn_diagnostic_sheet: DefnDiagnosticSheet {
         diagnostics: [],
@@ -146,6 +135,11 @@ DiagnosticSheet {
                 message: "Type Error: TodoSuffix",
                 severity: Error,
                 range: [16:9, 21:11),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [27:17, 27:40),
             },
             Diagnostic {
                 message: "Type Error: TodoSuffix",
@@ -181,6 +175,16 @@ DiagnosticSheet {
                 message: "Type Error: TodoSuffix",
                 severity: Error,
                 range: [53:5, 57:7),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [58:8, 58:22),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [59:17, 59:31),
             },
             Diagnostic {
                 message: "Type Error: TodoScopeResolution",

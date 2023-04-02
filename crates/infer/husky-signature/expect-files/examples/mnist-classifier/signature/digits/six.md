@@ -1,4 +1,22 @@
 [
+    Ok(
+        Signature::Form(
+            FormSignature::Feature(
+                VarSignature {
+                    return_ty: RawTerm(`mnist_classifier::fermi::FermiMatchResult`),
+                },
+            ),
+        ),
+    ),
+    Ok(
+        Signature::Form(
+            FormSignature::Feature(
+                VarSignature {
+                    return_ty: RawTerm(`mnist_classifier::fermi::FermiMatchResult`),
+                },
+            ),
+        ),
+    ),
     Err(
         RawTermError,
     ),

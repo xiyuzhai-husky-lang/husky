@@ -1,9 +1,9 @@
 use super::*
 
-fn six_match -> FermiMatchResult:
+val six_match: FermiMatchResult =:
     fermi_match(major_concave_components, [upmost])
 
-fn six_match_refined1 -> FermiMatchResult:
+val six_match_refined1: FermiMatchResult =:
     fermi_match(major_concave_components, [upmost, bottom1])
 
 pub(super) val is_six: ?MnistLabel =:

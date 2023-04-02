@@ -420,14 +420,14 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Fn,
+                            Val,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::six::six_match`, `Fn`),
+                                FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                             ),
                         ),
                     ),
@@ -462,26 +462,26 @@ Ok(
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Form(
-                            Fn,
+                            Val,
                         ),
                         connection: Connected,
                     },
                     entity_path: Some(
                         EntityPath::ModuleItem(
                             ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Fn`),
+                                FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                             ),
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `six_match_refined1`,
                         token_idx: TokenIdx(
-                            18,
+                            19,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        19,
+                        20,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -503,24 +503,24 @@ Ok(
                         variant: PubUnder {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    32,
+                                    34,
                                 ),
                             },
                             lpar: LeftParenthesisToken(
                                 TokenIdx(
-                                    33,
+                                    35,
                                 ),
                             ),
                             scope: Super(
                                 SuperToken {
                                     token_idx: TokenIdx(
-                                        34,
+                                        36,
                                     ),
                                 },
                             ),
                             rpar: RightParenthesisToken(
                                 TokenIdx(
-                                    35,
+                                    37,
                                 ),
                             ),
                         },
@@ -541,12 +541,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `is_six`,
                         token_idx: TokenIdx(
-                            37,
+                            39,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        38,
+                        40,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -583,12 +583,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `upmost`,
                         token_idx: TokenIdx(
-                            301,
+                            303,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        302,
+                        304,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -625,12 +625,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `bottom1`,
                         token_idx: TokenIdx(
-                            330,
+                            332,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        331,
+                        333,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
