@@ -1,8 +1,8 @@
 #![feature(trait_upcasting)]
+mod children;
 mod db;
 mod decr;
 mod error;
-mod group;
 mod parser;
 mod range;
 mod specs;
@@ -12,10 +12,10 @@ pub mod test_utils;
 mod tests;
 mod utils;
 
+pub use self::children::*;
 pub use self::db::AstDb;
 pub use self::decr::*;
 pub use self::error::*;
-pub use self::group::*;
 pub use self::range::*;
 pub use self::specs::*;
 
@@ -78,7 +78,7 @@ pub enum Ast {
         ident_token: IdentToken,
         is_generic: bool,
         saved_stream_state: TokenIdx,
-        body: DefnBody,
+        children: DefnChildren,
     },
     TypeVariant {
         token_group_idx: TokenGroupIdx,

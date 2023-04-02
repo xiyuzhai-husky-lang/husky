@@ -123,7 +123,7 @@ impl<'a> DeclParseContext<'a> {
         match self.ast_sheet()[ast_idx] {
             Ast::Defn {
                 token_group_idx,
-                body,
+                children: body,
                 entity_kind,
                 saved_stream_state,
                 ..
@@ -147,29 +147,37 @@ impl<'a> DeclParseContext<'a> {
         path: TypePath,
         _entity_kind: EntityKind,
         token_group_idx: TokenGroupIdx,
-        body: DefnBody,
+        children: DefnChildren,
         saved_stream_state: TokenIdx,
     ) -> DeclResult<TypeDecl> {
         match type_kind {
-            TypeKind::Enum => {
-                self.parse_enum_ty_decl(ast_idx, path, token_group_idx, body, saved_stream_state)
-            }
+            TypeKind::Enum => self.parse_enum_ty_decl(
+                ast_idx,
+                path,
+                token_group_idx,
+                children,
+                saved_stream_state,
+            ),
             TypeKind::Inductive => self.parse_inductive_ty_decl(
                 ast_idx,
                 path,
                 token_group_idx,
-                body,
+                children,
                 saved_stream_state,
             ),
             TypeKind::Record => todo!(),
-            TypeKind::Struct => {
-                self.parse_struct_ty_decl(ast_idx, path, token_group_idx, body, saved_stream_state)
-            }
+            TypeKind::Struct => self.parse_struct_ty_decl(
+                ast_idx,
+                path,
+                token_group_idx,
+                children,
+                saved_stream_state,
+            ),
             TypeKind::Structure => self.parse_structure_ty_decl(
                 ast_idx,
                 path,
                 token_group_idx,
-                body,
+                children,
                 saved_stream_state,
             ),
             TypeKind::Extern => {

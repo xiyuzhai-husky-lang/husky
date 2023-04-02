@@ -40,7 +40,7 @@ impl<'a> FoldingRangeCalculator<'a> {
             | Ast::IfElseStmts { .. }
             | Ast::MatchStmts { .. }
             | Ast::TypeVariant { .. } => None,
-            Ast::Defn { body, .. } => body
+            Ast::Defn { children: body, .. } => body
                 .ast_idx_range()
                 .last()
                 .map(|_| (self.ast_range_sheet[ast_idx], FoldingRangeKind::Region)),

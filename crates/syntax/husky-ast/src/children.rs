@@ -16,12 +16,12 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
-pub enum DefnBody {
+pub enum DefnChildren {
     FormBody(FormBody),
-    Variants(Variants)
+    Variants(Variants),
 }
 
-impl DefnBody {
+impl DefnChildren {
     pub fn ast_idx_range(self) -> AstIdxRange {
         todo!()
     }

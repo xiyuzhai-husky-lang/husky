@@ -24,8 +24,8 @@ pub(crate) fn trai_for_ty_method_defn(
     );
     let ast_idx = decl.ast_idx(db);
     let body = match parser.ast_sheet()[ast_idx] {
-        Ast::Defn { body, .. } => parser
-            .parse_block_expr(body.form_body().expect("todo: deal with form variants"))
+        Ast::Defn { children, .. } => parser
+            .parse_block_expr(children.form_body().expect("todo: deal with form variants"))
             .ok_or(OriginalDefnError::ExpectBody.into()), // todo: change this to parse expected
         _ => unreachable!(),
     };
