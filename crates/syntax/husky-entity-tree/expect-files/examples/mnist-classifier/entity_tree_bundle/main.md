@@ -445,6 +445,41 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `FermiMatchResult`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem(
+                                        ModuleItemSymbol {
+                                            path: ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                            ),
+                                            visibility: Visibility::Pub,
+                                            ast_idx: 22,
+                                            ident_token: IdentToken {
+                                                ident: `FermiMatchResult`,
+                                                token_idx: TokenIdx(
+                                                    6,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 20,
+                                    use_expr_idx: 6,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `fermi_match`,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier`,
@@ -461,7 +496,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `fermi_match`,
                                                 token_idx: TokenIdx(
-                                                    149,
+                                                    150,
                                                 ),
                                             },
                                         },
@@ -1135,7 +1170,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 26,
+                            progress: 27,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -1155,7 +1190,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 40,
+                            progress: 41,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -1195,7 +1230,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 42,
+                            progress: 43,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -2018,6 +2053,55 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `FermiMatchResult`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 22,
+                                                    ident_token: IdentToken {
+                                                        ident: `FermiMatchResult`,
+                                                        token_idx: TokenIdx(
+                                                            6,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 20,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 119,
+                                    use_expr_idx: 3,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `fermi_match`,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::connected_component`,
@@ -2036,7 +2120,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `fermi_match`,
                                                         token_idx: TokenIdx(
-                                                            149,
+                                                            150,
                                                         ),
                                                     },
                                                 },
@@ -2486,7 +2570,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 22,
+                            progress: 23,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -2506,7 +2590,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 42,
+                            progress: 43,
                         },
                     ],
                 ),
@@ -3962,6 +4046,55 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `FermiMatchResult`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 22,
+                                                    ident_token: IdentToken {
+                                                        ident: `FermiMatchResult`,
+                                                        token_idx: TokenIdx(
+                                                            6,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 20,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 198,
+                                    use_expr_idx: 9,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `fermi_match`,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
@@ -3980,7 +4113,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `fermi_match`,
                                                         token_idx: TokenIdx(
-                                                            149,
+                                                            150,
                                                         ),
                                                     },
                                                 },
@@ -4283,7 +4416,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 22,
+                            progress: 23,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -4323,7 +4456,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 28,
+                            progress: 29,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -5540,7 +5673,7 @@ Ok(
                             ast_idx: 163,
                             use_expr_idx: 0,
                             visibility: Pub,
-                            progress: 38,
+                            progress: 39,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -7069,6 +7202,55 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `FermiMatchResult`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 22,
+                                                    ident_token: IdentToken {
+                                                        ident: `FermiMatchResult`,
+                                                        token_idx: TokenIdx(
+                                                            6,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 20,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 73,
+                                    use_expr_idx: 14,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `fermi_match`,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
@@ -7087,7 +7269,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `fermi_match`,
                                                         token_idx: TokenIdx(
-                                                            149,
+                                                            150,
                                                         ),
                                                     },
                                                 },
@@ -7576,7 +7758,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 22,
+                            progress: 23,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -9822,7 +10004,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 42,
+                            progress: 43,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -10207,22 +10389,18 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `FermiMatchResult`,
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::fermi`,
-                            ),
+                            visibility: Visibility::Pub,
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                     ),
-                                    visibility: Visibility::PubUnder(
-                                        `mnist_classifier::fermi`,
-                                    ),
+                                    visibility: Visibility::Pub,
                                     ast_idx: 22,
                                     ident_token: IdentToken {
                                         ident: `FermiMatchResult`,
                                         token_idx: TokenIdx(
-                                            5,
+                                            6,
                                         ),
                                     },
                                 },
@@ -10241,7 +10419,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `fermi_match`,
                                         token_idx: TokenIdx(
-                                            149,
+                                            150,
                                         ),
                                     },
                                 },
@@ -11225,7 +11403,7 @@ Ok(
                             ast_idx: 23,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    23,
+                                    24,
                                 ),
                             },
                             ty_expr: 11,
@@ -11284,7 +11462,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 22,
+                            progress: 23,
                         },
                     ],
                 ),
@@ -12406,6 +12584,55 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `FermiMatchResult`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 22,
+                                                    ident_token: IdentToken {
+                                                        ident: `FermiMatchResult`,
+                                                        token_idx: TokenIdx(
+                                                            6,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 20,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 26,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `fermi_match`,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::digits`,
@@ -12424,7 +12651,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `fermi_match`,
                                                         token_idx: TokenIdx(
-                                                            149,
+                                                            150,
                                                         ),
                                                     },
                                                 },
@@ -13755,7 +13982,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 22,
+                            progress: 23,
                         },
                     ],
                 ),
@@ -15758,6 +15985,55 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `FermiMatchResult`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier::major`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem(
+                                                ModuleItemSymbol {
+                                                    path: ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                    ),
+                                                    visibility: Visibility::Pub,
+                                                    ast_idx: 22,
+                                                    ident_token: IdentToken {
+                                                        ident: `FermiMatchResult`,
+                                                        token_idx: TokenIdx(
+                                                            6,
+                                                        ),
+                                                    },
+                                                },
+                                            ),
+                                            path: EntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                ),
+                                            ),
+                                            visibility: Visibility::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 20,
+                                            use_expr_idx: 6,
+                                        },
+                                    ),
+                                    path: EntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                        ),
+                                    ),
+                                    visibility: Visibility::PubUnder(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    ast_idx: 22,
+                                    use_expr_idx: 13,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `fermi_match`,
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::major`,
@@ -15776,7 +16052,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `fermi_match`,
                                                         token_idx: TokenIdx(
-                                                            149,
+                                                            150,
                                                         ),
                                                     },
                                                 },
@@ -16168,7 +16444,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 22,
+                            progress: 23,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -16188,7 +16464,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 28,
+                            progress: 29,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -16208,7 +16484,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 42,
+                            progress: 43,
                         },
                         UseAllRule {
                             parent: KinshipedModulePath {
@@ -16248,7 +16524,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            progress: 38,
+                            progress: 39,
                         },
                     ],
                 ),
@@ -16415,7 +16691,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `FermiMatchResult`,
                         token_idx: TokenIdx(
-                            24,
+                            25,
                         ),
                     },
                     entity_path: EntityPath::ModuleItem(

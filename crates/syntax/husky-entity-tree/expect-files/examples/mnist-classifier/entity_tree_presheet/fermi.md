@@ -5,22 +5,18 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `FermiMatchResult`,
-                    visibility: Visibility::PubUnder(
-                        `mnist_classifier::fermi`,
-                    ),
+                    visibility: Visibility::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                             ),
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::fermi`,
-                            ),
+                            visibility: Visibility::Pub,
                             ast_idx: 22,
                             ident_token: IdentToken {
                                 ident: `FermiMatchResult`,
                                 token_idx: TokenIdx(
-                                    5,
+                                    6,
                                 ),
                             },
                         },
@@ -39,7 +35,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `fermi_match`,
                                 token_idx: TokenIdx(
-                                    149,
+                                    150,
                                 ),
                             },
                         },

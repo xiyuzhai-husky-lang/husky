@@ -121,12 +121,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `norm`,
                         token_idx: TokenIdx(
-                            27,
+                            28,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        28,
+                        29,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -156,12 +156,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `rel_norm`,
                         token_idx: TokenIdx(
-                            66,
+                            67,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        67,
+                        68,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -191,12 +191,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `angle_change_norm`,
                         token_idx: TokenIdx(
-                            105,
+                            106,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        106,
+                        107,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
@@ -272,14 +272,14 @@ Ok(
                         1,
                     ),
                     visibility_expr: VisibilityExpr {
-                        visibility: PubUnder(
-                            ModulePath(
-                                Id {
-                                    value: 35,
-                                },
-                            ),
-                        ),
-                        variant: Protected,
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    4,
+                                ),
+                            },
+                        },
                     },
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
@@ -297,12 +297,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `FermiMatchResult`,
                         token_idx: TokenIdx(
-                            5,
+                            6,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        6,
+                        7,
                     ),
                     body_kind: None,
                     body: ArenaIdxRange(
@@ -326,7 +326,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    147,
+                                    148,
                                 ),
                             },
                         },
@@ -347,12 +347,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `fermi_match`,
                         token_idx: TokenIdx(
-                            149,
+                            150,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        150,
+                        151,
                     ),
                     body_kind: Block,
                     body: ArenaIdxRange(
