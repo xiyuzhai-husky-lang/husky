@@ -40,7 +40,7 @@ impl NameToken {
             NameToken::Ident(token) => token.token_idx(),
             NameToken::Crate(token) => token.token_idx(),
             NameToken::SelfValue(token) => token.token_idx(),
-            NameToken::Super(_) => todo!(),
+            NameToken::Super(token) => token.token_idx(),
         }
     }
 
@@ -326,14 +326,20 @@ impl<'a, 'b> ParseFrom<UseExprParser<'a, 'b>> for UseExpr {
             return Ok(Some(UseExpr::All { star_token }));
         }
         if let Some(crate_token) = ctx.parse::<CrateToken>()? {
-            return Ok(Some(UseExpr::Parent(ParentUseExpr {
+            Ok(Some(UseExpr::Parent(ParentUseExpr {
                 parent_name_token: NameToken::Crate(crate_token),
                 scope_resolution_token: ctx
                     .parse_expected(OriginalUseExprError::ExpectScopeResolution),
                 children: ctx.parse_children(),
-            })));
-        }
-        if let Some(self_value_token) = ctx.parse::<SelfValueToken>()? {
+            })))
+        } else if let Some(super_token) = ctx.parse::<SuperToken>()? {
+            Ok(Some(UseExpr::Parent(ParentUseExpr {
+                parent_name_token: NameToken::Super(super_token),
+                scope_resolution_token: ctx
+                    .parse_expected(OriginalUseExprError::ExpectScopeResolution),
+                children: ctx.parse_children(),
+            })))
+        } else if let Some(self_value_token) = ctx.parse::<SelfValueToken>()? {
             // differentiate betwee self one and self children
             if ctx.peek() == Some(&Token::Punctuation(Punctuation::COLON_COLON)) {
                 Ok(Some(UseExpr::Parent(ParentUseExpr {

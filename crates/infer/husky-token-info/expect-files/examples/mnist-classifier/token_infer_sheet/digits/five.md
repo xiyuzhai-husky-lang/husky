@@ -2,7 +2,18 @@ Ok(
     TokenInfoSheet {
         token_infos: [
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::UseExpr {
+                use_expr_idx: 1,
+                rule_idx: UseExprRuleIdx(
+                    0,
+                ),
+                state: UseExprRuleState::Resolved {
+                    original_symbol: EntitySymbol::SuperModule {
+                        current_module_path: `mnist_classifier::digits::five`,
+                        super_module_path: `mnist_classifier::digits`,
+                    },
+                },
+            },
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,

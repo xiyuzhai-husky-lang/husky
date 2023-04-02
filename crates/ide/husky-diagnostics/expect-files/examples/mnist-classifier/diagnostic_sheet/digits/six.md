@@ -19,26 +19,6 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [10:13, 10:19),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [13:21, 13:46),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [14:24, 14:49),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [14:63, 14:88),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
                 range: [16:9, 16:20),
             },
             Diagnostic {
@@ -52,9 +32,9 @@ DiagnosticSheet {
                 range: [17:25, 17:28),
             },
             Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
+                message: "Syntax Error: unterminated list",
                 severity: Error,
-                range: [31:21, 31:66),
+                range: [31:67, 31:68),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
@@ -84,11 +64,6 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [38:36, 38:61),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
                 range: [41:9, 41:20),
             },
             Diagnostic {
@@ -100,16 +75,6 @@ DiagnosticSheet {
                 message: "Syntax Error: unresolved subentity",
                 severity: Error,
                 range: [42:25, 42:28),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [47:13, 47:38),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [45:13, 45:58),
             },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
@@ -156,16 +121,6 @@ DiagnosticSheet {
                 severity: Error,
                 range: [64:17, 64:20),
             },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [66:16, 66:32),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [71:17, 71:33),
-            },
         ],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
@@ -201,6 +156,11 @@ DiagnosticSheet {
                 message: "Type Error: TodoScopeResolution",
                 severity: Error,
                 range: [37:13, 37:28),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [38:36, 38:74),
             },
             Diagnostic {
                 message: "Type Error: TodoSuffix",

@@ -16,136 +16,6 @@ Ok(
                     ),
                 ),
             ),
-            Token::Ident(
-                `connected_component`,
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Star,
-                ),
-            ),
-            Token::Keyword(
-                Keyword::Use,
-            ),
-            Token::Keyword(
-                Keyword::Pronoun(
-                    Crate,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
-                ),
-            ),
-            Token::Ident(
-                `raw_contour`,
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Star,
-                ),
-            ),
-            Token::Keyword(
-                Keyword::Use,
-            ),
-            Token::Keyword(
-                Keyword::Pronoun(
-                    Crate,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
-                ),
-            ),
-            Token::Ident(
-                `line_segment_sketch`,
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Star,
-                ),
-            ),
-            Token::Keyword(
-                Keyword::Use,
-            ),
-            Token::Keyword(
-                Keyword::Pronoun(
-                    Crate,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
-                ),
-            ),
-            Token::Ident(
-                `line_segment_sketch`,
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
-                ),
-            ),
-            Token::Ident(
-                `concave_component`,
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Star,
-                ),
-            ),
-            Token::Keyword(
-                Keyword::Use,
-            ),
-            Token::Keyword(
-                Keyword::Pronoun(
-                    Crate,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Binary(
-                        ScopeResolution,
-                    ),
-                ),
-            ),
             Token::Punctuation(
                 Punctuation(
                     PunctuationMapped::Star,
@@ -814,40 +684,32 @@ Ok(
         ],
         group_starts: [
             0,
-            6,
-            12,
-            18,
-            26,
-            30,
-            39,
+            4,
+            13,
+            17,
+            24,
+            29,
+            34,
             43,
-            50,
-            55,
+            52,
+            57,
             60,
-            69,
-            78,
-            83,
-            86,
+            63,
+            68,
+            75,
+            80,
             89,
-            94,
-            101,
-            106,
+            97,
+            103,
+            112,
             115,
-            123,
-            129,
+            122,
+            128,
+            135,
             138,
-            141,
-            148,
-            154,
-            161,
-            164,
-            173,
+            147,
         ],
         indents: [
-            0,
-            0,
-            0,
-            0,
             0,
             0,
             4,

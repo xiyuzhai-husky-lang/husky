@@ -5,10 +5,8 @@
                 FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
             ),
         ),
-        Err(
-            RawTypeError::Derived(
-                DerivedRawTypeError::SignatureError,
-            ),
+        Ok(
+            RawTerm(`mnist_classifier::fermi::FermiMatchResult`),
         ),
     ),
     (
@@ -17,10 +15,8 @@
                 FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
             ),
         ),
-        Err(
-            RawTypeError::Derived(
-                DerivedRawTypeError::SignatureError,
-            ),
+        Ok(
+            RawTerm(`mnist_classifier::fermi::FermiMatchResult`),
         ),
     ),
     (
@@ -41,10 +37,8 @@
                 FormPath(`mnist_classifier::digits::nine::downmost`, `Fn`),
             ),
         ),
-        Err(
-            RawTypeError::Derived(
-                DerivedRawTypeError::SignatureError,
-            ),
+        Ok(
+            RawTerm(`Fp(~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent) -> core::option::Option core::num::f32`),
         ),
     ),
     (
@@ -53,10 +47,8 @@
                 FormPath(`mnist_classifier::digits::nine::big_cc`, `Fn`),
             ),
         ),
-        Err(
-            RawTypeError::Derived(
-                DerivedRawTypeError::SignatureError,
-            ),
+        Ok(
+            RawTerm(`Fp(~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent) -> core::option::Option core::num::f32`),
         ),
     ),
 ]

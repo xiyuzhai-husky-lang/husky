@@ -5,10 +5,8 @@
                 FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
             ),
         ),
-        Err(
-            RawTypeError::Derived(
-                DerivedRawTypeError::SignatureError,
-            ),
+        Ok(
+            RawTerm(`mnist_classifier::fermi::FermiMatchResult`),
         ),
     ),
     (
@@ -29,10 +27,8 @@
                 FormPath(`mnist_classifier::digits::three::uparc`, `Fn`),
             ),
         ),
-        Err(
-            RawTypeError::Derived(
-                DerivedRawTypeError::SignatureError,
-            ),
+        Ok(
+            RawTerm(`Fp(~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent) -> core::option::Option core::num::f32`),
         ),
     ),
     (
@@ -41,10 +37,8 @@
                 FormPath(`mnist_classifier::digits::three::downarc`, `Fn`),
             ),
         ),
-        Err(
-            RawTypeError::Derived(
-                DerivedRawTypeError::SignatureError,
-            ),
+        Ok(
+            RawTerm(`Fp(~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent) -> core::option::Option core::num::f32`),
         ),
     ),
     (
@@ -53,10 +47,8 @@
                 FormPath(`mnist_classifier::digits::three::back`, `Fn`),
             ),
         ),
-        Err(
-            RawTypeError::Derived(
-                DerivedRawTypeError::SignatureError,
-            ),
+        Ok(
+            RawTerm(`Fp(~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent) -> core::option::Option core::num::f32`),
         ),
     ),
 ]

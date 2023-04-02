@@ -1,7 +1,3 @@
-use crate::connected_component::*
-use crate::raw_contour::*
-use crate::line_segment_sketch::*
-use crate::line_segment_sketch::concave_component::*
 use crate::*
 
 pub val connected_components: []ConnectedComponent =:

@@ -19,6 +19,7 @@ pub struct UseAllRule {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub(crate) struct KinshipedModulePath {
     // precomputed and save here for efficiency
     kinship: ModulePathKinship,
@@ -117,6 +118,7 @@ impl UseAllRule {
 }
 
 #[derive(Debug, Default, PartialEq, Eq, Clone)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub(crate) struct UseAllRules(Vec<UseAllRule>);
 
 #[derive(Debug, Default, PartialEq, Eq, Clone, Copy)]

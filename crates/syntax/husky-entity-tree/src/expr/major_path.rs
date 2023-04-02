@@ -105,6 +105,10 @@ impl<'a, 'b> MajorPathExprParser<'a, 'b> {
                 EntityPath::AssociatedItem(_) => todo!(),
                 EntityPath::Variant(_) => todo!(),
             },
+            EntitySymbol::SuperModule {
+                current_module_path,
+                super_module_path,
+            } => todo!(),
         };
         let (expr, path) = if let Some(_) = self.try_parse::<ScopeResolutionToken>() {
             todo!()

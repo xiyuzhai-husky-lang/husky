@@ -57,20 +57,32 @@ Ok(
                                             ),
                                             expr_arena: Arena {
                                                 data: [
-                                                    Expr::Err(
-                                                        ExprError::Original(
-                                                            OriginalExprError::UnrecognizedIdent {
-                                                                token_idx: TokenIdx(
-                                                                    7,
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 0,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                                                 ),
-                                                                ident: `FermiMatchResult`,
-                                                            },
+                                                            ),
                                                         ),
-                                                    ),
+                                                    },
                                                 ],
                                             },
                                             entity_path_expr_arena: Arena {
-                                                data: [],
+                                                data: [
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            7,
+                                                        ),
+                                                        ident: `FermiMatchResult`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
                                             },
                                             stmt_arena: Arena {
                                                 data: [],
@@ -119,32 +131,12 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdent {
-                                                            token_idx: TokenIdx(
-                                                                10,
-                                                            ),
-                                                            ident: `fermi_match`,
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::EntityPath {
                                                     entity_path_expr: 0,
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::three::downarc`, `Fn`),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                },
-                                                Expr::EntityPath {
-                                                    entity_path_expr: 1,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
-                                                            ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::three::uparc`, `Fn`),
+                                                                FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                                             ),
                                                         ),
                                                     ),
@@ -154,21 +146,41 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::digits::three::downarc`, `Fn`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 3,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::digits::three::uparc`, `Fn`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 4,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Form(
                                                                 FormPath(`mnist_classifier::digits::three::back`, `Fn`),
                                                             ),
                                                         ),
                                                     ),
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdent {
-                                                            token_idx: TokenIdx(
-                                                                12,
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 1,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                             ),
-                                                            ident: `major_concave_components`,
-                                                        },
+                                                        ),
                                                     ),
-                                                ),
+                                                },
                                                 Expr::List {
                                                     lbox_token_idx: TokenIdx(
                                                         14,
@@ -207,6 +219,28 @@ Ok(
                                         },
                                         entity_path_expr_arena: Arena {
                                             data: [
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        10,
+                                                    ),
+                                                    ident: `fermi_match`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        12,
+                                                    ),
+                                                    ident: `major_concave_components`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                                        ),
+                                                    ),
+                                                },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         15,
@@ -411,16 +445,16 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdent {
-                                                            token_idx: TokenIdx(
-                                                                34,
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 0,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                             ),
-                                                            ident: `major_concave_components`,
-                                                        },
+                                                        ),
                                                     ),
-                                                ),
+                                                },
                                                 Expr::MethodCall {
                                                     self_argument: 0,
                                                     dot_token_idx: TokenIdx(
@@ -458,16 +492,16 @@ Ok(
                                                     ),
                                                     ropd: 2,
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdent {
-                                                            token_idx: TokenIdx(
-                                                                42,
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 1,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Form(
+                                                                FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                             ),
-                                                            ident: `major_concave_components`,
-                                                        },
+                                                        ),
                                                     ),
-                                                ),
+                                                },
                                                 Expr::MethodCall {
                                                     self_argument: 4,
                                                     dot_token_idx: TokenIdx(
@@ -506,7 +540,7 @@ Ok(
                                                     ropd: 6,
                                                 },
                                                 Expr::EntityPath {
-                                                    entity_path_expr: 0,
+                                                    entity_path_expr: 2,
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
@@ -545,7 +579,7 @@ Ok(
                                                     ),
                                                 },
                                                 Expr::EntityPath {
-                                                    entity_path_expr: 1,
+                                                    entity_path_expr: 3,
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
@@ -584,7 +618,7 @@ Ok(
                                                     ),
                                                 },
                                                 Expr::EntityPath {
-                                                    entity_path_expr: 2,
+                                                    entity_path_expr: 4,
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
@@ -959,7 +993,7 @@ Ok(
                                                     ropd: 48,
                                                 },
                                                 Expr::EntityPath {
-                                                    entity_path_expr: 3,
+                                                    entity_path_expr: 5,
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
@@ -1076,6 +1110,28 @@ Ok(
                                         },
                                         entity_path_expr_arena: Arena {
                                             data: [
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        34,
+                                                    ),
+                                                    ident: `major_concave_components`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                                        ),
+                                                    ),
+                                                },
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        42,
+                                                    ),
+                                                    ident: `major_concave_components`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Form(
+                                                            FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                                        ),
+                                                    ),
+                                                },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
                                                         52,
@@ -1777,16 +1833,16 @@ Ok(
                                             ),
                                             expr_arena: Arena {
                                                 data: [
-                                                    Expr::Err(
-                                                        ExprError::Original(
-                                                            OriginalExprError::UnrecognizedIdent {
-                                                                token_idx: TokenIdx(
-                                                                    163,
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 0,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                                 ),
-                                                                ident: `ConcaveComponent`,
-                                                            },
+                                                            ),
                                                         ),
-                                                    ),
+                                                    },
                                                     Expr::Prefix {
                                                         opr: Tilde,
                                                         opr_token_idx: TokenIdx(
@@ -1795,7 +1851,7 @@ Ok(
                                                         opd: 0,
                                                     },
                                                     Expr::EntityPath {
-                                                        entity_path_expr: 0,
+                                                        entity_path_expr: 1,
                                                         path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
@@ -1815,6 +1871,17 @@ Ok(
                                             },
                                             entity_path_expr_arena: Arena {
                                                 data: [
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            163,
+                                                        ),
+                                                        ident: `ConcaveComponent`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            ),
+                                                        ),
+                                                    },
                                                     EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
                                                             167,
@@ -1965,16 +2032,16 @@ Ok(
                                                     ),
                                                     expr_arena: Arena {
                                                         data: [
-                                                            Expr::Err(
-                                                                ExprError::Original(
-                                                                    OriginalExprError::UnrecognizedIdent {
-                                                                        token_idx: TokenIdx(
-                                                                            163,
+                                                            Expr::EntityPath {
+                                                                entity_path_expr: 0,
+                                                                path: Some(
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                                         ),
-                                                                        ident: `ConcaveComponent`,
-                                                                    },
+                                                                    ),
                                                                 ),
-                                                            ),
+                                                            },
                                                             Expr::Prefix {
                                                                 opr: Tilde,
                                                                 opr_token_idx: TokenIdx(
@@ -1983,7 +2050,7 @@ Ok(
                                                                 opd: 0,
                                                             },
                                                             Expr::EntityPath {
-                                                                entity_path_expr: 0,
+                                                                entity_path_expr: 1,
                                                                 path: Some(
                                                                     EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
@@ -2003,6 +2070,17 @@ Ok(
                                                     },
                                                     entity_path_expr_arena: Arena {
                                                         data: [
+                                                            EntityPathExpr::Root {
+                                                                token_idx: TokenIdx(
+                                                                    163,
+                                                                ),
+                                                                ident: `ConcaveComponent`,
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    ),
+                                                                ),
+                                                            },
                                                             EntityPathExpr::Root {
                                                                 token_idx: TokenIdx(
                                                                     167,
@@ -2391,16 +2469,16 @@ Ok(
                                             ),
                                             expr_arena: Arena {
                                                 data: [
-                                                    Expr::Err(
-                                                        ExprError::Original(
-                                                            OriginalExprError::UnrecognizedIdent {
-                                                                token_idx: TokenIdx(
-                                                                    197,
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 0,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                                 ),
-                                                                ident: `ConcaveComponent`,
-                                                            },
+                                                            ),
                                                         ),
-                                                    ),
+                                                    },
                                                     Expr::Prefix {
                                                         opr: Tilde,
                                                         opr_token_idx: TokenIdx(
@@ -2409,7 +2487,7 @@ Ok(
                                                         opd: 0,
                                                     },
                                                     Expr::EntityPath {
-                                                        entity_path_expr: 0,
+                                                        entity_path_expr: 1,
                                                         path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
@@ -2429,6 +2507,17 @@ Ok(
                                             },
                                             entity_path_expr_arena: Arena {
                                                 data: [
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            197,
+                                                        ),
+                                                        ident: `ConcaveComponent`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            ),
+                                                        ),
+                                                    },
                                                     EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
                                                             201,
@@ -2579,16 +2668,16 @@ Ok(
                                                     ),
                                                     expr_arena: Arena {
                                                         data: [
-                                                            Expr::Err(
-                                                                ExprError::Original(
-                                                                    OriginalExprError::UnrecognizedIdent {
-                                                                        token_idx: TokenIdx(
-                                                                            197,
+                                                            Expr::EntityPath {
+                                                                entity_path_expr: 0,
+                                                                path: Some(
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                                         ),
-                                                                        ident: `ConcaveComponent`,
-                                                                    },
+                                                                    ),
                                                                 ),
-                                                            ),
+                                                            },
                                                             Expr::Prefix {
                                                                 opr: Tilde,
                                                                 opr_token_idx: TokenIdx(
@@ -2597,7 +2686,7 @@ Ok(
                                                                 opd: 0,
                                                             },
                                                             Expr::EntityPath {
-                                                                entity_path_expr: 0,
+                                                                entity_path_expr: 1,
                                                                 path: Some(
                                                                     EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
@@ -2617,6 +2706,17 @@ Ok(
                                                     },
                                                     entity_path_expr_arena: Arena {
                                                         data: [
+                                                            EntityPathExpr::Root {
+                                                                token_idx: TokenIdx(
+                                                                    197,
+                                                                ),
+                                                                ident: `ConcaveComponent`,
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    ),
+                                                                ),
+                                                            },
                                                             EntityPathExpr::Root {
                                                                 token_idx: TokenIdx(
                                                                     201,
@@ -3005,16 +3105,16 @@ Ok(
                                             ),
                                             expr_arena: Arena {
                                                 data: [
-                                                    Expr::Err(
-                                                        ExprError::Original(
-                                                            OriginalExprError::UnrecognizedIdent {
-                                                                token_idx: TokenIdx(
-                                                                    231,
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 0,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                                 ),
-                                                                ident: `ConcaveComponent`,
-                                                            },
+                                                            ),
                                                         ),
-                                                    ),
+                                                    },
                                                     Expr::Prefix {
                                                         opr: Tilde,
                                                         opr_token_idx: TokenIdx(
@@ -3023,7 +3123,7 @@ Ok(
                                                         opd: 0,
                                                     },
                                                     Expr::EntityPath {
-                                                        entity_path_expr: 0,
+                                                        entity_path_expr: 1,
                                                         path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
@@ -3043,6 +3143,17 @@ Ok(
                                             },
                                             entity_path_expr_arena: Arena {
                                                 data: [
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            231,
+                                                        ),
+                                                        ident: `ConcaveComponent`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            ),
+                                                        ),
+                                                    },
                                                     EntityPathExpr::Root {
                                                         token_idx: TokenIdx(
                                                             235,
@@ -3193,16 +3304,16 @@ Ok(
                                                     ),
                                                     expr_arena: Arena {
                                                         data: [
-                                                            Expr::Err(
-                                                                ExprError::Original(
-                                                                    OriginalExprError::UnrecognizedIdent {
-                                                                        token_idx: TokenIdx(
-                                                                            231,
+                                                            Expr::EntityPath {
+                                                                entity_path_expr: 0,
+                                                                path: Some(
+                                                                    EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                                         ),
-                                                                        ident: `ConcaveComponent`,
-                                                                    },
+                                                                    ),
                                                                 ),
-                                                            ),
+                                                            },
                                                             Expr::Prefix {
                                                                 opr: Tilde,
                                                                 opr_token_idx: TokenIdx(
@@ -3211,7 +3322,7 @@ Ok(
                                                                 opd: 0,
                                                             },
                                                             Expr::EntityPath {
-                                                                entity_path_expr: 0,
+                                                                entity_path_expr: 1,
                                                                 path: Some(
                                                                     EntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
@@ -3231,6 +3342,17 @@ Ok(
                                                     },
                                                     entity_path_expr_arena: Arena {
                                                         data: [
+                                                            EntityPathExpr::Root {
+                                                                token_idx: TokenIdx(
+                                                                    231,
+                                                                ),
+                                                                ident: `ConcaveComponent`,
+                                                                entity_path: EntityPath::ModuleItem(
+                                                                    ModuleItemPath::Type(
+                                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    ),
+                                                                ),
+                                                            },
                                                             EntityPathExpr::Root {
                                                                 token_idx: TokenIdx(
                                                                     235,

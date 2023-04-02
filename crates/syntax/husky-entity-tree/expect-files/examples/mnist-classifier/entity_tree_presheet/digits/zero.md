@@ -75,21 +75,64 @@ Ok(
             ],
         ),
         use_one_trackers: UseExprRules(
-            [],
+            [
+                UseExprRule {
+                    ast_idx: 25,
+                    use_expr_idx: 1,
+                    visibility: Visibility::PubUnder(
+                        `mnist_classifier::digits::zero`,
+                    ),
+                    variant: UseExprRuleVariant::Parent {
+                        parent_name_token: NameToken::Super(
+                            SuperToken {
+                                token_idx: TokenIdx(
+                                    1,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
+                            0..1,
+                        ),
+                    },
+                    parent: None,
+                    state: UseExprRuleState::Unresolved,
+                },
+            ],
         ),
         use_all_trackers: UseAllRules(
             [],
         ),
         use_expr_arena: Arena {
             data: [
-                UseExpr::Err(
-                    UseExprError::Original(
-                        OriginalUseExprError::ExpectUseExpr(
-                            TokenIdx(
-                                1,
-                            ),
+                UseExpr::All {
+                    star_token: StarToken(
+                        TokenIdx(
+                            3,
                         ),
                     ),
+                },
+                UseExpr::Parent(
+                    ParentUseExpr {
+                        parent_name_token: NameToken::Super(
+                            SuperToken {
+                                token_idx: TokenIdx(
+                                    1,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    2,
+                                ),
+                            ),
+                        ),
+                        children: Ok(
+                            UseExprChildren::Single {
+                                child: 0,
+                            },
+                        ),
+                    },
                 ),
             ],
         },

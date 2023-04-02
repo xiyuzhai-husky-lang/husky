@@ -14,11 +14,11 @@ Ok(
                         FormDecl::Feature(
                             FeatureDecl {
                                 path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
-                                ast_idx: 23,
+                                ast_idx: 19,
                                 colon_token: Some(
                                     ColonToken(
                                         TokenIdx(
-                                            33,
+                                            7,
                                         ),
                                     ),
                                 ),
@@ -29,14 +29,14 @@ Ok(
                                 ),
                                 eq_token: EqToken(
                                     TokenIdx(
-                                        37,
+                                        11,
                                     ),
                                 ),
                                 expr_or_eol_token: Left(
                                     EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                38,
+                                                12,
                                             ),
                                         },
                                     ),
@@ -57,25 +57,25 @@ Ok(
                                             data: [
                                                 Expr::List {
                                                     lbox_token_idx: TokenIdx(
-                                                        34,
+                                                        8,
                                                     ),
                                                     items: ArenaIdxRange(
                                                         0..0,
                                                     ),
                                                     rbox_token_idx: TokenIdx(
-                                                        35,
+                                                        9,
                                                     ),
                                                 },
-                                                Expr::EntityPath {
-                                                    entity_path_expr: 0,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
-                                                                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                Expr::Err(
+                                                    ExprError::Original(
+                                                        OriginalExprError::UnrecognizedIdent {
+                                                            token_idx: TokenIdx(
+                                                                10,
                                                             ),
-                                                        ),
+                                                            ident: `ConnectedComponent`,
+                                                        },
                                                     ),
-                                                },
+                                                ),
                                                 Expr::ExplicitApplication {
                                                     function: 0,
                                                     argument: 1,
@@ -83,19 +83,7 @@ Ok(
                                             ],
                                         },
                                         entity_path_expr_arena: Arena {
-                                            data: [
-                                                EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        36,
-                                                    ),
-                                                    ident: `ConnectedComponent`,
-                                                    entity_path: EntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
-                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                        ),
-                                                    ),
-                                                },
-                                            ],
+                                            data: [],
                                         },
                                         stmt_arena: Arena {
                                             data: [],
@@ -147,11 +135,11 @@ Ok(
                         FormDecl::Feature(
                             FeatureDecl {
                                 path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
-                                ast_idx: 24,
+                                ast_idx: 20,
                                 colon_token: Some(
                                     ColonToken(
                                         TokenIdx(
-                                            46,
+                                            20,
                                         ),
                                     ),
                                 ),
@@ -162,14 +150,14 @@ Ok(
                                 ),
                                 eq_token: EqToken(
                                     TokenIdx(
-                                        48,
+                                        22,
                                     ),
                                 ),
                                 expr_or_eol_token: Left(
                                     EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                49,
+                                                23,
                                             ),
                                         },
                                     ),
@@ -188,32 +176,20 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                Expr::EntityPath {
-                                                    entity_path_expr: 0,
-                                                    path: Some(
-                                                        EntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
-                                                                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                Expr::Err(
+                                                    ExprError::Original(
+                                                        OriginalExprError::UnrecognizedIdent {
+                                                            token_idx: TokenIdx(
+                                                                21,
                                                             ),
-                                                        ),
+                                                            ident: `ConnectedComponent`,
+                                                        },
                                                     ),
-                                                },
+                                                ),
                                             ],
                                         },
                                         entity_path_expr_arena: Arena {
-                                            data: [
-                                                EntityPathExpr::Root {
-                                                    token_idx: TokenIdx(
-                                                        47,
-                                                    ),
-                                                    ident: `ConnectedComponent`,
-                                                    entity_path: EntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
-                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                        ),
-                                                    ),
-                                                },
-                                            ],
+                                            data: [],
                                         },
                                         stmt_arena: Arena {
                                             data: [],
@@ -265,11 +241,11 @@ Ok(
                         FormDecl::Feature(
                             FeatureDecl {
                                 path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
-                                ast_idx: 25,
+                                ast_idx: 21,
                                 colon_token: Some(
                                     ColonToken(
                                         TokenIdx(
-                                            97,
+                                            71,
                                         ),
                                     ),
                                 ),
@@ -280,14 +256,14 @@ Ok(
                                 ),
                                 eq_token: EqToken(
                                     TokenIdx(
-                                        99,
+                                        73,
                                     ),
                                 ),
                                 expr_or_eol_token: Left(
                                     EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                100,
+                                                74,
                                             ),
                                         },
                                     ),
@@ -322,7 +298,7 @@ Ok(
                                             data: [
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        98,
+                                                        72,
                                                     ),
                                                     ident: `f32`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -383,11 +359,11 @@ Ok(
                         FormDecl::Feature(
                             FeatureDecl {
                                 path: FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
-                                ast_idx: 26,
+                                ast_idx: 22,
                                 colon_token: Some(
                                     ColonToken(
                                         TokenIdx(
-                                            132,
+                                            106,
                                         ),
                                     ),
                                 ),
@@ -398,14 +374,14 @@ Ok(
                                 ),
                                 eq_token: EqToken(
                                     TokenIdx(
-                                        136,
+                                        110,
                                     ),
                                 ),
                                 expr_or_eol_token: Left(
                                     EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                137,
+                                                111,
                                             ),
                                         },
                                     ),
@@ -426,13 +402,13 @@ Ok(
                                             data: [
                                                 Expr::List {
                                                     lbox_token_idx: TokenIdx(
-                                                        133,
+                                                        107,
                                                     ),
                                                     items: ArenaIdxRange(
                                                         0..0,
                                                     ),
                                                     rbox_token_idx: TokenIdx(
-                                                        134,
+                                                        108,
                                                     ),
                                                 },
                                                 Expr::EntityPath {
@@ -455,7 +431,7 @@ Ok(
                                             data: [
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        135,
+                                                        109,
                                                     ),
                                                     ident: `RawContour`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -516,11 +492,11 @@ Ok(
                         FormDecl::Feature(
                             FeatureDecl {
                                 path: FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
-                                ast_idx: 27,
+                                ast_idx: 23,
                                 colon_token: Some(
                                     ColonToken(
                                         TokenIdx(
-                                            144,
+                                            118,
                                         ),
                                     ),
                                 ),
@@ -531,14 +507,14 @@ Ok(
                                 ),
                                 eq_token: EqToken(
                                     TokenIdx(
-                                        146,
+                                        120,
                                     ),
                                 ),
                                 expr_or_eol_token: Left(
                                     EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                147,
+                                                121,
                                             ),
                                         },
                                     ),
@@ -573,7 +549,7 @@ Ok(
                                             data: [
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        145,
+                                                        119,
                                                     ),
                                                     ident: `RawContour`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -634,11 +610,11 @@ Ok(
                         FormDecl::Feature(
                             FeatureDecl {
                                 path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
-                                ast_idx: 28,
+                                ast_idx: 24,
                                 colon_token: Some(
                                     ColonToken(
                                         TokenIdx(
-                                            157,
+                                            131,
                                         ),
                                     ),
                                 ),
@@ -649,14 +625,14 @@ Ok(
                                 ),
                                 eq_token: EqToken(
                                     TokenIdx(
-                                        159,
+                                        133,
                                     ),
                                 ),
                                 expr_or_eol_token: Left(
                                     EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                160,
+                                                134,
                                             ),
                                         },
                                     ),
@@ -691,7 +667,7 @@ Ok(
                                             data: [
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        158,
+                                                        132,
                                                     ),
                                                     ident: `LineSegmentSketch`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -752,11 +728,11 @@ Ok(
                         FormDecl::Feature(
                             FeatureDecl {
                                 path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
-                                ast_idx: 29,
+                                ast_idx: 25,
                                 colon_token: Some(
                                     ColonToken(
                                         TokenIdx(
-                                            167,
+                                            141,
                                         ),
                                     ),
                                 ),
@@ -767,14 +743,14 @@ Ok(
                                 ),
                                 eq_token: EqToken(
                                     TokenIdx(
-                                        171,
+                                        145,
                                     ),
                                 ),
                                 expr_or_eol_token: Left(
                                     EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                172,
+                                                146,
                                             ),
                                         },
                                     ),
@@ -795,13 +771,13 @@ Ok(
                                             data: [
                                                 Expr::List {
                                                     lbox_token_idx: TokenIdx(
-                                                        168,
+                                                        142,
                                                     ),
                                                     items: ArenaIdxRange(
                                                         0..0,
                                                     ),
                                                     rbox_token_idx: TokenIdx(
-                                                        169,
+                                                        143,
                                                     ),
                                                 },
                                                 Expr::EntityPath {
@@ -824,7 +800,7 @@ Ok(
                                             data: [
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        170,
+                                                        144,
                                                     ),
                                                     ident: `ConcaveComponent`,
                                                     entity_path: EntityPath::ModuleItem(

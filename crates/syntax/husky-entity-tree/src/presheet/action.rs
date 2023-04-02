@@ -91,9 +91,18 @@ impl<'a> EntityTreePresheetMut<'a> {
                             }),
                         ),
                         UseExprRuleVariant::Parent {
-                            parent_name_token: NameToken::Super(_),
+                            parent_name_token: NameToken::Super(super_token),
                             children: _,
-                        } => todo!(),
+                        } => match self.module_path.parent(ctx.db()) {
+                            Some(super_module_path) => (
+                                (*super_token).into(),
+                                Ok(EntitySymbol::SuperModule {
+                                    current_module_path: self.module_path,
+                                    super_module_path,
+                                }),
+                            ),
+                            None => todo!(),
+                        },
                         UseExprRuleVariant::Parent {
                             parent_name_token: NameToken::Crate(crate_token),
                             children: _,

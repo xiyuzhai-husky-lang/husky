@@ -98,6 +98,11 @@ impl<'a> EntityTreePresheetMut<'a> {
     pub(crate) fn check_done(&self, db: &dyn EntityTreeDb) {
         self.use_expr_rules.check_done(db)
     }
+
+    #[cfg(test)]
+    pub(crate) fn use_all_rules(&self) -> &UseAllRules {
+        &self.use_all_rules
+    }
 }
 
 impl<'a> AsVecMapEntry for EntityTreePresheetMut<'a> {
