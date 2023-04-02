@@ -26,7 +26,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 5,
+                                            value: 6,
                                         },
                                     ),
                                 ),
@@ -566,7 +566,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 5,
+                                            value: 6,
                                         },
                                     ),
                                 ),
@@ -1045,7 +1045,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 6,
+                                            value: 7,
                                         },
                                     ),
                                 ),
@@ -1254,7 +1254,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 6,
+                                            value: 7,
                                         },
                                     ),
                                 ),
@@ -1425,7 +1425,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 6,
+                                            value: 7,
                                         },
                                     ),
                                 ),
@@ -1804,7 +1804,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 6,
+                                            value: 7,
                                         },
                                     ),
                                 ),
@@ -2387,7 +2387,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 5,
+                                            value: 6,
                                         },
                                     ),
                                 ),
@@ -2596,7 +2596,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 5,
+                                            value: 6,
                                         },
                                     ),
                                 ),
@@ -2767,7 +2767,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 6,
+                                            value: 7,
                                         },
                                     ),
                                 ),
@@ -3146,7 +3146,7 @@
                                 Ritchie(
                                     TermRitchie(
                                         Id {
-                                            value: 6,
+                                            value: 7,
                                         },
                                     ),
                                 ),
@@ -5223,7 +5223,7 @@
                                 TypeMethodFn(
                                     TypeMethodFnCard(
                                         Id {
-                                            value: 3,
+                                            value: 5,
                                         },
                                     ),
                                 ),

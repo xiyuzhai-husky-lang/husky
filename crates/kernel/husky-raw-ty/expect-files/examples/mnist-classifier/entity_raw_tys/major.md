@@ -5,10 +5,8 @@
                 FormPath(`mnist_classifier::major::connected_components`, `Val`),
             ),
         ),
-        Err(
-            RawTypeError::Derived(
-                DerivedRawTypeError::SignatureError,
-            ),
+        Ok(
+            RawTerm(`[] mnist_classifier::connected_component::ConnectedComponent`),
         ),
     ),
     (
@@ -17,10 +15,8 @@
                 FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
             ),
         ),
-        Err(
-            RawTypeError::Derived(
-                DerivedRawTypeError::SignatureError,
-            ),
+        Ok(
+            RawTerm(`mnist_classifier::connected_component::ConnectedComponent`),
         ),
     ),
     (

@@ -401,19 +401,32 @@
                 resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        TypeError(
-                            RawTypeError(
-                                Derived(
-                                    SignatureError,
+                ty_result: Ok(
+                    (
+                        TypePath(
+                            Constructor,
+                        ),
+                        Ok(
+                            Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 72,
+                                            },
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
+                expectation_rule_idx: Some(
+                    3,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
             },
             ExprTypeInfo {
                 ty_result: Ok(
@@ -421,7 +434,13 @@
                         Trivial,
                         Err(
                             Derived(
-                                FieldOwnerTypeNotInferred,
+                                FieldTypeTermError(
+                                    RawTypeError(
+                                        Derived(
+                                            SignatureError,
+                                        ),
+                                    ),
+                                ),
                             ),
                         ),
                     ),
@@ -443,7 +462,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    3,
+                    4,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -469,7 +488,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    4,
+                    5,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -482,19 +501,32 @@
                 ),
             },
             ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        TypeError(
-                            RawTypeError(
-                                Derived(
-                                    SignatureError,
+                ty_result: Ok(
+                    (
+                        TypePath(
+                            Constructor,
+                        ),
+                        Ok(
+                            Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 72,
+                                            },
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
+                expectation_rule_idx: Some(
+                    6,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
             },
             ExprTypeInfo {
                 ty_result: Ok(
@@ -502,7 +534,13 @@
                         Trivial,
                         Err(
                             Derived(
-                                FieldOwnerTypeNotInferred,
+                                FieldTypeTermError(
+                                    RawTypeError(
+                                        Derived(
+                                            SignatureError,
+                                        ),
+                                    ),
+                                ),
                             ),
                         ),
                     ),
@@ -518,96 +556,6 @@
                             Unresolved(
                                 UnresolvedTermIdx(
                                     4,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    5,
-                ),
-                resolve_progress: Expected(
-                    Unresolved,
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Resolved(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 31,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    6,
-                ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            ImplicitlyConvertible(
-                                None,
-                            ),
-                        ),
-                    ),
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        EntityPathError,
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        TypeError(
-                            RawTypeError(
-                                Derived(
-                                    SignatureError,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                FieldOwnerTypeNotInferred,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Unresolved(
-                                UnresolvedTermIdx(
-                                    5,
                                 ),
                             ),
                         ),
@@ -653,6 +601,15 @@
                 ),
             },
             ExprTypeInfo {
+                ty_result: Err(
+                    Derived(
+                        EntityPathError,
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
                 ty_result: Ok(
                     (
                         TypePath(
@@ -664,7 +621,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 54,
+                                                value: 72,
                                             },
                                         ),
                                     ),
@@ -684,16 +641,30 @@
                 ty_result: Ok(
                     (
                         Trivial,
-                        Ok(
-                            Resolved(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 54,
-                                            },
+                        Err(
+                            Derived(
+                                FieldTypeTermError(
+                                    RawTypeError(
+                                        Derived(
+                                            SignatureError,
                                         ),
                                     ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Unresolved(
+                                UnresolvedTermIdx(
+                                    5,
                                 ),
                             ),
                         ),
@@ -703,13 +674,7 @@
                     10,
                 ),
                 resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            ImplicitlyConvertible(
-                                None,
-                            ),
-                        ),
-                    ),
+                    Unresolved,
                 ),
             },
             ExprTypeInfo {
@@ -756,7 +721,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 87,
+                                                value: 54,
                                             },
                                         ),
                                     ),
@@ -767,6 +732,98 @@
                 ),
                 expectation_rule_idx: Some(
                     12,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 54,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    13,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                None,
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 31,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    14,
+                ),
+                resolve_progress: Expected(
+                    Resolved(
+                        Ok(
+                            ImplicitlyConvertible(
+                                None,
+                            ),
+                        ),
+                    ),
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        TypePath(
+                            Constructor,
+                        ),
+                        Ok(
+                            Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 87,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    15,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -806,7 +863,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    13,
+                    16,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -843,7 +900,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    14,
+                    17,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -883,7 +940,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    15,
+                    18,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -920,7 +977,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    16,
+                    19,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -960,7 +1017,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    17,
+                    20,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -1009,7 +1066,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    18,
+                    21,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -1063,7 +1120,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    19,
+                    22,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -1089,7 +1146,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    20,
+                    23,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -1116,118 +1173,28 @@
                 resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        TypeError(
-                            RawTypeError(
-                                Derived(
-                                    SignatureError,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
                 ty_result: Ok(
                     (
-                        Trivial,
+                        TypePath(
+                            Constructor,
+                        ),
                         Ok(
-                            Unresolved(
-                                UnresolvedTermIdx(
-                                    10,
+                            Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 72,
+                                            },
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    21,
-                ),
-                resolve_progress: Expected(
-                    Unresolved,
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                FieldOwnerTypeNotInferred,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        TypeError(
-                            RawTypeError(
-                                Derived(
-                                    SignatureError,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Unresolved(
-                                UnresolvedTermIdx(
-                                    10,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    22,
-                ),
-                resolve_progress: Expected(
-                    Unresolved,
-                ),
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                FieldOwnerTypeNotInferred,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Unresolved(
-                                UnresolvedTermIdx(
-                                    10,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    23,
+                    25,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -1248,6 +1215,134 @@
                 ),
                 expectation_rule_idx: Some(
                     24,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                FieldTypeTermError(
+                                    RawTypeError(
+                                        Derived(
+                                            SignatureError,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        TypePath(
+                            Constructor,
+                        ),
+                        Ok(
+                            Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 72,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    27,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Unresolved(
+                                UnresolvedTermIdx(
+                                    10,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    26,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                FieldTypeTermError(
+                                    RawTypeError(
+                                        Derived(
+                                            SignatureError,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+                resolve_progress: Unresolved,
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Unresolved(
+                                UnresolvedTermIdx(
+                                    10,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    28,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Unresolved(
+                                UnresolvedTermIdx(
+                                    10,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    29,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -1279,7 +1374,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    25,
+                    30,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -1378,7 +1473,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    26,
+                    31,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -1412,7 +1507,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    27,
+                    32,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -1438,7 +1533,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    28,
+                    33,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -1512,7 +1607,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    29,
+                    34,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -1594,7 +1689,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    30,
+                    35,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -1620,7 +1715,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    31,
+                    36,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -1790,7 +1885,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    32,
+                    37,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -1816,7 +1911,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    33,
+                    38,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -1890,7 +1985,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    34,
+                    39,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -1944,7 +2039,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    35,
+                    40,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -1970,7 +2065,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    36,
+                    41,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -2242,7 +2337,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    37,
+                    42,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -2268,7 +2363,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    38,
+                    43,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -2281,12 +2376,45 @@
                 ),
             },
             ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        TypeError(
-                            RawTypeError(
-                                Derived(
-                                    SignatureError,
+                ty_result: Ok(
+                    (
+                        TypePath(
+                            Constructor,
+                        ),
+                        Ok(
+                            Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 72,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    44,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
+            },
+            ExprTypeInfo {
+                ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                FieldTypeTermError(
+                                    RawTypeError(
+                                        Derived(
+                                            SignatureError,
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),
@@ -2298,31 +2426,30 @@
             ExprTypeInfo {
                 ty_result: Ok(
                     (
-                        Trivial,
-                        Err(
-                            Derived(
-                                FieldOwnerTypeNotInferred,
-                            ),
+                        TypePath(
+                            Constructor,
                         ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
-            },
-            ExprTypeInfo {
-                ty_result: Err(
-                    Derived(
-                        TypeError(
-                            RawTypeError(
-                                Derived(
-                                    SignatureError,
+                        Ok(
+                            Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 72,
+                                            },
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
-                resolve_progress: Unresolved,
+                expectation_rule_idx: Some(
+                    45,
+                ),
+                resolve_progress: Expected(
+                    Unresolved,
+                ),
             },
             ExprTypeInfo {
                 ty_result: Ok(
@@ -2330,7 +2457,13 @@
                         Trivial,
                         Err(
                             Derived(
-                                FieldOwnerTypeNotInferred,
+                                FieldTypeTermError(
+                                    RawTypeError(
+                                        Derived(
+                                            SignatureError,
+                                        ),
+                                    ),
+                                ),
                             ),
                         ),
                     ),
@@ -2408,7 +2541,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    39,
+                    46,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -2442,7 +2575,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    40,
+                    47,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -2468,7 +2601,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    41,
+                    48,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -2508,7 +2641,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    42,
+                    49,
                 ),
                 resolve_progress: Expected(
                     Unresolved,
@@ -2534,7 +2667,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    43,
+                    50,
                 ),
                 resolve_progress: Expected(
                     Resolved(
@@ -3052,6 +3185,24 @@
                             ),
                         },
                         LocalTermExpectationRule {
+                            src_expr_idx: 23,
+                            expectee: Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 72,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            resolve_progress: Unresolved,
+                        },
+                        LocalTermExpectationRule {
                             src_expr_idx: 25,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
@@ -3100,6 +3251,24 @@
                             ),
                         },
                         LocalTermExpectationRule {
+                            src_expr_idx: 27,
+                            expectee: Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 72,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            resolve_progress: Unresolved,
+                        },
+                        LocalTermExpectationRule {
                             src_expr_idx: 29,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
@@ -3146,6 +3315,24 @@
                                     ),
                                 ),
                             ),
+                        },
+                        LocalTermExpectationRule {
+                            src_expr_idx: 32,
+                            expectee: Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 72,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            resolve_progress: Unresolved,
                         },
                         LocalTermExpectationRule {
                             src_expr_idx: 34,
@@ -3472,10 +3659,46 @@
                             resolve_progress: Unresolved,
                         },
                         LocalTermExpectationRule {
+                            src_expr_idx: 65,
+                            expectee: Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 72,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            resolve_progress: Unresolved,
+                        },
+                        LocalTermExpectationRule {
                             src_expr_idx: 69,
                             expectee: Unresolved(
                                 UnresolvedTermIdx(
                                     10,
+                                ),
+                            ),
+                            expectation: AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            resolve_progress: Unresolved,
+                        },
+                        LocalTermExpectationRule {
+                            src_expr_idx: 68,
+                            expectee: Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 72,
+                                            },
+                                        ),
+                                    ),
                                 ),
                             ),
                             expectation: AnyOriginal(
@@ -3884,6 +4107,42 @@
                                     ),
                                 ),
                             ),
+                        },
+                        LocalTermExpectationRule {
+                            src_expr_idx: 221,
+                            expectee: Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 72,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            resolve_progress: Unresolved,
+                        },
+                        LocalTermExpectationRule {
+                            src_expr_idx: 223,
+                            expectee: Resolved(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 72,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            expectation: AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            resolve_progress: Unresolved,
                         },
                         LocalTermExpectationRule {
                             src_expr_idx: 231,

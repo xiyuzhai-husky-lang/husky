@@ -201,6 +201,36 @@ Ok(
             Token::Keyword(
                 Keyword::Use,
             ),
+            Token::Keyword(
+                Keyword::Pronoun(
+                    SelfValue,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `connected_component`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Star,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Use,
+            ),
             Token::Ident(
                 `mnist`,
             ),
@@ -351,11 +381,9 @@ Ok(
             33,
             39,
             45,
-            49,
             51,
-            54,
-            56,
-            58,
+            55,
+            57,
             60,
             62,
             64,
@@ -364,8 +392,12 @@ Ok(
             70,
             72,
             74,
+            76,
+            78,
+            80,
         ],
         indents: [
+            0,
             0,
             0,
             0,

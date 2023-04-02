@@ -388,8 +388,8 @@ Ok(
                                     visibility: Visibility::PubUnder(
                                         `mnist_classifier`,
                                     ),
-                                    ast_idx: 23,
-                                    use_expr_idx: 15,
+                                    ast_idx: 24,
+                                    use_expr_idx: 18,
                                 },
                             ),
                             path: EntityPath::ModuleItem(
@@ -1354,7 +1354,7 @@ Ok(
                     visibility: Visibility::PubUnder(
                         `mnist_classifier::connected_component`,
                     ),
-                    progress: 24,
+                    progress: 28,
                 },
                 UseAllRule {
                     parent: KinshipedModulePath {

@@ -37,10 +37,28 @@ Ok(
             TokenInfo::None,
             TokenInfo::BoxPrefix,
             TokenInfo::BoxPrefix,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -64,7 +82,16 @@ Ok(
                 ),
             ),
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,

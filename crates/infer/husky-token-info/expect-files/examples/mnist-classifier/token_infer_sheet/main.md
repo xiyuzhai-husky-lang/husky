@@ -31,7 +31,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 1,
                 rule_idx: UseExprRuleIdx(
-                    6,
+                    7,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: EntitySymbol::Submodule(
@@ -69,7 +69,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 4,
                 rule_idx: UseExprRuleIdx(
-                    7,
+                    8,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: EntitySymbol::Submodule(
@@ -107,7 +107,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 7,
                 rule_idx: UseExprRuleIdx(
-                    8,
+                    9,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: EntitySymbol::Submodule(
@@ -146,7 +146,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 10,
                 rule_idx: UseExprRuleIdx(
-                    9,
+                    10,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: EntitySymbol::Submodule(
@@ -184,7 +184,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 13,
                 rule_idx: UseExprRuleIdx(
-                    10,
+                    11,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: EntitySymbol::Submodule(
@@ -208,9 +208,47 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::UseExpr {
-                use_expr_idx: 16,
+                use_expr_idx: 17,
                 rule_idx: UseExprRuleIdx(
                     5,
+                ),
+                state: UseExprRuleState::Resolved {
+                    original_symbol: EntitySymbol::SelfModule {
+                        module_path: `mnist_classifier`,
+                    },
+                },
+            },
+            TokenInfo::None,
+            TokenInfo::UseExpr {
+                use_expr_idx: 16,
+                rule_idx: UseExprRuleIdx(
+                    12,
+                ),
+                state: UseExprRuleState::Resolved {
+                    original_symbol: EntitySymbol::Submodule(
+                        SubmoduleSymbol {
+                            path: `mnist_classifier::connected_component`,
+                            visibility: Visibility::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            ast_idx: 11,
+                            ident_token: IdentToken {
+                                ident: `connected_component`,
+                                token_idx: TokenIdx(
+                                    1,
+                                ),
+                            },
+                        },
+                    ),
+                },
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::UseExpr {
+                use_expr_idx: 19,
+                rule_idx: UseExprRuleIdx(
+                    6,
                 ),
                 state: UseExprRuleState::Resolved {
                     original_symbol: EntitySymbol::PackageDependency {
