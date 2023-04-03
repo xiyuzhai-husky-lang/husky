@@ -14,7 +14,7 @@ Ok(
                         TypeDecl::Extern(
                             ExternTypeDecl {
                                 path: TypePath(`core::logic::Prop`, `Extern`),
-                                ast_idx: 0,
+                                ast_idx: 2,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -79,7 +79,7 @@ Ok(
                         TypeDecl::Structure(
                             StructureTypeDecl {
                                 path: TypePath(`core::logic::LogicAnd`, `Structure`),
-                                ast_idx: 1,
+                                ast_idx: 3,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -303,7 +303,7 @@ Ok(
                         TypeDecl::Inductive(
                             InductiveTypeDecl {
                                 path: TypePath(`core::logic::LogicOr`, `Inductive`),
-                                ast_idx: 2,
+                                ast_idx: 4,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,

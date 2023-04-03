@@ -48,10 +48,12 @@ impl<'a> FoldingRangeCalculator<'a> {
                 .children()
                 .last()
                 .map(|_| (self.ast_range_sheet[ast_idx], FoldingRangeKind::Region)),
-            Ast::BasicStmtOrBranch { body, .. }
-            | Ast::Main { body, .. }
-            | Ast::Config { body, .. } => body
-                .children()
+            Ast::BasicStmtOrBranch { body, .. } => (*body)?
+                .ast_idx_range()
+                .last()
+                .map(|_| (self.ast_range_sheet[ast_idx], FoldingRangeKind::Region)),
+            Ast::Main { body, .. } | Ast::Config { body, .. } => body
+                .ast_idx_range()
                 .last()
                 .map(|_| (self.ast_range_sheet[ast_idx], FoldingRangeKind::Region)),
         }?;

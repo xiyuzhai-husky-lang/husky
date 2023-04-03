@@ -23,7 +23,7 @@ use self::parser::*;
 use either::*;
 use husky_entity_path::{EntityPath, TypeVariantPath};
 use husky_entity_taxonomy::EntityKind;
-use husky_token::{DecrIdentToken, IdentToken, TokenGroupIdx, TokenIdx};
+use husky_token::{DecrIdentToken, IdentToken, TokenGroupIdx, TokenIdx, VerticalToken};
 use husky_vfs::*;
 use husky_visibility::Visibility;
 use husky_visibility_expr::VisibilityExpr;
@@ -57,7 +57,7 @@ pub enum Ast {
     },
     BasicStmtOrBranch {
         token_group_idx: TokenGroupIdx,
-        body: FormBody,
+        body: Option<FormBody>,
     },
     IfElseStmts {
         if_branch: AstIdx,
@@ -81,7 +81,9 @@ pub enum Ast {
     TypeVariant {
         token_group_idx: TokenGroupIdx,
         path: TypeVariantPath,
-        ident: Ident,
+        vertical_token: VerticalToken,
+        ident_token: IdentToken,
+        state_after: TokenIdx,
     },
     ImplBlock {
         token_group_idx: TokenGroupIdx,

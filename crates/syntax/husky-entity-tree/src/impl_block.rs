@@ -42,7 +42,7 @@ impl ImplBlock {
         module_symbol_context: ModuleSymbolContext<'a>,
         module_path: ModulePath,
         ast_idx: AstIdx,
-        body: AstIdxRange,
+        body: ImplBlockItems,
         token_stream: TokenStream<'a>,
         princiapl_entity_path_expr_arena: &mut MajorPathExprArena,
     ) -> Self {

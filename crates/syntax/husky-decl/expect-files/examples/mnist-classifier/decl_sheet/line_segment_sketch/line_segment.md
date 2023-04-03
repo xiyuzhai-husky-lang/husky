@@ -205,8 +205,12 @@ Ok(
                                         ),
                                     },
                                     ty_expr: 10,
-                                    body: ArenaIdxRange(
-                                        13..15,
+                                    body: Type(
+                                        TypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                13..15,
+                                            ),
+                                        },
                                     ),
                                 },
                                 impl_token: ImplToken {
@@ -374,8 +378,12 @@ Ok(
                                                     ),
                                                 },
                                                 ty_expr: 10,
-                                                body: ArenaIdxRange(
-                                                    13..15,
+                                                body: Type(
+                                                    TypeItems {
+                                                        ast_idx_range: ArenaIdxRange(
+                                                            13..15,
+                                                        ),
+                                                    },
                                                 ),
                                             },
                                         ),
@@ -654,8 +662,12 @@ Ok(
                                                     ),
                                                 },
                                                 ty_expr: 10,
-                                                body: ArenaIdxRange(
-                                                    13..15,
+                                                body: Type(
+                                                    TypeItems {
+                                                        ast_idx_range: ArenaIdxRange(
+                                                            13..15,
+                                                        ),
+                                                    },
                                                 ),
                                             },
                                         ),

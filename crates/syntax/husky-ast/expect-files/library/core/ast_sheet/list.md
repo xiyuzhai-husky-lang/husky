@@ -80,7 +80,7 @@ Ok(
                     ),
                     items: Type(
                         TypeItems {
-                            children: ArenaIdxRange(
+                            ast_idx_range: ArenaIdxRange(
                                 0..1,
                             ),
                         },

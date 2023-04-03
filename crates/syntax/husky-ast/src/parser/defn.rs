@@ -6,7 +6,7 @@ use husky_entity_taxonomy::{
 use husky_opn_syntax::{BinaryOpr, Bracket};
 use husky_print_utils::p;
 use husky_token::{EntityKeywordGroup, FormKeyword, TokenParseContext, TypeEntityKeyword};
-use parsec::{ParseFromStreamWithError, StreamParser};
+use parsec::{ParseFromStream, StreamParser};
 use salsa::DebugWithDb;
 
 use super::*;
@@ -50,14 +50,23 @@ impl<'a> AstParser<'a> {
             } => {
                 let connection = self.new_connection(ident, connection);
                 match module_item_kind {
-                    ModuleItemKind::Type(ty_kind) => DefnBlock::Type {
-                        path: TypePath::new(self.db, self.module_path, ident, connection, ty_kind)
-                            .into(),
-                        variants: match ty_kind {
-                            TypeKind::Enum | TypeKind::Inductive => todo!(),
-                            _ => None,
-                        },
-                    },
+                    ModuleItemKind::Type(ty_kind) => {
+                        let path =
+                            TypePath::new(self.db, self.module_path, ident, connection, ty_kind)
+                                .into();
+                        DefnBlock::Type {
+                            path,
+                            variants: match ty_kind {
+                                TypeKind::Enum | TypeKind::Inductive => {
+                                    Some(self.parse_expected_with_context(
+                                        path,
+                                        OriginalAstError::ExpectedTypeVariants,
+                                    )?)
+                                }
+                                _ => None,
+                            },
+                        }
+                    }
                     ModuleItemKind::Form(form_kind) => DefnBlock::Form {
                         path: FormPath::new(
                             self.db,
@@ -67,11 +76,11 @@ impl<'a> AstParser<'a> {
                             form_kind,
                         )
                         .into(),
-                        body: todo!(),
+                        body: self.parse()?, // todo: check that this is coherent with decl
                     },
                     ModuleItemKind::Trait => DefnBlock::Trait {
                         path: TraitPath::new(self.db, self.module_path, ident, connection).into(),
-                        items: self.parse_expected(OriginalAstError::ExpectedTraitItems)?,
+                        items: self.parse()?,
                     },
                 }
             }
@@ -105,42 +114,50 @@ impl<'a> AstParser<'a> {
         }
     }
     /// parse variants of enum or inductive types
-    fn parse_ty_variants(&mut self) -> AstIdxRange {
+    #[inline(always)]
+    pub(crate) fn parse_ty_variants_without_rollback(&mut self, path: TypePath) -> AstIdxRange {
         let mut ty_variants = vec![];
-        while let Some((token_group_idx, token_group, first_noncomment_token)) = self
-            .token_groups
-            .peek_token_group_of_exact_indent_with_its_first_token(self.indent())
-        {
-            match first_noncomment_token {
-                Token::Punctuation(Punctuation::VERTICAL) => {
-                    self.token_groups.next();
-                    ty_variants.push(self.parse_ty_variant(token_group_idx))
-                }
-                _ => break,
-            }
+        while let Some((token_group_idx, _)) = self.token_groups.next() {
+            // todo: change the api of `self.token_groups.next()`
+            // it should directly return a token stream
+            let mut aux_parser = BasicAuxAstParser::new(
+                self.db,
+                self.module_path,
+                self.token_sheet
+                    .token_group_token_stream(token_group_idx, None),
+            );
+            let Ok(Some(vertical_token)) = aux_parser.parse::<VerticalToken>() else {
+                break
+            };
+            ty_variants.push(
+                match aux_parser
+                    .parse_expected::<IdentToken, _>(OriginalAstError::ExpectedIdentForTypeVariant)
+                {
+                    Ok(ident_token) => {
+                        for ty_variant in &ty_variants {
+                            match ty_variant {
+                                Ast::TypeVariant {
+                                    ident_token: prev_ident_token,
+                                    ..
+                                } if prev_ident_token.ident() == ident_token.ident() => {
+                                    todo!()
+                                }
+                                _ => (),
+                            }
+                        }
+                        Ast::TypeVariant {
+                            token_group_idx,
+                            path: TypeVariantPath::new(self.db, path, ident_token.ident()),
+                            vertical_token,
+                            ident_token,
+                            state_after: aux_parser.save_state(),
+                        }
+                    }
+                    Err(_) => todo!(),
+                },
+            )
         }
         self.alloc_asts(ty_variants)
-    }
-
-    fn parse_ty_variant(&mut self, token_group_idx: TokenGroupIdx) -> Ast {
-        let ident = match self.token_sheet[token_group_idx].get(1) {
-            Some(token) => match token {
-                Token::Keyword(_) => todo!(),
-                Token::Ident(_) => todo!(),
-                Token::Label(_) => todo!(),
-                Token::Punctuation(_) => todo!(),
-                Token::WordOpr(_) => todo!(),
-                Token::Literal(_) => todo!(),
-                Token::Error(_) => todo!(),
-            },
-            None => todo!(),
-        };
-        let module_item_path = todo!();
-        Ast::TypeVariant {
-            token_group_idx,
-            path: TypeVariantPath::new(self.db, module_item_path, ident),
-            ident: todo!(),
-        }
     }
 }
 

@@ -1,7 +1,7 @@
 use crate::*;
 use husky_opn_syntax::BinaryOpr;
 use husky_token::*;
-use parsec::{OriginalError, ParseFromStreamWithError, StreamParser, StreamWrapper};
+use parsec::{OriginalError, ParseFromStream, StreamParser, StreamWrapper};
 use thiserror::Error;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -317,7 +317,7 @@ impl<'a, 'b> UseExprParser<'a, 'b> {
     }
 }
 
-impl<'a, 'b> ParseFromStreamWithError<UseExprParser<'a, 'b>> for UseExpr {
+impl<'a, 'b> ParseFromStream<UseExprParser<'a, 'b>> for UseExpr {
     type Error = UseExprError;
     fn parse_from_without_guaranteed_rollback(
         ctx: &mut UseExprParser<'a, 'b>,

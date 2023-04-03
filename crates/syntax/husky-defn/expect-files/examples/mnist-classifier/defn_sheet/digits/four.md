@@ -291,7 +291,7 @@ Ok(
                                         ],
                                     },
                                 },
-                                body: Ok(
+                                body: Some(
                                     6,
                                 ),
                             },
@@ -772,7 +772,7 @@ Ok(
                                         ],
                                     },
                                 },
-                                body: Ok(
+                                body: Some(
                                     3,
                                 ),
                             },
@@ -1049,7 +1049,7 @@ Ok(
                                         ],
                                     },
                                 },
-                                body: Ok(
+                                body: Some(
                                     5,
                                 ),
                             },
@@ -1326,7 +1326,7 @@ Ok(
                                         ],
                                     },
                                 },
-                                body: Ok(
+                                body: Some(
                                     5,
                                 ),
                             },
@@ -2384,11 +2384,25 @@ Ok(
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 15,
-                                                    path: None,
+                                                    path: Some(
+                                                        EntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `Four`,
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 17,
-                                                    path: None,
+                                                    path: Some(
+                                                        EntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `Four`,
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
                                                 Expr::Block {
                                                     stmts: ArenaIdxRange(
@@ -2579,15 +2593,11 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    path: Err(
-                                                        EntityPathExprError::Original(
-                                                            OriginalEntityPathExprError::EntityTree {
-                                                                token_idx: TokenIdx(
-                                                                    246,
-                                                                ),
-                                                                error: EntityTreeError::Original(
-                                                                    OriginalEntityTreeError::NoSubentity,
-                                                                ),
+                                                    path: Ok(
+                                                        EntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `Four`,
                                                             },
                                                         ),
                                                     ),
@@ -2618,15 +2628,11 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    path: Err(
-                                                        EntityPathExprError::Original(
-                                                            OriginalEntityPathExprError::EntityTree {
-                                                                token_idx: TokenIdx(
-                                                                    249,
-                                                                ),
-                                                                error: EntityTreeError::Original(
-                                                                    OriginalEntityTreeError::NoSubentity,
-                                                                ),
+                                                    path: Ok(
+                                                        EntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `Four`,
                                                             },
                                                         ),
                                                     ),
@@ -3602,7 +3608,7 @@ Ok(
                                         ],
                                     },
                                 },
-                                body: Ok(
+                                body: Some(
                                     89,
                                 ),
                             },
@@ -4209,7 +4215,7 @@ Ok(
                                         ],
                                     },
                                 },
-                                body: Ok(
+                                body: Some(
                                     8,
                                 ),
                             },
@@ -4907,7 +4913,7 @@ Ok(
                                         ],
                                     },
                                 },
-                                body: Ok(
+                                body: Some(
                                     14,
                                 ),
                             },

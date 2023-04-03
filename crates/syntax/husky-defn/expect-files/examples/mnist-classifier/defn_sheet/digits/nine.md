@@ -270,7 +270,7 @@ Ok(
                                         ],
                                     },
                                 },
-                                body: Ok(
+                                body: Some(
                                     5,
                                 ),
                             },
@@ -547,7 +547,7 @@ Ok(
                                         ],
                                     },
                                 },
-                                body: Ok(
+                                body: Some(
                                     5,
                                 ),
                             },
@@ -1547,11 +1547,25 @@ Ok(
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 15,
-                                                    path: None,
+                                                    path: Some(
+                                                        EntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `Nine`,
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 17,
-                                                    path: None,
+                                                    path: Some(
+                                                        EntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `Nine`,
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
                                                 Expr::Block {
                                                     stmts: ArenaIdxRange(
@@ -1742,15 +1756,11 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    path: Err(
-                                                        EntityPathExprError::Original(
-                                                            OriginalEntityPathExprError::EntityTree {
-                                                                token_idx: TokenIdx(
-                                                                    205,
-                                                                ),
-                                                                error: EntityTreeError::Original(
-                                                                    OriginalEntityTreeError::NoSubentity,
-                                                                ),
+                                                    path: Ok(
+                                                        EntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `Nine`,
                                                             },
                                                         ),
                                                     ),
@@ -1781,15 +1791,11 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    path: Err(
-                                                        EntityPathExprError::Original(
-                                                            OriginalEntityPathExprError::EntityTree {
-                                                                token_idx: TokenIdx(
-                                                                    208,
-                                                                ),
-                                                                error: EntityTreeError::Original(
-                                                                    OriginalEntityTreeError::NoSubentity,
-                                                                ),
+                                                    path: Ok(
+                                                        EntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `Nine`,
                                                             },
                                                         ),
                                                     ),
@@ -2765,7 +2771,7 @@ Ok(
                                         ],
                                     },
                                 },
-                                body: Ok(
+                                body: Some(
                                     83,
                                 ),
                             },
@@ -3372,7 +3378,7 @@ Ok(
                                         ],
                                     },
                                 },
-                                body: Ok(
+                                body: Some(
                                     8,
                                 ),
                             },
@@ -4070,7 +4076,7 @@ Ok(
                                         ],
                                     },
                                 },
-                                body: Ok(
+                                body: Some(
                                     14,
                                 ),
                             },

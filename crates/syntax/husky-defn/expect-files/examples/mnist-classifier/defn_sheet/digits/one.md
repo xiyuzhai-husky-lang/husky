@@ -312,7 +312,7 @@ Ok(
                                         ],
                                     },
                                 },
-                                body: Ok(
+                                body: Some(
                                     7,
                                 ),
                             },
@@ -479,7 +479,14 @@ Ok(
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 1,
-                                                    path: None,
+                                                    path: Some(
+                                                        EntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `One`,
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
                                                 Expr::Literal(
                                                     TokenIdx(
@@ -647,7 +654,14 @@ Ok(
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 7,
-                                                    path: None,
+                                                    path: Some(
+                                                        EntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `One`,
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
                                                 Expr::Literal(
                                                     TokenIdx(
@@ -770,7 +784,14 @@ Ok(
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 12,
-                                                    path: None,
+                                                    path: Some(
+                                                        EntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `One`,
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 13,
@@ -1046,7 +1067,14 @@ Ok(
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 19,
-                                                    path: None,
+                                                    path: Some(
+                                                        EntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `One`,
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
                                                 Expr::Literal(
                                                     TokenIdx(
@@ -1189,7 +1217,14 @@ Ok(
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 23,
-                                                    path: None,
+                                                    path: Some(
+                                                        EntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `One`,
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `downmost`,
@@ -1363,7 +1398,14 @@ Ok(
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 26,
-                                                    path: None,
+                                                    path: Some(
+                                                        EntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `One`,
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
                                                 Expr::Literal(
                                                     TokenIdx(
@@ -1570,7 +1612,14 @@ Ok(
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 32,
-                                                    path: None,
+                                                    path: Some(
+                                                        EntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `One`,
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
                                                 Expr::Literal(
                                                     TokenIdx(
@@ -1968,7 +2017,14 @@ Ok(
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 36,
-                                                    path: None,
+                                                    path: Some(
+                                                        EntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `One`,
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
                                                 Expr::Literal(
                                                     TokenIdx(
@@ -2121,7 +2177,14 @@ Ok(
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 38,
-                                                    path: None,
+                                                    path: Some(
+                                                        EntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `One`,
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
                                                 Expr::Literal(
                                                     TokenIdx(
@@ -2356,7 +2419,14 @@ Ok(
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 40,
-                                                    path: None,
+                                                    path: Some(
+                                                        EntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `One`,
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
                                                 Expr::Literal(
                                                     TokenIdx(
@@ -2718,7 +2788,14 @@ Ok(
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 45,
-                                                    path: None,
+                                                    path: Some(
+                                                        EntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `One`,
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
                                                 Expr::Literal(
                                                     TokenIdx(
@@ -2968,7 +3045,14 @@ Ok(
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 49,
-                                                    path: None,
+                                                    path: Some(
+                                                        EntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `One`,
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
                                                 Expr::Block {
                                                     stmts: ArenaIdxRange(
@@ -3005,15 +3089,11 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    path: Err(
-                                                        EntityPathExprError::Original(
-                                                            OriginalEntityPathExprError::EntityTree {
-                                                                token_idx: TokenIdx(
-                                                                    34,
-                                                                ),
-                                                                error: EntityTreeError::Original(
-                                                                    OriginalEntityTreeError::NoSubentity,
-                                                                ),
+                                                    path: Ok(
+                                                        EntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `One`,
                                                             },
                                                         ),
                                                     ),
@@ -3088,15 +3168,11 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    path: Err(
-                                                        EntityPathExprError::Original(
-                                                            OriginalEntityPathExprError::EntityTree {
-                                                                token_idx: TokenIdx(
-                                                                    66,
-                                                                ),
-                                                                error: EntityTreeError::Original(
-                                                                    OriginalEntityTreeError::NoSubentity,
-                                                                ),
+                                                    path: Ok(
+                                                        EntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `One`,
                                                             },
                                                         ),
                                                     ),
@@ -3160,15 +3236,11 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    path: Err(
-                                                        EntityPathExprError::Original(
-                                                            OriginalEntityPathExprError::EntityTree {
-                                                                token_idx: TokenIdx(
-                                                                    90,
-                                                                ),
-                                                                error: EntityTreeError::Original(
-                                                                    OriginalEntityTreeError::NoSubentity,
-                                                                ),
+                                                    path: Ok(
+                                                        EntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `One`,
                                                             },
                                                         ),
                                                     ),
@@ -3254,15 +3326,11 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    path: Err(
-                                                        EntityPathExprError::Original(
-                                                            OriginalEntityPathExprError::EntityTree {
-                                                                token_idx: TokenIdx(
-                                                                    145,
-                                                                ),
-                                                                error: EntityTreeError::Original(
-                                                                    OriginalEntityTreeError::NoSubentity,
-                                                                ),
+                                                    path: Ok(
+                                                        EntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `One`,
                                                             },
                                                         ),
                                                     ),
@@ -3315,15 +3383,11 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    path: Err(
-                                                        EntityPathExprError::Original(
-                                                            OriginalEntityPathExprError::EntityTree {
-                                                                token_idx: TokenIdx(
-                                                                    172,
-                                                                ),
-                                                                error: EntityTreeError::Original(
-                                                                    OriginalEntityTreeError::NoSubentity,
-                                                                ),
+                                                    path: Ok(
+                                                        EntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `One`,
                                                             },
                                                         ),
                                                     ),
@@ -3365,15 +3429,11 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    path: Err(
-                                                        EntityPathExprError::Original(
-                                                            OriginalEntityPathExprError::EntityTree {
-                                                                token_idx: TokenIdx(
-                                                                    197,
-                                                                ),
-                                                                error: EntityTreeError::Original(
-                                                                    OriginalEntityTreeError::NoSubentity,
-                                                                ),
+                                                    path: Ok(
+                                                        EntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `One`,
                                                             },
                                                         ),
                                                     ),
@@ -3448,15 +3508,11 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    path: Err(
-                                                        EntityPathExprError::Original(
-                                                            OriginalEntityPathExprError::EntityTree {
-                                                                token_idx: TokenIdx(
-                                                                    226,
-                                                                ),
-                                                                error: EntityTreeError::Original(
-                                                                    OriginalEntityTreeError::NoSubentity,
-                                                                ),
+                                                    path: Ok(
+                                                        EntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `One`,
                                                             },
                                                         ),
                                                     ),
@@ -3509,15 +3565,11 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    path: Err(
-                                                        EntityPathExprError::Original(
-                                                            OriginalEntityPathExprError::EntityTree {
-                                                                token_idx: TokenIdx(
-                                                                    306,
-                                                                ),
-                                                                error: EntityTreeError::Original(
-                                                                    OriginalEntityTreeError::NoSubentity,
-                                                                ),
+                                                    path: Ok(
+                                                        EntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `One`,
                                                             },
                                                         ),
                                                     ),
@@ -3548,15 +3600,11 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    path: Err(
-                                                        EntityPathExprError::Original(
-                                                            OriginalEntityPathExprError::EntityTree {
-                                                                token_idx: TokenIdx(
-                                                                    331,
-                                                                ),
-                                                                error: EntityTreeError::Original(
-                                                                    OriginalEntityTreeError::NoSubentity,
-                                                                ),
+                                                    path: Ok(
+                                                        EntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `One`,
                                                             },
                                                         ),
                                                     ),
@@ -3587,15 +3635,11 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    path: Err(
-                                                        EntityPathExprError::Original(
-                                                            OriginalEntityPathExprError::EntityTree {
-                                                                token_idx: TokenIdx(
-                                                                    359,
-                                                                ),
-                                                                error: EntityTreeError::Original(
-                                                                    OriginalEntityTreeError::NoSubentity,
-                                                                ),
+                                                    path: Ok(
+                                                        EntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `One`,
                                                             },
                                                         ),
                                                     ),
@@ -3659,15 +3703,11 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    path: Err(
-                                                        EntityPathExprError::Original(
-                                                            OriginalEntityPathExprError::EntityTree {
-                                                                token_idx: TokenIdx(
-                                                                    448,
-                                                                ),
-                                                                error: EntityTreeError::Original(
-                                                                    OriginalEntityTreeError::NoSubentity,
-                                                                ),
+                                                    path: Ok(
+                                                        EntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `One`,
                                                             },
                                                         ),
                                                     ),
@@ -3720,15 +3760,11 @@ Ok(
                                                             ),
                                                         },
                                                     ),
-                                                    path: Err(
-                                                        EntityPathExprError::Original(
-                                                            OriginalEntityPathExprError::EntityTree {
-                                                                token_idx: TokenIdx(
-                                                                    500,
-                                                                ),
-                                                                error: EntityTreeError::Original(
-                                                                    OriginalEntityTreeError::NoSubentity,
-                                                                ),
+                                                    path: Ok(
+                                                        EntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `One`,
                                                             },
                                                         ),
                                                     ),
@@ -5156,7 +5192,7 @@ Ok(
                                         ],
                                     },
                                 },
-                                body: Ok(
+                                body: Some(
                                     239,
                                 ),
                             },
@@ -5763,7 +5799,7 @@ Ok(
                                         ],
                                     },
                                 },
-                                body: Ok(
+                                body: Some(
                                     8,
                                 ),
                             },
@@ -6399,7 +6435,7 @@ Ok(
                                         ],
                                     },
                                 },
-                                body: Ok(
+                                body: Some(
                                     10,
                                 ),
                             },
@@ -7092,7 +7128,7 @@ Ok(
                                         ],
                                     },
                                 },
-                                body: Ok(
+                                body: Some(
                                     16,
                                 ),
                             },

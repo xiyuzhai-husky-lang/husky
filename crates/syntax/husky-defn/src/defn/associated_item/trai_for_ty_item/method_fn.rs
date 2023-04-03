@@ -6,7 +6,7 @@ pub struct TraitForTypeMethodDefn {
     pub path: Option<TraitForTypeItemPath>,
     pub decl: TraitForTypeMethodDecl,
     pub expr_region: ExprRegion,
-    pub body: DefnResult<ExprIdx>,
+    pub body: Option<ExprIdx>,
 }
 
 #[salsa::tracked(jar = DefnJar)]
@@ -24,16 +24,10 @@ pub(crate) fn trai_for_ty_method_defn(
     );
     let ast_idx = decl.ast_idx(db);
     let body = match parser.ast_sheet()[ast_idx] {
-        Ast::Defn { block, .. } => match block {
-            DefnBlock::Form {
-                path,
-                body: Some(body),
-            } => parser
-                .parse_block_expr(body)
-                .ok_or(OriginalDefnError::ExpectBody.into()), // todo: change this to parse expected
-            _ => unreachable!(),
-        },
-
+        Ast::Defn {
+            block: DefnBlock::AssociatedItem { body },
+            ..
+        } => body.map(|body| parser.parse_block_expr(body)),
         _ => unreachable!(),
     };
     let expr_region = parser.finish();

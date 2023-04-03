@@ -1,15 +1,15 @@
-use parsec::ParseFromStreamWithError;
+use parsec::ParseFromStream;
 
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct TraitItems {
-    children: AstIdxRange,
+    ast_idx_range: AstIdxRange,
 }
 
 impl TraitItems {
-    pub fn children(&self) -> AstIdxRange {
-        self.children
+    pub fn ast_idx_range(&self) -> AstIdxRange {
+        self.ast_idx_range
     }
 }
 
@@ -41,7 +41,7 @@ impl NormalAstChildren for TraitItems {
     }
 }
 
-impl<'a> ParseFromStreamWithError<AstParser<'a>> for TraitItems {
+impl<'a> ParseFromStream<AstParser<'a>> for TraitItems {
     type Error = AstError;
 
     fn parse_from_without_guaranteed_rollback(
@@ -49,6 +49,8 @@ impl<'a> ParseFromStreamWithError<AstParser<'a>> for TraitItems {
     ) -> Result<Option<Self>, Self::Error> {
         Ok(parser
             .parse_normal_ast_children_indented::<Self>()
-            .map(|children| Self { children }))
+            .map(|children| Self {
+                ast_idx_range: children,
+            }))
     }
 }

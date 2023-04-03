@@ -34,7 +34,7 @@ pub enum DefnBlock {
     },
     Trait {
         path: TraitPath,
-        items: TraitItems,
+        items: Option<TraitItems>,
     },
     // doesn't have a path field because the impl block might be ill-formed
     AssociatedItem {
@@ -45,11 +45,11 @@ pub enum DefnBlock {
 impl DefnBlock {
     pub fn children(self) -> Option<AstIdxRange> {
         match self {
-            DefnBlock::Form { path, body } => body.map(|v| v.children()),
+            DefnBlock::Form { path, body } => body.map(|v| v.ast_idx_range()),
             DefnBlock::Submodule { path } => None,
-            DefnBlock::Type { path, variants } => variants.map(|v| v.children()),
-            DefnBlock::Trait { path, items } => Some(items.children()),
-            DefnBlock::AssociatedItem { body } => body.map(|v| v.children()),
+            DefnBlock::Type { path, variants } => variants.map(|v| v.ast_idx_range()),
+            DefnBlock::Trait { path, items } => items.map(|items| items.ast_idx_range()),
+            DefnBlock::AssociatedItem { body } => body.map(|v| v.ast_idx_range()),
         }
     }
 
@@ -59,11 +59,18 @@ impl DefnBlock {
 
     /// only for non-associated entities
     pub fn entity_path(self) -> Option<EntityPath> {
-        todo!()
+        match self {
+            DefnBlock::Form { path, body } => Some(path.into()),
+            DefnBlock::Submodule { path } => Some(path.into()),
+            DefnBlock::Type { path, variants } => Some(path.into()),
+            DefnBlock::Trait { path, items } => Some(path.into()),
+            DefnBlock::AssociatedItem { body } => None,
+        }
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[enum_class::from_variants]
 pub enum ImplBlockItems {
     Type(TypeItems),
     TraitForType(TraitForTypeItems),
@@ -72,8 +79,8 @@ pub enum ImplBlockItems {
 impl ImplBlockItems {
     pub fn children(self) -> AstIdxRange {
         match self {
-            ImplBlockItems::Type(items) => items.children(),
-            ImplBlockItems::TraitForType(items) => items.children(),
+            ImplBlockItems::Type(items) => items.ast_idx_range(),
+            ImplBlockItems::TraitForType(items) => items.ast_idx_range(),
         }
     }
 }

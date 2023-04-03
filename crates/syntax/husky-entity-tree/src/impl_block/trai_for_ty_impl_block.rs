@@ -9,7 +9,7 @@ pub struct TraitForTypeImplBlock {
     pub trai_expr: MajorPathExprIdx,
     pub for_token: TokenIdx,
     pub ty_expr: MajorPathExprIdx,
-    pub body: AstIdxRange,
+    pub body: ImplBlockItems,
 }
 
 impl TraitForTypeImplBlock {
@@ -24,7 +24,7 @@ impl TraitForTypeImplBlock {
         for_token: TokenIdx,
         ty_expr: MajorPathExprIdx,
         ty_path: TypePath,
-        body: AstIdxRange,
+        body: ImplBlockItems,
     ) -> Self {
         TraitForTypeImplBlock::new_inner(
             db,

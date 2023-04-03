@@ -6,7 +6,7 @@ pub struct TypeMemoDefn {
     pub path: Option<TypeItemPath>,
     pub decl: TypeMemoDecl,
     pub expr_region: ExprRegion,
-    pub body: DefnResult<ExprIdx>,
+    pub body: Option<ExprIdx>,
 }
 
 #[salsa::tracked(jar = DefnJar)]
@@ -20,17 +20,12 @@ pub(crate) fn ty_memo_defn(db: &dyn DefnDb, decl: TypeMemoDecl) -> TypeMemoDefn 
         AllowSelfValue::True,
     );
     let ast_idx = decl.ast_idx(db);
+    // todo: deal with no body case
     let body = match parser.ast_sheet()[ast_idx] {
         Ast::Defn {
-            block:
-                DefnBlock::Form {
-                    path,
-                    body: Some(body),
-                },
+            block: DefnBlock::AssociatedItem { body },
             ..
-        } => parser
-            .parse_block_expr(body)
-            .ok_or(OriginalDefnError::ExpectBody.into()),
+        } => body.map(|body| parser.parse_block_expr(body)),
         _ => unreachable!(),
     };
     let expr_region = parser.finish();

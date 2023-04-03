@@ -130,7 +130,7 @@ impl<'a> EntityTreeCollector<'a> {
                             module_symbol_context,
                             module_path,
                             ast_idx,
-                            items.children(),
+                            *items,
                             self.db
                                 .token_sheet_data(module_path)
                                 .unwrap()

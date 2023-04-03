@@ -10,7 +10,7 @@ pub struct PunctuationToken {
     token_idx: TokenIdx,
 }
 
-impl<'a, Context> parsec::ParseFromStreamWithError<Context> for PunctuationToken
+impl<'a, Context> parsec::ParseFromStream<Context> for PunctuationToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -65,7 +65,7 @@ where
 #[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct ColonToken(TokenIdx);
 
-impl<'a, Context> parsec::ParseFromStreamWithError<Context> for ColonToken
+impl<'a, Context> parsec::ParseFromStream<Context> for ColonToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -95,7 +95,7 @@ fn colon_token_works() {
 #[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct CommaToken(TokenIdx);
 
-impl<'a, Context> parsec::ParseFromStreamWithError<Context> for CommaToken
+impl<'a, Context> parsec::ParseFromStream<Context> for CommaToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -131,7 +131,7 @@ impl EqToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFromStreamWithError<Context> for EqToken
+impl<'a, Context> parsec::ParseFromStream<Context> for EqToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -168,7 +168,7 @@ impl LeftParenthesisToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFromStreamWithError<Context> for LeftParenthesisToken
+impl<'a, Context> parsec::ParseFromStream<Context> for LeftParenthesisToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -198,7 +198,7 @@ fn left_parenthesis_token_works() {
 #[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct RightParenthesisToken(TokenIdx);
 
-impl<'a, Context> parsec::ParseFromStreamWithError<Context> for RightParenthesisToken
+impl<'a, Context> parsec::ParseFromStream<Context> for RightParenthesisToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -228,7 +228,7 @@ fn right_parenthesis_token_works() {
 #[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct LeftBoxBracketToken(TokenIdx);
 
-impl<'a, Context> parsec::ParseFromStreamWithError<Context> for LeftBoxBracketToken
+impl<'a, Context> parsec::ParseFromStream<Context> for LeftBoxBracketToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -264,7 +264,7 @@ impl RightBoxBracketToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFromStreamWithError<Context> for RightBoxBracketToken
+impl<'a, Context> parsec::ParseFromStream<Context> for RightBoxBracketToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -294,7 +294,7 @@ fn right_box_bracket_token_works() {
 #[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct LeftCurlyBraceToken(TokenIdx);
 
-impl<'a, Context> parsec::ParseFromStreamWithError<Context> for LeftCurlyBraceToken
+impl<'a, Context> parsec::ParseFromStream<Context> for LeftCurlyBraceToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -324,7 +324,7 @@ fn left_curly_brace_token_works() {
 #[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct RightCurlyBraceToken(TokenIdx);
 
-impl<'a, Context> parsec::ParseFromStreamWithError<Context> for RightCurlyBraceToken
+impl<'a, Context> parsec::ParseFromStream<Context> for RightCurlyBraceToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -360,7 +360,7 @@ impl LeftAngleBracketOrLessThanToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFromStreamWithError<Context> for LeftAngleBracketOrLessThanToken
+impl<'a, Context> parsec::ParseFromStream<Context> for LeftAngleBracketOrLessThanToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -397,7 +397,7 @@ impl ColonColonLeftAngleBracketToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFromStreamWithError<Context> for ColonColonLeftAngleBracketToken
+impl<'a, Context> parsec::ParseFromStream<Context> for ColonColonLeftAngleBracketToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -432,7 +432,7 @@ fn colon_colon_left_angle_bracket_token_works() {
 #[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct RightAngleBracketToken(TokenIdx);
 
-impl<'a, Context> parsec::ParseFromStreamWithError<Context> for RightAngleBracketToken
+impl<'a, Context> parsec::ParseFromStream<Context> for RightAngleBracketToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -462,7 +462,7 @@ fn right_angle_bracket_token_works() {
 #[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct VerticalToken(TokenIdx);
 
-impl<'a, Context> parsec::ParseFromStreamWithError<Context> for VerticalToken
+impl<'a, Context> parsec::ParseFromStream<Context> for VerticalToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -492,7 +492,7 @@ fn vertical_token_works() {
 #[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct AtToken(TokenIdx);
 
-impl<'a, Context> parsec::ParseFromStreamWithError<Context> for AtToken
+impl<'a, Context> parsec::ParseFromStream<Context> for AtToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -523,7 +523,7 @@ fn at_token_works() {
 #[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct DotDotToken(TokenIdx);
 
-impl<'a, Context> parsec::ParseFromStreamWithError<Context> for DotDotToken
+impl<'a, Context> parsec::ParseFromStream<Context> for DotDotToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -578,7 +578,7 @@ impl EolToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFromStreamWithError<Context> for EolToken
+impl<'a, Context> parsec::ParseFromStream<Context> for EolToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -636,7 +636,7 @@ impl ScopeResolutionToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFromStreamWithError<Context> for ScopeResolutionToken
+impl<'a, Context> parsec::ParseFromStream<Context> for ScopeResolutionToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -690,7 +690,7 @@ impl StarToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFromStreamWithError<Context> for StarToken
+impl<'a, Context> parsec::ParseFromStream<Context> for StarToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -736,7 +736,7 @@ fn star_token_works() {
 #[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct CurryToken(TokenIdx);
 
-impl<'a, Context> parsec::ParseFromStreamWithError<Context> for CurryToken
+impl<'a, Context> parsec::ParseFromStream<Context> for CurryToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -782,7 +782,7 @@ fn curry_token_works() {
 #[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct OwnedToken(TokenIdx);
 
-impl<'a, Context> parsec::ParseFromStreamWithError<Context> for OwnedToken
+impl<'a, Context> parsec::ParseFromStream<Context> for OwnedToken
 where
     Context: TokenParseContext<'a>,
 {

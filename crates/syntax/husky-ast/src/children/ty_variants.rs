@@ -2,12 +2,27 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct TypeVariants {
-    children: AstIdxRange,
+    ast_idx_range: AstIdxRange,
 }
 
 impl TypeVariants {
-    pub fn children(&self) -> AstIdxRange {
-        self.children
+    pub fn ast_idx_range(&self) -> AstIdxRange {
+        self.ast_idx_range
+    }
+}
+
+impl<'a> ParseFromStreamWithContext<AstParser<'a>> for TypeVariants {
+    type Error = std::convert::Infallible;
+
+    type Context = TypePath;
+
+    #[inline(always)]
+    fn parse_from_without_guaranteed_rollback(
+        sp: &mut AstParser<'a>,
+        ctx: Self::Context,
+    ) -> Result<Option<Self>, std::convert::Infallible> {
+        let ast_idx_range = sp.parse_ty_variants_without_rollback(ctx);
+        Ok((ast_idx_range.len() > 0).then_some(TypeVariants { ast_idx_range }))
     }
 }
 

@@ -11,7 +11,7 @@ impl ReturnTypeExpr {
     }
 }
 
-impl<'a, 'b> ParseFromStreamWithError<ExprParseContext<'a, 'b>> for ReturnTypeExpr {
+impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for ReturnTypeExpr {
     type Error = ExprError;
 
     fn parse_from_without_guaranteed_rollback(

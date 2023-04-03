@@ -24,6 +24,8 @@ husky-ast = { path = "../../syntax/husky-ast" }
 husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
 husky-expr = { path = "../../syntax/husky-expr" }
 husky-decl = { path = "../../syntax/husky-decl" }
+# utils
+husky-print-utils = { path = "../../utils/husky-print-utils" }
 
 [dev-dependencies]
 # fs

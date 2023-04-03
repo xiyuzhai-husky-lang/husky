@@ -2,12 +2,12 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct TraitForTypeItems {
-    children: AstIdxRange,
+    ast_idx_range: AstIdxRange,
 }
 
 impl TraitForTypeItems {
-    pub fn children(&self) -> AstIdxRange {
-        self.children
+    pub fn ast_idx_range(&self) -> AstIdxRange {
+        self.ast_idx_range
     }
 }
 impl NormalAstChildren for TraitForTypeItems {
@@ -37,7 +37,7 @@ impl NormalAstChildren for TraitForTypeItems {
     }
 }
 
-impl<'a> ParseFromStreamWithError<AstParser<'a>> for TraitForTypeItems {
+impl<'a> ParseFromStream<AstParser<'a>> for TraitForTypeItems {
     type Error = AstError;
 
     fn parse_from_without_guaranteed_rollback(
@@ -45,6 +45,8 @@ impl<'a> ParseFromStreamWithError<AstParser<'a>> for TraitForTypeItems {
     ) -> Result<Option<Self>, Self::Error> {
         Ok(parser
             .parse_normal_ast_children_indented::<Self>()
-            .map(|children| Self { children }))
+            .map(|children| Self {
+                ast_idx_range: children,
+            }))
     }
 }
