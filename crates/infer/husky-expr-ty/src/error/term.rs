@@ -37,6 +37,10 @@ pub enum DerivedExprTermError {
     OptionApplicationTerm(TermError),
     #[error("ExplicitApplicationTerm")]
     ExplicitApplicationTerm(TermError),
+    #[error("ExplicitApplicationFunctionTermNotInferred")]
+    ExplicitApplicationFunctionTermNotInferred,
+    #[error("ExplicitApplicationArgumentTermNotInferred")]
+    ExplicitApplicationArgumentTermNotInferred,
 }
 
 pub type ExprTermResult<T> = Result<T, ExprTermError>;

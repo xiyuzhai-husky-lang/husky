@@ -13,10 +13,10 @@ impl<'a> ExprTypeEngine<'a> {
         // todo: implicit arguments
         let function = self
             .infer_new_expr_term(function, local_term_region)
-            .ok_or(DerivedExprTermError::Todo)?;
+            .ok_or(DerivedExprTermError::ExplicitApplicationFunctionTermNotInferred)?;
         let argument = self
             .infer_new_expr_term(argument, local_term_region)
-            .ok_or(DerivedExprTermError::Todo)?;
+            .ok_or(DerivedExprTermError::ExplicitApplicationArgumentTermNotInferred)?;
         LocalTerm::new_application(self.db, expr_idx, function, argument, local_term_region)
             .map_err(|e| DerivedExprTermError::ExplicitApplicationTerm(e).into())
     }

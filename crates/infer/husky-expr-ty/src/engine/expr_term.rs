@@ -43,27 +43,27 @@ impl<'a> ExprTypeEngine<'a> {
                 token_idx,
                 inherited_symbol_idx,
                 inherited_symbol_kind,
-            } => Err(OriginalExprTermError::Todo.into()),
+            } => Err(todo!()),
             Expr::CurrentSymbol {
                 ident,
                 token_idx,
                 current_symbol_idx,
                 current_symbol_kind,
-            } => Err(OriginalExprTermError::Todo.into()),
+            } => Err(todo!()),
             Expr::FrameVarDecl {
                 token_idx,
                 ident,
                 frame_var_symbol_idx: current_symbol_idx,
                 current_symbol_kind,
-            } => Err(OriginalExprTermError::Todo.into()),
-            Expr::SelfType(_) => Err(OriginalExprTermError::Todo.into()),
-            Expr::SelfValue(_) => Err(OriginalExprTermError::Todo.into()),
+            } => Err(todo!()),
+            Expr::SelfType(_) => Err(todo!()),
+            Expr::SelfValue(_) => Err(todo!()),
             Expr::Binary {
                 lopd,
                 opr,
                 opr_token_idx,
                 ropd,
-            } => Err(OriginalExprTermError::Todo.into()),
+            } => Err(todo!()),
             Expr::Be { .. } => todo!(),
             Expr::Prefix {
                 opr,
@@ -74,17 +74,15 @@ impl<'a> ExprTypeEngine<'a> {
                 opd,
                 opr: punctuation,
                 opr_token_idx: punctuation_token_idx,
-            } => Err(OriginalExprTermError::Todo.into()),
-            Expr::ExplicitApplicationOrRitchieCall { .. } => {
-                Err(OriginalExprTermError::Todo.into())
-            }
+            } => Err(todo!()),
+            Expr::ExplicitApplicationOrRitchieCall { .. } => Err(todo!()),
             Expr::Field {
                 owner,
                 dot_token_idx,
                 ident_token,
-            } => Err(OriginalExprTermError::Todo.into()),
-            Expr::MethodCall { .. } => Err(OriginalExprTermError::Todo.into()),
-            Expr::TemplateInstantiation { .. } => Err(OriginalExprTermError::Todo.into()),
+            } => Err(todo!()),
+            Expr::MethodCall { .. } => Err(todo!()),
+            Expr::TemplateInstantiation { .. } => Err(todo!()),
             Expr::ExplicitApplication { function, argument } => {
                 // todo: implicit arguments
                 self.calc_explicit_application_expr_term(
@@ -98,17 +96,17 @@ impl<'a> ExprTypeEngine<'a> {
                 lpar_token_idx,
                 item,
                 rpar_token_idx,
-            } => Err(OriginalExprTermError::Todo.into()),
-            Expr::NewTuple { .. } => Err(OriginalExprTermError::Todo.into()),
+            } => Err(todo!()),
+            Expr::NewTuple { .. } => Err(todo!()),
             Expr::List { items, .. } => self.calc_list_expr_term(expr_idx, items),
-            Expr::BoxColonList { .. } => Err(OriginalExprTermError::Todo.into()),
-            Expr::Block { stmts } => Err(OriginalExprTermError::Todo.into()),
+            Expr::BoxColonList { .. } => Err(todo!()),
+            Expr::Block { stmts } => Err(todo!()),
             Expr::IndexOrCompositionWithList {
                 owner,
                 lbox_token_idx,
                 items: indices,
                 rbox_token_idx,
-            } => Err(OriginalExprTermError::Todo.into()),
+            } => Err(todo!()),
             Expr::Err(_) => Err(DerivedExprTermError::ExprError.into()),
             Expr::Unit {
                 lpar_token_idx,
