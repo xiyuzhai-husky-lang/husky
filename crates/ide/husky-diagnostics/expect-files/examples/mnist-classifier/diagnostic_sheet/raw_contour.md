@@ -18,35 +18,10 @@ DiagnosticSheet {
                 severity: Error,
                 range: [53:9, 53:41),
             },
-            Diagnostic {
-                message: "Syntax Error: excessive indent",
-                severity: Error,
-                range: [62:5, 62:28),
-            },
         ],
     },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
         diagnostics: [
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [75:28, 75:42),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [76:28, 76:42),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [115:28, 115:42),
-            },
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [116:28, 116:42),
-            },
             Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,

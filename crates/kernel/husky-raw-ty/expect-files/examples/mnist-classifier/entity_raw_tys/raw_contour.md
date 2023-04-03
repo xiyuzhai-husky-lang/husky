@@ -22,6 +22,16 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Form(
+                FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
+            ),
+        ),
+        Ok(
+            RawTerm(`Fp(core::raw_bits::r32, core::num::i32) -> core::raw_bits::r32`),
+        ),
+    ),
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Form(
                 FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
             ),
         ),

@@ -30,17 +30,17 @@ DiagnosticSheet {
     ast_diagnostic_sheet: AstDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Syntax Error: excessive indent",
+                message: "Syntax Error: unexpected stmt inside impl",
                 severity: Error,
                 range: [6:5, 6:29),
             },
             Diagnostic {
-                message: "Syntax Error: excessive indent",
+                message: "Syntax Error: unexpected stmt inside impl",
                 severity: Error,
                 range: [7:5, 7:24),
             },
             Diagnostic {
-                message: "Syntax Error: excessive indent",
+                message: "Syntax Error: unexpected stmt inside impl",
                 severity: Error,
                 range: [8:5, 8:45),
             },

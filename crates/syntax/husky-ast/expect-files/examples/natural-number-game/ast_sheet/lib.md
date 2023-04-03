@@ -48,6 +48,30 @@ Ok(
                         6,
                     ),
                 },
+                Ast::Err {
+                    token_group_idx: TokenGroupIdx(
+                        4,
+                    ),
+                    error: AstError::Original(
+                        OriginalAstError::UnexpectedStmtInsideImplBlock,
+                    ),
+                },
+                Ast::Err {
+                    token_group_idx: TokenGroupIdx(
+                        5,
+                    ),
+                    error: AstError::Original(
+                        OriginalAstError::UnexpectedStmtInsideImplBlock,
+                    ),
+                },
+                Ast::Err {
+                    token_group_idx: TokenGroupIdx(
+                        6,
+                    ),
+                    error: AstError::Original(
+                        OriginalAstError::UnexpectedStmtInsideImplBlock,
+                    ),
+                },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         0,
@@ -93,28 +117,16 @@ Ok(
                         ),
                     },
                 },
-                Ast::Err {
+                Ast::ImplBlock {
                     token_group_idx: TokenGroupIdx(
-                        4,
+                        3,
                     ),
-                    error: AstError::Original(
-                        OriginalAstError::ExcessiveIndent,
-                    ),
-                },
-                Ast::Err {
-                    token_group_idx: TokenGroupIdx(
-                        5,
-                    ),
-                    error: AstError::Original(
-                        OriginalAstError::ExcessiveIndent,
-                    ),
-                },
-                Ast::Err {
-                    token_group_idx: TokenGroupIdx(
-                        6,
-                    ),
-                    error: AstError::Original(
-                        OriginalAstError::ExcessiveIndent,
+                    items: Type(
+                        TypeItems {
+                            ast_idx_range: ArenaIdxRange(
+                                2..5,
+                            ),
+                        },
                     ),
                 },
                 Ast::Err {
@@ -218,11 +230,14 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            2..10,
+            5..11,
         ),
         siblings: [
             ArenaIdxRange(
-                2..10,
+                2..5,
+            ),
+            ArenaIdxRange(
+                5..11,
             ),
         ],
     },

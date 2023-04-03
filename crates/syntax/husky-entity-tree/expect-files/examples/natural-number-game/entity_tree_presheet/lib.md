@@ -16,7 +16,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `natural_number_game`,
                             ),
-                            ast_idx: 2,
+                            ast_idx: 5,
                             ident_token: IdentToken {
                                 ident: `Nat`,
                                 token_idx: TokenIdx(
@@ -39,7 +39,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `natural_number_game`,
                             ),
-                            ast_idx: 8,
+                            ast_idx: 9,
                             ident_token: IdentToken {
                                 ident: `OddNat`,
                                 token_idx: TokenIdx(
@@ -62,7 +62,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `natural_number_game`,
                             ),
-                            ast_idx: 9,
+                            ast_idx: 10,
                             ident_token: IdentToken {
                                 ident: `EvenNat`,
                                 token_idx: TokenIdx(

@@ -569,7 +569,7 @@ Ok(
                                                 TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                             ),
                                             visibility: Visibility::Pub,
-                                            ast_idx: 202,
+                                            ast_idx: 203,
                                             ident_token: IdentToken {
                                                 ident: `RawContour`,
                                                 token_idx: TokenIdx(
