@@ -19,7 +19,7 @@ impl OriginalError for () {
     type Error = Self;
 }
 
-pub trait HasParseState {
+pub trait HasStreamState {
     type State;
     fn save_state(&self) -> Self::State;
     fn rollback(&mut self, state: Self::State);
@@ -27,16 +27,16 @@ pub trait HasParseState {
 
 pub trait StreamWrapper: std::ops::DerefMut
 where
-    Self::Target: HasParseState,
+    Self::Target: HasStreamState,
 {
 }
 
-impl<Wrapper> HasParseState for Wrapper
+impl<Wrapper> HasStreamState for Wrapper
 where
     Wrapper: StreamWrapper,
-    Wrapper::Target: HasParseState,
+    Wrapper::Target: HasStreamState,
 {
-    type State = <<Wrapper as std::ops::Deref>::Target as HasParseState>::State;
+    type State = <<Wrapper as std::ops::Deref>::Target as HasStreamState>::State;
 
     fn save_state(&self) -> Self::State {
         self.deref().save_state()
@@ -47,54 +47,50 @@ where
     }
 }
 
-pub trait Parser: HasParseState {
-    fn parse<P: ParseFrom<Self>>(&mut self) -> Result<Option<P>, <P as ParseFrom<Self>>::Error>;
-    fn try_parse<P: ParseFrom<Self>>(&mut self) -> Option<P>;
+pub trait StreamParser: HasStreamState {
+    fn parse<P: ParseFromStream<Self>>(
+        &mut self,
+    ) -> Result<Option<P>, <P as ParseFromStream<Self>>::Error>;
+    fn try_parse<P: ParseFromStream<Self>>(&mut self) -> Option<P>;
 
-    fn parse_expected<T: ParseFrom<Self>, E: OriginalError>(
+    fn parse_expected<T: ParseFromStream<Self>, E: OriginalError>(
         &mut self,
         f: impl FnOnce(Self::State) -> E,
     ) -> Result<T, E::Error>
     where
-        E::Error: From<<T as ParseFrom<Self>>::Error>;
+        E::Error: From<<T as ParseFromStream<Self>>::Error>;
 
     /// returns an optional and the rest of the stream,
     ///
     /// guarantees that stream state is not changed if result is Ok(None)
-    fn parse_into<P: ParseFrom<Self>>(
+    fn parse_into<P: ParseFromStream<Self>>(
         self,
-    ) -> Result<(Option<P>, Self), <P as ParseFrom<Self>>::Error>
+    ) -> Result<(Option<P>, Self), <P as ParseFromStream<Self>>::Error>
     where
         Self: Sized;
-
-    fn parse_expected2<T: ParseFrom2<Self>, E: OriginalError>(
-        &mut self,
-        ctx: T::Context,
-        f: impl FnOnce(Self::State) -> E,
-    ) -> Result<T, E::Error>
-    where
-        E::Error: From<<T as ParseFrom2<Self>>::Error>;
 }
 
-impl<Context> Parser for Context
+impl<SP> StreamParser for SP
 where
-    Context: HasParseState,
+    SP: HasStreamState,
 {
-    fn parse<P: ParseFrom<Self>>(&mut self) -> Result<Option<P>, <P as ParseFrom<Self>>::Error> {
+    fn parse<P: ParseFromStream<Self>>(
+        &mut self,
+    ) -> Result<Option<P>, <P as ParseFromStream<Self>>::Error> {
         P::parse_from_with_rollback_when_no_error(self)
     }
 
     /// deprecated
-    fn try_parse<T: ParseFrom<Self>>(&mut self) -> Option<T> {
+    fn try_parse<T: ParseFromStream<Self>>(&mut self) -> Option<T> {
         T::try_parse_from_with_rollback(self)
     }
 
-    fn parse_expected<T: ParseFrom<Self>, E: OriginalError>(
+    fn parse_expected<T: ParseFromStream<Self>, E: OriginalError>(
         &mut self,
         f: impl FnOnce(Self::State) -> E,
     ) -> Result<T, E::Error>
     where
-        E::Error: From<<T as ParseFrom<Self>>::Error>,
+        E::Error: From<<T as ParseFromStream<Self>>::Error>,
     {
         let saved_state = self.save_state();
         match T::parse_from_with_rollback_when_no_error(self)? {
@@ -103,52 +99,20 @@ where
         }
     }
 
-    fn parse_expected2<T: ParseFrom2<Self>, E: OriginalError>(
-        &mut self,
-        ctx: T::Context,
-        f: impl FnOnce(Self::State) -> E,
-    ) -> Result<T, E::Error>
-    where
-        E::Error: From<<T as ParseFrom2<Self>>::Error>,
-    {
-        let saved_state = self.save_state();
-        match T::parse_from_with_rollback_when_no_error2(self, ctx)? {
-            Some(output) => Ok(output),
-            None => Err(f(saved_state).into()),
-        }
-    }
-
-    fn parse_into<T: ParseFrom<Self>>(
+    fn parse_into<T: ParseFromStream<Self>>(
         mut self,
-    ) -> Result<(Option<T>, Self), <T as ParseFrom<Self>>::Error> {
+    ) -> Result<(Option<T>, Self), <T as ParseFromStream<Self>>::Error> {
         let optional = T::parse_from_with_rollback_when_no_error(&mut self)?;
         Ok((optional, self))
     }
 }
 
-pub trait ParseFrom<Context>: Sized
+pub trait ParseFromStream<SP>: Sized
 where
-    Context: Parser + ?Sized,
+    SP: StreamParser + ?Sized,
 {
     type Error;
 
     /// no guarantee on stream state other than Ok(Some(_))
-    fn parse_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> Result<Option<Self>, Self::Error>;
-}
-
-pub trait ParseFrom2<P>: Sized
-where
-    P: Parser + ?Sized,
-{
-    type Error;
-
-    type Context;
-
-    /// no guarantee on stream state other than Ok(Some(_))
-    fn parse_from_without_guaranteed_rollback(
-        parser: &mut P,
-        ctx: Self::Context,
-    ) -> Result<Option<Self>, Self::Error>;
+    fn parse_from_without_guaranteed_rollback(ctx: &mut SP) -> Result<Option<Self>, Self::Error>;
 }

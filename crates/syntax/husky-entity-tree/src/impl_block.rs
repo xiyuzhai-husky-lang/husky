@@ -12,7 +12,7 @@ use crate::*;
 use husky_print_utils::p;
 use husky_token::*;
 use husky_word::IdentPairMap;
-use parsec::Parser;
+use parsec::StreamParser;
 use thiserror::Error;
 use vec_like::VecPairMap;
 

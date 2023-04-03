@@ -17,7 +17,7 @@ impl ImplicitParameterDecl {
     }
 }
 
-impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDecl {
+impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for ImplicitParameterDecl {
     type Error = DeclExprError;
 
     fn parse_from_without_guaranteed_rollback(
@@ -65,7 +65,7 @@ impl ImplicitParameterDeclList {
     }
 }
 
-impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for ImplicitParameterDeclList {
+impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for ImplicitParameterDeclList {
     type Error = DeclExprError;
 
     fn parse_from_without_guaranteed_rollback(

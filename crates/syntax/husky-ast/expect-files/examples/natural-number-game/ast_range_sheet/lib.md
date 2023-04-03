@@ -1,17 +1,5 @@
 Ok(
     AstTokenIdxRangeSheet {
-        ast_token_idx_ranges: [
-            12..18,
-            18..25,
-            25..45,
-            0..2,
-            2..4,
-            4..9,
-            9..45,
-            45..83,
-            83..84,
-            84..113,
-            113..137,
-        ],
+        ast_token_idx_ranges: [],
     },
 )
