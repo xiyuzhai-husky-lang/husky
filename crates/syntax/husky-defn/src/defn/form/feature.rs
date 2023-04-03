@@ -6,7 +6,7 @@ pub struct FeatureDefn {
     pub path: FormPath,
     pub decl: FeatureDecl,
     pub expr_region: ExprRegion,
-    pub body: DefnResult<ExprIdx>,
+    pub body: Option<ExprIdx>,
 }
 
 #[salsa::tracked(jar = DefnJar)]
@@ -22,15 +22,9 @@ pub(crate) fn feature_defn(db: &dyn DefnDb, decl: FeatureDecl) -> FeatureDefn {
     let ast_idx = decl.ast_idx(db);
     let body = match parser.ast_sheet()[ast_idx] {
         Ast::Defn {
-            block:
-                DefnBlock::Form {
-                    path,
-                    body: Some(body),
-                },
+            block: DefnBlock::Form { body, .. },
             ..
-        } => parser
-            .parse_block_expr(body)
-            .ok_or(OriginalDefnError::ExpectBody.into()),
+        } => body.map(|body| parser.parse_block_expr(body)),
         _ => unreachable!(),
     };
     let expr_region = parser.finish();

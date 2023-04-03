@@ -251,8 +251,12 @@ Ok(
                                         ),
                                     },
                                     ty_expr: 9,
-                                    body: ArenaIdxRange(
-                                        0..2,
+                                    body: Type(
+                                        TypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                0..2,
+                                            ),
+                                        },
                                     ),
                                 },
                                 impl_token: ImplToken {

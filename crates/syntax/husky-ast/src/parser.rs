@@ -1,5 +1,6 @@
 mod defn;
 mod indent;
+mod stmt;
 mod uses;
 mod utils;
 
@@ -8,7 +9,7 @@ use crate::*;
 use husky_entity_path::DisambiguatorRegistry;
 use husky_print_utils::p;
 use husky_token::*;
-use parsec::{HasStreamState, ParseFromStreamWithError, StreamParser};
+use parsec::{HasStreamState, ParseFromStream, StreamParser};
 use salsa::DebugWithDb;
 use utils::*;
 
@@ -96,47 +97,28 @@ impl<'a> AstParser<'a> {
                 error: OriginalAstError::ExcessiveIndent.into(),
             });
         }
-        Some(match first_token {
+        Some(
+            match self.parse_ast_aux::<C>(token_group_idx, token_group, first_token) {
+                Ok(value) => value,
+                Err(error) => Ast::Err {
+                    token_group_idx,
+                    error,
+                },
+            },
+        )
+    }
+
+    fn parse_ast_aux<C: NormalAstChildren>(
+        &mut self,
+        token_group_idx: TokenGroupIdx,
+        token_group: TokenGroup,
+        first_token: Token,
+    ) -> AstResult<Ast> {
+        Ok(match first_token {
             Token::Keyword(kw) => match kw {
-                Keyword::Stmt(kw) => {
-                    match C::ALLOW_STMT {
-                        Ok(_) => (),
-                        Err(error) => {
-                            return Some(Ast::Err {
-                                token_group_idx,
-                                error,
-                            })
-                        }
-                    }
-                    match kw {
-                        StmtKeyword::If => self.parse_if_else_stmts(token_group_idx),
-                        StmtKeyword::Elif => Ast::Err {
-                            token_group_idx,
-                            error: OriginalAstError::StandaloneElif.into(),
-                        },
-                        StmtKeyword::Else => Ast::Err {
-                            token_group_idx,
-                            error: OriginalAstError::StandaloneElse.into(),
-                        },
-                        StmtKeyword::Match => self.parse_match_stmts(token_group_idx),
-                        StmtKeyword::While
-                        | StmtKeyword::Do
-                        | StmtKeyword::NonImplFor
-                        | StmtKeyword::ForExt
-                        | StmtKeyword::Let
-                        | StmtKeyword::Break
-                        | StmtKeyword::Return
-                        | StmtKeyword::Assert
-                        | StmtKeyword::Require => self.parse_stmt(token_group_idx),
-                    }
-                }
-                Keyword::Pronoun(_) => self.parse_stmt(token_group_idx),
-                Keyword::Pattern(_) => {
-                    return Some(Ast::Err {
-                        token_group_idx,
-                        error: OriginalAstError::UnexpectedPattern.into(),
-                    });
-                }
+                Keyword::Stmt(kw) => self.try_parse_stmt_after_keyword::<C>(token_group_idx, kw)?,
+                Keyword::Pronoun(_) => self.try_parse_stmt::<C>(token_group_idx)?,
+                Keyword::Pattern(_) => Err(OriginalAstError::UnexpectedPattern)?,
                 Keyword::Use => self.parse_use_ast(
                     token_group_idx,
                     VisibilityExpr::new_protected(self.module_path),
@@ -144,11 +126,11 @@ impl<'a> AstParser<'a> {
                 ),
                 Keyword::Main => Ast::Main {
                     token_group_idx,
-                    body: todo!(), //  self.parse_asts(context.subcontext(AstContextKind::InsideForm)),
+                    body: self.parse_expected(OriginalAstError::ExpectedFormBodyForMain)?,
                 },
                 Keyword::Config(_) => Ast::Config {
                     token_group_idx,
-                    body: todo!(), // self.parse_asts(context.subcontext(AstContextKind::InsideForm)),
+                    body: self.parse_expected(OriginalAstError::ExpectedFormBodyForConfig)?,
                 },
                 Keyword::Mod
                 | Keyword::Form(_)
@@ -159,25 +141,18 @@ impl<'a> AstParser<'a> {
                     VisibilityExpr::new_protected(self.module_path),
                     None,
                 ),
-                Keyword::Impl => {
-                    let items = if self.is_trai_impl(token_group_idx) {
-                        self.parse_expected(OriginalAstError::ExpectedTraitForTypeItems)
-                            .map(ImplBlockItems::TraitForType)
+                Keyword::Impl => Ast::ImplBlock {
+                    token_group_idx,
+                    items: if self.is_trai_impl(token_group_idx) {
+                        self.parse_expected::<TraitForTypeItems, _>(
+                            OriginalAstError::ExpectedTraitForTypeItems,
+                        )?
+                        .into()
                     } else {
-                        self.parse_expected(OriginalAstError::ExpectedTypeItems)
-                            .map(ImplBlockItems::Type)
-                    };
-                    match items {
-                        Ok(items) => Ast::ImplBlock {
-                            token_group_idx,
-                            items,
-                        },
-                        Err(error) => Ast::Err {
-                            token_group_idx,
-                            error,
-                        },
-                    }
-                }
+                        self.parse_expected::<TypeItems, _>(OriginalAstError::ExpectedTypeItems)?
+                            .into()
+                    },
+                },
                 Keyword::End(_) => Ast::Err {
                     token_group_idx,
                     error: OriginalAstError::UnexpectedEndKeywordAsFirstNonCommentToken.into(),
@@ -198,11 +173,8 @@ impl<'a> AstParser<'a> {
             | Token::Ident(_)
             | Token::Label(_)
             | Token::WordOpr(_)
-            | Token::Literal(_) => self.parse_stmt(token_group_idx),
-            Token::Error(e) => Ast::Err {
-                token_group_idx,
-                error: DerivedAstError::Token(e).into(),
-            },
+            | Token::Literal(_) => self.try_parse_stmt::<C>(token_group_idx)?,
+            Token::Error(e) => Err(DerivedAstError::Token(e))?,
         })
     }
 
@@ -213,81 +185,6 @@ impl<'a> AstParser<'a> {
             .token_group_token_stream(token_group_idx, None)
             .find(|token| *token == &(Keyword::Connection(ConnectionKeyword::For).into()))
             .is_some()
-    }
-
-    fn parse_if_else_stmts(&mut self, idx: TokenGroupIdx) -> Ast {
-        Ast::IfElseStmts {
-            if_branch: self.alloc_stmt(idx),
-            elif_branches: self.alloc_elif_stmts(),
-            else_branch: self.alloc_else_stmt(),
-        }
-    }
-
-    fn alloc_elif_stmts(&mut self) -> AstIdxRange {
-        let mut elif_stmts = vec![];
-        while let Some((idx, token_group, first_noncomment_token)) = self
-            .token_groups
-            .peek_token_group_of_exact_indent_with_its_first_token(self.indent())
-        {
-            match first_noncomment_token {
-                Token::Keyword(Keyword::Stmt(StmtKeyword::Elif)) => {
-                    self.token_groups.next();
-                    elif_stmts.push(self.parse_stmt(idx))
-                }
-                _ => break,
-            }
-        }
-        self.alloc_asts(elif_stmts)
-    }
-
-    fn alloc_else_stmt(&mut self) -> Option<AstIdx> {
-        let (idx, token_group, first_noncomment_token) = self
-            .token_groups
-            .peek_token_group_of_exact_indent_with_its_first_token(self.indent())?;
-        match first_noncomment_token {
-            Token::Keyword(Keyword::Stmt(StmtKeyword::Else)) => {
-                self.token_groups.next();
-                Some(self.alloc_stmt(idx))
-            }
-            _ => None,
-        }
-    }
-
-    fn parse_match_stmts(&mut self, token_group_idx: TokenGroupIdx) -> Ast {
-        Ast::MatchStmts {
-            token_group_idx,
-            pattern_stmt: self.alloc_stmt(token_group_idx),
-            case_stmts: self.parse_case_stmts(),
-        }
-    }
-
-    fn alloc_stmt(&mut self, token_group_idx: TokenGroupIdx) -> AstIdx {
-        let ast = self.parse_stmt(token_group_idx);
-        self.alloc_ast(ast)
-    }
-
-    fn parse_stmt(&mut self, token_group_idx: TokenGroupIdx) -> Ast {
-        Ast::BasicStmtOrBranch {
-            token_group_idx,
-            body: todo!(),
-        }
-    }
-
-    fn parse_case_stmts(&mut self) -> AstIdxRange {
-        let mut verticals = vec![];
-        while let Some((idx, token_group, first)) = self
-            .token_groups
-            .peek_token_group_of_exact_indent_with_its_first_token(self.indent())
-        {
-            match first {
-                Token::Punctuation(Punctuation::VERTICAL) => {
-                    self.token_groups.next();
-                    verticals.push(self.parse_stmt(idx))
-                }
-                _ => break,
-            }
-        }
-        self.alloc_asts(verticals)
     }
 
     fn parse_defn_or_use<C: NormalAstChildren>(&mut self, token_group_idx: TokenGroupIdx) -> Ast {

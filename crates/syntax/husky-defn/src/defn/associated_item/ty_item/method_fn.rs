@@ -1,6 +1,7 @@
-use husky_ast::Ast;
-
 use crate::*;
+use husky_ast::Ast;
+use husky_print_utils::p;
+use salsa::DebugWithDb;
 
 #[salsa::tracked(db = DefnDb, jar = DefnJar)]
 pub struct TypeMethodFnDefn {
@@ -8,7 +9,7 @@ pub struct TypeMethodFnDefn {
     pub id: AssociatedItemId,
     pub decl: TypeMethodFnDecl,
     pub expr_region: ExprRegion,
-    pub body: DefnResult<ExprIdx>,
+    pub body: Option<ExprIdx>,
 }
 
 #[salsa::tracked(jar = DefnJar)]
@@ -24,15 +25,9 @@ pub(crate) fn ty_method_fn_defn(db: &dyn DefnDb, decl: TypeMethodFnDecl) -> Type
     let ast_idx = decl.ast_idx(db);
     let body = match parser.ast_sheet()[ast_idx] {
         Ast::Defn {
-            block:
-                DefnBlock::Form {
-                    path,
-                    body: Some(body),
-                },
+            block: DefnBlock::AssociatedItem { body },
             ..
-        } => parser
-            .parse_block_expr(body)
-            .ok_or(OriginalDefnError::ExpectBody.into()),
+        } => body.map(|body| parser.parse_block_expr(body)),
         _ => unreachable!(),
     };
     let expr_region = parser.finish();

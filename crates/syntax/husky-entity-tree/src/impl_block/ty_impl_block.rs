@@ -7,7 +7,7 @@ pub struct TypeImplBlock {
     pub ast_idx: AstIdx,
     pub impl_token: ImplToken,
     pub ty_expr: MajorPathExprIdx,
-    pub body: AstIdxRange,
+    pub body: ImplBlockItems,
 }
 
 impl TypeImplBlock {
@@ -17,7 +17,7 @@ impl TypeImplBlock {
         registry: &mut ImplBlockRegistry,
         module_path: ModulePath,
         ast_idx: AstIdx,
-        body: AstIdxRange,
+        body: ImplBlockItems,
         ty_path: TypePath,
         ty_expr: MajorPathExprIdx,
     ) -> Self {

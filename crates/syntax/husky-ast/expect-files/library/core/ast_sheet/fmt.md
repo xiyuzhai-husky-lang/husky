@@ -2,17 +2,42 @@ Ok(
     AstSheet {
         ast_arena: Arena {
             data: [
-                Ast::Err {
+                Ast::Defn {
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
-                    error: AstError::Original(
-                        OriginalAstError::ExpectedTraitItems(
-                            TokenGroupIdx(
-                                1,
-                            ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    0,
+                                ),
+                            },
+                        },
+                    },
+                    entity_kind: ModuleItem {
+                        module_item_kind: Trait,
+                        connection: Connected,
+                    },
+                    ident_token: IdentToken {
+                        ident: `Debug`,
+                        token_idx: TokenIdx(
+                            2,
                         ),
+                    },
+                    is_generic: false,
+                    saved_stream_state: TokenIdx(
+                        3,
                     ),
+                    block: Trait {
+                        path: TraitPath(
+                            Id {
+                                value: 6,
+                            },
+                        ),
+                        items: None,
+                    },
                 },
             ],
         },

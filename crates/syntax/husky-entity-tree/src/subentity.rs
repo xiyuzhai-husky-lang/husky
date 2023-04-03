@@ -34,7 +34,7 @@ pub(crate) fn subentity_path(
             match module_item_path {
                 ModuleItemPath::Type(path) => {
                     if let Some((_, variant)) = path.variants(db)?.get_entry(ident) {
-                        todo!()
+                        Ok(variant.path(db).into())
                     } else if let Some((_, associated_item)) = path.items(db)?.get_entry(ident) {
                         Ok(match associated_item.associated_item_kind(db) {
                             AssociatedItemKind::TypeItem(ty_item_kind) => {

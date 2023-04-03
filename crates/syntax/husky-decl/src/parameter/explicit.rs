@@ -13,7 +13,7 @@ pub struct ExplicitParameterDeclList {
     rpar: RightParenthesisToken,
 }
 
-impl<'a, 'b> ParseFromStreamWithError<ExprParseContext<'a, 'b>> for ExplicitParameterDeclList {
+impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for ExplicitParameterDeclList {
     type Error = DeclExprError;
 
     fn parse_from_without_guaranteed_rollback(

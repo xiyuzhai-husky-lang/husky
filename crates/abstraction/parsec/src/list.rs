@@ -5,7 +5,7 @@ pub fn parse_consecutive_list<Context, Element, Error>(
 ) -> Result<Vec<Element>, Error>
 where
     Context: StreamParser,
-    Element: ParseFromStreamWithError<Context, Error = Error>,
+    Element: ParseFromStream<Context, Error = Error>,
 {
     let mut elements = vec![];
     while let Some(element) = ctx.parse::<Element>()? {
@@ -19,9 +19,9 @@ pub fn parse_separated_list<Context, Element, Separator, Error>(
 ) -> (Vec<Element>, Vec<Separator>, Result<(), Error>)
 where
     Context: StreamParser,
-    Element: ParseFromStreamWithError<Context, Error = Error>,
-    Separator: ParseFromStreamWithError<Context>,
-    Error: From<<Separator as ParseFromStreamWithError<Context>>::Error>,
+    Element: ParseFromStream<Context, Error = Error>,
+    Separator: ParseFromStream<Context>,
+    Error: From<<Separator as ParseFromStream<Context>>::Error>,
 {
     let mut elements = vec![];
     let mut separators = vec![];
@@ -48,9 +48,9 @@ pub fn parse_separated_list2<Context, Element, Separator, E1, E2>(
 ) -> Result<(Vec<Element>, Vec<Separator>), E2>
 where
     Context: StreamParser,
-    Element: ParseFromStreamWithError<Context, Error = E1>,
-    Separator: ParseFromStreamWithError<Context>,
-    E1: From<<Separator as ParseFromStreamWithError<Context>>::Error>,
+    Element: ParseFromStream<Context, Error = E1>,
+    Separator: ParseFromStream<Context>,
+    E1: From<<Separator as ParseFromStream<Context>>::Error>,
 {
     let mut elements = vec![];
     let mut separators = vec![];
@@ -92,10 +92,10 @@ pub fn parse_separated_list_expected<Context, Element, Separator, E: OriginalErr
 ) -> (Vec<Element>, Vec<Separator>, Result<(), E::Error>)
 where
     Context: StreamParser,
-    Element: ParseFromStreamWithError<Context>,
-    Separator: ParseFromStreamWithError<Context>,
-    E::Error: From<<Element as ParseFromStreamWithError<Context>>::Error>,
-    E::Error: From<<Separator as ParseFromStreamWithError<Context>>::Error>,
+    Element: ParseFromStream<Context>,
+    Separator: ParseFromStream<Context>,
+    E::Error: From<<Element as ParseFromStream<Context>>::Error>,
+    E::Error: From<<Separator as ParseFromStream<Context>>::Error>,
 {
     let mut elements = vec![];
     let mut separators = vec![];

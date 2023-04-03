@@ -16,7 +16,7 @@ Ok(
                                 path: TypePath(`core::option::Option`, `Enum`),
                                 decl: EnumTypeDecl {
                                     path: TypePath(`core::option::Option`, `Enum`),
-                                    ast_idx: 0,
+                                    ast_idx: 2,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: None,

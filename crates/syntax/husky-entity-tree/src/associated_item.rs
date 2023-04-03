@@ -158,10 +158,11 @@ pub(crate) fn impl_block_associated_items_aux(
     db: &dyn EntityTreeDb,
     impl_block: ImplBlock,
     module_path: ModulePath,
-    body: AstIdxRange,
+    body: ImplBlockItems,
 ) -> IdentPairMap<AssociatedItem> {
     let ast_sheet = db.ast_sheet(module_path).unwrap();
-    body.into_iter()
+    body.children()
+        .into_iter()
         .filter_map(|ast_idx| {
             let ast = &ast_sheet[ast_idx];
             match ast {
@@ -193,9 +194,18 @@ pub(crate) fn impl_block_associated_items_aux(
                 }
                 Ast::Err { .. } => None,
                 _ => {
-                    p!(impl_block.debug(db));
-                    p!(ast.debug(db));
-                    unreachable!()
+                    let ast_token_idx_range_sheet =
+                        db.ast_token_idx_range_sheet(module_path).unwrap();
+                    let token_sheet_data = db.token_sheet_data(module_path).unwrap();
+                    let ast_range = ast_token_idx_range_sheet[ast_idx];
+                    p!(ast_range);
+                    // assert!(token_sheet_data.len() >= ast_range.end().token_idx().raw());
+                    // p!(token_sheet_data[ast_range.start().token_idx()].debug(db));
+                    // p!(token_sheet_data[ast_range.start().token_idx() + 1].debug(db));
+                    // p!(module_path.debug(db), impl_block.debug(db));
+                    // p!(ast.debug(db));
+                    p!(token_sheet_data.debug(db));
+                    todo!()
                 }
             }
         })

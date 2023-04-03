@@ -107,12 +107,24 @@ pub enum OriginalAstError {
     VisibilityExprError(#[from] OriginalVisibilityExprError),
     #[error("UnexpectedMemoFieldInsideForm")]
     UnexpectedMemoFieldInsideForm,
-    #[error("ExpectedTraitItems")]
-    ExpectedTraitItems(TokenGroupIdx),
     #[error("ExpectedTraitForTypeItems")]
     ExpectedTraitForTypeItems(TokenGroupIdx),
     #[error("ExpectedTypeItems")]
     ExpectedTypeItems(TokenGroupIdx),
+    #[error("ExpectedTypeVariants")]
+    ExpectedTypeVariants(TokenGroupIdx),
+    #[error("ExpectedIdentForTypeVariant")]
+    ExpectedIdentForTypeVariant(TokenIdx),
+    #[error("ExpectedFormBodyForConfig")]
+    ExpectedFormBodyForConfig(TokenGroupIdx),
+    #[error("ExpectedFormBodyForMain")]
+    ExpectedFormBodyForMain(TokenGroupIdx),
+}
+
+impl From<std::convert::Infallible> for AstError {
+    fn from(value: std::convert::Infallible) -> Self {
+        unreachable!()
+    }
 }
 
 impl OriginalError for OriginalAstError {

@@ -31,7 +31,7 @@ pub enum ImplicitParameterDeclPatternVariant {
     Binding { label_token: BindingLabelToken },
 }
 
-impl<'a, 'b> ParseFromStreamWithError<ExprParseContext<'a, 'b>> for ImplicitParameterDeclPattern {
+impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for ImplicitParameterDeclPattern {
     type Error = ExprError;
 
     fn parse_from_without_guaranteed_rollback(

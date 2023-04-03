@@ -69,11 +69,13 @@ Ok(
                                 value: 1,
                             },
                         ),
-                        items: TraitItems {
-                            children: ArenaIdxRange(
-                                0..1,
-                            ),
-                        },
+                        items: Some(
+                            TraitItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    0..1,
+                                ),
+                            },
+                        ),
                     },
                 },
             ],

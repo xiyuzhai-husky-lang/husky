@@ -981,8 +981,12 @@ Ok(
                                         ),
                                     },
                                     ty_expr: 0,
-                                    body: ArenaIdxRange(
-                                        0..1,
+                                    body: Type(
+                                        TypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                0..1,
+                                            ),
+                                        },
                                     ),
                                 },
                                 impl_token: ImplToken {
@@ -1161,8 +1165,12 @@ Ok(
                                                         ),
                                                     },
                                                     ty_expr: 0,
-                                                    body: ArenaIdxRange(
-                                                        0..1,
+                                                    body: Type(
+                                                        TypeItems {
+                                                            ast_idx_range: ArenaIdxRange(
+                                                                0..1,
+                                                            ),
+                                                        },
                                                     ),
                                                 },
                                             ),
@@ -1570,11 +1578,7 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    body: Err(
-                                        DefnError::Original(
-                                            OriginalDefnError::ExpectBody,
-                                        ),
-                                    ),
+                                    body: None,
                                 },
                             ),
                         ),
@@ -1615,8 +1619,12 @@ Ok(
                                         44,
                                     ),
                                     ty_expr: 2,
-                                    body: ArenaIdxRange(
-                                        1..2,
+                                    body: TraitForType(
+                                        TraitForTypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                1..2,
+                                            ),
+                                        },
                                     ),
                                 },
                                 impl_token: ImplToken {
@@ -1851,8 +1859,12 @@ Ok(
                                                         44,
                                                     ),
                                                     ty_expr: 2,
-                                                    body: ArenaIdxRange(
-                                                        1..2,
+                                                    body: TraitForType(
+                                                        TraitForTypeItems {
+                                                            ast_idx_range: ArenaIdxRange(
+                                                                1..2,
+                                                            ),
+                                                        },
                                                     ),
                                                 },
                                             ),
@@ -2507,11 +2519,7 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    body: Err(
-                                        DefnError::Original(
-                                            OriginalDefnError::ExpectBody,
-                                        ),
-                                    ),
+                                    body: None,
                                 },
                             ),
                         ),
@@ -2546,8 +2554,12 @@ Ok(
                                         ),
                                     },
                                     ty_expr: 3,
-                                    body: ArenaIdxRange(
-                                        2..3,
+                                    body: Type(
+                                        TypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                2..3,
+                                            ),
+                                        },
                                     ),
                                 },
                                 impl_token: ImplToken {
@@ -2726,8 +2738,12 @@ Ok(
                                                         ),
                                                     },
                                                     ty_expr: 3,
-                                                    body: ArenaIdxRange(
-                                                        2..3,
+                                                    body: Type(
+                                                        TypeItems {
+                                                            ast_idx_range: ArenaIdxRange(
+                                                                2..3,
+                                                            ),
+                                                        },
                                                     ),
                                                 },
                                             ),
@@ -3135,11 +3151,7 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    body: Err(
-                                        DefnError::Original(
-                                            OriginalDefnError::ExpectBody,
-                                        ),
-                                    ),
+                                    body: None,
                                 },
                             ),
                         ),
@@ -3180,8 +3192,12 @@ Ok(
                                         96,
                                     ),
                                     ty_expr: 5,
-                                    body: ArenaIdxRange(
-                                        3..4,
+                                    body: TraitForType(
+                                        TraitForTypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                3..4,
+                                            ),
+                                        },
                                     ),
                                 },
                                 impl_token: ImplToken {
@@ -3416,8 +3432,12 @@ Ok(
                                                         96,
                                                     ),
                                                     ty_expr: 5,
-                                                    body: ArenaIdxRange(
-                                                        3..4,
+                                                    body: TraitForType(
+                                                        TraitForTypeItems {
+                                                            ast_idx_range: ArenaIdxRange(
+                                                                3..4,
+                                                            ),
+                                                        },
                                                     ),
                                                 },
                                             ),
@@ -4072,11 +4092,7 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    body: Err(
-                                        DefnError::Original(
-                                            OriginalDefnError::ExpectBody,
-                                        ),
-                                    ),
+                                    body: None,
                                 },
                             ),
                         ),
@@ -4111,8 +4127,12 @@ Ok(
                                         ),
                                     },
                                     ty_expr: 6,
-                                    body: ArenaIdxRange(
-                                        4..5,
+                                    body: Type(
+                                        TypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                4..5,
+                                            ),
+                                        },
                                     ),
                                 },
                                 impl_token: ImplToken {
@@ -4291,8 +4311,12 @@ Ok(
                                                         ),
                                                     },
                                                     ty_expr: 6,
-                                                    body: ArenaIdxRange(
-                                                        4..5,
+                                                    body: Type(
+                                                        TypeItems {
+                                                            ast_idx_range: ArenaIdxRange(
+                                                                4..5,
+                                                            ),
+                                                        },
                                                     ),
                                                 },
                                             ),
@@ -4700,11 +4724,7 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    body: Err(
-                                        DefnError::Original(
-                                            OriginalDefnError::ExpectBody,
-                                        ),
-                                    ),
+                                    body: None,
                                 },
                             ),
                         ),
@@ -4745,8 +4765,12 @@ Ok(
                                         148,
                                     ),
                                     ty_expr: 8,
-                                    body: ArenaIdxRange(
-                                        5..6,
+                                    body: TraitForType(
+                                        TraitForTypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                5..6,
+                                            ),
+                                        },
                                     ),
                                 },
                                 impl_token: ImplToken {
@@ -4981,8 +5005,12 @@ Ok(
                                                         148,
                                                     ),
                                                     ty_expr: 8,
-                                                    body: ArenaIdxRange(
-                                                        5..6,
+                                                    body: TraitForType(
+                                                        TraitForTypeItems {
+                                                            ast_idx_range: ArenaIdxRange(
+                                                                5..6,
+                                                            ),
+                                                        },
                                                     ),
                                                 },
                                             ),
@@ -5639,11 +5667,7 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    body: Err(
-                                        DefnError::Original(
-                                            OriginalDefnError::ExpectBody,
-                                        ),
-                                    ),
+                                    body: None,
                                 },
                             ),
                         ),
@@ -5678,8 +5702,12 @@ Ok(
                                         ),
                                     },
                                     ty_expr: 9,
-                                    body: ArenaIdxRange(
-                                        6..7,
+                                    body: Type(
+                                        TypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                6..7,
+                                            ),
+                                        },
                                     ),
                                 },
                                 impl_token: ImplToken {
@@ -5858,8 +5886,12 @@ Ok(
                                                         ),
                                                     },
                                                     ty_expr: 9,
-                                                    body: ArenaIdxRange(
-                                                        6..7,
+                                                    body: Type(
+                                                        TypeItems {
+                                                            ast_idx_range: ArenaIdxRange(
+                                                                6..7,
+                                                            ),
+                                                        },
                                                     ),
                                                 },
                                             ),
@@ -6267,11 +6299,7 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    body: Err(
-                                        DefnError::Original(
-                                            OriginalDefnError::ExpectBody,
-                                        ),
-                                    ),
+                                    body: None,
                                 },
                             ),
                         ),
@@ -6312,8 +6340,12 @@ Ok(
                                         199,
                                     ),
                                     ty_expr: 11,
-                                    body: ArenaIdxRange(
-                                        7..8,
+                                    body: TraitForType(
+                                        TraitForTypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                7..8,
+                                            ),
+                                        },
                                     ),
                                 },
                                 impl_token: ImplToken {
@@ -6548,8 +6580,12 @@ Ok(
                                                         199,
                                                     ),
                                                     ty_expr: 11,
-                                                    body: ArenaIdxRange(
-                                                        7..8,
+                                                    body: TraitForType(
+                                                        TraitForTypeItems {
+                                                            ast_idx_range: ArenaIdxRange(
+                                                                7..8,
+                                                            ),
+                                                        },
                                                     ),
                                                 },
                                             ),
@@ -7204,11 +7240,7 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    body: Err(
-                                        DefnError::Original(
-                                            OriginalDefnError::ExpectBody,
-                                        ),
-                                    ),
+                                    body: None,
                                 },
                             ),
                         ),
@@ -7243,8 +7275,12 @@ Ok(
                                         ),
                                     },
                                     ty_expr: 12,
-                                    body: ArenaIdxRange(
-                                        8..9,
+                                    body: Type(
+                                        TypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                8..9,
+                                            ),
+                                        },
                                     ),
                                 },
                                 impl_token: ImplToken {
@@ -7423,8 +7459,12 @@ Ok(
                                                         ),
                                                     },
                                                     ty_expr: 12,
-                                                    body: ArenaIdxRange(
-                                                        8..9,
+                                                    body: Type(
+                                                        TypeItems {
+                                                            ast_idx_range: ArenaIdxRange(
+                                                                8..9,
+                                                            ),
+                                                        },
                                                     ),
                                                 },
                                             ),
@@ -7832,11 +7872,7 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    body: Err(
-                                        DefnError::Original(
-                                            OriginalDefnError::ExpectBody,
-                                        ),
-                                    ),
+                                    body: None,
                                 },
                             ),
                         ),
@@ -7877,8 +7913,12 @@ Ok(
                                         251,
                                     ),
                                     ty_expr: 14,
-                                    body: ArenaIdxRange(
-                                        9..10,
+                                    body: TraitForType(
+                                        TraitForTypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                9..10,
+                                            ),
+                                        },
                                     ),
                                 },
                                 impl_token: ImplToken {
@@ -8113,8 +8153,12 @@ Ok(
                                                         251,
                                                     ),
                                                     ty_expr: 14,
-                                                    body: ArenaIdxRange(
-                                                        9..10,
+                                                    body: TraitForType(
+                                                        TraitForTypeItems {
+                                                            ast_idx_range: ArenaIdxRange(
+                                                                9..10,
+                                                            ),
+                                                        },
                                                     ),
                                                 },
                                             ),
@@ -8769,11 +8813,7 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    body: Err(
-                                        DefnError::Original(
-                                            OriginalDefnError::ExpectBody,
-                                        ),
-                                    ),
+                                    body: None,
                                 },
                             ),
                         ),
@@ -8808,8 +8848,12 @@ Ok(
                                         ),
                                     },
                                     ty_expr: 15,
-                                    body: ArenaIdxRange(
-                                        10..11,
+                                    body: Type(
+                                        TypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                10..11,
+                                            ),
+                                        },
                                     ),
                                 },
                                 impl_token: ImplToken {
@@ -8988,8 +9032,12 @@ Ok(
                                                         ),
                                                     },
                                                     ty_expr: 15,
-                                                    body: ArenaIdxRange(
-                                                        10..11,
+                                                    body: Type(
+                                                        TypeItems {
+                                                            ast_idx_range: ArenaIdxRange(
+                                                                10..11,
+                                                            ),
+                                                        },
                                                     ),
                                                 },
                                             ),
@@ -9397,11 +9445,7 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    body: Err(
-                                        DefnError::Original(
-                                            OriginalDefnError::ExpectBody,
-                                        ),
-                                    ),
+                                    body: None,
                                 },
                             ),
                         ),
@@ -9442,8 +9486,12 @@ Ok(
                                         303,
                                     ),
                                     ty_expr: 17,
-                                    body: ArenaIdxRange(
-                                        11..12,
+                                    body: TraitForType(
+                                        TraitForTypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                11..12,
+                                            ),
+                                        },
                                     ),
                                 },
                                 impl_token: ImplToken {
@@ -9678,8 +9726,12 @@ Ok(
                                                         303,
                                                     ),
                                                     ty_expr: 17,
-                                                    body: ArenaIdxRange(
-                                                        11..12,
+                                                    body: TraitForType(
+                                                        TraitForTypeItems {
+                                                            ast_idx_range: ArenaIdxRange(
+                                                                11..12,
+                                                            ),
+                                                        },
                                                     ),
                                                 },
                                             ),
@@ -10334,11 +10386,7 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    body: Err(
-                                        DefnError::Original(
-                                            OriginalDefnError::ExpectBody,
-                                        ),
-                                    ),
+                                    body: None,
                                 },
                             ),
                         ),
@@ -10373,8 +10421,12 @@ Ok(
                                         ),
                                     },
                                     ty_expr: 18,
-                                    body: ArenaIdxRange(
-                                        12..13,
+                                    body: Type(
+                                        TypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                12..13,
+                                            ),
+                                        },
                                     ),
                                 },
                                 impl_token: ImplToken {
@@ -10553,8 +10605,12 @@ Ok(
                                                         ),
                                                     },
                                                     ty_expr: 18,
-                                                    body: ArenaIdxRange(
-                                                        12..13,
+                                                    body: Type(
+                                                        TypeItems {
+                                                            ast_idx_range: ArenaIdxRange(
+                                                                12..13,
+                                                            ),
+                                                        },
                                                     ),
                                                 },
                                             ),
@@ -10962,11 +11018,7 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    body: Err(
-                                        DefnError::Original(
-                                            OriginalDefnError::ExpectBody,
-                                        ),
-                                    ),
+                                    body: None,
                                 },
                             ),
                         ),
@@ -11007,8 +11059,12 @@ Ok(
                                         355,
                                     ),
                                     ty_expr: 20,
-                                    body: ArenaIdxRange(
-                                        13..14,
+                                    body: TraitForType(
+                                        TraitForTypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                13..14,
+                                            ),
+                                        },
                                     ),
                                 },
                                 impl_token: ImplToken {
@@ -11243,8 +11299,12 @@ Ok(
                                                         355,
                                                     ),
                                                     ty_expr: 20,
-                                                    body: ArenaIdxRange(
-                                                        13..14,
+                                                    body: TraitForType(
+                                                        TraitForTypeItems {
+                                                            ast_idx_range: ArenaIdxRange(
+                                                                13..14,
+                                                            ),
+                                                        },
                                                     ),
                                                 },
                                             ),
@@ -11899,11 +11959,7 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    body: Err(
-                                        DefnError::Original(
-                                            OriginalDefnError::ExpectBody,
-                                        ),
-                                    ),
+                                    body: None,
                                 },
                             ),
                         ),
@@ -11938,8 +11994,12 @@ Ok(
                                         ),
                                     },
                                     ty_expr: 21,
-                                    body: ArenaIdxRange(
-                                        14..15,
+                                    body: Type(
+                                        TypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                14..15,
+                                            ),
+                                        },
                                     ),
                                 },
                                 impl_token: ImplToken {
@@ -12118,8 +12178,12 @@ Ok(
                                                         ),
                                                     },
                                                     ty_expr: 21,
-                                                    body: ArenaIdxRange(
-                                                        14..15,
+                                                    body: Type(
+                                                        TypeItems {
+                                                            ast_idx_range: ArenaIdxRange(
+                                                                14..15,
+                                                            ),
+                                                        },
                                                     ),
                                                 },
                                             ),
@@ -12527,11 +12591,7 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    body: Err(
-                                        DefnError::Original(
-                                            OriginalDefnError::ExpectBody,
-                                        ),
-                                    ),
+                                    body: None,
                                 },
                             ),
                         ),
@@ -12572,8 +12632,12 @@ Ok(
                                         407,
                                     ),
                                     ty_expr: 23,
-                                    body: ArenaIdxRange(
-                                        15..16,
+                                    body: TraitForType(
+                                        TraitForTypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                15..16,
+                                            ),
+                                        },
                                     ),
                                 },
                                 impl_token: ImplToken {
@@ -12808,8 +12872,12 @@ Ok(
                                                         407,
                                                     ),
                                                     ty_expr: 23,
-                                                    body: ArenaIdxRange(
-                                                        15..16,
+                                                    body: TraitForType(
+                                                        TraitForTypeItems {
+                                                            ast_idx_range: ArenaIdxRange(
+                                                                15..16,
+                                                            ),
+                                                        },
                                                     ),
                                                 },
                                             ),
@@ -13464,11 +13532,7 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    body: Err(
-                                        DefnError::Original(
-                                            OriginalDefnError::ExpectBody,
-                                        ),
-                                    ),
+                                    body: None,
                                 },
                             ),
                         ),
@@ -13503,8 +13567,12 @@ Ok(
                                         ),
                                     },
                                     ty_expr: 24,
-                                    body: ArenaIdxRange(
-                                        16..17,
+                                    body: Type(
+                                        TypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                16..17,
+                                            ),
+                                        },
                                     ),
                                 },
                                 impl_token: ImplToken {
@@ -13683,8 +13751,12 @@ Ok(
                                                         ),
                                                     },
                                                     ty_expr: 24,
-                                                    body: ArenaIdxRange(
-                                                        16..17,
+                                                    body: Type(
+                                                        TypeItems {
+                                                            ast_idx_range: ArenaIdxRange(
+                                                                16..17,
+                                                            ),
+                                                        },
                                                     ),
                                                 },
                                             ),
@@ -14092,11 +14164,7 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    body: Err(
-                                        DefnError::Original(
-                                            OriginalDefnError::ExpectBody,
-                                        ),
-                                    ),
+                                    body: None,
                                 },
                             ),
                         ),
@@ -14137,8 +14205,12 @@ Ok(
                                         459,
                                     ),
                                     ty_expr: 26,
-                                    body: ArenaIdxRange(
-                                        17..18,
+                                    body: TraitForType(
+                                        TraitForTypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                17..18,
+                                            ),
+                                        },
                                     ),
                                 },
                                 impl_token: ImplToken {
@@ -14373,8 +14445,12 @@ Ok(
                                                         459,
                                                     ),
                                                     ty_expr: 26,
-                                                    body: ArenaIdxRange(
-                                                        17..18,
+                                                    body: TraitForType(
+                                                        TraitForTypeItems {
+                                                            ast_idx_range: ArenaIdxRange(
+                                                                17..18,
+                                                            ),
+                                                        },
                                                     ),
                                                 },
                                             ),
@@ -15029,11 +15105,7 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    body: Err(
-                                        DefnError::Original(
-                                            OriginalDefnError::ExpectBody,
-                                        ),
-                                    ),
+                                    body: None,
                                 },
                             ),
                         ),
@@ -15068,8 +15140,12 @@ Ok(
                                         ),
                                     },
                                     ty_expr: 27,
-                                    body: ArenaIdxRange(
-                                        18..19,
+                                    body: Type(
+                                        TypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                18..19,
+                                            ),
+                                        },
                                     ),
                                 },
                                 impl_token: ImplToken {
@@ -15248,8 +15324,12 @@ Ok(
                                                         ),
                                                     },
                                                     ty_expr: 27,
-                                                    body: ArenaIdxRange(
-                                                        18..19,
+                                                    body: Type(
+                                                        TypeItems {
+                                                            ast_idx_range: ArenaIdxRange(
+                                                                18..19,
+                                                            ),
+                                                        },
                                                     ),
                                                 },
                                             ),
@@ -15657,11 +15737,7 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    body: Err(
-                                        DefnError::Original(
-                                            OriginalDefnError::ExpectBody,
-                                        ),
-                                    ),
+                                    body: None,
                                 },
                             ),
                         ),
@@ -15702,8 +15778,12 @@ Ok(
                                         511,
                                     ),
                                     ty_expr: 29,
-                                    body: ArenaIdxRange(
-                                        19..20,
+                                    body: TraitForType(
+                                        TraitForTypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                19..20,
+                                            ),
+                                        },
                                     ),
                                 },
                                 impl_token: ImplToken {
@@ -15938,8 +16018,12 @@ Ok(
                                                         511,
                                                     ),
                                                     ty_expr: 29,
-                                                    body: ArenaIdxRange(
-                                                        19..20,
+                                                    body: TraitForType(
+                                                        TraitForTypeItems {
+                                                            ast_idx_range: ArenaIdxRange(
+                                                                19..20,
+                                                            ),
+                                                        },
                                                     ),
                                                 },
                                             ),
@@ -16594,11 +16678,7 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    body: Err(
-                                        DefnError::Original(
-                                            OriginalDefnError::ExpectBody,
-                                        ),
-                                    ),
+                                    body: None,
                                 },
                             ),
                         ),
@@ -16633,8 +16713,12 @@ Ok(
                                         ),
                                     },
                                     ty_expr: 30,
-                                    body: ArenaIdxRange(
-                                        20..21,
+                                    body: Type(
+                                        TypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                20..21,
+                                            ),
+                                        },
                                     ),
                                 },
                                 impl_token: ImplToken {
@@ -16813,8 +16897,12 @@ Ok(
                                                         ),
                                                     },
                                                     ty_expr: 30,
-                                                    body: ArenaIdxRange(
-                                                        20..21,
+                                                    body: Type(
+                                                        TypeItems {
+                                                            ast_idx_range: ArenaIdxRange(
+                                                                20..21,
+                                                            ),
+                                                        },
                                                     ),
                                                 },
                                             ),
@@ -17222,11 +17310,7 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    body: Err(
-                                        DefnError::Original(
-                                            OriginalDefnError::ExpectBody,
-                                        ),
-                                    ),
+                                    body: None,
                                 },
                             ),
                         ),
@@ -17267,8 +17351,12 @@ Ok(
                                         563,
                                     ),
                                     ty_expr: 32,
-                                    body: ArenaIdxRange(
-                                        21..22,
+                                    body: TraitForType(
+                                        TraitForTypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                21..22,
+                                            ),
+                                        },
                                     ),
                                 },
                                 impl_token: ImplToken {
@@ -17503,8 +17591,12 @@ Ok(
                                                         563,
                                                     ),
                                                     ty_expr: 32,
-                                                    body: ArenaIdxRange(
-                                                        21..22,
+                                                    body: TraitForType(
+                                                        TraitForTypeItems {
+                                                            ast_idx_range: ArenaIdxRange(
+                                                                21..22,
+                                                            ),
+                                                        },
                                                     ),
                                                 },
                                             ),
@@ -18159,11 +18251,7 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    body: Err(
-                                        DefnError::Original(
-                                            OriginalDefnError::ExpectBody,
-                                        ),
-                                    ),
+                                    body: None,
                                 },
                             ),
                         ),
@@ -18198,8 +18286,12 @@ Ok(
                                         ),
                                     },
                                     ty_expr: 33,
-                                    body: ArenaIdxRange(
-                                        22..23,
+                                    body: Type(
+                                        TypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                22..23,
+                                            ),
+                                        },
                                     ),
                                 },
                                 impl_token: ImplToken {
@@ -18378,8 +18470,12 @@ Ok(
                                                         ),
                                                     },
                                                     ty_expr: 33,
-                                                    body: ArenaIdxRange(
-                                                        22..23,
+                                                    body: Type(
+                                                        TypeItems {
+                                                            ast_idx_range: ArenaIdxRange(
+                                                                22..23,
+                                                            ),
+                                                        },
                                                     ),
                                                 },
                                             ),
@@ -18787,11 +18883,7 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    body: Err(
-                                        DefnError::Original(
-                                            OriginalDefnError::ExpectBody,
-                                        ),
-                                    ),
+                                    body: None,
                                 },
                             ),
                         ),
@@ -18832,8 +18924,12 @@ Ok(
                                         615,
                                     ),
                                     ty_expr: 35,
-                                    body: ArenaIdxRange(
-                                        23..24,
+                                    body: TraitForType(
+                                        TraitForTypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                23..24,
+                                            ),
+                                        },
                                     ),
                                 },
                                 impl_token: ImplToken {
@@ -19068,8 +19164,12 @@ Ok(
                                                         615,
                                                     ),
                                                     ty_expr: 35,
-                                                    body: ArenaIdxRange(
-                                                        23..24,
+                                                    body: TraitForType(
+                                                        TraitForTypeItems {
+                                                            ast_idx_range: ArenaIdxRange(
+                                                                23..24,
+                                                            ),
+                                                        },
                                                     ),
                                                 },
                                             ),
@@ -19724,11 +19824,7 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    body: Err(
-                                        DefnError::Original(
-                                            OriginalDefnError::ExpectBody,
-                                        ),
-                                    ),
+                                    body: None,
                                 },
                             ),
                         ),
@@ -19763,8 +19859,12 @@ Ok(
                                         ),
                                     },
                                     ty_expr: 36,
-                                    body: ArenaIdxRange(
-                                        24..25,
+                                    body: Type(
+                                        TypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                24..25,
+                                            ),
+                                        },
                                     ),
                                 },
                                 impl_token: ImplToken {
@@ -19943,8 +20043,12 @@ Ok(
                                                         ),
                                                     },
                                                     ty_expr: 36,
-                                                    body: ArenaIdxRange(
-                                                        24..25,
+                                                    body: Type(
+                                                        TypeItems {
+                                                            ast_idx_range: ArenaIdxRange(
+                                                                24..25,
+                                                            ),
+                                                        },
                                                     ),
                                                 },
                                             ),
@@ -20352,11 +20456,7 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    body: Err(
-                                        DefnError::Original(
-                                            OriginalDefnError::ExpectBody,
-                                        ),
-                                    ),
+                                    body: None,
                                 },
                             ),
                         ),
@@ -20397,8 +20497,12 @@ Ok(
                                         667,
                                     ),
                                     ty_expr: 38,
-                                    body: ArenaIdxRange(
-                                        25..26,
+                                    body: TraitForType(
+                                        TraitForTypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                25..26,
+                                            ),
+                                        },
                                     ),
                                 },
                                 impl_token: ImplToken {
@@ -20633,8 +20737,12 @@ Ok(
                                                         667,
                                                     ),
                                                     ty_expr: 38,
-                                                    body: ArenaIdxRange(
-                                                        25..26,
+                                                    body: TraitForType(
+                                                        TraitForTypeItems {
+                                                            ast_idx_range: ArenaIdxRange(
+                                                                25..26,
+                                                            ),
+                                                        },
                                                     ),
                                                 },
                                             ),
@@ -21291,11 +21399,7 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    body: Err(
-                                        DefnError::Original(
-                                            OriginalDefnError::ExpectBody,
-                                        ),
-                                    ),
+                                    body: None,
                                 },
                             ),
                         ),
@@ -21330,8 +21434,12 @@ Ok(
                                         ),
                                     },
                                     ty_expr: 39,
-                                    body: ArenaIdxRange(
-                                        26..27,
+                                    body: Type(
+                                        TypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                26..27,
+                                            ),
+                                        },
                                     ),
                                 },
                                 impl_token: ImplToken {
@@ -21510,8 +21618,12 @@ Ok(
                                                         ),
                                                     },
                                                     ty_expr: 39,
-                                                    body: ArenaIdxRange(
-                                                        26..27,
+                                                    body: Type(
+                                                        TypeItems {
+                                                            ast_idx_range: ArenaIdxRange(
+                                                                26..27,
+                                                            ),
+                                                        },
                                                     ),
                                                 },
                                             ),
@@ -21919,11 +22031,7 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    body: Err(
-                                        DefnError::Original(
-                                            OriginalDefnError::ExpectBody,
-                                        ),
-                                    ),
+                                    body: None,
                                 },
                             ),
                         ),
@@ -21964,8 +22072,12 @@ Ok(
                                         718,
                                     ),
                                     ty_expr: 41,
-                                    body: ArenaIdxRange(
-                                        27..28,
+                                    body: TraitForType(
+                                        TraitForTypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                27..28,
+                                            ),
+                                        },
                                     ),
                                 },
                                 impl_token: ImplToken {
@@ -22200,8 +22312,12 @@ Ok(
                                                         718,
                                                     ),
                                                     ty_expr: 41,
-                                                    body: ArenaIdxRange(
-                                                        27..28,
+                                                    body: TraitForType(
+                                                        TraitForTypeItems {
+                                                            ast_idx_range: ArenaIdxRange(
+                                                                27..28,
+                                                            ),
+                                                        },
                                                     ),
                                                 },
                                             ),
@@ -22856,11 +22972,7 @@ Ok(
                                             roots: [],
                                         },
                                     },
-                                    body: Err(
-                                        DefnError::Original(
-                                            OriginalDefnError::ExpectBody,
-                                        ),
-                                    ),
+                                    body: None,
                                 },
                             ),
                         ),

@@ -21,7 +21,7 @@ pub enum SelfParameterDeclPattern {
     },
 }
 
-impl<'a, 'b> ParseFromStreamWithError<ExprParseContext<'a, 'b>> for SelfParameterDeclPattern {
+impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for SelfParameterDeclPattern {
     type Error = ExprError;
 
     // needs more testing

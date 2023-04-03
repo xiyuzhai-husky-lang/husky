@@ -2,19 +2,17 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct FormBody {
-    children: AstIdxRange,
+    ast_idx_range: AstIdxRange,
 }
 
 impl FormBody {
-    pub fn children(&self) -> AstIdxRange {
-        self.children
+    pub fn ast_idx_range(&self) -> AstIdxRange {
+        self.ast_idx_range
     }
 }
 
 impl NormalAstChildren for FormBody {
-    const ALLOW_STMT: AstResult<()> = Err(AstError::Original(
-        OriginalAstError::UnexpectedStmtInsideImplBlock,
-    ));
+    const ALLOW_STMT: AstResult<()> = Ok(());
 
     #[inline(always)]
     fn determine_entity_kind(entity_keyword_group: EntityKeywordGroup) -> AstResult<EntityKind> {
@@ -40,7 +38,7 @@ impl NormalAstChildren for FormBody {
     }
 }
 
-impl<'a> ParseFromStreamWithError<AstParser<'a>> for FormBody {
+impl<'a> ParseFromStream<AstParser<'a>> for FormBody {
     type Error = AstError;
 
     fn parse_from_without_guaranteed_rollback(
@@ -48,6 +46,8 @@ impl<'a> ParseFromStreamWithError<AstParser<'a>> for FormBody {
     ) -> Result<Option<Self>, Self::Error> {
         Ok(parser
             .parse_normal_ast_children_indented::<Self>()
-            .map(|children| Self { children }))
+            .map(|children| Self {
+                ast_idx_range: children,
+            }))
     }
 }

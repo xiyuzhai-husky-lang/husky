@@ -470,8 +470,12 @@ Ok(
                                         ),
                                     },
                                     ty_expr: 8,
-                                    body: ArenaIdxRange(
-                                        39..53,
+                                    body: Type(
+                                        TypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                39..53,
+                                            ),
+                                        },
                                     ),
                                 },
                                 impl_token: ImplToken {
@@ -629,8 +633,12 @@ Ok(
                                                     ),
                                                 },
                                                 ty_expr: 8,
-                                                body: ArenaIdxRange(
-                                                    39..53,
+                                                body: Type(
+                                                    TypeItems {
+                                                        ast_idx_range: ArenaIdxRange(
+                                                            39..53,
+                                                        ),
+                                                    },
                                                 ),
                                             },
                                         ),
@@ -890,8 +898,12 @@ Ok(
                                                     ),
                                                 },
                                                 ty_expr: 8,
-                                                body: ArenaIdxRange(
-                                                    39..53,
+                                                body: Type(
+                                                    TypeItems {
+                                                        ast_idx_range: ArenaIdxRange(
+                                                            39..53,
+                                                        ),
+                                                    },
                                                 ),
                                             },
                                         ),
@@ -1151,8 +1163,12 @@ Ok(
                                                     ),
                                                 },
                                                 ty_expr: 8,
-                                                body: ArenaIdxRange(
-                                                    39..53,
+                                                body: Type(
+                                                    TypeItems {
+                                                        ast_idx_range: ArenaIdxRange(
+                                                            39..53,
+                                                        ),
+                                                    },
                                                 ),
                                             },
                                         ),
@@ -1412,8 +1428,12 @@ Ok(
                                                     ),
                                                 },
                                                 ty_expr: 8,
-                                                body: ArenaIdxRange(
-                                                    39..53,
+                                                body: Type(
+                                                    TypeItems {
+                                                        ast_idx_range: ArenaIdxRange(
+                                                            39..53,
+                                                        ),
+                                                    },
                                                 ),
                                             },
                                         ),
@@ -1673,8 +1693,12 @@ Ok(
                                                     ),
                                                 },
                                                 ty_expr: 8,
-                                                body: ArenaIdxRange(
-                                                    39..53,
+                                                body: Type(
+                                                    TypeItems {
+                                                        ast_idx_range: ArenaIdxRange(
+                                                            39..53,
+                                                        ),
+                                                    },
                                                 ),
                                             },
                                         ),
@@ -1934,8 +1958,12 @@ Ok(
                                                     ),
                                                 },
                                                 ty_expr: 8,
-                                                body: ArenaIdxRange(
-                                                    39..53,
+                                                body: Type(
+                                                    TypeItems {
+                                                        ast_idx_range: ArenaIdxRange(
+                                                            39..53,
+                                                        ),
+                                                    },
                                                 ),
                                             },
                                         ),
@@ -2205,8 +2233,12 @@ Ok(
                                                     ),
                                                 },
                                                 ty_expr: 8,
-                                                body: ArenaIdxRange(
-                                                    39..53,
+                                                body: Type(
+                                                    TypeItems {
+                                                        ast_idx_range: ArenaIdxRange(
+                                                            39..53,
+                                                        ),
+                                                    },
                                                 ),
                                             },
                                         ),
@@ -2485,8 +2517,12 @@ Ok(
                                                     ),
                                                 },
                                                 ty_expr: 8,
-                                                body: ArenaIdxRange(
-                                                    39..53,
+                                                body: Type(
+                                                    TypeItems {
+                                                        ast_idx_range: ArenaIdxRange(
+                                                            39..53,
+                                                        ),
+                                                    },
                                                 ),
                                             },
                                         ),
@@ -2765,8 +2801,12 @@ Ok(
                                                     ),
                                                 },
                                                 ty_expr: 8,
-                                                body: ArenaIdxRange(
-                                                    39..53,
+                                                body: Type(
+                                                    TypeItems {
+                                                        ast_idx_range: ArenaIdxRange(
+                                                            39..53,
+                                                        ),
+                                                    },
                                                 ),
                                             },
                                         ),
@@ -3045,8 +3085,12 @@ Ok(
                                                     ),
                                                 },
                                                 ty_expr: 8,
-                                                body: ArenaIdxRange(
-                                                    39..53,
+                                                body: Type(
+                                                    TypeItems {
+                                                        ast_idx_range: ArenaIdxRange(
+                                                            39..53,
+                                                        ),
+                                                    },
                                                 ),
                                             },
                                         ),
@@ -3325,8 +3369,12 @@ Ok(
                                                     ),
                                                 },
                                                 ty_expr: 8,
-                                                body: ArenaIdxRange(
-                                                    39..53,
+                                                body: Type(
+                                                    TypeItems {
+                                                        ast_idx_range: ArenaIdxRange(
+                                                            39..53,
+                                                        ),
+                                                    },
                                                 ),
                                             },
                                         ),
@@ -3605,8 +3653,12 @@ Ok(
                                                     ),
                                                 },
                                                 ty_expr: 8,
-                                                body: ArenaIdxRange(
-                                                    39..53,
+                                                body: Type(
+                                                    TypeItems {
+                                                        ast_idx_range: ArenaIdxRange(
+                                                            39..53,
+                                                        ),
+                                                    },
                                                 ),
                                             },
                                         ),

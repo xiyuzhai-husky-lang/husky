@@ -62,7 +62,7 @@ impl<'a> BlockExprParser<'a> {
 
     pub fn parse_block_stmts(&mut self, body: FormBody) -> Option<StmtIdxRange> {
         let block_end = self.form_body_end(body);
-        let body = body.children();
+        let body = body.ast_idx_range();
         if body.len() == 0 {
             return None;
         }
@@ -76,12 +76,14 @@ impl<'a> BlockExprParser<'a> {
         Some(self.alloc_stmts(stmts))
     }
 
-    pub fn parse_block_expr(&mut self, body: FormBody) -> Option<ExprIdx> {
-        let stmts = self.parse_block_stmts(body)?;
+    pub fn parse_block_expr(&mut self, body: FormBody) -> ExprIdx {
+        let stmts = self
+            .parse_block_stmts(body)
+            .expect("husky-ast should guarantee that this not empty");
         let expr = self.alloc_expr(Expr::Block { stmts });
         self.expr_roots
             .push(ExprRoot::new(ExprRootKind::BlockExpr, expr));
-        Some(expr)
+        expr
     }
 
     fn parse_stmt(
@@ -133,7 +135,7 @@ impl<'a> BlockExprParser<'a> {
         &mut self,
         token_group_idx: TokenGroupIdx,
         block_end: TokenIdxRangeEnd,
-        body: FormBody,
+        body: Option<FormBody>,
     ) -> Option<Stmt> {
         let token_stream = self
             .token_sheet_data
@@ -174,8 +176,14 @@ impl<'a> BlockExprParser<'a> {
                             Err(_) => todo!(),
                         };
                     let eol_colon = ctx.parse_expected(OriginalExprError::ExpectedEolColon);
-                    self.parse_for_loop_stmt(expr, for_token, eol_colon, token_group_idx, body)
-                        .into()
+                    self.parse_for_loop_stmt(
+                        expr,
+                        for_token,
+                        eol_colon,
+                        token_group_idx,
+                        body.expect("should be checked in `husky_ast`"),
+                    )
+                    .into()
                 }
                 BasicStmtKeywordToken::ForExt(forext_token) => Stmt::ForExt {
                     forext_token,
@@ -183,7 +191,10 @@ impl<'a> BlockExprParser<'a> {
                     //     .parse_expr(ExprParseEnvironment::None)
                     //     .ok_or(ExprError::ExpectCondition),
                     eol_colon: ctx.parse_expected(OriginalExprError::ExpectedEolColon),
-                    block: self.parse_block_stmts_expected(body, token_group_idx),
+                    block: self.parse_block_stmts_expected(
+                        body.expect("should be checked in `husky_ast`"),
+                        token_group_idx,
+                    ),
                 },
                 BasicStmtKeywordToken::While(while_token) => Stmt::While {
                     while_token,
@@ -192,7 +203,10 @@ impl<'a> BlockExprParser<'a> {
                         OriginalExprError::ExpectedCondition,
                     ),
                     eol_colon: ctx.parse_expected(OriginalExprError::ExpectedEolColon),
-                    block: self.parse_block_stmts_expected(body, token_group_idx),
+                    block: self.parse_block_stmts_expected(
+                        body.expect("should be checked in `husky_ast`"),
+                        token_group_idx,
+                    ),
                 },
                 BasicStmtKeywordToken::Do(do_token) => match ctx.parse::<WhileToken>() {
                     Ok(Some(while_token)) => Stmt::DoWhile {
@@ -203,7 +217,10 @@ impl<'a> BlockExprParser<'a> {
                             OriginalExprError::ExpectedCondition,
                         ),
                         eol_colon: ctx.parse_expected(OriginalExprError::ExpectedEolColon),
-                        block: self.parse_block_stmts_expected(body, token_group_idx),
+                        block: self.parse_block_stmts_expected(
+                            body.expect("should be checked in `husky_ast`"),
+                            token_group_idx,
+                        ),
                     },
                     Ok(None) => todo!(),
                     Err(_) => todo!(),
@@ -237,10 +254,11 @@ impl<'a> BlockExprParser<'a> {
                     ident: particulars.frame_var_ident,
                 };
                 let current_symbol_kind = current_symbol_variant.kind();
-                let access_start = self.ast_token_idx_range_sheet[body.children().start()]
+                let access_start = self.ast_token_idx_range_sheet[body.ast_idx_range().start()]
                     .start()
                     .token_idx();
-                let access_end = self.ast_token_idx_range_sheet[body.children().end() - 1].end();
+                let access_end =
+                    self.ast_token_idx_range_sheet[body.ast_idx_range().end() - 1].end();
                 let frame_var_symbol =
                     CurrentSymbol::new(access_start, Some(access_end), current_symbol_variant);
                 let frame_var_symbol_idx = self
@@ -345,7 +363,7 @@ impl<'a> BlockExprParser<'a> {
                 token_group_idx,
                 body,
             } => {
-                let body_end = self.form_body_end(body);
+                let body_end = self.form_body_end(body.expect("should be checked in `husky_ast`"));
                 let mut token_stream = self
                     .token_sheet_data
                     .token_group_token_stream(token_group_idx, None);
@@ -357,14 +375,17 @@ impl<'a> BlockExprParser<'a> {
                         OriginalExprError::ExpectedCondition,
                     ),
                     eol_colon: ctx.parse_expected(OriginalExprError::ExpectedEolColon),
-                    block: self.parse_block_stmts_expected(body, token_group_idx),
+                    block: self.parse_block_stmts_expected(
+                        body.expect("should be checked in `husky_ast`"),
+                        token_group_idx,
+                    ),
                 }
             }
             _ => unreachable!(),
         }
     }
     fn form_body_end(&self, body: FormBody) -> TokenIdxRangeEnd {
-        self.ast_token_idx_range_sheet[body.children().end() - 1].end()
+        self.ast_token_idx_range_sheet[body.ast_idx_range().end() - 1].end()
     }
 
     fn parse_elif_branches(&mut self, elif_branches: AstIdxRange) -> Vec<ElifBranch> {
@@ -380,6 +401,7 @@ impl<'a> BlockExprParser<'a> {
                 token_group_idx,
                 body,
             } => {
+                let body = body.expect("should be checked in `husky_ast`");
                 let body_end = self.form_body_end(body);
                 let mut token_stream = self
                     .token_sheet_data
@@ -412,7 +434,10 @@ impl<'a> BlockExprParser<'a> {
                 Some(ElseBranch {
                     else_token: ctx.parse().unwrap().unwrap(),
                     eol_colon: ctx.parse_expected(OriginalExprError::ExpectedEolColon),
-                    block: self.parse_block_stmts_expected(body, token_group_idx),
+                    block: self.parse_block_stmts_expected(
+                        body.expect("should be checked in `husky_ast`"),
+                        token_group_idx,
+                    ),
                 })
             }
             _ => unreachable!(),
@@ -422,12 +447,4 @@ impl<'a> BlockExprParser<'a> {
     pub fn finish(self) -> ExprRegion {
         self.expr_parser.finish()
     }
-}
-
-fn get_lazy(list: &mut Vec<String>) -> &mut String {
-    if let Some(s) = list.first_mut() {
-        s;
-    }
-    list.push(format!("Hl"));
-    list.first_mut().unwrap()
 }

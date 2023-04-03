@@ -163,10 +163,13 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
                 format!("Syntax Error: VisibilityExprError")
             }
             OriginalAstError::UnexpectedMemoFieldInsideForm => todo!(),
-            OriginalAstError::ExpectedTraitItems(_) => todo!(),
             OriginalAstError::UnexpectedStmtInsideModule => todo!(),
             OriginalAstError::ExpectedTraitForTypeItems(_) => todo!(),
             OriginalAstError::ExpectedTypeItems(_) => todo!(),
+            OriginalAstError::ExpectedTypeVariants(_) => todo!(),
+            OriginalAstError::ExpectedIdentForTypeVariant(_) => todo!(),
+            OriginalAstError::ExpectedFormBodyForConfig(_) => todo!(),
+            OriginalAstError::ExpectedFormBodyForMain(_) => todo!(),
         }
     }
 
@@ -226,10 +229,13 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             ) => ctx.ranged_token_sheet().token_text_range(*token_idx),
             OriginalAstError::ExpectedEntityKeywordGroup(_) => todo!(),
             OriginalAstError::UnexpectedMemoFieldInsideForm => todo!(),
-            OriginalAstError::ExpectedTraitItems(_) => todo!(),
             OriginalAstError::UnexpectedStmtInsideModule => todo!(),
             OriginalAstError::ExpectedTraitForTypeItems(_) => todo!(),
             OriginalAstError::ExpectedTypeItems(_) => todo!(),
+            OriginalAstError::ExpectedTypeVariants(_) => todo!(),
+            OriginalAstError::ExpectedIdentForTypeVariant(_) => todo!(),
+            OriginalAstError::ExpectedFormBodyForConfig(_) => todo!(),
+            OriginalAstError::ExpectedFormBodyForMain(_) => todo!(),
         }
     }
 }

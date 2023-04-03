@@ -77,7 +77,7 @@ impl<'a> AstTokenIdxRangeCalculator<'a> {
                 token_group_idx,
                 body,
                 ..
-            } => self.calc_ast_group(*token_group_idx, body.children()),
+            } => self.calc_ast_group(*token_group_idx, body.map(|body| body.ast_idx_range())),
             Ast::Defn {
                 token_group_idx,
                 block,
@@ -91,11 +91,11 @@ impl<'a> AstTokenIdxRangeCalculator<'a> {
             Ast::Config {
                 token_group_idx,
                 body,
-            } => self.calc_ast_group(*token_group_idx, body.children()),
+            } => self.calc_ast_group(*token_group_idx, body.ast_idx_range()),
             Ast::Main {
                 token_group_idx,
                 body,
-            } => self.calc_ast_group(*token_group_idx, body.children()),
+            } => self.calc_ast_group(*token_group_idx, body.ast_idx_range()),
             Ast::IfElseStmts {
                 if_branch: if_stmt,
                 elif_branches: elif_stmts,

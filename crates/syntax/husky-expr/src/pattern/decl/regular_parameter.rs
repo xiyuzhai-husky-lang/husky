@@ -9,7 +9,7 @@ pub struct RegularParameterDeclPattern {
     ty: ExprIdx,
 }
 
-impl<'a, 'b> ParseFromStreamWithError<ExprParseContext<'a, 'b>> for RegularParameterDeclPattern {
+impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for RegularParameterDeclPattern {
     type Error = ExprError;
 
     fn parse_from_without_guaranteed_rollback(
