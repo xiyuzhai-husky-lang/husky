@@ -115,9 +115,13 @@ impl<'a> AstParser<'a> {
     }
     /// parse variants of enum or inductive types
     #[inline(always)]
-    pub(crate) fn parse_ty_variants_without_rollback(&mut self, path: TypePath) -> AstIdxRange {
+    pub(crate) fn parse_ty_variants(&mut self, path: TypePath) -> AstIdxRange {
         let mut ty_variants = vec![];
-        while let Some((token_group_idx, _)) = self.token_groups.next() {
+        loop {
+            let state = self.token_groups.state();
+            let Some((token_group_idx, _)) = self.token_groups.next() else{
+                break;
+            };
             // todo: change the api of `self.token_groups.next()`
             // it should directly return a token stream
             let mut aux_parser = BasicAuxAstParser::new(
@@ -127,6 +131,7 @@ impl<'a> AstParser<'a> {
                     .token_group_token_stream(token_group_idx, None),
             );
             let Ok(Some(vertical_token)) = aux_parser.parse::<VerticalToken>() else {
+                self.token_groups.rollback(state);
                 break
             };
             ty_variants.push(

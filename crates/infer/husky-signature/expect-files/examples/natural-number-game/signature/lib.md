@@ -32,4 +32,16 @@
             ),
         ),
     ),
+    Ok(
+        Signature::Impl(
+            ImplSignature::TypeImpl(
+                TypeImplBlockSignature {
+                    implicit_parameters: ImplicitParameterSignatures {
+                        data: [],
+                    },
+                    ty: RawTerm(`natural_number_game::Nat`),
+                },
+            ),
+        ),
+    ),
 ]

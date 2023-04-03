@@ -16,7 +16,7 @@ Ok(
                                 path: TypePath(`natural_number_game::Nat`, `Inductive`),
                                 decl: InductiveTypeDecl {
                                     path: TypePath(`natural_number_game::Nat`, `Inductive`),
-                                    ast_idx: 2,
+                                    ast_idx: 5,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
@@ -84,7 +84,7 @@ Ok(
                                 path: TypePath(`natural_number_game::OddNat`, `Structure`),
                                 decl: StructureTypeDecl {
                                     path: TypePath(`natural_number_game::OddNat`, `Structure`),
-                                    ast_idx: 8,
+                                    ast_idx: 9,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
@@ -152,7 +152,7 @@ Ok(
                                 path: TypePath(`natural_number_game::EvenNat`, `Structure`),
                                 decl: StructureTypeDecl {
                                     path: TypePath(`natural_number_game::EvenNat`, `Structure`),
-                                    ast_idx: 9,
+                                    ast_idx: 10,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
@@ -199,6 +199,138 @@ Ok(
                                         },
                                     },
                                     implicit_parameter_decl_list: None,
+                                },
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            (
+                DefnRegionPath::Impl(
+                    ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module_path: `natural_number_game`,
+                            ty_path: TypePath(`natural_number_game::Nat`, `Inductive`),
+                            disambiguator: 0,
+                        },
+                    ),
+                ),
+                Ok(
+                    Defn::Impl(
+                        ImplBlockDecl::Type(
+                            TypeImplBlockDecl {
+                                ast_idx: 6,
+                                impl_block: TypeImplBlock {
+                                    id: TypeImplBlockId {
+                                        module_path: `natural_number_game`,
+                                        ty_path: TypePath(`natural_number_game::Nat`, `Inductive`),
+                                        disambiguator: 0,
+                                    },
+                                    ast_idx: 6,
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            9,
+                                        ),
+                                    },
+                                    ty_expr: 0,
+                                    body: Type(
+                                        TypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                2..5,
+                                            ),
+                                        },
+                                    ),
+                                },
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        9,
+                                    ),
+                                },
+                                implicit_parameter_decl_list: None,
+                                ty_expr: TypeExpr {
+                                    expr: 0,
+                                },
+                                eol_colon: EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            11,
+                                        ),
+                                    },
+                                ),
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: None,
+                                        path: RegionPath::Decl(
+                                            DeclRegionPath::ImplBlock(
+                                                ImplBlockId::Type(
+                                                    TypeImplBlockId {
+                                                        module_path: `natural_number_game`,
+                                                        ty_path: TypePath(`natural_number_game::Nat`, `Inductive`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 0,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`natural_number_game::Nat`, `Inductive`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        10,
+                                                    ),
+                                                    ident: `Nat`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`natural_number_game::Nat`, `Inductive`),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: SelfType,
+                                                expr: 0,
+                                            },
+                                        ],
+                                    },
                                 },
                             },
                         ),

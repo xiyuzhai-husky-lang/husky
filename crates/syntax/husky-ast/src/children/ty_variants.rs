@@ -21,7 +21,7 @@ impl<'a> ParseFromStreamWithContext<AstParser<'a>> for TypeVariants {
         sp: &mut AstParser<'a>,
         ctx: Self::Context,
     ) -> Result<Option<Self>, std::convert::Infallible> {
-        let ast_idx_range = sp.parse_ty_variants_without_rollback(ctx);
+        let ast_idx_range = sp.parse_ty_variants(ctx);
         Ok((ast_idx_range.len() > 0).then_some(TypeVariants { ast_idx_range }))
     }
 }

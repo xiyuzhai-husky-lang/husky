@@ -1125,24 +1125,91 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
+                        ),
+                    ),
+                ),
+                Some(
+                    ModuleItem {
+                        module_item_kind: Form(
+                            Fn,
+                        ),
+                        connection: Connected,
+                    },
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::Parameter {
+                    pattern_symbol_idx: 0,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::raw_bits::r32`, `Extern`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSymbolKind::Parameter {
+                    pattern_symbol_idx: 1,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::num::i32`, `Extern`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::raw_bits::r32`, `Extern`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::InheritedSymbol {
+                inherited_symbol_idx: 0,
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
+                    ident: `row`,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
+                inherited_symbol_idx: 1,
+                inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
+                    ident: `j`,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -1427,7 +1494,16 @@ Ok(
                 expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
@@ -1454,7 +1530,16 @@ Ok(
                 expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
@@ -1862,7 +1947,16 @@ Ok(
                 expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
@@ -1889,7 +1983,16 @@ Ok(
                 expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Form(
+                            FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 1,
