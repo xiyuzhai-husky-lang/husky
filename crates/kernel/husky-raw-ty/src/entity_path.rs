@@ -233,13 +233,13 @@ pub fn ty_ontology_path_raw_ty(db: &dyn RawTypeDb, path: TypePath) -> RawTypeRes
 #[salsa::tracked(jar = RawTypeJar)]
 pub fn ty_variant_path_raw_ty(db: &dyn RawTypeDb, path: TypeVariantPath) -> RawTypeResult<RawTerm> {
     let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
-    Err(OriginalRawTypeError::Todo.into())
     // let decl = match path.decl(db) {
     //     Ok(decl) => decl,
     //     Err(_e) => {
     //         return Err(DerivedRawTypeError::TypeOntologyDeclError { path }.into());
     //     }
     // };
+    Err(todo!())
     // let signature = match db.ty_signature_from_decl(decl) {
     //     Ok(signature) => signature,
     //     Err(_) => return Err(DerivedRawTypeError::SignatureError.into()),
