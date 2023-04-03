@@ -11,7 +11,7 @@ impl TraitExpr {
     }
 }
 
-impl<'a, 'b> ParseFrom<ExprParseContext<'a, 'b>> for TraitExpr {
+impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for TraitExpr {
     type Error = ExprError;
 
     fn parse_from_without_guaranteed_rollback(

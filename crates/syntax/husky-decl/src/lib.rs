@@ -22,7 +22,7 @@ use husky_entity_tree::*;
 use husky_expr::*;
 use husky_token::*;
 use husky_vfs::ModulePath;
-use parsec::Parser;
+use parsec::StreamParser;
 use parser::*;
 #[cfg(test)]
 use tests::*;

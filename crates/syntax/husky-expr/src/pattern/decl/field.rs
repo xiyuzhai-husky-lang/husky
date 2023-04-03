@@ -26,7 +26,7 @@ impl FieldDeclPattern {
     }
 }
 
-impl<'a, 'b> parsec::ParseFrom<ExprParseContext<'a, 'b>> for FieldDeclPattern {
+impl<'a, 'b> parsec::ParseFromStream<ExprParseContext<'a, 'b>> for FieldDeclPattern {
     type Error = ExprError;
 
     fn parse_from_without_guaranteed_rollback(
@@ -54,7 +54,7 @@ impl<'a, 'b> parsec::ParseFrom<ExprParseContext<'a, 'b>> for FieldDeclPattern {
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct FieldDecorator {}
 
-impl<'a, 'b> parsec::ParseFrom<ExprParseContext<'a, 'b>> for FieldDecorator {
+impl<'a, 'b> parsec::ParseFromStream<ExprParseContext<'a, 'b>> for FieldDecorator {
     type Error = ExprError;
 
     fn parse_from_without_guaranteed_rollback(
@@ -73,7 +73,7 @@ pub enum FieldVisibilityExpr {
     Pub,
 }
 
-impl<'a, 'b> parsec::ParseFrom<ExprParseContext<'a, 'b>> for FieldVisibilityExpr {
+impl<'a, 'b> parsec::ParseFromStream<ExprParseContext<'a, 'b>> for FieldVisibilityExpr {
     type Error = ExprError;
 
     fn parse_from_without_guaranteed_rollback(

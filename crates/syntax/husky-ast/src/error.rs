@@ -75,6 +75,8 @@ pub enum OriginalAstError {
     UnexpectedEndAfterFormKeywordInsideTraitForTypeImplBlock,
     #[error("UnexpectedStmtInsideTrait")]
     UnexpectedStmtInsideTrait,
+    #[error("UnexpectedStmtInsideModule")]
+    UnexpectedStmtInsideModule,
     #[error("UnexpectedMainInsideTrait")]
     UnexpectedMainInsideTrait,
     #[error("UnexpectedUseInsideTrait")]

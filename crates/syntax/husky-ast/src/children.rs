@@ -5,8 +5,6 @@ mod trai_items;
 mod ty_items;
 mod ty_variants;
 
-use husky_entity_path::{FormPath, TraitPath, TypePath};
-
 pub use self::form_body::*;
 pub use self::module_items::*;
 pub use self::trai_for_ty_items::*;
@@ -15,6 +13,9 @@ pub use self::ty_items::*;
 pub use self::ty_variants::*;
 
 use crate::*;
+use husky_entity_path::*;
+use husky_entity_taxonomy::*;
+use husky_token::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]

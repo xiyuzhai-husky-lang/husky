@@ -7,7 +7,6 @@ use parsec::StreamWrapper;
 use std::iter::Peekable;
 
 pub(super) trait AstTokenParseContext<'a>: TokenParseContext<'a> {
-    fn ast_context_kind(&self) -> AstContextKind;
     fn module_path(&self) -> ModulePath;
 
     fn take_entity_kind_keyword(&mut self) -> AstResult<EntityKeywordGroup> {
@@ -63,10 +62,6 @@ impl<'a> std::ops::DerefMut for BasicAuxAstParser<'a> {
 impl<'a> StreamWrapper for BasicAuxAstParser<'a> {}
 
 impl<'a> AstTokenParseContext<'a> for BasicAuxAstParser<'a> {
-    fn ast_context_kind(&self) -> AstContextKind {
-        self.ast_parent
-    }
-
     fn module_path(&self) -> ModulePath {
         self.module_path
     }
@@ -74,7 +69,6 @@ impl<'a> AstTokenParseContext<'a> for BasicAuxAstParser<'a> {
 
 pub(crate) struct BasicAuxAstParser<'a> {
     db: &'a dyn AstDb,
-    ast_parent: AstContextKind,
     module_path: ModulePath,
     token_iter: TokenStream<'a>,
 }
@@ -82,13 +76,11 @@ pub(crate) struct BasicAuxAstParser<'a> {
 impl<'a> BasicAuxAstParser<'a> {
     pub(super) fn new(
         db: &'a dyn AstDb,
-        ctx: &Context,
         module_path: ModulePath,
         token_iter: TokenStream<'a>,
     ) -> Self {
         Self {
             db,
-            ast_parent: ctx.kind(),
             module_path,
             token_iter,
         }

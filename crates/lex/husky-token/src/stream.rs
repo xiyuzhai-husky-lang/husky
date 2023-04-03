@@ -158,7 +158,7 @@ fn next_indexed_works() {
     }
 }
 
-impl<'a> parsec::HasParseState for TokenStream<'a> {
+impl<'a> parsec::HasStreamState for TokenStream<'a> {
     // next_relative
     type State = TokenIdx;
 

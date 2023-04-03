@@ -2,9 +2,9 @@ use crate::*;
 
 pub fn parse_seq2<'a, Context, A, B, Error>(stream: &mut Context) -> Result<Option<(A, B)>, Error>
 where
-    Context: Parser,
-    A: ParseFrom<Context, Error = Error>,
-    B: ParseFrom<Context, Error = Error>,
+    Context: StreamParser,
+    A: ParseFromStream<Context, Error = Error>,
+    B: ParseFromStream<Context, Error = Error>,
 {
     let a = match A::parse_from_without_guaranteed_rollback(stream)? {
         Some(a) => a,
@@ -30,10 +30,10 @@ pub fn parse_seq3<'a, Context, A, B, C, Error>(
     stream: &mut Context,
 ) -> Result<Option<(A, B, C)>, Error>
 where
-    Context: Parser,
-    A: ParseFrom<Context, Error = Error>,
-    B: ParseFrom<Context, Error = Error>,
-    C: ParseFrom<Context, Error = Error>,
+    Context: StreamParser,
+    A: ParseFromStream<Context, Error = Error>,
+    B: ParseFromStream<Context, Error = Error>,
+    C: ParseFromStream<Context, Error = Error>,
 {
     let a = match A::parse_from_without_guaranteed_rollback(stream)? {
         Some(a) => a,

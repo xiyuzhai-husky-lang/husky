@@ -8,7 +8,6 @@ impl<'a> AstParser<'a> {
     pub(super) fn parse_use_ast(
         &mut self,
         token_group_idx: TokenGroupIdx,
-        ctx: &Context,
         visibility_expr: VisibilityExpr,
         saved_stream_state: Option<TokenIdx>,
     ) -> Ast {

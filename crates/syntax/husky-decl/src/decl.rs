@@ -13,7 +13,7 @@ pub use ty::*;
 pub use variant::*;
 
 use crate::*;
-use parsec::{parse_separated_list, HasParseState};
+use parsec::{parse_separated_list, HasStreamState};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]

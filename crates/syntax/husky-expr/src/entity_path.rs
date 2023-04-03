@@ -4,7 +4,7 @@ pub use error::*;
 
 use crate::*;
 use husky_entity_tree::EntityTreeError;
-use parsec::{OriginalError, Parser};
+use parsec::{OriginalError, StreamParser};
 use thiserror::Error;
 
 #[derive(Debug, PartialEq, Eq)]

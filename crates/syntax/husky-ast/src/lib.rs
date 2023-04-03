@@ -3,7 +3,6 @@ mod children;
 mod db;
 mod decr;
 mod error;
-mod indent;
 mod parser;
 mod range;
 mod specs;
@@ -20,7 +19,6 @@ pub use self::error::*;
 pub use self::range::*;
 pub use self::specs::*;
 
-use self::indent::*;
 use self::parser::*;
 use either::*;
 use husky_entity_path::{EntityPath, TypeVariantPath};

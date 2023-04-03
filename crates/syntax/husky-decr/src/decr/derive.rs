@@ -1,5 +1,5 @@
 use husky_entity_tree::RegionPath;
-use parsec::{parse_separated_list, parse_separated_list2, Parser};
+use parsec::{parse_separated_list, parse_separated_list2, StreamParser};
 
 use super::*;
 

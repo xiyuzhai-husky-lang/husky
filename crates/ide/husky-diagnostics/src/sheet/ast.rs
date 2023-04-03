@@ -164,6 +164,7 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             }
             OriginalAstError::UnexpectedMemoFieldInsideForm => todo!(),
             OriginalAstError::ExpectedTraitItems(_) => todo!(),
+            OriginalAstError::UnexpectedStmtInsideModule => todo!(),
         }
     }
 
@@ -224,6 +225,7 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             OriginalAstError::ExpectedEntityKeywordGroup(_) => todo!(),
             OriginalAstError::UnexpectedMemoFieldInsideForm => todo!(),
             OriginalAstError::ExpectedTraitItems(_) => todo!(),
+            OriginalAstError::UnexpectedStmtInsideModule => todo!(),
         }
     }
 }

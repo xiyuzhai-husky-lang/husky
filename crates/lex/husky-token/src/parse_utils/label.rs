@@ -19,7 +19,7 @@ impl LifetimeLabelToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFrom<Context> for LifetimeLabelToken
+impl<'a, Context> parsec::ParseFromStream<Context> for LifetimeLabelToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -67,7 +67,7 @@ impl BindingLabelToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFrom<Context> for BindingLabelToken
+impl<'a, Context> parsec::ParseFromStream<Context> for BindingLabelToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -115,7 +115,7 @@ impl BlockLabelToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFrom<Context> for BlockLabelToken
+impl<'a, Context> parsec::ParseFromStream<Context> for BlockLabelToken
 where
     Context: TokenParseContext<'a>,
 {

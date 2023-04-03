@@ -27,7 +27,7 @@ impl<'a> std::ops::DerefMut for CharStream<'a> {
     }
 }
 
-impl<'a> HasParseState for CharStream<'a> {
+impl<'a> HasStreamState for CharStream<'a> {
     type State = Chars<'a>;
 
     fn save_state(&self) -> Self::State {
@@ -42,7 +42,7 @@ impl<'a> HasParseState for CharStream<'a> {
 #[derive(Debug, PartialEq, Eq)]
 pub(crate) struct A {}
 
-impl<'a> ParseFrom<CharStream<'a>> for A {
+impl<'a> ParseFromStream<CharStream<'a>> for A {
     type Error = ();
     fn parse_from_without_guaranteed_rollback<'b>(
         ctx: &mut CharStream<'b>,
@@ -58,7 +58,7 @@ impl<'a> ParseFrom<CharStream<'a>> for A {
 #[derive(Debug, PartialEq, Eq)]
 pub(crate) struct B {}
 
-impl<'a> ParseFrom<CharStream<'a>> for B {
+impl<'a> ParseFromStream<CharStream<'a>> for B {
     type Error = ();
     fn parse_from_without_guaranteed_rollback<'b>(
         ctx: &mut CharStream<'b>,
@@ -74,7 +74,7 @@ impl<'a> ParseFrom<CharStream<'a>> for B {
 #[derive(Debug, PartialEq, Eq)]
 pub(crate) struct Comma {}
 
-impl<'a> ParseFrom<CharStream<'a>> for Comma {
+impl<'a> ParseFromStream<CharStream<'a>> for Comma {
     type Error = ();
     fn parse_from_without_guaranteed_rollback<'b>(
         ctx: &mut CharStream<'b>,
