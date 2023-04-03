@@ -19,12 +19,12 @@ pub enum VariantSignature {
 
 pub(crate) fn variant_signature_from_decl(
     _db: &dyn SignatureDb,
-    decl: VariantDecl,
+    decl: TypeVariantDecl,
 ) -> SignatureResult<VariantSignature> {
     match decl {
-        VariantDecl::Props(_) => todo!(),
-        VariantDecl::Unit(_) => todo!(),
-        VariantDecl::Tuple(_) => todo!(),
+        TypeVariantDecl::Props(_) => todo!(),
+        TypeVariantDecl::Unit(_) => todo!(),
+        TypeVariantDecl::Tuple(_) => todo!(),
         // TypeDecl::Enum(decl) => enum_ty_signature(db, decl).into(),
     }
 }

@@ -103,12 +103,8 @@ impl HasDecl for TypePath {
 
     #[inline(always)]
     fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
-        ty_decl(db, self)
+        ty_decl_aux(db, self).as_ref().copied()
     }
-}
-
-pub(crate) fn ty_decl(db: &dyn DeclDb, path: TypePath) -> DeclResultRef<TypeDecl> {
-    ty_decl_aux(db, path).as_ref().copied()
 }
 
 #[salsa::tracked(jar = DeclJar, return_ref)]
@@ -117,7 +113,6 @@ pub(crate) fn ty_decl_aux(db: &dyn DeclDb, path: TypePath) -> DeclResult<TypeDec
 }
 
 impl<'a> DeclParseContext<'a> {
-    // MOM
     fn parse_ty_decl(&self, path: TypePath) -> DeclResult<TypeDecl> {
         let ast_idx: AstIdx = self.resolve_module_item_ast_idx(path);
         match self.ast_sheet()[ast_idx] {

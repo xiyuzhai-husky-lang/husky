@@ -58,6 +58,7 @@ impl DefnBlock {
     }
 
     /// only for non-associated entities
+    #[inline(always)]
     pub fn entity_path(self) -> Option<EntityPath> {
         match self {
             DefnBlock::Form { path, body } => Some(path.into()),

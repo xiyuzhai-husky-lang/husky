@@ -396,7 +396,7 @@ Ok(
                         41,
                     ),
                     path: TypeVariantPath {
-                        path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                        ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                         ident: `Up`,
                     },
                     vertical_token: VerticalToken(
@@ -419,7 +419,7 @@ Ok(
                         42,
                     ),
                     path: TypeVariantPath {
-                        path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                        ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                         ident: `Left`,
                     },
                     vertical_token: VerticalToken(
@@ -442,7 +442,7 @@ Ok(
                         43,
                     ),
                     path: TypeVariantPath {
-                        path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                        ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                         ident: `Down`,
                     },
                     vertical_token: VerticalToken(
@@ -465,7 +465,7 @@ Ok(
                         44,
                     ),
                     path: TypeVariantPath {
-                        path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                        ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                         ident: `Right`,
                     },
                     vertical_token: VerticalToken(

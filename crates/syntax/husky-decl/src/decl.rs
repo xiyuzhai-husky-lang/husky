@@ -3,14 +3,14 @@ mod form;
 mod impl_block;
 mod trai;
 mod ty;
-mod variant;
+mod ty_variant;
 
 pub use associated_item::*;
 pub use form::*;
 pub use impl_block::*;
 pub use trai::*;
 pub use ty::*;
-pub use variant::*;
+pub use ty_variant::*;
 
 use crate::*;
 use parsec::{parse_separated_list, HasStreamState};
@@ -24,7 +24,7 @@ pub enum Decl {
     Trait(TraitDecl),
     Impl(ImplBlockDecl),
     AssociatedItem(AssociatedItemDecl),
-    Variant(VariantDecl),
+    Variant(TypeVariantDecl),
 }
 
 impl Decl {

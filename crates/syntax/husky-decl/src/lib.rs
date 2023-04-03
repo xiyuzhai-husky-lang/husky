@@ -56,6 +56,7 @@ pub struct DeclJar(
     trai_for_ty_impl_block_decl_aux,
     TraitForTypeImplBlockDecl,
     // variant
+    ty_variant_decl,
     UnitVariantDecl,
     PropsVariantDecl,
     TupleVariantDecl,

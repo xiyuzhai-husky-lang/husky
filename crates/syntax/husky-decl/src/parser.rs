@@ -37,6 +37,35 @@ impl<'a> DeclParseContext<'a> {
     }
 
     #[inline(always)]
+    pub(crate) fn resolve_module_item_indexed_ast(
+        &self,
+        path: ModuleItemPath,
+    ) -> (AstIdx, &'a Ast) {
+        let path = path.into();
+        self.ast_sheet
+            .all_ast_indexed_iter()
+            .find(|(_, ast)| match ast {
+                Ast::Defn { block, .. } => block.entity_path() == Some(path),
+                _ => false,
+            })
+            .expect("should be guaranteed to exists by the construction of path")
+    }
+
+    #[inline(always)]
+    pub(crate) fn resolve_ty_variant_indexed_ast(
+        &self,
+        target: TypeVariantPath,
+    ) -> (AstIdx, &'a Ast) {
+        self.ast_sheet
+            .all_ast_indexed_iter()
+            .find(|(_, ast)| match ast {
+                Ast::TypeVariant { path, .. } => target == *path,
+                _ => false,
+            })
+            .expect("should be guaranteed to exists by the construction of path")
+    }
+
+    #[inline(always)]
     fn resolve_module_item_symbol(&self, path: impl Into<EntityPath>) -> ModuleItemSymbol {
         let path = path.into();
         let ident = path.ident(self.db);
