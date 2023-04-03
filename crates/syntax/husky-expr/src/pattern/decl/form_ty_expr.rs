@@ -12,7 +12,7 @@ impl FormTypeExpr {
     }
 }
 
-impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for FormTypeExpr {
+impl<'a, 'b> ParseFromStreamWithError<ExprParseContext<'a, 'b>> for FormTypeExpr {
     type Error = ExprError;
 
     fn parse_from_without_guaranteed_rollback(

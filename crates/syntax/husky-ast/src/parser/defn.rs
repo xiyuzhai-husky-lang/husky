@@ -6,13 +6,13 @@ use husky_entity_taxonomy::{
 use husky_opn_syntax::{BinaryOpr, Bracket};
 use husky_print_utils::p;
 use husky_token::{EntityKeywordGroup, FormKeyword, TokenParseContext, TypeEntityKeyword};
-use parsec::{ParseFromStream, StreamParser};
+use parsec::{ParseFromStreamWithError, StreamParser};
 use salsa::DebugWithDb;
 
 use super::*;
 
 impl<'a> AstParser<'a> {
-    pub(super) fn parse_defn<C: IndentedChildren>(
+    pub(super) fn parse_defn<C: NormalAstChildren>(
         &mut self,
         token_group_idx: TokenGroupIdx,
         visibility_expr: VisibilityExpr,
@@ -25,7 +25,7 @@ impl<'a> AstParser<'a> {
             })
     }
 
-    fn parse_defn_aux<C: IndentedChildren>(
+    fn parse_defn_aux<C: NormalAstChildren>(
         &mut self,
         token_group_idx: TokenGroupIdx,
         visibility_expr: VisibilityExpr,
@@ -75,7 +75,9 @@ impl<'a> AstParser<'a> {
                     },
                 }
             }
-            EntityKind::AssociatedItem { .. } => DefnBlock::AssociatedItem { body: todo!() },
+            EntityKind::AssociatedItem { .. } => DefnBlock::AssociatedItem {
+                body: self.parse()?,
+            },
             EntityKind::Variant => todo!(),
         };
         Ok(Ast::Defn {
@@ -143,7 +145,7 @@ impl<'a> AstParser<'a> {
 }
 
 impl<'a> BasicAuxAstParser<'a> {
-    fn parse_head<C: IndentedChildren>(
+    fn parse_head<C: NormalAstChildren>(
         mut self,
     ) -> AstResult<(EntityKind, IdentToken, bool, TokenIdx)> {
         let entity_keyword_group =

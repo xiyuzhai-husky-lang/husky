@@ -87,7 +87,7 @@ impl<'a> AstTokenIdxRangeCalculator<'a> {
                 token_group_idx,
                 items: body,
                 ..
-            } => self.calc_ast_group(*token_group_idx, body.ast_idx_range()),
+            } => self.calc_ast_group(*token_group_idx, body.children()),
             Ast::Config {
                 token_group_idx,
                 body,

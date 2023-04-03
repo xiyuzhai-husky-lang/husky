@@ -17,7 +17,7 @@ impl IdentToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFromStream<Context> for IdentToken
+impl<'a, Context> parsec::ParseFromStreamWithError<Context> for IdentToken
 where
     Context: TokenParseContext<'a>,
 {

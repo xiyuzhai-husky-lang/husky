@@ -127,7 +127,7 @@ pub enum BasicStmtKeywordToken {
     Do(DoToken),
 }
 
-impl<'a, Context> parsec::ParseFromStream<Context> for WhileToken
+impl<'a, Context> parsec::ParseFromStreamWithError<Context> for WhileToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -153,7 +153,7 @@ where
     }
 }
 
-impl<'a, Context> parsec::ParseFromStream<Context> for BasicStmtKeywordToken
+impl<'a, Context> parsec::ParseFromStreamWithError<Context> for BasicStmtKeywordToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -203,7 +203,7 @@ impl MatchToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFromStream<Context> for MatchToken
+impl<'a, Context> parsec::ParseFromStreamWithError<Context> for MatchToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -235,7 +235,7 @@ impl MutToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFromStream<Context> for MutToken
+impl<'a, Context> parsec::ParseFromStreamWithError<Context> for MutToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -273,7 +273,7 @@ impl IfToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFromStream<Context> for IfToken
+impl<'a, Context> parsec::ParseFromStreamWithError<Context> for IfToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -309,7 +309,7 @@ impl ElifToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFromStream<Context> for ElifToken
+impl<'a, Context> parsec::ParseFromStreamWithError<Context> for ElifToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -347,7 +347,7 @@ impl ElseToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFromStream<Context> for ElseToken
+impl<'a, Context> parsec::ParseFromStreamWithError<Context> for ElseToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -387,7 +387,7 @@ impl ImplToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFromStream<Context> for ImplToken
+impl<'a, Context> parsec::ParseFromStreamWithError<Context> for ImplToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -425,7 +425,7 @@ impl PubToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFromStream<Context> for PubToken
+impl<'a, Context> parsec::ParseFromStreamWithError<Context> for PubToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -463,7 +463,7 @@ impl UseToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFromStream<Context> for UseToken
+impl<'a, Context> parsec::ParseFromStreamWithError<Context> for UseToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -516,7 +516,7 @@ impl CrateToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFromStream<Context> for CrateToken
+impl<'a, Context> parsec::ParseFromStreamWithError<Context> for CrateToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -571,7 +571,7 @@ impl SelfValueToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFromStream<Context> for SelfValueToken
+impl<'a, Context> parsec::ParseFromStreamWithError<Context> for SelfValueToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -625,7 +625,7 @@ impl SelfTypeToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFromStream<Context> for SelfTypeToken
+impl<'a, Context> parsec::ParseFromStreamWithError<Context> for SelfTypeToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -679,7 +679,7 @@ impl SuperToken {
     }
 }
 
-impl<'a, Context> parsec::ParseFromStream<Context> for SuperToken
+impl<'a, Context> parsec::ParseFromStreamWithError<Context> for SuperToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -730,7 +730,7 @@ pub enum VarianceToken {
     Invariant(InvariantToken),
 }
 
-impl<'a, Context> parsec::ParseFromStream<Context> for VarianceToken
+impl<'a, Context> parsec::ParseFromStreamWithError<Context> for VarianceToken
 where
     Context: TokenParseContext<'a>,
 {
@@ -875,7 +875,7 @@ pub struct VisualToken {
     token_idx: TokenIdx,
 }
 
-impl<'a, Context> parsec::ParseFromStream<Context> for EntityKeywordGroup
+impl<'a, Context> parsec::ParseFromStreamWithError<Context> for EntityKeywordGroup
 where
     Context: TokenParseContext<'a>,
 {
@@ -1028,7 +1028,7 @@ pub struct ConnectionForToken {
     token_idx: TokenIdx,
 }
 
-impl<'a, Context> parsec::ParseFromStream<Context> for ConnectionForToken
+impl<'a, Context> parsec::ParseFromStreamWithError<Context> for ConnectionForToken
 where
     Context: TokenParseContext<'a>,
 {

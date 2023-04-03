@@ -10,25 +10,41 @@ impl TraitForTypeItems {
         self.children
     }
 }
+impl NormalAstChildren for TraitForTypeItems {
+    const ALLOW_STMT: AstResult<()> = Err(AstError::Original(
+        OriginalAstError::UnexpectedStmtInsideImplBlock,
+    ));
 
-fn determine_trai_for_ty_item_entity_kind(
-    entity_keyword_group: EntityKeywordGroup,
-) -> AstResult<EntityKind> {
-    Ok(match entity_keyword_group {
-        EntityKeywordGroup::Mod(_) => todo!(),
-        EntityKeywordGroup::Fn(_) => EntityKind::AssociatedItem {
-            associated_item_kind: AssociatedItemKind::TraitForTypeItem(TraitItemKind::MethodFn),
-        },
-        EntityKeywordGroup::ConstFn(_, _) => todo!(),
-        EntityKeywordGroup::StaticFn(_, _) => todo!(),
-        EntityKeywordGroup::StaticConstFn(_, _, _) => todo!(),
-        EntityKeywordGroup::Gn(_) => todo!(),
-        EntityKeywordGroup::GeneralDef(_) => todo!(),
-        EntityKeywordGroup::TypeEntity(_) => todo!(),
-        EntityKeywordGroup::Type(_) => todo!(),
-        EntityKeywordGroup::Trait(_) => todo!(),
-        EntityKeywordGroup::Visual(_) => todo!(),
-        EntityKeywordGroup::Val(_) => todo!(),
-        EntityKeywordGroup::Memo(_) => todo!(),
-    })
+    #[inline(always)]
+    fn determine_entity_kind(entity_keyword_group: EntityKeywordGroup) -> AstResult<EntityKind> {
+        Ok(match entity_keyword_group {
+            EntityKeywordGroup::Mod(_) => todo!(),
+            EntityKeywordGroup::Fn(_) => EntityKind::AssociatedItem {
+                associated_item_kind: AssociatedItemKind::TraitForTypeItem(TraitItemKind::MethodFn),
+            },
+            EntityKeywordGroup::ConstFn(_, _) => todo!(),
+            EntityKeywordGroup::StaticFn(_, _) => todo!(),
+            EntityKeywordGroup::StaticConstFn(_, _, _) => todo!(),
+            EntityKeywordGroup::Gn(_) => todo!(),
+            EntityKeywordGroup::GeneralDef(_) => todo!(),
+            EntityKeywordGroup::TypeEntity(_) => todo!(),
+            EntityKeywordGroup::Type(_) => todo!(),
+            EntityKeywordGroup::Trait(_) => todo!(),
+            EntityKeywordGroup::Visual(_) => todo!(),
+            EntityKeywordGroup::Val(_) => todo!(),
+            EntityKeywordGroup::Memo(_) => todo!(),
+        })
+    }
+}
+
+impl<'a> ParseFromStreamWithError<AstParser<'a>> for TraitForTypeItems {
+    type Error = AstError;
+
+    fn parse_from_without_guaranteed_rollback(
+        parser: &mut AstParser<'a>,
+    ) -> Result<Option<Self>, Self::Error> {
+        Ok(parser
+            .parse_normal_ast_children_indented::<Self>()
+            .map(|children| Self { children }))
+    }
 }

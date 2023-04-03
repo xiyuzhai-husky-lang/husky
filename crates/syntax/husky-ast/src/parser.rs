@@ -8,7 +8,7 @@ use crate::*;
 use husky_entity_path::DisambiguatorRegistry;
 use husky_print_utils::p;
 use husky_token::*;
-use parsec::{HasStreamState, ParseFromStream};
+use parsec::{HasStreamState, ParseFromStreamWithError, StreamParser};
 use salsa::DebugWithDb;
 use utils::*;
 
@@ -23,7 +23,7 @@ pub(crate) struct AstParser<'a> {
     siblings: Vec<AstIdxRange>,
 }
 
-pub(crate) trait IndentedChildren {
+pub(crate) trait NormalAstChildren {
     const ALLOW_STMT: AstResult<()>;
     fn determine_entity_kind(_: EntityKeywordGroup) -> AstResult<EntityKind>;
 }
@@ -56,15 +56,18 @@ impl<'a> AstParser<'a> {
     }
 
     pub(crate) fn parse_all(mut self) -> AstSheet {
-        let top_level_asts = self.parse_indented_children::<ModuleItems>();
+        let top_level_asts = self.parse_normal_ast_children::<ModuleItems>();
         AstSheet::new(self.ast_arena, top_level_asts, self.siblings)
     }
 
-    pub(crate) fn parse_indented_children<C: IndentedChildren>(&mut self) -> AstIdxRange {
-        self.with_indent(|this| this.parse_indented_children_aux::<C>())
+    pub(crate) fn parse_normal_ast_children_indented<C: NormalAstChildren>(
+        &mut self,
+    ) -> Option<AstIdxRange> {
+        let range = self.with_indent(|this| this.parse_normal_ast_children::<C>());
+        (range.len() > 0).then_some(range)
     }
 
-    fn parse_indented_children_aux<C: IndentedChildren>(&mut self) -> AstIdxRange {
+    fn parse_normal_ast_children<C: NormalAstChildren>(&mut self) -> AstIdxRange {
         let mut asts: Vec<Ast> = vec![];
         let _token_group_indices: Vec<TokenGroupIdx> = vec![];
         while let Some(ast) = self.parse_ast::<C>() {
@@ -83,7 +86,7 @@ impl<'a> AstParser<'a> {
         self.ast_arena.alloc_one(ast)
     }
 
-    fn parse_ast<C: IndentedChildren>(&mut self) -> Option<Ast> {
+    fn parse_ast<C: NormalAstChildren>(&mut self) -> Option<Ast> {
         let (token_group_idx, token_group, first_token) = self
             .token_groups
             .next_token_group_of_no_less_indent_with_its_first_token(self.indent())?;
@@ -156,17 +159,25 @@ impl<'a> AstParser<'a> {
                     VisibilityExpr::new_protected(self.module_path),
                     None,
                 ),
-                Keyword::Impl => Ast::ImplBlock {
-                    token_group_idx,
-                    items: todo!(),
-                    // self.parse_asts(context.subcontext(
-                    //     if self.is_trai_impl(token_group_idx) {
-                    //         AstContextKind::InsideTraitForTypeImplBlock
-                    //     } else {
-                    //         AstContextKind::InsideTypeImplBlock
-                    //     },
-                    // )),
-                },
+                Keyword::Impl => {
+                    let items = if self.is_trai_impl(token_group_idx) {
+                        self.parse_expected(OriginalAstError::ExpectedTraitForTypeItems)
+                            .map(ImplBlockItems::TraitForType)
+                    } else {
+                        self.parse_expected(OriginalAstError::ExpectedTypeItems)
+                            .map(ImplBlockItems::Type)
+                    };
+                    match items {
+                        Ok(items) => Ast::ImplBlock {
+                            token_group_idx,
+                            items,
+                        },
+                        Err(error) => Ast::Err {
+                            token_group_idx,
+                            error,
+                        },
+                    }
+                }
                 Keyword::End(_) => Ast::Err {
                     token_group_idx,
                     error: OriginalAstError::UnexpectedEndKeywordAsFirstNonCommentToken.into(),
@@ -279,7 +290,7 @@ impl<'a> AstParser<'a> {
         self.alloc_asts(verticals)
     }
 
-    fn parse_defn_or_use<C: IndentedChildren>(&mut self, token_group_idx: TokenGroupIdx) -> Ast {
+    fn parse_defn_or_use<C: NormalAstChildren>(&mut self, token_group_idx: TokenGroupIdx) -> Ast {
         let mut aux_parser = BasicAuxAstParser::new(
             self.db,
             self.module_path,
