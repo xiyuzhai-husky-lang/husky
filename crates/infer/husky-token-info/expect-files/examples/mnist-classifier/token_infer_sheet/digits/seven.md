@@ -785,7 +785,17 @@ Ok(
                 None,
             ),
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::TypeVariant(
+                        TypeVariantPath {
+                            path: TypePath(`mnist::MnistLabel`, `Enum`),
+                            ident: `Seven`,
+                        },
+                    ),
+                ),
+                None,
+            ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 3,
@@ -852,7 +862,17 @@ Ok(
                 None,
             ),
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::TypeVariant(
+                        TypeVariantPath {
+                            path: TypePath(`mnist::MnistLabel`, `Enum`),
+                            ident: `Seven`,
+                        },
+                    ),
+                ),
+                None,
+            ),
             TokenInfo::None,
             TokenInfo::Entity(
                 Some(
@@ -911,7 +931,17 @@ Ok(
                 None,
             ),
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::TypeVariant(
+                        TypeVariantPath {
+                            path: TypePath(`mnist::MnistLabel`, `Enum`),
+                            ident: `Seven`,
+                        },
+                    ),
+                ),
+                None,
+            ),
         ],
     },
 )

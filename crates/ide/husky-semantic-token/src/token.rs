@@ -88,7 +88,7 @@ impl SemanticToken {
                         }
                     }
                 },
-                EntityKind::Variant => todo!(),
+                EntityKind::TypeVariant => ext::SemanticTokenType::ENUM_MEMBER,
                 // EntityKind::Module => ext::SemanticTokenType::NAMESPACE,
                 // EntityKind::Type(_) => ext::SemanticTokenType::TYPE,
                 // EntityKind::Trait => ext::SemanticTokenType::TYPE,

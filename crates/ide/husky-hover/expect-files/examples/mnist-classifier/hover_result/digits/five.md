@@ -520,7 +520,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 17;\n\ntoken_line_group_idx = 2\n\ntoken = Token::Ident(\n    `Five`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 17;\n\ntoken_line_group_idx = 2\n\ntoken = Token::Ident(\n    `Five`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::TypeVariant(\n            TypeVariantPath {\n                path: TypePath(`mnist::MnistLabel`, `Enum`),\n                ident: `Five`,\n            },\n        ),\n    ),\n    None,\n);\n\n\n",
                             },
                         ),
                         range: Some(

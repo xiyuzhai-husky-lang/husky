@@ -391,13 +391,13 @@ Ok(
             ),
         },
         FoldingRange {
-            start_line: 60,
+            start_line: 54,
             start_character: Some(
                 0,
             ),
-            end_line: 61,
+            end_line: 58,
             end_character: Some(
-                27,
+                7,
             ),
             kind: Some(
                 Region,

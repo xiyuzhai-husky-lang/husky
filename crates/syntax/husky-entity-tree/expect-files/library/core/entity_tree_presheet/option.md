@@ -12,7 +12,7 @@ Ok(
                                 TypePath(`core::option::Option`, `Enum`),
                             ),
                             visibility: Visibility::Pub,
-                            ast_idx: 0,
+                            ast_idx: 2,
                             ident_token: IdentToken {
                                 ident: `Option`,
                                 token_idx: TokenIdx(

@@ -12,7 +12,7 @@ Ok(
                                 TypePath(`core::logic::Prop`, `Extern`),
                             ),
                             visibility: Visibility::Pub,
-                            ast_idx: 0,
+                            ast_idx: 2,
                             ident_token: IdentToken {
                                 ident: `Prop`,
                                 token_idx: TokenIdx(
@@ -31,7 +31,7 @@ Ok(
                                 TypePath(`core::logic::LogicAnd`, `Structure`),
                             ),
                             visibility: Visibility::Pub,
-                            ast_idx: 1,
+                            ast_idx: 3,
                             ident_token: IdentToken {
                                 ident: `LogicAnd`,
                                 token_idx: TokenIdx(
@@ -50,7 +50,7 @@ Ok(
                                 TypePath(`core::logic::LogicOr`, `Inductive`),
                             ),
                             visibility: Visibility::Pub,
-                            ast_idx: 2,
+                            ast_idx: 4,
                             ident_token: IdentToken {
                                 ident: `LogicOr`,
                                 token_idx: TokenIdx(

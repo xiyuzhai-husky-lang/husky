@@ -371,7 +371,7 @@ Ok(
                                                 TypePath(`mnist::MnistLabel`, `Enum`),
                                             ),
                                             visibility: Visibility::Pub,
-                                            ast_idx: 0,
+                                            ast_idx: 10,
                                             ident_token: IdentToken {
                                                 ident: `MnistLabel`,
                                                 token_idx: TokenIdx(
@@ -418,7 +418,7 @@ Ok(
                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                     ),
                                     visibility: Visibility::Pub,
-                                    ast_idx: 199,
+                                    ast_idx: 202,
                                     ident_token: IdentToken {
                                         ident: `RawContour`,
                                         token_idx: TokenIdx(
@@ -453,7 +453,7 @@ Ok(
                                         FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                     ),
                                     visibility: Visibility::Pub,
-                                    ast_idx: 214,
+                                    ast_idx: 213,
                                     ident_token: IdentToken {
                                         ident: `find_raw_contours`,
                                         token_idx: TokenIdx(
@@ -1275,8 +1275,12 @@ Ok(
                         ),
                     },
                     ty_expr: 0,
-                    body: ArenaIdxRange(
-                        67..79,
+                    body: Type(
+                        TypeItems {
+                            ast_idx_range: ArenaIdxRange(
+                                67..79,
+                            ),
+                        },
                     ),
                 },
             ),
@@ -1401,7 +1405,7 @@ Ok(
                     visibility: Visibility::PubUnder(
                         `mnist_classifier::connected_component`,
                     ),
-                    progress: 44,
+                    progress: 43,
                 },
             ],
         ),

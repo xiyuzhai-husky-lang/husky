@@ -16,21 +16,6 @@ DiagnosticSheet {
                 severity: Error,
                 range: [21:5, 21:16),
             },
-            Diagnostic {
-                message: "entity tree error EntityTreeError::Original(OriginalEntityTreeError::NoSubentity)",
-                severity: Error,
-                range: [19:21, 19:25),
-            },
-            Diagnostic {
-                message: "entity tree error EntityTreeError::Original(OriginalEntityTreeError::NoSubentity)",
-                severity: Error,
-                range: [22:21, 22:25),
-            },
-            Diagnostic {
-                message: "entity tree error EntityTreeError::Original(OriginalEntityTreeError::NoSubentity)",
-                severity: Error,
-                range: [39:17, 39:21),
-            },
         ],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {

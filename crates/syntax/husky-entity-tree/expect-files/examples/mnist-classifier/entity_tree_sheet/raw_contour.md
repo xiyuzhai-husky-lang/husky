@@ -12,7 +12,7 @@ Ok(
                                 TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                             ),
                             visibility: Visibility::Pub,
-                            ast_idx: 199,
+                            ast_idx: 202,
                             ident_token: IdentToken {
                                 ident: `RawContour`,
                                 token_idx: TokenIdx(
@@ -35,34 +35,11 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 201,
+                            ast_idx: 204,
                             ident_token: IdentToken {
                                 ident: `Direction`,
                                 token_idx: TokenIdx(
                                     394,
-                                ),
-                            },
-                        },
-                    ),
-                },
-                EntitySymbolEntry {
-                    ident: `get_pixel_pair`,
-                    visibility: Visibility::PubUnder(
-                        `mnist_classifier::raw_contour`,
-                    ),
-                    symbol: EntitySymbol::ModuleItem(
-                        ModuleItemSymbol {
-                            path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
-                            ),
-                            visibility: Visibility::PubUnder(
-                                `mnist_classifier::raw_contour`,
-                            ),
-                            ast_idx: 206,
-                            ident_token: IdentToken {
-                                ident: `get_pixel_pair`,
-                                token_idx: TokenIdx(
-                                    404,
                                 ),
                             },
                         },
@@ -81,7 +58,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 207,
+                            ast_idx: 206,
                             ident_token: IdentToken {
                                 ident: `get_pixel_to_the_left`,
                                 token_idx: TokenIdx(
@@ -104,7 +81,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 208,
+                            ast_idx: 207,
                             ident_token: IdentToken {
                                 ident: `get_pixel_to_the_right`,
                                 token_idx: TokenIdx(
@@ -127,7 +104,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 209,
+                            ast_idx: 208,
                             ident_token: IdentToken {
                                 ident: `get_inward_direction`,
                                 token_idx: TokenIdx(
@@ -150,7 +127,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 210,
+                            ast_idx: 209,
                             ident_token: IdentToken {
                                 ident: `get_angle_change`,
                                 token_idx: TokenIdx(
@@ -173,7 +150,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 211,
+                            ast_idx: 210,
                             ident_token: IdentToken {
                                 ident: `get_outward_direction`,
                                 token_idx: TokenIdx(
@@ -196,7 +173,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 212,
+                            ast_idx: 211,
                             ident_token: IdentToken {
                                 ident: `StreakCache`,
                                 token_idx: TokenIdx(
@@ -219,7 +196,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 213,
+                            ast_idx: 212,
                             ident_token: IdentToken {
                                 ident: `get_concave_middle_point`,
                                 token_idx: TokenIdx(
@@ -238,7 +215,7 @@ Ok(
                                 FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                             ),
                             visibility: Visibility::Pub,
-                            ast_idx: 214,
+                            ast_idx: 213,
                             ident_token: IdentToken {
                                 ident: `find_raw_contours`,
                                 token_idx: TokenIdx(
@@ -276,7 +253,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 198,
+                            ast_idx: 201,
                             use_expr_idx: 9,
                         },
                     ),
@@ -309,7 +286,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 198,
+                            ast_idx: 201,
                             use_expr_idx: 9,
                         },
                     ),
@@ -342,7 +319,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 198,
+                            ast_idx: 201,
                             use_expr_idx: 9,
                         },
                     ),
@@ -375,7 +352,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 198,
+                            ast_idx: 201,
                             use_expr_idx: 9,
                         },
                     ),
@@ -408,7 +385,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 198,
+                            ast_idx: 201,
                             use_expr_idx: 9,
                         },
                     ),
@@ -441,7 +418,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 198,
+                            ast_idx: 201,
                             use_expr_idx: 9,
                         },
                     ),
@@ -474,7 +451,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 198,
+                            ast_idx: 201,
                             use_expr_idx: 9,
                         },
                     ),
@@ -494,7 +471,7 @@ Ok(
                                                 TypePath(`mnist::MnistLabel`, `Enum`),
                                             ),
                                             visibility: Visibility::Pub,
-                                            ast_idx: 0,
+                                            ast_idx: 10,
                                             ident_token: IdentToken {
                                                 ident: `MnistLabel`,
                                                 token_idx: TokenIdx(
@@ -523,7 +500,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 198,
+                            ast_idx: 201,
                             use_expr_idx: 9,
                         },
                     ),
@@ -558,7 +535,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 195,
+                            ast_idx: 198,
                             use_expr_idx: 0,
                         },
                     ),
@@ -593,7 +570,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 195,
+                            ast_idx: 198,
                             use_expr_idx: 0,
                         },
                     ),
@@ -628,7 +605,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 195,
+                            ast_idx: 198,
                             use_expr_idx: 0,
                         },
                     ),
@@ -663,7 +640,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 195,
+                            ast_idx: 198,
                             use_expr_idx: 0,
                         },
                     ),
@@ -698,7 +675,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 195,
+                            ast_idx: 198,
                             use_expr_idx: 0,
                         },
                     ),
@@ -733,7 +710,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 195,
+                            ast_idx: 198,
                             use_expr_idx: 0,
                         },
                     ),
@@ -768,7 +745,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 196,
+                            ast_idx: 199,
                             use_expr_idx: 3,
                         },
                     ),
@@ -803,7 +780,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 196,
+                            ast_idx: 199,
                             use_expr_idx: 3,
                         },
                     ),
@@ -838,7 +815,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 196,
+                            ast_idx: 199,
                             use_expr_idx: 3,
                         },
                     ),
@@ -873,7 +850,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 196,
+                            ast_idx: 199,
                             use_expr_idx: 3,
                         },
                     ),
@@ -908,7 +885,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 197,
+                            ast_idx: 200,
                             use_expr_idx: 6,
                         },
                     ),
@@ -943,7 +920,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 197,
+                            ast_idx: 200,
                             use_expr_idx: 6,
                         },
                     ),
@@ -990,7 +967,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 197,
+                            ast_idx: 200,
                             use_expr_idx: 6,
                         },
                     ),
@@ -1037,7 +1014,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 197,
+                            ast_idx: 200,
                             use_expr_idx: 6,
                         },
                     ),
@@ -1084,7 +1061,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 197,
+                            ast_idx: 200,
                             use_expr_idx: 6,
                         },
                     ),
@@ -1133,7 +1110,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 198,
+                            ast_idx: 201,
                             use_expr_idx: 9,
                         },
                     ),
@@ -1182,7 +1159,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 198,
+                            ast_idx: 201,
                             use_expr_idx: 9,
                         },
                     ),
@@ -1231,7 +1208,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 198,
+                            ast_idx: 201,
                             use_expr_idx: 9,
                         },
                     ),
@@ -1280,7 +1257,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 198,
+                            ast_idx: 201,
                             use_expr_idx: 9,
                         },
                     ),
@@ -1329,7 +1306,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 198,
+                            ast_idx: 201,
                             use_expr_idx: 9,
                         },
                     ),
@@ -1378,7 +1355,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 198,
+                            ast_idx: 201,
                             use_expr_idx: 9,
                         },
                     ),
@@ -1427,7 +1404,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 198,
+                            ast_idx: 201,
                             use_expr_idx: 9,
                         },
                     ),
@@ -1488,7 +1465,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 198,
+                            ast_idx: 201,
                             use_expr_idx: 9,
                         },
                     ),
@@ -1537,7 +1514,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 198,
+                            ast_idx: 201,
                             use_expr_idx: 9,
                         },
                     ),
@@ -1586,7 +1563,7 @@ Ok(
                             visibility: Visibility::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            ast_idx: 198,
+                            ast_idx: 201,
                             use_expr_idx: 9,
                         },
                     ),
@@ -1601,15 +1578,19 @@ Ok(
                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                         disambiguator: 0,
                     },
-                    ast_idx: 200,
+                    ast_idx: 203,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             38,
                         ),
                     },
                     ty_expr: 1,
-                    body: ArenaIdxRange(
-                        27..34,
+                    body: Type(
+                        TypeItems {
+                            ast_idx_range: ArenaIdxRange(
+                                27..34,
+                            ),
+                        },
                     ),
                 },
             ),
@@ -1617,7 +1598,7 @@ Ok(
         use_expr_rules: UseExprRules(
             [
                 UseExprRule {
-                    ast_idx: 195,
+                    ast_idx: 198,
                     use_expr_idx: 2,
                     visibility: Visibility::PubUnder(
                         `mnist_classifier::raw_contour`,
@@ -1642,7 +1623,7 @@ Ok(
                     },
                 },
                 UseExprRule {
-                    ast_idx: 196,
+                    ast_idx: 199,
                     use_expr_idx: 5,
                     visibility: Visibility::PubUnder(
                         `mnist_classifier::raw_contour`,
@@ -1667,7 +1648,7 @@ Ok(
                     },
                 },
                 UseExprRule {
-                    ast_idx: 197,
+                    ast_idx: 200,
                     use_expr_idx: 8,
                     visibility: Visibility::PubUnder(
                         `mnist_classifier::raw_contour`,
@@ -1692,7 +1673,7 @@ Ok(
                     },
                 },
                 UseExprRule {
-                    ast_idx: 198,
+                    ast_idx: 201,
                     use_expr_idx: 10,
                     visibility: Visibility::PubUnder(
                         `mnist_classifier::raw_contour`,
@@ -1717,7 +1698,7 @@ Ok(
                     },
                 },
                 UseExprRule {
-                    ast_idx: 195,
+                    ast_idx: 198,
                     use_expr_idx: 1,
                     visibility: Visibility::PubUnder(
                         `mnist_classifier::raw_contour`,
@@ -1759,7 +1740,7 @@ Ok(
                     },
                 },
                 UseExprRule {
-                    ast_idx: 196,
+                    ast_idx: 199,
                     use_expr_idx: 4,
                     visibility: Visibility::PubUnder(
                         `mnist_classifier::raw_contour`,
@@ -1801,7 +1782,7 @@ Ok(
                     },
                 },
                 UseExprRule {
-                    ast_idx: 197,
+                    ast_idx: 200,
                     use_expr_idx: 7,
                     visibility: Visibility::PubUnder(
                         `mnist_classifier::raw_contour`,
@@ -1851,7 +1832,7 @@ Ok(
                         kinship: Inside,
                         path: `mnist_classifier`,
                     },
-                    ast_idx: 198,
+                    ast_idx: 201,
                     use_expr_idx: 9,
                     visibility: Visibility::PubUnder(
                         `mnist_classifier::raw_contour`,
@@ -1863,7 +1844,7 @@ Ok(
                         kinship: Inside,
                         path: `mnist_classifier::geom2d`,
                     },
-                    ast_idx: 195,
+                    ast_idx: 198,
                     use_expr_idx: 0,
                     visibility: Visibility::PubUnder(
                         `mnist_classifier::raw_contour`,
@@ -1875,7 +1856,7 @@ Ok(
                         kinship: Inside,
                         path: `mnist_classifier::connected_component`,
                     },
-                    ast_idx: 196,
+                    ast_idx: 199,
                     use_expr_idx: 3,
                     visibility: Visibility::PubUnder(
                         `mnist_classifier::raw_contour`,
@@ -1887,7 +1868,7 @@ Ok(
                         kinship: Inside,
                         path: `mnist_classifier::line_segment_sketch`,
                     },
-                    ast_idx: 197,
+                    ast_idx: 200,
                     use_expr_idx: 6,
                     visibility: Visibility::PubUnder(
                         `mnist_classifier::raw_contour`,

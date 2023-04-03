@@ -87,7 +87,7 @@ impl<'a> AstParser<'a> {
             EntityKind::AssociatedItem { .. } => DefnBlock::AssociatedItem {
                 body: self.parse()?,
             },
-            EntityKind::Variant => todo!(),
+            EntityKind::TypeVariant => todo!(),
         };
         Ok(Ast::Defn {
             visibility_expr,
