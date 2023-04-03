@@ -7,7 +7,7 @@ Ok(
                         1,
                     ),
                     path: TypeVariantPath {
-                        path: TypePath(`core::option::Option`, `Enum`),
+                        ty_path: TypePath(`core::option::Option`, `Enum`),
                         ident: `Some`,
                     },
                     vertical_token: VerticalToken(
@@ -30,7 +30,7 @@ Ok(
                         2,
                     ),
                     path: TypeVariantPath {
-                        path: TypePath(`core::option::Option`, `Enum`),
+                        ty_path: TypePath(`core::option::Option`, `Enum`),
                         ident: `None`,
                     },
                     vertical_token: VerticalToken(

@@ -789,7 +789,7 @@ Ok(
                 Some(
                     EntityPath::TypeVariant(
                         TypeVariantPath {
-                            path: TypePath(`mnist::MnistLabel`, `Enum`),
+                            ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                             ident: `Seven`,
                         },
                     ),
@@ -866,7 +866,7 @@ Ok(
                 Some(
                     EntityPath::TypeVariant(
                         TypeVariantPath {
-                            path: TypePath(`mnist::MnistLabel`, `Enum`),
+                            ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                             ident: `Seven`,
                         },
                     ),
@@ -935,7 +935,7 @@ Ok(
                 Some(
                     EntityPath::TypeVariant(
                         TypeVariantPath {
-                            path: TypePath(`mnist::MnistLabel`, `Enum`),
+                            ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
                             ident: `Seven`,
                         },
                     ),

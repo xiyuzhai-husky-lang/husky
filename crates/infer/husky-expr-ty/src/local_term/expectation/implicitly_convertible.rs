@@ -70,7 +70,8 @@ impl ExpectImplicitlyConvertible {
         match dst_patt {
             LocalTermPattern::Literal(_) => todo!(),
             LocalTermPattern::TypeOntology {
-                refined_path: dst_path,
+                path: dst_path,
+                refined_path: dst_refined_path,
                 argument_tys: dst_argument_tys,
                 ..
             } => match src_patt {
@@ -85,7 +86,7 @@ impl ExpectImplicitlyConvertible {
                     refined_path: src_path,
                     argument_tys: src_argument_tys,
                     ..
-                } if dst_path == src_path => {
+                } if dst_refined_path == src_path => {
                     if dst_argument_tys.len() != src_argument_tys.len() {
                         p!(src.debug(db), self.destination.debug(db));
                         todo!()
@@ -108,13 +109,18 @@ impl ExpectImplicitlyConvertible {
                     })
                 }
                 LocalTermPattern::TypeOntology {
-                    refined_path: src_path,
+                    path: src_path,
+                    refined_path: src_refined_path,
                     argument_tys: src_arguments,
                     ..
-                } => {
-                    p!(dst_path.debug(db), src_path.debug(db));
-                    todo!()
-                }
+                } => Some(LocalTermExpectationEffect {
+                    result: Err(OriginalLocalTermExpectationError::TypePathMismatch {
+                        expected_path: dst_path,
+                        expectee_path: src_path,
+                    }
+                    .into()),
+                    actions: smallvec![],
+                }),
                 LocalTermPattern::ImplicitSymbol(_, src_implicit_symbol) => match level {
                     LocalTermResolveLevel::Weak => None,
                     LocalTermResolveLevel::Strong => Some(LocalTermExpectationEffect {

@@ -457,7 +457,7 @@
             ),
             Err(
                 ExprTermError::Derived(
-                    DerivedExprTermError::Todo,
+                    DerivedExprTermError::ExplicitApplicationArgumentTermNotInferred,
                 ),
             ),
         ],

@@ -400,7 +400,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 156;\n\ntoken_line_group_idx = 20\n\ntoken = Token::Ident(\n    `Three`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::TypeVariant(\n            TypeVariantPath {\n                path: TypePath(`mnist::MnistLabel`, `Enum`),\n                ident: `Three`,\n            },\n        ),\n    ),\n    None,\n);\n\n\n",
+                                value: "\ntoken_idx = 156;\n\ntoken_line_group_idx = 20\n\ntoken = Token::Ident(\n    `Three`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::TypeVariant(\n            TypeVariantPath {\n                ty_path: TypePath(`mnist::MnistLabel`, `Enum`),\n                ident: `Three`,\n            },\n        ),\n    ),\n    None,\n);\n\n\n",
                             },
                         ),
                         range: Some(

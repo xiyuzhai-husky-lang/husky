@@ -12,7 +12,7 @@ pub use self::ty_constructor::*;
 pub use self::ty_ontology::*;
 
 use crate::*;
-use husky_decl::HasDecl;
+use husky_decl::{HasDecl, TypeVariantDecl};
 #[cfg(test)]
 use salsa::assert_eq_with_db;
 use utils::*;
@@ -233,13 +233,17 @@ pub fn ty_ontology_path_raw_ty(db: &dyn RawTypeDb, path: TypePath) -> RawTypeRes
 #[salsa::tracked(jar = RawTypeJar)]
 pub fn ty_variant_path_raw_ty(db: &dyn RawTypeDb, path: TypeVariantPath) -> RawTypeResult<RawTerm> {
     let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
-    // let decl = match path.decl(db) {
-    //     Ok(decl) => decl,
-    //     Err(_e) => {
-    //         return Err(DerivedRawTypeError::TypeOntologyDeclError { path }.into());
-    //     }
-    // };
-    Err(todo!())
+    let decl = match path.decl(db) {
+        Ok(decl) => decl,
+        Err(_e) => {
+            todo!()
+        }
+    };
+    match decl {
+        TypeVariantDecl::Props(_) => todo!(),
+        TypeVariantDecl::Unit(_) => Ok(path.ty_path(db).into()),
+        TypeVariantDecl::Tuple(_) => todo!(),
+    }
     // let signature = match db.ty_signature_from_decl(decl) {
     //     Ok(signature) => signature,
     //     Err(_) => return Err(DerivedRawTypeError::SignatureError.into()),
