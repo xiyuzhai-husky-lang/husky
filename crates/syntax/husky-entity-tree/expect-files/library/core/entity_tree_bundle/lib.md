@@ -408,7 +408,7 @@ Ok(
                                         TypePath(`core::logic::Prop`, `Extern`),
                                     ),
                                     visibility: Visibility::Pub,
-                                    ast_idx: 0,
+                                    ast_idx: 2,
                                     ident_token: IdentToken {
                                         ident: `Prop`,
                                         token_idx: TokenIdx(
@@ -427,7 +427,7 @@ Ok(
                                         TypePath(`core::logic::LogicAnd`, `Structure`),
                                     ),
                                     visibility: Visibility::Pub,
-                                    ast_idx: 1,
+                                    ast_idx: 3,
                                     ident_token: IdentToken {
                                         ident: `LogicAnd`,
                                         token_idx: TokenIdx(
@@ -446,7 +446,7 @@ Ok(
                                         TypePath(`core::logic::LogicOr`, `Inductive`),
                                     ),
                                     visibility: Visibility::Pub,
-                                    ast_idx: 2,
+                                    ast_idx: 4,
                                     ident_token: IdentToken {
                                         ident: `LogicOr`,
                                         token_idx: TokenIdx(
@@ -861,8 +861,12 @@ Ok(
                                 ),
                             },
                             ty_expr: 0,
-                            body: ArenaIdxRange(
-                                0..1,
+                            body: Type(
+                                TypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        0..1,
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -885,8 +889,12 @@ Ok(
                                 44,
                             ),
                             ty_expr: 2,
-                            body: ArenaIdxRange(
-                                1..2,
+                            body: TraitForType(
+                                TraitForTypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        1..2,
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -904,8 +912,12 @@ Ok(
                                 ),
                             },
                             ty_expr: 3,
-                            body: ArenaIdxRange(
-                                2..3,
+                            body: Type(
+                                TypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        2..3,
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -928,8 +940,12 @@ Ok(
                                 96,
                             ),
                             ty_expr: 5,
-                            body: ArenaIdxRange(
-                                3..4,
+                            body: TraitForType(
+                                TraitForTypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        3..4,
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -947,8 +963,12 @@ Ok(
                                 ),
                             },
                             ty_expr: 6,
-                            body: ArenaIdxRange(
-                                4..5,
+                            body: Type(
+                                TypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        4..5,
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -971,8 +991,12 @@ Ok(
                                 148,
                             ),
                             ty_expr: 8,
-                            body: ArenaIdxRange(
-                                5..6,
+                            body: TraitForType(
+                                TraitForTypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        5..6,
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -990,8 +1014,12 @@ Ok(
                                 ),
                             },
                             ty_expr: 9,
-                            body: ArenaIdxRange(
-                                6..7,
+                            body: Type(
+                                TypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        6..7,
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -1014,8 +1042,12 @@ Ok(
                                 199,
                             ),
                             ty_expr: 11,
-                            body: ArenaIdxRange(
-                                7..8,
+                            body: TraitForType(
+                                TraitForTypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        7..8,
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -1033,8 +1065,12 @@ Ok(
                                 ),
                             },
                             ty_expr: 12,
-                            body: ArenaIdxRange(
-                                8..9,
+                            body: Type(
+                                TypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        8..9,
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -1057,8 +1093,12 @@ Ok(
                                 251,
                             ),
                             ty_expr: 14,
-                            body: ArenaIdxRange(
-                                9..10,
+                            body: TraitForType(
+                                TraitForTypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        9..10,
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -1076,8 +1116,12 @@ Ok(
                                 ),
                             },
                             ty_expr: 15,
-                            body: ArenaIdxRange(
-                                10..11,
+                            body: Type(
+                                TypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        10..11,
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -1100,8 +1144,12 @@ Ok(
                                 303,
                             ),
                             ty_expr: 17,
-                            body: ArenaIdxRange(
-                                11..12,
+                            body: TraitForType(
+                                TraitForTypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        11..12,
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -1119,8 +1167,12 @@ Ok(
                                 ),
                             },
                             ty_expr: 18,
-                            body: ArenaIdxRange(
-                                12..13,
+                            body: Type(
+                                TypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        12..13,
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -1143,8 +1195,12 @@ Ok(
                                 355,
                             ),
                             ty_expr: 20,
-                            body: ArenaIdxRange(
-                                13..14,
+                            body: TraitForType(
+                                TraitForTypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        13..14,
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -1162,8 +1218,12 @@ Ok(
                                 ),
                             },
                             ty_expr: 21,
-                            body: ArenaIdxRange(
-                                14..15,
+                            body: Type(
+                                TypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        14..15,
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -1186,8 +1246,12 @@ Ok(
                                 407,
                             ),
                             ty_expr: 23,
-                            body: ArenaIdxRange(
-                                15..16,
+                            body: TraitForType(
+                                TraitForTypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        15..16,
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -1205,8 +1269,12 @@ Ok(
                                 ),
                             },
                             ty_expr: 24,
-                            body: ArenaIdxRange(
-                                16..17,
+                            body: Type(
+                                TypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        16..17,
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -1229,8 +1297,12 @@ Ok(
                                 459,
                             ),
                             ty_expr: 26,
-                            body: ArenaIdxRange(
-                                17..18,
+                            body: TraitForType(
+                                TraitForTypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        17..18,
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -1248,8 +1320,12 @@ Ok(
                                 ),
                             },
                             ty_expr: 27,
-                            body: ArenaIdxRange(
-                                18..19,
+                            body: Type(
+                                TypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        18..19,
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -1272,8 +1348,12 @@ Ok(
                                 511,
                             ),
                             ty_expr: 29,
-                            body: ArenaIdxRange(
-                                19..20,
+                            body: TraitForType(
+                                TraitForTypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        19..20,
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -1291,8 +1371,12 @@ Ok(
                                 ),
                             },
                             ty_expr: 30,
-                            body: ArenaIdxRange(
-                                20..21,
+                            body: Type(
+                                TypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        20..21,
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -1315,8 +1399,12 @@ Ok(
                                 563,
                             ),
                             ty_expr: 32,
-                            body: ArenaIdxRange(
-                                21..22,
+                            body: TraitForType(
+                                TraitForTypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        21..22,
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -1334,8 +1422,12 @@ Ok(
                                 ),
                             },
                             ty_expr: 33,
-                            body: ArenaIdxRange(
-                                22..23,
+                            body: Type(
+                                TypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        22..23,
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -1358,8 +1450,12 @@ Ok(
                                 615,
                             ),
                             ty_expr: 35,
-                            body: ArenaIdxRange(
-                                23..24,
+                            body: TraitForType(
+                                TraitForTypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        23..24,
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -1377,8 +1473,12 @@ Ok(
                                 ),
                             },
                             ty_expr: 36,
-                            body: ArenaIdxRange(
-                                24..25,
+                            body: Type(
+                                TypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        24..25,
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -1401,8 +1501,12 @@ Ok(
                                 667,
                             ),
                             ty_expr: 38,
-                            body: ArenaIdxRange(
-                                25..26,
+                            body: TraitForType(
+                                TraitForTypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        25..26,
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -1420,8 +1524,12 @@ Ok(
                                 ),
                             },
                             ty_expr: 39,
-                            body: ArenaIdxRange(
-                                26..27,
+                            body: Type(
+                                TypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        26..27,
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -1444,8 +1552,12 @@ Ok(
                                 718,
                             ),
                             ty_expr: 41,
-                            body: ArenaIdxRange(
-                                27..28,
+                            body: TraitForType(
+                                TraitForTypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        27..28,
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -3436,8 +3548,12 @@ Ok(
                                 ),
                             },
                             ast_idx: 2,
-                            body: ArenaIdxRange(
-                                0..1,
+                            body: Type(
+                                TypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        0..1,
+                                    ),
+                                },
                             ),
                             ill_form: ImplBlockIllForm::MajorPath(
                                 MajorPathExprError::Original(
@@ -3616,7 +3732,7 @@ Ok(
                                         TypePath(`core::option::Option`, `Enum`),
                                     ),
                                     visibility: Visibility::Pub,
-                                    ast_idx: 0,
+                                    ast_idx: 2,
                                     ident_token: IdentToken {
                                         ident: `Option`,
                                         token_idx: TokenIdx(

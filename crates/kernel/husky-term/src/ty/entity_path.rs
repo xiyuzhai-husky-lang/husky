@@ -2,11 +2,13 @@ mod form;
 mod trai;
 mod ty;
 mod ty_item;
+mod ty_variant;
 
 pub(crate) use self::form::*;
 pub(crate) use self::trai::*;
 pub(crate) use self::ty::*;
 pub(crate) use self::ty_item::*;
+pub(crate) use self::ty_variant::*;
 
 use super::*;
 use husky_raw_ty::{

@@ -1228,7 +1228,13 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Derived(
-                        EntityPathError,
+                        TypeError(
+                            RawTypeError(
+                                Original(
+                                    Todo,
+                                ),
+                            ),
+                        ),
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -1403,7 +1409,13 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Derived(
-                        EntityPathError,
+                        TypeError(
+                            RawTypeError(
+                                Original(
+                                    Todo,
+                                ),
+                            ),
+                        ),
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -1412,7 +1424,13 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Derived(
-                        EntityPathError,
+                        TypeError(
+                            RawTypeError(
+                                Original(
+                                    Todo,
+                                ),
+                            ),
+                        ),
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -2042,7 +2060,13 @@
             ExprTypeInfo {
                 ty_result: Err(
                     Derived(
-                        EntityPathError,
+                        TypeError(
+                            RawTypeError(
+                                Original(
+                                    Todo,
+                                ),
+                            ),
+                        ),
                     ),
                 ),
                 expectation_rule_idx: None,

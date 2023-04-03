@@ -344,7 +344,17 @@ Ok(
                 None,
             ),
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::TypeVariant(
+                        TypeVariantPath {
+                            path: TypePath(`mnist::MnistLabel`, `Enum`),
+                            ident: `Six`,
+                        },
+                    ),
+                ),
+                None,
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -549,7 +559,17 @@ Ok(
                 None,
             ),
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::TypeVariant(
+                        TypeVariantPath {
+                            path: TypePath(`mnist::MnistLabel`, `Enum`),
+                            ident: `Six`,
+                        },
+                    ),
+                ),
+                None,
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -573,7 +593,17 @@ Ok(
                 None,
             ),
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::TypeVariant(
+                        TypeVariantPath {
+                            path: TypePath(`mnist::MnistLabel`, `Enum`),
+                            ident: `Six`,
+                        },
+                    ),
+                ),
+                None,
+            ),
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 12,
@@ -623,7 +653,17 @@ Ok(
                 None,
             ),
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::TypeVariant(
+                        TypeVariantPath {
+                            path: TypePath(`mnist::MnistLabel`, `Enum`),
+                            ident: `Six`,
+                        },
+                    ),
+                ),
+                None,
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -696,6 +736,40 @@ Ok(
                 None,
             ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::TypeVariant(
+                        TypeVariantPath {
+                            path: TypePath(`mnist::MnistLabel`, `Enum`),
+                            ident: `Six`,
+                        },
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist::MnistLabel`, `Enum`),
+                        ),
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::TypeVariant(
+                        TypeVariantPath {
+                            path: TypePath(`mnist::MnistLabel`, `Enum`),
+                            ident: `Six`,
+                        },
+                    ),
+                ),
+                None,
+            ),
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
                 Some(
@@ -708,21 +782,17 @@ Ok(
                 None,
             ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
             TokenInfo::Entity(
                 Some(
-                    EntityPath::ModuleItem(
-                        ModuleItemPath::Type(
-                            TypePath(`mnist::MnistLabel`, `Enum`),
-                        ),
+                    EntityPath::TypeVariant(
+                        TypeVariantPath {
+                            path: TypePath(`mnist::MnistLabel`, `Enum`),
+                            ident: `Six`,
+                        },
                     ),
                 ),
                 None,
             ),
-            TokenInfo::None,
-            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -856,7 +926,17 @@ Ok(
                 None,
             ),
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::TypeVariant(
+                        TypeVariantPath {
+                            path: TypePath(`mnist::MnistLabel`, `Enum`),
+                            ident: `Six`,
+                        },
+                    ),
+                ),
+                None,
+            ),
             TokenInfo::None,
             TokenInfo::Entity(
                 Some(

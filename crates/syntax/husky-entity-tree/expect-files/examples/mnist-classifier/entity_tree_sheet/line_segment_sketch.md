@@ -346,7 +346,7 @@ Ok(
                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                     ),
                                     visibility: Visibility::Pub,
-                                    ast_idx: 199,
+                                    ast_idx: 202,
                                     ident_token: IdentToken {
                                         ident: `RawContour`,
                                         token_idx: TokenIdx(
@@ -595,8 +595,12 @@ Ok(
                         ),
                     },
                     ty_expr: 6,
-                    body: ArenaIdxRange(
-                        3..7,
+                    body: Type(
+                        TypeItems {
+                            ast_idx_range: ArenaIdxRange(
+                                3..7,
+                            ),
+                        },
                     ),
                 },
             ),
@@ -614,8 +618,12 @@ Ok(
                         ),
                     },
                     ty_expr: 7,
-                    body: ArenaIdxRange(
-                        21..26,
+                    body: Type(
+                        TypeItems {
+                            ast_idx_range: ArenaIdxRange(
+                                21..26,
+                            ),
+                        },
                     ),
                 },
             ),
@@ -928,7 +936,7 @@ Ok(
                                     TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                 ),
                                 visibility: Visibility::Pub,
-                                ast_idx: 199,
+                                ast_idx: 202,
                                 ident_token: IdentToken {
                                     ident: `RawContour`,
                                     token_idx: TokenIdx(

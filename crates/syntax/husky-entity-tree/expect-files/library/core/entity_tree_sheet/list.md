@@ -37,8 +37,12 @@ Ok(
                         ),
                     },
                     ast_idx: 2,
-                    body: ArenaIdxRange(
-                        0..1,
+                    body: Type(
+                        TypeItems {
+                            ast_idx_range: ArenaIdxRange(
+                                0..1,
+                            ),
+                        },
                     ),
                     ill_form: ImplBlockIllForm::MajorPath(
                         MajorPathExprError::Original(

@@ -78,7 +78,7 @@ impl AstSheet {
             Ast::Defn { block, .. } => DecrParent::Defn(match block {
                 DefnBlock::Form { path, body } => todo!(),
                 DefnBlock::Submodule { path } => todo!(),
-                DefnBlock::Type { path, variants } => todo!(),
+                DefnBlock::Type { path, variants } => path.into(),
                 DefnBlock::Trait { path, items } => todo!(),
                 DefnBlock::AssociatedItem { body } => todo!(),
             }),

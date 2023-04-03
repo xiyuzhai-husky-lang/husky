@@ -94,7 +94,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                                     EntityKind::AssociatedItem {
                                         associated_item_kind,
                                     } => todo!(),
-                                    EntityKind::Variant => todo!(),
+                                    EntityKind::TypeVariant => todo!(),
                                 }
                             }
                             _ => ResolvedToken::BinaryOpr(

@@ -10,13 +10,7 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "entity tree error EntityTreeError::Original(OriginalEntityTreeError::NoSubentity)",
-                severity: Error,
-                range: [4:17, 4:21),
-            },
-        ],
+        diagnostics: [],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
         diagnostics: [],

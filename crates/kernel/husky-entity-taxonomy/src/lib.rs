@@ -29,7 +29,7 @@ pub enum EntityKind {
     AssociatedItem {
         associated_item_kind: AssociatedItemKind,
     },
-    Variant,
+    TypeVariant,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

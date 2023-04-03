@@ -6,6 +6,12 @@ pub struct TypeVariantPath {
     pub ident: Ident,
 }
 
+impl TypeVariantPath {
+    pub fn toolchain(self, db: &dyn EntityPathDb) -> Toolchain {
+        self.path(db).toolchain(db)
+    }
+}
+
 impl<Db> salsa::DisplayWithDb<Db> for TypeVariantPath
 where
     Db: EntityPathDb + ?Sized,

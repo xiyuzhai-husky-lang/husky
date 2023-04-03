@@ -104,7 +104,7 @@ impl EntityPath {
             EntityPath::Module(_path) => EntityKind::Module,
             EntityPath::ModuleItem(path) => path.entity_kind(db),
             EntityPath::AssociatedItem(path) => path.entity_kind(db),
-            EntityPath::TypeVariant(_) => todo!(),
+            EntityPath::TypeVariant(_) => EntityKind::TypeVariant,
         }
     }
 }

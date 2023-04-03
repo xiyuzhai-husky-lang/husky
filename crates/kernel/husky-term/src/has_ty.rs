@@ -78,11 +78,6 @@ impl HasTypeGivenDisambiguation for TraitForTypeItemPath {
 
 impl HasTypeGivenDisambiguation for TypeVariantPath {
     fn ty(self, db: &dyn TermDb, disambiguation: TypePathDisambiguation) -> TermResult<Term> {
-        match disambiguation {
-            TypePathDisambiguation::Ontology => todo!(),
-            TypePathDisambiguation::Constructor => {
-                todo!()
-            }
-        }
+        ty_variant_path_ty(db, self)
     }
 }

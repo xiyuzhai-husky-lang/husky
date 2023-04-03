@@ -1129,7 +1129,17 @@ Ok(
                 None,
             ),
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                Some(
+                    EntityPath::TypeVariant(
+                        TypeVariantPath {
+                            path: TypePath(`mnist::MnistLabel`, `Enum`),
+                            ident: `Two`,
+                        },
+                    ),
+                ),
+                None,
+            ),
         ],
     },
 )
