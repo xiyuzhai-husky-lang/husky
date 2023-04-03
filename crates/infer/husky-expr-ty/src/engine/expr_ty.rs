@@ -1,5 +1,6 @@
 mod binary;
 mod box_list;
+mod current_symbol;
 mod explicit_application;
 mod field;
 mod literal;
@@ -123,10 +124,13 @@ impl<'a> ExprTypeEngine<'a> {
                 ..
             } => Ok((
                 ExprDisambiguation::Trivial,
-                self.current_symbol_tys
-                    .get(current_symbol_idx)
-                    .copied()
-                    .ok_or(DerivedExprTypeError::CurrentSymbolTypeError.into()),
+                self.calc_current_symbol_ty(
+                    expr_idx,
+                    expr_ty_expectation,
+                    current_symbol_idx,
+                    current_symbol_kind,
+                    local_term_region,
+                ),
             )),
             Expr::FrameVarDecl {
                 ident,
