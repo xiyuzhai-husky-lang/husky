@@ -109,6 +109,10 @@ pub enum OriginalAstError {
     UnexpectedMemoFieldInsideForm,
     #[error("ExpectedTraitItems")]
     ExpectedTraitItems(TokenGroupIdx),
+    #[error("ExpectedTraitForTypeItems")]
+    ExpectedTraitForTypeItems(TokenGroupIdx),
+    #[error("ExpectedTypeItems")]
+    ExpectedTypeItems(TokenGroupIdx),
 }
 
 impl OriginalError for OriginalAstError {

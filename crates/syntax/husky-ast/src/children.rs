@@ -16,6 +16,7 @@ use crate::*;
 use husky_entity_path::*;
 use husky_entity_taxonomy::*;
 use husky_token::*;
+use parsec::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
@@ -63,10 +64,16 @@ impl DefnBlock {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum ImplBlockItems {}
+pub enum ImplBlockItems {
+    Type(TypeItems),
+    TraitForType(TraitForTypeItems),
+}
 
 impl ImplBlockItems {
-    pub fn ast_idx_range(self) -> AstIdxRange {
-        todo!()
+    pub fn children(self) -> AstIdxRange {
+        match self {
+            ImplBlockItems::Type(items) => items.children(),
+            ImplBlockItems::TraitForType(items) => items.children(),
+        }
     }
 }
