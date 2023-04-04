@@ -14,7 +14,7 @@ vec-like = { path = "../../abstraction/vec-like" }
 husky-text = { path = "../../lex/husky-text" }
 husky-toml-token = { path = "../../lex/husky-toml-token" }
 # infer
-husky-corgi-config = { path = "../../infer/husky-corgi-config" }
+husky-corgi-config = { path = "../../semantics/husky-corgi-config" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-package-path = { path = "../../kernel/husky-package-path" }

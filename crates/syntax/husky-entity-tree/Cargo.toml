@@ -33,7 +33,7 @@ husky-ast = { path = "../../syntax/husky-ast" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-visibility-expr = { path = "../../syntax/husky-visibility-expr" }
 # infer
-husky-manifest = { path = "../../infer/husky-manifest" }
+husky-manifest = { path = "../../semantics/husky-manifest" }
 # utils
 husky-path-utils = { path = "../../utils/husky-path-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
@@ -52,4 +52,4 @@ husky-toml-ast = { path = "../../syntax/husky-toml-ast" }
 husky-manifest-ast = { path = "../../syntax/husky-manifest-ast" }
 husky-corgi-config-ast = { path = "../../syntax/husky-corgi-config-ast" }
 # infer
-husky-corgi-config = { path = "../../infer/husky-corgi-config" }
+husky-corgi-config = { path = "../../semantics/husky-corgi-config" }
