@@ -6,7 +6,7 @@ impl LocalTerm {
         db: &dyn TermDb,
         unresolved_terms: &UnresolvedTerms,
     ) -> LocalTerm {
-        match self.pattern(db, unresolved_terms) {
+        match self.pattern_inner(db, unresolved_terms) {
             LocalTermPattern::Literal(_)
             | LocalTermPattern::TypeOntology { .. }
             | LocalTermPattern::ImplicitSymbol(_, _)
@@ -22,7 +22,7 @@ impl LocalTerm {
         db: &dyn TermDb,
         unresolved_terms: &UnresolvedTerms,
     ) -> FinalDestination {
-        match self.pattern(db, unresolved_terms) {
+        match self.pattern_inner(db, unresolved_terms) {
             LocalTermPattern::Literal(_) => todo!(),
             LocalTermPattern::TypeOntology { .. } => FinalDestination::TypeOntology,
             LocalTermPattern::Curry { .. } => todo!(),

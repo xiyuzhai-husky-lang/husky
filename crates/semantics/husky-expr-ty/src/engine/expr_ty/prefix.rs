@@ -88,7 +88,7 @@ impl<'a> ExprTypeEngine<'a> {
         ) else {
             return Err(DerivedExprTypeError::BitNotOperandTypeNotInferred.into())
         };
-        match ty.pattern(self.db(), self.local_term_region.unresolved_terms()) {
+        match ty.pattern(self) {
             LocalTermPattern::Literal(_) => todo!(),
             LocalTermPattern::TypeOntology {
                 path,

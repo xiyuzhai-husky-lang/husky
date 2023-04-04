@@ -236,7 +236,7 @@ impl UnresolvedTerms {
         src_expr_idx: ExprIdx,
         parameter_symbol: LocalTerm,
     ) -> UnresolvedTermIdx {
-        let variant = match parameter_symbol.pattern(db, self) {
+        let variant = match parameter_symbol.pattern_inner(db, self) {
             LocalTermPattern::Literal(_) => todo!(),
             LocalTermPattern::TypeOntology {
                 path,
@@ -409,7 +409,7 @@ impl LocalTermRegion {
             let resolve_progress = if resolve_progress == implicit_symbol.into() {
                 Ok(substitution)
             } else {
-                let resolve_progress_pattern = resolve_progress.pattern(db, unresolved_terms);
+                let resolve_progress_pattern = resolve_progress.pattern_inner(db, unresolved_terms);
                 match resolve_progress_pattern {
                     LocalTermPattern::Literal(_) => todo!(),
                     LocalTermPattern::TypeOntology {

@@ -17,9 +17,10 @@ impl<'a> ExprTypeEngine<'a> {
                 Literal::Integer(integer_literal) => match integer_literal {
                     IntegerLikeLiteral::Unspecified => {
                         // match in the order of most frequent to least frequent
-                        Ok(match expectation.destination().map(|destination| {
-                            destination.pattern(self.db, self.local_term_region.unresolved_terms())
-                        }) {
+                        Ok(match expectation
+                            .destination()
+                            .map(|destination| destination.pattern(self))
+                        {
                             Some(LocalTermPattern::TypeOntology {
                                 refined_path:
                                     Right(PreludeTypePath::Num(PreludeNumTypePath::Int(path))),
@@ -81,9 +82,10 @@ impl<'a> ExprTypeEngine<'a> {
                 },
                 Literal::Float(float_literal) => match float_literal {
                     FloatLiteral::Unspecified => {
-                        match expectation.destination().map(|destination| {
-                            destination.pattern(self.db, self.local_term_region.unresolved_terms())
-                        }) {
+                        match expectation
+                            .destination()
+                            .map(|destination| destination.pattern(self))
+                        {
                             Some(LocalTermPattern::TypeOntology {
                                 refined_path:
                                     Right(PreludeTypePath::Num(PreludeNumTypePath::Float(path))),

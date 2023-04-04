@@ -1,4 +1,6 @@
+#![feature(anonymous_lifetime_in_impl_trait)]
 #![feature(trait_upcasting)]
+mod engine;
 mod expectation;
 mod pattern;
 mod progress;
@@ -8,6 +10,7 @@ mod utils;
 
 use husky_print_utils::p;
 
+pub use self::engine::*;
 pub use self::expectation::*;
 pub use self::pattern::*;
 pub use self::progress::*;
@@ -99,7 +102,7 @@ impl LocalTerm {
     }
 
     pub fn unravel_borrow(self, db: &dyn TermDb, unresolved_terms: &UnresolvedTerms) -> Self {
-        match self.pattern(db, unresolved_terms) {
+        match self.pattern_inner(db, unresolved_terms) {
             LocalTermPattern::TypeOntology {
                 refined_path: Right(PreludeTypePath::Borrow(path)),
                 argument_tys: arguments,

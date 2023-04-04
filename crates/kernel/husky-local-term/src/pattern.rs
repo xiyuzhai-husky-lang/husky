@@ -26,7 +26,17 @@ pub enum LocalTermPattern {
 }
 
 impl LocalTerm {
-    pub fn pattern(self, db: &dyn TermDb, unresolved_terms: &UnresolvedTerms) -> LocalTermPattern {
+    /// intended for downstream crates
+    pub fn pattern(self, engine: &impl LocalTermEngine<'_>) -> LocalTermPattern {
+        self.pattern_inner(engine.db(), engine.unresolved_terms())
+    }
+
+    /// intended this crate
+    pub(crate) fn pattern_inner(
+        self,
+        db: &dyn TermDb,
+        unresolved_terms: &UnresolvedTerms,
+    ) -> LocalTermPattern {
         match self {
             LocalTerm::Resolved(term) => LocalTermPattern::from_resolved(db, term),
             LocalTerm::Unresolved(term) => match unresolved_terms[term].resolve_progress() {

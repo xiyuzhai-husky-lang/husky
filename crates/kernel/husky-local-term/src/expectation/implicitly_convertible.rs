@@ -83,8 +83,8 @@ impl ExpectImplicitlyConvertible {
                 actions: smallvec![],
             });
         }
-        let src_patt = src.pattern(db, unresolved_terms);
-        let dst_patt = self.destination.pattern(db, unresolved_terms);
+        let src_patt = src.pattern_inner(db, unresolved_terms);
+        let dst_patt = self.destination.pattern_inner(db, unresolved_terms);
         match dst_patt {
             LocalTermPattern::Literal(_) => todo!(),
             LocalTermPattern::TypeOntology {

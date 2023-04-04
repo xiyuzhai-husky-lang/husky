@@ -63,13 +63,13 @@ impl ExpectSubtype {
                 actions: smallvec![],
             });
         }
-        match self.expected.pattern(db, unresolved_terms) {
+        match self.expected.pattern_inner(db, unresolved_terms) {
             LocalTermPattern::Literal(_) => todo!(),
             LocalTermPattern::TypeOntology {
                 path: expected_path,
                 argument_tys,
                 ..
-            } => match expectee.pattern(db, unresolved_terms) {
+            } => match expectee.pattern_inner(db, unresolved_terms) {
                 LocalTermPattern::TypeOntology {
                     path: expectee_path,
                     argument_tys,
