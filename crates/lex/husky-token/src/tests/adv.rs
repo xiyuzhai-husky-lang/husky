@@ -1,6 +1,5 @@
 use husky_adversarial_utils::new_rand_string;
 
-
 use super::*;
 use std::{panic::catch_unwind, path::PathBuf};
 

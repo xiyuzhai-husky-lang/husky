@@ -44,7 +44,7 @@ impl<'a> DeclParseContext<'a> {
         let (
             ast_idx,
             Ast::TypeVariant {
-                token_group_idx, 
+                token_group_idx,
                 vertical_token,
                 ident_token,
                 state_after,
@@ -64,7 +64,7 @@ impl<'a> DeclParseContext<'a> {
             Some(Token::Punctuation(Punctuation::LPAR)) => todo!(),
             Some(Token::Punctuation(Punctuation::LCURL)) => todo!(),
             None => UnitVariantDecl::new(self.db(), path, parser.finish()).into(),
-            _=>todo!()
+            _ => todo!(),
         })
     }
 }

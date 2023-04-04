@@ -17,7 +17,7 @@ impl LocalTerm {
     }
 
     /// this term as ty, what's its final destination?
-    pub(crate) fn final_destination(
+    pub(crate) fn final_destination_inner(
         self,
         db: &dyn TermDb,
         unresolved_terms: &UnresolvedTerms,

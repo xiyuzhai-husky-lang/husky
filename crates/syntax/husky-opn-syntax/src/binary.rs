@@ -8,8 +8,6 @@ pub use logic::*;
 pub use pure_closed::*;
 pub use shift::*;
 
-
-
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum BinaryOpr {
     Closed(BinaryClosedOpr),

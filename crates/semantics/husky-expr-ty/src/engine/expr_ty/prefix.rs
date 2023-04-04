@@ -84,21 +84,21 @@ impl<'a> ExprTypeEngine<'a> {
     fn calc_bitnot_expr_ty(&mut self, opd: ExprIdx) -> ExprTypeResult<LocalTerm> {
         let Some(ty) = self.infer_new_expr_ty(
             opd,
-            self.expect_eqs_ty0(), 
+            self.expect_eqs_ty0(),
         ) else {
-            return Err(DerivedExprTypeError::BitNotOperandTypeNotInferred.into())
+            Err(DerivedExprTypeError::BitNotOperandTypeNotInferred)?
         };
         match ty.pattern(self) {
             LocalTermPattern::Literal(_) => todo!(),
             LocalTermPattern::TypeOntology {
                 path,
                 refined_path,
-                argument_tys: arguments,
+                argument_tys,
             } => todo!(),
             LocalTermPattern::Curry {
                 curry_kind,
                 variance,
-                parameter_variable: parameter_symbol,
+                parameter_variable,
                 parameter_ty,
                 return_ty,
             } => todo!(),
