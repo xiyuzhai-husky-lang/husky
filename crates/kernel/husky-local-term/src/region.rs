@@ -57,7 +57,7 @@ impl std::ops::Index<LocalTermExpectationIdx> for LocalTermRegion {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub(crate) enum LocalTermResolveLevel {
+pub enum LocalTermResolveLevel {
     Weak,
     Strong,
 }
@@ -76,7 +76,7 @@ impl LocalTermRegion {
         None
     }
 
-    pub(crate) fn resolve_term(
+    pub fn resolve_term(
         &mut self,
         db: &dyn TermDb,
         unresolved_term_idx: UnresolvedTermIdx,
@@ -86,11 +86,7 @@ impl LocalTermRegion {
             .force_resolve_term(unresolved_term_idx)
     }
 
-    pub(crate) fn resolve_as_much_as_possible(
-        &mut self,
-        db: &dyn TermDb,
-        level: LocalTermResolveLevel,
-    ) {
+    pub fn resolve_as_much_as_possible(&mut self, db: &dyn TermDb, level: LocalTermResolveLevel) {
         while let Some((rule_idx, effect)) = self.next_expectation_effect(db, level) {
             if let Some(actions) = self.expectations.take_effect(rule_idx, effect) {
                 for action in actions {
