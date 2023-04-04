@@ -15,7 +15,7 @@ husky-vfs = { path = "../../fs/husky-vfs" }
 husky-text = { path = "../../lex/husky-text" }
 husky-token = { path = "../../lex/husky-token" }
 # infer
-husky-token-info = { path = "../../infer/husky-token-info" }
+husky-token-info = { path = "../../semantics/husky-token-info" }
 # kernel
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 # syntax
@@ -44,7 +44,7 @@ husky-manifest-ast = { path = "../../syntax/husky-manifest-ast" }
 husky-expr = { path = "../../syntax/husky-expr" }
 husky-corgi-config-ast = { path = "../../syntax/husky-corgi-config-ast" }
 # infer
-husky-manifest = { path = "../../infer/husky-manifest" }
-husky-signature = { path = "../../infer/husky-signature" }
-husky-expr-ty = { path = "../../infer/husky-expr-ty" }
-husky-corgi-config = { path = "../../infer/husky-corgi-config" }
+husky-manifest = { path = "../../semantics/husky-manifest" }
+husky-signature = { path = "../../semantics/husky-signature" }
+husky-expr-ty = { path = "../../semantics/husky-expr-ty" }
+husky-corgi-config = { path = "../../semantics/husky-corgi-config" }

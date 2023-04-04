@@ -13,7 +13,7 @@ enum-class = { path = "../../abstraction/enum-class" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # infer
-husky-manifest = { path = "../../infer/husky-manifest" }
+husky-manifest = { path = "../../semantics/husky-manifest" }
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-word = { path = "../../kernel/husky-word" }
@@ -31,7 +31,7 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
 # infer
-husky-corgi-config = { path = "../../infer/husky-corgi-config" }
+husky-corgi-config = { path = "../../semantics/husky-corgi-config" }
 # lex
 husky-toml-token = { path = "../../lex/husky-toml-token" }
 # syntax

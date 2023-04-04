@@ -38,8 +38,8 @@ expect-test = "1.4.0"
 # fs
 husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
 # infer
-husky-manifest = { path = "../../infer/husky-manifest" }
-husky-corgi-config = { path = "../../infer/husky-corgi-config" }
+husky-manifest = { path = "../../semantics/husky-manifest" }
+husky-corgi-config = { path = "../../semantics/husky-corgi-config" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-package-path = { path = "../../kernel/husky-package-path" }

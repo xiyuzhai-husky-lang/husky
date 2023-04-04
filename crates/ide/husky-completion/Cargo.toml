@@ -16,7 +16,7 @@ husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 # infer
 [dev-dependencies]
 # infer
-husky-corgi-config = { path = "../../infer/husky-corgi-config" }
+husky-corgi-config = { path = "../../semantics/husky-corgi-config" }
 # lex
 husky-toml-token = { path = "../../lex/husky-toml-token" }
 # syntax

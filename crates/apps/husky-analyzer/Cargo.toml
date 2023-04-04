@@ -37,11 +37,11 @@ husky-hover = { path = "../../ide/husky-hover" }
 husky-folding-range = { path = "../../ide/husky-folding-range" }
 husky-semantic-token = { path = "../../ide/husky-semantic-token" }
 # infer
-husky-manifest = { path = "../../infer/husky-manifest" }
-husky-token-info = { path = "../../infer/husky-token-info" }
-husky-signature = { path = "../../infer/husky-signature" }
-husky-expr-ty = { path = "../../infer/husky-expr-ty" }
-husky-corgi-config = { path = "../../infer/husky-corgi-config" }
+husky-manifest = { path = "../../semantics/husky-manifest" }
+husky-token-info = { path = "../../semantics/husky-token-info" }
+husky-signature = { path = "../../semantics/husky-signature" }
+husky-expr-ty = { path = "../../semantics/husky-expr-ty" }
+husky-corgi-config = { path = "../../semantics/husky-corgi-config" }
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-package-path = { path = "../../kernel/husky-package-path" }
