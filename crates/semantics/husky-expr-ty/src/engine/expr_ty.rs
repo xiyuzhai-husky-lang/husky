@@ -360,13 +360,9 @@ impl<'a> ExprTypeEngine<'a> {
             ExpectEqsFunctionType::new(expr_ty_expectation.final_destination(self)),
         ) else {
             for item in items {
-                self.infer_new_expr_ty(item, ExpectAnyDerived,   );
+                self.infer_new_expr_ty(item, ExpectAnyDerived);
             }
-            return
-                Err(
-                    DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred
-                        .into(),
-                )
+            Err(DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred)?
         };
         if let Some(implicit_arguments) = implicit_arguments {
             todo!()
@@ -405,10 +401,7 @@ impl<'a> ExprTypeEngine<'a> {
             for index in indices {
                 self.infer_new_expr_ty(index, ExpectAnyDerived,  );
             }
-            let e = DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred;
-            return Err(
-                DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred.into()
-            )
+            Err(DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred)?
         };
         Err(OriginalExprTypeError::TodoIndexOrComposeWithList.into())
     }
