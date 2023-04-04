@@ -7,7 +7,6 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: ExprIdx,
         literal_token_idx: TokenIdx,
         expectation: &impl ExpectLocalTerm,
-        local_term_region: &mut LocalTermRegion,
     ) -> Result<LocalTerm, ExprTypeError> {
         let literal_token = self.token_sheet_data[literal_token_idx];
         match literal_token {
@@ -19,7 +18,7 @@ impl<'a> ExprTypeEngine<'a> {
                     IntegerLikeLiteral::Unspecified => {
                         // match in the order of most frequent to least frequent
                         Ok(match expectation.destination().map(|destination| {
-                            destination.pattern(self.db, local_term_region.unresolved_terms())
+                            destination.pattern(self.db, self.local_term_region.unresolved_terms())
                         }) {
                             Some(LocalTermPattern::TypeOntology {
                                 refined_path:
@@ -50,7 +49,8 @@ impl<'a> ExprTypeEngine<'a> {
                                 idx,
                             )) => return Ok(idx.into()),
                             _ => {
-                                return Ok(local_term_region
+                                return Ok(self
+                                    .local_term_region
                                     .new_implicit_symbol(
                                         expr_idx,
                                         ImplicitSymbolVariant::UnspecifiedIntegerType,
@@ -82,7 +82,7 @@ impl<'a> ExprTypeEngine<'a> {
                 Literal::Float(float_literal) => match float_literal {
                     FloatLiteral::Unspecified => {
                         match expectation.destination().map(|destination| {
-                            destination.pattern(self.db, local_term_region.unresolved_terms())
+                            destination.pattern(self.db, self.local_term_region.unresolved_terms())
                         }) {
                             Some(LocalTermPattern::TypeOntology {
                                 refined_path:
@@ -100,7 +100,8 @@ impl<'a> ExprTypeEngine<'a> {
                                 ImplicitSymbolKind::UnspecifiedFloatType,
                                 idx,
                             )) => return Ok(idx.into()),
-                            _ => Ok(local_term_region
+                            _ => Ok(self
+                                .local_term_region
                                 .new_implicit_symbol(
                                     expr_idx,
                                     ImplicitSymbolVariant::UnspecifiedFloatType,

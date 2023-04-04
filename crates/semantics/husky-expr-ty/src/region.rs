@@ -96,9 +96,8 @@ impl ExprTypeRegion {
 #[salsa::tracked(jar = ExprTypeJar, return_ref)]
 pub(crate) fn expr_ty_region(db: &dyn ExprTypeDb, expr_region: ExprRegion) -> ExprTypeRegion {
     let mut engine = ExprTypeEngine::new(db, expr_region);
-    let mut local_term_region = LocalTermRegion::default();
-    engine.infer_all(&mut local_term_region);
-    engine.finish(local_term_region)
+    engine.infer_all();
+    engine.finish()
 }
 
 pub(crate) struct PatternExprTypeInfo {

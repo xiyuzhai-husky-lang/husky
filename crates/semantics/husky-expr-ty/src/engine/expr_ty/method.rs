@@ -9,21 +9,20 @@ impl<'a> ExprTypeEngine<'a> {
         ident_token: IdentToken,
         implicit_arguments: Option<&ImplicitArgumentList>,
         nonself_arguments: ExprIdxRange,
-        local_term_region: &mut LocalTermRegion,
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<LocalTerm>)> {
         let Some(self_expr_ty) =
-            self.infer_new_expr_ty( self_argument, ExpectAnyOriginal,local_term_region)
+            self.infer_new_expr_ty( self_argument, ExpectAnyOriginal, )
             else {
                 if let Some(implicit_arguments) = implicit_arguments {
                     todo!()
                 }
                 for argument in nonself_arguments {
-                    self.infer_new_expr_ty_discarded(argument, ExpectAnyDerived, local_term_region);
+                    self.infer_new_expr_ty_discarded(argument, ExpectAnyDerived,  );
                 }
                 return Err(DerivedExprTypeError::MethodOwnerTypeNotInferred.into())
             };
         let self_expr_ty_unravelled =
-            self_expr_ty.unravel_borrow(self.db, local_term_region.unresolved_terms());
+            self_expr_ty.unravel_borrow(self.db, self.local_term_region.unresolved_terms());
         let ty_method_card = match self_expr_ty_unravelled {
             LocalTerm::Resolved(self_expr_ty_unravelled) => {
                 match self
@@ -45,7 +44,6 @@ impl<'a> ExprTypeEngine<'a> {
                     self_argument,
                     implicit_arguments,
                     nonself_arguments,
-                    local_term_region,
                 ),
             ));
         }
@@ -63,7 +61,6 @@ impl<'a> ExprTypeEngine<'a> {
         self_argument: ExprIdx,
         implicit_arguments: Option<&ImplicitArgumentList>,
         nonself_arguments: ExprIdxRange,
-        local_term_region: &mut LocalTermRegion,
     ) -> ExprTypeResult<LocalTerm> {
         let method_ty_info = ty_method_card.method_ty_info(self.db)?;
         let mut nonself_parameter_liasoned_tys: Vec<LocalTermRitchieParameterLiasonedType> =
@@ -84,7 +81,6 @@ impl<'a> ExprTypeEngine<'a> {
             expr_idx,
             &nonself_parameter_liasoned_tys,
             nonself_arguments,
-            local_term_region,
         );
         Ok(return_ty)
     }

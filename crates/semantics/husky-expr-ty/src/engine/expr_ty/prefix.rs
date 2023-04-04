@@ -6,16 +6,15 @@ impl<'a> ExprTypeEngine<'a> {
         opr: PrefixOpr,
         opd: ExprIdx,
         final_destination: FinalDestination,
-        local_term_region: &mut LocalTermRegion,
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<LocalTerm>)> {
         match opr {
             PrefixOpr::Minus => {
-                let opd_ty = self.infer_new_expr_ty(opd, ExpectAnyOriginal, local_term_region);
+                let opd_ty = self.infer_new_expr_ty(opd, ExpectAnyOriginal);
                 match opd_ty {
                     Some(opd_ty) => match opd_ty {
                         LocalTerm::Resolved(_) => todo!(),
                         LocalTerm::Unresolved(unresolved_term) => {
-                            match local_term_region[unresolved_term].unresolved_term() {
+                            match self.local_term_region[unresolved_term].unresolved_term() {
                                 UnresolvedTerm::ImplicitSymbol(implicit_symbol) => {
                                     match implicit_symbol.variant() {
                                         ImplicitSymbolVariant::ExprEvalLifetime => todo!(),
@@ -43,11 +42,7 @@ impl<'a> ExprTypeEngine<'a> {
                 }
             }
             PrefixOpr::Not => {
-                self.infer_new_expr_ty_discarded(
-                    opd,
-                    self.expect_implicitly_convertible_to_bool(),
-                    local_term_region,
-                );
+                self.infer_new_expr_ty_discarded(opd, self.expect_implicitly_convertible_to_bool());
                 // here we differs from Rust, but agrees with C
                 Ok((
                     ExprDisambiguation::Trivial,
@@ -56,7 +51,7 @@ impl<'a> ExprTypeEngine<'a> {
             }
             PrefixOpr::Tilde => match final_destination {
                 FinalDestination::Sort => {
-                    self.infer_new_expr_ty_discarded(opd, self.expect_eqs_ty0(), local_term_region);
+                    self.infer_new_expr_ty_discarded(opd, self.expect_eqs_ty0());
                     Ok((
                         ExprDisambiguation::Tilde(TildeDisambiguation::Leash),
                         Ok(self.term_menu.ty0().into()),
@@ -66,11 +61,11 @@ impl<'a> ExprTypeEngine<'a> {
                 | FinalDestination::AnyOriginal
                 | FinalDestination::AnyDerived => Ok((
                     ExprDisambiguation::Tilde(TildeDisambiguation::BitNot),
-                    self.calc_bitnot_expr_ty(opd, local_term_region),
+                    self.calc_bitnot_expr_ty(opd),
                 )),
             },
             PrefixOpr::Ref => {
-                self.infer_new_expr_ty_discarded(opd, self.expect_eqs_ty0(), local_term_region);
+                self.infer_new_expr_ty_discarded(opd, self.expect_eqs_ty0());
                 // Should consider more cases, could also be taking references
                 Ok((ExprDisambiguation::Trivial, Ok(self.term_menu.ty0().into())))
             }
@@ -80,25 +75,20 @@ impl<'a> ExprTypeEngine<'a> {
             PrefixOpr::Array(_) => todo!(),
             PrefixOpr::Option => {
                 // todo!("consider universe");
-                self.infer_new_expr_ty_discarded(opd, self.expect_eqs_ty0(), local_term_region);
+                self.infer_new_expr_ty_discarded(opd, self.expect_eqs_ty0());
                 Ok((ExprDisambiguation::Trivial, Ok(self.term_menu.ty0().into())))
             }
         }
     }
 
-    fn calc_bitnot_expr_ty(
-        &mut self,
-        opd: ExprIdx,
-        local_term_region: &mut LocalTermRegion,
-    ) -> ExprTypeResult<LocalTerm> {
+    fn calc_bitnot_expr_ty(&mut self, opd: ExprIdx) -> ExprTypeResult<LocalTerm> {
         let Some(ty) = self.infer_new_expr_ty(
             opd,
-            self.expect_eqs_ty0(),
-            local_term_region,
+            self.expect_eqs_ty0(), 
         ) else {
             return Err(DerivedExprTypeError::BitNotOperandTypeNotInferred.into())
         };
-        match ty.pattern(self.db(), local_term_region.unresolved_terms()) {
+        match ty.pattern(self.db(), self.local_term_region.unresolved_terms()) {
             LocalTermPattern::Literal(_) => todo!(),
             LocalTermPattern::TypeOntology {
                 path,

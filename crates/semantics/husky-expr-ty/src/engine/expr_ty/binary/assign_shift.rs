@@ -7,17 +7,16 @@ impl<'a> ExprTypeEngine<'a> {
         ropd: ExprIdx,
         opr: BinaryShiftOpr,
         menu: &TermMenu,
-        local_term_region: &mut LocalTermRegion,
     ) -> Result<LocalTerm, ExprTypeError> {
         // todo: don't use resolved
         let Some(lopd_ty) = self.infer_new_expr_ty(
-            lopd, ExpectAnyOriginal, local_term_region
+            lopd, ExpectAnyOriginal,  
         ) else {
             return Err(DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred.into())
         };
         let lopd_ty_unravelled =
-            lopd_ty.unravel_borrow(self.db, local_term_region.unresolved_terms());
-        match lopd_ty_unravelled.pattern(self.db, local_term_region.unresolved_terms()) {
+            lopd_ty.unravel_borrow(self.db,self. local_term_region.unresolved_terms());
+        match lopd_ty_unravelled.pattern(self.db, self.local_term_region.unresolved_terms()) {
             LocalTermPattern::TypeOntology {
                 refined_path: Right(PreludeTypePath::Num(_)),
                 ..
@@ -28,9 +27,9 @@ impl<'a> ExprTypeEngine<'a> {
                 _,
             ) => {
                 if let Some(ropd_ty) =
-                    self.infer_new_expr_ty(ropd, ExpectAnyOriginal, local_term_region)
+                    self.infer_new_expr_ty(ropd, ExpectAnyOriginal,  )
                 {
-                    match ropd_ty.pattern(self.db, local_term_region.unresolved_terms()) {
+                    match ropd_ty.pattern(self.db, self.local_term_region.unresolved_terms()) {
                         LocalTermPattern::Literal(_) => todo!(),
                         LocalTermPattern::TypeOntology {
                             refined_path: Right(PreludeTypePath::Num(PreludeNumTypePath::Int(_))),

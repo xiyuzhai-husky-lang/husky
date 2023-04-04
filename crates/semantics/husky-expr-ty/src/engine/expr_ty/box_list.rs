@@ -5,19 +5,19 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: ExprIdx,
         items: ExprIdxRange,
-        local_term_region: &mut LocalTermRegion,
     ) -> Result<LocalTerm, ExprTypeError> {
-        let element_ty: LocalTerm = local_term_region
+        let element_ty: LocalTerm = self
+            .local_term_region
             .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ImplicitType)
             .into();
         for item in items {
             self.infer_new_expr_ty_discarded(
                 item,
                 ExpectImplicitlyConvertible::new_transient(element_ty),
-                local_term_region,
             );
         }
-        Ok(local_term_region
+        Ok(self
+            .local_term_region
             .intern_unresolved_term(
                 expr_idx,
                 UnresolvedTerm::TypeOntology {

@@ -8,16 +8,21 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: ExprIdx,
         function: ExprIdx,
         argument: ExprIdx,
-        local_term_region: &mut LocalTermRegion,
     ) -> ExprTermResult<LocalTerm> {
         // todo: implicit arguments
         let function = self
-            .infer_new_expr_term(function, local_term_region)
+            .infer_new_expr_term(function)
             .ok_or(DerivedExprTermError::ExplicitApplicationFunctionTermNotInferred)?;
         let argument = self
-            .infer_new_expr_term(argument, local_term_region)
+            .infer_new_expr_term(argument)
             .ok_or(DerivedExprTermError::ExplicitApplicationArgumentTermNotInferred)?;
-        LocalTerm::new_application(self.db, expr_idx, function, argument, local_term_region)
-            .map_err(|e| DerivedExprTermError::ExplicitApplicationTerm(e).into())
+        LocalTerm::new_application(
+            self.db,
+            &mut self.local_term_region,
+            expr_idx,
+            function,
+            argument,
+        )
+        .map_err(|e| DerivedExprTermError::ExplicitApplicationTerm(e).into())
     }
 }
