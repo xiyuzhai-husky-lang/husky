@@ -18,35 +18,27 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: ExprIdx,
         lopd: ExprIdx,
         opr: BinaryOpr,
-        ropd: ExprIdx, 
+        ropd: ExprIdx,
     ) -> ExprTypeResult<LocalTerm> {
         let menu = self.term_menu;
         match opr {
-            BinaryOpr::Closed(opr) => {
-                self.calc_binary_closed_expr_ty(lopd, ropd, opr, menu,  )
-            }
-            BinaryOpr::Shift(opr) => {
-                self.calc_binary_shift_expr_ty(lopd, ropd, opr, menu,  )
-            }
-            BinaryOpr::Comparison(_) => {
-                self.calc_binary_comparison_expr_ty(lopd, ropd,  )
-            }
+            BinaryOpr::Closed(opr) => self.calc_binary_closed_expr_ty(lopd, ropd, opr, menu),
+            BinaryOpr::Shift(opr) => self.calc_binary_shift_expr_ty(lopd, ropd, opr, menu),
+            BinaryOpr::Comparison(_) => self.calc_binary_comparison_expr_ty(lopd, ropd),
             BinaryOpr::ShortCircuitLogic(_) => {
-                self.calc_binary_short_circuit_logic_expr_ty(lopd, ropd,  )
+                self.calc_binary_short_circuit_logic_expr_ty(lopd, ropd)
             }
-            BinaryOpr::Assign => {
-                self.calc_binary_assign_expr_ty(expr_idx, lopd, ropd,  )
-            }
+            BinaryOpr::Assign => self.calc_binary_assign_expr_ty(expr_idx, lopd, ropd),
             BinaryOpr::AssignClosed(opr) => {
-                self.calc_binary_assign_closed_expr_ty(expr_idx, lopd, opr, ropd,  )
+                self.calc_binary_assign_closed_expr_ty(expr_idx, lopd, opr, ropd)
             }
             BinaryOpr::AssignShift(opr) => {
-                self.calc_binary_assign_shift_expr_ty(expr_idx, lopd, opr, ropd,  )
+                self.calc_binary_assign_shift_expr_ty(expr_idx, lopd, opr, ropd)
             }
             BinaryOpr::ScopeResolution => Err(OriginalExprTypeError::TodoScopeResolution.into()),
-            BinaryOpr::Curry => self.calc_curry_expr_ty(lopd, ropd,  ),
-            BinaryOpr::As => self.calc_as_expr_ty(ropd, lopd,  ),
-            BinaryOpr::Ins => self.calc_ins_expr_ty(ropd,  ),
+            BinaryOpr::Curry => self.calc_curry_expr_ty(lopd, ropd),
+            BinaryOpr::As => self.calc_as_expr_ty(ropd, lopd),
+            BinaryOpr::Ins => self.calc_ins_expr_ty(ropd),
             BinaryOpr::In => todo!(),
         }
     }
@@ -54,26 +46,17 @@ impl<'a> ExprTypeEngine<'a> {
     fn calc_binary_short_circuit_logic_expr_ty(
         &mut self,
         lopd: ExprIdx,
-        ropd: ExprIdx, 
+        ropd: ExprIdx,
     ) -> Result<LocalTerm, ExprTypeError> {
-        self.infer_new_expr_ty_discarded(
-            lopd,
-            self.expect_implicitly_convertible_to_bool(), 
-        );
-        self.infer_new_expr_ty_discarded(
-            ropd,
-            self.expect_implicitly_convertible_to_bool(), 
-        );
+        self.infer_new_expr_ty_discarded(lopd, self.expect_implicitly_convertible_to_bool());
+        self.infer_new_expr_ty_discarded(ropd, self.expect_implicitly_convertible_to_bool());
         Ok(self.term_menu.bool_ty_ontology().into())
     }
 
-    fn calc_ins_expr_ty(
-        &mut self,
-        ropd: ExprIdx, 
-    ) -> Result<LocalTerm, ExprTypeError> {
+    fn calc_ins_expr_ty(&mut self, ropd: ExprIdx) -> Result<LocalTerm, ExprTypeError> {
         let Some(ropd_ty) = self.infer_new_expr_ty(
             ropd,
-            ExpectAnyOriginal, 
+            ExpectAnyOriginal,
         ) else {
                 return Err(DerivedExprTypeError::BinaryOperationRightOperandTypeNotInferred.into())
             };
@@ -98,27 +81,21 @@ impl<'a> ExprTypeEngine<'a> {
     fn calc_as_expr_ty(
         &mut self,
         ropd: ExprIdx,
-        lopd: ExprIdx, 
+        lopd: ExprIdx,
     ) -> Result<LocalTerm, ExprTypeError> {
-        self.infer_new_expr_ty_discarded(
-            ropd,
-            ExpectEqsCategory::new_any_sort(), 
-        );
+        self.infer_new_expr_ty_discarded(ropd, ExpectEqsCategory::new_any_sort());
         let Some(ropd_term) = self.infer_new_expr_term(ropd,  )
             else {
                 return Err(DerivedExprTypeError::AsOperationRightOperandTermNotInferred.into())
             };
-        self.infer_new_expr_ty_discarded(
-            lopd,
-            ExpectExplicitlyConvertible::new(ropd_term), 
-        );
+        self.infer_new_expr_ty_discarded(lopd, ExpectExplicitlyConvertible::new(ropd_term));
         Ok(ropd_term)
     }
 
     fn calc_curry_expr_ty(
         &mut self,
         lopd: ExprIdx,
-        ropd: ExprIdx, 
+        ropd: ExprIdx,
     ) -> Result<LocalTerm, ExprTypeError> {
         let expect_any_sort = ExpectEqsCategory::new_any_sort();
         let Some(lopd_universe) = self.infer_new_expr_ty_for_outcome(lopd, expect_any_sort,  )
@@ -137,14 +114,15 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: ExprIdx,
         lopd: ExprIdx,
-        ropd: ExprIdx, 
+        ropd: ExprIdx,
     ) -> Result<LocalTerm, ExprTypeError> {
-        let expr_eval_lifetime = self.local_term_region
+        let expr_eval_lifetime = self
+            .local_term_region
             .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
-        match self.infer_new_expr_ty_for_outcome(lopd, ExpectAnyOriginal,  ) {
+        match self.infer_new_expr_ty_for_outcome(lopd, ExpectAnyOriginal) {
             Some(_) => todo!(),
             None => {
-                self.infer_new_expr_ty_discarded(ropd, ExpectAnyDerived,  );
+                self.infer_new_expr_ty_discarded(ropd, ExpectAnyDerived);
             }
         };
         Ok(self.term_menu.unit().into())
@@ -155,14 +133,15 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: ExprIdx,
         lopd: ExprIdx,
         opr: BinaryClosedOpr,
-        ropd: ExprIdx, 
+        ropd: ExprIdx,
     ) -> Result<LocalTerm, ExprTypeError> {
-        let expr_eval_lifetime = self.local_term_region
+        let expr_eval_lifetime = self
+            .local_term_region
             .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
-        match self.infer_new_expr_ty_for_outcome(lopd, ExpectAnyOriginal,  ) {
+        match self.infer_new_expr_ty_for_outcome(lopd, ExpectAnyOriginal) {
             Some(_) => todo!(),
             None => {
-                self.infer_new_expr_ty_discarded(ropd, ExpectAnyDerived,  );
+                self.infer_new_expr_ty_discarded(ropd, ExpectAnyDerived);
             }
         };
         Ok(self.term_menu.unit().into())
@@ -173,45 +152,44 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: ExprIdx,
         lopd: ExprIdx,
         opr: BinaryShiftOpr,
-        ropd: ExprIdx, 
+        ropd: ExprIdx,
     ) -> Result<LocalTerm, ExprTypeError> {
-        let expr_eval_lifetime = self.local_term_region
+        let expr_eval_lifetime = self
+            .local_term_region
             .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
-        match self.infer_new_expr_ty_for_outcome(lopd, ExpectAnyOriginal,  ) {
+        match self.infer_new_expr_ty_for_outcome(lopd, ExpectAnyOriginal) {
             Some(_) => todo!(),
             None => {
-                self.infer_new_expr_ty_discarded(ropd, ExpectAnyDerived,  );
+                self.infer_new_expr_ty_discarded(ropd, ExpectAnyDerived);
             }
         };
         Ok(self.term_menu.unit().into())
     }
 
-    fn infer_basic_assign_ropd_ty(
-        &mut self,
-        lopd_ty: LocalTerm,
-        ropd: ExprIdx, 
-    ) {
-        let ropd_ty = self.infer_new_expr_ty(ropd, ExpectAnyOriginal,  );
+    fn infer_basic_assign_ropd_ty(&mut self, lopd_ty: LocalTerm, ropd: ExprIdx) {
+        let ropd_ty = self.infer_new_expr_ty(ropd, ExpectAnyOriginal);
         let Some(ropd_ty) = ropd_ty else { return };
         let lopd_ty = match lopd_ty {
             LocalTerm::Resolved(lopd_ty) => match lopd_ty {
                 Term::Application(lopd_ty) => todo!(),
                 _ => todo!(),
             },
-            LocalTerm::Unresolved(lopd_ty) => match self. local_term_region[lopd_ty].unresolved_term() {
-                UnresolvedTerm::ImplicitSymbol(_) => todo!(),
-                UnresolvedTerm::TypeOntology {
-                    path: ty,
-                    arguments,
-                } => {
-                    todo!()
+            LocalTerm::Unresolved(lopd_ty) => {
+                match self.local_term_region[lopd_ty].unresolved_term() {
+                    UnresolvedTerm::ImplicitSymbol(_) => todo!(),
+                    UnresolvedTerm::TypeOntology {
+                        path: ty,
+                        arguments,
+                    } => {
+                        todo!()
+                    }
+                    UnresolvedTerm::Ritchie {
+                        ritchie_kind,
+                        parameter_tys,
+                        return_ty,
+                    } => todo!(),
                 }
-                UnresolvedTerm::Ritchie {
-                    ritchie_kind,
-                    parameter_tys,
-                    return_ty,
-                } => todo!(),
-            },
+            }
         };
         let ropd_ty = match ropd_ty {
             LocalTerm::Resolved(ropd_ty) => todo!(),
@@ -224,7 +202,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         lopd_ty: LocalTerm,
         opr: BinaryClosedOpr,
-        ropd: ExprIdx, 
+        ropd: ExprIdx,
     ) {
         match opr {
             BinaryClosedOpr::Add => todo!(),

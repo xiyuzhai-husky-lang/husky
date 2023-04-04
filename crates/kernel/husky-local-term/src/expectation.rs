@@ -35,11 +35,16 @@ pub trait ExpectLocalTerm: Into<LocalTermExpectation> + Clone {
     ///
     /// final destination of a type path `A` is `FinalDestination::TypePath(A)`
     #[inline(always)]
-    fn final_destination(
+    fn final_destination_inner(
         &self,
         db: &dyn TermDb,
         unresolved_terms: &UnresolvedTerms,
     ) -> FinalDestination;
+
+    #[inline(always)]
+    fn final_destination(&self, engine: &impl LocalTermEngine<'_>) -> FinalDestination {
+        self.final_destination_inner(engine.db(), engine.unresolved_terms())
+    }
 
     /// if ty_path's type is under this expectation, disambiguate whether it's an ontology or constructor
     // final
@@ -49,7 +54,7 @@ pub trait ExpectLocalTerm: Into<LocalTermExpectation> + Clone {
         db: &dyn TermDb,
         unresolved_terms: &UnresolvedTerms,
     ) -> TypePathDisambiguation {
-        match self.final_destination(db, unresolved_terms) {
+        match self.final_destination_inner(db, unresolved_terms) {
             FinalDestination::Sort => TypePathDisambiguation::Ontology,
             FinalDestination::TypeOntology
             | FinalDestination::AnyOriginal

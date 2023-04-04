@@ -23,7 +23,7 @@ impl ExpectLocalTerm for ExpectEqsFunctionType {
     }
 
     #[inline(always)]
-    fn final_destination(
+    fn final_destination_inner(
         &self,
         db: &dyn TermDb,
         unresolved_terms: &UnresolvedTerms,

@@ -55,12 +55,13 @@ impl ExpectLocalTerm for ExpectImplicitlyConvertible {
     }
 
     #[inline(always)]
-    fn final_destination(
+    fn final_destination_inner(
         &self,
         db: &dyn TermDb,
         unresolved_terms: &UnresolvedTerms,
     ) -> FinalDestination {
-        self.destination.final_destination(db, unresolved_terms)
+        self.destination
+            .final_destination_inner(db, unresolved_terms)
     }
 
     fn destination(&self) -> Option<LocalTerm> {

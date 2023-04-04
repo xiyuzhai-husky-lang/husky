@@ -5,6 +5,7 @@ use husky_ast::AstJar;
 use husky_corgi_config::CorgiConfigJar;
 use husky_corgi_config_ast::CorgiConfigAstJar;
 use husky_decl::DeclJar;
+use husky_decr::DecrJar;
 use husky_defn::DefnJar;
 use husky_entity_path::EntityPathJar;
 use husky_entity_tree::{EntityTreeJar, EntityTreeResult};
@@ -21,7 +22,6 @@ use husky_token::{TokenDb, TokenIdx, TokenJar};
 use husky_token_info::TokenInfoJar;
 use husky_toml_ast::TomlAstJar;
 use husky_toml_token::TomlTokenJar;
-use husky_decr::DecrJar;
 use husky_word::WordJar;
 
 #[salsa::db(
