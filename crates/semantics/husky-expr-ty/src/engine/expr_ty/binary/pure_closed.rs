@@ -16,7 +16,7 @@ impl<'a> ExprTypeEngine<'a> {
         };
         let lopd_ty_unravelled =
             lopd_ty.unravel_borrow(self.db, self.local_term_region.unresolved_terms());
-        match lopd_ty_unravelled.pattern(self.db, self.local_term_region.unresolved_terms()) {
+        match lopd_ty_unravelled.pattern(self) {
             LocalTermPattern::TypeOntology {
                 refined_path: Right(PreludeTypePath::Num(_)),
                 ..

@@ -77,7 +77,7 @@ impl ExpectEqsFunctionType {
         unresolved_terms: &mut UnresolvedTerms,
     ) -> Option<LocalTermExpectationEffect> {
         // todo: move these to aux
-        match expectee.pattern(db, unresolved_terms) {
+        match expectee.pattern_inner(db, unresolved_terms) {
             LocalTermPattern::Literal(_) => todo!(),
             LocalTermPattern::TypeOntology {
                 path,
@@ -190,7 +190,7 @@ impl ExpectEqsFunctionType {
         mut substitution_rules: SmallVec<[ImplicitParameterSubstitution; 2]>,
         unresolved_terms: &mut UnresolvedTerms,
     ) -> Option<LocalTermExpectationEffect> {
-        match expectee.pattern(db, unresolved_terms) {
+        match expectee.pattern_inner(db, unresolved_terms) {
             LocalTermPattern::Literal(_) => todo!(),
             LocalTermPattern::TypeOntology {
                 path,

@@ -37,7 +37,7 @@ impl UnresolvedTerms {
         substitution_rules: &[ImplicitParameterSubstitution],
     ) -> LocalTerm {
         assert!(substitution_rules.len() > 0);
-        match term.pattern(db, self) {
+        match term.pattern_inner(db, self) {
             LocalTermPattern::Literal(_) => todo!(),
             LocalTermPattern::TypeOntology {
                 path,

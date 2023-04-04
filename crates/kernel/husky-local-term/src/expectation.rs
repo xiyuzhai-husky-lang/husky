@@ -65,7 +65,7 @@ pub trait ExpectLocalTerm: Into<LocalTermExpectation> + Clone {
         unresolved_terms: &UnresolvedTerms,
     ) -> Option<LocalTermPattern> {
         self.destination()
-            .map(|destination| destination.pattern(db, unresolved_terms))
+            .map(|destination| destination.pattern_inner(db, unresolved_terms))
     }
 }
 

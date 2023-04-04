@@ -39,6 +39,16 @@ pub(crate) struct ExprTypeEngine<'a> {
     self_ty: Option<Term>,
 }
 
+impl<'a> LocalTermEngine<'a> for ExprTypeEngine<'a> {
+    fn db(&self) -> &'a dyn TermDb {
+        self.db
+    }
+
+    fn unresolved_terms(&self) -> &UnresolvedTerms {
+        self.local_term_region.unresolved_terms()
+    }
+}
+
 impl<'a> std::ops::Index<ExprIdx> for ExprTypeEngine<'a> {
     type Output = Expr;
 

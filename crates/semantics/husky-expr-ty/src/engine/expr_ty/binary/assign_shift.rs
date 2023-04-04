@@ -16,7 +16,7 @@ impl<'a> ExprTypeEngine<'a> {
         };
         let lopd_ty_unravelled =
             lopd_ty.unravel_borrow(self.db,self. local_term_region.unresolved_terms());
-        match lopd_ty_unravelled.pattern(self.db, self.local_term_region.unresolved_terms()) {
+        match lopd_ty_unravelled.pattern(self) {
             LocalTermPattern::TypeOntology {
                 refined_path: Right(PreludeTypePath::Num(_)),
                 ..
@@ -29,7 +29,7 @@ impl<'a> ExprTypeEngine<'a> {
                 if let Some(ropd_ty) =
                     self.infer_new_expr_ty(ropd, ExpectAnyOriginal,  )
                 {
-                    match ropd_ty.pattern(self.db, self.local_term_region.unresolved_terms()) {
+                    match ropd_ty.pattern(self) {
                         LocalTermPattern::Literal(_) => todo!(),
                         LocalTermPattern::TypeOntology {
                             refined_path: Right(PreludeTypePath::Num(PreludeNumTypePath::Int(_))),
