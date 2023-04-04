@@ -8,6 +8,7 @@ mod method;
 mod prefix;
 mod ritchie_call_ty;
 mod suffix;
+mod utils;
 
 use super::*;
 use husky_opn_syntax::*;
@@ -52,7 +53,7 @@ impl<'a> ExprTypeEngine<'a> {
     {
         let expectation_idx =
             self.infer_new_expr_ty_aux(expr_idx, expr_ty_expectation, local_term_region);
-        self.resolve_as_much_as_possible(LocalTermResolveLevel::Weak, local_term_region);
+        local_term_region.resolve_as_much_as_possible(self.db(), LocalTermResolveLevel::Weak);
         let outcome = match expectation_idx.into_option() {
             Some(expectation_idx) => local_term_region[expectation_idx]
                 .resolve_progress()
@@ -78,7 +79,7 @@ impl<'a> ExprTypeEngine<'a> {
             _ => Default::default(),
         };
         self.save_new_expr_ty(expr_idx, ExprTypeInfo::new(ty_result, expectation_idx));
-        self.resolve_as_much_as_possible(LocalTermResolveLevel::Weak, local_term_region);
+        local_term_region.resolve_as_much_as_possible(self.db(), LocalTermResolveLevel::Weak);
         expectation_idx
     }
 
@@ -323,9 +324,7 @@ impl<'a> ExprTypeEngine<'a> {
                             for item in items {
                                 self.infer_new_expr_ty_discarded(
                                     item,
-                                    ExpectImplicitlyConvertible {
-                                        destination: element_ty,
-                                    },
+                                    ExpectImplicitlyConvertible::new_transient(element_ty),
                                     local_term_region,
                                 );
                             }
@@ -397,7 +396,7 @@ impl<'a> ExprTypeEngine<'a> {
         if let Some(implicit_arguments) = implicit_arguments {
             todo!()
         }
-        match expectation_ok.variant {
+        match expectation_ok.variant() {
             ExpectEqsFunctionTypeOutcomeVariant::Ritchie {
                 ritchie_kind,
                 parameter_liasoned_tys,
@@ -412,7 +411,7 @@ impl<'a> ExprTypeEngine<'a> {
                     ExprDisambiguation::ExplicitApplicationOrRitchieCall(
                         ApplicationOrRitchieCallExprDisambiguation::RitchieCall,
                     ),
-                    Ok(expectation_ok.return_ty),
+                    Ok(expectation_ok.return_ty()),
                 ))
             }
             ExpectEqsFunctionTypeOutcomeVariant::Curry { .. } => todo!(),

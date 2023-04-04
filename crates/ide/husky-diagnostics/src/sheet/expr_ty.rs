@@ -1,11 +1,8 @@
-use husky_expr::{ExprIdx, ExprRegion};
-use husky_expr_ty::{
-    ExprTermError, ExprTypeError, OriginalExprTermError, OriginalExprTypeError,
-    OriginalLocalTermExpectationError, OriginalLocalTermResolveError,
-};
-use salsa::{DebugWithDb, DisplayWithDb};
-
 use super::*;
+use husky_expr::{ExprIdx, ExprRegion};
+use husky_expr_ty::{ExprTermError, ExprTypeError, OriginalExprTermError, OriginalExprTypeError};
+use husky_local_term::*;
+use salsa::{DebugWithDb, DisplayWithDb};
 
 #[salsa::tracked(db = DiagnosticsDb, jar = DiagnosticsJar)]
 pub struct ExprTypeDiagnosticSheet {

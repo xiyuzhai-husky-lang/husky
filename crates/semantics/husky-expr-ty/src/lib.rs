@@ -5,7 +5,6 @@ mod db;
 mod engine;
 mod error;
 mod info;
-mod local_term;
 mod region;
 #[cfg(test)]
 mod tests;
@@ -13,7 +12,6 @@ mod tests;
 pub use self::db::*;
 pub use self::error::*;
 pub use self::info::*;
-pub use self::local_term::*;
 pub use self::region::*;
 
 use self::engine::*;
@@ -21,6 +19,7 @@ use either::*;
 use husky_defn::*;
 use husky_entity_path::*;
 use husky_entity_taxonomy::*;
+use husky_local_term::*;
 use husky_entity_tree::*;
 use husky_expr::*;
 use husky_signature::*;

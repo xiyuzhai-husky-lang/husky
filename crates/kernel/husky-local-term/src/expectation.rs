@@ -3,20 +3,18 @@ mod any_original;
 mod eqs_category;
 mod eqs_exactly;
 mod eqs_function_ty;
-mod eqs_ref_mut_application;
 mod explicitly_convertible;
 mod implicitly_convertible;
 mod ins_sort;
 
-pub(crate) use self::any_derived::*;
-pub(crate) use self::any_original::*;
-pub(crate) use self::eqs_category::*;
-pub(crate) use self::eqs_exactly::*;
-pub(crate) use self::eqs_function_ty::*;
-pub(crate) use self::eqs_ref_mut_application::*;
-pub(crate) use self::explicitly_convertible::*;
-pub(crate) use self::implicitly_convertible::*;
-pub(crate) use self::ins_sort::*;
+pub use self::any_derived::*;
+pub use self::any_original::*;
+pub use self::eqs_category::*;
+pub use self::eqs_exactly::*;
+pub use self::eqs_function_ty::*;
+pub use self::explicitly_convertible::*;
+pub use self::implicitly_convertible::*;
+pub use self::ins_sort::*;
 
 use super::*;
 use husky_print_utils::p;
@@ -24,7 +22,7 @@ use husky_ty_expectation::TypePathDisambiguation;
 use idx_arena::Arena;
 use thiserror::Error;
 
-pub(crate) trait ExpectLocalTerm: Into<LocalTermExpectation> + Clone {
+pub trait ExpectLocalTerm: Into<LocalTermExpectation> + Clone {
     type Outcome: Clone;
 
     fn retrieve_outcome(outcome: &LocalTermExpectationOutcome) -> &Self::Outcome;
@@ -99,13 +97,12 @@ pub struct LocalTermExpectationRule {
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = TermDb)]
 #[enum_class::from_variants]
-pub(crate) enum LocalTermExpectationOutcome {
+pub enum LocalTermExpectationOutcome {
     ExplicitlyConvertible(ExpectExplicitlyConvertibleOutcome),
     ImplicitlyConvertible(ImplicitConversion),
     InsSort(ExpectInsSortOutcome),
     EqsSort(TermUniverse),
     EqsExactly(ExpectSubtypeOutcome),
-    EqsRefMutApplication(ExpectEqsRefMutApplicationOutcome),
     EqsRitchieCallType(ExpectEqsFunctionTypeOutcome),
 }
 
@@ -117,7 +114,6 @@ impl LocalTermExpectationOutcome {
             LocalTermExpectationOutcome::InsSort(result) => result.resolved(),
             LocalTermExpectationOutcome::EqsSort(_) => todo!(),
             LocalTermExpectationOutcome::EqsExactly(result) => result.resolved(),
-            LocalTermExpectationOutcome::EqsRefMutApplication(_) => todo!(),
             LocalTermExpectationOutcome::EqsRitchieCallType(_) => todo!(),
         }
     }
@@ -125,13 +121,13 @@ impl LocalTermExpectationOutcome {
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = TermDb)]
-pub(crate) enum LocalTermExpectationResolveProgress {
+pub enum LocalTermExpectationResolveProgress {
     Unresolved,
     Resolved(LocalTermExpectationResult<LocalTermExpectationOutcome>),
 }
 
 impl LocalTermExpectationResolveProgress {
-    pub(crate) fn outcome<E: ExpectLocalTerm>(&self) -> Option<&E::Outcome> {
+    pub fn outcome<E: ExpectLocalTerm>(&self) -> Option<&E::Outcome> {
         match self {
             LocalTermExpectationResolveProgress::Unresolved => None,
             LocalTermExpectationResolveProgress::Resolved(Ok(outcome)) => {
@@ -184,7 +180,7 @@ pub enum DerivedLocalTermExpectationError {
 
 impl LocalTermExpectationResolveProgress {
     // it will use derived type error
-    pub(crate) fn duplicate(&self, src: LocalTermExpectationIdx) -> Self {
+    pub fn duplicate(&self, src: LocalTermExpectationIdx) -> Self {
         match self {
             LocalTermExpectationResolveProgress::Unresolved => {
                 LocalTermExpectationResolveProgress::Unresolved
@@ -216,7 +212,7 @@ impl LocalTermExpectationRule {
         &self.expectation
     }
 
-    pub(crate) fn resolve_progress(&self) -> &LocalTermExpectationResolveProgress {
+    pub fn resolve_progress(&self) -> &LocalTermExpectationResolveProgress {
         &self.resolve_progress
     }
 
@@ -307,7 +303,7 @@ impl LocalTermExpectations {
 }
 
 impl LocalTermRegion {
-    pub(crate) fn add_expectation_rule(
+    pub fn add_expectation_rule(
         &mut self,
         src_expr_idx: ExprIdx,
         expectee: LocalTerm,
@@ -346,9 +342,6 @@ impl LocalTermExpectationRule {
                 expectation.resolve(db, self.expectee, unresolved_terms)
             }
             LocalTermExpectation::FrameVariableType => todo!(),
-            LocalTermExpectation::EqsRefMutApplication(ref expectation) => {
-                expectation.resolve(db, unresolved_terms, self.expectee)
-            }
             LocalTermExpectation::EqsFunctionType(ref expectation) => {
                 expectation.resolve(db, self.src_expr_idx, self.expectee, unresolved_terms)
             }
@@ -368,14 +361,13 @@ impl LocalTermExpectationRule {
 #[non_exhaustive]
 #[salsa::derive_debug_with_db(db = TermDb)]
 #[enum_class::from_variants]
-pub(crate) enum LocalTermExpectation {
+pub enum LocalTermExpectation {
     ExplicitlyConvertible(ExpectExplicitlyConvertible),
     ImplicitlyConvertible(ExpectImplicitlyConvertible),
     /// expect term to be an instance of Type u for some universe
     InsSort(ExpectInsSort),
     EqsSort(ExpectEqsCategory),
     FrameVariableType,
-    EqsRefMutApplication(ExpectEqsRefMutApplication),
     EqsExactly(ExpectSubtype),
     EqsFunctionType(ExpectEqsFunctionType),
     AnyOriginal(ExpectAnyOriginal),

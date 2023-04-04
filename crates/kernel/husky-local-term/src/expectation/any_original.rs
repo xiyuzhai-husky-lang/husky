@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub(crate) struct ExpectAnyOriginal;
+pub struct ExpectAnyOriginal;
 
 impl ExpectLocalTerm for ExpectAnyOriginal {
     type Outcome = LocalTerm;

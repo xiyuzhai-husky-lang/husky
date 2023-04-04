@@ -116,17 +116,13 @@ impl<'a> ExprTypeEngine<'a> {
                 ),
                 ExprRootKind::Trait => self.infer_new_expr_ty_discarded(
                     root.expr(),
-                    ExpectSubtype {
-                        expected: self.term_menu.trai_ty_ontology().into(),
-                    },
+                    ExpectAnyOriginal,
                     local_term_region,
                 ),
                 ExprRootKind::BlockExpr => match self.return_ty {
                     Some(return_ty) => self.infer_new_expr_ty_discarded(
                         root.expr(),
-                        ExpectImplicitlyConvertible {
-                            destination: return_ty.into(),
-                        },
+                        ExpectImplicitlyConvertible::new_transient(return_ty.into()),
                         local_term_region,
                     ),
                     None => self.infer_new_expr_ty_discarded(
@@ -150,7 +146,7 @@ impl<'a> ExprTypeEngine<'a> {
         //     print_debug_expr!(self, expr_idx);
         //     assert!(self.expr_ty_infos.has(expr_idx))
         // }
-        self.finalize_unresolved_term_table(&mut local_term_region);
+        local_term_region.finalize_unresolved_term_table(self.db());
         ExprTypeRegion::new(
             self.db,
             self.expr_region_data.path(),
