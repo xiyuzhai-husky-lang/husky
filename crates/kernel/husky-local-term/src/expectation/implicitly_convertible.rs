@@ -10,12 +10,30 @@ pub enum ImplicitConversion {
 /// expect a type that is implicitly convertible to dst
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = TermDb)]
-pub(crate) struct ExpectImplicitlyConvertible {
+pub struct ExpectImplicitlyConvertible {
     pub(crate) destination: LocalTerm,
 }
 
 impl ExpectImplicitlyConvertible {
-    pub(in super::super) fn try_substitute_unresolved_local_term<'a>(
+    // todo: redo, take care!
+    #[inline(always)]
+    pub fn new(parameter_liasoned_ty: LocalTermRitchieParameterLiasonedType) -> Self {
+        Self {
+            destination: parameter_liasoned_ty.ty(),
+        }
+    }
+
+    #[inline(always)]
+    pub fn new_transient(ty: LocalTerm) -> Self {
+        Self { destination: ty }
+    }
+
+    #[inline(always)]
+    pub fn new_ad_hoc(ty: LocalTerm) -> Self {
+        Self { destination: ty }
+    }
+
+    pub(crate) fn try_substitute_unresolved_local_term<'a>(
         &self,
         unresolved_terms: &'a UnresolvedTerms,
     ) -> Result<Option<LocalTermExpectation>, &'a LocalTermResolveError> {

@@ -9,11 +9,10 @@ mod utils;
 use husky_print_utils::p;
 
 pub use self::expectation::*;
+pub use self::pattern::*;
 pub use self::progress::*;
-
-pub(crate) use self::pattern::*;
-pub(crate) use self::region::*;
-pub(crate) use self::unresolved::*;
+pub use self::region::*;
+pub use self::unresolved::*;
 
 use either::*;
 use husky_entity_path::*;
@@ -39,7 +38,7 @@ impl LocalTerm {
         }
     }
 
-    pub(crate) fn new_application(
+    pub fn new_application(
         db: &dyn TermDb,
         src_expr_idx: ExprIdx,
         function: impl Into<LocalTerm>,
@@ -99,11 +98,7 @@ impl LocalTerm {
         }
     }
 
-    pub(crate) fn unravel_borrow(
-        self,
-        db: &dyn TermDb,
-        unresolved_terms: &UnresolvedTerms,
-    ) -> Self {
+    pub fn unravel_borrow(self, db: &dyn TermDb, unresolved_terms: &UnresolvedTerms) -> Self {
         match self.pattern(db, unresolved_terms) {
             LocalTermPattern::TypeOntology {
                 refined_path: Right(PreludeTypePath::Borrow(path)),

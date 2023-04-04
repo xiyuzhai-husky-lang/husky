@@ -29,9 +29,7 @@ impl<'a> ExprTypeEngine<'a> {
             ) => {
                 self.infer_new_expr_ty(
                     ropd,
-                    ExpectImplicitlyConvertible {
-                        destination: lopd_ty_unravelled,
-                    },
+                    ExpectImplicitlyConvertible::new_ad_hoc(lopd_ty_unravelled),
                     local_term_region,
                 );
                 Ok(lopd_ty_unravelled)

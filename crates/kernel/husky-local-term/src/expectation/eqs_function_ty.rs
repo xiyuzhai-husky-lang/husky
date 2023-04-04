@@ -2,12 +2,12 @@ use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = TermDb)]
-pub(crate) struct ExpectEqsFunctionType {
+pub struct ExpectEqsFunctionType {
     final_destination: FinalDestination,
 }
 
 impl ExpectEqsFunctionType {
-    pub(crate) fn new(final_destination: FinalDestination) -> Self {
+    pub fn new(final_destination: FinalDestination) -> Self {
         Self { final_destination }
     }
 }
@@ -38,15 +38,25 @@ impl ExpectLocalTerm for ExpectEqsFunctionType {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = TermDb)]
-pub(crate) struct ExpectEqsFunctionTypeOutcome {
+pub struct ExpectEqsFunctionTypeOutcome {
     pub(crate) implicit_parameter_substitutions: SmallVec<[ImplicitParameterSubstitution; 2]>,
     pub(crate) return_ty: LocalTerm,
     pub(crate) variant: ExpectEqsFunctionTypeOutcomeVariant,
 }
 
+impl ExpectEqsFunctionTypeOutcome {
+    pub fn variant(&self) -> &ExpectEqsFunctionTypeOutcomeVariant {
+        &self.variant
+    }
+
+    pub fn return_ty(&self) -> LocalTerm {
+        self.return_ty
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = TermDb)]
-pub(crate) enum ExpectEqsFunctionTypeOutcomeVariant {
+pub enum ExpectEqsFunctionTypeOutcomeVariant {
     Ritchie {
         ritchie_kind: TermRitchieKind,
         parameter_liasoned_tys: Vec<LocalTermRitchieParameterLiasonedType>,

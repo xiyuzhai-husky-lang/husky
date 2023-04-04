@@ -3,12 +3,16 @@ use super::*;
 /// expect a type that is explicitly convertible to dst
 #[derive(Debug, Clone, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = TermDb)]
-pub(crate) struct ExpectExplicitlyConvertible {
+pub struct ExpectExplicitlyConvertible {
     pub(crate) destination: LocalTerm,
 }
 
 impl ExpectExplicitlyConvertible {
-    pub(in super::super) fn try_substitute_unresolved_local_term<'a>(
+    pub fn new(destination: LocalTerm) -> Self {
+        Self { destination }
+    }
+
+    pub(crate) fn try_substitute_unresolved_local_term<'a>(
         &self,
         unresolved_terms: &'a UnresolvedTerms,
     ) -> Result<Option<LocalTermExpectation>, &'a LocalTermResolveError> {
@@ -21,7 +25,7 @@ impl ExpectExplicitlyConvertible {
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = TermDb)]
-pub(crate) struct ExpectExplicitlyConvertibleOutcome {
+pub struct ExpectExplicitlyConvertibleOutcome {
     destination: LocalTerm,
 }
 

@@ -9,7 +9,7 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = TermDb)]
-pub(crate) enum UnresolvedTerm {
+pub enum UnresolvedTerm {
     ImplicitSymbol(ImplicitSymbol),
     TypeOntology {
         path: TypePath,
@@ -29,7 +29,7 @@ pub struct LocalTermRitchieParameterLiasonedType {
 }
 
 impl LocalTermRitchieParameterLiasonedType {
-    pub(crate) fn ty(self) -> LocalTerm {
+    pub fn ty(self) -> LocalTerm {
         self.ty
     }
 }
@@ -50,22 +50,22 @@ impl From<&TermRitchieParameterLiasonedType> for LocalTermRitchieParameterLiason
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub(crate) struct ImplicitSymbol {
+pub struct ImplicitSymbol {
     idx: ImplicitSymbolIdx,
     src_expr_idx: ExprIdx,
     variant: ImplicitSymbolVariant,
 }
 
 impl ImplicitSymbol {
-    pub(crate) fn src_expr_idx(&self) -> ExprIdx {
+    pub fn src_expr_idx(&self) -> ExprIdx {
         self.src_expr_idx
     }
 
-    pub(crate) fn variant(&self) -> &ImplicitSymbolVariant {
+    pub fn variant(&self) -> &ImplicitSymbolVariant {
         &self.variant
     }
 
-    pub(crate) fn kind(&self) -> ImplicitSymbolKind {
+    pub fn kind(&self) -> ImplicitSymbolKind {
         self.variant.kind()
     }
 }
@@ -189,7 +189,7 @@ impl UnresolvedTermEntry {
         self.src_expr_idx
     }
 
-    pub(crate) fn unresolved_term(&self) -> &UnresolvedTerm {
+    pub fn unresolved_term(&self) -> &UnresolvedTerm {
         &self.unresolved_term
     }
 
@@ -377,7 +377,6 @@ impl UnresolvedTerms {
             }
             LocalTermExpectation::EqsSort(_) => Ok(None),
             LocalTermExpectation::FrameVariableType => todo!(),
-            LocalTermExpectation::EqsRefMutApplication(_) => todo!(),
             LocalTermExpectation::EqsFunctionType(_) => todo!(),
             LocalTermExpectation::InsSort(_) => Ok(None),
             LocalTermExpectation::EqsExactly(_) => todo!(),

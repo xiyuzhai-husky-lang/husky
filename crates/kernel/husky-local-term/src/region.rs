@@ -18,7 +18,7 @@ impl LocalTermRegion {
         &self.expectations
     }
 
-    pub(crate) fn new_implicit_symbol(
+    pub fn new_implicit_symbol(
         &mut self,
         src_expr_idx: ExprIdx,
         variant: ImplicitSymbolVariant,
@@ -27,7 +27,7 @@ impl LocalTermRegion {
             .new_implicit_symbol(src_expr_idx, variant)
     }
 
-    pub(crate) fn intern_unresolved_term(
+    pub fn intern_unresolved_term(
         &mut self,
         src_expr_idx: ExprIdx,
         unresolved_term: UnresolvedTerm,
@@ -37,8 +37,8 @@ impl LocalTermRegion {
     }
 }
 
-pub(crate) type LocalTermExpectationIdx = ArenaIdx<LocalTermExpectationRule>;
-pub(crate) type OptionLocalTermExpectationIdx = OptionArenaIdx<LocalTermExpectationRule>;
+pub type LocalTermExpectationIdx = ArenaIdx<LocalTermExpectationRule>;
+pub type OptionLocalTermExpectationIdx = OptionArenaIdx<LocalTermExpectationRule>;
 
 impl std::ops::Index<UnresolvedTermIdx> for LocalTermRegion {
     type Output = UnresolvedTermEntry;
@@ -108,7 +108,7 @@ impl LocalTermRegion {
         }
     }
 
-    pub(crate) fn finalize_unresolved_term_table(&mut self, db: &dyn TermDb) {
+    pub fn finalize_unresolved_term_table(&mut self, db: &dyn TermDb) {
         self.resolve_as_much_as_possible(db, LocalTermResolveLevel::Strong);
         // ad hoc
         // todo!()

@@ -109,9 +109,7 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> Result<LocalTerm, ExprTypeError> {
         self.infer_new_expr_ty_discarded(
             ropd,
-            ExpectEqsCategory {
-                smallest_universe: 0.into(),
-            },
+            ExpectEqsCategory::new_any_sort(),
             local_term_region,
         );
         let Some(ropd_term) = self.infer_new_expr_term(ropd, local_term_region)
@@ -120,9 +118,7 @@ impl<'a> ExprTypeEngine<'a> {
             };
         self.infer_new_expr_ty_discarded(
             lopd,
-            ExpectExplicitlyConvertible {
-                destination: ropd_term,
-            },
+            ExpectExplicitlyConvertible::new(ropd_term),
             local_term_region,
         );
         Ok(ropd_term)
@@ -134,9 +130,7 @@ impl<'a> ExprTypeEngine<'a> {
         ropd: ExprIdx,
         local_term_region: &mut LocalTermRegion,
     ) -> Result<LocalTerm, ExprTypeError> {
-        let expect_any_sort = ExpectEqsCategory {
-            smallest_universe: 0.into(),
-        };
+        let expect_any_sort = ExpectEqsCategory::new_any_sort();
         let Some(lopd_universe) = self.infer_new_expr_ty_for_outcome(lopd, expect_any_sort, local_term_region)
             else {
                 return Err(DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred.into())
@@ -158,13 +152,7 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> Result<LocalTerm, ExprTypeError> {
         let expr_eval_lifetime = local_term_region
             .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
-        match self.infer_new_expr_ty_for_outcome(
-            lopd,
-            ExpectEqsRefMutApplication {
-                lifetime: expr_eval_lifetime,
-            },
-            local_term_region,
-        ) {
+        match self.infer_new_expr_ty_for_outcome(lopd, ExpectAnyOriginal, local_term_region) {
             Some(_) => todo!(),
             None => {
                 self.infer_new_expr_ty_discarded(ropd, ExpectAnyDerived, local_term_region);
@@ -183,13 +171,7 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> Result<LocalTerm, ExprTypeError> {
         let expr_eval_lifetime = local_term_region
             .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
-        match self.infer_new_expr_ty_for_outcome(
-            lopd,
-            ExpectEqsRefMutApplication {
-                lifetime: expr_eval_lifetime,
-            },
-            local_term_region,
-        ) {
+        match self.infer_new_expr_ty_for_outcome(lopd, ExpectAnyOriginal, local_term_region) {
             Some(_) => todo!(),
             None => {
                 self.infer_new_expr_ty_discarded(ropd, ExpectAnyDerived, local_term_region);
@@ -208,13 +190,7 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> Result<LocalTerm, ExprTypeError> {
         let expr_eval_lifetime = local_term_region
             .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
-        match self.infer_new_expr_ty_for_outcome(
-            lopd,
-            ExpectEqsRefMutApplication {
-                lifetime: expr_eval_lifetime,
-            },
-            local_term_region,
-        ) {
+        match self.infer_new_expr_ty_for_outcome(lopd, ExpectAnyOriginal, local_term_region) {
             Some(_) => todo!(),
             None => {
                 self.infer_new_expr_ty_discarded(ropd, ExpectAnyDerived, local_term_region);

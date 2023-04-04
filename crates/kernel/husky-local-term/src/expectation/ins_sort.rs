@@ -2,7 +2,7 @@ use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = TermDb)]
-pub(crate) struct ExpectInsSort {
+pub struct ExpectInsSort {
     smallest_universe: TermUniverse,
 }
 
@@ -44,7 +44,7 @@ impl ExpectInsSort {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = TermDb)]
-pub(crate) struct ExpectInsSortOutcome {
+pub struct ExpectInsSortOutcome {
     destination: LocalTerm,
 }
 

@@ -13,9 +13,7 @@ impl<'a> ExprTypeEngine<'a> {
         for item in items {
             self.infer_new_expr_ty_discarded(
                 item,
-                ExpectImplicitlyConvertible {
-                    destination: element_ty,
-                },
+                ExpectImplicitlyConvertible::new_transient(element_ty),
                 local_term_region,
             );
         }

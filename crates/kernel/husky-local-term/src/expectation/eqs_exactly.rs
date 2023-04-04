@@ -2,12 +2,12 @@ use super::*;
 
 /// expect term to be equal to `Type` i.e. `Sort 1`
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub(crate) struct ExpectSubtype {
+pub struct ExpectSubtype {
     pub(crate) expected: LocalTerm,
 }
 
 impl ExpectSubtype {
-    pub(crate) fn new(destination: LocalTerm) -> Self {
+    pub fn new(destination: LocalTerm) -> Self {
         Self {
             expected: destination,
         }
@@ -39,7 +39,7 @@ impl ExpectLocalTerm for ExpectSubtype {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub(crate) struct ExpectSubtypeOutcome {
+pub struct ExpectSubtypeOutcome {
     // todo: change this to option lifetime subtype constraint
 }
 

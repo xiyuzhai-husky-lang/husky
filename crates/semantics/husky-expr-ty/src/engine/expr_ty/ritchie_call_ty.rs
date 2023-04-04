@@ -22,9 +22,7 @@ impl<'a> ExprTypeEngine<'a> {
                 let nonself_parameter_liasoned_ty = nonself_parameter_liasoned_tys[i];
                 self.infer_new_expr_ty_discarded(
                     nonself_argument,
-                    ExpectImplicitlyConvertible {
-                        destination: nonself_parameter_liasoned_ty.ty(),
-                    },
+                    ExpectImplicitlyConvertible::new(nonself_parameter_liasoned_ty),
                     local_term_region,
                 );
             } else {

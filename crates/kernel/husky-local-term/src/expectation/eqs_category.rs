@@ -1,12 +1,22 @@
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub(crate) struct ExpectEqsCategory {
+pub struct ExpectEqsCategory {
     pub(crate) smallest_universe: TermUniverse,
 }
 
 impl ExpectEqsCategory {
-    pub(crate) fn new_expect_eqs_ty_kind() -> Self {
+    pub const ANY_SORT: Self = Self {
+        smallest_universe: TermUniverse::new(0),
+    };
+
+    pub fn new_any_sort() -> Self {
+        Self {
+            smallest_universe: TermUniverse::new(0),
+        }
+    }
+
+    pub fn new_expect_eqs_ty_kind() -> Self {
         Self {
             smallest_universe: TermUniverse::new(1),
         }
