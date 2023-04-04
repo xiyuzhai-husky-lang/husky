@@ -6,14 +6,12 @@ impl<'a> ExprTypeEngine<'a> {
         function: ExprIdx,
         argument: ExprIdx,
         final_destination: FinalDestination,
-        local_term_region: &mut LocalTermRegion,
     ) -> ExprTypeResult<LocalTerm> {
         let Some(function_ty_outcome) = self.infer_new_expr_ty_for_outcome(
             function,
-            ExpectEqsFunctionType::new(final_destination),
-            local_term_region,
+            ExpectEqsFunctionType::new(final_destination), 
         ) else {
-            self.infer_new_expr_ty_discarded(argument, ExpectAnyDerived, local_term_region);
+            self.infer_new_expr_ty_discarded(argument, ExpectAnyDerived,  );
             return Err(DerivedExprTypeError::ExplicitApplicationFunctionTypeNotInferred.into())
         };
         match function_ty_outcome.variant() {
@@ -24,8 +22,7 @@ impl<'a> ExprTypeEngine<'a> {
             } => {
                 self.infer_new_expr_ty_discarded(
                     argument,
-                    ExpectImplicitlyConvertible::new_transient(*parameter_ty),
-                    local_term_region,
+                    ExpectImplicitlyConvertible::new_transient(*parameter_ty), 
                 );
                 match parameter_symbol {
                     Some(_) => todo!(),
@@ -33,7 +30,7 @@ impl<'a> ExprTypeEngine<'a> {
                 }
             }
             ExpectEqsFunctionTypeOutcomeVariant::Ritchie { .. } => {
-                self.infer_new_expr_ty_discarded(argument, ExpectAnyDerived, local_term_region);
+                self.infer_new_expr_ty_discarded(argument, ExpectAnyDerived,  );
                 Err(todo!("expect curry"))
             }
         }

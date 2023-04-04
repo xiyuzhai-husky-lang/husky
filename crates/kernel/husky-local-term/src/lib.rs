@@ -40,10 +40,10 @@ impl LocalTerm {
 
     pub fn new_application(
         db: &dyn TermDb,
+        local_term_region: &mut LocalTermRegion,
         src_expr_idx: ExprIdx,
         function: impl Into<LocalTerm>,
         argument: impl Into<LocalTerm>,
-        local_term_region: &mut LocalTermRegion,
     ) -> TermResult<Self> {
         match (function.into(), argument.into()) {
             (LocalTerm::Resolved(function), LocalTerm::Resolved(argument)) => {

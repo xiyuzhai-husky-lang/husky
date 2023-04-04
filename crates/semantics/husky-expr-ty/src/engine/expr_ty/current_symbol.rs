@@ -7,7 +7,6 @@ impl<'a> ExprTypeEngine<'a> {
         expr_ty_expectation: &impl ExpectLocalTerm,
         current_symbol_idx: CurrentSymbolIdx,
         current_symbol_kind: CurrentSymbolKind,
-        local_term_region: &mut LocalTermRegion,
     ) -> ExprTypeResult<LocalTerm> {
         let current_symbol_ty = self
             .current_symbol_tys

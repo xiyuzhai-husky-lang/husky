@@ -5,7 +5,6 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         let_variable_pattern: &ExprResult<LetVariablesPattern>,
         initial_value: &ExprResult<ExprIdx>,
-        local_term_region: &mut LocalTermRegion,
     ) -> Option<LocalTerm> {
         let pattern_ty = match let_variable_pattern {
             Ok(pattern) => match pattern.ty() {
@@ -13,9 +12,8 @@ impl<'a> ExprTypeEngine<'a> {
                     self.infer_new_expr_ty_discarded(
                         ty,
                         ExpectEqsCategory::new_expect_eqs_ty_kind(),
-                        local_term_region,
                     );
-                    self.infer_new_expr_term(ty, local_term_region)
+                    self.infer_new_expr_term(ty)
                 }
                 None => None,
             },
@@ -28,7 +26,6 @@ impl<'a> ExprTypeEngine<'a> {
                         initial_value,
                         // ad hoc
                         ExpectImplicitlyConvertible::new_ad_hoc(ty),
-                        local_term_region,
                     )
                 });
             }
@@ -38,7 +35,6 @@ impl<'a> ExprTypeEngine<'a> {
                         initial_value,
                         // ad hoc
                         ExpectAnyOriginal,
-                        local_term_region,
                     )
                 });
             }

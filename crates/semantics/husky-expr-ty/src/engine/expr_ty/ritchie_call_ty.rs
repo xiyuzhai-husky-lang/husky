@@ -6,7 +6,6 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: ExprIdx,
         nonself_parameter_liasoned_tys: &[LocalTermRitchieParameterLiasonedType],
         nonself_arguments: ExprIdxRange,
-        local_term_region: &mut LocalTermRegion,
     ) {
         if nonself_parameter_liasoned_tys.len() != nonself_arguments.len() {
             self.add_expr_ty_error(
@@ -23,14 +22,9 @@ impl<'a> ExprTypeEngine<'a> {
                 self.infer_new_expr_ty_discarded(
                     nonself_argument,
                     ExpectImplicitlyConvertible::new(nonself_parameter_liasoned_ty),
-                    local_term_region,
                 );
             } else {
-                self.infer_new_expr_ty_discarded(
-                    nonself_argument,
-                    ExpectAnyDerived,
-                    local_term_region,
-                );
+                self.infer_new_expr_ty_discarded(nonself_argument, ExpectAnyDerived);
             }
         }
     }

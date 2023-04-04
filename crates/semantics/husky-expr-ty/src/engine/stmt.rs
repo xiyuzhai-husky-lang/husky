@@ -7,37 +7,30 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         stmts: StmtIdxRange,
         expr_expectation: impl ExpectLocalTerm,
-        local_term_region: &mut LocalTermRegion,
     ) -> Option<LocalTerm> {
         for stmt in stmts.start()..(stmts.end() - 1) {
-            self.infer_new_nonlast_stmt(stmt, local_term_region)
+            self.infer_new_nonlast_stmt(stmt)
         }
-        self.infer_new_last_stmt(stmts.end() - 1, expr_expectation, local_term_region)
+        self.infer_new_last_stmt(stmts.end() - 1, expr_expectation)
     }
 
-    fn infer_new_nonlast_stmt(
-        &mut self,
-        stmt_idx: StmtIdx,
-        local_term_region: &mut LocalTermRegion,
-    ) {
+    fn infer_new_nonlast_stmt(&mut self, stmt_idx: StmtIdx) {
         let expect_unit = self.expect_unit();
-        self.calc_stmt(stmt_idx, expect_unit, local_term_region);
+        self.calc_stmt(stmt_idx, expect_unit);
     }
 
     fn infer_new_last_stmt(
         &mut self,
         stmt_idx: StmtIdx,
         expr_expectation: impl ExpectLocalTerm,
-        local_term_region: &mut LocalTermRegion,
     ) -> Option<LocalTerm> {
-        self.calc_stmt(stmt_idx, expr_expectation, local_term_region)
+        self.calc_stmt(stmt_idx, expr_expectation)
     }
 
     fn calc_stmt(
         &mut self,
         stmt_idx: StmtIdx,
         expr_expectation: impl ExpectLocalTerm,
-        local_term_region: &mut LocalTermRegion,
     ) -> Option<LocalTerm> {
         match self.expr_region_data[stmt_idx] {
             Stmt::Let {
@@ -45,7 +38,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ref let_variable_pattern,
                 ref initial_value,
                 ..
-            } => self.calc_let_stmt(let_variable_pattern, initial_value, local_term_region),
+            } => self.calc_let_stmt(let_variable_pattern, initial_value),
             Stmt::Return { ref result, .. } => {
                 if let Ok(result) = result {
                     match self.return_ty {
@@ -53,15 +46,10 @@ impl<'a> ExprTypeEngine<'a> {
                             self.infer_new_expr_ty_discarded(
                                 *result,
                                 ExpectImplicitlyConvertible::new_ad_hoc(return_ty.into()),
-                                local_term_region,
                             );
                         }
                         None => {
-                            self.infer_new_expr_ty_discarded(
-                                *result,
-                                ExpectAnyDerived,
-                                local_term_region,
-                            );
+                            self.infer_new_expr_ty_discarded(*result, ExpectAnyDerived);
                         }
                     }
                 };
@@ -72,7 +60,6 @@ impl<'a> ExprTypeEngine<'a> {
                     self.infer_new_expr_ty_discarded(
                         *condition,
                         self.expect_implicitly_convertible_to_bool(),
-                        local_term_region,
                     );
                 };
                 Some(self.term_menu.unit().into())
@@ -82,15 +69,12 @@ impl<'a> ExprTypeEngine<'a> {
                     self.infer_new_expr_ty_discarded(
                         *condition,
                         self.expect_implicitly_convertible_to_bool(),
-                        local_term_region,
                     );
                 };
                 Some(self.term_menu.unit().into())
             }
             Stmt::Break { .. } => Some(self.term_menu.never().into()),
-            Stmt::Eval { expr_idx } => {
-                self.infer_new_expr_ty(expr_idx, expr_expectation, local_term_region)
-            }
+            Stmt::Eval { expr_idx } => self.infer_new_expr_ty(expr_idx, expr_expectation),
             Stmt::ForBetween {
                 ref particulars,
                 frame_var_symbol_idx,
@@ -99,7 +83,7 @@ impl<'a> ExprTypeEngine<'a> {
             } => {
                 let mut expected_frame_var_ty: Option<LocalTerm> = None;
                 if let Some(bound_expr) = particulars.range.initial_boundary.bound_expr {
-                    match self.infer_new_expr_ty(bound_expr, ExpectAnyOriginal, local_term_region) {
+                    match self.infer_new_expr_ty(bound_expr, ExpectAnyOriginal) {
                         Some(bound_expr_ty) => expected_frame_var_ty = Some(bound_expr_ty),
                         None => (),
                     }
@@ -110,15 +94,11 @@ impl<'a> ExprTypeEngine<'a> {
                             self.infer_new_expr_ty_discarded(
                                 bound_expr,
                                 ExpectImplicitlyConvertible::new_transient(expected_frame_var_ty),
-                                local_term_region,
                             );
                         }
                         None => {
-                            if let Some(ty) = self.infer_new_expr_ty(
-                                bound_expr,
-                                ExpectAnyOriginal,
-                                local_term_region,
-                            ) {
+                            if let Some(ty) = self.infer_new_expr_ty(bound_expr, ExpectAnyOriginal)
+                            {
                                 expected_frame_var_ty = Some(ty)
                             }
                         }
@@ -130,7 +110,7 @@ impl<'a> ExprTypeEngine<'a> {
                 }
                 if let Ok(block) = block {
                     let expr_expectation = self.expect_unit();
-                    self.infer_new_block(*block, expr_expectation, local_term_region);
+                    self.infer_new_block(*block, expr_expectation);
                 }
                 Some(self.term_menu.unit().into())
             }
@@ -143,7 +123,7 @@ impl<'a> ExprTypeEngine<'a> {
                 // ad hoc: handle for ext particulars
                 if let Ok(block) = block {
                     let expr_expectation = self.expect_unit();
-                    self.infer_new_block(*block, expr_expectation, local_term_region);
+                    self.infer_new_block(*block, expr_expectation);
                 }
                 Some(self.term_menu.unit().into())
             }
@@ -161,12 +141,11 @@ impl<'a> ExprTypeEngine<'a> {
                     self.infer_new_expr_ty_discarded(
                         condition,
                         self.expect_implicitly_convertible_to_bool(),
-                        local_term_region,
                     )
                 });
                 block.as_ref().copied().map(|block| {
                     let expect_unit = self.expect_unit();
-                    self.infer_new_block(block, expect_unit, local_term_region)
+                    self.infer_new_block(block, expect_unit)
                 });
                 Some(self.term_menu.unit().into())
             }
@@ -179,7 +158,6 @@ impl<'a> ExprTypeEngine<'a> {
                 elif_branches,
                 else_branch.as_ref(),
                 expr_expectation,
-                local_term_region,
             ),
             Stmt::Match { .. } => {
                 // todo: match
@@ -195,29 +173,23 @@ impl<'a> ExprTypeEngine<'a> {
         elif_branches: &[ElifBranch],
         else_branch: Option<&ElseBranch>,
         expr_expectation: impl ExpectLocalTerm,
-        local_term_region: &mut LocalTermRegion,
     ) -> Option<LocalTerm> {
         let mut branch_tys = BranchTypes::new(expr_expectation);
         if_branch.condition.as_ref().copied().map(|condition| {
-            self.infer_new_expr_ty(
-                condition,
-                self.expect_implicitly_convertible_to_bool(),
-                local_term_region,
-            )
+            self.infer_new_expr_ty(condition, self.expect_implicitly_convertible_to_bool())
         });
-        branch_tys.visit_branch(self, &if_branch.block, local_term_region);
+        branch_tys.visit_branch(self, &if_branch.block);
         for elif_branch in elif_branches {
             elif_branch.condition.as_ref().copied().map(|condition| {
                 self.infer_new_expr_ty_discarded(
                     condition,
                     self.expect_implicitly_convertible_to_bool(),
-                    local_term_region,
                 )
             });
-            branch_tys.visit_branch(self, &elif_branch.block, local_term_region);
+            branch_tys.visit_branch(self, &elif_branch.block);
         }
         if let Some(else_branch) = else_branch {
-            branch_tys.visit_branch(self, &else_branch.block, local_term_region);
+            branch_tys.visit_branch(self, &else_branch.block);
         }
         // exhaustive iff else branch exists
         branch_tys.merge(else_branch.is_some(), &self.term_menu)
@@ -241,18 +213,9 @@ impl<Expectation: ExpectLocalTerm> BranchTypes<Expectation> {
         }
     }
 
-    fn visit_branch(
-        &mut self,
-        engine: &mut ExprTypeEngine,
-        block: &ExprResult<StmtIdxRange>,
-        local_term_region: &mut LocalTermRegion,
-    ) {
+    fn visit_branch(&mut self, engine: &mut ExprTypeEngine, block: &ExprResult<StmtIdxRange>) {
         match block {
-            Ok(stmts) => match engine.infer_new_block(
-                *stmts,
-                self.expr_expectation.clone(),
-                local_term_region,
-            ) {
+            Ok(stmts) => match engine.infer_new_block(*stmts, self.expr_expectation.clone()) {
                 Some(LocalTerm::Resolved(new_block_ty))
                     if new_block_ty == engine.term_menu.never() =>
                 {

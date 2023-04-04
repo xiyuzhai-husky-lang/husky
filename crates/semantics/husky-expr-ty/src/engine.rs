@@ -27,6 +27,7 @@ pub(crate) struct ExprTypeEngine<'a> {
     token_sheet_data: &'a TokenSheetData,
     expr_region_data: &'a ExprRegionData,
     signature_term_region: &'a SignatureRegion,
+    local_term_region: LocalTermRegion,
     expr_ty_infos: ExprMap<ExprTypeInfo>,
     extra_expr_errors: Vec<(ExprIdx, ExprTypeError)>,
     expr_terms: ExprMap<ExprTermResult<LocalTerm>>,
@@ -84,6 +85,7 @@ impl<'a> ExprTypeEngine<'a> {
                 .unwrap(),
             expr_region_data,
             signature_term_region: db.signature_term_region(expr_region),
+            local_term_region: Default::default(),
             expr_ty_infos: ExprMap::new(expr_region_data.expr_arena()),
             extra_expr_errors: vec![],
             expr_terms: ExprMap::new(expr_region_data.expr_arena()),
@@ -98,12 +100,12 @@ impl<'a> ExprTypeEngine<'a> {
         }
     }
 
-    pub(crate) fn infer_all(&mut self, local_term_region: &mut LocalTermRegion) {
+    pub(crate) fn infer_all(&mut self) {
         self.infer_all_parameter_symbols();
-        self.infer_all_exprs(local_term_region);
+        self.infer_all_exprs();
     }
 
-    fn infer_all_exprs(&mut self, local_term_region: &mut LocalTermRegion) {
+    fn infer_all_exprs(&mut self) {
         for root in self.expr_region_data.roots() {
             match root.kind() {
                 ExprRootKind::SelfType
@@ -112,24 +114,16 @@ impl<'a> ExprTypeEngine<'a> {
                 | ExprRootKind::FieldType => self.infer_new_expr_ty_discarded(
                     root.expr(),
                     ExpectEqsCategory::new_expect_eqs_ty_kind(),
-                    local_term_region,
                 ),
-                ExprRootKind::Trait => self.infer_new_expr_ty_discarded(
-                    root.expr(),
-                    ExpectAnyOriginal,
-                    local_term_region,
-                ),
+                ExprRootKind::Trait => {
+                    self.infer_new_expr_ty_discarded(root.expr(), ExpectAnyOriginal)
+                }
                 ExprRootKind::BlockExpr => match self.return_ty {
                     Some(return_ty) => self.infer_new_expr_ty_discarded(
                         root.expr(),
                         ExpectImplicitlyConvertible::new_transient(return_ty.into()),
-                        local_term_region,
                     ),
-                    None => self.infer_new_expr_ty_discarded(
-                        root.expr(),
-                        ExpectAnyDerived,
-                        local_term_region,
-                    ),
+                    None => self.infer_new_expr_ty_discarded(root.expr(), ExpectAnyDerived),
                 },
             };
         }
@@ -140,13 +134,14 @@ impl<'a> ExprTypeEngine<'a> {
             .push((expr_idx, expr_ty_error.into()))
     }
 
-    pub(crate) fn finish(mut self, mut local_term_region: LocalTermRegion) -> ExprTypeRegion {
+    pub(crate) fn finish(mut self) -> ExprTypeRegion {
         // ad hoc, todo: enforce this
         // for expr_idx in self.expr_region_data.expr_arena().index_iter() {
         //     print_debug_expr!(self, expr_idx);
         //     assert!(self.expr_ty_infos.has(expr_idx))
         // }
-        local_term_region.finalize_unresolved_term_table(self.db());
+        self.local_term_region
+            .finalize_unresolved_term_table(self.db());
         ExprTypeRegion::new(
             self.db,
             self.expr_region_data.path(),
@@ -155,7 +150,7 @@ impl<'a> ExprTypeEngine<'a> {
             self.expr_terms,
             self.inherited_symbol_tys,
             self.current_symbol_tys,
-            local_term_region,
+            self.local_term_region,
             self.return_ty,
             self.self_ty,
         )
