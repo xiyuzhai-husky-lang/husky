@@ -39,7 +39,7 @@ impl UnresolvedTerms {
             .new_implicit_symbol(src_expr_idx, variant);
         self.alloc_unresolved_term(
             src_expr_idx,
-            UnresolvedTerm::ImplicitSymbol(new_implicit_symbol),
+            LocalTermData::ImplicitSymbol(new_implicit_symbol),
         )
     }
 

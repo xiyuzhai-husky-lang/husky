@@ -30,7 +30,7 @@ impl LocalTermRegion {
     pub fn intern_unresolved_term(
         &mut self,
         src_expr_idx: ExprIdx,
-        unresolved_term: UnresolvedTerm,
+        unresolved_term: LocalTermData,
     ) -> LocalTerm {
         self.unresolved_terms
             .intern_unresolved_term(src_expr_idx, unresolved_term)

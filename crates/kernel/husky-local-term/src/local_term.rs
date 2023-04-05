@@ -1,9 +1,11 @@
 mod implicit_symbol;
 mod qualified_ty;
+mod richie;
 mod substitution;
 
 pub use self::implicit_symbol::*;
 pub use self::qualified_ty::*;
+pub use self::richie::*;
 
 pub(crate) use self::substitution::*;
 
@@ -13,47 +15,18 @@ use vec_like::VecSet;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = TermDb)]
-pub enum UnresolvedTerm {
+#[enum_class::from_variants]
+pub enum LocalTermData {
     ImplicitSymbol(ImplicitSymbol),
     TypeOntology {
         path: TypePath,
         arguments: SmallVec<[LocalTerm; 2]>,
     },
-    Ritchie {
-        ritchie_kind: TermRitchieKind,
-        parameter_tys: Vec<LocalTermRitchieParameterLiasonedType>,
-        return_ty: LocalTerm,
-    },
+    Ritchie(LocalTermRitchie),
     Qualified {
         qual: Qual,
+        base_ty: LocalTerm,
     },
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = TermDb)]
-pub struct LocalTermRitchieParameterLiasonedType {
-    ty: LocalTerm,
-}
-
-impl LocalTermRitchieParameterLiasonedType {
-    pub fn ty(self) -> LocalTerm {
-        self.ty
-    }
-}
-
-impl From<TermRitchieParameterLiasonedType> for LocalTermRitchieParameterLiasonedType {
-    fn from(liasoned_ty: TermRitchieParameterLiasonedType) -> Self {
-        Self {
-            ty: liasoned_ty.ty().into(),
-        }
-    }
-}
-impl From<&TermRitchieParameterLiasonedType> for LocalTermRitchieParameterLiasonedType {
-    fn from(liasoned_ty: &TermRitchieParameterLiasonedType) -> Self {
-        Self {
-            ty: liasoned_ty.ty().into(),
-        }
-    }
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -158,7 +131,7 @@ impl UnresolvedTerms {
 #[derive(Debug, PartialEq, Eq)]
 pub struct UnresolvedTermEntry {
     src_expr_idx: ExprIdx,
-    unresolved_term: UnresolvedTerm,
+    unresolved_term: LocalTermData,
     implicit_symbol_dependencies: VecSet<UnresolvedTermIdx>,
     resolve_progress: LocalTermResolveResult<LocalTerm>,
 }
@@ -168,7 +141,7 @@ impl UnresolvedTermEntry {
         self.src_expr_idx
     }
 
-    pub fn unresolved_term(&self) -> &UnresolvedTerm {
+    pub fn unresolved_term(&self) -> &LocalTermData {
         &self.unresolved_term
     }
 
@@ -198,7 +171,7 @@ impl UnresolvedTerms {
     pub(super) fn intern_unresolved_term(
         &mut self,
         src_expr_idx: ExprIdx,
-        unresolved_term: UnresolvedTerm,
+        unresolved_term: LocalTermData,
     ) -> LocalTerm {
         // todo: check that unresolved_term is indeed unresolved;
         // if not, return reduced term
@@ -216,7 +189,7 @@ impl UnresolvedTerms {
     fn alloc_unresolved_term(
         &mut self,
         src_expr_idx: ExprIdx,
-        unresolved_term: UnresolvedTerm,
+        unresolved_term: LocalTermData,
     ) -> UnresolvedTermIdx {
         let idx = UnresolvedTermIdx(self.data.len());
         let implicit_symbol_dependencies =
@@ -232,35 +205,27 @@ impl UnresolvedTerms {
 
     fn extract_implicit_symbol_dependencies(
         &self,
-        unresolved_term: &UnresolvedTerm,
+        unresolved_term: &LocalTermData,
     ) -> VecSet<UnresolvedTermIdx> {
         let mut dependencies: VecSet<UnresolvedTermIdx> = Default::default();
         let mut f = |term: LocalTerm| {
-            self.extract_local_term_implicit_symbol_dependencies(term, &mut dependencies)
+            self.extract_implicit_symbol_dependencies_aux(term, &mut dependencies)
         };
         match unresolved_term {
-            UnresolvedTerm::ImplicitSymbol(_) => (),
-            UnresolvedTerm::TypeOntology {
+            LocalTermData::ImplicitSymbol(_) => (),
+            LocalTermData::TypeOntology {
                 path: ty,
                 arguments,
             } => arguments.iter().copied().for_each(f),
-            UnresolvedTerm::Ritchie {
-                ritchie_kind,
-                parameter_tys,
-                return_ty,
-            } => {
-                f(*return_ty);
-                parameter_tys
-                    .iter()
-                    .map(|parameter_ty| parameter_ty.ty)
-                    .for_each(f);
+            LocalTermData::Ritchie(term) => {
+                term.extract_implicit_symbol_dependencies(self, &mut dependencies)
             }
-            UnresolvedTerm::Qualified { .. } => todo!(),
+            LocalTermData::Qualified { base_ty, .. } => todo!(),
         }
         dependencies
     }
 
-    fn extract_local_term_implicit_symbol_dependencies(
+    fn extract_implicit_symbol_dependencies_aux(
         &self,
         local_term: impl Into<LocalTerm>,
         dependencies: &mut VecSet<UnresolvedTermIdx>,
@@ -271,7 +236,7 @@ impl UnresolvedTerms {
             LocalTerm::Unresolved(unresolved_term) => {
                 let unresolved_term_entry = &self[unresolved_term];
                 match unresolved_term_entry.unresolved_term {
-                    UnresolvedTerm::ImplicitSymbol(_) => dependencies.insert(unresolved_term),
+                    LocalTermData::ImplicitSymbol(_) => dependencies.insert(unresolved_term),
                     _ => dependencies.extend(&unresolved_term_entry.implicit_symbol_dependencies),
                 }
             }
@@ -283,7 +248,7 @@ impl UnresolvedTerms {
         local_term: impl Into<LocalTerm>,
     ) -> VecSet<UnresolvedTermIdx> {
         let mut dependencies: VecSet<UnresolvedTermIdx> = Default::default();
-        self.extract_local_term_implicit_symbol_dependencies(local_term, &mut dependencies);
+        self.extract_implicit_symbol_dependencies_aux(local_term, &mut dependencies);
         dependencies
     }
 

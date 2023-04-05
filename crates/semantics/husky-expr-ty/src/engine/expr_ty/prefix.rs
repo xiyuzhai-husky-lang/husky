@@ -15,7 +15,7 @@ impl<'a> ExprTypeEngine<'a> {
                         LocalTerm::Resolved(_) => todo!(),
                         LocalTerm::Unresolved(unresolved_term) => {
                             match self.local_term_region[unresolved_term].unresolved_term() {
-                                UnresolvedTerm::ImplicitSymbol(implicit_symbol) => {
+                                LocalTermData::ImplicitSymbol(implicit_symbol) => {
                                     match implicit_symbol.variant() {
                                         ImplicitSymbolVariant::ExprEvalLifetime => todo!(),
                                         ImplicitSymbolVariant::UnspecifiedIntegerType
@@ -26,16 +26,12 @@ impl<'a> ExprTypeEngine<'a> {
                                         ImplicitSymbolVariant::ImplicitLifetime => todo!(),
                                     }
                                 }
-                                UnresolvedTerm::TypeOntology {
+                                LocalTermData::TypeOntology {
                                     path: ty,
                                     arguments,
                                 } => todo!(),
-                                UnresolvedTerm::Ritchie {
-                                    ritchie_kind,
-                                    parameter_tys,
-                                    return_ty,
-                                } => todo!(),
-                                UnresolvedTerm::Qualified { .. } => todo!(),
+                                LocalTermData::Ritchie(_) => todo!(),
+                                LocalTermData::Qualified { .. } => todo!(),
                             }
                         }
                     },

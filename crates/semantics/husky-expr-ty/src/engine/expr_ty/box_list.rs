@@ -20,7 +20,7 @@ impl<'a> ExprTypeEngine<'a> {
             .local_term_region
             .intern_unresolved_term(
                 expr_idx,
-                UnresolvedTerm::TypeOntology {
+                LocalTermData::TypeOntology {
                     path: self.entity_path_menu.list_ty_path(),
                     arguments: smallvec![element_ty],
                 },

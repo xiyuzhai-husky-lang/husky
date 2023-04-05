@@ -120,20 +120,16 @@ impl LocalTermPattern {
         unresolved_terms: &UnresolvedTerms,
     ) -> LocalTermPattern {
         match unresolved_terms[term].unresolved_term() {
-            UnresolvedTerm::ImplicitSymbol(symbol) => {
+            LocalTermData::ImplicitSymbol(symbol) => {
                 LocalTermPattern::ImplicitSymbol(symbol.kind(), term)
             }
-            UnresolvedTerm::TypeOntology { path, arguments } => LocalTermPattern::TypeOntology {
+            LocalTermData::TypeOntology { path, arguments } => LocalTermPattern::TypeOntology {
                 path: *path,
                 refined_path: path.refine(db),
                 argument_tys: arguments.clone(),
             },
-            UnresolvedTerm::Ritchie {
-                ritchie_kind,
-                parameter_tys,
-                return_ty,
-            } => todo!(),
-            UnresolvedTerm::Qualified { .. } => todo!(),
+            LocalTermData::Ritchie(_) => todo!(),
+            LocalTermData::Qualified { .. } => todo!(),
         }
     }
 }
