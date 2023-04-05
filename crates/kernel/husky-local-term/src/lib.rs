@@ -2,20 +2,20 @@
 #![feature(trait_upcasting)]
 mod engine;
 mod expectation;
+mod local_term;
 mod pattern;
 mod progress;
 mod region;
-mod unresolved;
 mod utils;
 
 use husky_print_utils::p;
 
 pub use self::engine::*;
 pub use self::expectation::*;
+pub use self::local_term::*;
 pub use self::pattern::*;
 pub use self::progress::*;
 pub use self::region::*;
-pub use self::unresolved::*;
 
 use either::*;
 use husky_entity_path::*;
@@ -58,7 +58,7 @@ impl LocalTerm {
                         arguments.push(argument);
                         Ok(local_term_region.intern_unresolved_term(
                             src_expr_idx,
-                            UnresolvedTerm::TypeOntology { path, arguments },
+                            LocalTermData::TypeOntology { path, arguments },
                         ))
                     }
                     TermFunctionReduced::Trait(_) => todo!(),
@@ -89,7 +89,7 @@ impl LocalTerm {
         } else {
             unresolved_terms.intern_unresolved_term(
                 src_expr_idx,
-                UnresolvedTerm::TypeOntology { path, arguments },
+                LocalTermData::TypeOntology { path, arguments },
             )
         }
     }

@@ -176,19 +176,15 @@ impl<'a> ExprTypeEngine<'a> {
             },
             LocalTerm::Unresolved(lopd_ty) => {
                 match self.local_term_region[lopd_ty].unresolved_term() {
-                    UnresolvedTerm::ImplicitSymbol(_) => todo!(),
-                    UnresolvedTerm::TypeOntology {
+                    LocalTermData::ImplicitSymbol(_) => todo!(),
+                    LocalTermData::TypeOntology {
                         path: ty,
                         arguments,
                     } => {
                         todo!()
                     }
-                    UnresolvedTerm::Ritchie {
-                        ritchie_kind,
-                        parameter_tys,
-                        return_ty,
-                    } => todo!(),
-                    UnresolvedTerm::Qualified { .. } => todo!(),
+                    LocalTermData::Ritchie(_) => todo!(),
+                    LocalTermData::Qualified { .. } => todo!(),
                 }
             }
         };
