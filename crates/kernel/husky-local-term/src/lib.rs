@@ -34,13 +34,6 @@ pub enum LocalTerm {
 }
 
 impl LocalTerm {
-    pub(crate) fn unresolved(self) -> Option<UnresolvedTermIdx> {
-        match self {
-            LocalTerm::Resolved(_) => None,
-            LocalTerm::Unresolved(idx) => Some(idx),
-        }
-    }
-
     pub fn new_application(
         db: &dyn TermDb,
         local_term_region: &mut LocalTermRegion,

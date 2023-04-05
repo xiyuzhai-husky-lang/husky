@@ -1,11 +1,15 @@
+mod implicit_symbol;
+mod qualified_ty;
 mod substitution;
 
-pub(crate) use substitution::*;
+pub use self::implicit_symbol::*;
+pub use self::qualified_ty::*;
 
-use idx_arena::{Arena, ArenaIdx};
-use vec_like::VecSet;
+pub(crate) use self::substitution::*;
 
 use super::*;
+use idx_arena::{Arena, ArenaIdx};
+use vec_like::VecSet;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = TermDb)]
@@ -19,6 +23,9 @@ pub enum UnresolvedTerm {
         ritchie_kind: TermRitchieKind,
         parameter_tys: Vec<LocalTermRitchieParameterLiasonedType>,
         return_ty: LocalTerm,
+    },
+    Qualified {
+        qual: Qual,
     },
 }
 
@@ -100,34 +107,6 @@ pub enum ImplicitSymbolKind {
     UnspecifiedIntegerType,
     UnspecifiedFloatType,
     ImplicitType,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct ImplicitSymbolIdx(usize);
-
-#[derive(Default, Debug, PartialEq, Eq)]
-pub struct ImplicitSymbolRegistry {
-    next: usize,
-}
-
-impl ImplicitSymbolRegistry {
-    fn next(&mut self) -> ImplicitSymbolIdx {
-        let idx = ImplicitSymbolIdx(self.next);
-        self.next += 1;
-        idx
-    }
-
-    fn new_implicit_symbol(
-        &mut self,
-        src_expr_idx: ExprIdx,
-        variant: ImplicitSymbolVariant,
-    ) -> ImplicitSymbol {
-        ImplicitSymbol {
-            idx: self.next(),
-            src_expr_idx,
-            variant,
-        }
-    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -216,47 +195,6 @@ impl UnresolvedTermEntry {
 }
 
 impl UnresolvedTerms {
-    pub(super) fn new_implicit_symbol(
-        &mut self,
-        src_expr_idx: ExprIdx,
-        variant: ImplicitSymbolVariant,
-    ) -> UnresolvedTermIdx {
-        let new_implicit_symbol = self
-            .implicit_symbol_registry
-            .new_implicit_symbol(src_expr_idx, variant);
-        self.alloc_unresolved_term(
-            src_expr_idx,
-            UnresolvedTerm::ImplicitSymbol(new_implicit_symbol),
-        )
-    }
-
-    pub(crate) fn new_implicit_symbol_from_parameter_symbol(
-        &mut self,
-        db: &dyn TermDb,
-        src_expr_idx: ExprIdx,
-        parameter_symbol: LocalTerm,
-    ) -> UnresolvedTermIdx {
-        let variant = match parameter_symbol.pattern_inner(db, self) {
-            LocalTermPattern::Literal(_) => todo!(),
-            LocalTermPattern::TypeOntology {
-                path,
-                refined_path,
-                argument_tys: arguments,
-            } => todo!(),
-            LocalTermPattern::Curry {
-                curry_kind,
-                variance,
-                parameter_variable: parameter_symbol,
-                parameter_ty,
-                return_ty,
-            } => todo!(),
-            LocalTermPattern::Ritchie { .. } => todo!(),
-            LocalTermPattern::ImplicitSymbol(_, _) => todo!(),
-            LocalTermPattern::Category(_) => todo!(),
-        };
-        self.new_implicit_symbol(src_expr_idx, variant)
-    }
-
     pub(super) fn intern_unresolved_term(
         &mut self,
         src_expr_idx: ExprIdx,
@@ -317,6 +255,7 @@ impl UnresolvedTerms {
                     .map(|parameter_ty| parameter_ty.ty)
                     .for_each(f);
             }
+            UnresolvedTerm::Qualified { .. } => todo!(),
         }
         dependencies
     }
