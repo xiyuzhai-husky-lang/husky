@@ -133,6 +133,7 @@ impl LocalTermPattern {
                 parameter_tys,
                 return_ty,
             } => todo!(),
+            UnresolvedTerm::Qualified { .. } => todo!(),
         }
     }
 }
