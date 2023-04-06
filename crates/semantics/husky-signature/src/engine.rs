@@ -1,16 +1,22 @@
-use super::*;
+mod pattern;
+
+pub(crate) use self::pattern::*;
+
+use crate::*;
 use husky_expr::*;
 use husky_opn_syntax::{BinaryOpr, PrefixOpr};
 use husky_print_utils::p;
 use salsa::DebugWithDb;
 
-pub(super) struct SignatureRawTermEngine<'a> {
+pub(super) struct RawTermEngine<'a> {
     db: &'a dyn SignatureDb,
     expr_region_data: &'a ExprRegionData,
     raw_term_menu: &'a RawTermMenu,
     raw_term_symbol_region: RawTermSymbolRegion,
     expr_terms: ExprMap<SignatureRawTermResult<RawTerm>>,
     liasons: PatternExprMap<Liason>,
+    pattern_expr_ty_infos: PatternExprMap<PatternExprRawTypeInfo>,
+    pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
 }
 
 #[salsa::tracked(jar = SignatureJar, return_ref)]
@@ -22,11 +28,11 @@ pub(crate) fn signature_term_region(
     let parent_expr_region = expr_region_data.parent();
     let parent_term_symbol_region =
         parent_expr_region.map(|r| signature_term_region(db, r).term_symbol_region());
-    let mut engine = SignatureRawTermEngine::new(db, expr_region, parent_term_symbol_region);
+    let mut engine = RawTermEngine::new(db, expr_region, parent_term_symbol_region);
     engine.infer_all()
 }
 
-impl<'a> SignatureRawTermEngine<'a> {
+impl<'a> RawTermEngine<'a> {
     fn new(
         db: &'a dyn SignatureDb,
         expr_region: ExprRegion,
@@ -47,6 +53,12 @@ impl<'a> SignatureRawTermEngine<'a> {
             ),
             expr_terms: ExprMap::new(expr_region_data.expr_arena()),
             liasons: PatternExprMap::new(expr_region_data.pattern_expr_arena()),
+            pattern_expr_ty_infos: PatternExprMap::new(expr_region_data.pattern_expr_arena()),
+            pattern_symbol_ty_infos: PatternSymbolMap::new(
+                expr_region_data
+                    .pattern_expr_region()
+                    .pattern_symbol_arena(),
+            ),
         }
     }
 
@@ -63,6 +75,10 @@ impl<'a> SignatureRawTermEngine<'a> {
     }
 
     fn init_current_symbol_terms(&mut self) {
+        let mut current_symbol_indexed_iter = self
+            .expr_region_data
+            .symbol_region()
+            .current_symbol_indexed_iter();
         for (pattern_ty_constraint, symbols) in self
             .expr_region_data
             .symbol_region()
@@ -70,38 +86,73 @@ impl<'a> SignatureRawTermEngine<'a> {
         {
             match pattern_ty_constraint {
                 PatternTypeConstraint::ImplicitTypeParameter => {
-                    debug_assert_eq!(symbols.len(), 1);
+                    let (current_symbol_idx, current_symbol) = current_symbol_indexed_iter
+                        .next()
+                        .expect("ty constraint should match with current symbols");
+                    let CurrentSymbolVariant::ImplicitParameter {
+                        implicit_parameter_variant,
+                    } = current_symbol.variant() else {
+                        unreachable!()
+                    };
                     self.raw_term_symbol_region.add_new_symbol(
                         self.db,
                         symbols.start(),
-                        todo!("lifetime or whatever"), // Ok(self.raw_term_menu.ty0().into()),
+                        match implicit_parameter_variant {
+                            CurrentImplicitParameterSymbol::Lifetime { label_token } => {
+                                Ok(self.raw_term_menu.lifetime_ty())
+                            }
+                            CurrentImplicitParameterSymbol::Type { ident_token } => {
+                                Ok(self.raw_term_menu.ty0().into())
+                            }
+                            _ => todo!(),
+                        },
                     )
                 }
-                PatternTypeConstraint::ExplicitParameter { pattern, ty } => {
-                    //         let pattern_symbol =
-                    //             &self.expr_region_data.pattern_expr_region()[*pattern_symbol_idx];
-                    //         match pattern_symbol {
-                    //             PatternSymbol::Atom(pattern) => {
-                    //                 let ty = self
-                    //                     .expr_region_data
-                    //                     .symbol_region()
-                    //                     .regular_parameter_pattern_ty_constraint(*pattern)
-                    //                     .unwrap();
-                    //                 match self.infer_new_expr_term(ty) {
-                    //                     Ok(ty) => Ok(ty),
-                    //                     Err(_) => Err(RawTermSymbolTypeErrorKind::SignatureRawTermError),
-                    //                 }
-                    //             }
-                    //         }
-                    //     }
-                    todo!()
-                }
+                PatternTypeConstraint::ExplicitParameter { pattern_expr, ty } => self
+                    .init_current_symbol_terms_in_explicit_parameter(*pattern_expr, *ty, *symbols),
                 PatternTypeConstraint::LetVariables { .. }
                 | PatternTypeConstraint::FrameVariable => {
                     // need only to compute for decl region
                     return;
                 }
             }
+        }
+    }
+
+    /// explicit parameters are infered in this crate;
+    ///
+    /// let variables, be variables and match variables are infered in `husky-expr-ty`
+    fn init_current_symbol_terms_in_explicit_parameter(
+        &mut self,
+        pattern_expr: PatternExprIdx,
+        ty: ExprIdx,
+        symbols: CurrentSymbolIdxRange,
+    ) {
+        let Ok(ty) = self.infer_new_expr_term(ty) else {
+            for symbol in symbols {
+                self.raw_term_symbol_region.add_new_symbol(
+                    self.db,
+                    symbol,
+                    Err(RawTermSymbolTypeErrorKind::SignatureRawTermError)
+                )
+            }
+            return
+        };
+        self.infer_pattern_tys_in_explicit_parameter(pattern_expr, ty);
+        for symbol in symbols {
+            let ty = self.calc_current_symbol_ty_in_explicit_parameter(symbol);
+            self.raw_term_symbol_region
+                .add_new_symbol(self.db, symbol, Ok(ty))
+        }
+    }
+
+    fn calc_current_symbol_ty_in_explicit_parameter(&self, symbol: CurrentSymbolIdx) -> RawTerm {
+        match self.expr_region_data.symbol_region()[symbol].variant() {
+            CurrentSymbolVariant::ExplicitParameter {
+                ident,
+                pattern_symbol_idx,
+            } => self.pattern_symbol_ty_infos[pattern_symbol_idx].ty(),
+            _ => unreachable!("this function is only used for explicit parameters"),
         }
     }
 
@@ -142,6 +193,8 @@ impl<'a> SignatureRawTermEngine<'a> {
             self.raw_term_symbol_region,
             self.expr_terms,
             self.liasons,
+            self.pattern_expr_ty_infos,
+            self.pattern_symbol_ty_infos,
         )
     }
 
@@ -343,10 +396,7 @@ impl<'a> SignatureRawTermEngine<'a> {
         }
     }
 
-    pub(crate) fn current_symbol_term_symbol(
-        &self,
-        symbol: CurrentSymbolIdx,
-    ) -> Option<RawTermSymbol> {
+    pub(crate) fn current_symbol_term(&self, symbol: CurrentSymbolIdx) -> Option<RawTermSymbol> {
         self.raw_term_symbol_region.current_symbol_term(symbol)
     }
 

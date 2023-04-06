@@ -20,7 +20,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         )? else {
             Err(OriginalExprError::ExpectedLetVariablesPattern(state))?
         };
-        let symbols = self.pattern_expr_region().pattern_symbol_map(pattern);
+        let symbols = self.pattern_expr_region().pattern_expr_symbols(pattern);
         let access_start = self.state();
         let symbols = symbols
             .iter()

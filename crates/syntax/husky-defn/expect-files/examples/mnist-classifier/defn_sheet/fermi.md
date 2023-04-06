@@ -517,7 +517,7 @@ Ok(
                                                 pattern_ty_constraints: [
                                                     (
                                                         ExplicitParameter {
-                                                            pattern: 0,
+                                                            pattern_expr: 0,
                                                             ty: 3,
                                                         },
                                                         ArenaIdxRange(
@@ -526,7 +526,7 @@ Ok(
                                                     ),
                                                     (
                                                         ExplicitParameter {
-                                                            pattern: 1,
+                                                            pattern_expr: 1,
                                                             ty: 11,
                                                         },
                                                         ArenaIdxRange(
@@ -883,7 +883,7 @@ Ok(
                                                         pattern_ty_constraints: [
                                                             (
                                                                 ExplicitParameter {
-                                                                    pattern: 0,
+                                                                    pattern_expr: 0,
                                                                     ty: 3,
                                                                 },
                                                                 ArenaIdxRange(
@@ -892,7 +892,7 @@ Ok(
                                                             ),
                                                             (
                                                                 ExplicitParameter {
-                                                                    pattern: 1,
+                                                                    pattern_expr: 1,
                                                                     ty: 11,
                                                                 },
                                                                 ArenaIdxRange(

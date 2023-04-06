@@ -17,7 +17,7 @@ impl RawTermSymbolRegion {
     /// but will leave current_symbol_terms unintialized;
     /// `self_ty_term` is set to that of parent if parent exists, otherwise none;
     /// `self_value_term` is set to that of parent if parent exists, otherwise none
-    pub(super) fn new(parent: Option<&RawTermSymbolRegion>, symbol_region: &SymbolRegion) -> Self {
+    pub(crate) fn new(parent: Option<&RawTermSymbolRegion>, symbol_region: &SymbolRegion) -> Self {
         let registry = parent.map_or(Default::default(), |parent| parent.registry.clone());
         let inherited_symbol_terms =
             InheritedSymbolFullMap::new(symbol_region.inherited_symbol_arena(), |symbol| {
@@ -34,7 +34,7 @@ impl RawTermSymbolRegion {
         }
     }
 
-    pub(super) fn init_self_ty_and_value(
+    pub(crate) fn init_self_ty_and_value(
         &mut self,
         db: &dyn SignatureDb,
         region_path: RegionPath,
@@ -82,7 +82,7 @@ impl RawTermSymbolRegion {
     }
 
     #[inline(always)]
-    pub(super) fn add_new_symbol(
+    pub(crate) fn add_new_symbol(
         &mut self,
         db: &dyn SignatureDb,
         idx: CurrentSymbolIdx,

@@ -1,5 +1,6 @@
 #![feature(trait_upcasting)]
 mod db;
+mod engine;
 mod error;
 mod has_signature;
 mod parameter;
@@ -9,6 +10,7 @@ mod signature;
 mod tests;
 
 pub use self::db::*;
+pub use self::engine::*;
 pub use self::error::*;
 pub use self::has_signature::*;
 pub use self::parameter::*;

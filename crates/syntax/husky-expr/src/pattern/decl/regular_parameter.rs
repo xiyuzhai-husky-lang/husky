@@ -16,7 +16,7 @@ impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for RegularParameterDeclP
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> ExprResult<Option<Self>> {
         if let Some(pattern) = ctx.parse_pattern_expr(PatternExprInfo::Parameter)? {
-            let symbols = ctx.pattern_expr_region().pattern_symbol_map(pattern);
+            let symbols = ctx.pattern_expr_region().pattern_expr_symbols(pattern);
             let access_start = ctx.state();
             let variables = symbols
                 .iter()
@@ -38,7 +38,10 @@ impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for RegularParameterDeclP
             );
             let variables = ctx.define_symbols(
                 variables,
-                Some(PatternTypeConstraint::ExplicitParameter { pattern, ty }),
+                Some(PatternTypeConstraint::ExplicitParameter {
+                    pattern_expr: pattern,
+                    ty,
+                }),
             );
             Ok(Some(RegularParameterDeclPattern {
                 pattern,

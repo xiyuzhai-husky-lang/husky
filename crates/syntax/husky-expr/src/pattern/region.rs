@@ -34,10 +34,10 @@ impl PatternExprRegion {
         self.pattern_expr_arena.indexed_iter()
     }
 
-    pub fn pattern_symbol_map(
+    pub fn pattern_expr_symbols(
         &self,
         pattern_expr_idx: PatternExprIdx,
-    ) -> &IdentPairMap<PatternSymbolIdx> {
+    ) -> &[(Ident, PatternSymbolIdx)] {
         &self.pattern_symbol_maps[pattern_expr_idx.raw()]
     }
 
