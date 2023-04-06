@@ -105,7 +105,10 @@ impl<'a> ExprTypeEngine<'a> {
                 ..
             } => Ok((
                 ExprDisambiguation::Trivial,
-                match self.inherited_symbol_tys.get(inherited_symbol_idx) {
+                match self
+                    .inherited_symbol_qualified_tys
+                    .get(inherited_symbol_idx)
+                {
                     Some(ty) => Ok((*ty).into()),
                     None => Err(DerivedExprTypeError::InheritedSymbolTypeError.into()),
                 },

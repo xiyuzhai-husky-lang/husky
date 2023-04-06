@@ -95,18 +95,20 @@ impl<'a> RawTermEngine<'a> {
                     } = current_symbol.variant() else {
                         unreachable!()
                     };
+                    let ty = match implicit_parameter_variant {
+                        CurrentImplicitParameterSymbol::Lifetime { label_token } => {
+                            self.raw_term_menu.lifetime_ty().into()
+                        }
+                        CurrentImplicitParameterSymbol::Type { ident_token } => {
+                            self.raw_term_menu.ty0().into()
+                        }
+                        _ => todo!(),
+                    };
                     self.raw_term_symbol_region.add_new_symbol(
                         self.db,
                         symbols.start(),
-                        match implicit_parameter_variant {
-                            CurrentImplicitParameterSymbol::Lifetime { label_token } => {
-                                Ok(self.raw_term_menu.lifetime_ty())
-                            }
-                            CurrentImplicitParameterSymbol::Type { ident_token } => {
-                                Ok(self.raw_term_menu.ty0().into())
-                            }
-                            _ => todo!(),
-                        },
+                        Qual {},
+                        Ok(ty),
                     )
                 }
                 PatternTypeConstraint::ExplicitParameter { pattern_expr, ty } => self
@@ -134,6 +136,7 @@ impl<'a> RawTermEngine<'a> {
                 self.raw_term_symbol_region.add_new_symbol(
                     self.db,
                     symbol,
+                    Qual {},
                     Err(RawTermSymbolTypeErrorKind::SignatureRawTermError)
                 )
             }
@@ -141,18 +144,24 @@ impl<'a> RawTermEngine<'a> {
         };
         self.infer_pattern_tys_in_explicit_parameter(pattern_expr, ty);
         for symbol in symbols {
-            let ty = self.calc_current_symbol_ty_in_explicit_parameter(symbol);
-            self.raw_term_symbol_region
-                .add_new_symbol(self.db, symbol, Ok(ty))
+            self.infer_current_symbol_ty_in_explicit_parameter(symbol)
         }
     }
 
-    fn calc_current_symbol_ty_in_explicit_parameter(&self, symbol: CurrentSymbolIdx) -> RawTerm {
-        match self.expr_region_data.symbol_region()[symbol].variant() {
+    fn infer_current_symbol_ty_in_explicit_parameter(&mut self, current_symbol: CurrentSymbolIdx) {
+        match self.expr_region_data.symbol_region()[current_symbol].variant() {
             CurrentSymbolVariant::ExplicitParameter {
                 ident,
                 pattern_symbol_idx,
-            } => self.pattern_symbol_ty_infos[pattern_symbol_idx].ty(),
+            } => {
+                let base_ty = self.pattern_symbol_ty_infos[pattern_symbol_idx].base_ty();
+                self.raw_term_symbol_region.add_new_symbol(
+                    self.db,
+                    current_symbol,
+                    Qual {},
+                    Ok(base_ty),
+                )
+            }
             _ => unreachable!("this function is only used for explicit parameters"),
         }
     }

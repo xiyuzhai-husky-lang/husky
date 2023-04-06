@@ -105,7 +105,7 @@ impl<'a> ExprTypeEngine<'a> {
                     }
                 }
                 if let Some(expected_frame_var_ty) = expected_frame_var_ty {
-                    self.current_symbol_tys
+                    self.current_symbol_qualified_tys
                         .insert_new(frame_var_symbol_idx, expected_frame_var_ty)
                 }
                 if let Ok(block) = block {

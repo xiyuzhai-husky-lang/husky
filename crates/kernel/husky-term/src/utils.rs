@@ -42,11 +42,11 @@ impl Term {
 
 impl TermSymbol {
     fn toolchain(self, db: &dyn TermDb) -> Option<Toolchain> {
-        self.ty(db).toolchain(db)
+        self.qualified_ty(db).toolchain(db)
     }
 }
 
-impl TermHole {
+impl TermPlaceholder {
     fn toolchain(self, db: &dyn TermDb) -> Option<Toolchain> {
         self.ty(db).toolchain(db)
     }

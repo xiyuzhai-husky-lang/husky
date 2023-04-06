@@ -8,7 +8,7 @@ pub struct RawTermCurry {
     pub curry_kind: CurryKind,
     pub variance: Variance,
     /// a
-    pub parameter_variable: Option<RawTermHole>,
+    pub parameter_variable: Option<RawTermPlaceholder>,
     /// X
     pub parameter_ty: RawTerm,
     /// Y
