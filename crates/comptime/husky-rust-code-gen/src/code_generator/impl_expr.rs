@@ -402,7 +402,7 @@ impl<'a> RustCodeGenerator<'a> {
     // ) {
     //     let mangled_intrinsic_ty_vtable =
     //         self.db.mangled_intrinsic_ty_vtable(result.intrinsic_ty());
-    //     match result.qualified_ty.qual() {
+    //     match result.ty.qual() {
     //         EagerExprQualifier::Copyable | EagerExprQualifier::Transient => {
     //             self.write(
     //                 r#"__ctx
@@ -458,7 +458,7 @@ impl<'a> RustCodeGenerator<'a> {
     // ) {
     //     let mangled_intrinsic_ty_vtable =
     //         self.db.mangled_intrinsic_ty_vtable(result.intrinsic_ty());
-    //     match result.qualified_ty.qual() {
+    //     match result.ty.qual() {
     //         EagerExprQualifier::Copyable | EagerExprQualifier::Transient => {
     //             self.write(
     //                 r#"__ctx.cache_lazy_field(
@@ -518,9 +518,9 @@ impl<'a> RustCodeGenerator<'a> {
     // }
 
     // pub(super) fn gen_binding(&mut self, expr: &EagerExpr) {
-    //     match expr.qualified_ty.binding(self.db.upcast(), expr.contract) {
+    //     match expr.ty.binding(self.db.upcast(), expr.contract) {
     //         Binding::Leash | Binding::TempRef => {
-    //             if expr.qualified_ty.option_level() == 0 {
+    //             if expr.ty.option_level() == 0 {
     //                 self.write("&")
     //             }
     //         }

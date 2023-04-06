@@ -51,7 +51,6 @@ fn calc_raw_term_symbols(db: &dyn RawTermDb, raw_term: RawTerm) -> Option<RawTer
         RawTerm::TraitConstraint(_) => todo!(),
         RawTerm::LeashOrBitNot(_) => todo!(),
         RawTerm::List(_) => todo!(),
-        RawTerm::Place(_) => todo!(),
     }
 }
 

@@ -29,7 +29,6 @@ pub fn raw_term_raw_ty(
         RawTerm::TraitConstraint(_) => todo!(),
         RawTerm::LeashOrBitNot(_) => todo!(),
         RawTerm::List(_) => todo!(),
-        RawTerm::Place(_) => todo!(),
     }
 }
 

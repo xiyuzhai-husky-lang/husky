@@ -30,7 +30,6 @@ impl RawTerm {
             RawTerm::TraitConstraint(_) => todo!(),
             RawTerm::LeashOrBitNot(_) => todo!(),
             RawTerm::List(_) => todo!(),
-            RawTerm::Place(_) => todo!(),
         }
     }
 
@@ -43,15 +42,15 @@ impl RawTerm {
 pub enum RawTermFamily {
     Sort,
     TypePath(TypePath),
-    Unknown,
+    Other,
 }
 
 impl RawTermSymbol {
     pub(crate) fn ty_family(self, db: &dyn RawTermDb) -> RawTermFamily {
-        self.qualified_ty(db)
+        self.ty(db)
             .ok()
-            .map(|ty| ty.base_ty(db).family(db))
-            .unwrap_or(RawTermFamily::Unknown)
+            .map(|ty| ty.family(db))
+            .unwrap_or(RawTermFamily::Other)
     }
 }
 
@@ -60,6 +59,6 @@ impl RawTermPlaceholder {
         self.ty(db)
             .ok()
             .map(|ty| ty.family(db))
-            .unwrap_or(RawTermFamily::Unknown)
+            .unwrap_or(RawTermFamily::Other)
     }
 }

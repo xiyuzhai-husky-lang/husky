@@ -17,7 +17,6 @@ impl Term {
             Term::Subentity(_) => todo!(),
             Term::AsTraitSubentity(_) => todo!(),
             Term::TraitConstraint(_) => todo!(),
-            Term::Place(_) => todo!(),
         }
     }
 
@@ -42,7 +41,7 @@ impl Term {
 
 impl TermSymbol {
     fn toolchain(self, db: &dyn TermDb) -> Option<Toolchain> {
-        self.qualified_ty(db).toolchain(db)
+        self.ty(db).toolchain(db)
     }
 }
 

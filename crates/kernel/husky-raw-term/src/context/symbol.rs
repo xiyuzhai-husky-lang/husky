@@ -176,10 +176,10 @@ impl RawTermShowContext {
 }
 
 fn symbol_show_kind(symbol: RawTermSymbol, db: &dyn RawTermDb) -> RawTermSymbolShowKind {
-    let Ok(qualified_ty) = symbol.qualified_ty(db) else {
+    let Ok(ty) = symbol. ty(db) else {
         return RawTermSymbolShowKind::Other
     };
-    match qualified_ty.base_ty(db) {
+    match ty {
         RawTerm::EntityPath(RawTermEntityPath::Type(ty)) if ty.eqs_lifetime_ty_path(db) => {
             RawTermSymbolShowKind::Lifetime
         }

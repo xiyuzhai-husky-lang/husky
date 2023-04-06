@@ -248,7 +248,7 @@ impl<'a> FeatureExprBuilder<'a> {
         //     BinaryPureClosedOpr::Mul => todo!(),
         //     BinaryPureClosedOpr::RemEuclid => todo!(),
         //     BinaryShortcuitLogicOpr::Or => {
-        //         p!(lopd.expr.qualified_ty);
+        //         p!(lopd.expr.ty);
         //         todo!()
         //     }
         //     BinaryPureClosedOpr::Power => todo!(),

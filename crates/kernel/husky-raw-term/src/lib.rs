@@ -42,5 +42,4 @@ pub struct RawTermJar(
     RawTermTraitConstraint,
     RawTermList,
     raw_term_menu,
-    RawTermQualifiedType,
 );

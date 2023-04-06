@@ -27,7 +27,6 @@ pub(crate) fn field_ty(db: &dyn TermDb, owner_ty: Term, ident: Ident) -> TermRes
         Term::Subentity(_) => todo!(),
         Term::AsTraitSubentity(_) => todo!(),
         Term::TraitConstraint(_) => todo!(),
-        Term::Place(_) => todo!(),
     }
 }
 

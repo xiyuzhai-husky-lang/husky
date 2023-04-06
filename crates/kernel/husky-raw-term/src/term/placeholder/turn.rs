@@ -17,8 +17,7 @@ impl RawTerm {
         let Some(idx) = self.new_variable_idx(db, symbol) else {
             return (self, None);
         };
-        let variable =
-            RawTermPlaceholder::new(db, symbol.qualified_ty(db).map(|qt| qt.base_ty(db)), idx);
+        let variable = RawTermPlaceholder::new(db, symbol.ty(db), idx);
         (
             self.substitute_symbol_with_variable(db, symbol, variable),
             Some(variable),

@@ -71,7 +71,6 @@ impl RawTerm {
             RawTerm::TraitConstraint(_) => todo!(),
             RawTerm::LeashOrBitNot(_) => todo!(),
             RawTerm::List(_) => todo!(),
-            RawTerm::Place(_) => todo!(),
         }
     }
 }

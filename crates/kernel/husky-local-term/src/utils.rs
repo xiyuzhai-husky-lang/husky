@@ -67,6 +67,5 @@ fn curry_destination(db: &dyn TermDb, term: Term) -> Term {
         Term::Subentity(_) => todo!(),
         Term::AsTraitSubentity(_) => todo!(),
         Term::TraitConstraint(_) => todo!(),
-        Term::Place(_) => todo!(),
     }
 }
