@@ -64,6 +64,7 @@ impl<'a> RawTermEngine<'a> {
     }
 
     fn infer_all(mut self) -> SignatureRegion {
+        self.infer_pattern_modifiers();
         self.init_current_symbol_terms();
         self.raw_term_symbol_region.init_self_ty_and_value(
             self.db,
@@ -71,7 +72,6 @@ impl<'a> RawTermEngine<'a> {
             self.expr_region_data.symbol_region(),
         );
         self.init_expr_roots();
-        self.infer_pattern_modifiers();
         self.finish()
     }
 
