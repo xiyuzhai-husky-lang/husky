@@ -4,9 +4,9 @@ use vec_like::AsVecMapEntry;
 use super::*;
 
 #[derive(Debug, Hash, PartialEq, Eq)]
-pub(crate) struct RawTermPlaceholderShowEntry {
-    variable: RawTermPlaceholder,
-    show_kind: RawTermPlaceholderShowKind,
+pub(crate) struct RawTermQualifiedTypeholderShowEntry {
+    variable: RawTermQualifiedTypeholder,
+    show_kind: RawTermQualifiedTypeholderShowKind,
     idx: u8,
     /// number of lambdas using this variable
     /// level 0 means this variable is external
@@ -14,7 +14,7 @@ pub(crate) struct RawTermPlaceholderShowEntry {
     external_variable_ident: Option<Ident>,
 }
 
-impl RawTermPlaceholderShowEntry {
+impl RawTermQualifiedTypeholderShowEntry {
     pub(crate) fn show(
         &self,
         _db: &dyn RawTermDb,
@@ -24,7 +24,7 @@ impl RawTermPlaceholderShowEntry {
             todo!()
         } else {
             match self.show_kind {
-                RawTermPlaceholderShowKind::Lifetime => {
+                RawTermQualifiedTypeholderShowKind::Lifetime => {
                     match self.idx {
                         0 => f.write_str("'a"),
                         1 => f.write_str("'b"),
@@ -35,7 +35,7 @@ impl RawTermPlaceholderShowEntry {
                         idx => f.write_fmt(format_args!("'a{}", idx))
                     }
                 },
-                RawTermPlaceholderShowKind::Binding => {
+                RawTermQualifiedTypeholderShowKind::Binding => {
                     match self.idx {
                         0 => f.write_str("'α"),
                         1 => f.write_str("'β"),
@@ -47,21 +47,21 @@ impl RawTermPlaceholderShowEntry {
                         idx => f.write_fmt(format_args!("'α{}", idx))
                     }
                 },
-                RawTermPlaceholderShowKind::Prop => {
+                RawTermQualifiedTypeholderShowKind::Prop => {
                     match self.idx {
                         0 => f.write_str("p"),
                         1 => f.write_str("q"),
                         idx => f.write_fmt(format_args!("p{}", idx))
                     }
                 },
-                RawTermPlaceholderShowKind::Type => {
+                RawTermQualifiedTypeholderShowKind::Type => {
                     match self.idx {
                         0 => f.write_str("t"),
                         1 => f.write_str("s"),
                         idx => f.write_fmt(format_args!("t{}", idx))
                     }
                 },
-                RawTermPlaceholderShowKind::Kind => {
+                RawTermQualifiedTypeholderShowKind::Kind => {
                     match self.idx {
                         0 => f.write_str("α"),
                         1 => f.write_str("β"),
@@ -73,7 +73,7 @@ impl RawTermPlaceholderShowEntry {
                         idx => f.write_fmt(format_args!("α{}", idx))
                     }
                 },
-                RawTermPlaceholderShowKind::Other => {
+                RawTermQualifiedTypeholderShowKind::Other => {
                     match self.idx {
                         0 => f.write_str("a"),
                         1 => f.write_str("b"),
@@ -85,8 +85,8 @@ impl RawTermPlaceholderShowEntry {
     }
 }
 
-impl AsVecMapEntry for RawTermPlaceholderShowEntry {
-    type K = RawTermPlaceholder;
+impl AsVecMapEntry for RawTermQualifiedTypeholderShowEntry {
+    type K = RawTermQualifiedTypeholder;
 
     fn key(&self) -> Self::K
     where
@@ -101,7 +101,7 @@ impl AsVecMapEntry for RawTermPlaceholderShowEntry {
 }
 
 #[derive(Debug, Clone, Copy, Hash, PartialEq, Eq)]
-pub(crate) enum RawTermPlaceholderShowKind {
+pub(crate) enum RawTermQualifiedTypeholderShowKind {
     Lifetime,
     Binding,
     Prop,
@@ -114,30 +114,30 @@ impl RawTermShowContext {
     pub(super) fn new_external_entry(
         &self,
         db: &dyn RawTermDb,
-        variable: RawTermPlaceholder,
+        variable: RawTermQualifiedTypeholder,
         external_variable_ident: Option<Ident>,
-    ) -> RawTermPlaceholderShowEntry {
+    ) -> RawTermQualifiedTypeholderShowEntry {
         self.new_entry(db, variable, 0, external_variable_ident)
     }
 
     pub(super) fn new_internal_entry(
         &self,
         db: &dyn RawTermDb,
-        variable: RawTermPlaceholder,
-    ) -> RawTermPlaceholderShowEntry {
+        variable: RawTermQualifiedTypeholder,
+    ) -> RawTermQualifiedTypeholderShowEntry {
         self.new_entry(db, variable, 1, None)
     }
 
     fn new_entry(
         &self,
         db: &dyn RawTermDb,
-        variable: RawTermPlaceholder,
+        variable: RawTermQualifiedTypeholder,
         level: u8,
         external_variable_ident: Option<Ident>,
-    ) -> RawTermPlaceholderShowEntry {
+    ) -> RawTermQualifiedTypeholderShowEntry {
         let show_kind = variable_show_kind(variable, db);
         let idx = self.issue_idx(show_kind);
-        RawTermPlaceholderShowEntry {
+        RawTermQualifiedTypeholderShowEntry {
             variable,
             show_kind,
             idx,
@@ -146,7 +146,7 @@ impl RawTermShowContext {
         }
     }
 
-    fn issue_idx(&self, show_kind: RawTermPlaceholderShowKind) -> u8 {
+    fn issue_idx(&self, show_kind: RawTermQualifiedTypeholderShowKind) -> u8 {
         let last_idx = self
             .entries
             .data()
@@ -161,7 +161,11 @@ impl RawTermShowContext {
     }
 
     // todo: put this into an internal table struct
-    pub(super) fn with_variable(&mut self, db: &dyn RawTermDb, variable: RawTermPlaceholder) {
+    pub(super) fn with_variable(
+        &mut self,
+        db: &dyn RawTermDb,
+        variable: RawTermQualifiedTypeholder,
+    ) {
         if let Some(entry) = self.entries.get_entry_mut(variable) {
             entry.level += 1
         } else {
@@ -170,22 +174,26 @@ impl RawTermShowContext {
         }
     }
 
-    pub(super) fn without_variable(&mut self, variable: RawTermPlaceholder) {
+    pub(super) fn without_variable(&mut self, variable: RawTermQualifiedTypeholder) {
         self.entries.get_entry_mut(variable).unwrap().level -= 1
     }
 }
 
 fn variable_show_kind(
-    variable: RawTermPlaceholder,
+    variable: RawTermQualifiedTypeholder,
     db: &dyn RawTermDb,
-) -> RawTermPlaceholderShowKind {
+) -> RawTermQualifiedTypeholderShowKind {
     match variable.ty(db) {
         Ok(RawTerm::EntityPath(RawTermEntityPath::Type(ty))) if ty.eqs_lifetime_ty_path(db) => {
-            RawTermPlaceholderShowKind::Lifetime
+            RawTermQualifiedTypeholderShowKind::Lifetime
         }
-        Ok(RawTerm::Category(cat)) if cat.universe().raw() == 0 => RawTermPlaceholderShowKind::Prop,
-        Ok(RawTerm::Category(cat)) if cat.universe().raw() == 1 => RawTermPlaceholderShowKind::Type,
-        Ok(RawTerm::Category(_)) => RawTermPlaceholderShowKind::Kind,
-        _ => RawTermPlaceholderShowKind::Other,
+        Ok(RawTerm::Category(cat)) if cat.universe().raw() == 0 => {
+            RawTermQualifiedTypeholderShowKind::Prop
+        }
+        Ok(RawTerm::Category(cat)) if cat.universe().raw() == 1 => {
+            RawTermQualifiedTypeholderShowKind::Type
+        }
+        Ok(RawTerm::Category(_)) => RawTermQualifiedTypeholderShowKind::Kind,
+        _ => RawTermQualifiedTypeholderShowKind::Other,
     }
 }

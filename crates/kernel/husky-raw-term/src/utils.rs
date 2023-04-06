@@ -48,14 +48,14 @@ pub enum RawTermFamily {
 
 impl RawTermSymbol {
     pub(crate) fn ty_family(self, db: &dyn RawTermDb) -> RawTermFamily {
-        self.ty(db)
+        self.qualified_ty(db)
             .ok()
-            .map(|ty| ty.family(db))
+            .map(|ty| ty.base_ty(db).family(db))
             .unwrap_or(RawTermFamily::Unknown)
     }
 }
 
-impl RawTermHole {
+impl RawTermPlaceholder {
     pub(crate) fn ty_family(self, db: &dyn RawTermDb) -> RawTermFamily {
         self.ty(db)
             .ok()

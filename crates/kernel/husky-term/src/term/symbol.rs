@@ -9,7 +9,7 @@ use thiserror::Error;
 
 #[salsa::interned(db = TermDb, jar = TermJar, constructor = new_inner)]
 pub struct TermSymbol {
-    pub ty: Term,
+    pub qualified_ty: TermQualifiedType,
     /// this is the index for all symbols with the same type
     /// so that we have better cache hits
     pub idx: u8,
@@ -29,13 +29,13 @@ impl TermSymbol {
         db: &dyn TermDb,
         raw_term_symbol: RawTermSymbol,
     ) -> TermResult<Self> {
-        let ty = raw_term_symbol.ty(db)?;
-        let ty = Term::from_raw_unchecked(db, ty, TermTypeExpectation::FinalDestinationEqsSort)?;
+        let qualified_ty = raw_term_symbol.qualified_ty(db)?;
+        let ty = TermQualifiedType::from_raw_unchecked(db, qualified_ty)?;
         Ok(Self::new_inner(db, ty, raw_term_symbol.idx(db)))
     }
 
     pub(super) fn check(self, db: &dyn TermDb) -> TermResult<()> {
-        self.ty(db).check(db)
+        self.qualified_ty(db).check(db)
     }
 
     pub(crate) fn show_with_db_fmt(
@@ -56,24 +56,6 @@ pub enum TermSymbolTypeErrorKind {
     SketchTermError,
 }
 pub type TermSymbolTypeResult<T> = Result<T, TermSymbolTypeErrorKind>;
-
-#[derive(Default, Debug, PartialEq, Eq, Clone)]
-pub struct TermSymbolRegistry {
-    // todo: change to final destination
-    tys: Vec<Term>,
-}
-
-impl TermSymbolRegistry {
-    pub fn new_symbol(&mut self, db: &dyn TermDb, ty: Term) -> TermSymbol {
-        let idx_usize = self.tys.iter().filter(|ty1| **ty1 == ty).count();
-        let idx = match idx_usize.try_into() {
-            Ok(idx) => idx,
-            Err(_) => todo!(),
-        };
-        self.tys.push(ty);
-        TermSymbol::new_inner(db, ty, idx)
-    }
-}
 
 impl<Db: TermDb + ?Sized> salsa::DisplayWithDb<Db> for TermSymbol {
     fn display_with_db_fmt(

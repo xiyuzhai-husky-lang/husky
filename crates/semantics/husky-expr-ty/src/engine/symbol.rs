@@ -17,16 +17,17 @@ impl<'a> ExprTypeEngine<'a> {
             .symbol_region()
             .indexed_inherited_symbol_iter()
         {
-            if let Ok(ty) = self
+            if let Ok(qualified_ty) = self
                 .signature_term_region
                 .term_symbol_region()
                 .inherited_symbol_term(inherited_symbol_idx)
-                .ty(self.db)
+                .qualified_ty(self.db)
             {
-                if let Ok(ty) = Term::ty_from_raw(self.db, ty) {
-                    self.inherited_symbol_tys
-                        .insert_new(inherited_symbol_idx, ty)
-                }
+                todo!()
+                // if let Ok(ty) = Term::ty_from_raw(self.db, ty) {
+                //     self.inherited_symbol_tys
+                //         .insert_new(inherited_symbol_idx, ty)
+                // }
             }
         }
     }
@@ -44,10 +45,10 @@ impl<'a> ExprTypeEngine<'a> {
                 else {
                     return
                 };
-            if let Ok(ty) = current_symbol_term.ty(self.db) {
-                if let Ok(ty) = Term::ty_from_raw(self.db, ty) {
-                    self.current_symbol_tys
-                        .insert_new(current_symbol_idx, ty.into())
+            if let Ok(qualified_ty) = current_symbol_term.qualified_ty(self.db) {
+                if let Ok(qualified_ty) = Term::ty_from_raw(self.db, qualified_ty.into()) {
+                    self.current_symbol_qualified_tys
+                        .insert_new(current_symbol_idx, qualified_ty.into())
                 }
             }
         }

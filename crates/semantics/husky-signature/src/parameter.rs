@@ -50,7 +50,10 @@ impl ImplicitParameterSignature {
     }
 
     pub fn ty(&self, db: &dyn RawTermDb) -> RawTerm {
-        self.symbol.ty(db).expect("should be okay")
+        self.symbol
+            .qualified_ty(db)
+            .expect("should be okay")
+            .base_ty(db)
     }
 
     pub fn traits(&self) -> &[RawTerm] {

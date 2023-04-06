@@ -26,8 +26,8 @@ pub struct RawTermJar(
     raw_term_curry_symbols,
     raw_term_ritchie_symbols,
     raw_term_application_symbols,
-    RawTermHole,
-    RawTermPlaceholders,
+    RawTermPlaceholder,
+    RawTermQualifiedTypeholders,
     raw_term_curry_variables,
     raw_term_ritchie_variables,
     raw_term_application_variables,
@@ -42,5 +42,5 @@ pub struct RawTermJar(
     RawTermTraitConstraint,
     RawTermList,
     raw_term_menu,
-    RawTermPlace,
+    RawTermQualifiedType,
 );

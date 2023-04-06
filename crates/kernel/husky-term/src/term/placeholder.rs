@@ -1,18 +1,18 @@
 use super::*;
 
 #[salsa::interned(db = TermDb, jar = TermJar, constructor = new_inner)]
-pub struct TermHole {
+pub struct TermPlaceholder {
     pub ty: Term,
     /// this is the index for all symbols with the same type
     /// so that we have better cache hits
     pub idx: u8,
 }
 
-impl TermHole {
+impl TermPlaceholder {
     #[inline(always)]
     pub(crate) fn from_raw_unchecked(
         db: &dyn TermDb,
-        raw_term_variable: RawTermHole,
+        raw_term_variable: RawTermPlaceholder,
     ) -> TermResult<Self> {
         let ty = raw_term_variable.ty(db)?;
         let ty = Term::from_raw_unchecked(db, ty, TermTypeExpectation::FinalDestinationEqsSort)?;

@@ -44,7 +44,8 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn infer_new_current_symbol_ty(&mut self, current_symbol_idx: CurrentSymbolIdx) {
         if let Some(ty) = self.calc_new_current_symbol_ty(current_symbol_idx) {
-            self.current_symbol_tys.insert_new(current_symbol_idx, ty)
+            self.current_symbol_qualified_tys
+                .insert_new(current_symbol_idx, ty)
         }
     }
 

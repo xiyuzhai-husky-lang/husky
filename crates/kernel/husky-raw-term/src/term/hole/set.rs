@@ -2,20 +2,20 @@ use super::*;
 use vec_like::VecSet;
 
 /// unlike RawTermSymbols
-/// Some(RawTermPlaceholders { unaccounted_variables: Default::default() })
+/// Some(RawTermQualifiedTypeholders { unaccounted_variables: Default::default() })
 /// means different from None
 ///
 /// the former implies that variables exists, but all accounted
 #[salsa::tracked(db = RawTermDb, jar = RawTermJar)]
-pub struct RawTermPlaceholders {
+pub struct RawTermQualifiedTypeholders {
     /// unaccounted means the variable is not declared within this term
     #[return_ref]
-    pub unaccounted_variables: VecSet<RawTermHole>,
+    pub unaccounted_variables: VecSet<RawTermPlaceholder>,
 }
 
-impl RawTermPlaceholders {
+impl RawTermQualifiedTypeholders {
     #[inline(always)]
-    pub(crate) fn contains(self, db: &dyn RawTermDb, variable: RawTermHole) -> bool {
+    pub(crate) fn contains(self, db: &dyn RawTermDb, variable: RawTermPlaceholder) -> bool {
         self.unaccounted_variables(db).has(variable)
     }
 
@@ -34,23 +34,23 @@ impl RawTermPlaceholders {
     #[inline(always)]
     fn remove(
         variables: impl Into<Option<Self>>,
-        _variable: impl Into<Option<RawTermHole>>,
+        _variable: impl Into<Option<RawTermPlaceholder>>,
     ) -> Option<Self> {
         let _variables = variables.into()?;
         todo!()
     }
 }
 impl RawTerm {
-    pub fn contains_variable(self, db: &dyn RawTermDb, variable: RawTermHole) -> bool {
+    pub fn contains_variable(self, db: &dyn RawTermDb, variable: RawTermPlaceholder) -> bool {
         self.variables(db)
             .map(|raw_term_variables| raw_term_variables.contains(db, variable))
             .unwrap_or_default()
     }
 
-    pub(crate) fn variables(self, db: &dyn RawTermDb) -> Option<RawTermPlaceholders> {
+    pub(crate) fn variables(self, db: &dyn RawTermDb) -> Option<RawTermQualifiedTypeholders> {
         match self {
             RawTerm::Literal(_) => todo!(),
-            RawTerm::Hole(variable) => Some(RawTermPlaceholders::new(
+            RawTerm::Hole(variable) => Some(RawTermQualifiedTypeholders::new(
                 db,
                 VecSet::new_one_elem_set(variable),
             )),
@@ -80,12 +80,12 @@ impl RawTerm {
 pub(crate) fn raw_term_curry_variables(
     db: &dyn RawTermDb,
     term: RawTermCurry,
-) -> Option<RawTermPlaceholders> {
+) -> Option<RawTermQualifiedTypeholders> {
     let parameter_ty_variables = term.parameter_ty(db).variables(db);
     let return_ty_variables = term.return_ty(db).variables(db);
-    RawTermPlaceholders::merge(
+    RawTermQualifiedTypeholders::merge(
         parameter_ty_variables,
-        RawTermPlaceholders::remove(return_ty_variables, term.parameter_variable(db)),
+        RawTermQualifiedTypeholders::remove(return_ty_variables, term.parameter_variable(db)),
     )
 }
 
@@ -93,20 +93,20 @@ pub(crate) fn raw_term_curry_variables(
 pub(crate) fn raw_term_ritchie_variables(
     db: &dyn RawTermDb,
     term: RawTermRitchie,
-) -> Option<RawTermPlaceholders> {
-    let mut variables: Option<RawTermPlaceholders> = None;
+) -> Option<RawTermQualifiedTypeholders> {
+    let mut variables: Option<RawTermQualifiedTypeholders> = None;
     for parameter_ty in term.parameter_tys(db) {
-        variables = RawTermPlaceholders::merge(variables, parameter_ty.ty().variables(db))
+        variables = RawTermQualifiedTypeholders::merge(variables, parameter_ty.ty().variables(db))
     }
-    RawTermPlaceholders::merge(variables, term.return_ty(db).variables(db))
+    RawTermQualifiedTypeholders::merge(variables, term.return_ty(db).variables(db))
 }
 
 #[salsa::tracked(jar = RawTermJar)]
 pub(crate) fn raw_term_application_variables(
     db: &dyn RawTermDb,
     term: RawTermExplicitApplication,
-) -> Option<RawTermPlaceholders> {
-    RawTermPlaceholders::merge(
+) -> Option<RawTermQualifiedTypeholders> {
+    RawTermQualifiedTypeholders::merge(
         term.function(db).variables(db),
         term.argument(db).variables(db),
     )

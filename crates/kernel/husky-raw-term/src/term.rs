@@ -40,7 +40,7 @@ pub enum RawTerm {
     Literal(RawTermLiteral),
     Symbol(RawTermSymbol),
     /// variables are derived from symbols
-    Hole(RawTermHole),
+    Hole(RawTermPlaceholder),
     EntityPath(RawTermEntityPath),
     Category(TermCategory),
     Universe(TermUniverse),
@@ -78,7 +78,7 @@ pub enum RawTerm {
     /// - List functor
     /// - Array functor
     List(RawTermList),
-    Place(RawTermPlace),
+    Place(RawTermQualifiedType),
 }
 
 impl<Db: RawTermDb + ?Sized> salsa::DebugWithDb<Db> for RawTerm {

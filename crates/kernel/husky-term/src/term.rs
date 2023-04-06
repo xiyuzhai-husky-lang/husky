@@ -3,8 +3,8 @@ mod application;
 mod as_trai_subentity;
 mod constraint;
 mod curry;
-mod hole;
-mod place;
+mod placeholder;
+mod qualified_ty;
 mod ritchie;
 mod subentity;
 mod symbol;
@@ -16,8 +16,8 @@ pub use self::application::*;
 pub use self::as_trai_subentity::*;
 pub use self::constraint::*;
 pub use self::curry::*;
-pub use self::hole::*;
-pub use self::place::*;
+pub use self::placeholder::*;
+pub use self::qualified_ty::*;
 pub use self::ritchie::*;
 pub use self::subentity::*;
 pub use self::symbol::*;
@@ -38,7 +38,7 @@ pub enum Term {
     /// literal: 1,1.0, true, false; variable, entityPath
     Literal(TermLiteral),
     Symbol(TermSymbol),
-    Hole(TermHole),
+    Hole(TermPlaceholder),
     EntityPath(TermEntityPath),
     Category(TermCategory),
     Universe(TermUniverse),
@@ -69,7 +69,7 @@ pub enum Term {
     AsTraitSubentity(TermAsTraitSubentity),
     /// <type> : <trait>
     TraitConstraint(TermTraitConstraint),
-    Place(TermPlace),
+    Place(TermQualifiedType),
 }
 
 impl Term {

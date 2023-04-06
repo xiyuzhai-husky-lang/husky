@@ -176,13 +176,16 @@ impl RawTermShowContext {
 }
 
 fn symbol_show_kind(symbol: RawTermSymbol, db: &dyn RawTermDb) -> RawTermSymbolShowKind {
-    match symbol.ty(db) {
-        Ok(RawTerm::EntityPath(RawTermEntityPath::Type(ty))) if ty.eqs_lifetime_ty_path(db) => {
+    let Ok(qualified_ty) = symbol.qualified_ty(db) else {
+        return RawTermSymbolShowKind::Other
+    };
+    match qualified_ty.base_ty(db) {
+        RawTerm::EntityPath(RawTermEntityPath::Type(ty)) if ty.eqs_lifetime_ty_path(db) => {
             RawTermSymbolShowKind::Lifetime
         }
-        Ok(RawTerm::Category(cat)) if cat.universe().raw() == 0 => RawTermSymbolShowKind::Prop,
-        Ok(RawTerm::Category(cat)) if cat.universe().raw() == 1 => RawTermSymbolShowKind::Type,
-        Ok(RawTerm::Category(_)) => RawTermSymbolShowKind::Kind,
+        RawTerm::Category(cat) if cat.universe().raw() == 0 => RawTermSymbolShowKind::Prop,
+        RawTerm::Category(cat) if cat.universe().raw() == 1 => RawTermSymbolShowKind::Type,
+        RawTerm::Category(_) => RawTermSymbolShowKind::Kind,
         _ => RawTermSymbolShowKind::Other,
     }
 }

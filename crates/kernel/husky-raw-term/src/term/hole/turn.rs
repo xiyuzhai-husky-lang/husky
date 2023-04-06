@@ -13,11 +13,12 @@ impl RawTerm {
         self,
         db: &dyn RawTermDb,
         symbol: RawTermSymbol,
-    ) -> (Self, Option<RawTermHole>) {
+    ) -> (Self, Option<RawTermPlaceholder>) {
         let Some(idx) = self.new_variable_idx(db, symbol) else {
             return (self, None);
         };
-        let variable = RawTermHole::new(db, symbol.ty(db), idx);
+        let variable =
+            RawTermPlaceholder::new(db, symbol.qualified_ty(db).map(|qt| qt.base_ty(db)), idx);
         (
             self.substitute_symbol_with_variable(db, symbol, variable),
             Some(variable),
@@ -98,7 +99,7 @@ impl RawTerm {
         self,
         db: &dyn RawTermDb,
         symbol: RawTermSymbol,
-        variable: RawTermHole,
+        variable: RawTermPlaceholder,
     ) -> Self {
         if !self.contains_symbol(db, symbol) {
             return self;
@@ -179,7 +180,7 @@ pub struct VariableRegistry {
 impl VariableRegistry {
     fn new(
         db: &dyn RawTermDb,
-        variables: Option<RawTermPlaceholders>,
+        variables: Option<RawTermQualifiedTypeholders>,
         ty_family: RawTermFamily,
     ) -> Self {
         let Some(variables) = variables else {

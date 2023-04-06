@@ -10,7 +10,7 @@ use vec_like::VecSet;
 
 #[salsa::interned(db = RawTermDb, jar = RawTermJar)]
 pub struct RawTermSymbol {
-    pub ty: RawTermSymbolTypeResult<RawTerm>,
+    pub qualified_ty: RawTermSymbolTypeResult<RawTermQualifiedType>,
     /// this is the index for all symbols with the same type
     /// so that we have better cache hits
     pub idx: u8,
