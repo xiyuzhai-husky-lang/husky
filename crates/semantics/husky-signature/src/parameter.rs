@@ -102,23 +102,23 @@ impl std::ops::Deref for ImplicitParameterSignatures {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct ExplicitParameterSignature {
-    liason: Liason,
+    contract: Contract,
     ty: RawTerm,
 }
 
 impl ExplicitParameterSignature {
-    pub fn into_ritchie_parameter_liasoned_ty(self) -> RawTermRitchieParameterLiasonedType {
-        RawTermRitchieParameterLiasonedType::new(self.liason, self.ty)
+    pub fn into_ritchie_parameter_contracted_ty(self) -> RawTermRitchieParameterContractedType {
+        RawTermRitchieParameterContractedType::new(self.contract, self.ty)
     }
 }
 
 impl ExplicitParameterSignature {
-    pub(crate) fn new(liason: Liason, ty: RawTerm) -> Self {
-        Self { liason, ty }
+    pub(crate) fn new(contract: Contract, ty: RawTerm) -> Self {
+        Self { contract, ty }
     }
 
-    pub fn liason(&self) -> Liason {
-        self.liason
+    pub fn contract(&self) -> Contract {
+        self.contract
     }
 
     pub fn ty(&self) -> RawTerm {
@@ -160,7 +160,7 @@ impl ExplicitParameterSignatures {
                         }
                     };
                     Ok(ExplicitParameterSignature::new(
-                        region[parameter.pattern()],
+                        region.pattern_modifier(parameter.pattern()).into(),
                         ty,
                     ))
                 })

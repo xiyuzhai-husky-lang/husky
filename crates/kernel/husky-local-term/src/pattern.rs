@@ -20,7 +20,7 @@ pub enum LocalTermPattern {
     Category(TermCategory),
     Ritchie {
         ritchie_kind: TermRitchieKind,
-        parameter_liasoned_tys: Vec<LocalTermRitchieParameterLiasonedType>,
+        parameter_contracted_tys: Vec<LocalTermRitchieParameterContractedType>,
         return_ty: LocalTerm,
     },
 }
@@ -83,8 +83,8 @@ impl LocalTermPattern {
             },
             Term::Ritchie(term) => LocalTermPattern::Ritchie {
                 ritchie_kind: term.ritchie_kind(db),
-                parameter_liasoned_tys: term
-                    .parameter_liasoned_tys(db)
+                parameter_contracted_tys: term
+                    .parameter_contracted_tys(db)
                     .iter()
                     .map(Into::into)
                     .collect(),

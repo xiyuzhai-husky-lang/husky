@@ -27,7 +27,7 @@ pub(crate) fn form_fn_entity_raw_ty(
         .parameters(db)
         .iter()
         .copied()
-        .map(ExplicitParameterSignature::into_ritchie_parameter_liasoned_ty)
+        .map(ExplicitParameterSignature::into_ritchie_parameter_contracted_ty)
         .collect();
     let return_raw_ty = signature.return_ty(db);
     Ok(curry_from_implicit_parameters(

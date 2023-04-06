@@ -7,7 +7,7 @@ use super::*;
 pub struct TermRitchie {
     pub ritchie_kind: TermRitchieKind,
     #[return_ref]
-    pub parameter_liasoned_tys: Vec<TermRitchieParameterLiasonedType>,
+    pub parameter_contracted_tys: Vec<TermRitchieParameterContractedType>,
     pub return_ty: Term,
 }
 
@@ -25,7 +25,7 @@ impl TermRitchie {
     pub fn new(
         db: &dyn TermDb,
         ritchie_kind: TermRitchieKind,
-        parameter_tys: impl IntoIterator<Item = TermRitchieParameterLiasonedType>,
+        parameter_tys: impl IntoIterator<Item = TermRitchieParameterContractedType>,
         return_ty: Term,
     ) -> TermResult<TermRitchie> {
         todo!("check_application_validity(db, function, argument, shift)?");
@@ -42,7 +42,7 @@ impl TermRitchie {
     pub(crate) fn new_unchecked(
         db: &dyn TermDb,
         ritchie_kind: TermRitchieKind,
-        parameter_tys: impl IntoIterator<Item = TermRitchieParameterLiasonedType>,
+        parameter_tys: impl IntoIterator<Item = TermRitchieParameterContractedType>,
         return_ty: Term,
     ) -> TermRitchie {
         Self::new_inner(
@@ -50,7 +50,7 @@ impl TermRitchie {
             ritchie_kind,
             parameter_tys
                 .into_iter()
-                .map(|parameter_liasoned_ty| parameter_liasoned_ty.reduce(db))
+                .map(|parameter_contracted_ty| parameter_contracted_ty.reduce(db))
                 .collect(),
             return_ty.reduce(db),
         )
@@ -60,7 +60,7 @@ impl TermRitchie {
     fn new_unchecked2<E>(
         db: &dyn TermDb,
         ritchie_kind: TermRitchieKind,
-        parameter_tys: impl IntoIterator<Item = Result<TermRitchieParameterLiasonedType, E>>,
+        parameter_tys: impl IntoIterator<Item = Result<TermRitchieParameterContractedType, E>>,
         return_ty: Term,
     ) -> TermResult<TermRitchie>
     where
@@ -71,7 +71,7 @@ impl TermRitchie {
             ritchie_kind,
             parameter_tys
                 .into_iter()
-                .map(|parameter_liasoned_ty| Ok(parameter_liasoned_ty?.reduce(db)))
+                .map(|parameter_contracted_ty| Ok(parameter_contracted_ty?.reduce(db)))
                 .collect::<TermResult<Vec<_>>>()?,
             return_ty.reduce(db),
         ))
@@ -82,8 +82,8 @@ impl TermRitchie {
     }
 
     pub(super) fn check(self, db: &dyn TermDb) -> TermResult<()> {
-        for parameter_liasoned_ty in self.parameter_liasoned_tys(db) {
-            parameter_liasoned_ty.check(db)?
+        for parameter_contracted_ty in self.parameter_contracted_tys(db) {
+            parameter_contracted_ty.check(db)?
         }
         self.return_ty(db).check_is_ins_ty0(db)
     }
@@ -107,11 +107,11 @@ impl TermRitchie {
             TermRitchieKind::FnTrait => f.write_str("Fn(")?,
             TermRitchieKind::FnMutTrait => f.write_str("FnMut(")?,
         }
-        for (i, parameter_liasoned_ty) in self.parameter_liasoned_tys(db).iter().enumerate() {
+        for (i, parameter_contracted_ty) in self.parameter_contracted_tys(db).iter().enumerate() {
             if i > 0 {
                 f.write_str(", ")?
             }
-            parameter_liasoned_ty.show_with_db_fmt(f, db, ctx)?
+            parameter_contracted_ty.show_with_db_fmt(f, db, ctx)?
         }
         f.write_str(") -> ")?;
         self.return_ty(db).show_with_db_fmt(f, db, ctx)
@@ -132,10 +132,10 @@ pub(crate) fn term_ritchie_from_raw_unchecked(
         raw_term_ritchie
             .parameter_tys(db)
             .iter()
-            .map(|parameter_liasoned_ty| -> TermResult<_> {
-                Ok(TermRitchieParameterLiasonedType {
-                    liason: parameter_liasoned_ty.liason(),
-                    ty: t(parameter_liasoned_ty.ty())?,
+            .map(|parameter_contracted_ty| -> TermResult<_> {
+                Ok(TermRitchieParameterContractedType {
+                    contract: parameter_contracted_ty.contract(),
+                    ty: t(parameter_contracted_ty.ty())?,
                 })
             }),
         t(raw_term_ritchie.return_ty(db))?,
@@ -166,7 +166,7 @@ where
             TermRitchieKind::FnTrait => f.write_str("Fn(")?,
             TermRitchieKind::FnMutTrait => f.write_str("FnMut(")?,
         }
-        for (i, parameter_ty) in self.parameter_liasoned_tys(db).iter().enumerate() {
+        for (i, parameter_ty) in self.parameter_contracted_tys(db).iter().enumerate() {
             if i > 0 {
                 f.write_str(", ")?
             }
@@ -179,19 +179,19 @@ where
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = TermDb)]
-pub struct TermRitchieParameterLiasonedType {
-    liason: Liason,
+pub struct TermRitchieParameterContractedType {
+    contract: Contract,
     ty: Term,
 }
 
-impl TermRitchieParameterLiasonedType {
+impl TermRitchieParameterContractedType {
     fn check(self, db: &dyn TermDb) -> TermResult<()> {
         self.ty.check_is_ins_ty0(db)
     }
 
     fn reduce(self, db: &dyn TermDb) -> Self {
         Self {
-            liason: self.liason,
+            contract: self.contract,
             ty: self.ty.reduce(db),
         }
     }
@@ -206,7 +206,7 @@ impl TermRitchieParameterLiasonedType {
     }
 }
 
-impl<Db> salsa::DisplayWithDb<Db> for TermRitchieParameterLiasonedType
+impl<Db> salsa::DisplayWithDb<Db> for TermRitchieParameterContractedType
 where
     Db: TermDb + ?Sized,
 {
@@ -221,9 +221,9 @@ where
     }
 }
 
-impl TermRitchieParameterLiasonedType {
-    pub fn new(liason: Liason, ty: Term) -> Self {
-        Self { liason, ty }
+impl TermRitchieParameterContractedType {
+    pub fn new(contract: Contract, ty: Term) -> Self {
+        Self { contract, ty }
     }
 
     pub fn ty(&self) -> Term {

@@ -105,7 +105,7 @@ impl ExpectSubtype {
             LocalTermPattern::Category(_) => todo!(),
             LocalTermPattern::Ritchie {
                 ritchie_kind,
-                parameter_liasoned_tys,
+                parameter_contracted_tys,
                 return_ty,
             } => todo!(),
         }

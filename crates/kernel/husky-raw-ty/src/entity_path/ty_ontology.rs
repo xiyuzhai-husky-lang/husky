@@ -43,7 +43,7 @@ fn regular_struct_ty_constructor_path_raw_ty(
         .fields(db)
         .iter()
         .copied()
-        .map(RegularStructFieldSignature::into_ritchie_parameter_liasoned_ty)
+        .map(RegularStructFieldSignature::into_ritchie_parameter_contracted_ty)
         .collect();
     let constructor_ty = RawTermRitchie::new(db, TermRitchieKind::FnType, parameter_tys, self_ty);
     curry_from_implicit_parameters(

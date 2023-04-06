@@ -187,8 +187,8 @@ impl<'a> ExprRangeCalculator<'a> {
             PatternExpr::Literal(_) => todo!(),
             PatternExpr::Ident {
                 ident_token,
-                modifier: liason,
-            } => match liason {
+                modifier: contract,
+            } => match contract {
                 PatternModifier::None => TokenIdxRange::new_single(ident_token.token_idx()),
                 PatternModifier::Mut => todo!(),
             },

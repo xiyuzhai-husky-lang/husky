@@ -17,9 +17,9 @@ pub struct ExpectImplicitlyConvertible {
 impl ExpectImplicitlyConvertible {
     // todo: redo, take care!
     #[inline(always)]
-    pub fn new(parameter_liasoned_ty: LocalTermRitchieParameterLiasonedType) -> Self {
+    pub fn new(parameter_contracted_ty: LocalTermRitchieParameterContractedType) -> Self {
         Self {
-            destination: parameter_liasoned_ty.ty(),
+            destination: parameter_contracted_ty.ty(),
         }
     }
 

@@ -88,7 +88,7 @@ macro_rules! lazy_field_linkage {
 #[macro_export]
 macro_rules! eager_field_linkage {
     (
-        $liason: tt,
+        $contract: tt,
         $canonical_kind: tt,
         $reg_memory_kind: tt,
         $Type: ty,
@@ -124,7 +124,7 @@ macro_rules! eager_field_linkage {
                 $field
             ),
             temp_mut_resolved_linkage: field_temp_mut_fp!(
-                $liason,
+                $contract,
                 $canonical_kind,
                 $Type,
                 $TYPE_VTABLE,
@@ -147,7 +147,7 @@ macro_rules! eager_field_linkage {
 #[macro_export]
 macro_rules! index_linkage {
     (
-        $liason: tt,
+        $contract: tt,
         $canonical_kind: tt,
         $reg_memory_kind: tt,
         $Type: ty,
@@ -179,7 +179,7 @@ macro_rules! index_linkage {
                 $ELEMENT_TYPE_VTABLE
             ),
             temp_mut_resolved_linkage: index_temp_mut_fp!(
-                $liason,
+                $contract,
                 $canonical_kind,
                 $Type,
                 $TYPE_VTABLE,

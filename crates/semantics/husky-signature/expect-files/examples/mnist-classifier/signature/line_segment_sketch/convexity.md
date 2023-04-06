@@ -9,7 +9,7 @@
                     parameters: ExplicitParameterSignatures {
                         parameters: [
                             ExplicitParameterSignature {
-                                liason: Pure,
+                                contract: Pure,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -21,7 +21,7 @@
                                 ),
                             },
                             ExplicitParameterSignature {
-                                liason: Pure,
+                                contract: Pure,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(

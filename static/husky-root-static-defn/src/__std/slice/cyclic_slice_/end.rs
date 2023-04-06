@@ -5,7 +5,7 @@ pub static STD_SLICE_CYCLIC_SLICE_END_DEFN: EntityStaticDefn = EntityStaticDefn 
     items: &[],
     variant: EntityStaticDefnVariant::TyField {
         field_kind: FieldKind::StructRegular,
-        liason: MemberModifier::Mutable,
+        contract: MemberModifier::Mutable,
         field_ty: "i32",
         linkage: eager_field_linkage!(
             mutable,

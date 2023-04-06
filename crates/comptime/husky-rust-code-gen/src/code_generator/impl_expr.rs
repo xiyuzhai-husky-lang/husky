@@ -135,7 +135,7 @@ impl<'a> RustCodeGenerator<'a> {
                 EagerOpnVariant::MethodCall { .. } => {
                     todo!()
                     // let call_form_decl = self.db.entity_call_form_decl(*method_route).unwrap();
-                    // match call_form_decl.output.liason() {
+                    // match call_form_decl.output.contract() {
                     //     OutputModifier::Transfer => {
                     //         self.gen_expr(indent, &opds[0]);
                     //         self.write(".");
