@@ -391,10 +391,15 @@ Ok(
                                             allow_self_type: False,
                                             allow_self_value: False,
                                             pattern_ty_constraints: [
-                                                ExplicitParameter {
-                                                    pattern: 0,
-                                                    ty: 1,
-                                                },
+                                                (
+                                                    ExplicitParameter {
+                                                        pattern: 0,
+                                                        ty: 1,
+                                                    },
+                                                    ArenaIdxRange(
+                                                        0..1,
+                                                    ),
+                                                ),
                                             ],
                                         },
                                         roots: [

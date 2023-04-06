@@ -51,7 +51,7 @@ impl<'a> SignatureRawTermEngine<'a> {
     }
 
     fn infer_all(mut self) -> SignatureRegion {
-        self.init_current_symbol_signatures();
+        self.init_current_symbol_terms();
         self.raw_term_symbol_region.init_self_ty_and_value(
             self.db,
             self.expr_region_data.path(),
@@ -62,51 +62,46 @@ impl<'a> SignatureRawTermEngine<'a> {
         self.finish()
     }
 
-    fn init_current_symbol_signatures(&mut self) {
-        // no skip
-        // compute current symbol signature one by one
-        for (_idx, symbol) in self
+    fn init_current_symbol_terms(&mut self) {
+        for (pattern_ty_constraint, symbols) in self
             .expr_region_data
             .symbol_region()
-            .indexed_current_symbol_iter()
+            .pattern_ty_constraints()
         {
-            let ty = match symbol.variant() {
-                CurrentSymbolVariant::ImplicitParameter {
-                    implicit_parameter_variant,
-                } => match implicit_parameter_variant {
-                    CurrentImplicitParameterSymbol::Type { .. } => {
-                        Ok(self.raw_term_menu.ty0().into())
-                    }
-                    CurrentImplicitParameterSymbol::Lifetime { .. } => {
-                        Ok(self.raw_term_menu.lifetime_ty().into())
-                    }
-                    _ => todo!(),
-                },
-                CurrentSymbolVariant::ExplicitParameter {
-                    pattern_symbol_idx, ..
-                } => {
-                    let pattern_symbol =
-                        &self.expr_region_data.pattern_expr_region()[*pattern_symbol_idx];
-                    match pattern_symbol {
-                        PatternSymbol::Atom(pattern) => {
-                            let ty = self
-                                .expr_region_data
-                                .symbol_region()
-                                .regular_parameter_pattern_ty_constraint(*pattern)
-                                .unwrap();
-                            match self.infer_new_expr_term(ty) {
-                                Ok(ty) => Ok(ty),
-                                Err(_) => Err(RawTermSymbolTypeErrorKind::SignatureRawTermError),
-                            }
-                        }
-                    }
+            match pattern_ty_constraint {
+                PatternTypeConstraint::ImplicitTypeParameter => {
+                    debug_assert_eq!(symbols.len(), 1);
+                    self.raw_term_symbol_region.add_new_symbol(
+                        self.db,
+                        symbols.start(),
+                        todo!("lifetime or whatever"), // Ok(self.raw_term_menu.ty0().into()),
+                    )
                 }
-                CurrentSymbolVariant::LetVariable { .. }
-                | CurrentSymbolVariant::FrameVariable { .. } => {
-                    unreachable!("should only compute for decl region")
+                PatternTypeConstraint::ExplicitParameter { pattern, ty } => {
+                    //         let pattern_symbol =
+                    //             &self.expr_region_data.pattern_expr_region()[*pattern_symbol_idx];
+                    //         match pattern_symbol {
+                    //             PatternSymbol::Atom(pattern) => {
+                    //                 let ty = self
+                    //                     .expr_region_data
+                    //                     .symbol_region()
+                    //                     .regular_parameter_pattern_ty_constraint(*pattern)
+                    //                     .unwrap();
+                    //                 match self.infer_new_expr_term(ty) {
+                    //                     Ok(ty) => Ok(ty),
+                    //                     Err(_) => Err(RawTermSymbolTypeErrorKind::SignatureRawTermError),
+                    //                 }
+                    //             }
+                    //         }
+                    //     }
+                    todo!()
                 }
-            };
-            self.raw_term_symbol_region.add_new_symbol(self.db, ty)
+                PatternTypeConstraint::LetVariables { .. }
+                | PatternTypeConstraint::FrameVariable => {
+                    // need only to compute for decl region
+                    return;
+                }
+            }
         }
     }
 

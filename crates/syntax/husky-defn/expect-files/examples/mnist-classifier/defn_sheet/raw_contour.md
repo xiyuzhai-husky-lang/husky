@@ -455,14 +455,24 @@ Ok(
                                                 allow_self_type: False,
                                                 allow_self_value: False,
                                                 pattern_ty_constraints: [
-                                                    ExplicitParameter {
-                                                        pattern: 0,
-                                                        ty: 0,
-                                                    },
-                                                    ExplicitParameter {
-                                                        pattern: 1,
-                                                        ty: 1,
-                                                    },
+                                                    (
+                                                        ExplicitParameter {
+                                                            pattern: 0,
+                                                            ty: 0,
+                                                        },
+                                                        ArenaIdxRange(
+                                                            0..1,
+                                                        ),
+                                                    ),
+                                                    (
+                                                        ExplicitParameter {
+                                                            pattern: 1,
+                                                            ty: 1,
+                                                        },
+                                                        ArenaIdxRange(
+                                                            1..2,
+                                                        ),
+                                                    ),
                                                 ],
                                             },
                                             roots: [
@@ -712,14 +722,24 @@ Ok(
                                                         allow_self_type: False,
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [
-                                                            ExplicitParameter {
-                                                                pattern: 0,
-                                                                ty: 0,
-                                                            },
-                                                            ExplicitParameter {
-                                                                pattern: 1,
-                                                                ty: 1,
-                                                            },
+                                                            (
+                                                                ExplicitParameter {
+                                                                    pattern: 0,
+                                                                    ty: 0,
+                                                                },
+                                                                ArenaIdxRange(
+                                                                    0..1,
+                                                                ),
+                                                            ),
+                                                            (
+                                                                ExplicitParameter {
+                                                                    pattern: 1,
+                                                                    ty: 1,
+                                                                },
+                                                                ArenaIdxRange(
+                                                                    1..2,
+                                                                ),
+                                                            ),
                                                         ],
                                                     },
                                                     roots: [
@@ -1076,14 +1096,24 @@ Ok(
                                                 allow_self_type: False,
                                                 allow_self_value: False,
                                                 pattern_ty_constraints: [
-                                                    ExplicitParameter {
-                                                        pattern: 0,
-                                                        ty: 0,
-                                                    },
-                                                    ExplicitParameter {
-                                                        pattern: 1,
-                                                        ty: 1,
-                                                    },
+                                                    (
+                                                        ExplicitParameter {
+                                                            pattern: 0,
+                                                            ty: 0,
+                                                        },
+                                                        ArenaIdxRange(
+                                                            0..1,
+                                                        ),
+                                                    ),
+                                                    (
+                                                        ExplicitParameter {
+                                                            pattern: 1,
+                                                            ty: 1,
+                                                        },
+                                                        ArenaIdxRange(
+                                                            1..2,
+                                                        ),
+                                                    ),
                                                 ],
                                             },
                                             roots: [
@@ -1333,14 +1363,24 @@ Ok(
                                                         allow_self_type: False,
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [
-                                                            ExplicitParameter {
-                                                                pattern: 0,
-                                                                ty: 0,
-                                                            },
-                                                            ExplicitParameter {
-                                                                pattern: 1,
-                                                                ty: 1,
-                                                            },
+                                                            (
+                                                                ExplicitParameter {
+                                                                    pattern: 0,
+                                                                    ty: 0,
+                                                                },
+                                                                ArenaIdxRange(
+                                                                    0..1,
+                                                                ),
+                                                            ),
+                                                            (
+                                                                ExplicitParameter {
+                                                                    pattern: 1,
+                                                                    ty: 1,
+                                                                },
+                                                                ArenaIdxRange(
+                                                                    1..2,
+                                                                ),
+                                                            ),
                                                         ],
                                                     },
                                                     roots: [
@@ -1673,14 +1713,24 @@ Ok(
                                                 allow_self_type: False,
                                                 allow_self_value: False,
                                                 pattern_ty_constraints: [
-                                                    ExplicitParameter {
-                                                        pattern: 0,
-                                                        ty: 0,
-                                                    },
-                                                    ExplicitParameter {
-                                                        pattern: 1,
-                                                        ty: 1,
-                                                    },
+                                                    (
+                                                        ExplicitParameter {
+                                                            pattern: 0,
+                                                            ty: 0,
+                                                        },
+                                                        ArenaIdxRange(
+                                                            0..1,
+                                                        ),
+                                                    ),
+                                                    (
+                                                        ExplicitParameter {
+                                                            pattern: 1,
+                                                            ty: 1,
+                                                        },
+                                                        ArenaIdxRange(
+                                                            1..2,
+                                                        ),
+                                                    ),
                                                 ],
                                             },
                                             roots: [
@@ -1930,14 +1980,24 @@ Ok(
                                                         allow_self_type: False,
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [
-                                                            ExplicitParameter {
-                                                                pattern: 0,
-                                                                ty: 0,
-                                                            },
-                                                            ExplicitParameter {
-                                                                pattern: 1,
-                                                                ty: 1,
-                                                            },
+                                                            (
+                                                                ExplicitParameter {
+                                                                    pattern: 0,
+                                                                    ty: 0,
+                                                                },
+                                                                ArenaIdxRange(
+                                                                    0..1,
+                                                                ),
+                                                            ),
+                                                            (
+                                                                ExplicitParameter {
+                                                                    pattern: 1,
+                                                                    ty: 1,
+                                                                },
+                                                                ArenaIdxRange(
+                                                                    1..2,
+                                                                ),
+                                                            ),
                                                         ],
                                                     },
                                                     roots: [
@@ -2344,18 +2404,33 @@ Ok(
                                                 allow_self_type: False,
                                                 allow_self_value: False,
                                                 pattern_ty_constraints: [
-                                                    ExplicitParameter {
-                                                        pattern: 0,
-                                                        ty: 0,
-                                                    },
-                                                    ExplicitParameter {
-                                                        pattern: 1,
-                                                        ty: 1,
-                                                    },
-                                                    ExplicitParameter {
-                                                        pattern: 2,
-                                                        ty: 2,
-                                                    },
+                                                    (
+                                                        ExplicitParameter {
+                                                            pattern: 0,
+                                                            ty: 0,
+                                                        },
+                                                        ArenaIdxRange(
+                                                            0..1,
+                                                        ),
+                                                    ),
+                                                    (
+                                                        ExplicitParameter {
+                                                            pattern: 1,
+                                                            ty: 1,
+                                                        },
+                                                        ArenaIdxRange(
+                                                            1..2,
+                                                        ),
+                                                    ),
+                                                    (
+                                                        ExplicitParameter {
+                                                            pattern: 2,
+                                                            ty: 2,
+                                                        },
+                                                        ArenaIdxRange(
+                                                            2..3,
+                                                        ),
+                                                    ),
                                                 ],
                                             },
                                             roots: [
@@ -2677,18 +2752,33 @@ Ok(
                                                         allow_self_type: False,
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [
-                                                            ExplicitParameter {
-                                                                pattern: 0,
-                                                                ty: 0,
-                                                            },
-                                                            ExplicitParameter {
-                                                                pattern: 1,
-                                                                ty: 1,
-                                                            },
-                                                            ExplicitParameter {
-                                                                pattern: 2,
-                                                                ty: 2,
-                                                            },
+                                                            (
+                                                                ExplicitParameter {
+                                                                    pattern: 0,
+                                                                    ty: 0,
+                                                                },
+                                                                ArenaIdxRange(
+                                                                    0..1,
+                                                                ),
+                                                            ),
+                                                            (
+                                                                ExplicitParameter {
+                                                                    pattern: 1,
+                                                                    ty: 1,
+                                                                },
+                                                                ArenaIdxRange(
+                                                                    1..2,
+                                                                ),
+                                                            ),
+                                                            (
+                                                                ExplicitParameter {
+                                                                    pattern: 2,
+                                                                    ty: 2,
+                                                                },
+                                                                ArenaIdxRange(
+                                                                    2..3,
+                                                                ),
+                                                            ),
                                                         ],
                                                     },
                                                     roots: [
@@ -3231,14 +3321,24 @@ Ok(
                                                 allow_self_type: False,
                                                 allow_self_value: False,
                                                 pattern_ty_constraints: [
-                                                    ExplicitParameter {
-                                                        pattern: 0,
-                                                        ty: 0,
-                                                    },
-                                                    ExplicitParameter {
-                                                        pattern: 1,
-                                                        ty: 1,
-                                                    },
+                                                    (
+                                                        ExplicitParameter {
+                                                            pattern: 0,
+                                                            ty: 0,
+                                                        },
+                                                        ArenaIdxRange(
+                                                            0..1,
+                                                        ),
+                                                    ),
+                                                    (
+                                                        ExplicitParameter {
+                                                            pattern: 1,
+                                                            ty: 1,
+                                                        },
+                                                        ArenaIdxRange(
+                                                            1..2,
+                                                        ),
+                                                    ),
                                                 ],
                                             },
                                             roots: [
@@ -3488,14 +3588,24 @@ Ok(
                                                         allow_self_type: False,
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [
-                                                            ExplicitParameter {
-                                                                pattern: 0,
-                                                                ty: 0,
-                                                            },
-                                                            ExplicitParameter {
-                                                                pattern: 1,
-                                                                ty: 1,
-                                                            },
+                                                            (
+                                                                ExplicitParameter {
+                                                                    pattern: 0,
+                                                                    ty: 0,
+                                                                },
+                                                                ArenaIdxRange(
+                                                                    0..1,
+                                                                ),
+                                                            ),
+                                                            (
+                                                                ExplicitParameter {
+                                                                    pattern: 1,
+                                                                    ty: 1,
+                                                                },
+                                                                ArenaIdxRange(
+                                                                    1..2,
+                                                                ),
+                                                            ),
                                                         ],
                                                     },
                                                     roots: [
@@ -4128,22 +4238,42 @@ Ok(
                                                 allow_self_type: False,
                                                 allow_self_value: False,
                                                 pattern_ty_constraints: [
-                                                    ExplicitParameter {
-                                                        pattern: 0,
-                                                        ty: 0,
-                                                    },
-                                                    ExplicitParameter {
-                                                        pattern: 1,
-                                                        ty: 1,
-                                                    },
-                                                    ExplicitParameter {
-                                                        pattern: 2,
-                                                        ty: 2,
-                                                    },
-                                                    ExplicitParameter {
-                                                        pattern: 3,
-                                                        ty: 3,
-                                                    },
+                                                    (
+                                                        ExplicitParameter {
+                                                            pattern: 0,
+                                                            ty: 0,
+                                                        },
+                                                        ArenaIdxRange(
+                                                            0..1,
+                                                        ),
+                                                    ),
+                                                    (
+                                                        ExplicitParameter {
+                                                            pattern: 1,
+                                                            ty: 1,
+                                                        },
+                                                        ArenaIdxRange(
+                                                            1..2,
+                                                        ),
+                                                    ),
+                                                    (
+                                                        ExplicitParameter {
+                                                            pattern: 2,
+                                                            ty: 2,
+                                                        },
+                                                        ArenaIdxRange(
+                                                            2..3,
+                                                        ),
+                                                    ),
+                                                    (
+                                                        ExplicitParameter {
+                                                            pattern: 3,
+                                                            ty: 3,
+                                                        },
+                                                        ArenaIdxRange(
+                                                            3..4,
+                                                        ),
+                                                    ),
                                                 ],
                                             },
                                             roots: [
@@ -4532,22 +4662,42 @@ Ok(
                                                         allow_self_type: False,
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [
-                                                            ExplicitParameter {
-                                                                pattern: 0,
-                                                                ty: 0,
-                                                            },
-                                                            ExplicitParameter {
-                                                                pattern: 1,
-                                                                ty: 1,
-                                                            },
-                                                            ExplicitParameter {
-                                                                pattern: 2,
-                                                                ty: 2,
-                                                            },
-                                                            ExplicitParameter {
-                                                                pattern: 3,
-                                                                ty: 3,
-                                                            },
+                                                            (
+                                                                ExplicitParameter {
+                                                                    pattern: 0,
+                                                                    ty: 0,
+                                                                },
+                                                                ArenaIdxRange(
+                                                                    0..1,
+                                                                ),
+                                                            ),
+                                                            (
+                                                                ExplicitParameter {
+                                                                    pattern: 1,
+                                                                    ty: 1,
+                                                                },
+                                                                ArenaIdxRange(
+                                                                    1..2,
+                                                                ),
+                                                            ),
+                                                            (
+                                                                ExplicitParameter {
+                                                                    pattern: 2,
+                                                                    ty: 2,
+                                                                },
+                                                                ArenaIdxRange(
+                                                                    2..3,
+                                                                ),
+                                                            ),
+                                                            (
+                                                                ExplicitParameter {
+                                                                    pattern: 3,
+                                                                    ty: 3,
+                                                                },
+                                                                ArenaIdxRange(
+                                                                    3..4,
+                                                                ),
+                                                            ),
                                                         ],
                                                     },
                                                     roots: [
@@ -5242,10 +5392,15 @@ Ok(
                                                 allow_self_type: False,
                                                 allow_self_value: False,
                                                 pattern_ty_constraints: [
-                                                    ExplicitParameter {
-                                                        pattern: 0,
-                                                        ty: 2,
-                                                    },
+                                                    (
+                                                        ExplicitParameter {
+                                                            pattern: 0,
+                                                            ty: 2,
+                                                        },
+                                                        ArenaIdxRange(
+                                                            0..1,
+                                                        ),
+                                                    ),
                                                 ],
                                             },
                                             roots: [
@@ -5442,10 +5597,15 @@ Ok(
                                                         allow_self_type: False,
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [
-                                                            ExplicitParameter {
-                                                                pattern: 0,
-                                                                ty: 2,
-                                                            },
+                                                            (
+                                                                ExplicitParameter {
+                                                                    pattern: 0,
+                                                                    ty: 2,
+                                                                },
+                                                                ArenaIdxRange(
+                                                                    0..1,
+                                                                ),
+                                                            ),
                                                         ],
                                                     },
                                                     roots: [
@@ -6210,10 +6370,15 @@ Ok(
                                                 allow_self_type: False,
                                                 allow_self_value: False,
                                                 pattern_ty_constraints: [
-                                                    ExplicitParameter {
-                                                        pattern: 0,
-                                                        ty: 1,
-                                                    },
+                                                    (
+                                                        ExplicitParameter {
+                                                            pattern: 0,
+                                                            ty: 1,
+                                                        },
+                                                        ArenaIdxRange(
+                                                            0..1,
+                                                        ),
+                                                    ),
                                                 ],
                                             },
                                             roots: [
@@ -6417,10 +6582,15 @@ Ok(
                                                         allow_self_type: False,
                                                         allow_self_value: False,
                                                         pattern_ty_constraints: [
-                                                            ExplicitParameter {
-                                                                pattern: 0,
-                                                                ty: 1,
-                                                            },
+                                                            (
+                                                                ExplicitParameter {
+                                                                    pattern: 0,
+                                                                    ty: 1,
+                                                                },
+                                                                ArenaIdxRange(
+                                                                    0..1,
+                                                                ),
+                                                            ),
                                                         ],
                                                     },
                                                     roots: [
@@ -11394,12 +11564,27 @@ Ok(
                                             allow_self_type: False,
                                             allow_self_value: False,
                                             pattern_ty_constraints: [
-                                                FrameVariable,
-                                                FrameVariable,
-                                                LetVariables {
-                                                    pattern: 6,
-                                                    ty: 60,
-                                                },
+                                                (
+                                                    FrameVariable,
+                                                    ArenaIdxRange(
+                                                        2..3,
+                                                    ),
+                                                ),
+                                                (
+                                                    FrameVariable,
+                                                    ArenaIdxRange(
+                                                        7..8,
+                                                    ),
+                                                ),
+                                                (
+                                                    LetVariables {
+                                                        pattern: 6,
+                                                        ty: 60,
+                                                    },
+                                                    ArenaIdxRange(
+                                                        8..9,
+                                                    ),
+                                                ),
                                             ],
                                         },
                                         roots: [
@@ -13744,7 +13929,12 @@ Ok(
                                                 allow_self_type: True,
                                                 allow_self_value: True,
                                                 pattern_ty_constraints: [
-                                                    FrameVariable,
+                                                    (
+                                                        FrameVariable,
+                                                        ArenaIdxRange(
+                                                            5..6,
+                                                        ),
+                                                    ),
                                                 ],
                                             },
                                             roots: [
@@ -15936,7 +16126,12 @@ Ok(
                                                 allow_self_type: True,
                                                 allow_self_value: True,
                                                 pattern_ty_constraints: [
-                                                    FrameVariable,
+                                                    (
+                                                        FrameVariable,
+                                                        ArenaIdxRange(
+                                                            1..2,
+                                                        ),
+                                                    ),
                                                 ],
                                             },
                                             roots: [
@@ -16306,14 +16501,24 @@ Ok(
                                                     allow_self_type: True,
                                                     allow_self_value: True,
                                                     pattern_ty_constraints: [
-                                                        ExplicitParameter {
-                                                            pattern: 0,
-                                                            ty: 0,
-                                                        },
-                                                        ExplicitParameter {
-                                                            pattern: 1,
-                                                            ty: 1,
-                                                        },
+                                                        (
+                                                            ExplicitParameter {
+                                                                pattern: 0,
+                                                                ty: 0,
+                                                            },
+                                                            ArenaIdxRange(
+                                                                0..1,
+                                                            ),
+                                                        ),
+                                                        (
+                                                            ExplicitParameter {
+                                                                pattern: 1,
+                                                                ty: 1,
+                                                            },
+                                                            ArenaIdxRange(
+                                                                1..2,
+                                                            ),
+                                                        ),
                                                     ],
                                                 },
                                                 roots: [
@@ -16644,14 +16849,24 @@ Ok(
                                                             allow_self_type: True,
                                                             allow_self_value: True,
                                                             pattern_ty_constraints: [
-                                                                ExplicitParameter {
-                                                                    pattern: 0,
-                                                                    ty: 0,
-                                                                },
-                                                                ExplicitParameter {
-                                                                    pattern: 1,
-                                                                    ty: 1,
-                                                                },
+                                                                (
+                                                                    ExplicitParameter {
+                                                                        pattern: 0,
+                                                                        ty: 0,
+                                                                    },
+                                                                    ArenaIdxRange(
+                                                                        0..1,
+                                                                    ),
+                                                                ),
+                                                                (
+                                                                    ExplicitParameter {
+                                                                        pattern: 1,
+                                                                        ty: 1,
+                                                                    },
+                                                                    ArenaIdxRange(
+                                                                        1..2,
+                                                                    ),
+                                                                ),
                                                             ],
                                                         },
                                                         roots: [

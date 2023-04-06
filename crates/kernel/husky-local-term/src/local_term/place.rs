@@ -2,7 +2,7 @@ use super::*;
 
 /// `PlaceQual` qualifies the place of a base type `T`
 #[derive(Debug, PartialEq, Eq)]
-pub enum LocalPlaceQual {
+pub enum LocalPlace {
     /// reduce to
     /// - ImmutableStackOwned if base type is known to be copyable
     /// - ImmutableReferenced if base type is known to be noncopyable
@@ -90,6 +90,6 @@ pub struct LocalLifetimeIdx {}
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = TermDb)]
 pub struct LocalTermPlaceType {
-    place_qual: LocalPlaceQual,
-    base_ty: LocalTerm,
+    place: LocalPlace,
+    ty: LocalTerm,
 }

@@ -40,16 +40,17 @@ impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for ImplicitParameterDecl
         let annotated_variance_token = ctx.try_parse();
         if let Some(ident_token) = ctx.parse::<IdentToken>()? {
             let access_start = ctx.state();
-            let symbols = ctx.define_symbols(
-                [CurrentSymbol::new(
-                    access_start,
-                    None,
-                    CurrentSymbolVariant::ImplicitParameter {
-                        implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
-                            ident_token,
-                        },
+            let parameter_symbol = CurrentSymbol::new(
+                access_start,
+                None,
+                CurrentSymbolVariant::ImplicitParameter {
+                    implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                        ident_token,
                     },
-                )],
+                },
+            );
+            let symbols = ctx.define_symbols(
+                [parameter_symbol],
                 Some(PatternTypeConstraint::ImplicitTypeParameter),
             );
             Ok(Some(ImplicitParameterDeclPattern {

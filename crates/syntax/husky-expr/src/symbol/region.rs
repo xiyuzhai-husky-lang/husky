@@ -39,7 +39,7 @@ pub struct SymbolRegion {
     current_symbol_arena: CurrentSymbolArena,
     allow_self_type: AllowSelfType,
     allow_self_value: AllowSelfValue,
-    pattern_ty_constraints: Vec<PatternTypeConstraint>,
+    pattern_ty_constraints: Vec<(PatternTypeConstraint, CurrentSymbolIdxRange)>,
 }
 
 impl SymbolRegion {
@@ -49,7 +49,7 @@ impl SymbolRegion {
     ) -> Option<ExprIdx> {
         self.pattern_ty_constraints
             .iter()
-            .find_map(|pattern_ty_constraint| match pattern_ty_constraint {
+            .find_map(|(pattern_ty_constraint, _)| match pattern_ty_constraint {
                 PatternTypeConstraint::ExplicitParameter { pattern, ty } if *pattern == target => {
                     Some(*ty)
                 }
@@ -57,27 +57,27 @@ impl SymbolRegion {
             })
     }
 
-    pub(crate) fn add_ty_constraint(&mut self, constraint: PatternTypeConstraint) {
-        self.pattern_ty_constraints.push(constraint)
-    }
+    // pub(crate) fn add_ty_constraint(&mut self, constraint: PatternTypeConstraint) {
+    //     self.pattern_ty_constraints.push(constraint)
+    // }
 
-    pub fn pattern_ty_constraints(&self) -> &[PatternTypeConstraint] {
-        self.pattern_ty_constraints.as_ref()
+    pub fn pattern_ty_constraints(&self) -> &[(PatternTypeConstraint, CurrentSymbolIdxRange)] {
+        &self.pattern_ty_constraints
     }
 }
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum PatternTypeConstraint {
-    LetVariables {
-        pattern: PatternExprIdx,
-        ty: ExprIdx,
-    },
-    FrameVariable,
     ImplicitTypeParameter,
     ExplicitParameter {
         pattern: PatternExprIdx,
         ty: ExprIdx,
     },
+    LetVariables {
+        pattern: PatternExprIdx,
+        ty: ExprIdx,
+    },
+    FrameVariable,
 }
 
 impl SymbolRegion {
@@ -120,9 +120,13 @@ impl SymbolRegion {
         variables: impl IntoIterator<Item = CurrentSymbol>,
         ty_constraint: Option<PatternTypeConstraint>,
     ) -> ArenaIdxRange<CurrentSymbol> {
-        self.pattern_ty_constraints
-            .extend(ty_constraint.into_iter());
-        self.current_symbol_arena.alloc_batch(variables)
+        let symbols = self.current_symbol_arena.alloc_batch(variables);
+        self.pattern_ty_constraints.extend(
+            ty_constraint
+                .into_iter()
+                .map(|ty_constraint| (ty_constraint, symbols)),
+        );
+        symbols
     }
 
     pub(crate) fn resolve_ident(&self, token_idx: TokenIdx, ident: Ident) -> Option<Symbol> {
