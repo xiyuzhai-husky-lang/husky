@@ -172,7 +172,7 @@ Ok(
                                                 ),
                                                 (
                                                     ExplicitParameter {
-                                                        pattern: 0,
+                                                        pattern_expr: 0,
                                                         ty: 3,
                                                     },
                                                     ArenaIdxRange(
@@ -545,7 +545,7 @@ Ok(
                                                 ),
                                                 (
                                                     ExplicitParameter {
-                                                        pattern: 0,
+                                                        pattern_expr: 0,
                                                         ty: 3,
                                                     },
                                                     ArenaIdxRange(
@@ -554,7 +554,7 @@ Ok(
                                                 ),
                                                 (
                                                     ExplicitParameter {
-                                                        pattern: 1,
+                                                        pattern_expr: 1,
                                                         ty: 4,
                                                     },
                                                     ArenaIdxRange(
@@ -563,7 +563,7 @@ Ok(
                                                 ),
                                                 (
                                                     ExplicitParameter {
-                                                        pattern: 2,
+                                                        pattern_expr: 2,
                                                         ty: 5,
                                                     },
                                                     ArenaIdxRange(
@@ -992,7 +992,7 @@ Ok(
                                                 ),
                                                 (
                                                     ExplicitParameter {
-                                                        pattern: 0,
+                                                        pattern_expr: 0,
                                                         ty: 3,
                                                     },
                                                     ArenaIdxRange(
@@ -1001,7 +1001,7 @@ Ok(
                                                 ),
                                                 (
                                                     ExplicitParameter {
-                                                        pattern: 1,
+                                                        pattern_expr: 1,
                                                         ty: 4,
                                                     },
                                                     ArenaIdxRange(
@@ -1010,7 +1010,7 @@ Ok(
                                                 ),
                                                 (
                                                     ExplicitParameter {
-                                                        pattern: 2,
+                                                        pattern_expr: 2,
                                                         ty: 5,
                                                     },
                                                     ArenaIdxRange(

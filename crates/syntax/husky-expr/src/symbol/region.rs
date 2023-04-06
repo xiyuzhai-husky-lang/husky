@@ -50,9 +50,10 @@ impl SymbolRegion {
         self.pattern_ty_constraints
             .iter()
             .find_map(|(pattern_ty_constraint, _)| match pattern_ty_constraint {
-                PatternTypeConstraint::ExplicitParameter { pattern, ty } if *pattern == target => {
-                    Some(*ty)
-                }
+                PatternTypeConstraint::ExplicitParameter {
+                    pattern_expr: pattern,
+                    ty,
+                } if *pattern == target => Some(*ty),
                 _ => None,
             })
     }
@@ -70,7 +71,7 @@ impl SymbolRegion {
 pub enum PatternTypeConstraint {
     ImplicitTypeParameter,
     ExplicitParameter {
-        pattern: PatternExprIdx,
+        pattern_expr: PatternExprIdx,
         ty: ExprIdx,
     },
     LetVariables {
@@ -160,7 +161,7 @@ impl SymbolRegion {
         self.inherited_symbol_arena.indexed_iter()
     }
 
-    pub fn indexed_current_symbol_iter<'a>(
+    pub fn current_symbol_indexed_iter<'a>(
         &'a self,
     ) -> impl Iterator<Item = (CurrentSymbolIdx, &'a CurrentSymbol)> + 'a {
         self.current_symbol_arena.indexed_iter()
@@ -175,7 +176,7 @@ impl SymbolRegion {
         for _ in self.indexed_inherited_symbol_iter() {
             todo!()
         }
-        for (current_symbol_idx, current_symbol) in self.indexed_current_symbol_iter() {
+        for (current_symbol_idx, current_symbol) in self.current_symbol_indexed_iter() {
             let kind = match current_symbol.variant {
                 CurrentSymbolVariant::ExplicitParameter { ident, .. } => {
                     InheritedSymbolKind::ExplicitParameter { ident }

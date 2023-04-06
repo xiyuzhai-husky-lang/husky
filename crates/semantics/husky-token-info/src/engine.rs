@@ -241,7 +241,7 @@ impl<'a> InferContext<'a> {
         for (current_symbol_idx, current_symbol) in self
             .expr_region_data
             .symbol_region()
-            .indexed_current_symbol_iter()
+            .current_symbol_indexed_iter()
         {
             self.visit_current_symbol(current_symbol_idx, current_symbol)
         }

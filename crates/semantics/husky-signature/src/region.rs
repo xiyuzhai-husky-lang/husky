@@ -1,4 +1,3 @@
-mod engine;
 mod error;
 mod liason;
 mod term;
@@ -13,7 +12,7 @@ use crate::*;
 use husky_entity_tree::{DeclRegionPath, ImplBlockId, RegionPath};
 use husky_expr::{
     AllowSelfType, CurrentSymbolIdx, ExprIdx, ExprMap, ExprRegion, InheritedSymbolIdx,
-    ParentSymbolIdx, PatternExprMap, SymbolRegion,
+    ParentSymbolIdx, PatternExprMap, PatternSymbolMap, SymbolRegion,
 };
 
 /// preparation for generating signature
@@ -25,20 +24,26 @@ pub struct SignatureRegion {
     term_symbol_region: RawTermSymbolRegion,
     expr_terms: ExprMap<SignatureRawTermResult<RawTerm>>,
     liasons: PatternExprMap<Liason>,
+    pattern_expr_ty_infos: PatternExprMap<PatternExprRawTypeInfo>,
+    pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
 }
 
 impl SignatureRegion {
-    fn new(
+    pub(crate) fn new(
         path: RegionPath,
         term_symbol_region: RawTermSymbolRegion,
         expr_terms: ExprMap<SignatureRawTermResult<RawTerm>>,
         liasons: PatternExprMap<Liason>,
+        pattern_expr_ty_infos: PatternExprMap<PatternExprRawTypeInfo>,
+        pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
     ) -> Self {
         Self {
             path,
             term_symbol_region,
             expr_terms,
             liasons,
+            pattern_expr_ty_infos,
+            pattern_symbol_ty_infos,
         }
     }
 
