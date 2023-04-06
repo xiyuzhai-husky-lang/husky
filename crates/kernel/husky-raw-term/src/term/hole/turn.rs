@@ -13,11 +13,11 @@ impl RawTerm {
         self,
         db: &dyn RawTermDb,
         symbol: RawTermSymbol,
-    ) -> (Self, Option<RawTermPlaceholder>) {
+    ) -> (Self, Option<RawTermHole>) {
         let Some(idx) = self.new_variable_idx(db, symbol) else {
             return (self, None);
         };
-        let variable = RawTermPlaceholder::new(db, symbol.ty(db), idx);
+        let variable = RawTermHole::new(db, symbol.ty(db), idx);
         (
             self.substitute_symbol_with_variable(db, symbol, variable),
             Some(variable),
@@ -98,7 +98,7 @@ impl RawTerm {
         self,
         db: &dyn RawTermDb,
         symbol: RawTermSymbol,
-        variable: RawTermPlaceholder,
+        variable: RawTermHole,
     ) -> Self {
         if !self.contains_symbol(db, symbol) {
             return self;

@@ -34,66 +34,6 @@ pub enum LocalTerm {
 }
 
 impl LocalTerm {
-    pub fn new_application(
-        db: &dyn TermDb,
-        local_term_region: &mut LocalTermRegion,
-        src_expr_idx: ExprIdx,
-        function: impl Into<LocalTerm>,
-        argument: impl Into<LocalTerm>,
-    ) -> TermResult<Self> {
-        match (function.into(), argument.into()) {
-            (LocalTerm::Resolved(function), LocalTerm::Resolved(argument)) => {
-                Ok(TermApplication::new(db, function, argument)?.into())
-            }
-            (LocalTerm::Resolved(function), argument) => {
-                let expansion = function.application_expansion(db);
-                match expansion.function() {
-                    TermFunctionReduced::TypeOntology(path) => {
-                        let mut arguments: SmallVec<[LocalTerm; 2]> = expansion
-                            .arguments(db)
-                            .iter()
-                            .copied()
-                            .map(Into::into)
-                            .collect();
-                        arguments.push(argument);
-                        Ok(local_term_region.intern_unresolved_term(
-                            src_expr_idx,
-                            LocalTermData::TypeOntology { path, arguments },
-                        ))
-                    }
-                    TermFunctionReduced::Trait(_) => todo!(),
-                    TermFunctionReduced::Other(_) => todo!(),
-                }
-            }
-            (LocalTerm::Unresolved(_), LocalTerm::Resolved(_)) => todo!(),
-            (LocalTerm::Unresolved(_), LocalTerm::Unresolved(_)) => todo!(),
-        }
-    }
-
-    pub(crate) fn new_ty_ontology_application(
-        db: &dyn TermDb,
-        unresolved_terms: &mut UnresolvedTerms,
-        src_expr_idx: ExprIdx,
-        path: TypePath,
-        arguments: SmallVec<[LocalTerm; 2]>,
-    ) -> Self {
-        let mut resolved_arguments: SmallVec<[Term; 2]> = smallvec![];
-        for argument in &arguments {
-            match argument {
-                LocalTerm::Resolved(argument) => resolved_arguments.push(*argument),
-                LocalTerm::Unresolved(_) => break,
-            }
-        }
-        if resolved_arguments.len() == arguments.len() {
-            todo!()
-        } else {
-            unresolved_terms.intern_unresolved_term(
-                src_expr_idx,
-                LocalTermData::TypeOntology { path, arguments },
-            )
-        }
-    }
-
     pub fn unravel_borrow(self, db: &dyn TermDb, unresolved_terms: &UnresolvedTerms) -> Self {
         match self.pattern_inner(db, unresolved_terms) {
             LocalTermPattern::TypeOntology {
@@ -144,8 +84,8 @@ impl From<TermSymbol> for LocalTerm {
     }
 }
 
-impl From<TermPlaceholder> for LocalTerm {
-    fn from(value: TermPlaceholder) -> Self {
+impl From<TermHole> for LocalTerm {
+    fn from(value: TermHole) -> Self {
         LocalTerm::Resolved(value.into())
     }
 }

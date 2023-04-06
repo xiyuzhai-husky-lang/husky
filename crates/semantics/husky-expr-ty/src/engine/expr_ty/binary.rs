@@ -177,14 +177,11 @@ impl<'a> ExprTypeEngine<'a> {
             LocalTerm::Unresolved(lopd_ty) => {
                 match self.local_term_region[lopd_ty].unresolved_term() {
                     LocalTermData::ImplicitSymbol(_) => todo!(),
-                    LocalTermData::TypeOntology {
-                        path: ty,
-                        arguments,
-                    } => {
+                    LocalTermData::TypeOntology(_) => {
                         todo!()
                     }
                     LocalTermData::Ritchie(_) => todo!(),
-                    LocalTermData::Qualified { .. } => todo!(),
+                    LocalTermData::QualifiedType { .. } => todo!(),
                 }
             }
         };

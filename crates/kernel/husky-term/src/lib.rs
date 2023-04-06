@@ -49,8 +49,8 @@ pub struct TermJar(
     term_curry_symbols,
     term_ritchie_symbols,
     term_application_symbols,
-    // variable
-    TermPlaceholder,
+    // hole
+    TermHole,
     // curry
     TermCurry,
     term_curry_from_raw_unchecked,
@@ -105,4 +105,6 @@ pub struct TermJar(
     // template
     TemplateParameters,
     ty_path_template_parameters,
+    // place
+    TermPlace,
 );

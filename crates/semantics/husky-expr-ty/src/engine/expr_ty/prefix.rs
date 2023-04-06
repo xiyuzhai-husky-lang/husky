@@ -26,12 +26,9 @@ impl<'a> ExprTypeEngine<'a> {
                                         ImplicitSymbolVariant::ImplicitLifetime => todo!(),
                                     }
                                 }
-                                LocalTermData::TypeOntology {
-                                    path: ty,
-                                    arguments,
-                                } => todo!(),
+                                LocalTermData::TypeOntology(_) => todo!(),
                                 LocalTermData::Ritchie(_) => todo!(),
-                                LocalTermData::Qualified { .. } => todo!(),
+                                LocalTermData::QualifiedType { .. } => todo!(),
                             }
                         }
                     },

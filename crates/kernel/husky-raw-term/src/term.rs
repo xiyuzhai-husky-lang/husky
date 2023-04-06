@@ -5,9 +5,10 @@ mod curry;
 mod entity_path;
 mod explicit_application;
 mod explicit_application_or_ritchie_call;
+mod hole;
 mod list;
 mod literal;
-mod placeholder;
+mod place;
 mod ritchie;
 mod subentity;
 mod symbol;
@@ -19,9 +20,10 @@ pub use self::curry::*;
 pub use self::entity_path::*;
 pub use self::explicit_application::*;
 pub use self::explicit_application_or_ritchie_call::*;
+pub use self::hole::*;
 pub use self::list::*;
 pub use self::literal::*;
-pub use self::placeholder::*;
+pub use self::place::*;
 pub use self::ritchie::*;
 pub use self::subentity::*;
 pub use self::symbol::*;
@@ -38,7 +40,7 @@ pub enum RawTerm {
     Literal(RawTermLiteral),
     Symbol(RawTermSymbol),
     /// variables are derived from symbols
-    Variable(RawTermPlaceholder),
+    Hole(RawTermHole),
     EntityPath(RawTermEntityPath),
     Category(TermCategory),
     Universe(TermUniverse),
@@ -76,6 +78,7 @@ pub enum RawTerm {
     /// - List functor
     /// - Array functor
     List(RawTermList),
+    Place(RawTermPlace),
 }
 
 impl<Db: RawTermDb + ?Sized> salsa::DebugWithDb<Db> for RawTerm {
@@ -123,7 +126,7 @@ impl RawTerm {
         match self {
             RawTerm::Literal(term) => term.show_with_db_fmt(f, db, ctx),
             RawTerm::Symbol(term) => term.show_with_db_fmt(f, db, ctx),
-            RawTerm::Variable(term) => term.show_with_db_fmt(f, db, ctx),
+            RawTerm::Hole(term) => term.show_with_db_fmt(f, db, ctx),
             RawTerm::EntityPath(term) => term.show_with_db_fmt(f, db, ctx),
             RawTerm::Category(term) => f.write_str(&term.to_string()),
             RawTerm::Universe(term) => f.write_str(&term.to_string()),
@@ -137,6 +140,7 @@ impl RawTerm {
             RawTerm::TraitConstraint(term) => term.show_with_db_fmt(f, db, ctx),
             RawTerm::LeashOrBitNot(_) => f.write_str("~"),
             RawTerm::List(term) => term.show_with_db_fmt(f, db, ctx),
+            RawTerm::Place(_) => todo!(),
         }
     }
 }

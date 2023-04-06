@@ -12,7 +12,7 @@ impl RawTerm {
         match self {
             RawTerm::Literal(_) => todo!(),
             RawTerm::Symbol(_) => todo!(),
-            RawTerm::Variable(_) => todo!(),
+            RawTerm::Hole(_) => todo!(),
             RawTerm::EntityPath(path) => match path {
                 RawTermEntityPath::Form(_) => todo!(),
                 RawTermEntityPath::Trait(_) => todo!(),
@@ -30,6 +30,7 @@ impl RawTerm {
             RawTerm::TraitConstraint(_) => todo!(),
             RawTerm::LeashOrBitNot(_) => todo!(),
             RawTerm::List(_) => todo!(),
+            RawTerm::Place(_) => todo!(),
         }
     }
 
@@ -54,7 +55,7 @@ impl RawTermSymbol {
     }
 }
 
-impl RawTermPlaceholder {
+impl RawTermHole {
     pub(crate) fn ty_family(self, db: &dyn RawTermDb) -> RawTermFamily {
         self.ty(db)
             .ok()

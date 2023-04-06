@@ -24,7 +24,7 @@ where
 impl RawTermRewriteCopy for RawTerm {
     fn substitute(self, db: &dyn RawTermDb, substitution: &RawTermSubstitution) -> Self {
         match self {
-            RawTerm::Variable(symbol) => match symbol == substitution.src() {
+            RawTerm::Hole(symbol) => match symbol == substitution.src() {
                 true => substitution.dst(),
                 false => self,
             },
@@ -43,6 +43,7 @@ impl RawTermRewriteCopy for RawTerm {
             RawTerm::TraitConstraint(term) => term.substitute(db, substitution).into(),
             RawTerm::Ritchie(_) => todo!(),
             RawTerm::List(_) => todo!(),
+            RawTerm::Place(_) => todo!(),
         }
     }
 }

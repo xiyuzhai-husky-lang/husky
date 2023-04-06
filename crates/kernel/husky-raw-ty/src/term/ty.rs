@@ -12,7 +12,7 @@ pub fn raw_term_raw_ty(
     match raw_term {
         RawTerm::Literal(_) => todo!(),
         RawTerm::Symbol(_) => todo!(),
-        RawTerm::Variable(_) => todo!(),
+        RawTerm::Hole(_) => todo!(),
         RawTerm::EntityPath(path) => raw_term_entity_path_raw_ty(db, path),
         RawTerm::Category(cat) => cat.ty().map(Into::into).map_err(|_e| todo!()),
         RawTerm::Universe(_) => todo!(),
@@ -29,6 +29,7 @@ pub fn raw_term_raw_ty(
         RawTerm::TraitConstraint(_) => todo!(),
         RawTerm::LeashOrBitNot(_) => todo!(),
         RawTerm::List(_) => todo!(),
+        RawTerm::Place(_) => todo!(),
     }
 }
 

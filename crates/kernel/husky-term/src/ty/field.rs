@@ -5,7 +5,7 @@ pub(crate) fn field_ty(db: &dyn TermDb, owner_ty: Term, ident: Ident) -> TermRes
     match owner_ty {
         Term::Literal(_) => todo!(),
         Term::Symbol(_) => todo!(),
-        Term::Variable(_) => todo!(),
+        Term::Hole(_) => todo!(),
         Term::EntityPath(path) => match path {
             TermEntityPath::Form(_) => todo!(),
             TermEntityPath::Trait(_) => todo!(),
@@ -27,6 +27,7 @@ pub(crate) fn field_ty(db: &dyn TermDb, owner_ty: Term, ident: Ident) -> TermRes
         Term::Subentity(_) => todo!(),
         Term::AsTraitSubentity(_) => todo!(),
         Term::TraitConstraint(_) => todo!(),
+        Term::Place(_) => todo!(),
     }
 }
 

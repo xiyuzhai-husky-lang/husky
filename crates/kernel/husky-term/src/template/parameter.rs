@@ -14,7 +14,7 @@ pub(crate) struct TemplateParameters {
 pub(crate) struct TemplateParameter {
     symbol: TermSymbol,
     /// variable turned from the symbol
-    variable: TermPlaceholder,
+    variable: TermHole,
 }
 
 impl TemplateParameter {
@@ -22,7 +22,7 @@ impl TemplateParameter {
         self.symbol
     }
 
-    pub(crate) fn variable(&self) -> TermPlaceholder {
+    pub(crate) fn variable(&self) -> TermHole {
         self.variable
     }
 }

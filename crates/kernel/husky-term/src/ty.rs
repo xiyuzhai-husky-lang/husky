@@ -22,7 +22,7 @@ impl Term {
             Term::Literal(literal) => Right(literal.ty()),
             // term.raw_ty(db),
             Term::Symbol(symbol) => todo!(),
-            Term::Variable(_) => todo!(),
+            Term::Hole(_) => todo!(),
             Term::EntityPath(path) => match path {
                 TermEntityPath::Form(_) => todo!(),
                 TermEntityPath::Trait(path) => Left(trai_path_raw_ty(db, path)?),
@@ -40,6 +40,7 @@ impl Term {
             Term::Subentity(_) => todo!(),
             Term::AsTraitSubentity(_) => todo!(),
             Term::TraitConstraint(_) => todo!(),
+            Term::Place(_) => todo!(),
         })
     }
 

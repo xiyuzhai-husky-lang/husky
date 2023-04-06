@@ -1,14 +1,20 @@
 use super::*;
 
-/// suppose `T` is base type
+/// `PlaceQual` qualifies the place of a base type `T`
 #[derive(Debug, PartialEq, Eq)]
-pub enum Qual {
-    // lvalue nonreference
-    ImmutableMovable {
+pub enum LocalPlaceQual {
+    /// reduce to
+    /// - ImmutableStackOwned if base type is known to be copyable
+    /// - ImmutableReferenced if base type is known to be noncopyable
+    StackPure {
         location: StackLocationIdx,
     },
-    // lvalue nonreference
-    MutableMovable {
+    /// lvalue nonreference
+    ImmutableStackOwned {
+        location: StackLocationIdx,
+    },
+    /// lvalue nonreference
+    MutableStackOwned {
         location: StackLocationIdx,
     },
     // rvalue
@@ -31,7 +37,7 @@ pub enum Qual {
         ///
         /// let `a` be a reference to `A<'b>`, then `a.x` is a valid for `'b` time,
         /// even if `a` is short lived.
-        guard: Either<StackLocationIdx, LifetimeIdx>,
+        guard: Either<StackLocationIdx, LocalLifetimeIdx>,
     },
     /// can be converted to
     /// - `&'a mut T`;
@@ -59,7 +65,7 @@ pub enum Qual {
         ///
         /// If `a` is a mutable variable on stack of type `A<'b>`, then `a.x` is valid as long as `a` is valid,
         /// even if `b` is long lived. So we should only care about the stack location.
-        guard: Either<StackLocationIdx, LifetimeIdx>,
+        guard: Either<StackLocationIdx, LocalLifetimeIdx>,
     },
     /// stored in database
     /// always immutable
@@ -67,8 +73,23 @@ pub enum Qual {
     Todo,
 }
 
-#[derive(Debug, PartialEq, Eq)]
-pub struct StackLocationIdx {}
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum StackLocationIdx {
+    ExplicitParameter {
+        current_symbol_idx: CurrentSymbolIdx,
+    },
+    Variable {
+        current_symbol_idx: CurrentSymbolIdx,
+    },
+}
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct LifetimeIdx {}
+pub struct LocalLifetimeIdx {}
+
+/// maybe this is comparable with viewtype or viewt@ype in ATS?
+#[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = TermDb)]
+pub struct LocalTermPlaceType {
+    place_qual: LocalPlaceQual,
+    base_ty: LocalTerm,
+}

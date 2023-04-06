@@ -5,6 +5,8 @@ use super::*;
 pub struct RawTermSymbolRegion {
     registry: TermSymbolRegistry,
     inherited_symbol_terms: Vec<RawTermSymbol>,
+    /// the ith element corresponds to the ith current symbol
+    /// only covers symbols in the decl region
     current_symbol_terms: Vec<RawTermSymbol>,
     self_ty_term: Option<RawTerm>,
     self_value_term: Option<RawTermSymbol>,

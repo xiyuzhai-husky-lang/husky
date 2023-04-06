@@ -6,7 +6,7 @@ impl Term {
         match self {
             Term::Literal(_) => None,
             Term::Symbol(term) => term.toolchain(db),
-            Term::Variable(term) => term.toolchain(db),
+            Term::Hole(term) => term.toolchain(db),
             Term::EntityPath(path) => Some(path.toolchain(db)),
             Term::Category(_) => todo!(),
             Term::Universe(_) => None,
@@ -17,6 +17,7 @@ impl Term {
             Term::Subentity(_) => todo!(),
             Term::AsTraitSubentity(_) => todo!(),
             Term::TraitConstraint(_) => todo!(),
+            Term::Place(_) => todo!(),
         }
     }
 
@@ -45,7 +46,7 @@ impl TermSymbol {
     }
 }
 
-impl TermPlaceholder {
+impl TermHole {
     fn toolchain(self, db: &dyn TermDb) -> Option<Toolchain> {
         self.ty(db).toolchain(db)
     }
