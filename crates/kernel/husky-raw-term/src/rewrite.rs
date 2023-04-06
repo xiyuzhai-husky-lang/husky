@@ -43,7 +43,6 @@ impl RawTermRewriteCopy for RawTerm {
             RawTerm::TraitConstraint(term) => term.substitute(db, substitution).into(),
             RawTerm::Ritchie(_) => todo!(),
             RawTerm::List(_) => todo!(),
-            RawTerm::Place(_) => todo!(),
         }
     }
 }

@@ -104,12 +104,8 @@ impl<'a> RawTermEngine<'a> {
                         }
                         _ => todo!(),
                     };
-                    self.raw_term_symbol_region.add_new_symbol(
-                        self.db,
-                        symbols.start(),
-                        Qual {},
-                        Ok(ty),
-                    )
+                    self.raw_term_symbol_region
+                        .add_new_symbol(self.db, symbols.start(), Ok(ty))
                 }
                 PatternTypeConstraint::ExplicitParameter { pattern_expr, ty } => self
                     .init_current_symbol_terms_in_explicit_parameter(*pattern_expr, *ty, *symbols),
@@ -136,7 +132,6 @@ impl<'a> RawTermEngine<'a> {
                 self.raw_term_symbol_region.add_new_symbol(
                     self.db,
                     symbol,
-                    Qual {},
                     Err(RawTermSymbolTypeErrorKind::SignatureRawTermError)
                 )
             }
@@ -155,12 +150,8 @@ impl<'a> RawTermEngine<'a> {
                 pattern_symbol_idx,
             } => {
                 let base_ty = self.pattern_symbol_ty_infos[pattern_symbol_idx].base_ty();
-                self.raw_term_symbol_region.add_new_symbol(
-                    self.db,
-                    current_symbol,
-                    Qual {},
-                    Ok(base_ty),
-                )
+                self.raw_term_symbol_region
+                    .add_new_symbol(self.db, current_symbol, Ok(base_ty))
             }
             _ => unreachable!("this function is only used for explicit parameters"),
         }

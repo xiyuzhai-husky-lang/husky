@@ -176,7 +176,7 @@ impl TermShowContext {
 }
 
 fn symbol_show_kind(symbol: TermSymbol, db: &dyn TermDb) -> TermSymbolShowKind {
-    match symbol.qualified_ty(db).base_ty(db) {
+    match symbol.ty(db) {
         Term::EntityPath(TermEntityPath::TypeOntology(path)) if path.eqs_lifetime_ty_path(db) => {
             TermSymbolShowKind::Lifetime
         }

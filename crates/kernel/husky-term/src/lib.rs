@@ -105,6 +105,4 @@ pub struct TermJar(
     // template
     TemplateParameters,
     ty_path_template_parameters,
-    // place
-    TermQualifiedType,
 );

@@ -9,7 +9,7 @@ use thiserror::Error;
 
 #[salsa::interned(db = TermDb, jar = TermJar, constructor = new_inner)]
 pub struct TermSymbol {
-    pub qualified_ty: TermQualifiedType,
+    pub ty: Term,
     /// this is the index for all symbols with the same type
     /// so that we have better cache hits
     pub idx: u8,
@@ -29,13 +29,13 @@ impl TermSymbol {
         db: &dyn TermDb,
         raw_term_symbol: RawTermSymbol,
     ) -> TermResult<Self> {
-        let qualified_ty = raw_term_symbol.qualified_ty(db)?;
-        let ty = TermQualifiedType::from_raw_unchecked(db, qualified_ty)?;
+        let ty = raw_term_symbol.ty(db)?;
+        let ty = Term::ty_from_raw_unchecked(db, ty)?;
         Ok(Self::new_inner(db, ty, raw_term_symbol.idx(db)))
     }
 
     pub(super) fn check(self, db: &dyn TermDb) -> TermResult<()> {
-        self.qualified_ty(db).check(db)
+        self.ty(db).check(db)
     }
 
     pub(crate) fn show_with_db_fmt(

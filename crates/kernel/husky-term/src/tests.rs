@@ -1,4 +1,4 @@
-use crate::TermJar;
+use crate::*;
 use husky_ast::AstJar;
 use husky_corgi_config::CorgiConfigJar;
 use husky_corgi_config_ast::CorgiConfigAstJar;

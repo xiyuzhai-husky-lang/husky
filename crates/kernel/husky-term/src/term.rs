@@ -4,7 +4,6 @@ mod as_trai_subentity;
 mod constraint;
 mod curry;
 mod placeholder;
-mod qualified_ty;
 mod ritchie;
 mod subentity;
 mod symbol;
@@ -17,7 +16,6 @@ pub use self::as_trai_subentity::*;
 pub use self::constraint::*;
 pub use self::curry::*;
 pub use self::placeholder::*;
-pub use self::qualified_ty::*;
 pub use self::ritchie::*;
 pub use self::subentity::*;
 pub use self::symbol::*;
@@ -69,7 +67,6 @@ pub enum Term {
     AsTraitSubentity(TermAsTraitSubentity),
     /// <type> : <trait>
     TraitConstraint(TermTraitConstraint),
-    Place(TermQualifiedType),
 }
 
 impl Term {
@@ -111,7 +108,6 @@ impl Term {
             Term::Subentity(term) => term.check(db),
             Term::AsTraitSubentity(term) => term.check(db),
             Term::TraitConstraint(term) => term.check(db),
-            Term::Place(_) => todo!(),
         }
     }
 
@@ -202,7 +198,6 @@ impl Term {
             RawTerm::List(raw_term_list) => {
                 term_from_raw_term_list_unchecked(db, raw_term_list, term_ty_expectation)?
             }
-            RawTerm::Place(_) => todo!(),
         })
     }
 
@@ -241,7 +236,6 @@ impl Term {
             Term::Subentity(_) => todo!(),
             Term::AsTraitSubentity(_) => todo!(),
             Term::TraitConstraint(_) => todo!(),
-            Term::Place(_) => todo!(),
         }
     }
 
@@ -306,7 +300,6 @@ pub(crate) fn term_from_raw_term_explicit_application_or_ritchie_call_unchecked(
             RawTerm::TraitConstraint(_) => todo!(),
             RawTerm::LeashOrBitNot(_) => todo!(),
             RawTerm::List(_) => todo!(),
-            RawTerm::Place(_) => todo!(),
         },
         Right(_) => todo!(),
     }
@@ -413,7 +406,6 @@ impl Term {
             Term::Subentity(term) => term.show_with_db_fmt(f, db, ctx),
             Term::AsTraitSubentity(term) => term.show_with_db_fmt(f, db, ctx),
             Term::TraitConstraint(term) => term.show_with_db_fmt(f, db, ctx),
-            Term::Place(_) => todo!(),
         }
     }
 }

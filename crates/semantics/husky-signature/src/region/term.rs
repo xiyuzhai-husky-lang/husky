@@ -63,20 +63,14 @@ impl RawTermSymbolRegion {
         if symbol_region.allow_self_value().to_bool() && self.self_value_term.is_none() {
             self.self_value_term = Some(
                 self.registry
-                    .new_symbol(
-                        db,
-                        Qual {},
-                        Ok(self.self_ty_term.expect("self type should exists")),
-                    )
+                    .new_symbol(db, Ok(self.self_ty_term.expect("self type should exists")))
                     .into(),
             )
         }
     }
     fn trai_self_ty_term(&mut self, db: &dyn SignatureDb) -> RawTerm {
         // todo: general universe
-        self.registry
-            .new_symbol(db, Qual {}, Ok(RawTerm::TYPE))
-            .into()
+        self.registry.new_symbol(db, Ok(RawTerm::TYPE)).into()
     }
 
     fn ty_self_ty_term(&self, db: &dyn SignatureDb, ty_path: TypePath) -> RawTerm {
@@ -92,11 +86,10 @@ impl RawTermSymbolRegion {
         &mut self,
         db: &dyn SignatureDb,
         idx: CurrentSymbolIdx,
-        qual: Qual,
-        base_ty: RawTermSymbolTypeResult<RawTerm>,
+        ty: RawTermSymbolTypeResult<RawTerm>,
     ) {
         self.current_symbol_terms
-            .insert_next(idx, self.registry.new_symbol(db, qual, base_ty))
+            .insert_next(idx, self.registry.new_symbol(db, ty))
     }
 }
 
