@@ -10,12 +10,12 @@ use vec_like::VecSet;
 pub struct RawTermPlaceholders {
     /// unaccounted means the variable is not declared within this term
     #[return_ref]
-    pub unaccounted_variables: VecSet<RawTermPlaceholder>,
+    pub unaccounted_variables: VecSet<RawTermHole>,
 }
 
 impl RawTermPlaceholders {
     #[inline(always)]
-    pub(crate) fn contains(self, db: &dyn RawTermDb, variable: RawTermPlaceholder) -> bool {
+    pub(crate) fn contains(self, db: &dyn RawTermDb, variable: RawTermHole) -> bool {
         self.unaccounted_variables(db).has(variable)
     }
 
@@ -34,14 +34,14 @@ impl RawTermPlaceholders {
     #[inline(always)]
     fn remove(
         variables: impl Into<Option<Self>>,
-        _variable: impl Into<Option<RawTermPlaceholder>>,
+        _variable: impl Into<Option<RawTermHole>>,
     ) -> Option<Self> {
         let _variables = variables.into()?;
         todo!()
     }
 }
 impl RawTerm {
-    pub fn contains_variable(self, db: &dyn RawTermDb, variable: RawTermPlaceholder) -> bool {
+    pub fn contains_variable(self, db: &dyn RawTermDb, variable: RawTermHole) -> bool {
         self.variables(db)
             .map(|raw_term_variables| raw_term_variables.contains(db, variable))
             .unwrap_or_default()
@@ -50,7 +50,7 @@ impl RawTerm {
     pub(crate) fn variables(self, db: &dyn RawTermDb) -> Option<RawTermPlaceholders> {
         match self {
             RawTerm::Literal(_) => todo!(),
-            RawTerm::Variable(variable) => Some(RawTermPlaceholders::new(
+            RawTerm::Hole(variable) => Some(RawTermPlaceholders::new(
                 db,
                 VecSet::new_one_elem_set(variable),
             )),
@@ -71,6 +71,7 @@ impl RawTerm {
             RawTerm::TraitConstraint(_) => todo!(),
             RawTerm::LeashOrBitNot(_) => todo!(),
             RawTerm::List(_) => todo!(),
+            RawTerm::Place(_) => todo!(),
         }
     }
 }

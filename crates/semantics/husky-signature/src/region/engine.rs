@@ -51,7 +51,7 @@ impl<'a> SignatureRawTermEngine<'a> {
     }
 
     fn infer_all(mut self) -> SignatureRegion {
-        self.init_current_symbol_term_symbols();
+        self.init_current_symbol_signatures();
         self.raw_term_symbol_region.init_self_ty_and_value(
             self.db,
             self.expr_region_data.path(),
@@ -62,7 +62,9 @@ impl<'a> SignatureRawTermEngine<'a> {
         self.finish()
     }
 
-    fn init_current_symbol_term_symbols(&mut self) {
+    fn init_current_symbol_signatures(&mut self) {
+        // no skip
+        // compute current symbol signature one by one
         for (_idx, symbol) in self
             .expr_region_data
             .symbol_region()
@@ -100,7 +102,9 @@ impl<'a> SignatureRawTermEngine<'a> {
                     }
                 }
                 CurrentSymbolVariant::LetVariable { .. }
-                | CurrentSymbolVariant::FrameVariable { .. } => return,
+                | CurrentSymbolVariant::FrameVariable { .. } => {
+                    unreachable!("should only compute for decl region")
+                }
             };
             self.raw_term_symbol_region.add_new_symbol(self.db, ty)
         }

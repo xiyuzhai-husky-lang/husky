@@ -43,7 +43,7 @@ fn curry_destination(db: &dyn TermDb, term: Term) -> Term {
     match term {
         Term::Literal(_) => todo!(),
         Term::Symbol(_) => todo!(),
-        Term::Variable(_) => todo!(),
+        Term::Hole(_) => todo!(),
         Term::EntityPath(path) => match path {
             TermEntityPath::Form(_) => todo!(),
             TermEntityPath::Trait(_)
@@ -67,5 +67,6 @@ fn curry_destination(db: &dyn TermDb, term: Term) -> Term {
         Term::Subentity(_) => todo!(),
         Term::AsTraitSubentity(_) => todo!(),
         Term::TraitConstraint(_) => todo!(),
+        Term::Place(_) => todo!(),
     }
 }

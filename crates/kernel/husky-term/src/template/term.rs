@@ -31,7 +31,7 @@ impl Term {
             return self;
         }
         match self {
-            Term::Literal(_) | Term::Variable(_) | Term::EntityPath(_) => unreachable!(),
+            Term::Literal(_) | Term::Hole(_) | Term::EntityPath(_) => unreachable!(),
             Term::Symbol(_) => todo!(),
             Term::Category(_) => todo!(),
             Term::Universe(_) => todo!(),
@@ -42,6 +42,7 @@ impl Term {
             Term::Subentity(_) => todo!(),
             Term::AsTraitSubentity(_) => todo!(),
             Term::TraitConstraint(_) => todo!(),
+            Term::Place(_) => todo!(),
         }
     }
 }

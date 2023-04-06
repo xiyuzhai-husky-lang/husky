@@ -16,15 +16,10 @@ impl<'a> ExprTypeEngine<'a> {
                 ExpectImplicitlyConvertible::new_transient(element_ty),
             );
         }
-        Ok(self
-            .local_term_region
-            .intern_unresolved_term(
-                expr_idx,
-                LocalTermData::TypeOntology {
-                    path: self.entity_path_menu.list_ty_path(),
-                    arguments: smallvec![element_ty],
-                },
-            )
-            .into())
+        Ok(self.new_ty_ontology_application(
+            expr_idx,
+            self.entity_path_menu.list_ty_path(),
+            smallvec![element_ty],
+        ))
     }
 }

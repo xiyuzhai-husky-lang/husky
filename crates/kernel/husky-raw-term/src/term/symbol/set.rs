@@ -34,7 +34,7 @@ fn calc_raw_term_symbols(db: &dyn RawTermDb, raw_term: RawTerm) -> Option<RawTer
     match raw_term {
         RawTerm::Literal(_) => todo!(),
         RawTerm::Symbol(symbol) => Some(RawTermSymbols::new(db, VecSet::new_one_elem_set(symbol))),
-        RawTerm::Variable(symbol) => None,
+        RawTerm::Hole(symbol) => None,
         RawTerm::EntityPath(path) => match path {
             RawTermEntityPath::Form(_) => todo!(),
             RawTermEntityPath::Trait(_) | RawTermEntityPath::Type(_) => None,
@@ -51,6 +51,7 @@ fn calc_raw_term_symbols(db: &dyn RawTermDb, raw_term: RawTerm) -> Option<RawTer
         RawTerm::TraitConstraint(_) => todo!(),
         RawTerm::LeashOrBitNot(_) => todo!(),
         RawTerm::List(_) => todo!(),
+        RawTerm::Place(_) => todo!(),
     }
 }
 

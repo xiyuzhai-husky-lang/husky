@@ -9948,20 +9948,22 @@
                     },
                     UnresolvedTermEntry {
                         src_expr_idx: 1,
-                        unresolved_term: TypeOntology {
-                            path: TypePath(
-                                Id {
-                                    value: 57,
-                                },
-                            ),
-                            arguments: [
-                                Unresolved(
-                                    UnresolvedTermIdx(
-                                        0,
-                                    ),
+                        unresolved_term: TypeOntology(
+                            LocalTermTypeOntology {
+                                path: TypePath(
+                                    Id {
+                                        value: 57,
+                                    },
                                 ),
-                            ],
-                        },
+                                arguments: [
+                                    Unresolved(
+                                        UnresolvedTermIdx(
+                                            0,
+                                        ),
+                                    ),
+                                ],
+                            },
+                        ),
                         implicit_symbol_dependencies: VecSet {
                             data: [
                                 UnresolvedTermIdx(

@@ -117,12 +117,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ..
             } => Ok((
                 ExprDisambiguation::Trivial,
-                self.calc_current_symbol_ty(
-                    expr_idx,
-                    expr_ty_expectation,
-                    current_symbol_idx,
-                    current_symbol_kind,
-                ),
+                self.get_current_symbol_ty(expr_idx, current_symbol_idx),
             )),
             Expr::FrameVarDecl {
                 ident,

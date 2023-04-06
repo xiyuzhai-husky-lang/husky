@@ -801,13 +801,7 @@
                     2,
                 ),
                 resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            EqsExactly(
-                                ExpectSubtypeOutcome,
-                            ),
-                        ),
-                    ),
+                    Unresolved,
                 ),
             },
             ExprTypeInfo {
@@ -873,7 +867,7 @@
                             ),
                             expectation: EqsFunctionType(
                                 ExpectEqsFunctionType {
-                                    final_destination: TypeOntology,
+                                    final_destination: AnyOriginal,
                                 },
                             ),
                             resolve_progress: Resolved(
@@ -965,28 +959,10 @@
                                     ),
                                 ),
                             ),
-                            expectation: EqsExactly(
-                                ExpectSubtype {
-                                    expected: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 68,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
+                            expectation: AnyOriginal(
+                                ExpectAnyOriginal,
                             ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    EqsExactly(
-                                        ExpectSubtypeOutcome,
-                                    ),
-                                ),
-                            ),
+                            resolve_progress: Unresolved,
                         },
                         LocalTermExpectationRule {
                             src_expr_idx: 3,
@@ -1473,13 +1449,7 @@
                     2,
                 ),
                 resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            EqsExactly(
-                                ExpectSubtypeOutcome,
-                            ),
-                        ),
-                    ),
+                    Unresolved,
                 ),
             },
             ExprTypeInfo {
@@ -1545,7 +1515,7 @@
                             ),
                             expectation: EqsFunctionType(
                                 ExpectEqsFunctionType {
-                                    final_destination: TypeOntology,
+                                    final_destination: AnyOriginal,
                                 },
                             ),
                             resolve_progress: Resolved(
@@ -1637,28 +1607,10 @@
                                     ),
                                 ),
                             ),
-                            expectation: EqsExactly(
-                                ExpectSubtype {
-                                    expected: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 68,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
+                            expectation: AnyOriginal(
+                                ExpectAnyOriginal,
                             ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    EqsExactly(
-                                        ExpectSubtypeOutcome,
-                                    ),
-                                ),
-                            ),
+                            resolve_progress: Unresolved,
                         },
                         LocalTermExpectationRule {
                             src_expr_idx: 3,
@@ -2145,13 +2097,7 @@
                     2,
                 ),
                 resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            EqsExactly(
-                                ExpectSubtypeOutcome,
-                            ),
-                        ),
-                    ),
+                    Unresolved,
                 ),
             },
             ExprTypeInfo {
@@ -2217,7 +2163,7 @@
                             ),
                             expectation: EqsFunctionType(
                                 ExpectEqsFunctionType {
-                                    final_destination: TypeOntology,
+                                    final_destination: AnyOriginal,
                                 },
                             ),
                             resolve_progress: Resolved(
@@ -2309,28 +2255,10 @@
                                     ),
                                 ),
                             ),
-                            expectation: EqsExactly(
-                                ExpectSubtype {
-                                    expected: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 68,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
+                            expectation: AnyOriginal(
+                                ExpectAnyOriginal,
                             ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    EqsExactly(
-                                        ExpectSubtypeOutcome,
-                                    ),
-                                ),
-                            ),
+                            resolve_progress: Unresolved,
                         },
                         LocalTermExpectationRule {
                             src_expr_idx: 3,
@@ -2817,13 +2745,7 @@
                     2,
                 ),
                 resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            EqsExactly(
-                                ExpectSubtypeOutcome,
-                            ),
-                        ),
-                    ),
+                    Unresolved,
                 ),
             },
             ExprTypeInfo {
@@ -2889,7 +2811,7 @@
                             ),
                             expectation: EqsFunctionType(
                                 ExpectEqsFunctionType {
-                                    final_destination: TypeOntology,
+                                    final_destination: AnyOriginal,
                                 },
                             ),
                             resolve_progress: Resolved(
@@ -2981,28 +2903,10 @@
                                     ),
                                 ),
                             ),
-                            expectation: EqsExactly(
-                                ExpectSubtype {
-                                    expected: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 68,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
+                            expectation: AnyOriginal(
+                                ExpectAnyOriginal,
                             ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    EqsExactly(
-                                        ExpectSubtypeOutcome,
-                                    ),
-                                ),
-                            ),
+                            resolve_progress: Unresolved,
                         },
                         LocalTermExpectationRule {
                             src_expr_idx: 3,
@@ -3489,13 +3393,7 @@
                     2,
                 ),
                 resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            EqsExactly(
-                                ExpectSubtypeOutcome,
-                            ),
-                        ),
-                    ),
+                    Unresolved,
                 ),
             },
             ExprTypeInfo {
@@ -3561,7 +3459,7 @@
                             ),
                             expectation: EqsFunctionType(
                                 ExpectEqsFunctionType {
-                                    final_destination: TypeOntology,
+                                    final_destination: AnyOriginal,
                                 },
                             ),
                             resolve_progress: Resolved(
@@ -3653,28 +3551,10 @@
                                     ),
                                 ),
                             ),
-                            expectation: EqsExactly(
-                                ExpectSubtype {
-                                    expected: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 68,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
+                            expectation: AnyOriginal(
+                                ExpectAnyOriginal,
                             ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    EqsExactly(
-                                        ExpectSubtypeOutcome,
-                                    ),
-                                ),
-                            ),
+                            resolve_progress: Unresolved,
                         },
                         LocalTermExpectationRule {
                             src_expr_idx: 3,
@@ -4161,13 +4041,7 @@
                     2,
                 ),
                 resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            EqsExactly(
-                                ExpectSubtypeOutcome,
-                            ),
-                        ),
-                    ),
+                    Unresolved,
                 ),
             },
             ExprTypeInfo {
@@ -4233,7 +4107,7 @@
                             ),
                             expectation: EqsFunctionType(
                                 ExpectEqsFunctionType {
-                                    final_destination: TypeOntology,
+                                    final_destination: AnyOriginal,
                                 },
                             ),
                             resolve_progress: Resolved(
@@ -4325,28 +4199,10 @@
                                     ),
                                 ),
                             ),
-                            expectation: EqsExactly(
-                                ExpectSubtype {
-                                    expected: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 68,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
+                            expectation: AnyOriginal(
+                                ExpectAnyOriginal,
                             ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    EqsExactly(
-                                        ExpectSubtypeOutcome,
-                                    ),
-                                ),
-                            ),
+                            resolve_progress: Unresolved,
                         },
                         LocalTermExpectationRule {
                             src_expr_idx: 3,
@@ -4833,13 +4689,7 @@
                     2,
                 ),
                 resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            EqsExactly(
-                                ExpectSubtypeOutcome,
-                            ),
-                        ),
-                    ),
+                    Unresolved,
                 ),
             },
             ExprTypeInfo {
@@ -4905,7 +4755,7 @@
                             ),
                             expectation: EqsFunctionType(
                                 ExpectEqsFunctionType {
-                                    final_destination: TypeOntology,
+                                    final_destination: AnyOriginal,
                                 },
                             ),
                             resolve_progress: Resolved(
@@ -4997,28 +4847,10 @@
                                     ),
                                 ),
                             ),
-                            expectation: EqsExactly(
-                                ExpectSubtype {
-                                    expected: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 68,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
+                            expectation: AnyOriginal(
+                                ExpectAnyOriginal,
                             ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    EqsExactly(
-                                        ExpectSubtypeOutcome,
-                                    ),
-                                ),
-                            ),
+                            resolve_progress: Unresolved,
                         },
                         LocalTermExpectationRule {
                             src_expr_idx: 3,
@@ -5505,13 +5337,7 @@
                     2,
                 ),
                 resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            EqsExactly(
-                                ExpectSubtypeOutcome,
-                            ),
-                        ),
-                    ),
+                    Unresolved,
                 ),
             },
             ExprTypeInfo {
@@ -5577,7 +5403,7 @@
                             ),
                             expectation: EqsFunctionType(
                                 ExpectEqsFunctionType {
-                                    final_destination: TypeOntology,
+                                    final_destination: AnyOriginal,
                                 },
                             ),
                             resolve_progress: Resolved(
@@ -5669,28 +5495,10 @@
                                     ),
                                 ),
                             ),
-                            expectation: EqsExactly(
-                                ExpectSubtype {
-                                    expected: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 68,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
+                            expectation: AnyOriginal(
+                                ExpectAnyOriginal,
                             ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    EqsExactly(
-                                        ExpectSubtypeOutcome,
-                                    ),
-                                ),
-                            ),
+                            resolve_progress: Unresolved,
                         },
                         LocalTermExpectationRule {
                             src_expr_idx: 3,
@@ -6177,13 +5985,7 @@
                     2,
                 ),
                 resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            EqsExactly(
-                                ExpectSubtypeOutcome,
-                            ),
-                        ),
-                    ),
+                    Unresolved,
                 ),
             },
             ExprTypeInfo {
@@ -6249,7 +6051,7 @@
                             ),
                             expectation: EqsFunctionType(
                                 ExpectEqsFunctionType {
-                                    final_destination: TypeOntology,
+                                    final_destination: AnyOriginal,
                                 },
                             ),
                             resolve_progress: Resolved(
@@ -6341,28 +6143,10 @@
                                     ),
                                 ),
                             ),
-                            expectation: EqsExactly(
-                                ExpectSubtype {
-                                    expected: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 68,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
+                            expectation: AnyOriginal(
+                                ExpectAnyOriginal,
                             ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    EqsExactly(
-                                        ExpectSubtypeOutcome,
-                                    ),
-                                ),
-                            ),
+                            resolve_progress: Unresolved,
                         },
                         LocalTermExpectationRule {
                             src_expr_idx: 3,
@@ -6849,13 +6633,7 @@
                     2,
                 ),
                 resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            EqsExactly(
-                                ExpectSubtypeOutcome,
-                            ),
-                        ),
-                    ),
+                    Unresolved,
                 ),
             },
             ExprTypeInfo {
@@ -6921,7 +6699,7 @@
                             ),
                             expectation: EqsFunctionType(
                                 ExpectEqsFunctionType {
-                                    final_destination: TypeOntology,
+                                    final_destination: AnyOriginal,
                                 },
                             ),
                             resolve_progress: Resolved(
@@ -7013,28 +6791,10 @@
                                     ),
                                 ),
                             ),
-                            expectation: EqsExactly(
-                                ExpectSubtype {
-                                    expected: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 68,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
+                            expectation: AnyOriginal(
+                                ExpectAnyOriginal,
                             ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    EqsExactly(
-                                        ExpectSubtypeOutcome,
-                                    ),
-                                ),
-                            ),
+                            resolve_progress: Unresolved,
                         },
                         LocalTermExpectationRule {
                             src_expr_idx: 3,
@@ -7521,13 +7281,7 @@
                     2,
                 ),
                 resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            EqsExactly(
-                                ExpectSubtypeOutcome,
-                            ),
-                        ),
-                    ),
+                    Unresolved,
                 ),
             },
             ExprTypeInfo {
@@ -7593,7 +7347,7 @@
                             ),
                             expectation: EqsFunctionType(
                                 ExpectEqsFunctionType {
-                                    final_destination: TypeOntology,
+                                    final_destination: AnyOriginal,
                                 },
                             ),
                             resolve_progress: Resolved(
@@ -7685,28 +7439,10 @@
                                     ),
                                 ),
                             ),
-                            expectation: EqsExactly(
-                                ExpectSubtype {
-                                    expected: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 68,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
+                            expectation: AnyOriginal(
+                                ExpectAnyOriginal,
                             ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    EqsExactly(
-                                        ExpectSubtypeOutcome,
-                                    ),
-                                ),
-                            ),
+                            resolve_progress: Unresolved,
                         },
                         LocalTermExpectationRule {
                             src_expr_idx: 3,
@@ -8193,13 +7929,7 @@
                     2,
                 ),
                 resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            EqsExactly(
-                                ExpectSubtypeOutcome,
-                            ),
-                        ),
-                    ),
+                    Unresolved,
                 ),
             },
             ExprTypeInfo {
@@ -8265,7 +7995,7 @@
                             ),
                             expectation: EqsFunctionType(
                                 ExpectEqsFunctionType {
-                                    final_destination: TypeOntology,
+                                    final_destination: AnyOriginal,
                                 },
                             ),
                             resolve_progress: Resolved(
@@ -8357,28 +8087,10 @@
                                     ),
                                 ),
                             ),
-                            expectation: EqsExactly(
-                                ExpectSubtype {
-                                    expected: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 68,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
+                            expectation: AnyOriginal(
+                                ExpectAnyOriginal,
                             ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    EqsExactly(
-                                        ExpectSubtypeOutcome,
-                                    ),
-                                ),
-                            ),
+                            resolve_progress: Unresolved,
                         },
                         LocalTermExpectationRule {
                             src_expr_idx: 3,
@@ -8865,13 +8577,7 @@
                     2,
                 ),
                 resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            EqsExactly(
-                                ExpectSubtypeOutcome,
-                            ),
-                        ),
-                    ),
+                    Unresolved,
                 ),
             },
             ExprTypeInfo {
@@ -8937,7 +8643,7 @@
                             ),
                             expectation: EqsFunctionType(
                                 ExpectEqsFunctionType {
-                                    final_destination: TypeOntology,
+                                    final_destination: AnyOriginal,
                                 },
                             ),
                             resolve_progress: Resolved(
@@ -9029,28 +8735,10 @@
                                     ),
                                 ),
                             ),
-                            expectation: EqsExactly(
-                                ExpectSubtype {
-                                    expected: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 68,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
+                            expectation: AnyOriginal(
+                                ExpectAnyOriginal,
                             ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    EqsExactly(
-                                        ExpectSubtypeOutcome,
-                                    ),
-                                ),
-                            ),
+                            resolve_progress: Unresolved,
                         },
                         LocalTermExpectationRule {
                             src_expr_idx: 3,
@@ -9537,13 +9225,7 @@
                     2,
                 ),
                 resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            EqsExactly(
-                                ExpectSubtypeOutcome,
-                            ),
-                        ),
-                    ),
+                    Unresolved,
                 ),
             },
             ExprTypeInfo {
@@ -9609,7 +9291,7 @@
                             ),
                             expectation: EqsFunctionType(
                                 ExpectEqsFunctionType {
-                                    final_destination: TypeOntology,
+                                    final_destination: AnyOriginal,
                                 },
                             ),
                             resolve_progress: Resolved(
@@ -9701,28 +9383,10 @@
                                     ),
                                 ),
                             ),
-                            expectation: EqsExactly(
-                                ExpectSubtype {
-                                    expected: Resolved(
-                                        EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 68,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
+                            expectation: AnyOriginal(
+                                ExpectAnyOriginal,
                             ),
-                            resolve_progress: Resolved(
-                                Ok(
-                                    EqsExactly(
-                                        ExpectSubtypeOutcome,
-                                    ),
-                                ),
-                            ),
+                            resolve_progress: Unresolved,
                         },
                         LocalTermExpectationRule {
                             src_expr_idx: 3,

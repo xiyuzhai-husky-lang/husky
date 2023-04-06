@@ -1,11 +1,13 @@
 mod implicit_symbol;
-mod qualified_ty;
+mod place;
 mod richie;
 mod substitution;
+mod ty_ontology;
 
 pub use self::implicit_symbol::*;
-pub use self::qualified_ty::*;
+pub use self::place::*;
 pub use self::richie::*;
+pub use self::ty_ontology::*;
 
 pub(crate) use self::substitution::*;
 
@@ -18,15 +20,9 @@ use vec_like::VecSet;
 #[enum_class::from_variants]
 pub enum LocalTermData {
     ImplicitSymbol(ImplicitSymbol),
-    TypeOntology {
-        path: TypePath,
-        arguments: SmallVec<[LocalTerm; 2]>,
-    },
+    TypeOntology(LocalTermTypeOntology),
     Ritchie(LocalTermRitchie),
-    Qualified {
-        qual: Qual,
-        base_ty: LocalTerm,
-    },
+    QualifiedType(LocalTermPlaceType),
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -208,19 +204,15 @@ impl UnresolvedTerms {
         unresolved_term: &LocalTermData,
     ) -> VecSet<UnresolvedTermIdx> {
         let mut dependencies: VecSet<UnresolvedTermIdx> = Default::default();
-        let mut f = |term: LocalTerm| {
-            self.extract_implicit_symbol_dependencies_aux(term, &mut dependencies)
-        };
         match unresolved_term {
-            LocalTermData::ImplicitSymbol(_) => (),
-            LocalTermData::TypeOntology {
-                path: ty,
-                arguments,
-            } => arguments.iter().copied().for_each(f),
+            LocalTermData::ImplicitSymbol(_) => (), // self is not included
+            LocalTermData::TypeOntology(term) => {
+                term.extract_implicit_symbol_dependencies(self, &mut dependencies)
+            }
             LocalTermData::Ritchie(term) => {
                 term.extract_implicit_symbol_dependencies(self, &mut dependencies)
             }
-            LocalTermData::Qualified { base_ty, .. } => todo!(),
+            LocalTermData::QualifiedType(term) => todo!(),
         }
         dependencies
     }

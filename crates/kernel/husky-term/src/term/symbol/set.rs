@@ -35,7 +35,7 @@ impl TermSymbols {
 impl Term {
     pub(crate) fn symbols(self, db: &dyn TermDb) -> Option<TermSymbols> {
         match self {
-            Term::Literal(_) | Term::Variable(_) | Term::EntityPath(_) | Term::Category(_) => None,
+            Term::Literal(_) | Term::Hole(_) | Term::EntityPath(_) | Term::Category(_) => None,
             Term::Universe(_) => None, // ad hoc
             Term::Symbol(symbol) => Some(TermSymbols::new(db, VecSet::new_one_elem_set(symbol))),
             Term::Curry(term) => term_curry_symbols(db, term),
@@ -45,6 +45,7 @@ impl Term {
             Term::Subentity(_) => todo!(),
             Term::AsTraitSubentity(_) => todo!(),
             Term::TraitConstraint(_) => todo!(),
+            Term::Place(_) => todo!(),
         }
     }
 }

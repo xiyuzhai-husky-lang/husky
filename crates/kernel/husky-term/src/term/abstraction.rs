@@ -2,7 +2,7 @@ use super::*;
 
 #[salsa::interned(db = TermDb, jar = TermJar)]
 pub struct TermAbstraction {
-    x: TermPlaceholder,
+    x: TermHole,
     m: Term,
 }
 

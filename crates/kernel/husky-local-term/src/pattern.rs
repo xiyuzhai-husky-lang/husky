@@ -61,7 +61,7 @@ impl LocalTermPattern {
         match term {
             Term::Literal(_) => todo!(),
             Term::Symbol(_) => todo!(),
-            Term::Variable(_) => todo!(),
+            Term::Hole(_) => todo!(),
             Term::EntityPath(path) => match path {
                 TermEntityPath::Form(_) => todo!(),
                 TermEntityPath::Trait(_) => todo!(),
@@ -111,6 +111,7 @@ impl LocalTermPattern {
             Term::Subentity(_) => todo!(),
             Term::AsTraitSubentity(_) => todo!(),
             Term::TraitConstraint(_) => todo!(),
+            Term::Place(_) => todo!(),
         }
     }
 
@@ -123,13 +124,16 @@ impl LocalTermPattern {
             LocalTermData::ImplicitSymbol(symbol) => {
                 LocalTermPattern::ImplicitSymbol(symbol.kind(), term)
             }
-            LocalTermData::TypeOntology { path, arguments } => LocalTermPattern::TypeOntology {
-                path: *path,
-                refined_path: path.refine(db),
-                argument_tys: arguments.clone(),
-            },
+            LocalTermData::TypeOntology(term) => {
+                let path = term.path();
+                LocalTermPattern::TypeOntology {
+                    path,
+                    refined_path: path.refine(db),
+                    argument_tys: term.arguments().into(),
+                }
+            }
             LocalTermData::Ritchie(_) => todo!(),
-            LocalTermData::Qualified { .. } => todo!(),
+            LocalTermData::QualifiedType { .. } => todo!(),
         }
     }
 }
