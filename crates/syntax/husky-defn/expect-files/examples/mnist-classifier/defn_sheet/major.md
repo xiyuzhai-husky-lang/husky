@@ -983,7 +983,12 @@ Ok(
                                             allow_self_type: False,
                                             allow_self_value: False,
                                             pattern_ty_constraints: [
-                                                FrameVariable,
+                                                (
+                                                    FrameVariable,
+                                                    ArenaIdxRange(
+                                                        2..3,
+                                                    ),
+                                                ),
                                             ],
                                         },
                                         roots: [
@@ -1505,7 +1510,12 @@ Ok(
                                             allow_self_type: False,
                                             allow_self_value: False,
                                             pattern_ty_constraints: [
-                                                FrameVariable,
+                                                (
+                                                    FrameVariable,
+                                                    ArenaIdxRange(
+                                                        1..2,
+                                                    ),
+                                                ),
                                             ],
                                         },
                                         roots: [

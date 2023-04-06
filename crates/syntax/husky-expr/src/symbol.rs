@@ -2,6 +2,7 @@ mod context_mut;
 mod region;
 
 pub use context_mut::*;
+use idx_arena::ordered_map::ArenaOrderedMap;
 pub use region::*;
 
 use crate::*;
@@ -218,11 +219,13 @@ pub type InheritedSymbolArena = Arena<InheritedSymbol>;
 pub type InheritedSymbolIdx = ArenaIdx<InheritedSymbol>;
 pub type InheritedSymbolIdxRange = ArenaIdxRange<InheritedSymbol>;
 pub type InheritedSymbolMap<V> = ArenaMap<InheritedSymbol, V>;
+pub type InheritedSymbolFullMap<V> = ArenaOrderedMap<InheritedSymbol, V>;
 
 pub type CurrentSymbolArena = Arena<CurrentSymbol>;
 pub type CurrentSymbolIdx = ArenaIdx<CurrentSymbol>;
 pub type CurrentSymbolIdxRange = ArenaIdxRange<CurrentSymbol>;
 pub type CurrentSymbolMap<V> = ArenaMap<CurrentSymbol, V>;
+pub type CurrentSymbolFullMap<V> = ArenaOrderedMap<CurrentSymbol, V>;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum ParentSymbolIdx {

@@ -89,8 +89,18 @@ Ok(
                                             allow_self_type: True,
                                             allow_self_value: False,
                                             pattern_ty_constraints: [
-                                                ImplicitTypeParameter,
-                                                ImplicitTypeParameter,
+                                                (
+                                                    ImplicitTypeParameter,
+                                                    ArenaIdxRange(
+                                                        0..1,
+                                                    ),
+                                                ),
+                                                (
+                                                    ImplicitTypeParameter,
+                                                    ArenaIdxRange(
+                                                        1..2,
+                                                    ),
+                                                ),
                                             ],
                                         },
                                         roots: [],
@@ -263,8 +273,18 @@ Ok(
                                             allow_self_type: True,
                                             allow_self_value: False,
                                             pattern_ty_constraints: [
-                                                ImplicitTypeParameter,
-                                                ImplicitTypeParameter,
+                                                (
+                                                    ImplicitTypeParameter,
+                                                    ArenaIdxRange(
+                                                        0..1,
+                                                    ),
+                                                ),
+                                                (
+                                                    ImplicitTypeParameter,
+                                                    ArenaIdxRange(
+                                                        1..2,
+                                                    ),
+                                                ),
                                             ],
                                         },
                                         roots: [],
@@ -421,7 +441,12 @@ Ok(
                                             allow_self_type: True,
                                             allow_self_value: False,
                                             pattern_ty_constraints: [
-                                                ImplicitTypeParameter,
+                                                (
+                                                    ImplicitTypeParameter,
+                                                    ArenaIdxRange(
+                                                        0..1,
+                                                    ),
+                                                ),
                                             ],
                                         },
                                         roots: [],

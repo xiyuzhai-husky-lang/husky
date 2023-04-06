@@ -1,5 +1,6 @@
 #![feature(step_trait)]
 pub mod map;
+pub mod ordered_map;
 #[cfg(test)]
 mod tests;
 

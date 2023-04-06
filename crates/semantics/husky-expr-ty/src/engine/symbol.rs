@@ -46,7 +46,6 @@ impl<'a> ExprTypeEngine<'a> {
                 };
             if let Ok(ty) = current_symbol_term.ty(self.db) {
                 if let Ok(ty) = Term::ty_from_raw(self.db, ty) {
-                    todo!("qualify");
                     self.current_symbol_tys
                         .insert_new(current_symbol_idx, ty.into())
                 }

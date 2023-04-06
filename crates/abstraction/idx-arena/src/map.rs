@@ -1,7 +1,6 @@
+use crate::*;
 use husky_check_utils::should;
 use std::marker::PhantomData;
-
-use crate::*;
 
 #[derive(Clone)]
 pub struct ArenaMap<T, V> {

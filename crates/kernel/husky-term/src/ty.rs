@@ -60,7 +60,10 @@ impl Term {
                 Term::EntityPath(TermEntityPath::TypeOntology(ty_path)) => {
                     Ok(ty_path.prelude_ty_path(db) == Some(other_ty))
                 }
-                _ => todo!(),
+                _ => {
+                    p!(self.debug(db), other_ty.debug(db));
+                    todo!()
+                }
             },
         }
     }
