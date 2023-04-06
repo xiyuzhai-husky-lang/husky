@@ -48,9 +48,9 @@ impl<'a> RustCodeGenerator<'a> {
                 EntityDefnVariant::TyField {
                     field_ty,
                     ref field_variant,
-                    liason,
+                    contract,
                     ..
-                } => self.gen_struct_field_linkages(field_variant, member, liason, ty, field_ty),
+                } => self.gen_struct_field_linkages(field_variant, member, contract, ty, field_ty),
                 _ => {
                     let member_entity_route = match member.base_route.variant {
                         EntityRouteVariant::TraitForTypeMember { trai, ident, .. } => {
@@ -75,7 +75,7 @@ impl<'a> RustCodeGenerator<'a> {
         &mut self,
         field_variant: &FieldDefnVariant,
         member: &Arc<EntityDefn>,
-        liason: MemberModifier,
+        contract: MemberModifier,
         ty: Term,
         field_ty: Term,
     ) {
@@ -94,7 +94,7 @@ impl<'a> RustCodeGenerator<'a> {
             field_ident: "{field_ident}",
         }},
         eager_field_linkage!(
-            {liason},
+            {contract},
             {field_ty_canonical_kind},
             {field_ty_reg_memory_kind},
             "#

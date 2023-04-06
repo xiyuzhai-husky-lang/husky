@@ -129,7 +129,7 @@ impl<'a> RustCodeGenerator<'a> {
         //     }
         //     self.write(&parameter.ident());
         //     self.write(": ");
-        //     match parameter.liason() {
+        //     match parameter.contract() {
         //         ParameterModifier::None => {
         //             if !self.db.is_copyable(parameter.ty()).unwrap() {
         //                 self.write("&")

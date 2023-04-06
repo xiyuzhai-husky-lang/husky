@@ -30,8 +30,8 @@ pub struct TraitForTypeMethodFnCard {
 #[derive(Debug, PartialEq, Eq)]
 pub struct MethodTypeInfo {
     implicit_parameters: Vec<TermSymbol>,
-    self_liasoned_ty: TermRitchieParameterLiasonedType,
-    nonself_parameter_liasoned_tys: Vec<TermRitchieParameterLiasonedType>,
+    self_contracted_ty: TermRitchieParameterContractedType,
+    nonself_parameter_contracted_tys: Vec<TermRitchieParameterContractedType>,
     return_ty: Term,
     where_clause: (),
 }
@@ -41,8 +41,8 @@ impl MethodTypeInfo {
         match self {
             MethodTypeInfo {
                 implicit_parameters,
-                self_liasoned_ty,
-                nonself_parameter_liasoned_tys,
+                self_contracted_ty,
+                nonself_parameter_contracted_tys,
                 return_ty,
                 where_clause,
             } => {
@@ -66,12 +66,12 @@ impl MethodTypeInfo {
         self.implicit_parameters.as_ref()
     }
 
-    pub fn self_liasoned_ty(&self) -> TermRitchieParameterLiasonedType {
-        self.self_liasoned_ty
+    pub fn self_contracted_ty(&self) -> TermRitchieParameterContractedType {
+        self.self_contracted_ty
     }
 
-    pub fn nonself_parameter_liasoned_tys(&self) -> &[TermRitchieParameterLiasonedType] {
-        self.nonself_parameter_liasoned_tys.as_ref()
+    pub fn nonself_parameter_contracted_tys(&self) -> &[TermRitchieParameterContractedType] {
+        self.nonself_parameter_contracted_tys.as_ref()
     }
 
     pub fn return_ty(&self) -> Term {

@@ -53,8 +53,8 @@ pub struct RegularStructFieldSignature {
 }
 
 impl RegularStructFieldSignature {
-    pub fn into_ritchie_parameter_liasoned_ty(self) -> RawTermRitchieParameterLiasonedType {
-        RawTermRitchieParameterLiasonedType::new(Liason::Move, self.ty)
+    pub fn into_ritchie_parameter_contracted_ty(self) -> RawTermRitchieParameterContractedType {
+        RawTermRitchieParameterContractedType::new(Contract::Move, self.ty)
     }
 
     pub fn ident(&self) -> Ident {

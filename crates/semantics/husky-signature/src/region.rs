@@ -1,5 +1,5 @@
 mod error;
-mod liason;
+mod pattern_modifier;
 mod term;
 
 pub use error::*;
@@ -23,7 +23,7 @@ pub struct SignatureRegion {
     path: RegionPath,
     term_symbol_region: RawTermSymbolRegion,
     expr_terms: ExprMap<SignatureRawTermResult<RawTerm>>,
-    liasons: PatternExprMap<Liason>,
+    pattern_modifiers: PatternExprMap<PatternModifier>,
     pattern_expr_ty_infos: PatternExprMap<PatternExprRawTypeInfo>,
     pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
 }
@@ -33,7 +33,7 @@ impl SignatureRegion {
         path: RegionPath,
         term_symbol_region: RawTermSymbolRegion,
         expr_terms: ExprMap<SignatureRawTermResult<RawTerm>>,
-        liasons: PatternExprMap<Liason>,
+        pattern_modifiers: PatternExprMap<PatternModifier>,
         pattern_expr_ty_infos: PatternExprMap<PatternExprRawTypeInfo>,
         pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
     ) -> Self {
@@ -41,7 +41,7 @@ impl SignatureRegion {
             path,
             term_symbol_region,
             expr_terms,
-            liasons,
+            pattern_modifiers,
             pattern_expr_ty_infos,
             pattern_symbol_ty_infos,
         }

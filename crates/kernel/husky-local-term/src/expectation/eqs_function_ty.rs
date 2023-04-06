@@ -59,7 +59,7 @@ impl ExpectEqsFunctionTypeOutcome {
 pub enum ExpectEqsFunctionTypeOutcomeVariant {
     Ritchie {
         ritchie_kind: TermRitchieKind,
-        parameter_liasoned_tys: Vec<LocalTermRitchieParameterLiasonedType>,
+        parameter_contracted_tys: Vec<LocalTermRitchieParameterContractedType>,
     },
     Curry {
         parameter_symbol: Option<LocalTerm>,
@@ -107,7 +107,7 @@ impl ExpectEqsFunctionType {
             LocalTermPattern::Category(_) => todo!(),
             LocalTermPattern::Ritchie {
                 ritchie_kind,
-                parameter_liasoned_tys,
+                parameter_contracted_tys,
                 return_ty,
             } => Some(LocalTermExpectationEffect {
                 result: Ok(ExpectEqsFunctionTypeOutcome {
@@ -115,7 +115,7 @@ impl ExpectEqsFunctionType {
                     return_ty,
                     variant: ExpectEqsFunctionTypeOutcomeVariant::Ritchie {
                         ritchie_kind,
-                        parameter_liasoned_tys,
+                        parameter_contracted_tys,
                     },
                 }
                 .into()),

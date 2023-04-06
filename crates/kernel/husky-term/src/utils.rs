@@ -77,8 +77,8 @@ pub(crate) fn application_term_toolchain(
 #[salsa::tracked(jar = TermJar)]
 pub(crate) fn ritchie_term_toolchain(db: &dyn TermDb, term: TermRitchie) -> Option<Toolchain> {
     let mut merger = ToolchainMerger::default();
-    for parameter_liasoned_ty in term.parameter_liasoned_tys(db) {
-        merger.accept(parameter_liasoned_ty.ty().toolchain(db))
+    for parameter_contracted_ty in term.parameter_contracted_tys(db) {
+        merger.accept(parameter_contracted_ty.ty().toolchain(db))
     }
     merger.accept(term.return_ty(db).toolchain(db));
     merger.finish()

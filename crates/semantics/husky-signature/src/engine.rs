@@ -1,6 +1,7 @@
-mod pattern;
+mod pattern_modifier;
+mod pattern_ty;
 
-pub(crate) use self::pattern::*;
+pub(crate) use self::pattern_ty::*;
 
 use crate::*;
 use husky_expr::*;
@@ -14,7 +15,7 @@ pub(super) struct RawTermEngine<'a> {
     raw_term_menu: &'a RawTermMenu,
     raw_term_symbol_region: RawTermSymbolRegion,
     expr_terms: ExprMap<SignatureRawTermResult<RawTerm>>,
-    liasons: PatternExprMap<Liason>,
+    pattern_modifiers: PatternExprMap<PatternModifier>,
     pattern_expr_ty_infos: PatternExprMap<PatternExprRawTypeInfo>,
     pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
 }
@@ -52,7 +53,7 @@ impl<'a> RawTermEngine<'a> {
                 expr_region_data.symbol_region(),
             ),
             expr_terms: ExprMap::new(expr_region_data.expr_arena()),
-            liasons: PatternExprMap::new(expr_region_data.pattern_expr_arena()),
+            pattern_modifiers: PatternExprMap::new(expr_region_data.pattern_expr_arena()),
             pattern_expr_ty_infos: PatternExprMap::new(expr_region_data.pattern_expr_arena()),
             pattern_symbol_ty_infos: PatternSymbolMap::new(
                 expr_region_data
@@ -70,7 +71,7 @@ impl<'a> RawTermEngine<'a> {
             self.expr_region_data.symbol_region(),
         );
         self.init_expr_roots();
-        self.infer_liasons();
+        self.infer_pattern_modifiers();
         self.finish()
     }
 
@@ -192,7 +193,7 @@ impl<'a> RawTermEngine<'a> {
             self.expr_region_data.path(),
             self.raw_term_symbol_region,
             self.expr_terms,
-            self.liasons,
+            self.pattern_modifiers,
             self.pattern_expr_ty_infos,
             self.pattern_symbol_ty_infos,
         )
@@ -402,35 +403,5 @@ impl<'a> RawTermEngine<'a> {
 
     pub(crate) fn raw_term_menu(&self) -> &RawTermMenu {
         self.raw_term_menu
-    }
-
-    fn infer_liasons(&mut self) {
-        for (idx, pattern) in self.expr_region_data.pattern_expr_arena().indexed_iter() {
-            let liason = match pattern {
-                PatternExpr::Literal(_) => todo!(),
-                PatternExpr::Ident {
-                    modifier,
-                    ident_token,
-                } => match modifier {
-                    PatternModifier::None => Liason::Pure,
-                    PatternModifier::Mut => Liason::Mut,
-                },
-                PatternExpr::Entity(_) => todo!(),
-                PatternExpr::Tuple { name, fields } => todo!(),
-                PatternExpr::Struct { name, fields } => todo!(),
-                PatternExpr::OneOf { options } => todo!(),
-                PatternExpr::Binding {
-                    ident_token,
-                    asperand_token,
-                    src,
-                } => todo!(),
-                PatternExpr::Range {
-                    start,
-                    dot_dot_token,
-                    end,
-                } => todo!(),
-            };
-            self.liasons.insert_new(idx, liason);
-        }
     }
 }

@@ -736,8 +736,8 @@
                                     ),
                                     variant: Ritchie {
                                         ritchie_kind: FnType,
-                                        parameter_liasoned_tys: [
-                                            LocalTermRitchieParameterLiasonedType {
+                                        parameter_contracted_tys: [
+                                            LocalTermRitchieParameterContractedType {
                                                 ty: Resolved(
                                                     EntityPath(
                                                         TypeOntology(
@@ -750,7 +750,7 @@
                                                     ),
                                                 ),
                                             },
-                                            LocalTermRitchieParameterLiasonedType {
+                                            LocalTermRitchieParameterContractedType {
                                                 ty: Resolved(
                                                     EntityPath(
                                                         TypeOntology(
@@ -1464,8 +1464,8 @@
                                             ),
                                             variant: Ritchie {
                                                 ritchie_kind: FnType,
-                                                parameter_liasoned_tys: [
-                                                    LocalTermRitchieParameterLiasonedType {
+                                                parameter_contracted_tys: [
+                                                    LocalTermRitchieParameterContractedType {
                                                         ty: Resolved(
                                                             EntityPath(
                                                                 TypeOntology(
@@ -1478,7 +1478,7 @@
                                                             ),
                                                         ),
                                                     },
-                                                    LocalTermRitchieParameterLiasonedType {
+                                                    LocalTermRitchieParameterContractedType {
                                                         ty: Resolved(
                                                             EntityPath(
                                                                 TypeOntology(
@@ -2461,8 +2461,8 @@
                                     ),
                                     variant: Ritchie {
                                         ritchie_kind: FnType,
-                                        parameter_liasoned_tys: [
-                                            LocalTermRitchieParameterLiasonedType {
+                                        parameter_contracted_tys: [
+                                            LocalTermRitchieParameterContractedType {
                                                 ty: Resolved(
                                                     EntityPath(
                                                         TypeOntology(
@@ -2475,7 +2475,7 @@
                                                     ),
                                                 ),
                                             },
-                                            LocalTermRitchieParameterLiasonedType {
+                                            LocalTermRitchieParameterContractedType {
                                                 ty: Resolved(
                                                     EntityPath(
                                                         TypeOntology(
@@ -3189,8 +3189,8 @@
                                             ),
                                             variant: Ritchie {
                                                 ritchie_kind: FnType,
-                                                parameter_liasoned_tys: [
-                                                    LocalTermRitchieParameterLiasonedType {
+                                                parameter_contracted_tys: [
+                                                    LocalTermRitchieParameterContractedType {
                                                         ty: Resolved(
                                                             EntityPath(
                                                                 TypeOntology(
@@ -3203,7 +3203,7 @@
                                                             ),
                                                         ),
                                                     },
-                                                    LocalTermRitchieParameterLiasonedType {
+                                                    LocalTermRitchieParameterContractedType {
                                                         ty: Resolved(
                                                             EntityPath(
                                                                 TypeOntology(
@@ -4240,8 +4240,8 @@
                                     ),
                                     variant: Ritchie {
                                         ritchie_kind: FnType,
-                                        parameter_liasoned_tys: [
-                                            LocalTermRitchieParameterLiasonedType {
+                                        parameter_contracted_tys: [
+                                            LocalTermRitchieParameterContractedType {
                                                 ty: Resolved(
                                                     EntityPath(
                                                         TypeOntology(
@@ -4254,7 +4254,7 @@
                                                     ),
                                                 ),
                                             },
-                                            LocalTermRitchieParameterLiasonedType {
+                                            LocalTermRitchieParameterContractedType {
                                                 ty: Resolved(
                                                     EntityPath(
                                                         TypeOntology(
@@ -4390,8 +4390,8 @@
                                     ),
                                     variant: Ritchie {
                                         ritchie_kind: FnType,
-                                        parameter_liasoned_tys: [
-                                            LocalTermRitchieParameterLiasonedType {
+                                        parameter_contracted_tys: [
+                                            LocalTermRitchieParameterContractedType {
                                                 ty: Resolved(
                                                     EntityPath(
                                                         TypeOntology(
@@ -4404,7 +4404,7 @@
                                                     ),
                                                 ),
                                             },
-                                            LocalTermRitchieParameterLiasonedType {
+                                            LocalTermRitchieParameterContractedType {
                                                 ty: Resolved(
                                                     EntityPath(
                                                         TypeOntology(
@@ -5151,8 +5151,8 @@
                                     ),
                                     variant: Ritchie {
                                         ritchie_kind: FnType,
-                                        parameter_liasoned_tys: [
-                                            LocalTermRitchieParameterLiasonedType {
+                                        parameter_contracted_tys: [
+                                            LocalTermRitchieParameterContractedType {
                                                 ty: Resolved(
                                                     EntityPath(
                                                         TypeOntology(
@@ -5165,7 +5165,7 @@
                                                     ),
                                                 ),
                                             },
-                                            LocalTermRitchieParameterLiasonedType {
+                                            LocalTermRitchieParameterContractedType {
                                                 ty: Resolved(
                                                     EntityPath(
                                                         TypeOntology(
@@ -5301,8 +5301,8 @@
                                     ),
                                     variant: Ritchie {
                                         ritchie_kind: FnType,
-                                        parameter_liasoned_tys: [
-                                            LocalTermRitchieParameterLiasonedType {
+                                        parameter_contracted_tys: [
+                                            LocalTermRitchieParameterContractedType {
                                                 ty: Resolved(
                                                     EntityPath(
                                                         TypeOntology(
@@ -5315,7 +5315,7 @@
                                                     ),
                                                 ),
                                             },
-                                            LocalTermRitchieParameterLiasonedType {
+                                            LocalTermRitchieParameterContractedType {
                                                 ty: Resolved(
                                                     EntityPath(
                                                         TypeOntology(
@@ -6723,8 +6723,8 @@
                                             ),
                                             variant: Ritchie {
                                                 ritchie_kind: FnType,
-                                                parameter_liasoned_tys: [
-                                                    LocalTermRitchieParameterLiasonedType {
+                                                parameter_contracted_tys: [
+                                                    LocalTermRitchieParameterContractedType {
                                                         ty: Resolved(
                                                             EntityPath(
                                                                 TypeOntology(
@@ -6737,7 +6737,7 @@
                                                             ),
                                                         ),
                                                     },
-                                                    LocalTermRitchieParameterLiasonedType {
+                                                    LocalTermRitchieParameterContractedType {
                                                         ty: Resolved(
                                                             EntityPath(
                                                                 TypeOntology(
@@ -6845,8 +6845,8 @@
                                             ),
                                             variant: Ritchie {
                                                 ritchie_kind: FnType,
-                                                parameter_liasoned_tys: [
-                                                    LocalTermRitchieParameterLiasonedType {
+                                                parameter_contracted_tys: [
+                                                    LocalTermRitchieParameterContractedType {
                                                         ty: Resolved(
                                                             EntityPath(
                                                                 TypeOntology(
@@ -6859,7 +6859,7 @@
                                                             ),
                                                         ),
                                                     },
-                                                    LocalTermRitchieParameterLiasonedType {
+                                                    LocalTermRitchieParameterContractedType {
                                                         ty: Resolved(
                                                             EntityPath(
                                                                 TypeOntology(
@@ -7345,8 +7345,8 @@
                                             ),
                                             variant: Ritchie {
                                                 ritchie_kind: FnType,
-                                                parameter_liasoned_tys: [
-                                                    LocalTermRitchieParameterLiasonedType {
+                                                parameter_contracted_tys: [
+                                                    LocalTermRitchieParameterContractedType {
                                                         ty: Resolved(
                                                             EntityPath(
                                                                 TypeOntology(
@@ -7359,7 +7359,7 @@
                                                             ),
                                                         ),
                                                     },
-                                                    LocalTermRitchieParameterLiasonedType {
+                                                    LocalTermRitchieParameterContractedType {
                                                         ty: Resolved(
                                                             EntityPath(
                                                                 TypeOntology(
@@ -7467,8 +7467,8 @@
                                             ),
                                             variant: Ritchie {
                                                 ritchie_kind: FnType,
-                                                parameter_liasoned_tys: [
-                                                    LocalTermRitchieParameterLiasonedType {
+                                                parameter_contracted_tys: [
+                                                    LocalTermRitchieParameterContractedType {
                                                         ty: Resolved(
                                                             EntityPath(
                                                                 TypeOntology(
@@ -7481,7 +7481,7 @@
                                                             ),
                                                         ),
                                                     },
-                                                    LocalTermRitchieParameterLiasonedType {
+                                                    LocalTermRitchieParameterContractedType {
                                                         ty: Resolved(
                                                             EntityPath(
                                                                 TypeOntology(
@@ -8741,8 +8741,8 @@
                                     ),
                                     variant: Ritchie {
                                         ritchie_kind: FnType,
-                                        parameter_liasoned_tys: [
-                                            LocalTermRitchieParameterLiasonedType {
+                                        parameter_contracted_tys: [
+                                            LocalTermRitchieParameterContractedType {
                                                 ty: Resolved(
                                                     EntityPath(
                                                         TypeOntology(
@@ -8755,7 +8755,7 @@
                                                     ),
                                                 ),
                                             },
-                                            LocalTermRitchieParameterLiasonedType {
+                                            LocalTermRitchieParameterContractedType {
                                                 ty: Resolved(
                                                     EntityPath(
                                                         TypeOntology(
@@ -8891,8 +8891,8 @@
                                     ),
                                     variant: Ritchie {
                                         ritchie_kind: FnType,
-                                        parameter_liasoned_tys: [
-                                            LocalTermRitchieParameterLiasonedType {
+                                        parameter_contracted_tys: [
+                                            LocalTermRitchieParameterContractedType {
                                                 ty: Resolved(
                                                     EntityPath(
                                                         TypeOntology(
@@ -8905,7 +8905,7 @@
                                                     ),
                                                 ),
                                             },
-                                            LocalTermRitchieParameterLiasonedType {
+                                            LocalTermRitchieParameterContractedType {
                                                 ty: Resolved(
                                                     EntityPath(
                                                         TypeOntology(
@@ -9530,8 +9530,8 @@
                                     ),
                                     variant: Ritchie {
                                         ritchie_kind: FnType,
-                                        parameter_liasoned_tys: [
-                                            LocalTermRitchieParameterLiasonedType {
+                                        parameter_contracted_tys: [
+                                            LocalTermRitchieParameterContractedType {
                                                 ty: Resolved(
                                                     EntityPath(
                                                         TypeOntology(
@@ -9544,7 +9544,7 @@
                                                     ),
                                                 ),
                                             },
-                                            LocalTermRitchieParameterLiasonedType {
+                                            LocalTermRitchieParameterContractedType {
                                                 ty: Resolved(
                                                     EntityPath(
                                                         TypeOntology(
@@ -9680,8 +9680,8 @@
                                     ),
                                     variant: Ritchie {
                                         ritchie_kind: FnType,
-                                        parameter_liasoned_tys: [
-                                            LocalTermRitchieParameterLiasonedType {
+                                        parameter_contracted_tys: [
+                                            LocalTermRitchieParameterContractedType {
                                                 ty: Resolved(
                                                     EntityPath(
                                                         TypeOntology(
@@ -9694,7 +9694,7 @@
                                                     ),
                                                 ),
                                             },
-                                            LocalTermRitchieParameterLiasonedType {
+                                            LocalTermRitchieParameterContractedType {
                                                 ty: Resolved(
                                                     EntityPath(
                                                         TypeOntology(
@@ -11454,8 +11454,8 @@
                                             ),
                                             variant: Ritchie {
                                                 ritchie_kind: FnType,
-                                                parameter_liasoned_tys: [
-                                                    LocalTermRitchieParameterLiasonedType {
+                                                parameter_contracted_tys: [
+                                                    LocalTermRitchieParameterContractedType {
                                                         ty: Resolved(
                                                             EntityPath(
                                                                 TypeOntology(
@@ -11468,7 +11468,7 @@
                                                             ),
                                                         ),
                                                     },
-                                                    LocalTermRitchieParameterLiasonedType {
+                                                    LocalTermRitchieParameterContractedType {
                                                         ty: Resolved(
                                                             EntityPath(
                                                                 TypeOntology(
@@ -11576,8 +11576,8 @@
                                             ),
                                             variant: Ritchie {
                                                 ritchie_kind: FnType,
-                                                parameter_liasoned_tys: [
-                                                    LocalTermRitchieParameterLiasonedType {
+                                                parameter_contracted_tys: [
+                                                    LocalTermRitchieParameterContractedType {
                                                         ty: Resolved(
                                                             EntityPath(
                                                                 TypeOntology(
@@ -11590,7 +11590,7 @@
                                                             ),
                                                         ),
                                                     },
-                                                    LocalTermRitchieParameterLiasonedType {
+                                                    LocalTermRitchieParameterContractedType {
                                                         ty: Resolved(
                                                             EntityPath(
                                                                 TypeOntology(
@@ -11978,8 +11978,8 @@
                                             ),
                                             variant: Ritchie {
                                                 ritchie_kind: FnType,
-                                                parameter_liasoned_tys: [
-                                                    LocalTermRitchieParameterLiasonedType {
+                                                parameter_contracted_tys: [
+                                                    LocalTermRitchieParameterContractedType {
                                                         ty: Resolved(
                                                             EntityPath(
                                                                 TypeOntology(
@@ -11992,7 +11992,7 @@
                                                             ),
                                                         ),
                                                     },
-                                                    LocalTermRitchieParameterLiasonedType {
+                                                    LocalTermRitchieParameterContractedType {
                                                         ty: Resolved(
                                                             EntityPath(
                                                                 TypeOntology(
@@ -12100,8 +12100,8 @@
                                             ),
                                             variant: Ritchie {
                                                 ritchie_kind: FnType,
-                                                parameter_liasoned_tys: [
-                                                    LocalTermRitchieParameterLiasonedType {
+                                                parameter_contracted_tys: [
+                                                    LocalTermRitchieParameterContractedType {
                                                         ty: Resolved(
                                                             EntityPath(
                                                                 TypeOntology(
@@ -12114,7 +12114,7 @@
                                                             ),
                                                         ),
                                                     },
-                                                    LocalTermRitchieParameterLiasonedType {
+                                                    LocalTermRitchieParameterContractedType {
                                                         ty: Resolved(
                                                             EntityPath(
                                                                 TypeOntology(
@@ -13133,8 +13133,8 @@
                                     ),
                                     variant: Ritchie {
                                         ritchie_kind: FnType,
-                                        parameter_liasoned_tys: [
-                                            LocalTermRitchieParameterLiasonedType {
+                                        parameter_contracted_tys: [
+                                            LocalTermRitchieParameterContractedType {
                                                 ty: Resolved(
                                                     Application(
                                                         TermApplication(
@@ -13145,7 +13145,7 @@
                                                     ),
                                                 ),
                                             },
-                                            LocalTermRitchieParameterLiasonedType {
+                                            LocalTermRitchieParameterContractedType {
                                                 ty: Resolved(
                                                     EntityPath(
                                                         TypeOntology(
@@ -13158,7 +13158,7 @@
                                                     ),
                                                 ),
                                             },
-                                            LocalTermRitchieParameterLiasonedType {
+                                            LocalTermRitchieParameterContractedType {
                                                 ty: Resolved(
                                                     EntityPath(
                                                         TypeOntology(
@@ -14166,8 +14166,8 @@
                                     ),
                                     variant: Ritchie {
                                         ritchie_kind: FnType,
-                                        parameter_liasoned_tys: [
-                                            LocalTermRitchieParameterLiasonedType {
+                                        parameter_contracted_tys: [
+                                            LocalTermRitchieParameterContractedType {
                                                 ty: Resolved(
                                                     Application(
                                                         TermApplication(
@@ -14178,7 +14178,7 @@
                                                     ),
                                                 ),
                                             },
-                                            LocalTermRitchieParameterLiasonedType {
+                                            LocalTermRitchieParameterContractedType {
                                                 ty: Resolved(
                                                     EntityPath(
                                                         TypeOntology(
@@ -14191,7 +14191,7 @@
                                                     ),
                                                 ),
                                             },
-                                            LocalTermRitchieParameterLiasonedType {
+                                            LocalTermRitchieParameterContractedType {
                                                 ty: Resolved(
                                                     EntityPath(
                                                         TypeOntology(
@@ -14204,7 +14204,7 @@
                                                     ),
                                                 ),
                                             },
-                                            LocalTermRitchieParameterLiasonedType {
+                                            LocalTermRitchieParameterContractedType {
                                                 ty: Resolved(
                                                     EntityPath(
                                                         TypeOntology(
@@ -16777,8 +16777,8 @@
                                             ),
                                             variant: Ritchie {
                                                 ritchie_kind: FnType,
-                                                parameter_liasoned_tys: [
-                                                    LocalTermRitchieParameterLiasonedType {
+                                                parameter_contracted_tys: [
+                                                    LocalTermRitchieParameterContractedType {
                                                         ty: Resolved(
                                                             Application(
                                                                 TermApplication(
@@ -16789,7 +16789,7 @@
                                                             ),
                                                         ),
                                                     },
-                                                    LocalTermRitchieParameterLiasonedType {
+                                                    LocalTermRitchieParameterContractedType {
                                                         ty: Resolved(
                                                             EntityPath(
                                                                 TypeOntology(
@@ -16802,7 +16802,7 @@
                                                             ),
                                                         ),
                                                     },
-                                                    LocalTermRitchieParameterLiasonedType {
+                                                    LocalTermRitchieParameterContractedType {
                                                         ty: Resolved(
                                                             EntityPath(
                                                                 TypeOntology(
@@ -17330,8 +17330,8 @@
                                             ),
                                             variant: Ritchie {
                                                 ritchie_kind: FnType,
-                                                parameter_liasoned_tys: [
-                                                    LocalTermRitchieParameterLiasonedType {
+                                                parameter_contracted_tys: [
+                                                    LocalTermRitchieParameterContractedType {
                                                         ty: Resolved(
                                                             Application(
                                                                 TermApplication(
@@ -17342,7 +17342,7 @@
                                                             ),
                                                         ),
                                                     },
-                                                    LocalTermRitchieParameterLiasonedType {
+                                                    LocalTermRitchieParameterContractedType {
                                                         ty: Resolved(
                                                             EntityPath(
                                                                 TypeOntology(
@@ -17355,7 +17355,7 @@
                                                             ),
                                                         ),
                                                     },
-                                                    LocalTermRitchieParameterLiasonedType {
+                                                    LocalTermRitchieParameterContractedType {
                                                         ty: Resolved(
                                                             EntityPath(
                                                                 TypeOntology(
@@ -17368,7 +17368,7 @@
                                                             ),
                                                         ),
                                                     },
-                                                    LocalTermRitchieParameterLiasonedType {
+                                                    LocalTermRitchieParameterContractedType {
                                                         ty: Resolved(
                                                             EntityPath(
                                                                 TypeOntology(
@@ -19478,8 +19478,8 @@
                                     ),
                                     variant: Ritchie {
                                         ritchie_kind: FnType,
-                                        parameter_liasoned_tys: [
-                                            LocalTermRitchieParameterLiasonedType {
+                                        parameter_contracted_tys: [
+                                            LocalTermRitchieParameterContractedType {
                                                 ty: Resolved(
                                                     EntityPath(
                                                         TypeOntology(
@@ -19492,7 +19492,7 @@
                                                     ),
                                                 ),
                                             },
-                                            LocalTermRitchieParameterLiasonedType {
+                                            LocalTermRitchieParameterContractedType {
                                                 ty: Resolved(
                                                     EntityPath(
                                                         TypeOntology(
@@ -19554,8 +19554,8 @@
                                     ),
                                     variant: Ritchie {
                                         ritchie_kind: FnType,
-                                        parameter_liasoned_tys: [
-                                            LocalTermRitchieParameterLiasonedType {
+                                        parameter_contracted_tys: [
+                                            LocalTermRitchieParameterContractedType {
                                                 ty: Resolved(
                                                     EntityPath(
                                                         TypeOntology(
@@ -19568,7 +19568,7 @@
                                                     ),
                                                 ),
                                             },
-                                            LocalTermRitchieParameterLiasonedType {
+                                            LocalTermRitchieParameterContractedType {
                                                 ty: Resolved(
                                                     EntityPath(
                                                         TypeOntology(
@@ -19658,8 +19658,8 @@
                                     ),
                                     variant: Ritchie {
                                         ritchie_kind: FnType,
-                                        parameter_liasoned_tys: [
-                                            LocalTermRitchieParameterLiasonedType {
+                                        parameter_contracted_tys: [
+                                            LocalTermRitchieParameterContractedType {
                                                 ty: Resolved(
                                                     EntityPath(
                                                         TypeOntology(
@@ -19672,7 +19672,7 @@
                                                     ),
                                                 ),
                                             },
-                                            LocalTermRitchieParameterLiasonedType {
+                                            LocalTermRitchieParameterContractedType {
                                                 ty: Resolved(
                                                     EntityPath(
                                                         TypeOntology(
@@ -20160,8 +20160,8 @@
                                             ),
                                             variant: Ritchie {
                                                 ritchie_kind: FnType,
-                                                parameter_liasoned_tys: [
-                                                    LocalTermRitchieParameterLiasonedType {
+                                                parameter_contracted_tys: [
+                                                    LocalTermRitchieParameterContractedType {
                                                         ty: Resolved(
                                                             EntityPath(
                                                                 TypeOntology(
@@ -20174,7 +20174,7 @@
                                                             ),
                                                         ),
                                                     },
-                                                    LocalTermRitchieParameterLiasonedType {
+                                                    LocalTermRitchieParameterContractedType {
                                                         ty: Resolved(
                                                             EntityPath(
                                                                 TypeOntology(
@@ -20228,8 +20228,8 @@
                                             ),
                                             variant: Ritchie {
                                                 ritchie_kind: FnType,
-                                                parameter_liasoned_tys: [
-                                                    LocalTermRitchieParameterLiasonedType {
+                                                parameter_contracted_tys: [
+                                                    LocalTermRitchieParameterContractedType {
                                                         ty: Resolved(
                                                             EntityPath(
                                                                 TypeOntology(
@@ -20242,7 +20242,7 @@
                                                             ),
                                                         ),
                                                     },
-                                                    LocalTermRitchieParameterLiasonedType {
+                                                    LocalTermRitchieParameterContractedType {
                                                         ty: Resolved(
                                                             EntityPath(
                                                                 TypeOntology(
@@ -20332,8 +20332,8 @@
                                             ),
                                             variant: Ritchie {
                                                 ritchie_kind: FnType,
-                                                parameter_liasoned_tys: [
-                                                    LocalTermRitchieParameterLiasonedType {
+                                                parameter_contracted_tys: [
+                                                    LocalTermRitchieParameterContractedType {
                                                         ty: Resolved(
                                                             EntityPath(
                                                                 TypeOntology(
@@ -20346,7 +20346,7 @@
                                                             ),
                                                         ),
                                                     },
-                                                    LocalTermRitchieParameterLiasonedType {
+                                                    LocalTermRitchieParameterContractedType {
                                                         ty: Resolved(
                                                             EntityPath(
                                                                 TypeOntology(

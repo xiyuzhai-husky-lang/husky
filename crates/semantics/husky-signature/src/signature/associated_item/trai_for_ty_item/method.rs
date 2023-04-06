@@ -9,13 +9,13 @@ pub(crate) fn trai_for_ty_method_signature(
 ) -> SignatureResult<TraitForTypeMethodSignature> {
     let self_parameter = {
         let impl_block = decl.associated_item(db).impl_block(db);
-        let liason = match decl.self_parameter(db) {
+        let contract = match decl.self_parameter(db) {
             Some(self_parameter) => todo!(),
-            None => Liason::Pure,
+            None => Contract::Pure,
         };
         match impl_block {
             ImplBlock::TraitForType(impl_block) => {
-                ExplicitParameterSignature::new(liason, impl_block.signature(db)?.ty(db))
+                ExplicitParameterSignature::new(contract, impl_block.signature(db)?.ty(db))
             }
             ImplBlock::Type(_) | ImplBlock::IllFormed(_) => unreachable!(),
         }

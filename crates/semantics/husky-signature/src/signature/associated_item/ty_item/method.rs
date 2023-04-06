@@ -11,13 +11,13 @@ pub fn ty_method_signature(
     let signature_term_region = signature_term_region(db, expr_region);
     let self_parameter = {
         let impl_block = decl.associated_item(db).impl_block(db);
-        let liason = match decl.self_parameter(db) {
+        let contract = match decl.self_parameter(db) {
             Some(self_parameter) => todo!(),
-            None => Liason::Pure,
+            None => Contract::Pure,
         };
         match impl_block {
             ImplBlock::Type(impl_block) => {
-                ExplicitParameterSignature::new(liason, impl_block.signature(db)?.ty(db))
+                ExplicitParameterSignature::new(contract, impl_block.signature(db)?.ty(db))
             }
             _ => unreachable!(),
         }

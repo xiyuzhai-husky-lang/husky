@@ -1,8 +1,8 @@
-mod expr;
-mod symbol;
+mod pattern_expr_ty;
+mod pattern_symbol_ty;
 
-pub(crate) use self::expr::*;
-pub(crate) use self::symbol::*;
+pub(crate) use self::pattern_expr_ty::*;
+pub(crate) use self::pattern_symbol_ty::*;
 
 use super::*;
 

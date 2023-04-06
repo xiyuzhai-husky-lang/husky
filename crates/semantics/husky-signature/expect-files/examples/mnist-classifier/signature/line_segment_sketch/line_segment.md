@@ -41,7 +41,7 @@
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
-                            liason: Pure,
+                            contract: Pure,
                             ty: EntityPath(
                                 Type(
                                     TypePath(
@@ -70,7 +70,7 @@
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
-                            liason: Pure,
+                            contract: Pure,
                             ty: EntityPath(
                                 Type(
                                     TypePath(
@@ -84,7 +84,7 @@
                         nonself_regular_parameters: ExplicitParameterSignatures {
                             parameters: [
                                 ExplicitParameterSignature {
-                                    liason: Pure,
+                                    contract: Pure,
                                     ty: EntityPath(
                                         Type(
                                             TypePath(

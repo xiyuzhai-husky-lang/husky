@@ -63,9 +63,9 @@ impl<'a> ExprTypeEngine<'a> {
         nonself_arguments: ExprIdxRange,
     ) -> ExprTypeResult<LocalTerm> {
         let method_ty_info = ty_method_card.method_ty_info(self.db)?;
-        let mut nonself_parameter_liasoned_tys: Vec<LocalTermRitchieParameterLiasonedType> =
+        let mut nonself_parameter_contracted_tys: Vec<LocalTermRitchieParameterContractedType> =
             method_ty_info
-                .nonself_parameter_liasoned_tys()
+                .nonself_parameter_contracted_tys()
                 .iter()
                 .map(Into::into)
                 .collect();
@@ -79,7 +79,7 @@ impl<'a> ExprTypeEngine<'a> {
         }
         self.calc_ritchie_call_nonself_arguments_expr_ty(
             expr_idx,
-            &nonself_parameter_liasoned_tys,
+            &nonself_parameter_contracted_tys,
             nonself_arguments,
         );
         Ok(return_ty)

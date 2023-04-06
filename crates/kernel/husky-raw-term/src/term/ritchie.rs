@@ -7,7 +7,7 @@ use crate::*;
 pub struct RawTermRitchie {
     pub ritchie_kind: TermRitchieKind,
     #[return_ref]
-    pub parameter_tys: Vec<RawTermRitchieParameterLiasonedType>,
+    pub parameter_tys: Vec<RawTermRitchieParameterContractedType>,
     pub return_ty: RawTerm,
     // ty: RawTerm,
 }
@@ -64,25 +64,25 @@ where
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = RawTermDb)]
-pub struct RawTermRitchieParameterLiasonedType {
-    liason: Liason,
+pub struct RawTermRitchieParameterContractedType {
+    contract: Contract,
     ty: RawTerm,
 }
 
-impl RawTermRitchieParameterLiasonedType {
-    pub fn new(liason: Liason, ty: RawTerm) -> Self {
-        Self { liason, ty }
+impl RawTermRitchieParameterContractedType {
+    pub fn new(contract: Contract, ty: RawTerm) -> Self {
+        Self { contract, ty }
     }
 
     pub(crate) fn substitute_ty(self, f: impl FnOnce(RawTerm) -> RawTerm) -> Self {
         Self {
-            liason: self.liason,
+            contract: self.contract,
             ty: f(self.ty),
         }
     }
 
-    pub fn liason(&self) -> Liason {
-        self.liason
+    pub fn contract(&self) -> Contract {
+        self.contract
     }
 
     pub fn ty(&self) -> RawTerm {
@@ -90,7 +90,7 @@ impl RawTermRitchieParameterLiasonedType {
     }
 }
 
-impl RawTermRitchieParameterLiasonedType {
+impl RawTermRitchieParameterContractedType {
     fn show_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -101,7 +101,7 @@ impl RawTermRitchieParameterLiasonedType {
     }
 }
 
-impl<Db> salsa::DisplayWithDb<Db> for RawTermRitchieParameterLiasonedType
+impl<Db> salsa::DisplayWithDb<Db> for RawTermRitchieParameterContractedType
 where
     Db: RawTermDb + ?Sized,
 {

@@ -30,7 +30,7 @@
                     parameters: ExplicitParameterSignatures {
                         parameters: [
                             ExplicitParameterSignature {
-                                liason: Pure,
+                                contract: Pure,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -42,7 +42,7 @@
                                 ),
                             },
                             ExplicitParameterSignature {
-                                liason: Pure,
+                                contract: Pure,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -70,7 +70,7 @@
                     parameters: ExplicitParameterSignatures {
                         parameters: [
                             ExplicitParameterSignature {
-                                liason: Pure,
+                                contract: Pure,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -82,7 +82,7 @@
                                 ),
                             },
                             ExplicitParameterSignature {
-                                liason: Pure,
+                                contract: Pure,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -110,7 +110,7 @@
                     parameters: ExplicitParameterSignatures {
                         parameters: [
                             ExplicitParameterSignature {
-                                liason: Pure,
+                                contract: Pure,
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
                                         Id {
@@ -120,7 +120,7 @@
                                 ),
                             },
                             ExplicitParameterSignature {
-                                liason: Pure,
+                                contract: Pure,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -132,7 +132,7 @@
                                 ),
                             },
                             ExplicitParameterSignature {
-                                liason: Pure,
+                                contract: Pure,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -160,7 +160,7 @@
                     parameters: ExplicitParameterSignatures {
                         parameters: [
                             ExplicitParameterSignature {
-                                liason: Pure,
+                                contract: Pure,
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
                                         Id {
@@ -170,7 +170,7 @@
                                 ),
                             },
                             ExplicitParameterSignature {
-                                liason: Pure,
+                                contract: Pure,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -182,7 +182,7 @@
                                 ),
                             },
                             ExplicitParameterSignature {
-                                liason: Pure,
+                                contract: Pure,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -194,7 +194,7 @@
                                 ),
                             },
                             ExplicitParameterSignature {
-                                liason: Pure,
+                                contract: Pure,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -222,7 +222,7 @@
                     parameters: ExplicitParameterSignatures {
                         parameters: [
                             ExplicitParameterSignature {
-                                liason: Pure,
+                                contract: Pure,
                                 ty: ExplicitApplication(
                                     RawTermExplicitApplication(
                                         Id {
@@ -232,7 +232,7 @@
                                 ),
                             },
                             ExplicitParameterSignature {
-                                liason: Pure,
+                                contract: Pure,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -273,7 +273,7 @@
                         parameters: ExplicitParameterSignatures {
                             parameters: [
                                 ExplicitParameterSignature {
-                                    liason: Pure,
+                                    contract: Pure,
                                     ty: ExplicitApplication(
                                         RawTermExplicitApplication(
                                             Id {
@@ -283,7 +283,7 @@
                                     ),
                                 },
                                 ExplicitParameterSignature {
-                                    liason: Pure,
+                                    contract: Pure,
                                     ty: EntityPath(
                                         Type(
                                             TypePath(
@@ -295,7 +295,7 @@
                                     ),
                                 },
                                 ExplicitParameterSignature {
-                                    liason: Pure,
+                                    contract: Pure,
                                     ty: EntityPath(
                                         Type(
                                             TypePath(
@@ -323,7 +323,7 @@
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
-                            liason: Pure,
+                            contract: Pure,
                             ty: EntityPath(
                                 Type(
                                     TypePath(
@@ -388,7 +388,7 @@
                         parameters: ExplicitParameterSignatures {
                             parameters: [
                                 ExplicitParameterSignature {
-                                    liason: Pure,
+                                    contract: Pure,
                                     ty: ExplicitApplication(
                                         RawTermExplicitApplication(
                                             Id {
@@ -398,7 +398,7 @@
                                     ),
                                 },
                                 ExplicitParameterSignature {
-                                    liason: Pure,
+                                    contract: Pure,
                                     ty: EntityPath(
                                         Type(
                                             TypePath(

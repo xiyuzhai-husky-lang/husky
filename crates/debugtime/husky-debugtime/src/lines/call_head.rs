@@ -50,7 +50,7 @@ impl<'a> TraceLineGenerator<'a> {
         // self.render_special_token("(", None, None);
         // for i in 0..parameters.len() {
         //     let parameter = &parameters[i];
-        //     match parameter.liason() {
+        //     match parameter.contract() {
         //         ParameterModifier::None => (),
         //         ParameterModifier::Owned => todo!(),
         //         ParameterModifier::OwnedMut => todo!(),

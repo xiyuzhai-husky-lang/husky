@@ -4,33 +4,33 @@ use super::*;
 #[salsa::derive_debug_with_db(db = TermDb)]
 pub struct LocalTermRitchie {
     ritchie_kind: TermRitchieKind,
-    parameter_tys: Vec<LocalTermRitchieParameterLiasonedType>,
+    parameter_tys: Vec<LocalTermRitchieParameterContractedType>,
     return_ty: LocalTerm,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = TermDb)]
-pub struct LocalTermRitchieParameterLiasonedType {
+pub struct LocalTermRitchieParameterContractedType {
     ty: LocalTerm,
 }
 
-impl LocalTermRitchieParameterLiasonedType {
+impl LocalTermRitchieParameterContractedType {
     pub fn ty(self) -> LocalTerm {
         self.ty
     }
 }
 
-impl From<TermRitchieParameterLiasonedType> for LocalTermRitchieParameterLiasonedType {
-    fn from(liasoned_ty: TermRitchieParameterLiasonedType) -> Self {
+impl From<TermRitchieParameterContractedType> for LocalTermRitchieParameterContractedType {
+    fn from(contracted_ty: TermRitchieParameterContractedType) -> Self {
         Self {
-            ty: liasoned_ty.ty().into(),
+            ty: contracted_ty.ty().into(),
         }
     }
 }
-impl From<&TermRitchieParameterLiasonedType> for LocalTermRitchieParameterLiasonedType {
-    fn from(liasoned_ty: &TermRitchieParameterLiasonedType) -> Self {
+impl From<&TermRitchieParameterContractedType> for LocalTermRitchieParameterContractedType {
+    fn from(contracted_ty: &TermRitchieParameterContractedType) -> Self {
         Self {
-            ty: liasoned_ty.ty().into(),
+            ty: contracted_ty.ty().into(),
         }
     }
 }

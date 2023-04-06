@@ -143,9 +143,9 @@ impl MethodTypeInfo {
         // todo: formal method, method that is not a function pointer
         let signature = signature?;
         let t =
-            |param: &ExplicitParameterSignature| -> TermResult<TermRitchieParameterLiasonedType> {
-                Ok(TermRitchieParameterLiasonedType::new(
-                    param.liason(),
+            |param: &ExplicitParameterSignature| -> TermResult<TermRitchieParameterContractedType> {
+                Ok(TermRitchieParameterContractedType::new(
+                    param.contract(),
                     Term::from_raw_unchecked(
                         db,
                         param.ty(),
@@ -153,8 +153,8 @@ impl MethodTypeInfo {
                     )?,
                 ))
             };
-        let self_liasoned_ty = t(signature.self_parameter(db))?;
-        let nonself_parameter_liasoned_tys = signature
+        let self_contracted_ty = t(signature.self_parameter(db))?;
+        let nonself_parameter_contracted_tys = signature
             .nonself_regular_parameters(db)
             .iter()
             .map(t)
@@ -167,8 +167,8 @@ impl MethodTypeInfo {
             .collect();
         Ok(Self {
             implicit_parameters,
-            self_liasoned_ty,
-            nonself_parameter_liasoned_tys,
+            self_contracted_ty,
+            nonself_parameter_contracted_tys,
             return_ty,
             where_clause: (),
         })

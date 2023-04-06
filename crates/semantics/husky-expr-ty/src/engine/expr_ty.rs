@@ -283,7 +283,7 @@ impl<'a> ExprTypeEngine<'a> {
                                     LocalTermPattern::Category(_) => todo!(),
                                     LocalTermPattern::Ritchie {
                                         ritchie_kind,
-                                        parameter_liasoned_tys,
+                                        parameter_contracted_tys,
                                         return_ty,
                                     } => todo!(),
                                 },
@@ -365,11 +365,11 @@ impl<'a> ExprTypeEngine<'a> {
         match expectation_ok.variant() {
             ExpectEqsFunctionTypeOutcomeVariant::Ritchie {
                 ritchie_kind,
-                parameter_liasoned_tys,
+                parameter_contracted_tys,
             } => {
                 self.calc_ritchie_call_nonself_arguments_expr_ty(
                     expr_idx,
-                    &parameter_liasoned_tys,
+                    &parameter_contracted_tys,
                     *items,
                 );
                 Ok((
