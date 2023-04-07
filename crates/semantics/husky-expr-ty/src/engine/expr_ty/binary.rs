@@ -181,7 +181,7 @@ impl<'a> ExprTypeEngine<'a> {
                         todo!()
                     }
                     LocalTermData::Ritchie(_) => todo!(),
-                    LocalTermData::QualifiedType { .. } => todo!(),
+                    LocalTermData::PlaceType { .. } => todo!(),
                 }
             }
         };

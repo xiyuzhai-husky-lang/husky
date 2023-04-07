@@ -191,8 +191,7 @@ impl<'a> ExprRangeCalculator<'a> {
             } => match modifier {
                 SymbolModifier::None => TokenIdxRange::new_single(ident_token.token_idx()),
                 SymbolModifier::Mut => todo!(),
-                SymbolModifier::ConstExpr => todo!(),
-                SymbolModifier::StaticExpr => todo!(),
+                SymbolModifier::Const => todo!(),
             },
             PatternExpr::Entity(_) => todo!(),
             PatternExpr::Tuple { name, fields } => todo!(),

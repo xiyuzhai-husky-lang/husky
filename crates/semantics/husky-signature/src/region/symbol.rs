@@ -17,22 +17,23 @@ pub struct SymbolRawTermRegion {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum SymbolSignature {
-    ImplicitParamater {
-        symbol: RawTermSymbol,
-    },
-    ExplicitParamater {
-        modifier: SymbolModifier,
-        ty: RawTermSymbolTypeResult<RawTerm>,
-    },
+pub struct SymbolSignature {
+    symbol: Option<RawTermSymbol>,
+    modifier: SymbolModifier,
+    ty: RawTermSymbolTypeResult<RawTerm>,
 }
 
 impl SymbolSignature {
     pub fn symbol(self) -> Option<RawTermSymbol> {
-        match self {
-            SymbolSignature::ImplicitParamater { symbol } => Some(symbol),
-            SymbolSignature::ExplicitParamater { .. } => todo!(),
-        }
+        self.symbol
+    }
+
+    pub fn modifier(&self) -> SymbolModifier {
+        self.modifier
+    }
+
+    pub fn ty(&self) -> RawTermSymbolTypeResult<RawTerm> {
+        self.ty
     }
 }
 
@@ -45,7 +46,15 @@ impl SymbolRawTermRegion {
         ty: RawTermSymbolTypeResult<RawTerm>,
     ) {
         let symbol = self.registry.new_symbol(db, ty);
-        self.add_new_symbol_signature(db, idx, SymbolSignature::ImplicitParamater { symbol })
+        self.add_new_symbol_signature(
+            db,
+            idx,
+            SymbolSignature {
+                symbol: Some(symbol),
+                ty,
+                modifier: SymbolModifier::Const,
+            },
+        )
     }
 
     #[inline(always)]
@@ -59,16 +68,15 @@ impl SymbolRawTermRegion {
         let symbol = match modifier {
             SymbolModifier::None => todo!(),
             SymbolModifier::Mut => todo!(),
-            SymbolModifier::ConstExpr => todo!(),
-            SymbolModifier::StaticExpr => todo!(),
+            SymbolModifier::Const => todo!(),
         };
         self.add_new_symbol_signature(
             db,
             current_symbol,
-            SymbolSignature::ExplicitParamater {
-                // current_symbol_modifiers should be initialized at this point
+            SymbolSignature {
                 modifier,
                 ty,
+                symbol,
             },
         )
     }

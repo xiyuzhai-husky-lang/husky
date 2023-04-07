@@ -2,6 +2,5 @@
 pub enum SymbolModifier {
     None,
     Mut,
-    ConstExpr,
-    StaticExpr,
+    Const,
 }

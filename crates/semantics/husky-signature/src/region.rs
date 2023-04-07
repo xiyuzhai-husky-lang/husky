@@ -1,8 +1,8 @@
 mod error;
 mod symbol;
 
-pub use error::*;
-pub use symbol::*;
+pub use self::error::*;
+pub use self::symbol::*;
 
 pub(crate) use engine::*;
 

@@ -18,6 +18,8 @@ husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 husky-ty-expectation = { path = "../../kernel/husky-ty-expectation" }
 husky-term = { path = "../../kernel/husky-term" }
+# semantics
+husky-signature = { path = "../../semantics/husky-signature" }
 # syntax
 husky-expr = { path = "../../syntax/husky-expr" }
 # utils
