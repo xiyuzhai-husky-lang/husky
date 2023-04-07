@@ -187,12 +187,15 @@ impl<'a> ExprRangeCalculator<'a> {
             PatternExpr::Literal(_) => todo!(),
             PatternExpr::Ident {
                 ident_token,
-                modifier,
-            } => match modifier {
-                SymbolModifier::None => TokenIdxRange::new_single(ident_token.token_idx()),
-                SymbolModifier::Mut => todo!(),
-                SymbolModifier::Const => todo!(),
-            },
+                modifier_keyword_group,
+            } => {
+                todo!()
+                //     match modifier {
+                //     SymbolModifier::Pure => TokenIdxRange::new_single(ident_token.token_idx()),
+                //     SymbolModifier::Mut => todo!(),
+                //     SymbolModifier::Const => todo!(),
+                // }
+            }
             PatternExpr::Entity(_) => todo!(),
             PatternExpr::Tuple { name, fields } => todo!(),
             PatternExpr::Struct { name, fields } => todo!(),
@@ -355,7 +358,7 @@ impl<'a> ExprRangeCalculator<'a> {
                         bra_token_idx: token_idx,
                     }
                     | OriginalExprError::ExpectedEolColon(token_idx)
-                    | OriginalExprError::ExpectedIdentAfterMut(token_idx)
+                    | OriginalExprError::ExpectedIdentAfterModifier(token_idx)
                     | OriginalExprError::UnexpectedSheba(token_idx)
                     | OriginalExprError::UnrecognizedIdent { token_idx, .. }
                     | OriginalExprError::UnresolvedSubentity { token_idx, .. }

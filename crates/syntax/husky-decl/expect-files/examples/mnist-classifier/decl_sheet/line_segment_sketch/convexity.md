@@ -105,7 +105,7 @@ Ok(
                                             pattern_expr_arena: Arena {
                                                 data: [
                                                     PatternExpr::Ident {
-                                                        modifier: None,
+                                                        modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `line_segment_sketch`,
                                                             token_idx: TokenIdx(
@@ -114,7 +114,7 @@ Ok(
                                                         },
                                                     },
                                                     PatternExpr::Ident {
-                                                        modifier: None,
+                                                        modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `index`,
                                                             token_idx: TokenIdx(

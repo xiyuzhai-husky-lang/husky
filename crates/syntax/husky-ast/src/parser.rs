@@ -26,7 +26,7 @@ pub(crate) struct AstParser<'a> {
 
 pub(crate) trait NormalAstChildren {
     const ALLOW_STMT: AstResult<()>;
-    fn determine_entity_kind(_: EntityKeywordGroup) -> AstResult<EntityKind>;
+    fn determine_entity_kind(_: EntityKindKeywordGroup) -> AstResult<EntityKind>;
 }
 
 impl<'a> HasStreamState for AstParser<'a> {
@@ -118,7 +118,7 @@ impl<'a> AstParser<'a> {
             Token::Keyword(kw) => match kw {
                 Keyword::Stmt(kw) => self.try_parse_stmt_after_keyword::<C>(token_group_idx, kw)?,
                 Keyword::Pronoun(_) => self.try_parse_stmt::<C>(token_group_idx)?,
-                Keyword::Pattern(_) => Err(OriginalAstError::UnexpectedPattern)?,
+                Keyword::Modifier(_) => Err(OriginalAstError::UnexpectedPattern)?,
                 Keyword::Use => self.parse_use_ast(
                     token_group_idx,
                     VisibilityExpr::new_protected(self.module_path),

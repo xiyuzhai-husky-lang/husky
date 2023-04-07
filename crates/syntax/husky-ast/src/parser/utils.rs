@@ -9,7 +9,7 @@ use std::iter::Peekable;
 pub(super) trait AstTokenParseContext<'a>: TokenParseContext<'a> {
     fn module_path(&self) -> ModulePath;
 
-    fn take_entity_kind_keyword(&mut self) -> AstResult<EntityKeywordGroup> {
+    fn take_entity_kind_keyword(&mut self) -> AstResult<EntityKindKeywordGroup> {
         let (idx, token) = self
             .borrow_mut()
             .next_indexed()

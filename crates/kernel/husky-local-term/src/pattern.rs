@@ -38,14 +38,16 @@ impl LocalTerm {
         unresolved_terms: &UnresolvedTerms,
     ) -> LocalTermPattern {
         match self {
-            LocalTerm::Resolved(term) => LocalTermPattern::from_resolved(db, term),
+            LocalTerm::Term(term) => LocalTermPattern::from_resolved(db, term),
             LocalTerm::Unresolved(term) => match unresolved_terms[term].resolve_progress() {
                 Some(LocalTerm::Unresolved(term)) => {
                     LocalTermPattern::from_unresolved(db, term, unresolved_terms)
                 }
-                Some(LocalTerm::Resolved(term)) => LocalTermPattern::from_resolved(db, term),
+                Some(LocalTerm::Term(term)) => LocalTermPattern::from_resolved(db, term),
                 None => todo!(),
+                _ => todo!(),
             },
+            _ => todo!(),
         }
     }
 }

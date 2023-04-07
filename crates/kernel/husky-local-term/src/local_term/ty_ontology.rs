@@ -37,10 +37,10 @@ impl LocalTerm {
         argument: impl Into<LocalTerm>,
     ) -> TermResult<Self> {
         match (function.into(), argument.into()) {
-            (LocalTerm::Resolved(function), LocalTerm::Resolved(argument)) => {
+            (LocalTerm::Term(function), LocalTerm::Term(argument)) => {
                 Ok(TermApplication::new(db, function, argument)?.into())
             }
-            (LocalTerm::Resolved(function), argument) => {
+            (LocalTerm::Term(function), argument) => {
                 let expansion = function.application_expansion(db);
                 match expansion.function() {
                     TermFunctionReduced::TypeOntology(path) => {
@@ -60,8 +60,9 @@ impl LocalTerm {
                     TermFunctionReduced::Other(_) => todo!(),
                 }
             }
-            (LocalTerm::Unresolved(_), LocalTerm::Resolved(_)) => todo!(),
+            (LocalTerm::Unresolved(_), LocalTerm::Term(_)) => todo!(),
             (LocalTerm::Unresolved(_), LocalTerm::Unresolved(_)) => todo!(),
+            _ => todo!(),
         }
     }
 
@@ -75,8 +76,9 @@ impl LocalTerm {
         let mut resolved_arguments: SmallVec<[Term; 2]> = smallvec![];
         for argument in &arguments {
             match argument {
-                LocalTerm::Resolved(argument) => resolved_arguments.push(*argument),
+                LocalTerm::Term(argument) => resolved_arguments.push(*argument),
                 LocalTerm::Unresolved(_) => break,
+                _ => todo!(),
             }
         }
         if resolved_arguments.len() == arguments.len() {

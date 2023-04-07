@@ -6,6 +6,7 @@ use vec_like::VecSet;
 #[derive(Default, Debug, PartialEq, Eq)]
 pub struct LocalTermRegion {
     pub(super) unresolved_terms: UnresolvedTerms,
+    pub(super) place_tys: PlaceTypes,
     pub(super) expectations: LocalTermExpectations,
 }
 

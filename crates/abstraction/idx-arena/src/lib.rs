@@ -115,6 +115,21 @@ impl<T> Arena<T> {
         })
     }
 
+    pub fn indexed_copy_iter<'a>(&'a self) -> impl Iterator<Item = (ArenaIdx<T>, T)> + 'a
+    where
+        T: Copy,
+    {
+        self.data.iter().copied().enumerate().map(|(i, t)| {
+            (
+                ArenaIdx {
+                    raw: i,
+                    phantom: PhantomData,
+                },
+                t,
+            )
+        })
+    }
+
     pub fn indexed_iter_with_start<'a>(
         &'a self,
         start: usize,

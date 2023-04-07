@@ -66,7 +66,7 @@ impl SymbolRawTermRegion {
     ) {
         let modifier = self.current_symbol_modifiers[current_symbol];
         let symbol = match modifier {
-            SymbolModifier::None => todo!(),
+            SymbolModifier::Pure => todo!(),
             SymbolModifier::Mut => todo!(),
             SymbolModifier::Const => todo!(),
         };

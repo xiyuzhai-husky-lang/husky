@@ -60,7 +60,7 @@ impl ExpectEqsCategory {
         unresolved_terms: &mut UnresolvedTerms,
     ) -> Option<LocalTermExpectationEffect> {
         match expectee {
-            LocalTerm::Resolved(resolved_expectee) => match resolved_expectee {
+            LocalTerm::Term(resolved_expectee) => match resolved_expectee {
                 Term::Category(cat) => Some(match cat.universe() >= self.smallest_universe {
                     true => LocalTermExpectationEffect {
                         result: Ok(LocalTermExpectationOutcome::EqsSort(cat.universe())),
@@ -77,6 +77,7 @@ impl ExpectEqsCategory {
                 }),
             },
             LocalTerm::Unresolved(_) => None,
+            _ => todo!(),
         }
     }
 }

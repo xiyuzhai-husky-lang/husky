@@ -16,23 +16,25 @@ impl NormalAstChildren for TypeItems {
     ));
 
     #[inline(always)]
-    fn determine_entity_kind(entity_keyword_group: EntityKeywordGroup) -> AstResult<EntityKind> {
+    fn determine_entity_kind(
+        entity_keyword_group: EntityKindKeywordGroup,
+    ) -> AstResult<EntityKind> {
         let ty_item_kind = match entity_keyword_group {
-            EntityKeywordGroup::Mod(_) => todo!(),
-            EntityKeywordGroup::Fn(_) => TypeItemKind::MethodFn,
-            EntityKeywordGroup::ConstFn(_, _) => todo!(),
-            EntityKeywordGroup::StaticFn(_, _) => TypeItemKind::AssociatedFn,
-            EntityKeywordGroup::StaticConstFn(_, _, _) => todo!(),
-            EntityKeywordGroup::Gn(_) => todo!(),
-            EntityKeywordGroup::GeneralDef(_) => todo!(),
-            EntityKeywordGroup::TypeEntity(_) => {
+            EntityKindKeywordGroup::Mod(_) => todo!(),
+            EntityKindKeywordGroup::Fn(_) => TypeItemKind::MethodFn,
+            EntityKindKeywordGroup::ConstFn(_, _) => todo!(),
+            EntityKindKeywordGroup::StaticFn(_, _) => TypeItemKind::AssociatedFn,
+            EntityKindKeywordGroup::StaticConstFn(_, _, _) => todo!(),
+            EntityKindKeywordGroup::Gn(_) => todo!(),
+            EntityKindKeywordGroup::GeneralDef(_) => todo!(),
+            EntityKindKeywordGroup::TypeEntity(_) => {
                 Err(OriginalAstError::UnexpectedTypeDefnInsideTypeImplBlock)?
             }
-            EntityKeywordGroup::Type(_) => todo!(),
-            EntityKeywordGroup::Trait(_) => todo!(),
-            EntityKeywordGroup::Visual(_) => todo!(),
-            EntityKeywordGroup::Val(_) => TypeItemKind::AssociatedVar,
-            EntityKeywordGroup::Memo(_) => TypeItemKind::Memo,
+            EntityKindKeywordGroup::Type(_) => todo!(),
+            EntityKindKeywordGroup::Trait(_) => todo!(),
+            EntityKindKeywordGroup::Visual(_) => todo!(),
+            EntityKindKeywordGroup::Val(_) => TypeItemKind::AssociatedVar,
+            EntityKindKeywordGroup::Memo(_) => TypeItemKind::Memo,
         };
         Ok(EntityKind::AssociatedItem {
             associated_item_kind: AssociatedItemKind::TypeItem(ty_item_kind),

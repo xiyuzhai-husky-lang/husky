@@ -42,31 +42,6 @@ pub struct SymbolRegion {
     pattern_ty_constraints: Vec<(PatternTypeConstraint, CurrentSymbolIdxRange)>,
 }
 
-impl SymbolRegion {
-    pub fn regular_parameter_pattern_ty_constraint(
-        &self,
-        target: PatternExprIdx,
-    ) -> Option<ExprIdx> {
-        self.pattern_ty_constraints
-            .iter()
-            .find_map(|(pattern_ty_constraint, _)| match pattern_ty_constraint {
-                PatternTypeConstraint::ExplicitParameter {
-                    pattern_expr: pattern,
-                    ty,
-                } if *pattern == target => Some(*ty),
-                _ => None,
-            })
-    }
-
-    // pub(crate) fn add_ty_constraint(&mut self, constraint: PatternTypeConstraint) {
-    //     self.pattern_ty_constraints.push(constraint)
-    // }
-
-    pub fn pattern_ty_constraints(&self) -> &[(PatternTypeConstraint, CurrentSymbolIdxRange)] {
-        &self.pattern_ty_constraints
-    }
-}
-
 #[derive(Debug, PartialEq, Eq)]
 pub enum PatternTypeConstraint {
     ImplicitTypeParameter,
@@ -157,8 +132,8 @@ impl SymbolRegion {
 
     pub fn indexed_inherited_symbol_iter<'a>(
         &'a self,
-    ) -> impl Iterator<Item = (InheritedSymbolIdx, &'a InheritedSymbol)> + 'a {
-        self.inherited_symbol_arena.indexed_iter()
+    ) -> impl Iterator<Item = (InheritedSymbolIdx, InheritedSymbol)> + 'a {
+        self.inherited_symbol_arena.indexed_copy_iter()
     }
 
     pub fn current_symbol_indexed_iter<'a>(
@@ -173,8 +148,8 @@ impl SymbolRegion {
 
     fn bequeath(&self) -> InheritedSymbolArena {
         let mut inherited_symbol_arena = InheritedSymbolArena::default();
-        for _ in self.indexed_inherited_symbol_iter() {
-            todo!()
+        for (_, inherited_symbol) in self.indexed_inherited_symbol_iter() {
+            inherited_symbol_arena.alloc_one(inherited_symbol);
         }
         for (current_symbol_idx, current_symbol) in self.current_symbol_indexed_iter() {
             let kind = match current_symbol.variant {
@@ -210,6 +185,25 @@ impl SymbolRegion {
     pub fn current_symbol_arena(&self) -> &CurrentSymbolArena {
         &self.current_symbol_arena
     }
+
+    pub fn regular_parameter_pattern_ty_constraint(
+        &self,
+        target: PatternExprIdx,
+    ) -> Option<ExprIdx> {
+        self.pattern_ty_constraints
+            .iter()
+            .find_map(|(pattern_ty_constraint, _)| match pattern_ty_constraint {
+                PatternTypeConstraint::ExplicitParameter {
+                    pattern_expr: pattern,
+                    ty,
+                } if *pattern == target => Some(*ty),
+                _ => None,
+            })
+    }
+
+    pub fn pattern_ty_constraints(&self) -> &[(PatternTypeConstraint, CurrentSymbolIdxRange)] {
+        &self.pattern_ty_constraints
+    }
 }
 
 impl std::ops::Index<InheritedSymbolIdx> for SymbolRegion {
@@ -229,3 +223,39 @@ impl std::ops::Index<CurrentSymbolIdx> for SymbolRegion {
 }
 
 pub enum Prevariable {}
+
+/// equal to InheritedSymbolIdx
+///
+/// equal to CurrentSymbolIdx + number of inherited symbols
+pub struct LocalSymbolIdx(usize);
+
+impl From<InheritedSymbolIdx> for LocalSymbolIdx {
+    fn from(value: InheritedSymbolIdx) -> Self {
+        Self(value.raw())
+    }
+}
+
+impl LocalSymbolIdx {
+    fn from_current_symbol_idx(
+        current_symbol_idx: CurrentSymbolIdx,
+        symbol_region: &SymbolRegion,
+    ) -> Self {
+        Self(symbol_region.inherited_symbol_arena.len() + current_symbol_idx.raw())
+    }
+}
+
+pub trait IntoLocalSymbolIdx: Copy {
+    fn into_local_symbol_idx(self, expr_region_data: &ExprRegionData) -> LocalSymbolIdx;
+}
+
+impl IntoLocalSymbolIdx for InheritedSymbolIdx {
+    fn into_local_symbol_idx(self, _: &ExprRegionData) -> LocalSymbolIdx {
+        self.into()
+    }
+}
+
+impl IntoLocalSymbolIdx for CurrentSymbolIdx {
+    fn into_local_symbol_idx(self, expr_region_data: &ExprRegionData) -> LocalSymbolIdx {
+        LocalSymbolIdx::from_current_symbol_idx(self, expr_region_data.symbol_region())
+    }
+}

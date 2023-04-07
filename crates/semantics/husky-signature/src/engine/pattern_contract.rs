@@ -5,7 +5,13 @@ impl<'a> RawTermEngine<'a> {
         for (idx, pattern) in self.expr_region_data.pattern_expr_arena().indexed_iter() {
             let contract = match pattern {
                 PatternExpr::Literal(_) => todo!(),
-                PatternExpr::Ident { modifier, .. } => (*modifier).into(),
+                PatternExpr::Ident {
+                    modifier_keyword_group,
+                    ..
+                } => {
+                    todo!()
+                    // (*modifier).into()
+                }
                 PatternExpr::Entity(_) => todo!(),
                 PatternExpr::Tuple { name, fields } => todo!(),
                 PatternExpr::Struct { name, fields } => todo!(),

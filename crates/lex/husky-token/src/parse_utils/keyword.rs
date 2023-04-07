@@ -1,3 +1,9 @@
+mod entity_kind;
+mod symbol_modifier;
+
+pub use self::entity_kind::*;
+pub use self::symbol_modifier::*;
+
 use husky_entity_taxonomy::TypeKind;
 
 use super::*;
@@ -216,44 +222,6 @@ where
                     Ok(Some(MatchToken { token_idx }))
                 }
                 _ => Ok(None),
-            }
-        } else {
-            Ok(None)
-        }
-    }
-}
-
-#[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = TokenDb)]
-pub struct MutToken {
-    token_idx: TokenIdx,
-}
-
-impl MutToken {
-    pub fn token_idx(&self) -> TokenIdx {
-        self.token_idx
-    }
-}
-
-impl<'a, Context> parsec::ParseFromStream<Context> for MutToken
-where
-    Context: TokenParseContext<'a>,
-{
-    type Error = TokenError;
-
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
-            match token {
-                Token::Keyword(Keyword::Pattern(PatternKeyword::Mut)) => {
-                    Ok(Some(MutToken { token_idx }))
-                }
-                Token::Error(error) => Err(error),
-                Token::Label(_)
-                | Token::Punctuation(_)
-                | Token::Ident(_)
-                | Token::WordOpr(_)
-                | Token::Literal(_)
-                | Token::Keyword(_) => Ok(None),
             }
         } else {
             Ok(None)
@@ -739,13 +707,13 @@ where
     fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
             match token {
-                Token::Keyword(Keyword::Pattern(PatternKeyword::Covariant)) => {
+                Token::Keyword(Keyword::Modifier(ModifierKeyword::Covariant)) => {
                     Ok(Some(CovariantToken { token_idx }.into()))
                 }
-                Token::Keyword(Keyword::Pattern(PatternKeyword::Contravariant)) => {
+                Token::Keyword(Keyword::Modifier(ModifierKeyword::Contravariant)) => {
                     Ok(Some(ContravariantToken { token_idx }.into()))
                 }
-                Token::Keyword(Keyword::Pattern(PatternKeyword::Invariant)) => {
+                Token::Keyword(Keyword::Modifier(ModifierKeyword::Invariant)) => {
                     Ok(Some(InvariantToken { token_idx }.into()))
                 }
                 Token::Error(error) => Err(error),
@@ -815,212 +783,6 @@ impl InvariantToken {
     pub fn token_idx(self) -> TokenIdx {
         self.token_idx
     }
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum EntityKeywordGroup {
-    // todo: remove mod
-    Mod(ModToken),
-    // `fn`
-    Fn(FormFnToken),
-    // `const fn`
-    ConstFn(ConstToken, FormFnToken),
-    // `static fn`
-    StaticFn(StaticToken, FormFnToken),
-    // `static const fn`
-    StaticConstFn(StaticToken, ConstToken, FormFnToken),
-    // `var`
-    Val(VarToken),
-    // `gn`
-    Gn(GnToken),
-    //
-    GeneralDef(GeneralDefToken),
-    // Type
-    TypeEntity(TypeEntityToken),
-    // Type
-    Type(TypeToken),
-    Trait(TraitToken),
-    Visual(VisualToken),
-    Memo(MemoToken),
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct MemoToken {
-    token_idx: TokenIdx,
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct VarToken {
-    token_idx: TokenIdx,
-}
-
-impl VarToken {
-    pub fn token_idx(&self) -> TokenIdx {
-        self.token_idx
-    }
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct ModToken {
-    token_idx: TokenIdx,
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct GnToken {
-    token_idx: TokenIdx,
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct VisualToken {
-    token_idx: TokenIdx,
-}
-
-impl<'a, Context> parsec::ParseFromStream<Context> for EntityKeywordGroup
-where
-    Context: TokenParseContext<'a>,
-{
-    type Error = TokenError;
-
-    fn parse_from_without_guaranteed_rollback(ctx: &mut Context) -> TokenResult<Option<Self>> {
-        let token_stream: &mut TokenStream<'a> = &mut ctx.borrow_mut();
-        if let Some((token_idx, token)) = token_stream.next_indexed() {
-            match token {
-                Token::Keyword(kw) => match kw {
-                    Keyword::Form(kw) => match kw {
-                        FormKeyword::Def => todo!(),
-                        FormKeyword::Fn => {
-                            Ok(Some(EntityKeywordGroup::Fn(FormFnToken { token_idx })))
-                        }
-                        FormKeyword::Theorem => Ok(Some(EntityKeywordGroup::GeneralDef(
-                            GeneralDefToken::Theorem(TheoremToken { token_idx }),
-                        ))),
-                        FormKeyword::Lemma => todo!(),
-                        FormKeyword::Proposition => todo!(),
-                        FormKeyword::Type => {
-                            Ok(Some(EntityKeywordGroup::Type(TypeToken { token_idx })))
-                        }
-                        FormKeyword::Const => todo!(),
-                        FormKeyword::Val => {
-                            Ok(Some(EntityKeywordGroup::Val(VarToken { token_idx })))
-                        }
-                        FormKeyword::Gn => Ok(Some(EntityKeywordGroup::Gn(GnToken { token_idx }))),
-                        FormKeyword::Constexpr => todo!(),
-                        FormKeyword::Memo => {
-                            Ok(Some(EntityKeywordGroup::Memo(MemoToken { token_idx })))
-                        }
-                    },
-                    Keyword::TypeEntity(keyword) => {
-                        Ok(Some(EntityKeywordGroup::TypeEntity(TypeEntityToken {
-                            keyword,
-                            token_idx,
-                        })))
-                    }
-                    Keyword::Stmt(_) => todo!(),
-                    Keyword::Main => Ok(None),
-                    Keyword::Mod => Ok(Some(EntityKeywordGroup::Mod(ModToken { token_idx }))),
-                    Keyword::Visual => {
-                        Ok(Some(EntityKeywordGroup::Visual(VisualToken { token_idx })))
-                    }
-                    Keyword::Trait => Ok(Some(EntityKeywordGroup::Trait(TraitToken { token_idx }))),
-                    Keyword::Static => match token_stream.peek() {
-                        Some(Token::Keyword(Keyword::Form(FormKeyword::Fn))) => {
-                            token_stream.next();
-                            Ok(Some(EntityKeywordGroup::StaticFn(
-                                StaticToken { token_idx },
-                                FormFnToken {
-                                    token_idx: token_idx + 1,
-                                },
-                            )))
-                        }
-                        Some(Token::Keyword(Keyword::Form(FormKeyword::Const))) => todo!(),
-                        _ => Ok(None),
-                    },
-                    _ => Ok(None),
-                },
-                Token::Error(error) => Err(error),
-                _ => Ok(None),
-            }
-        } else {
-            Ok(None)
-        }
-    }
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct FormFnToken {
-    token_idx: TokenIdx,
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct ConstToken {
-    token_idx: TokenIdx,
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct StaticToken {
-    token_idx: TokenIdx,
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum GeneralDefToken {
-    Def(DefToken),
-    Lemma(LemmaToken),
-    Theorem(TheoremToken),
-    Function(FunctionToken),
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct DefToken {
-    token_idx: TokenIdx,
-}
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct LemmaToken {
-    token_idx: TokenIdx,
-}
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct TheoremToken {
-    token_idx: TokenIdx,
-}
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct FunctionToken {
-    token_idx: TokenIdx,
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct TypeEntityToken {
-    keyword: TypeEntityKeyword,
-    token_idx: TokenIdx,
-}
-impl TypeEntityToken {
-    pub fn type_kind(self) -> TypeKind {
-        // MOM
-        match self.keyword {
-            TypeEntityKeyword::Extern => TypeKind::Extern,
-            TypeEntityKeyword::Struct => TypeKind::Struct,
-            TypeEntityKeyword::Enum => TypeKind::Enum,
-            TypeEntityKeyword::Record => TypeKind::Record,
-            TypeEntityKeyword::Structure => TypeKind::Structure,
-            TypeEntityKeyword::Inductive => TypeKind::Inductive,
-        }
-    }
-
-    pub fn keyword(self) -> TypeEntityKeyword {
-        self.keyword
-    }
-
-    pub fn token_idx(self) -> TokenIdx {
-        self.token_idx
-    }
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct TypeToken {
-    token_idx: TokenIdx,
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct TraitToken {
-    token_idx: TokenIdx,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]

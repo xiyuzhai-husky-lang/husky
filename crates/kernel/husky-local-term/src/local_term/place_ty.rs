@@ -3,6 +3,7 @@ use super::*;
 /// `PlaceQual` qualifies the place of a base type `T`
 #[derive(Debug, PartialEq, Eq)]
 pub enum Place {
+    Const,
     /// reduce to
     /// - ImmutableStackOwned if base type is known to be copyable
     /// - ImmutableReferenced if base type is known to be noncopyable
@@ -95,14 +96,40 @@ pub struct LocalLifetimeIdx {}
 #[salsa::derive_debug_with_db(db = TermDb)]
 pub struct PlaceType {
     place: Place,
-    ty: LocalTerm,
+    ty: Term,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct PlaceTypeIdx(LocalTermIdx);
+// #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+// pub struct PlaceTypeIdx(LocalTermIdx);
 
-impl Into<LocalTerm> for PlaceTypeIdx {
-    fn into(self) -> LocalTerm {
-        self.0.into()
+// impl Into<LocalTerm> for PlaceTypeIdx {
+//     fn into(self) -> LocalTerm {
+//         self.0.into()
+//     }
+// }
+
+impl PlaceType {
+    pub(crate) fn new(
+        local_term_region: &mut LocalTermRegion,
+        place: Place,
+        ty: Term,
+    ) -> PlaceTypeIdx {
+        local_term_region.place_tys.intern(Self { place, ty })
+    }
+}
+
+#[test]
+fn t() {
+    println!("{}", std::mem::size_of::<PlaceType>())
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct PlaceTypeIdx(usize);
+
+#[derive(Default, Debug, PartialEq, Eq)]
+pub(crate) struct PlaceTypes {}
+impl PlaceTypes {
+    fn intern(&self, ty: PlaceType) -> PlaceTypeIdx {
+        todo!()
     }
 }

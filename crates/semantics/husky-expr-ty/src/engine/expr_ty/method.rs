@@ -24,7 +24,7 @@ impl<'a> ExprTypeEngine<'a> {
         let self_expr_ty_unravelled =
             self_expr_ty.unravel_borrow(self.db, self.local_term_region.unresolved_terms());
         let ty_method_card = match self_expr_ty_unravelled {
-            LocalTerm::Resolved(self_expr_ty_unravelled) => {
+            LocalTerm::Term(self_expr_ty_unravelled) => {
                 match self
                     .db
                     .ty_method_card(self_expr_ty_unravelled, ident_token.ident())
@@ -34,6 +34,7 @@ impl<'a> ExprTypeEngine<'a> {
                 }
             }
             LocalTerm::Unresolved(_) => todo!(),
+            _ => todo!(),
         };
         if let Some(ty_method_card) = ty_method_card {
             return Ok((

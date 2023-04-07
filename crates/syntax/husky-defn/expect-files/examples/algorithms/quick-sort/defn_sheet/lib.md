@@ -100,7 +100,15 @@ Ok(
                                                 pattern_expr_arena: Arena {
                                                     data: [
                                                         PatternExpr::Ident {
-                                                            modifier: None,
+                                                            modifier_keyword_group: Some(
+                                                                Mut(
+                                                                    MutToken {
+                                                                        token_idx: TokenIdx(
+                                                                            9,
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                            ),
                                                             ident_token: IdentToken {
                                                                 ident: `arr`,
                                                                 token_idx: TokenIdx(
@@ -358,7 +366,15 @@ Ok(
                                                         pattern_expr_arena: Arena {
                                                             data: [
                                                                 PatternExpr::Ident {
-                                                                    modifier: None,
+                                                                    modifier_keyword_group: Some(
+                                                                        Mut(
+                                                                            MutToken {
+                                                                                token_idx: TokenIdx(
+                                                                                    9,
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                     ident_token: IdentToken {
                                                                         ident: `arr`,
                                                                         token_idx: TokenIdx(
@@ -659,7 +675,7 @@ Ok(
                                             pattern_expr_arena: Arena {
                                                 data: [
                                                     PatternExpr::Ident {
-                                                        modifier: None,
+                                                        modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `len`,
                                                             token_idx: TokenIdx(
@@ -892,7 +908,15 @@ Ok(
                                                 pattern_expr_arena: Arena {
                                                     data: [
                                                         PatternExpr::Ident {
-                                                            modifier: None,
+                                                            modifier_keyword_group: Some(
+                                                                Mut(
+                                                                    MutToken {
+                                                                        token_idx: TokenIdx(
+                                                                            48,
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                            ),
                                                             ident_token: IdentToken {
                                                                 ident: `arr`,
                                                                 token_idx: TokenIdx(
@@ -901,7 +925,7 @@ Ok(
                                                             },
                                                         },
                                                         PatternExpr::Ident {
-                                                            modifier: None,
+                                                            modifier_keyword_group: None,
                                                             ident_token: IdentToken {
                                                                 ident: `low`,
                                                                 token_idx: TokenIdx(
@@ -910,7 +934,7 @@ Ok(
                                                             },
                                                         },
                                                         PatternExpr::Ident {
-                                                            modifier: None,
+                                                            modifier_keyword_group: None,
                                                             ident_token: IdentToken {
                                                                 ident: `high`,
                                                                 token_idx: TokenIdx(
@@ -1303,7 +1327,15 @@ Ok(
                                                         pattern_expr_arena: Arena {
                                                             data: [
                                                                 PatternExpr::Ident {
-                                                                    modifier: None,
+                                                                    modifier_keyword_group: Some(
+                                                                        Mut(
+                                                                            MutToken {
+                                                                                token_idx: TokenIdx(
+                                                                                    48,
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                     ident_token: IdentToken {
                                                                         ident: `arr`,
                                                                         token_idx: TokenIdx(
@@ -1312,7 +1344,7 @@ Ok(
                                                                     },
                                                                 },
                                                                 PatternExpr::Ident {
-                                                                    modifier: None,
+                                                                    modifier_keyword_group: None,
                                                                     ident_token: IdentToken {
                                                                         ident: `low`,
                                                                         token_idx: TokenIdx(
@@ -1321,7 +1353,7 @@ Ok(
                                                                     },
                                                                 },
                                                                 PatternExpr::Ident {
-                                                                    modifier: None,
+                                                                    modifier_keyword_group: None,
                                                                     ident_token: IdentToken {
                                                                         ident: `high`,
                                                                         token_idx: TokenIdx(
@@ -1835,7 +1867,7 @@ Ok(
                                             pattern_expr_arena: Arena {
                                                 data: [
                                                     PatternExpr::Ident {
-                                                        modifier: None,
+                                                        modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `p`,
                                                             token_idx: TokenIdx(
@@ -2105,7 +2137,15 @@ Ok(
                                                 pattern_expr_arena: Arena {
                                                     data: [
                                                         PatternExpr::Ident {
-                                                            modifier: None,
+                                                            modifier_keyword_group: Some(
+                                                                Mut(
+                                                                    MutToken {
+                                                                        token_idx: TokenIdx(
+                                                                            109,
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                            ),
                                                             ident_token: IdentToken {
                                                                 ident: `arr`,
                                                                 token_idx: TokenIdx(
@@ -2114,7 +2154,7 @@ Ok(
                                                             },
                                                         },
                                                         PatternExpr::Ident {
-                                                            modifier: None,
+                                                            modifier_keyword_group: None,
                                                             ident_token: IdentToken {
                                                                 ident: `low`,
                                                                 token_idx: TokenIdx(
@@ -2123,7 +2163,7 @@ Ok(
                                                             },
                                                         },
                                                         PatternExpr::Ident {
-                                                            modifier: None,
+                                                            modifier_keyword_group: None,
                                                             ident_token: IdentToken {
                                                                 ident: `high`,
                                                                 token_idx: TokenIdx(
@@ -2552,7 +2592,15 @@ Ok(
                                                         pattern_expr_arena: Arena {
                                                             data: [
                                                                 PatternExpr::Ident {
-                                                                    modifier: None,
+                                                                    modifier_keyword_group: Some(
+                                                                        Mut(
+                                                                            MutToken {
+                                                                                token_idx: TokenIdx(
+                                                                                    109,
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                     ident_token: IdentToken {
                                                                         ident: `arr`,
                                                                         token_idx: TokenIdx(
@@ -2561,7 +2609,7 @@ Ok(
                                                                     },
                                                                 },
                                                                 PatternExpr::Ident {
-                                                                    modifier: None,
+                                                                    modifier_keyword_group: None,
                                                                     ident_token: IdentToken {
                                                                         ident: `low`,
                                                                         token_idx: TokenIdx(
@@ -2570,7 +2618,7 @@ Ok(
                                                                     },
                                                                 },
                                                                 PatternExpr::Ident {
-                                                                    modifier: None,
+                                                                    modifier_keyword_group: None,
                                                                     ident_token: IdentToken {
                                                                         ident: `high`,
                                                                         token_idx: TokenIdx(
@@ -3667,7 +3715,7 @@ Ok(
                                             pattern_expr_arena: Arena {
                                                 data: [
                                                     PatternExpr::Ident {
-                                                        modifier: None,
+                                                        modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `pivot`,
                                                             token_idx: TokenIdx(
@@ -3676,7 +3724,15 @@ Ok(
                                                         },
                                                     },
                                                     PatternExpr::Ident {
-                                                        modifier: None,
+                                                        modifier_keyword_group: Some(
+                                                            Mut(
+                                                                MutToken {
+                                                                    token_idx: TokenIdx(
+                                                                        135,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        ),
                                                         ident_token: IdentToken {
                                                             ident: `store_index`,
                                                             token_idx: TokenIdx(
@@ -3685,7 +3741,15 @@ Ok(
                                                         },
                                                     },
                                                     PatternExpr::Ident {
-                                                        modifier: None,
+                                                        modifier_keyword_group: Some(
+                                                            Mut(
+                                                                MutToken {
+                                                                    token_idx: TokenIdx(
+                                                                        142,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        ),
                                                         ident_token: IdentToken {
                                                             ident: `last_index`,
                                                             token_idx: TokenIdx(

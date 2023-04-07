@@ -35,7 +35,7 @@ pub enum PatternExpr {
     Literal(LiteralData),
     /// example: `a`
     Ident {
-        modifier: SymbolModifier,
+        modifier_keyword_group: Option<PatternSymbolModifierKeywordGroup>,
         ident_token: IdentToken,
     },
     /// example: `A::B`

@@ -20,7 +20,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ExprDisambiguation::Tilde(disambiguation) => match disambiguation {
                     TildeDisambiguation::BitNot => todo!(),
                     TildeDisambiguation::Leash => match opd_term {
-                        LocalTerm::Resolved(opd_term) => Ok(TermApplication::new(
+                        LocalTerm::Term(opd_term) => Ok(TermApplication::new(
                             self.db,
                             self.term_menu.leash_ty_ontology(),
                             opd_term,
@@ -28,6 +28,7 @@ impl<'a> ExprTypeEngine<'a> {
                         .map_err(|e| DerivedExprTermError::TildeApplicationTerm(e))?
                         .into()),
                         LocalTerm::Unresolved(_) => todo!(),
+                        _ => todo!(),
                     },
                 },
                 _ => unreachable!(),

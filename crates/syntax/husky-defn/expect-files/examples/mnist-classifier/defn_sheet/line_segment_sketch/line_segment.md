@@ -1137,7 +1137,7 @@ Ok(
                                                     pattern_expr_arena: Arena {
                                                         data: [
                                                             PatternExpr::Ident {
-                                                                modifier: None,
+                                                                modifier_keyword_group: None,
                                                                 ident_token: IdentToken {
                                                                     ident: `pt`,
                                                                     token_idx: TokenIdx(
@@ -1408,7 +1408,7 @@ Ok(
                                                             pattern_expr_arena: Arena {
                                                                 data: [
                                                                     PatternExpr::Ident {
-                                                                        modifier: None,
+                                                                        modifier_keyword_group: None,
                                                                         ident_token: IdentToken {
                                                                             ident: `pt`,
                                                                             token_idx: TokenIdx(
@@ -2117,7 +2117,7 @@ Ok(
                                                 pattern_expr_arena: Arena {
                                                     data: [
                                                         PatternExpr::Ident {
-                                                            modifier: None,
+                                                            modifier_keyword_group: None,
                                                             ident_token: IdentToken {
                                                                 ident: `ab`,
                                                                 token_idx: TokenIdx(
@@ -2126,7 +2126,7 @@ Ok(
                                                             },
                                                         },
                                                         PatternExpr::Ident {
-                                                            modifier: None,
+                                                            modifier_keyword_group: None,
                                                             ident_token: IdentToken {
                                                                 ident: `ap`,
                                                                 token_idx: TokenIdx(
@@ -2135,7 +2135,7 @@ Ok(
                                                             },
                                                         },
                                                         PatternExpr::Ident {
-                                                            modifier: None,
+                                                            modifier_keyword_group: None,
                                                             ident_token: IdentToken {
                                                                 ident: `bp`,
                                                                 token_idx: TokenIdx(

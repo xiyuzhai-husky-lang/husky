@@ -29,8 +29,13 @@ use smallvec::*;
 #[salsa::derive_debug_with_db(db = TermDb, jar = TermJar)]
 #[enum_class::from_variants]
 pub enum LocalTerm {
-    Resolved(Term),
+    Term(Term),
     Unresolved(LocalTermIdx),
+    PlaceType(PlaceTypeIdx),
+}
+#[test]
+fn t() {
+    println!("{}", std::mem::size_of::<LocalTerm>())
 }
 
 impl LocalTerm {
@@ -56,8 +61,9 @@ impl LocalTerm {
 
     fn resolved(self) -> Option<Term> {
         match self {
-            LocalTerm::Resolved(term) => Some(term),
+            LocalTerm::Term(term) => Some(term),
             LocalTerm::Unresolved(_) => None,
+            LocalTerm::PlaceType(_) => todo!(),
         }
     }
 
@@ -66,86 +72,87 @@ impl LocalTerm {
         unresolved_terms: &UnresolvedTerms,
     ) -> LocalTermResolveResultRef<Self> {
         match self {
-            LocalTerm::Resolved(term) => Ok(term.into()),
+            LocalTerm::Term(term) => Ok(term.into()),
             LocalTerm::Unresolved(idx) => idx.resolve_progress(unresolved_terms),
+            LocalTerm::PlaceType(_) => todo!(),
         }
     }
 }
 
 impl From<TermLiteral> for LocalTerm {
     fn from(value: TermLiteral) -> Self {
-        LocalTerm::Resolved(value.into())
+        LocalTerm::Term(value.into())
     }
 }
 
 impl From<TermSymbol> for LocalTerm {
     fn from(value: TermSymbol) -> Self {
-        LocalTerm::Resolved(value.into())
+        LocalTerm::Term(value.into())
     }
 }
 
 impl From<TermPlaceholder> for LocalTerm {
     fn from(value: TermPlaceholder) -> Self {
-        LocalTerm::Resolved(value.into())
+        LocalTerm::Term(value.into())
     }
 }
 
 impl From<TermEntityPath> for LocalTerm {
     fn from(value: TermEntityPath) -> Self {
-        LocalTerm::Resolved(value.into())
+        LocalTerm::Term(value.into())
     }
 }
 
 impl From<TermCategory> for LocalTerm {
     fn from(value: TermCategory) -> Self {
-        LocalTerm::Resolved(value.into())
+        LocalTerm::Term(value.into())
     }
 }
 
 impl From<TermUniverse> for LocalTerm {
     fn from(value: TermUniverse) -> Self {
-        LocalTerm::Resolved(value.into())
+        LocalTerm::Term(value.into())
     }
 }
 
 impl From<TermCurry> for LocalTerm {
     fn from(value: TermCurry) -> Self {
-        LocalTerm::Resolved(value.into())
+        LocalTerm::Term(value.into())
     }
 }
 
 impl From<TermRitchie> for LocalTerm {
     fn from(value: TermRitchie) -> Self {
-        LocalTerm::Resolved(value.into())
+        LocalTerm::Term(value.into())
     }
 }
 
 impl From<TermAbstraction> for LocalTerm {
     fn from(value: TermAbstraction) -> Self {
-        LocalTerm::Resolved(value.into())
+        LocalTerm::Term(value.into())
     }
 }
 
 impl From<TermApplication> for LocalTerm {
     fn from(value: TermApplication) -> Self {
-        LocalTerm::Resolved(value.into())
+        LocalTerm::Term(value.into())
     }
 }
 
 impl From<TermSubentity> for LocalTerm {
     fn from(value: TermSubentity) -> Self {
-        LocalTerm::Resolved(value.into())
+        LocalTerm::Term(value.into())
     }
 }
 
 impl From<TermAsTraitSubentity> for LocalTerm {
     fn from(value: TermAsTraitSubentity) -> Self {
-        LocalTerm::Resolved(value.into())
+        LocalTerm::Term(value.into())
     }
 }
 
 impl From<TermTraitConstraint> for LocalTerm {
     fn from(value: TermTraitConstraint) -> Self {
-        LocalTerm::Resolved(value.into())
+        LocalTerm::Term(value.into())
     }
 }
