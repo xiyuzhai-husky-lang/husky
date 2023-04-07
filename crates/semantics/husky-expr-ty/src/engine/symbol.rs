@@ -48,10 +48,14 @@ impl<'a> ExprTypeEngine<'a> {
                 else {
                     return
                 };
-            if let (symbol) = current_symbol_signature.symbol() {
-                self.current_symbol_qualified_tys
-                    .insert_new(current_symbol_idx, ty.into())
+            if let Some(symbol) = current_symbol_signature.symbol() {
+                if let Ok(symbol) = TermSymbol::from_raw(self.db, symbol) {
+                    self.current_symbol_terms
+                        .insert_new(current_symbol_idx, symbol)
+                }
             }
+            self.current_symbol_qualified_tys
+                .insert_new(current_symbol_idx, todo!())
             // if let Ok(ty) = current_symbol_signature.ty(self.db) {
             //     if let Ok(ty) = Term::ty_from_raw(self.db, ty.into()) {
             //     }

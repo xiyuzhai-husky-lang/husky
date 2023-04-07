@@ -1,5 +1,5 @@
 use husky_expr::{
-    CurrentSymbolMap, CurrentSymbolOrderedMap, InheritedSymbolFullMap, PatternSymbolOrderedMap,
+    CurrentSymbolMap, CurrentSymbolOrderedMap, InheritedSymbolOrderedMap, PatternSymbolOrderedMap,
 };
 
 use super::*;
@@ -10,7 +10,7 @@ pub struct SymbolRawTermRegion {
     registry: RawTermSymbolRegistry,
     pattern_symbol_modifiers: PatternSymbolOrderedMap<SymbolModifier>,
     current_symbol_modifiers: CurrentSymbolOrderedMap<SymbolModifier>,
-    inherited_symbol_signatures: InheritedSymbolFullMap<SymbolSignature>,
+    inherited_symbol_signatures: InheritedSymbolOrderedMap<SymbolSignature>,
     current_symbol_signatures: CurrentSymbolOrderedMap<SymbolSignature>,
     self_ty_term: Option<RawTerm>,
     self_value_term: Option<RawTermSymbol>,
@@ -100,7 +100,7 @@ impl SymbolRawTermRegion {
     pub(crate) fn new(parent: Option<&SymbolRawTermRegion>, symbol_region: &SymbolRegion) -> Self {
         let registry = parent.map_or(Default::default(), |parent| parent.registry.clone());
         let inherited_symbol_signatures =
-            InheritedSymbolFullMap::new(symbol_region.inherited_symbol_arena(), |symbol| {
+            InheritedSymbolOrderedMap::new(symbol_region.inherited_symbol_arena(), |symbol| {
                 parent
                     .unwrap()
                     .parent_symbol_term(symbol.parent_symbol_idx())
