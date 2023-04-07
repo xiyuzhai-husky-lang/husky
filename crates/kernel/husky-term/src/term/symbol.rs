@@ -25,6 +25,13 @@ fn term_symbol_size_works() {
 
 impl TermSymbol {
     #[inline(always)]
+    pub fn from_raw(db: &dyn TermDb, raw_term_symbol: RawTermSymbol) -> TermResult<Self> {
+        let term_symbol = Self::from_raw_unchecked(db, raw_term_symbol)?;
+        term_symbol.check(db)?;
+        Ok(term_symbol)
+    }
+
+    #[inline(always)]
     pub(crate) fn from_raw_unchecked(
         db: &dyn TermDb,
         raw_term_symbol: RawTermSymbol,

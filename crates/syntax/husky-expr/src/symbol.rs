@@ -220,7 +220,7 @@ pub type InheritedSymbolArena = Arena<InheritedSymbol>;
 pub type InheritedSymbolIdx = ArenaIdx<InheritedSymbol>;
 pub type InheritedSymbolIdxRange = ArenaIdxRange<InheritedSymbol>;
 pub type InheritedSymbolMap<V> = ArenaMap<InheritedSymbol, V>;
-pub type InheritedSymbolFullMap<V> = ArenaOrderedMap<InheritedSymbol, V>;
+pub type InheritedSymbolOrderedMap<V> = ArenaOrderedMap<InheritedSymbol, V>;
 
 pub type CurrentSymbolArena = Arena<CurrentSymbol>;
 pub type CurrentSymbolIdx = ArenaIdx<CurrentSymbol>;
