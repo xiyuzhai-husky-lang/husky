@@ -22,7 +22,7 @@ impl LocalTermRegion {
         &mut self,
         src_expr_idx: ExprIdx,
         variant: ImplicitSymbolVariant,
-    ) -> UnresolvedTermIdx {
+    ) -> LocalTermIdx {
         self.unresolved_terms
             .new_implicit_symbol(src_expr_idx, variant)
     }
@@ -40,10 +40,10 @@ impl LocalTermRegion {
 pub type LocalTermExpectationIdx = ArenaIdx<LocalTermExpectationRule>;
 pub type OptionLocalTermExpectationIdx = OptionArenaIdx<LocalTermExpectationRule>;
 
-impl std::ops::Index<UnresolvedTermIdx> for LocalTermRegion {
+impl std::ops::Index<LocalTermIdx> for LocalTermRegion {
     type Output = UnresolvedTermEntry;
 
-    fn index(&self, index: UnresolvedTermIdx) -> &Self::Output {
+    fn index(&self, index: LocalTermIdx) -> &Self::Output {
         &self.unresolved_terms[index]
     }
 }
@@ -79,7 +79,7 @@ impl LocalTermRegion {
     pub fn resolve_term(
         &mut self,
         db: &dyn TermDb,
-        unresolved_term_idx: UnresolvedTermIdx,
+        unresolved_term_idx: LocalTermIdx,
     ) -> Option<Term> {
         self.resolve_as_much_as_possible(db, LocalTermResolveLevel::Weak);
         self.unresolved_terms
@@ -117,7 +117,7 @@ impl LocalTermRegion {
 
 pub(super) enum TermResolveAction {
     SubstituteImplicitSymbol {
-        implicit_symbol: UnresolvedTermIdx,
+        implicit_symbol: LocalTermIdx,
         substitution: LocalTerm,
     },
     AddExpectation {

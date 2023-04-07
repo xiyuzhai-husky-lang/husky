@@ -9,8 +9,8 @@ pub struct ExprTypeRegion {
     expr_ty_infos: ExprMap<ExprTypeInfo>,
     extra_expr_errors: Vec<(ExprIdx, ExprTypeError)>,
     expr_local_terms: ExprMap<ExprTermResult<LocalTerm>>,
-    inherited_symbol_tys: InheritedSymbolMap<Term>,
-    current_symbol_tys: CurrentSymbolMap<LocalTerm>,
+    inherited_symbol_qualified_tys: InheritedSymbolMap<QualifiedTypeIdx>,
+    current_symbol_qualified_tys: CurrentSymbolMap<QualifiedTypeIdx>,
     local_term_region: LocalTermRegion,
     return_ty: Option<Term>,
     self_ty: Option<Term>,
@@ -23,8 +23,8 @@ impl ExprTypeRegion {
         mut expr_ty_infos: ExprMap<ExprTypeInfo>,
         extra_expr_errors: Vec<(ExprIdx, ExprTypeError)>,
         expr_terms: ExprMap<ExprTermResult<LocalTerm>>,
-        inherited_symbol_tys: InheritedSymbolMap<Term>,
-        current_symbol_tys: CurrentSymbolMap<LocalTerm>,
+        inherited_symbol_qualified_tys: InheritedSymbolMap<QualifiedTypeIdx>,
+        current_symbol_qualified_tys: CurrentSymbolMap<QualifiedTypeIdx>,
         local_term_region: LocalTermRegion,
         return_ty: Option<Term>,
         self_ty: Option<Term>,
@@ -37,8 +37,8 @@ impl ExprTypeRegion {
             expr_ty_infos,
             extra_expr_errors,
             expr_local_terms: expr_terms,
-            inherited_symbol_tys,
-            current_symbol_tys,
+            inherited_symbol_qualified_tys,
+            current_symbol_qualified_tys,
             local_term_region,
             return_ty,
             self_ty,
@@ -61,12 +61,12 @@ impl ExprTypeRegion {
         &self.expr_local_terms
     }
 
-    pub fn inherited_symbol_tys(&self) -> &InheritedSymbolMap<Term> {
-        &self.inherited_symbol_tys
+    pub fn inherited_symbol_qualified_tys(&self) -> &InheritedSymbolMap<QualifiedTypeIdx> {
+        &self.inherited_symbol_qualified_tys
     }
 
-    pub fn current_symbol_tys(&self) -> &CurrentSymbolMap<LocalTerm> {
-        &self.current_symbol_tys
+    pub fn current_symbol_qualified_tys(&self) -> &CurrentSymbolMap<QualifiedTypeIdx> {
+        &self.current_symbol_qualified_tys
     }
 
     pub fn local_term_region(&self) -> &LocalTermRegion {

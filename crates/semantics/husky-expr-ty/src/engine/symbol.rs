@@ -17,18 +17,21 @@ impl<'a> ExprTypeEngine<'a> {
             .symbol_region()
             .indexed_inherited_symbol_iter()
         {
-            if let Ok(ty) = self
+            match self
                 .signature_term_region
                 .term_symbol_region()
-                .inherited_symbol_term(inherited_symbol_idx)
-                .ty(self.db)
+                .inherited_symbol_signature(inherited_symbol_idx)
             {
-                todo!()
-                // if let Ok(ty) = Term::ty_from_raw(self.db, ty) {
-                //     self.inherited_symbol_tys
-                //         .insert_new(inherited_symbol_idx, ty)
-                // }
+                SymbolSignature::ImplicitParamater { .. } => todo!(),
+                SymbolSignature::ExplicitParamater { .. } => todo!(),
             }
+            // if let Ok(inherited_symbol_signature) = inherited_symbol_signature {
+            //     todo!()
+            //     // if let Ok(ty) = Term::ty_from_raw(self.db, ty) {
+            //     //     self.inherited_symbol_tys
+            //     //         .insert_new(inherited_symbol_idx, ty)
+            //     // }
+            // }
         }
     }
 
@@ -38,19 +41,21 @@ impl<'a> ExprTypeEngine<'a> {
             .symbol_region()
             .current_symbol_index_iter()
         {
-            let Some(current_symbol_term) = self
+            let Some(current_symbol_signature) = self
                 .signature_term_region
                 .term_symbol_region()
-                .current_symbol_term(current_symbol_idx)
+                .current_symbol_signature(current_symbol_idx)
                 else {
                     return
                 };
-            if let Ok(ty) = current_symbol_term.ty(self.db) {
-                if let Ok(ty) = Term::ty_from_raw(self.db, ty.into()) {
-                    self.current_symbol_qualified_tys
-                        .insert_new(current_symbol_idx, ty.into())
-                }
+            if let (symbol) = current_symbol_signature.symbol() {
+                self.current_symbol_qualified_tys
+                    .insert_new(current_symbol_idx, ty.into())
             }
+            // if let Ok(ty) = current_symbol_signature.ty(self.db) {
+            //     if let Ok(ty) = Term::ty_from_raw(self.db, ty.into()) {
+            //     }
+            // }
         }
     }
 

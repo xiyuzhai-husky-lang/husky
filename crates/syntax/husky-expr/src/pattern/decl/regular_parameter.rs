@@ -26,7 +26,7 @@ impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for RegularParameterDeclP
                         None,
                         CurrentSymbolVariant::ExplicitParameter {
                             ident: *ident,
-                            pattern_symbol_idx: *pattern_symbol_idx,
+                            pattern_symbol: *pattern_symbol_idx,
                         },
                     )
                 })

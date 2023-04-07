@@ -1,5 +1,7 @@
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum PatternModifier {
+pub enum SymbolModifier {
     None,
     Mut,
+    ConstExpr,
+    StaticExpr,
 }

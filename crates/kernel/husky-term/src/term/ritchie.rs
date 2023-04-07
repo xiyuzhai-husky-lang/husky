@@ -180,7 +180,7 @@ where
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = TermDb)]
 pub struct TermRitchieParameterContractedType {
-    contract: Contract,
+    contract: PatternContract,
     ty: Term,
 }
 
@@ -222,7 +222,7 @@ where
 }
 
 impl TermRitchieParameterContractedType {
-    pub fn new(contract: Contract, ty: Term) -> Self {
+    pub fn new(contract: PatternContract, ty: Term) -> Self {
         Self { contract, ty }
     }
 

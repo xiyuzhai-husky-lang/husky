@@ -97,10 +97,7 @@ pub struct UnresolvedTerms {
 }
 
 impl UnresolvedTerms {
-    pub(super) fn force_resolve_term(
-        &mut self,
-        unresolved_term_idx: UnresolvedTermIdx,
-    ) -> Option<Term> {
+    pub(super) fn force_resolve_term(&mut self, unresolved_term_idx: LocalTermIdx) -> Option<Term> {
         let unresolved_term_entry = &mut self.data[unresolved_term_idx.0];
         match unresolved_term_entry.resolve_progress {
             Ok(LocalTerm::Resolved(term)) => Some(term),
@@ -128,7 +125,7 @@ impl UnresolvedTerms {
 pub struct UnresolvedTermEntry {
     src_expr_idx: ExprIdx,
     unresolved_term: LocalTermData,
-    implicit_symbol_dependencies: VecSet<UnresolvedTermIdx>,
+    implicit_symbol_dependencies: VecSet<LocalTermIdx>,
     resolve_progress: LocalTermResolveResult<LocalTerm>,
 }
 
@@ -176,7 +173,7 @@ impl UnresolvedTerms {
             .iter()
             .position(|entry| entry.unresolved_term == unresolved_term);
         match position {
-            Some(idx) => UnresolvedTermIdx(idx),
+            Some(idx) => LocalTermIdx(idx),
             None => self.alloc_unresolved_term(src_expr_idx, unresolved_term),
         }
         .into()
@@ -186,8 +183,8 @@ impl UnresolvedTerms {
         &mut self,
         src_expr_idx: ExprIdx,
         unresolved_term: LocalTermData,
-    ) -> UnresolvedTermIdx {
-        let idx = UnresolvedTermIdx(self.data.len());
+    ) -> LocalTermIdx {
+        let idx = LocalTermIdx(self.data.len());
         let implicit_symbol_dependencies =
             self.extract_implicit_symbol_dependencies(&unresolved_term);
         self.data.push(UnresolvedTermEntry {
@@ -202,8 +199,8 @@ impl UnresolvedTerms {
     fn extract_implicit_symbol_dependencies(
         &self,
         unresolved_term: &LocalTermData,
-    ) -> VecSet<UnresolvedTermIdx> {
-        let mut dependencies: VecSet<UnresolvedTermIdx> = Default::default();
+    ) -> VecSet<LocalTermIdx> {
+        let mut dependencies: VecSet<LocalTermIdx> = Default::default();
         match unresolved_term {
             LocalTermData::ImplicitSymbol(_) => (), // self is not included
             LocalTermData::TypeOntology(term) => {
@@ -220,7 +217,7 @@ impl UnresolvedTerms {
     fn extract_implicit_symbol_dependencies_aux(
         &self,
         local_term: impl Into<LocalTerm>,
-        dependencies: &mut VecSet<UnresolvedTermIdx>,
+        dependencies: &mut VecSet<LocalTermIdx>,
     ) {
         let local_term: LocalTerm = local_term.into();
         match local_term {
@@ -238,8 +235,8 @@ impl UnresolvedTerms {
     fn extract_local_term_implicit_symbol_dependencies_standalone(
         &self,
         local_term: impl Into<LocalTerm>,
-    ) -> VecSet<UnresolvedTermIdx> {
-        let mut dependencies: VecSet<UnresolvedTermIdx> = Default::default();
+    ) -> VecSet<LocalTermIdx> {
+        let mut dependencies: VecSet<LocalTermIdx> = Default::default();
         self.extract_implicit_symbol_dependencies_aux(local_term, &mut dependencies);
         dependencies
     }
@@ -286,7 +283,7 @@ impl LocalTermRegion {
     pub(super) fn substitute_implicit_symbol(
         &mut self,
         db: &dyn TermDb,
-        implicit_symbol: UnresolvedTermIdx,
+        implicit_symbol: LocalTermIdx,
         substitution: LocalTerm,
     ) {
         let substitution_implicit_symbol_dependencies = self
@@ -355,10 +352,10 @@ impl LocalTermRegion {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct UnresolvedTermIdx(usize);
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub struct LocalTermIdx(usize);
 
-impl UnresolvedTermIdx {
+impl LocalTermIdx {
     pub(crate) fn resolve_progress(
         self,
         unresolved_terms: &UnresolvedTerms,
@@ -370,10 +367,10 @@ impl UnresolvedTermIdx {
     }
 }
 
-impl std::ops::Index<UnresolvedTermIdx> for UnresolvedTerms {
+impl std::ops::Index<LocalTermIdx> for UnresolvedTerms {
     type Output = UnresolvedTermEntry;
 
-    fn index(&self, index: UnresolvedTermIdx) -> &Self::Output {
+    fn index(&self, index: LocalTermIdx) -> &Self::Output {
         &self.data[index.0]
     }
 }

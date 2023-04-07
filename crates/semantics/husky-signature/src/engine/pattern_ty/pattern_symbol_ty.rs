@@ -3,16 +3,16 @@ use super::*;
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = SignatureDb)]
 pub struct PatternSymbolTypeInfo {
-    modifier: PatternModifier,
+    modifier: SymbolModifier,
     base_ty: RawTerm,
 }
 
 impl PatternSymbolTypeInfo {
-    fn new(modifier: PatternModifier, base_ty: RawTerm) -> Self {
+    fn new(modifier: SymbolModifier, base_ty: RawTerm) -> Self {
         Self { modifier, base_ty }
     }
 
-    pub fn modifier(&self) -> PatternModifier {
+    pub fn modifier(&self) -> SymbolModifier {
         self.modifier
     }
 
@@ -44,9 +44,29 @@ impl<'a> RawTermEngine<'a> {
     fn calc_new_pattern_symbol_modifier(
         &mut self,
         pattern_symbol: PatternSymbolIdx,
-    ) -> PatternModifier {
+    ) -> SymbolModifier {
         match self.expr_region_data[pattern_symbol] {
-            PatternSymbol::Atom(pattern_expr) => self.pattern_modifiers[pattern_expr],
+            PatternSymbol::Atom(pattern_expr) => match self.expr_region_data[pattern_expr] {
+                PatternExpr::Literal(_) => todo!(),
+                PatternExpr::Ident {
+                    modifier,
+                    ident_token,
+                } => modifier,
+                PatternExpr::Entity(_) => todo!(),
+                PatternExpr::Tuple { name, fields } => todo!(),
+                PatternExpr::Struct { name, fields } => todo!(),
+                PatternExpr::OneOf { options } => todo!(),
+                PatternExpr::Binding {
+                    ident_token,
+                    asperand_token,
+                    src,
+                } => todo!(),
+                PatternExpr::Range {
+                    start,
+                    dot_dot_token,
+                    end,
+                } => todo!(),
+            }, // self.pattern_modifiers[pattern_expr],
         }
     }
 

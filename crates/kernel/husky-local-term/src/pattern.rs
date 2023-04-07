@@ -16,7 +16,7 @@ pub enum LocalTermPattern {
         parameter_ty: LocalTerm,
         return_ty: LocalTerm,
     },
-    ImplicitSymbol(ImplicitSymbolKind, UnresolvedTermIdx),
+    ImplicitSymbol(ImplicitSymbolKind, LocalTermIdx),
     Category(TermCategory),
     Ritchie {
         ritchie_kind: TermRitchieKind,
@@ -116,7 +116,7 @@ impl LocalTermPattern {
 
     fn from_unresolved(
         db: &dyn TermDb,
-        term: UnresolvedTermIdx,
+        term: LocalTermIdx,
         unresolved_terms: &UnresolvedTerms,
     ) -> LocalTermPattern {
         match unresolved_terms[term].unresolved_term() {

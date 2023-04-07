@@ -1,9 +1,8 @@
 mod error;
-mod pattern_modifier;
-mod term;
+mod symbol;
 
 pub use error::*;
-pub use term::*;
+pub use symbol::*;
 
 pub(crate) use engine::*;
 
@@ -12,7 +11,7 @@ use crate::*;
 use husky_entity_tree::{DeclRegionPath, ImplBlockId, RegionPath};
 use husky_expr::{
     AllowSelfType, CurrentSymbolIdx, ExprIdx, ExprMap, ExprRegion, InheritedSymbolIdx,
-    ParentSymbolIdx, PatternExprMap, PatternSymbolMap, SymbolRegion,
+    ParentSymbolIdx, PatternExprIdx, PatternExprMap, PatternSymbolMap, SymbolRegion,
 };
 
 /// preparation for generating signature
@@ -21,9 +20,9 @@ use husky_expr::{
 #[derive(Debug, PartialEq, Eq)]
 pub struct SignatureRegion {
     path: RegionPath,
-    term_symbol_region: RawTermSymbolRegion,
+    term_symbol_region: SymbolRawTermRegion,
     expr_terms: ExprMap<SignatureRawTermResult<RawTerm>>,
-    pattern_modifiers: PatternExprMap<PatternModifier>,
+    pattern_contracts: PatternExprMap<PatternContract>,
     pattern_expr_ty_infos: PatternExprMap<PatternExprRawTypeInfo>,
     pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
 }
@@ -31,9 +30,9 @@ pub struct SignatureRegion {
 impl SignatureRegion {
     pub(crate) fn new(
         path: RegionPath,
-        term_symbol_region: RawTermSymbolRegion,
+        term_symbol_region: SymbolRawTermRegion,
         expr_terms: ExprMap<SignatureRawTermResult<RawTerm>>,
-        pattern_modifiers: PatternExprMap<PatternModifier>,
+        pattern_contracts: PatternExprMap<PatternContract>,
         pattern_expr_ty_infos: PatternExprMap<PatternExprRawTypeInfo>,
         pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
     ) -> Self {
@@ -41,22 +40,22 @@ impl SignatureRegion {
             path,
             term_symbol_region,
             expr_terms,
-            pattern_modifiers,
+            pattern_contracts,
             pattern_expr_ty_infos,
             pattern_symbol_ty_infos,
         }
     }
 
-    pub fn term_symbol_region(&self) -> &RawTermSymbolRegion {
+    pub fn term_symbol_region(&self) -> &SymbolRawTermRegion {
         &self.term_symbol_region
     }
 
     pub fn current_symbol_term(
         &self,
         current_symbol_idx: CurrentSymbolIdx,
-    ) -> Option<RawTermSymbol> {
+    ) -> Option<SymbolSignature> {
         self.term_symbol_region
-            .current_symbol_term(current_symbol_idx)
+            .current_symbol_signature(current_symbol_idx)
     }
 
     pub fn expr_term(&self, expr: ExprIdx) -> SignatureRawTermResultBorrowed<RawTerm> {
@@ -65,5 +64,8 @@ impl SignatureRegion {
 
     pub fn path(&self) -> RegionPath {
         self.path
+    }
+    pub fn pattern_contract(&self, pattern_expr: PatternExprIdx) -> PatternContract {
+        self.pattern_contracts[pattern_expr]
     }
 }

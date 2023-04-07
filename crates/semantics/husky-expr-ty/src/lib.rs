@@ -5,6 +5,7 @@ mod db;
 mod engine;
 mod error;
 mod info;
+mod qualified_ty;
 mod region;
 #[cfg(test)]
 mod tests;
@@ -12,6 +13,7 @@ mod tests;
 pub use self::db::*;
 pub use self::error::*;
 pub use self::info::*;
+pub use self::qualified_ty::*;
 pub use self::region::*;
 
 use self::engine::*;

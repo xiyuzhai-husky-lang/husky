@@ -258,7 +258,7 @@ Ok(
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ExplicitParameter {
                                                             ident: `cc`,
-                                                            pattern_symbol_idx: 0,
+                                                            pattern_symbol: 0,
                                                         },
                                                     },
                                                 ],
@@ -838,7 +838,7 @@ Ok(
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ExplicitParameter {
                                                             ident: `cc`,
-                                                            pattern_symbol_idx: 0,
+                                                            pattern_symbol: 0,
                                                         },
                                                     },
                                                 ],
@@ -1057,7 +1057,7 @@ Ok(
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ExplicitParameter {
                                                             ident: `cc`,
-                                                            pattern_symbol_idx: 0,
+                                                            pattern_symbol: 0,
                                                         },
                                                     },
                                                 ],

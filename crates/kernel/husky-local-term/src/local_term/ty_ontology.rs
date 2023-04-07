@@ -11,7 +11,7 @@ impl LocalTermTypeOntology {
     pub(super) fn extract_implicit_symbol_dependencies(
         &self,
         unresolved_terms: &UnresolvedTerms,
-        dependencies: &mut VecSet<UnresolvedTermIdx>,
+        dependencies: &mut VecSet<LocalTermIdx>,
     ) {
         let mut f = |term: LocalTerm| {
             unresolved_terms.extract_implicit_symbol_dependencies_aux(term, dependencies)

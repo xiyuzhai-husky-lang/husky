@@ -497,7 +497,7 @@ Ok(
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::ExplicitParameter {
                                                                 ident: `concave_components`,
-                                                                pattern_symbol_idx: 0,
+                                                                pattern_symbol: 0,
                                                             },
                                                         },
                                                         CurrentSymbol {
@@ -507,7 +507,7 @@ Ok(
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::ExplicitParameter {
                                                                 ident: `templates`,
-                                                                pattern_symbol_idx: 1,
+                                                                pattern_symbol: 1,
                                                             },
                                                         },
                                                     ],
@@ -863,7 +863,7 @@ Ok(
                                                                     access_end: None,
                                                                     variant: CurrentSymbolVariant::ExplicitParameter {
                                                                         ident: `concave_components`,
-                                                                        pattern_symbol_idx: 0,
+                                                                        pattern_symbol: 0,
                                                                     },
                                                                 },
                                                                 CurrentSymbol {
@@ -873,7 +873,7 @@ Ok(
                                                                     access_end: None,
                                                                     variant: CurrentSymbolVariant::ExplicitParameter {
                                                                         ident: `templates`,
-                                                                        pattern_symbol_idx: 1,
+                                                                        pattern_symbol: 1,
                                                                     },
                                                                 },
                                                             ],

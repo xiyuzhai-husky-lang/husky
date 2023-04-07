@@ -1,5 +1,6 @@
-mod pattern_modifier;
+mod pattern_contract;
 mod pattern_ty;
+mod symbol_modifier;
 
 pub(crate) use self::pattern_ty::*;
 
@@ -13,9 +14,10 @@ pub(super) struct RawTermEngine<'a> {
     db: &'a dyn SignatureDb,
     expr_region_data: &'a ExprRegionData,
     raw_term_menu: &'a RawTermMenu,
-    raw_term_symbol_region: RawTermSymbolRegion,
+    raw_term_symbol_region: SymbolRawTermRegion,
     expr_terms: ExprMap<SignatureRawTermResult<RawTerm>>,
-    pattern_modifiers: PatternExprMap<PatternModifier>,
+    /// todo: change this to ordered
+    pattern_contracts: PatternExprMap<PatternContract>,
     pattern_expr_ty_infos: PatternExprMap<PatternExprRawTypeInfo>,
     pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
 }
@@ -37,7 +39,7 @@ impl<'a> RawTermEngine<'a> {
     fn new(
         db: &'a dyn SignatureDb,
         expr_region: ExprRegion,
-        parent_term_symbol_region: Option<&'a RawTermSymbolRegion>,
+        parent_term_symbol_region: Option<&'a SymbolRawTermRegion>,
     ) -> Self {
         let toolchain = expr_region.toolchain(db);
         // ad hoc
@@ -48,12 +50,12 @@ impl<'a> RawTermEngine<'a> {
             db,
             expr_region_data,
             raw_term_menu,
-            raw_term_symbol_region: RawTermSymbolRegion::new(
+            raw_term_symbol_region: SymbolRawTermRegion::new(
                 parent_term_symbol_region,
                 expr_region_data.symbol_region(),
             ),
             expr_terms: ExprMap::new(expr_region_data.expr_arena()),
-            pattern_modifiers: PatternExprMap::new(expr_region_data.pattern_expr_arena()),
+            pattern_contracts: PatternExprMap::new(expr_region_data.pattern_expr_arena()),
             pattern_expr_ty_infos: PatternExprMap::new(expr_region_data.pattern_expr_arena()),
             pattern_symbol_ty_infos: PatternSymbolMap::new(
                 expr_region_data
@@ -64,7 +66,8 @@ impl<'a> RawTermEngine<'a> {
     }
 
     fn infer_all(mut self) -> SignatureRegion {
-        self.infer_pattern_modifiers();
+        self.infer_symbol_modifiers();
+        self.infer_pattern_contracts();
         self.init_current_symbol_terms();
         self.raw_term_symbol_region.init_self_ty_and_value(
             self.db,
@@ -97,15 +100,15 @@ impl<'a> RawTermEngine<'a> {
                     };
                     let ty = match implicit_parameter_variant {
                         CurrentImplicitParameterSymbol::Lifetime { label_token } => {
-                            self.raw_term_menu.lifetime_ty().into()
+                            Ok(self.raw_term_menu.lifetime_ty().into())
                         }
                         CurrentImplicitParameterSymbol::Type { ident_token } => {
-                            self.raw_term_menu.ty0().into()
+                            Ok(self.raw_term_menu.ty0().into())
                         }
                         _ => todo!(),
                     };
                     self.raw_term_symbol_region
-                        .add_new_symbol(self.db, symbols.start(), Ok(ty))
+                        .add_new_implicit_parameter_symbol_signature(self.db, symbols.start(), ty)
                 }
                 PatternTypeConstraint::ExplicitParameter { pattern_expr, ty } => self
                     .init_current_symbol_terms_in_explicit_parameter(*pattern_expr, *ty, *symbols),
@@ -129,10 +132,10 @@ impl<'a> RawTermEngine<'a> {
     ) {
         let Ok(ty) = self.infer_new_expr_term(ty) else {
             for symbol in symbols {
-                self.raw_term_symbol_region.add_new_symbol(
+                self.raw_term_symbol_region.add_new_explicit_parameter_symbol_signature(
                     self.db,
                     symbol,
-                    Err(RawTermSymbolTypeErrorKind::SignatureRawTermError)
+                    Err(RawTermSymbolTypeErrorKind::SignatureRawTermError),
                 )
             }
             return
@@ -147,11 +150,15 @@ impl<'a> RawTermEngine<'a> {
         match self.expr_region_data.symbol_region()[current_symbol].variant() {
             CurrentSymbolVariant::ExplicitParameter {
                 ident,
-                pattern_symbol_idx,
+                pattern_symbol,
             } => {
-                let base_ty = self.pattern_symbol_ty_infos[pattern_symbol_idx].base_ty();
+                let base_ty = self.pattern_symbol_ty_infos[pattern_symbol].base_ty();
                 self.raw_term_symbol_region
-                    .add_new_symbol(self.db, current_symbol, Ok(base_ty))
+                    .add_new_explicit_parameter_symbol_signature(
+                        self.db,
+                        current_symbol,
+                        Ok(base_ty),
+                    )
             }
             _ => unreachable!("this function is only used for explicit parameters"),
         }
@@ -193,7 +200,7 @@ impl<'a> RawTermEngine<'a> {
             self.expr_region_data.path(),
             self.raw_term_symbol_region,
             self.expr_terms,
-            self.pattern_modifiers,
+            self.pattern_contracts,
             self.pattern_expr_ty_infos,
             self.pattern_symbol_ty_infos,
         )
@@ -235,8 +242,10 @@ impl<'a> RawTermEngine<'a> {
                 current_symbol_idx, ..
             } => Ok(self
                 .raw_term_symbol_region
-                .current_symbol_term(current_symbol_idx)
+                .current_symbol_signature(current_symbol_idx)
                 .expect("not none")
+                .symbol()
+                .ok_or(OriginalSignatureRawTermError::InvalidSymbolForTerm)?
                 .into()),
             Expr::FrameVarDecl { .. } => unreachable!(),
             Expr::SelfType(_) => self
@@ -397,8 +406,8 @@ impl<'a> RawTermEngine<'a> {
         }
     }
 
-    pub(crate) fn current_symbol_term(&self, symbol: CurrentSymbolIdx) -> Option<RawTermSymbol> {
-        self.raw_term_symbol_region.current_symbol_term(symbol)
+    pub(crate) fn current_symbol_term(&self, symbol: CurrentSymbolIdx) -> Option<SymbolSignature> {
+        self.raw_term_symbol_region.current_symbol_signature(symbol)
     }
 
     pub(crate) fn raw_term_menu(&self) -> &RawTermMenu {

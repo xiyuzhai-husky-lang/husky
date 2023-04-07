@@ -429,7 +429,7 @@ Ok(
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ExplicitParameter {
                                                             ident: `row`,
-                                                            pattern_symbol_idx: 0,
+                                                            pattern_symbol: 0,
                                                         },
                                                     },
                                                     CurrentSymbol {
@@ -439,7 +439,7 @@ Ok(
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ExplicitParameter {
                                                             ident: `j`,
-                                                            pattern_symbol_idx: 1,
+                                                            pattern_symbol: 1,
                                                         },
                                                     },
                                                 ],
@@ -711,7 +711,7 @@ Ok(
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ExplicitParameter {
                                                             ident: `row`,
-                                                            pattern_symbol_idx: 0,
+                                                            pattern_symbol: 0,
                                                         },
                                                     },
                                                     CurrentSymbol {
@@ -721,7 +721,7 @@ Ok(
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ExplicitParameter {
                                                             ident: `j`,
-                                                            pattern_symbol_idx: 1,
+                                                            pattern_symbol: 1,
                                                         },
                                                     },
                                                 ],
@@ -993,7 +993,7 @@ Ok(
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ExplicitParameter {
                                                             ident: `row`,
-                                                            pattern_symbol_idx: 0,
+                                                            pattern_symbol: 0,
                                                         },
                                                     },
                                                     CurrentSymbol {
@@ -1003,7 +1003,7 @@ Ok(
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ExplicitParameter {
                                                             ident: `j`,
-                                                            pattern_symbol_idx: 1,
+                                                            pattern_symbol: 1,
                                                         },
                                                     },
                                                 ],
@@ -1315,7 +1315,7 @@ Ok(
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ExplicitParameter {
                                                             ident: `row_above`,
-                                                            pattern_symbol_idx: 0,
+                                                            pattern_symbol: 0,
                                                         },
                                                     },
                                                     CurrentSymbol {
@@ -1325,7 +1325,7 @@ Ok(
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ExplicitParameter {
                                                             ident: `row_below`,
-                                                            pattern_symbol_idx: 1,
+                                                            pattern_symbol: 1,
                                                         },
                                                     },
                                                     CurrentSymbol {
@@ -1335,7 +1335,7 @@ Ok(
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ExplicitParameter {
                                                             ident: `j`,
-                                                            pattern_symbol_idx: 2,
+                                                            pattern_symbol: 2,
                                                         },
                                                     },
                                                 ],
@@ -1638,7 +1638,7 @@ Ok(
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ExplicitParameter {
                                                             ident: `inward`,
-                                                            pattern_symbol_idx: 0,
+                                                            pattern_symbol: 0,
                                                         },
                                                     },
                                                     CurrentSymbol {
@@ -1648,7 +1648,7 @@ Ok(
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ExplicitParameter {
                                                             ident: `outward`,
-                                                            pattern_symbol_idx: 1,
+                                                            pattern_symbol: 1,
                                                         },
                                                     },
                                                 ],
@@ -2000,7 +2000,7 @@ Ok(
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ExplicitParameter {
                                                             ident: `row_above`,
-                                                            pattern_symbol_idx: 0,
+                                                            pattern_symbol: 0,
                                                         },
                                                     },
                                                     CurrentSymbol {
@@ -2010,7 +2010,7 @@ Ok(
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ExplicitParameter {
                                                             ident: `row_below`,
-                                                            pattern_symbol_idx: 1,
+                                                            pattern_symbol: 1,
                                                         },
                                                     },
                                                     CurrentSymbol {
@@ -2020,7 +2020,7 @@ Ok(
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ExplicitParameter {
                                                             ident: `j`,
-                                                            pattern_symbol_idx: 2,
+                                                            pattern_symbol: 2,
                                                         },
                                                     },
                                                     CurrentSymbol {
@@ -2030,7 +2030,7 @@ Ok(
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ExplicitParameter {
                                                             ident: `inward_direction`,
-                                                            pattern_symbol_idx: 3,
+                                                            pattern_symbol: 3,
                                                         },
                                                     },
                                                 ],
@@ -2510,7 +2510,7 @@ Ok(
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ExplicitParameter {
                                                             ident: `points`,
-                                                            pattern_symbol_idx: 0,
+                                                            pattern_symbol: 0,
                                                         },
                                                     },
                                                 ],
@@ -2737,7 +2737,7 @@ Ok(
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ExplicitParameter {
                                                             ident: `cc`,
-                                                            pattern_symbol_idx: 0,
+                                                            pattern_symbol: 0,
                                                         },
                                                     },
                                                 ],
@@ -4330,7 +4330,7 @@ Ok(
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::ExplicitParameter {
                                                                 ident: `start`,
-                                                                pattern_symbol_idx: 0,
+                                                                pattern_symbol: 0,
                                                             },
                                                         },
                                                         CurrentSymbol {
@@ -4340,7 +4340,7 @@ Ok(
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::ExplicitParameter {
                                                                 ident: `end`,
-                                                                pattern_symbol_idx: 1,
+                                                                pattern_symbol: 1,
                                                             },
                                                         },
                                                     ],

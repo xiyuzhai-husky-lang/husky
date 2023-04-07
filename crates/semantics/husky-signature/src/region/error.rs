@@ -19,6 +19,7 @@ impl From<DerivedSignatureRawTermError> for SignatureRawTermError {
 #[derive(Debug, PartialEq, Eq)]
 pub enum OriginalSignatureRawTermError {
     ExpectedLiteralForArrayLength,
+    InvalidSymbolForTerm,
 }
 
 #[derive(Debug, PartialEq, Eq)]

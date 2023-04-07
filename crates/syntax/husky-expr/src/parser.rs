@@ -273,7 +273,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             Ok(Some(self.alloc_pattern_expr(
                 PatternExpr::Ident {
                     ident_token,
-                    modifier: PatternModifier::None,
+                    modifier: SymbolModifier::None,
                 },
                 env,
             )))
@@ -281,7 +281,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             Ok(Some(self.alloc_pattern_expr(
                 PatternExpr::Ident {
                     ident_token,
-                    modifier: PatternModifier::None,
+                    modifier: SymbolModifier::None,
                 },
                 env,
             )))

@@ -136,7 +136,7 @@ pub enum CurrentSymbolVariant {
     },
     ExplicitParameter {
         ident: Ident,
-        pattern_symbol_idx: PatternSymbolIdx,
+        pattern_symbol: PatternSymbolIdx,
     },
     LetVariable {
         ident: Ident,
@@ -182,7 +182,8 @@ impl CurrentSymbolVariant {
                 implicit_parameter_kind: implicit_parameter_variant.kind(),
             },
             CurrentSymbolVariant::ExplicitParameter {
-                pattern_symbol_idx, ..
+                pattern_symbol: pattern_symbol_idx,
+                ..
             } => CurrentSymbolKind::Parameter {
                 pattern_symbol_idx: *pattern_symbol_idx,
             },
@@ -225,7 +226,7 @@ pub type CurrentSymbolArena = Arena<CurrentSymbol>;
 pub type CurrentSymbolIdx = ArenaIdx<CurrentSymbol>;
 pub type CurrentSymbolIdxRange = ArenaIdxRange<CurrentSymbol>;
 pub type CurrentSymbolMap<V> = ArenaMap<CurrentSymbol, V>;
-pub type CurrentSymbolFullMap<V> = ArenaOrderedMap<CurrentSymbol, V>;
+pub type CurrentSymbolOrderedMap<V> = ArenaOrderedMap<CurrentSymbol, V>;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum ParentSymbolIdx {

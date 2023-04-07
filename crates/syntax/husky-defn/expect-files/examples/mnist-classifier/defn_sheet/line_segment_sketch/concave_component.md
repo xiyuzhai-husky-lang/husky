@@ -372,7 +372,7 @@ Ok(
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::ExplicitParameter {
                                                                 ident: `line_segment_sketch`,
-                                                                pattern_symbol_idx: 0,
+                                                                pattern_symbol: 0,
                                                             },
                                                         },
                                                     ],
@@ -584,7 +584,7 @@ Ok(
                                                                     access_end: None,
                                                                     variant: CurrentSymbolVariant::ExplicitParameter {
                                                                         ident: `line_segment_sketch`,
-                                                                        pattern_symbol_idx: 0,
+                                                                        pattern_symbol: 0,
                                                                     },
                                                                 },
                                                             ],

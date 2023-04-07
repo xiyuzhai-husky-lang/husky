@@ -30,7 +30,7 @@ use smallvec::*;
 #[enum_class::from_variants]
 pub enum LocalTerm {
     Resolved(Term),
-    Unresolved(UnresolvedTermIdx),
+    Unresolved(LocalTermIdx),
 }
 
 impl LocalTerm {
