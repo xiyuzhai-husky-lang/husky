@@ -107,7 +107,7 @@ Ok(
                                                 pattern_expr_arena: Arena {
                                                     data: [
                                                         PatternExpr::Ident {
-                                                            modifier: None,
+                                                            modifier_keyword_group: None,
                                                             ident_token: IdentToken {
                                                                 ident: `line_segment_sketch`,
                                                                 token_idx: TokenIdx(
@@ -116,7 +116,7 @@ Ok(
                                                             },
                                                         },
                                                         PatternExpr::Ident {
-                                                            modifier: None,
+                                                            modifier_keyword_group: None,
                                                             ident_token: IdentToken {
                                                                 ident: `index`,
                                                                 token_idx: TokenIdx(
@@ -374,7 +374,7 @@ Ok(
                                                         pattern_expr_arena: Arena {
                                                             data: [
                                                                 PatternExpr::Ident {
-                                                                    modifier: None,
+                                                                    modifier_keyword_group: None,
                                                                     ident_token: IdentToken {
                                                                         ident: `line_segment_sketch`,
                                                                         token_idx: TokenIdx(
@@ -383,7 +383,7 @@ Ok(
                                                                     },
                                                                 },
                                                                 PatternExpr::Ident {
-                                                                    modifier: None,
+                                                                    modifier_keyword_group: None,
                                                                     ident_token: IdentToken {
                                                                         ident: `index`,
                                                                         token_idx: TokenIdx(
@@ -2015,7 +2015,7 @@ Ok(
                                             pattern_expr_arena: Arena {
                                                 data: [
                                                     PatternExpr::Ident {
-                                                        modifier: None,
+                                                        modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `L`,
                                                             token_idx: TokenIdx(
@@ -2024,7 +2024,7 @@ Ok(
                                                         },
                                                     },
                                                     PatternExpr::Ident {
-                                                        modifier: None,
+                                                        modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `current_displacement`,
                                                             token_idx: TokenIdx(
@@ -2033,7 +2033,7 @@ Ok(
                                                         },
                                                     },
                                                     PatternExpr::Ident {
-                                                        modifier: None,
+                                                        modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `previous_displacement`,
                                                             token_idx: TokenIdx(
@@ -2042,7 +2042,7 @@ Ok(
                                                         },
                                                     },
                                                     PatternExpr::Ident {
-                                                        modifier: None,
+                                                        modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `is_rotation_counterclockwise_result`,
                                                             token_idx: TokenIdx(
@@ -2051,7 +2051,15 @@ Ok(
                                                         },
                                                     },
                                                     PatternExpr::Ident {
-                                                        modifier: None,
+                                                        modifier_keyword_group: Some(
+                                                            Mut(
+                                                                MutToken {
+                                                                    token_idx: TokenIdx(
+                                                                        92,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        ),
                                                         ident_token: IdentToken {
                                                             ident: `previous_raw_cross`,
                                                             token_idx: TokenIdx(
@@ -2060,7 +2068,7 @@ Ok(
                                                         },
                                                     },
                                                     PatternExpr::Ident {
-                                                        modifier: None,
+                                                        modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `previous_interval`,
                                                             token_idx: TokenIdx(
@@ -2069,7 +2077,7 @@ Ok(
                                                         },
                                                     },
                                                     PatternExpr::Ident {
-                                                        modifier: None,
+                                                        modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `displacement`,
                                                             token_idx: TokenIdx(
@@ -2078,7 +2086,15 @@ Ok(
                                                         },
                                                     },
                                                     PatternExpr::Ident {
-                                                        modifier: None,
+                                                        modifier_keyword_group: Some(
+                                                            Mut(
+                                                                MutToken {
+                                                                    token_idx: TokenIdx(
+                                                                        154,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        ),
                                                         ident_token: IdentToken {
                                                             ident: `current_raw_cross`,
                                                             token_idx: TokenIdx(
@@ -2087,7 +2103,7 @@ Ok(
                                                         },
                                                     },
                                                     PatternExpr::Ident {
-                                                        modifier: None,
+                                                        modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `current_interval`,
                                                             token_idx: TokenIdx(
@@ -2096,7 +2112,7 @@ Ok(
                                                         },
                                                     },
                                                     PatternExpr::Ident {
-                                                        modifier: None,
+                                                        modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `displacement`,
                                                             token_idx: TokenIdx(

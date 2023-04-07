@@ -841,7 +841,15 @@ Ok(
                                             pattern_expr_arena: Arena {
                                                 data: [
                                                     PatternExpr::Ident {
-                                                        modifier: None,
+                                                        modifier_keyword_group: Some(
+                                                            Mut(
+                                                                MutToken {
+                                                                    token_idx: TokenIdx(
+                                                                        27,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        ),
                                                         ident_token: IdentToken {
                                                             ident: `i0`,
                                                             token_idx: TokenIdx(
@@ -850,7 +858,15 @@ Ok(
                                                         },
                                                     },
                                                     PatternExpr::Ident {
-                                                        modifier: None,
+                                                        modifier_keyword_group: Some(
+                                                            Mut(
+                                                                MutToken {
+                                                                    token_idx: TokenIdx(
+                                                                        32,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        ),
                                                         ident_token: IdentToken {
                                                             ident: `max_row_span_sum`,
                                                             token_idx: TokenIdx(
@@ -859,7 +875,7 @@ Ok(
                                                         },
                                                     },
                                                     PatternExpr::Ident {
-                                                        modifier: None,
+                                                        modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `row_span_sum`,
                                                             token_idx: TokenIdx(
@@ -1438,7 +1454,15 @@ Ok(
                                             pattern_expr_arena: Arena {
                                                 data: [
                                                     PatternExpr::Ident {
-                                                        modifier: None,
+                                                        modifier_keyword_group: Some(
+                                                            Mut(
+                                                                MutToken {
+                                                                    token_idx: TokenIdx(
+                                                                        78,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        ),
                                                         ident_token: IdentToken {
                                                             ident: `sum`,
                                                             token_idx: TokenIdx(

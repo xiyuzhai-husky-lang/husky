@@ -11,7 +11,7 @@ pub enum PatternContract {
 impl From<SymbolModifier> for PatternContract {
     fn from(modifier: SymbolModifier) -> Self {
         match modifier {
-            SymbolModifier::None => PatternContract::Pure,
+            SymbolModifier::Pure => PatternContract::Pure,
             SymbolModifier::Mut => PatternContract::Mut,
             SymbolModifier::Const => PatternContract::Const,
         }

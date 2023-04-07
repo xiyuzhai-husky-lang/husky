@@ -217,9 +217,7 @@ impl<Expectation: ExpectLocalTerm> BranchTypes<Expectation> {
     fn visit_branch(&mut self, engine: &mut ExprTypeEngine, block: &ExprResult<StmtIdxRange>) {
         match block {
             Ok(stmts) => match engine.infer_new_block(*stmts, self.expr_expectation.clone()) {
-                Some(LocalTerm::Resolved(new_block_ty))
-                    if new_block_ty == engine.term_menu.never() =>
-                {
+                Some(LocalTerm::Term(new_block_ty)) if new_block_ty == engine.term_menu.never() => {
                     ()
                 }
                 Some(new_block_ty) => {

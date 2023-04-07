@@ -12,7 +12,7 @@ impl<'a> ExprTypeEngine<'a> {
                 let opd_ty = self.infer_new_expr_ty(opd, ExpectAnyOriginal);
                 match opd_ty {
                     Some(opd_ty) => match opd_ty {
-                        LocalTerm::Resolved(_) => todo!(),
+                        LocalTerm::Term(_) => todo!(),
                         LocalTerm::Unresolved(unresolved_term) => {
                             match self.local_term_region[unresolved_term].unresolved_term() {
                                 LocalTermData::ImplicitSymbol(implicit_symbol) => {
@@ -31,6 +31,7 @@ impl<'a> ExprTypeEngine<'a> {
                                 LocalTermData::PlaceType { .. } => todo!(),
                             }
                         }
+                        _ => todo!(),
                     },
                     None => Err(DerivedExprTypeError::PrefixOperandTypeNotInferred.into()),
                 }

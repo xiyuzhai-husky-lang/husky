@@ -16,7 +16,15 @@ pub enum Symbol {
     Local(CurrentSymbolIdx, CurrentSymbolKind),
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = ExprDb)]
+pub enum ImplicitParameterSymbol {
+    Lifetime { label_token: LifetimeLabelToken },
+    Type { ident_token: IdentToken },
+    Const {},
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = ExprDb)]
 pub struct InheritedSymbol {
     parent_symbol_idx: ParentSymbolIdx,

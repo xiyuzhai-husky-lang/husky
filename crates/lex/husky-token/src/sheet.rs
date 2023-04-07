@@ -450,7 +450,7 @@ pub(crate) fn produce_group_starts(tokens: &[Token], token_ranges: &[TextRange])
                         _ => match line_start_token {
                             Token::Keyword(
                                 Keyword::Pronoun(_)
-                                | Keyword::Pattern(_)
+                                | Keyword::Modifier(_)
                                 | Keyword::End(_)
                                 | Keyword::Pub,
                             ) => Continue,

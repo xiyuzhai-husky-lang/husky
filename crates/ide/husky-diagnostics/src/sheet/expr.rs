@@ -130,7 +130,7 @@ impl Diagnose for OriginalExprError {
             OriginalExprError::ExpectedEolColon(_) => {
                 format!("Syntax Error: expect `:` at end of line")
             }
-            OriginalExprError::ExpectedIdentAfterMut(_) => {
+            OriginalExprError::ExpectedIdentAfterModifier(_) => {
                 format!("Syntax Error: expect identifier after `mut`")
             }
             OriginalExprError::ExpectBlock(_) => format!("Syntax Error: expect block"),
@@ -226,7 +226,7 @@ impl Diagnose for OriginalExprError {
                 bra_token_idx: token_idx,
             }
             | OriginalExprError::ExpectedEolColon(token_idx)
-            | OriginalExprError::ExpectedIdentAfterMut(token_idx)
+            | OriginalExprError::ExpectedIdentAfterModifier(token_idx)
             | OriginalExprError::UnexpectedSheba(token_idx)
             | OriginalExprError::UnrecognizedIdent { token_idx, .. }
             | OriginalExprError::UnresolvedSubentity { token_idx, .. }

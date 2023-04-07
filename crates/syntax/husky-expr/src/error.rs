@@ -88,7 +88,7 @@ pub enum OriginalExprError {
     #[error("expect `:` at end of line")]
     ExpectedEolColon(TokenIdx),
     #[error("expect identifier after `mut`")]
-    ExpectedIdentAfterMut(TokenIdx),
+    ExpectedIdentAfterModifier(TokenIdx),
     #[error("expect block")]
     ExpectBlock(TokenGroupIdx),
     #[error("unexpected `$`")]

@@ -63,7 +63,7 @@ impl ExpectInsSort {
         expectee: LocalTerm,
     ) -> Option<LocalTermExpectationEffect> {
         match expectee {
-            LocalTerm::Resolved(resolved_expectee) => {
+            LocalTerm::Term(resolved_expectee) => {
                 todo!()
                 // let expectee_ty = term_ty(
                 //     self.db(),
@@ -106,6 +106,7 @@ impl ExpectInsSort {
                 // })
             }
             LocalTerm::Unresolved(_) => None,
+            _ => todo!(),
         }
     }
 }

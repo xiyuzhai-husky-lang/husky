@@ -170,7 +170,7 @@ impl<'a> ExprTypeEngine<'a> {
         let ropd_ty = self.infer_new_expr_ty(ropd, ExpectAnyOriginal);
         let Some(ropd_ty) = ropd_ty else { return };
         let lopd_ty = match lopd_ty {
-            LocalTerm::Resolved(lopd_ty) => match lopd_ty {
+            LocalTerm::Term(lopd_ty) => match lopd_ty {
                 Term::Application(lopd_ty) => todo!(),
                 _ => todo!(),
             },
@@ -184,11 +184,13 @@ impl<'a> ExprTypeEngine<'a> {
                     LocalTermData::PlaceType { .. } => todo!(),
                 }
             }
+            _ => todo!(),
         };
         let ropd_ty = match ropd_ty {
-            LocalTerm::Resolved(ropd_ty) => todo!(),
+            LocalTerm::Term(ropd_ty) => todo!(),
             // self.db.intrinsic_ty(ropd_ty).reduced_term(),
             LocalTerm::Unresolved(_) => todo!(),
+            _ => todo!(),
         };
     }
 

@@ -35,7 +35,10 @@ impl<'a> RawTermEngine<'a> {
         for (idx, pattern) in self.expr_region_data.pattern_expr_arena().indexed_iter() {
             let modifier = match pattern {
                 PatternExpr::Literal(_) => todo!(),
-                PatternExpr::Ident { modifier, .. } => *modifier,
+                PatternExpr::Ident {
+                    modifier_keyword_group: modifier,
+                    ..
+                } => *modifier,
                 PatternExpr::Entity(_) => todo!(),
                 PatternExpr::Tuple { name, fields } => todo!(),
                 PatternExpr::Struct { name, fields } => todo!(),

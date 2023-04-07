@@ -49,9 +49,11 @@ impl<'a> RawTermEngine<'a> {
             PatternSymbol::Atom(pattern_expr) => match self.expr_region_data[pattern_expr] {
                 PatternExpr::Literal(_) => todo!(),
                 PatternExpr::Ident {
-                    modifier,
+                    modifier_keyword_group,
                     ident_token,
-                } => modifier,
+                } => {
+                    todo!()
+                }
                 PatternExpr::Entity(_) => todo!(),
                 PatternExpr::Tuple { name, fields } => todo!(),
                 PatternExpr::Struct { name, fields } => todo!(),

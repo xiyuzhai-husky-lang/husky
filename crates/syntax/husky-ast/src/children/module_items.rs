@@ -9,21 +9,23 @@ impl NormalAstChildren for ModuleItems {
     ));
 
     #[inline(always)]
-    fn determine_entity_kind(entity_keyword_group: EntityKeywordGroup) -> AstResult<EntityKind> {
+    fn determine_entity_kind(
+        entity_keyword_group: EntityKindKeywordGroup,
+    ) -> AstResult<EntityKind> {
         let module_item_kind: ModuleItemKind = match entity_keyword_group {
-            EntityKeywordGroup::Mod(_) => return Ok(EntityKind::Module),
-            EntityKeywordGroup::Fn(_) => FormKind::Fn.into(),
-            EntityKeywordGroup::ConstFn(_, _) => todo!(),
-            EntityKeywordGroup::StaticFn(_, _) => todo!(),
-            EntityKeywordGroup::StaticConstFn(_, _, _) => todo!(),
-            EntityKeywordGroup::Val(_) => FormKind::Val.into(),
-            EntityKeywordGroup::Gn(_) => FormKind::Gn.into(),
-            EntityKeywordGroup::GeneralDef(_) => todo!(),
-            EntityKeywordGroup::TypeEntity(token) => token.type_kind().into(),
-            EntityKeywordGroup::Type(_) => FormKind::TypeAlias.into(),
-            EntityKeywordGroup::Trait(_) => ModuleItemKind::Trait,
-            EntityKeywordGroup::Visual(_) => todo!(),
-            EntityKeywordGroup::Memo(_) => todo!(),
+            EntityKindKeywordGroup::Mod(_) => return Ok(EntityKind::Module),
+            EntityKindKeywordGroup::Fn(_) => FormKind::Fn.into(),
+            EntityKindKeywordGroup::ConstFn(_, _) => todo!(),
+            EntityKindKeywordGroup::StaticFn(_, _) => todo!(),
+            EntityKindKeywordGroup::StaticConstFn(_, _, _) => todo!(),
+            EntityKindKeywordGroup::Val(_) => FormKind::Val.into(),
+            EntityKindKeywordGroup::Gn(_) => FormKind::Gn.into(),
+            EntityKindKeywordGroup::GeneralDef(_) => todo!(),
+            EntityKindKeywordGroup::TypeEntity(token) => token.type_kind().into(),
+            EntityKindKeywordGroup::Type(_) => FormKind::TypeAlias.into(),
+            EntityKindKeywordGroup::Trait(_) => ModuleItemKind::Trait,
+            EntityKindKeywordGroup::Visual(_) => todo!(),
+            EntityKindKeywordGroup::Memo(_) => todo!(),
         };
         Ok(EntityKind::ModuleItem {
             module_item_kind,

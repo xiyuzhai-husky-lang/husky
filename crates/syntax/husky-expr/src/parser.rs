@@ -267,27 +267,44 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         &mut self,
         env: PatternExprInfo,
     ) -> ExprResult<Option<PatternExprIdx>> {
-        if let Some(mut_token) = self.parse::<MutToken>()? {
-            let ident_token: IdentToken =
-                self.parse_expected(OriginalExprError::ExpectedIdentAfterMut)?;
-            Ok(Some(self.alloc_pattern_expr(
-                PatternExpr::Ident {
-                    ident_token,
-                    modifier: SymbolModifier::None,
-                },
-                env,
-            )))
-        } else if let Some(ident_token) = self.parse::<IdentToken>()? {
-            Ok(Some(self.alloc_pattern_expr(
-                PatternExpr::Ident {
-                    ident_token,
-                    modifier: SymbolModifier::None,
-                },
-                env,
-            )))
-        } else {
-            Ok(None)
-        }
+        let modifier_keyword_group = self.parse()?;
+        let ident_token = match modifier_keyword_group {
+            Some(_) => self.parse_expected(OriginalExprError::ExpectedIdentAfterModifier)?,
+            None => match self.parse::<IdentToken>()? {
+                Some(ident_token) => ident_token,
+                None => return Ok(None),
+            },
+        };
+        Ok(Some(self.alloc_pattern_expr(
+            PatternExpr::Ident {
+                modifier_keyword_group,
+                ident_token,
+            },
+            env,
+        )))
+        // if let Some(ref_token) = self.parse::<RefToken>()? {
+        //     todo!()
+        // } else if let Some(mut_token) = self.parse::<MutToken>()? {
+        //     let ident_token: IdentToken =
+        //         self.parse_expected(OriginalExprError::ExpectedIdentAfterMut)?;
+        //     Ok(Some(self.alloc_pattern_expr(
+        //         PatternExpr::Ident {
+        //             ident_token,
+        //             modifier: SymbolModifierKeywordGroup::Mut(mut_token),
+        //         },
+        //         env,
+        //     )))
+        // } else if let Some(ident_token) = self.parse::<IdentToken>()? {
+        //     Ok(Some(self.alloc_pattern_expr(
+        //         PatternExpr::Ident {
+        //             ident_token,
+        //             modifier: SymbolModifierKeywordGroup::Pure,
+        //         },
+        //         env,
+        //     )))
+        // } else {
+        //     Ok(None)
+        // }
     }
 
     fn allow_self_ty(&self) -> AllowSelfType {

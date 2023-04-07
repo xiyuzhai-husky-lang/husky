@@ -15,21 +15,25 @@ impl NormalAstChildren for FormBody {
     const ALLOW_STMT: AstResult<()> = Ok(());
 
     #[inline(always)]
-    fn determine_entity_kind(entity_keyword_group: EntityKeywordGroup) -> AstResult<EntityKind> {
+    fn determine_entity_kind(
+        entity_keyword_group: EntityKindKeywordGroup,
+    ) -> AstResult<EntityKind> {
         let module_item_kind = match entity_keyword_group {
-            EntityKeywordGroup::Mod(_) => Err(OriginalAstError::UnexpectedModInsideForm)?,
-            EntityKeywordGroup::Fn(_) => FormKind::Fn.into(),
-            EntityKeywordGroup::ConstFn(_, _) => todo!(),
-            EntityKeywordGroup::StaticFn(_, _) => todo!(),
-            EntityKeywordGroup::StaticConstFn(_, _, _) => todo!(),
-            EntityKeywordGroup::Gn(_) => todo!(),
-            EntityKeywordGroup::GeneralDef(_) => todo!(),
-            EntityKeywordGroup::TypeEntity(token) => token.type_kind().into(),
-            EntityKeywordGroup::Type(_) => todo!(),
-            EntityKeywordGroup::Trait(_) => todo!(),
-            EntityKeywordGroup::Visual(_) => todo!(),
-            EntityKeywordGroup::Val(_) => FormKind::Val.into(),
-            EntityKeywordGroup::Memo(_) => Err(OriginalAstError::UnexpectedMemoFieldInsideForm)?,
+            EntityKindKeywordGroup::Mod(_) => Err(OriginalAstError::UnexpectedModInsideForm)?,
+            EntityKindKeywordGroup::Fn(_) => FormKind::Fn.into(),
+            EntityKindKeywordGroup::ConstFn(_, _) => todo!(),
+            EntityKindKeywordGroup::StaticFn(_, _) => todo!(),
+            EntityKindKeywordGroup::StaticConstFn(_, _, _) => todo!(),
+            EntityKindKeywordGroup::Gn(_) => todo!(),
+            EntityKindKeywordGroup::GeneralDef(_) => todo!(),
+            EntityKindKeywordGroup::TypeEntity(token) => token.type_kind().into(),
+            EntityKindKeywordGroup::Type(_) => todo!(),
+            EntityKindKeywordGroup::Trait(_) => todo!(),
+            EntityKindKeywordGroup::Visual(_) => todo!(),
+            EntityKindKeywordGroup::Val(_) => FormKind::Val.into(),
+            EntityKindKeywordGroup::Memo(_) => {
+                Err(OriginalAstError::UnexpectedMemoFieldInsideForm)?
+            }
         };
         Ok(EntityKind::ModuleItem {
             module_item_kind,

@@ -13,7 +13,7 @@ impl<'a> ExprTypeEngine<'a> {
         let owner_ty_unravelled =
             owner_ty.unravel_borrow(self.db, self.local_term_region.unresolved_terms());
         match owner_ty_unravelled {
-            LocalTerm::Resolved(owner_ty_unravelled) => {
+            LocalTerm::Term(owner_ty_unravelled) => {
                 match self.db.field_ty(owner_ty_unravelled, ident_token.ident()) {
                     Ok(Some(field_ty)) => Ok(field_ty.into()),
                     Ok(None) => Err(OriginalExprTypeError::NoSuchField.into()),
@@ -21,6 +21,7 @@ impl<'a> ExprTypeEngine<'a> {
                 }
             }
             LocalTerm::Unresolved(_) => todo!(),
+            _ => todo!(),
         }
     }
 }

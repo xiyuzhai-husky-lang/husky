@@ -2,7 +2,7 @@ mod ambiguous;
 mod config;
 mod end;
 mod form;
-mod pattern;
+mod modifier;
 mod pronoun;
 mod stmt;
 mod ty;
@@ -11,14 +11,14 @@ pub use ambiguous::*;
 pub use config::*;
 pub use end::*;
 pub use form::*;
-pub use pattern::*;
+pub use modifier::*;
 pub use pronoun::*;
 pub use stmt::*;
 pub use ty::*;
 
 use crate::*;
 
-pub use pattern::*;
+pub use modifier::*;
 
 use serde::{Deserialize, Serialize};
 use std::ops::Deref;
@@ -31,7 +31,7 @@ pub enum Keyword {
     Form(FormKeyword),
     TypeEntity(TypeEntityKeyword),
     Stmt(StmtKeyword),
-    Pattern(PatternKeyword),
+    Modifier(ModifierKeyword),
     Pronoun(PronounKeyword),
     Main,
     Use,
@@ -69,7 +69,7 @@ impl Keyword {
             Keyword::Mod => "mod",
             Keyword::Main => "main",
             Keyword::Visual => "visual",
-            Keyword::Pattern(keyword) => keyword.code(),
+            Keyword::Modifier(keyword) => keyword.code(),
             Keyword::Trait => "trait",
             Keyword::Impl => "impl",
             Keyword::End(_) => todo!(),

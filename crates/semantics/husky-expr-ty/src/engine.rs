@@ -45,9 +45,16 @@ impl<'a> LocalTermEngine<'a> for ExprTypeEngine<'a> {
     fn db(&self) -> &'a dyn TermDb {
         self.db
     }
+    fn local_term_region(&self) -> &LocalTermRegion {
+        &self.local_term_region
+    }
 
-    fn unresolved_terms(&self) -> &UnresolvedTerms {
-        self.local_term_region.unresolved_terms()
+    fn local_term_region_mut(&mut self) -> &mut LocalTermRegion {
+        &mut self.local_term_region
+    }
+
+    fn expr_region_data(&self) -> &'a ExprRegionData {
+        self.expr_region_data
     }
 }
 

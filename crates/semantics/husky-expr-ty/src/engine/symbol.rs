@@ -47,10 +47,9 @@ impl<'a> ExprTypeEngine<'a> {
             let Some(signature) = self
                 .signature_term_region
                 .term_symbol_region()
-                .current_symbol_signature(current_symbol_idx)
-                else {
-                    return
-                };
+                .current_symbol_signature(current_symbol_idx) else {
+                return
+            };
             if let Some(symbol) = signature.symbol() {
                 if let Ok(symbol) = TermSymbol::from_raw(self.db, symbol) {
                     self.current_symbol_terms

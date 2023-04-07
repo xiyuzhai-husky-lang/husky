@@ -35,10 +35,11 @@ impl ExprTypeInfo {
                 .duplicate(expectation_rule_idx)
                 .into(),
             None => match ty {
-                LocalTerm::Resolved(term) => ExprTypeResolveProgress::Unexpected(Ok(term.into())),
+                LocalTerm::Term(term) => ExprTypeResolveProgress::Unexpected(Ok(term.into())),
                 LocalTerm::Unresolved(ty) => ExprTypeResolveProgress::Unexpected(Err(
                     DerivedExprTypeError::UnresolvedLocalTerm.into(),
                 )),
+                _ => todo!(),
             },
         }
     }

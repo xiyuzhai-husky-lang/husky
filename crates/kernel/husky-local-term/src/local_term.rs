@@ -100,12 +100,13 @@ impl UnresolvedTerms {
     pub(super) fn force_resolve_term(&mut self, unresolved_term_idx: LocalTermIdx) -> Option<Term> {
         let unresolved_term_entry = &mut self.data[unresolved_term_idx.0];
         match unresolved_term_entry.resolve_progress {
-            Ok(LocalTerm::Resolved(term)) => Some(term),
+            Ok(LocalTerm::Term(term)) => Some(term),
             Ok(LocalTerm::Unresolved(_)) => {
                 unresolved_term_entry.resolve_progress =
                     Err(OriginalLocalTermResolveError::UnresolvedTerm.into());
                 None
             }
+            Ok(LocalTerm::PlaceType(_)) => todo!(),
             Err(_) => None,
         }
     }
@@ -154,7 +155,7 @@ impl UnresolvedTermEntry {
 
     pub(crate) fn is_done(&self) -> bool {
         match self.resolve_progress {
-            Ok(LocalTerm::Resolved(_)) | Err(_) => true,
+            Ok(LocalTerm::Term(_) | LocalTerm::PlaceType(_)) | Err(_) => true,
             Ok(LocalTerm::Unresolved(_)) => false,
         }
     }
@@ -221,7 +222,7 @@ impl UnresolvedTerms {
     ) {
         let local_term: LocalTerm = local_term.into();
         match local_term {
-            LocalTerm::Resolved(_) => (),
+            LocalTerm::Term(_) | LocalTerm::PlaceType(_) => (),
             LocalTerm::Unresolved(unresolved_term) => {
                 let unresolved_term_entry = &self[unresolved_term];
                 match unresolved_term_entry.unresolved_term {
@@ -246,7 +247,7 @@ impl UnresolvedTerms {
         local_term: LocalTerm,
     ) -> Result<Option<LocalTerm>, &LocalTermResolveError> {
         match local_term {
-            LocalTerm::Resolved(_) => Ok(None),
+            LocalTerm::Term(_) | LocalTerm::PlaceType(_) => Ok(None),
             LocalTerm::Unresolved(unresolved_term) => {
                 match self[unresolved_term].resolve_progress {
                     Ok(resolve_progress) if resolve_progress == local_term => Ok(None),

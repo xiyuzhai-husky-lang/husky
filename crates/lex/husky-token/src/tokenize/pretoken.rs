@@ -99,8 +99,8 @@ impl From<TypeEntityKeyword> for Pretoken {
     }
 }
 
-impl From<PatternKeyword> for Pretoken {
-    fn from(kw: PatternKeyword) -> Self {
+impl From<ModifierKeyword> for Pretoken {
+    fn from(kw: ModifierKeyword) -> Self {
         Pretoken::Certain(kw.into())
     }
 }
