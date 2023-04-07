@@ -33,7 +33,7 @@ impl UnresolvedTerms {
         &mut self,
         src_expr_idx: ExprIdx,
         variant: ImplicitSymbolVariant,
-    ) -> UnresolvedTermIdx {
+    ) -> LocalTermIdx {
         let new_implicit_symbol = self
             .implicit_symbol_registry
             .new_implicit_symbol(src_expr_idx, variant);
@@ -48,7 +48,7 @@ impl UnresolvedTerms {
         db: &dyn TermDb,
         src_expr_idx: ExprIdx,
         parameter_symbol: LocalTerm,
-    ) -> UnresolvedTermIdx {
+    ) -> LocalTermIdx {
         let variant = match parameter_symbol.pattern_inner(db, self) {
             LocalTermPattern::Literal(_) => todo!(),
             LocalTermPattern::TypeOntology {

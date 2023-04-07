@@ -575,7 +575,7 @@ Ok(
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::ExplicitParameter {
                                                                 ident: `ct`,
-                                                                pattern_symbol_idx: 0,
+                                                                pattern_symbol: 0,
                                                             },
                                                         },
                                                     ],
@@ -779,7 +779,7 @@ Ok(
                                                                     access_end: None,
                                                                     variant: CurrentSymbolVariant::ExplicitParameter {
                                                                         ident: `ct`,
-                                                                        pattern_symbol_idx: 0,
+                                                                        pattern_symbol: 0,
                                                                     },
                                                                 },
                                                             ],
@@ -1314,7 +1314,7 @@ Ok(
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::ExplicitParameter {
                                                                 ident: `a`,
-                                                                pattern_symbol_idx: 0,
+                                                                pattern_symbol: 0,
                                                             },
                                                         },
                                                         CurrentSymbol {
@@ -1324,7 +1324,7 @@ Ok(
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::ExplicitParameter {
                                                                 ident: `x`,
-                                                                pattern_symbol_idx: 1,
+                                                                pattern_symbol: 1,
                                                             },
                                                         },
                                                     ],
@@ -1581,7 +1581,7 @@ Ok(
                                                                     access_end: None,
                                                                     variant: CurrentSymbolVariant::ExplicitParameter {
                                                                         ident: `a`,
-                                                                        pattern_symbol_idx: 0,
+                                                                        pattern_symbol: 0,
                                                                     },
                                                                 },
                                                                 CurrentSymbol {
@@ -1591,7 +1591,7 @@ Ok(
                                                                     access_end: None,
                                                                     variant: CurrentSymbolVariant::ExplicitParameter {
                                                                         ident: `x`,
-                                                                        pattern_symbol_idx: 1,
+                                                                        pattern_symbol: 1,
                                                                     },
                                                                 },
                                                             ],
@@ -2478,7 +2478,7 @@ Ok(
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::ExplicitParameter {
                                                                 ident: `img`,
-                                                                pattern_symbol_idx: 0,
+                                                                pattern_symbol: 0,
                                                             },
                                                         },
                                                     ],
@@ -2672,7 +2672,7 @@ Ok(
                                                                     access_end: None,
                                                                     variant: CurrentSymbolVariant::ExplicitParameter {
                                                                         ident: `img`,
-                                                                        pattern_symbol_idx: 0,
+                                                                        pattern_symbol: 0,
                                                                     },
                                                                 },
                                                             ],
@@ -12618,7 +12618,7 @@ Ok(
                                                                 access_end: None,
                                                                 variant: CurrentSymbolVariant::ExplicitParameter {
                                                                     ident: `k`,
-                                                                    pattern_symbol_idx: 0,
+                                                                    pattern_symbol: 0,
                                                                 },
                                                             },
                                                         ],
@@ -12889,7 +12889,7 @@ Ok(
                                                                         access_end: None,
                                                                         variant: CurrentSymbolVariant::ExplicitParameter {
                                                                             ident: `k`,
-                                                                            pattern_symbol_idx: 0,
+                                                                            pattern_symbol: 0,
                                                                         },
                                                                     },
                                                                 ],
@@ -13832,7 +13832,7 @@ Ok(
                                                                 access_end: None,
                                                                 variant: CurrentSymbolVariant::ExplicitParameter {
                                                                     ident: `k`,
-                                                                    pattern_symbol_idx: 0,
+                                                                    pattern_symbol: 0,
                                                                 },
                                                             },
                                                         ],
@@ -14103,7 +14103,7 @@ Ok(
                                                                         access_end: None,
                                                                         variant: CurrentSymbolVariant::ExplicitParameter {
                                                                             ident: `k`,
-                                                                            pattern_symbol_idx: 0,
+                                                                            pattern_symbol: 0,
                                                                         },
                                                                     },
                                                                 ],

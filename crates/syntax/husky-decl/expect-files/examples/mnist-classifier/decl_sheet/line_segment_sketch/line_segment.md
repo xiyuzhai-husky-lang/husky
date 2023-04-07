@@ -874,7 +874,7 @@ Ok(
                                                             access_end: None,
                                                             variant: CurrentSymbolVariant::ExplicitParameter {
                                                                 ident: `pt`,
-                                                                pattern_symbol_idx: 0,
+                                                                pattern_symbol: 0,
                                                             },
                                                         },
                                                     ],

@@ -26,7 +26,11 @@ impl ImplicitParameterSignature {
         match parameter_decl.pattern().variant() {
             ImplicitParameterDeclPatternVariant::Type0 { .. } => {
                 ImplicitParameterSignature {
-                    symbol: region.current_symbol_term(symbol).expect("not none"),
+                    symbol: region
+                        .current_symbol_term(symbol)
+                        .expect("not none")
+                        .symbol()
+                        .expect("should have term"),
                     // ad hoc
                     traits: vec![],
                     annotated_variance,
@@ -35,7 +39,11 @@ impl ImplicitParameterSignature {
             ImplicitParameterDeclPatternVariant::Constant { .. } => todo!(),
             ImplicitParameterDeclPatternVariant::Lifetime { .. } => {
                 ImplicitParameterSignature {
-                    symbol: region.current_symbol_term(symbol).expect("not none"),
+                    symbol: region
+                        .current_symbol_term(symbol)
+                        .expect("not none")
+                        .symbol()
+                        .expect("should have term"),
                     // ad hoc
                     traits: vec![],
                     annotated_variance,
@@ -102,7 +110,7 @@ impl std::ops::Deref for ImplicitParameterSignatures {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct ExplicitParameterSignature {
-    contract: Contract,
+    contract: PatternContract,
     ty: RawTerm,
 }
 
@@ -113,11 +121,11 @@ impl ExplicitParameterSignature {
 }
 
 impl ExplicitParameterSignature {
-    pub(crate) fn new(contract: Contract, ty: RawTerm) -> Self {
+    pub(crate) fn new(contract: PatternContract, ty: RawTerm) -> Self {
         Self { contract, ty }
     }
 
-    pub fn contract(&self) -> Contract {
+    pub fn contract(&self) -> PatternContract {
         self.contract
     }
 
@@ -160,7 +168,7 @@ impl ExplicitParameterSignatures {
                         }
                     };
                     Ok(ExplicitParameterSignature::new(
-                        region.pattern_modifier(parameter.pattern()).into(),
+                        region.pattern_contract(parameter.pattern()),
                         ty,
                     ))
                 })

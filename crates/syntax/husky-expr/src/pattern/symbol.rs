@@ -1,3 +1,5 @@
+use idx_arena::ordered_map::ArenaOrderedMap;
+
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -9,3 +11,4 @@ pub enum PatternSymbol {
 pub type PatternSymbolArena = Arena<PatternSymbol>;
 pub type PatternSymbolIdx = ArenaIdx<PatternSymbol>;
 pub type PatternSymbolMap<V> = ArenaMap<PatternSymbol, V>;
+pub type PatternSymbolOrderedMap<V> = ArenaOrderedMap<PatternSymbol, V>;

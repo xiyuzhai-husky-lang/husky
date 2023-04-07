@@ -187,10 +187,12 @@ impl<'a> ExprRangeCalculator<'a> {
             PatternExpr::Literal(_) => todo!(),
             PatternExpr::Ident {
                 ident_token,
-                modifier: contract,
-            } => match contract {
-                PatternModifier::None => TokenIdxRange::new_single(ident_token.token_idx()),
-                PatternModifier::Mut => todo!(),
+                modifier,
+            } => match modifier {
+                SymbolModifier::None => TokenIdxRange::new_single(ident_token.token_idx()),
+                SymbolModifier::Mut => todo!(),
+                SymbolModifier::ConstExpr => todo!(),
+                SymbolModifier::StaticExpr => todo!(),
             },
             PatternExpr::Entity(_) => todo!(),
             PatternExpr::Tuple { name, fields } => todo!(),

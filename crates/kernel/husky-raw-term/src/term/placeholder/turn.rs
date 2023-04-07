@@ -179,7 +179,7 @@ pub struct VariableRegistry {
 impl VariableRegistry {
     fn new(
         db: &dyn RawTermDb,
-        variables: Option<RawTermQualifiedTypeholders>,
+        variables: Option<RawTermPlaceholders>,
         ty_family: RawTermFamily,
     ) -> Self {
         let Some(variables) = variables else {
