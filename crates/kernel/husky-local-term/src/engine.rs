@@ -1,4 +1,5 @@
 use crate::*;
+use husky_signature::SymbolSignature;
 
 pub trait LocalTermEngine<'a> {
     fn db(&self) -> &'a dyn TermDb;
@@ -10,6 +11,14 @@ pub trait LocalTermEngine<'a> {
         path: TypePath,
         arguments: SmallVec<[LocalTerm; 2]>,
     ) -> LocalTerm {
+        todo!()
+    }
+
+    fn new_qualified_ty(
+        &mut self,
+        current_symbol_idx: idx_arena::ArenaIdx<CurrentSymbol>,
+        signature: SymbolSignature,
+    ) -> Result<PlaceTypeIdx, ()> {
         todo!()
     }
 }

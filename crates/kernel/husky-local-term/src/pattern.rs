@@ -132,7 +132,7 @@ impl LocalTermPattern {
                 }
             }
             LocalTermData::Ritchie(_) => todo!(),
-            LocalTermData::QualifiedType { .. } => todo!(),
+            LocalTermData::PlaceType { .. } => todo!(),
         }
     }
 }

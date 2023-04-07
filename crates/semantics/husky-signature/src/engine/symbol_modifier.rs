@@ -15,7 +15,7 @@ impl<'a> RawTermEngine<'a> {
             let modifier = match current_symbol.variant() {
                 CurrentSymbolVariant::ImplicitParameter {
                     implicit_parameter_variant,
-                } => SymbolModifier::StaticExpr,
+                } => SymbolModifier::Const,
                 CurrentSymbolVariant::ExplicitParameter {
                     ident,
                     pattern_symbol,

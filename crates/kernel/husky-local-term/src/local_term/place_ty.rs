@@ -2,7 +2,7 @@ use super::*;
 
 /// `PlaceQual` qualifies the place of a base type `T`
 #[derive(Debug, PartialEq, Eq)]
-pub enum LocalPlace {
+pub enum Place {
     /// reduce to
     /// - ImmutableStackOwned if base type is known to be copyable
     /// - ImmutableReferenced if base type is known to be noncopyable
@@ -19,6 +19,8 @@ pub enum LocalPlace {
     },
     // rvalue
     Transient,
+    /// a place accessed through ref
+    ///
     /// can be converted to
     /// - `&'a T`;
     ///
@@ -26,7 +28,7 @@ pub enum LocalPlace {
     ///     then `'a` is the time that location is borrowed;
     ///     else `'a` is equal to the lifetime of that guard.
     /// - `T` when `T` is copyable
-    ImmutableReferenced {
+    Ref {
         /// Guard is overwritten when composed with references.
         ///
         /// To see this, consider the following code
@@ -39,6 +41,8 @@ pub enum LocalPlace {
         /// even if `a` is short lived.
         guard: Either<StackLocationIdx, LocalLifetimeIdx>,
     },
+    /// a place accessed through ref mut
+    ///
     /// can be converted to
     /// - `&'a mut T`;
     ///
@@ -51,7 +55,7 @@ pub enum LocalPlace {
     ///     then `'a` is the time that location is borrowed;
     ///     else `'a` is equal to the lifetime of that guard.
     /// - `T` when `T` is copyable
-    MutableReferenced {
+    RefMut {
         /// Guard is not overwritten when composed with references
         ///
         /// To see this, consider the following code
@@ -89,7 +93,16 @@ pub struct LocalLifetimeIdx {}
 /// maybe this is comparable with viewtype or viewt@ype in ATS?
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = TermDb)]
-pub struct LocalTermPlaceType {
-    place: LocalPlace,
+pub struct PlaceType {
+    place: Place,
     ty: LocalTerm,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub struct PlaceTypeIdx(LocalTermIdx);
+
+impl Into<LocalTerm> for PlaceTypeIdx {
+    fn into(self) -> LocalTerm {
+        self.0.into()
+    }
 }

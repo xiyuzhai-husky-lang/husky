@@ -1,11 +1,11 @@
 mod implicit_symbol;
-mod place;
+mod place_ty;
 mod richie;
 mod substitution;
 mod ty_ontology;
 
 pub use self::implicit_symbol::*;
-pub use self::place::*;
+pub use self::place_ty::*;
 pub use self::richie::*;
 pub use self::ty_ontology::*;
 
@@ -22,7 +22,7 @@ pub enum LocalTermData {
     ImplicitSymbol(ImplicitSymbol),
     TypeOntology(LocalTermTypeOntology),
     Ritchie(LocalTermRitchie),
-    QualifiedType(LocalTermPlaceType),
+    PlaceType(PlaceType),
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -209,7 +209,7 @@ impl UnresolvedTerms {
             LocalTermData::Ritchie(term) => {
                 term.extract_implicit_symbol_dependencies(self, &mut dependencies)
             }
-            LocalTermData::QualifiedType(term) => todo!(),
+            LocalTermData::PlaceType(term) => todo!(),
         }
         dependencies
     }

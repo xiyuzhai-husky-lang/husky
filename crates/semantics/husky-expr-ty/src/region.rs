@@ -10,9 +10,9 @@ pub struct ExprTypeRegion {
     extra_expr_errors: Vec<(ExprIdx, ExprTypeError)>,
     expr_local_terms: ExprMap<ExprTermResult<LocalTerm>>,
     inherited_symbol_terms: InheritedSymbolMap<TermSymbol>,
-    inherited_symbol_qualified_tys: InheritedSymbolMap<QualifiedTypeIdx>,
+    inherited_symbol_qualified_tys: InheritedSymbolMap<PlaceTypeIdx>,
     current_symbol_terms: CurrentSymbolMap<TermSymbol>,
-    current_symbol_qualified_tys: CurrentSymbolMap<QualifiedTypeIdx>,
+    current_symbol_qualified_tys: CurrentSymbolMap<PlaceTypeIdx>,
     local_term_region: LocalTermRegion,
     return_ty: Option<Term>,
     self_ty: Option<Term>,
@@ -26,9 +26,9 @@ impl ExprTypeRegion {
         extra_expr_errors: Vec<(ExprIdx, ExprTypeError)>,
         expr_local_terms: ExprMap<ExprTermResult<LocalTerm>>,
         inherited_symbol_terms: InheritedSymbolMap<TermSymbol>,
-        inherited_symbol_qualified_tys: InheritedSymbolMap<QualifiedTypeIdx>,
+        inherited_symbol_qualified_tys: InheritedSymbolMap<PlaceTypeIdx>,
         current_symbol_terms: CurrentSymbolMap<TermSymbol>,
-        current_symbol_qualified_tys: CurrentSymbolMap<QualifiedTypeIdx>,
+        current_symbol_qualified_tys: CurrentSymbolMap<PlaceTypeIdx>,
         local_term_region: LocalTermRegion,
         return_ty: Option<Term>,
         self_ty: Option<Term>,
@@ -67,11 +67,11 @@ impl ExprTypeRegion {
         &self.expr_local_terms
     }
 
-    pub fn inherited_symbol_qualified_tys(&self) -> &InheritedSymbolMap<QualifiedTypeIdx> {
+    pub fn inherited_symbol_qualified_tys(&self) -> &InheritedSymbolMap<PlaceTypeIdx> {
         &self.inherited_symbol_qualified_tys
     }
 
-    pub fn current_symbol_qualified_tys(&self) -> &CurrentSymbolMap<QualifiedTypeIdx> {
+    pub fn current_symbol_qualified_tys(&self) -> &CurrentSymbolMap<PlaceTypeIdx> {
         &self.current_symbol_qualified_tys
     }
 

@@ -5,8 +5,7 @@ pub enum PatternContract {
     Pure,
     Move,
     Mut,
-    ConstExpr,
-    StaticExpr,
+    Const,
 }
 
 impl From<SymbolModifier> for PatternContract {
@@ -14,8 +13,7 @@ impl From<SymbolModifier> for PatternContract {
         match modifier {
             SymbolModifier::None => PatternContract::Pure,
             SymbolModifier::Mut => PatternContract::Mut,
-            SymbolModifier::ConstExpr => PatternContract::ConstExpr,
-            SymbolModifier::StaticExpr => PatternContract::StaticExpr,
+            SymbolModifier::Const => PatternContract::Const,
         }
     }
 }
