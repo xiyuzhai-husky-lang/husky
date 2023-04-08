@@ -5,7 +5,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: ExprIdx,
         items: ExprIdxRange,
-    ) -> ExprTermResult<LocalTerm> {
+    ) -> ExprTermResult<FluffyTerm> {
         match self
             .expr_disambiguation(expr_idx)
             .map_err(|_| DerivedExprTermError::Todo)?

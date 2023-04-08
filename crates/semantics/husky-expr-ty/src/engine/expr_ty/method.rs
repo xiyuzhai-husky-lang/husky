@@ -9,7 +9,7 @@ impl<'a> ExprTypeEngine<'a> {
         ident_token: IdentToken,
         implicit_arguments: Option<&ImplicitArgumentList>,
         nonself_arguments: ExprIdxRange,
-    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<LocalTerm>)> {
+    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         let Some(self_expr_ty) =
             self.infer_new_expr_ty( self_argument, ExpectAnyOriginal, )
             else {
@@ -22,9 +22,9 @@ impl<'a> ExprTypeEngine<'a> {
                 return Err(DerivedExprTypeError::MethodOwnerTypeNotInferred.into())
             };
         let self_expr_ty_unravelled =
-            self_expr_ty.unravel_borrow(self.db, self.local_term_region.unresolved_terms());
+            self_expr_ty.unravel_borrow(self.db, self.local_term_region.porous_terms());
         let ty_method_card = match self_expr_ty_unravelled {
-            LocalTerm::Term(self_expr_ty_unravelled) => {
+            FluffyTerm::Term(self_expr_ty_unravelled) => {
                 match self
                     .db
                     .ty_method_card(self_expr_ty_unravelled, ident_token.ident())
@@ -33,7 +33,7 @@ impl<'a> ExprTypeEngine<'a> {
                     Err(e) => return Err(DerivedExprTypeError::TypeMethodTypeError(e).into()),
                 }
             }
-            LocalTerm::Unresolved(_) => todo!(),
+            FluffyTerm::Unresolved(_) => todo!(),
             _ => todo!(),
         };
         if let Some(ty_method_card) = ty_method_card {
@@ -62,15 +62,15 @@ impl<'a> ExprTypeEngine<'a> {
         self_argument: ExprIdx,
         implicit_arguments: Option<&ImplicitArgumentList>,
         nonself_arguments: ExprIdxRange,
-    ) -> ExprTypeResult<LocalTerm> {
+    ) -> ExprTypeResult<FluffyTerm> {
         let method_ty_info = ty_method_card.method_ty_info(self.db)?;
-        let mut nonself_parameter_contracted_tys: Vec<LocalTermRitchieParameterContractedType> =
+        let mut nonself_parameter_contracted_tys: Vec<FluffyTermRitchieParameterContractedType> =
             method_ty_info
                 .nonself_parameter_contracted_tys()
                 .iter()
                 .map(Into::into)
                 .collect();
-        let mut return_ty: LocalTerm = method_ty_info.return_ty().into();
+        let mut return_ty: FluffyTerm = method_ty_info.return_ty().into();
         if method_ty_info.implicit_parameters().len() > 0 {
             todo!()
         } else {

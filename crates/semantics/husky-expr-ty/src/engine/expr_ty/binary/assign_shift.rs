@@ -7,7 +7,7 @@ impl<'a> ExprTypeEngine<'a> {
         ropd: ExprIdx,
         opr: BinaryShiftOpr,
         menu: &TermMenu,
-    ) -> Result<LocalTerm, ExprTypeError> {
+    ) -> Result<FluffyTerm, ExprTypeError> {
         // todo: don't use resolved
         let Some(lopd_ty) = self.infer_new_expr_ty(
             lopd,
@@ -16,43 +16,40 @@ impl<'a> ExprTypeEngine<'a> {
             Err(DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred)?
         };
         let lopd_ty_unravelled =
-            lopd_ty.unravel_borrow(self.db, self.local_term_region.unresolved_terms());
+            lopd_ty.unravel_borrow(self.db, self.local_term_region.porous_terms());
         match lopd_ty_unravelled.pattern(self) {
-            LocalTermPattern::TypeOntology {
+            FluffyTermData::TypeOntology {
                 refined_path: Right(PreludeTypePath::Num(_)),
                 ..
             }
-            | LocalTermPattern::ImplicitSymbol(
+            | FluffyTermData::Hole(
                 ImplicitSymbolKind::UnspecifiedIntegerType
                 | ImplicitSymbolKind::UnspecifiedFloatType,
                 _,
             ) => {
                 if let Some(ropd_ty) = self.infer_new_expr_ty(ropd, ExpectAnyOriginal) {
                     match ropd_ty.pattern(self) {
-                        LocalTermPattern::Literal(_) => todo!(),
-                        LocalTermPattern::TypeOntology {
+                        FluffyTermData::Literal(_) => todo!(),
+                        FluffyTermData::TypeOntology {
                             refined_path: Right(PreludeTypePath::Num(PreludeNumTypePath::Int(_))),
                             ..
                         }
-                        | LocalTermPattern::ImplicitSymbol(
-                            ImplicitSymbolKind::UnspecifiedIntegerType,
-                            _,
-                        ) => {}
-                        LocalTermPattern::TypeOntology { .. } => todo!(),
-                        LocalTermPattern::Curry { .. } => todo!(),
-                        LocalTermPattern::ImplicitSymbol(_, _) => todo!(),
-                        LocalTermPattern::Category(_) => todo!(),
-                        LocalTermPattern::Ritchie { .. } => todo!(),
+                        | FluffyTermData::Hole(ImplicitSymbolKind::UnspecifiedIntegerType, _) => {}
+                        FluffyTermData::TypeOntology { .. } => todo!(),
+                        FluffyTermData::Curry { .. } => todo!(),
+                        FluffyTermData::Hole(_, _) => todo!(),
+                        FluffyTermData::Category(_) => todo!(),
+                        FluffyTermData::Ritchie { .. } => todo!(),
                     }
                 }
                 Ok(lopd_ty_unravelled)
             }
-            LocalTermPattern::TypeOntology { .. }
-            | LocalTermPattern::ImplicitSymbol(_, _)
-            | LocalTermPattern::Literal(_)
-            | LocalTermPattern::Curry { .. }
-            | LocalTermPattern::Category(_) => todo!(),
-            LocalTermPattern::Ritchie { .. } => todo!(),
+            FluffyTermData::TypeOntology { .. }
+            | FluffyTermData::Hole(_, _)
+            | FluffyTermData::Literal(_)
+            | FluffyTermData::Curry { .. }
+            | FluffyTermData::Category(_) => todo!(),
+            FluffyTermData::Ritchie { .. } => todo!(),
         }
     }
 }

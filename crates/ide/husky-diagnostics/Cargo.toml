@@ -17,7 +17,7 @@ husky-expr-ty = { path = "../../semantics/husky-expr-ty" }
 # kernel
 husky-term = { path = "../../kernel/husky-term" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
-husky-local-term = { path = "../../kernel/husky-local-term" }
+husky-fluffy-term = { path = "../../kernel/husky-fluffy-term" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 # syntax

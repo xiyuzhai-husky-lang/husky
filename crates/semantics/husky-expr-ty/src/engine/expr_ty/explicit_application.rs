@@ -6,7 +6,7 @@ impl<'a> ExprTypeEngine<'a> {
         function: ExprIdx,
         argument: ExprIdx,
         final_destination: FinalDestination,
-    ) -> ExprTypeResult<LocalTerm> {
+    ) -> ExprTypeResult<FluffyTerm> {
         let Some(function_ty_outcome) = self.infer_new_expr_ty_for_outcome(
             function,
             ExpectEqsFunctionType::new(final_destination),

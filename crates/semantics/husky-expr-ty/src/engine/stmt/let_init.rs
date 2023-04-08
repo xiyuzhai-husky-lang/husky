@@ -5,7 +5,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         let_variable_pattern: &ExprResult<LetVariablesPattern>,
         initial_value: &ExprResult<ExprIdx>,
-    ) -> Option<LocalTerm> {
+    ) -> Option<FluffyTerm> {
         let pattern_ty = match let_variable_pattern {
             Ok(pattern) => match pattern.ty() {
                 Some(ty) => {

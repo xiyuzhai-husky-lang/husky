@@ -6,14 +6,14 @@ impl<'a> ExprTypeEngine<'a> {
         opr: PrefixOpr,
         opd: ExprIdx,
         final_destination: FinalDestination,
-    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<LocalTerm>)> {
+    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         match opr {
             PrefixOpr::Minus => {
                 let opd_ty = self.infer_new_expr_ty(opd, ExpectAnyOriginal);
                 match opd_ty {
                     Some(opd_ty) => match opd_ty {
-                        LocalTerm::Term(_) => todo!(),
-                        LocalTerm::Unresolved(unresolved_term) => {
+                        FluffyTerm::Term(_) => todo!(),
+                        FluffyTerm::Unresolved(unresolved_term) => {
                             match self.local_term_region[unresolved_term].unresolved_term() {
                                 LocalTermData::ImplicitSymbol(implicit_symbol) => {
                                     match implicit_symbol.variant() {
@@ -76,7 +76,7 @@ impl<'a> ExprTypeEngine<'a> {
         }
     }
 
-    fn calc_bitnot_expr_ty(&mut self, opd: ExprIdx) -> ExprTypeResult<LocalTerm> {
+    fn calc_bitnot_expr_ty(&mut self, opd: ExprIdx) -> ExprTypeResult<FluffyTerm> {
         let Some(ty) = self.infer_new_expr_ty(
             opd,
             self.expect_eqs_ty0(),
@@ -84,22 +84,22 @@ impl<'a> ExprTypeEngine<'a> {
             Err(DerivedExprTypeError::BitNotOperandTypeNotInferred)?
         };
         match ty.pattern(self) {
-            LocalTermPattern::Literal(_) => todo!(),
-            LocalTermPattern::TypeOntology {
+            FluffyTermData::Literal(_) => todo!(),
+            FluffyTermData::TypeOntology {
                 path,
                 refined_path,
                 argument_tys,
             } => todo!(),
-            LocalTermPattern::Curry {
+            FluffyTermData::Curry {
                 curry_kind,
                 variance,
                 parameter_variable,
                 parameter_ty,
                 return_ty,
             } => todo!(),
-            LocalTermPattern::ImplicitSymbol(_, _) => todo!(),
-            LocalTermPattern::Category(_) => todo!(),
-            LocalTermPattern::Ritchie {
+            FluffyTermData::Hole(_, _) => todo!(),
+            FluffyTermData::Category(_) => todo!(),
+            FluffyTermData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,
                 return_ty,

@@ -7,7 +7,7 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: ExprIdx,
         literal_token_idx: TokenIdx,
         expectation: &impl ExpectLocalTerm,
-    ) -> Result<LocalTerm, ExprTypeError> {
+    ) -> Result<FluffyTerm, ExprTypeError> {
         let literal_token = self.token_sheet_data[literal_token_idx];
         match literal_token {
             Token::Literal(literal) => match literal {
@@ -21,7 +21,7 @@ impl<'a> ExprTypeEngine<'a> {
                             .destination()
                             .map(|destination| destination.pattern(self))
                         {
-                            Some(LocalTermPattern::TypeOntology {
+                            Some(FluffyTermData::TypeOntology {
                                 refined_path:
                                     Right(PreludeTypePath::Num(PreludeNumTypePath::Int(path))),
                                 ..
@@ -45,7 +45,7 @@ impl<'a> ExprTypeEngine<'a> {
                                 PreludeIntTypePath::R128 => self.term_menu.r128_ty_ontology(),
                                 PreludeIntTypePath::RSize => self.term_menu.rsize_ty_ontology(),
                             },
-                            Some(LocalTermPattern::ImplicitSymbol(
+                            Some(FluffyTermData::Hole(
                                 ImplicitSymbolKind::UnspecifiedIntegerType,
                                 idx,
                             )) => return Ok(idx.into()),
@@ -86,7 +86,7 @@ impl<'a> ExprTypeEngine<'a> {
                             .destination()
                             .map(|destination| destination.pattern(self))
                         {
-                            Some(LocalTermPattern::TypeOntology {
+                            Some(FluffyTermData::TypeOntology {
                                 refined_path:
                                     Right(PreludeTypePath::Num(PreludeNumTypePath::Float(path))),
                                 ..
@@ -98,7 +98,7 @@ impl<'a> ExprTypeEngine<'a> {
                                     Ok(self.term_menu.f64_ty_ontology().into())
                                 }
                             },
-                            Some(LocalTermPattern::ImplicitSymbol(
+                            Some(FluffyTermData::Hole(
                                 ImplicitSymbolKind::UnspecifiedFloatType,
                                 idx,
                             )) => return Ok(idx.into()),

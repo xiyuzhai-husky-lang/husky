@@ -1,7 +1,7 @@
 use super::*;
 use husky_expr::{ExprIdx, ExprRegion};
 use husky_expr_ty::{ExprTermError, ExprTypeError, OriginalExprTermError, OriginalExprTypeError};
-use husky_local_term::*;
+use husky_fluffy_term::*;
 use salsa::{DebugWithDb, DisplayWithDb};
 
 #[salsa::tracked(db = DiagnosticsDb, jar = DiagnosticsJar)]
@@ -68,16 +68,16 @@ fn collect_expr_ty_diagnostics(
     }
     let local_term_region = expr_ty_region.local_term_region();
     for (expr_idx, error) in local_term_region
-        .unresolved_terms()
+        .porous_terms()
         .iter()
-        .filter_map(|entry| Some((entry.src_expr_idx(), entry.original_error()?)))
+        .filter_map(|entry| Some((entry.src(), entry.original_error()?)))
     {
         diagnostics.push((expr_idx, error).to_diagnostic(&ctx))
     }
     for (expr_idx, error) in local_term_region
         .expectations()
         .iter()
-        .filter_map(|entry| Some((entry.src_expr_idx(), entry.original_error()?)))
+        .filter_map(|entry| Some((entry.src(), entry.original_error()?)))
     {
         diagnostics.push((expr_idx, error).to_diagnostic(&ctx))
     }
@@ -175,12 +175,12 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
     }
 }
 
-impl Diagnose for (ExprIdx, &'_ OriginalLocalTermResolveError) {
+impl Diagnose for (ExprIdx, &'_ OriginalFluffyTermResolveError) {
     type Context<'a> = RegionDiagnosticsContext<'a>;
 
     fn message(&self, _db: &RegionDiagnosticsContext) -> String {
         match self.1 {
-            OriginalLocalTermResolveError::UnresolvedTerm => "unresolved term".to_string(),
+            OriginalFluffyTermResolveError::UnresolvedTerm => "unresolved term".to_string(),
         }
     }
 
@@ -193,15 +193,15 @@ impl Diagnose for (ExprIdx, &'_ OriginalLocalTermResolveError) {
     }
 }
 
-impl Diagnose for (ExprIdx, &'_ OriginalLocalTermExpectationError) {
+impl Diagnose for (ExprIdx, &'_ OriginalFluffyTermExpectationError) {
     type Context<'a> = RegionDiagnosticsContext<'a>;
 
     fn message(&self, ctx: &RegionDiagnosticsContext) -> String {
         match self.1 {
-            OriginalLocalTermExpectationError::Todo => {
-                format!("OriginalLocalTermExpectationError::Todo")
+            OriginalFluffyTermExpectationError::Todo => {
+                format!("OriginalFluffyTermExpectationError::Todo")
             }
-            OriginalLocalTermExpectationError::TypePathMismatch {
+            OriginalFluffyTermExpectationError::TypePathMismatch {
                 expected_path,
                 expectee_path,
             } => format!(

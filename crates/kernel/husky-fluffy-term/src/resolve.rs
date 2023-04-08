@@ -1,0 +1,37 @@
+mod action;
+mod error;
+mod level;
+
+pub use self::action::*;
+pub use self::level::*;
+
+pub(crate) use self::error::*;
+
+use crate::*;
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = FluffyTermDb)]
+#[enum_class::from_variants]
+pub enum ResolvedTerm {
+    Literal(TermLiteral),
+    Symbol(TermSymbol),
+    Hole(TermPlaceholder),
+    EntityPath(TermEntityPath),
+    Category(TermCategory),
+    Universe(TermUniverse),
+    Curry(TermCurry),
+    Ritchie(TermRitchie),
+    Abstraction(TermAbstraction),
+    Application(TermApplication),
+    Subentity(TermSubentity),
+    AsTraitSubentity(TermAsTraitSubentity),
+    TraitConstraint(TermTraitConstraint),
+    /// terms with determined local lifetimes and places, without undetermined arguments
+    Solid(SolidTerm),
+}
+
+impl FluffyTerm {
+    pub fn resolve(self) -> Either<ResolvedTerm, HollowTerm> {
+        todo!()
+    }
+}

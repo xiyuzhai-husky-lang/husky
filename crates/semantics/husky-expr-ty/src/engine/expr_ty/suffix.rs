@@ -5,7 +5,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         opd: ExprIdx,
         opr: SuffixOpr,
-    ) -> ExprTypeResult<LocalTerm> {
+    ) -> ExprTypeResult<FluffyTerm> {
         // match opr {
         //     SuffixOpr::Incr => todo!(),
         //     SuffixOpr::Decr => todo!(),

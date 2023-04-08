@@ -5,7 +5,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         lopd: ExprIdx,
         ropd: ExprIdx,
-    ) -> Result<LocalTerm, ExprTypeError> {
+    ) -> Result<FluffyTerm, ExprTypeError> {
         let lopd_ty = self.infer_new_expr_ty(lopd, ExpectAnyOriginal);
         match lopd_ty {
             Some(destination) => self.infer_new_expr_ty_discarded(

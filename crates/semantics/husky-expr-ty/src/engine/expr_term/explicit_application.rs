@@ -8,7 +8,7 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: ExprIdx,
         function: ExprIdx,
         argument: ExprIdx,
-    ) -> ExprTermResult<LocalTerm> {
+    ) -> ExprTermResult<FluffyTerm> {
         // todo: implicit arguments
         let function = self
             .infer_new_expr_term(function)
@@ -16,7 +16,7 @@ impl<'a> ExprTypeEngine<'a> {
         let argument = self
             .infer_new_expr_term(argument)
             .ok_or(DerivedExprTermError::ExplicitApplicationArgumentTermNotInferred)?;
-        LocalTerm::new_application(
+        FluffyTerm::new_application(
             self.db,
             &mut self.local_term_region,
             expr_idx,
