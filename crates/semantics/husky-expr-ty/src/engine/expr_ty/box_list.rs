@@ -5,8 +5,8 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: ExprIdx,
         items: ExprIdxRange,
-    ) -> Result<LocalTerm, ExprTypeError> {
-        let element_ty: LocalTerm = self
+    ) -> Result<FluffyTerm, ExprTypeError> {
+        let element_ty: FluffyTerm = self
             .local_term_region
             .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ImplicitType)
             .into();

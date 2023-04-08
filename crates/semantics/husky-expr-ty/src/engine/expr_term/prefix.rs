@@ -6,7 +6,7 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: ExprIdx,
         opr: PrefixOpr,
         opd: ExprIdx,
-    ) -> ExprTermResult<LocalTerm> {
+    ) -> ExprTermResult<FluffyTerm> {
         let Some(opd_term) = self.infer_new_expr_term(opd) else {
            return Err(DerivedExprTermError::PrefixOprTermNotInferred.into())
         };
@@ -20,14 +20,14 @@ impl<'a> ExprTypeEngine<'a> {
                 ExprDisambiguation::Tilde(disambiguation) => match disambiguation {
                     TildeDisambiguation::BitNot => todo!(),
                     TildeDisambiguation::Leash => match opd_term {
-                        LocalTerm::Term(opd_term) => Ok(TermApplication::new(
+                        FluffyTerm::Term(opd_term) => Ok(TermApplication::new(
                             self.db,
                             self.term_menu.leash_ty_ontology(),
                             opd_term,
                         )
                         .map_err(|e| DerivedExprTermError::TildeApplicationTerm(e))?
                         .into()),
-                        LocalTerm::Unresolved(_) => todo!(),
+                        FluffyTerm::Unresolved(_) => todo!(),
                         _ => todo!(),
                     },
                 },
@@ -42,7 +42,7 @@ impl<'a> ExprTypeEngine<'a> {
             PrefixOpr::Slice => todo!(),
             PrefixOpr::CyclicSlice => todo!(),
             PrefixOpr::Array(_) => todo!(),
-            PrefixOpr::Option => Ok(LocalTerm::new_application(
+            PrefixOpr::Option => Ok(FluffyTerm::new_application(
                 self.db,
                 &mut self.local_term_region,
                 expr_idx,

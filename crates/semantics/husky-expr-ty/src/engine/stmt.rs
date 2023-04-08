@@ -7,7 +7,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         stmts: StmtIdxRange,
         expr_expectation: impl ExpectLocalTerm,
-    ) -> Option<LocalTerm> {
+    ) -> Option<FluffyTerm> {
         for stmt in stmts.start()..(stmts.end() - 1) {
             self.infer_new_nonlast_stmt(stmt)
         }
@@ -23,7 +23,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         stmt_idx: StmtIdx,
         expr_expectation: impl ExpectLocalTerm,
-    ) -> Option<LocalTerm> {
+    ) -> Option<FluffyTerm> {
         self.calc_stmt(stmt_idx, expr_expectation)
     }
 
@@ -31,7 +31,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         stmt_idx: StmtIdx,
         expr_expectation: impl ExpectLocalTerm,
-    ) -> Option<LocalTerm> {
+    ) -> Option<FluffyTerm> {
         match self.expr_region_data[stmt_idx] {
             Stmt::Let {
                 let_token,
@@ -81,7 +81,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ref block,
                 ..
             } => {
-                let mut expected_frame_var_ty: Option<LocalTerm> = None;
+                let mut expected_frame_var_ty: Option<FluffyTerm> = None;
                 if let Some(bound_expr) = particulars.range.initial_boundary.bound_expr {
                     match self.infer_new_expr_ty(bound_expr, ExpectAnyOriginal) {
                         Some(bound_expr_ty) => expected_frame_var_ty = Some(bound_expr_ty),
@@ -174,7 +174,7 @@ impl<'a> ExprTypeEngine<'a> {
         elif_branches: &[ElifBranch],
         else_branch: Option<&ElseBranch>,
         expr_expectation: impl ExpectLocalTerm,
-    ) -> Option<LocalTerm> {
+    ) -> Option<FluffyTerm> {
         let mut branch_tys = BranchTypes::new(expr_expectation);
         if_branch.condition.as_ref().copied().map(|condition| {
             self.infer_new_expr_ty(condition, self.expect_implicitly_convertible_to_bool())
@@ -201,7 +201,7 @@ struct BranchTypes<Expectation: ExpectLocalTerm> {
     /// this is true if the type of one of the branches cannot be inferred
     has_error: bool,
     /// this is true if the type of one of the branches is inferred to be not never
-    ever_ty: Option<LocalTerm>,
+    ever_ty: Option<FluffyTerm>,
     expr_expectation: Expectation,
 }
 
@@ -217,7 +217,9 @@ impl<Expectation: ExpectLocalTerm> BranchTypes<Expectation> {
     fn visit_branch(&mut self, engine: &mut ExprTypeEngine, block: &ExprResult<StmtIdxRange>) {
         match block {
             Ok(stmts) => match engine.infer_new_block(*stmts, self.expr_expectation.clone()) {
-                Some(LocalTerm::Term(new_block_ty)) if new_block_ty == engine.term_menu.never() => {
+                Some(FluffyTerm::Term(new_block_ty))
+                    if new_block_ty == engine.term_menu.never() =>
+                {
                     ()
                 }
                 Some(new_block_ty) => {
@@ -231,7 +233,7 @@ impl<Expectation: ExpectLocalTerm> BranchTypes<Expectation> {
         };
     }
 
-    fn merge(self, exhaustive: bool, menu: &TermMenu) -> Option<LocalTerm> {
+    fn merge(self, exhaustive: bool, menu: &TermMenu) -> Option<FluffyTerm> {
         if let Some(ever_ty) = self.ever_ty {
             return ever_ty.into();
         }

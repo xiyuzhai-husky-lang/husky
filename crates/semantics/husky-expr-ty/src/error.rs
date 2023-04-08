@@ -58,7 +58,7 @@ pub enum OriginalExprTypeError {
     NoSuchField,
     #[error("no such method")]
     NoMethodForType {
-        self_expr_ty_unravelled: LocalTerm,
+        self_expr_ty_unravelled: FluffyTerm,
         ident_token: IdentToken,
     },
     #[error("TodoIndexOrComposeWithList")]

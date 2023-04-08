@@ -19,7 +19,7 @@ impl<'a> ExprTypeEngine<'a> {
         lopd: ExprIdx,
         opr: BinaryOpr,
         ropd: ExprIdx,
-    ) -> ExprTypeResult<LocalTerm> {
+    ) -> ExprTypeResult<FluffyTerm> {
         let menu = self.term_menu;
         match opr {
             BinaryOpr::Closed(opr) => self.calc_binary_closed_expr_ty(lopd, ropd, opr, menu),
@@ -47,13 +47,13 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         lopd: ExprIdx,
         ropd: ExprIdx,
-    ) -> Result<LocalTerm, ExprTypeError> {
+    ) -> Result<FluffyTerm, ExprTypeError> {
         self.infer_new_expr_ty_discarded(lopd, self.expect_implicitly_convertible_to_bool());
         self.infer_new_expr_ty_discarded(ropd, self.expect_implicitly_convertible_to_bool());
         Ok(self.term_menu.bool_ty_ontology().into())
     }
 
-    fn calc_ins_expr_ty(&mut self, ropd: ExprIdx) -> Result<LocalTerm, ExprTypeError> {
+    fn calc_ins_expr_ty(&mut self, ropd: ExprIdx) -> Result<FluffyTerm, ExprTypeError> {
         let Some(ropd_ty) = self.infer_new_expr_ty(
             ropd,
             ExpectAnyOriginal,
@@ -82,7 +82,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         ropd: ExprIdx,
         lopd: ExprIdx,
-    ) -> Result<LocalTerm, ExprTypeError> {
+    ) -> Result<FluffyTerm, ExprTypeError> {
         self.infer_new_expr_ty_discarded(ropd, ExpectEqsCategory::new_any_sort());
         let Some(ropd_term) = self.infer_new_expr_term(ropd,  )
             else {
@@ -96,7 +96,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         lopd: ExprIdx,
         ropd: ExprIdx,
-    ) -> Result<LocalTerm, ExprTypeError> {
+    ) -> Result<FluffyTerm, ExprTypeError> {
         let expect_any_sort = ExpectEqsCategory::new_any_sort();
         let Some(lopd_universe) = self.infer_new_expr_ty_for_outcome(lopd, expect_any_sort,  )
             else {
@@ -115,7 +115,7 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: ExprIdx,
         lopd: ExprIdx,
         ropd: ExprIdx,
-    ) -> Result<LocalTerm, ExprTypeError> {
+    ) -> Result<FluffyTerm, ExprTypeError> {
         let expr_eval_lifetime = self
             .local_term_region
             .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
@@ -134,7 +134,7 @@ impl<'a> ExprTypeEngine<'a> {
         lopd: ExprIdx,
         opr: BinaryClosedOpr,
         ropd: ExprIdx,
-    ) -> Result<LocalTerm, ExprTypeError> {
+    ) -> Result<FluffyTerm, ExprTypeError> {
         let expr_eval_lifetime = self
             .local_term_region
             .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
@@ -153,7 +153,7 @@ impl<'a> ExprTypeEngine<'a> {
         lopd: ExprIdx,
         opr: BinaryShiftOpr,
         ropd: ExprIdx,
-    ) -> Result<LocalTerm, ExprTypeError> {
+    ) -> Result<FluffyTerm, ExprTypeError> {
         let expr_eval_lifetime = self
             .local_term_region
             .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
@@ -166,15 +166,15 @@ impl<'a> ExprTypeEngine<'a> {
         Ok(self.term_menu.unit().into())
     }
 
-    fn infer_basic_assign_ropd_ty(&mut self, lopd_ty: LocalTerm, ropd: ExprIdx) {
+    fn infer_basic_assign_ropd_ty(&mut self, lopd_ty: FluffyTerm, ropd: ExprIdx) {
         let ropd_ty = self.infer_new_expr_ty(ropd, ExpectAnyOriginal);
         let Some(ropd_ty) = ropd_ty else { return };
         let lopd_ty = match lopd_ty {
-            LocalTerm::Term(lopd_ty) => match lopd_ty {
+            FluffyTerm::Term(lopd_ty) => match lopd_ty {
                 Term::Application(lopd_ty) => todo!(),
                 _ => todo!(),
             },
-            LocalTerm::Unresolved(lopd_ty) => {
+            FluffyTerm::Unresolved(lopd_ty) => {
                 match self.local_term_region[lopd_ty].unresolved_term() {
                     LocalTermData::ImplicitSymbol(_) => todo!(),
                     LocalTermData::TypeOntology(_) => {
@@ -187,16 +187,16 @@ impl<'a> ExprTypeEngine<'a> {
             _ => todo!(),
         };
         let ropd_ty = match ropd_ty {
-            LocalTerm::Term(ropd_ty) => todo!(),
+            FluffyTerm::Term(ropd_ty) => todo!(),
             // self.db.intrinsic_ty(ropd_ty).reduced_term(),
-            LocalTerm::Unresolved(_) => todo!(),
+            FluffyTerm::Unresolved(_) => todo!(),
             _ => todo!(),
         };
     }
 
     fn infer_composite_assign_ropd_ty(
         &mut self,
-        lopd_ty: LocalTerm,
+        lopd_ty: FluffyTerm,
         opr: BinaryClosedOpr,
         ropd: ExprIdx,
     ) {

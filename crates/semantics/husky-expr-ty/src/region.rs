@@ -8,12 +8,12 @@ pub struct ExprTypeRegion {
     path: RegionPath,
     expr_ty_infos: ExprMap<ExprTypeInfo>,
     extra_expr_errors: Vec<(ExprIdx, ExprTypeError)>,
-    expr_local_terms: ExprMap<ExprTermResult<LocalTerm>>,
+    expr_local_terms: ExprMap<ExprTermResult<FluffyTerm>>,
     inherited_symbol_terms: InheritedSymbolMap<TermSymbol>,
     inherited_symbol_qualified_tys: InheritedSymbolMap<PlaceTypeIdx>,
     current_symbol_terms: CurrentSymbolMap<TermSymbol>,
     current_symbol_qualified_tys: CurrentSymbolMap<PlaceTypeIdx>,
-    local_term_region: LocalTermRegion,
+    local_term_region: FluffyTermRegion,
     return_ty: Option<Term>,
     self_ty: Option<Term>,
 }
@@ -24,12 +24,12 @@ impl ExprTypeRegion {
         path: RegionPath,
         mut expr_ty_infos: ExprMap<ExprTypeInfo>,
         extra_expr_errors: Vec<(ExprIdx, ExprTypeError)>,
-        expr_local_terms: ExprMap<ExprTermResult<LocalTerm>>,
+        expr_local_terms: ExprMap<ExprTermResult<FluffyTerm>>,
         inherited_symbol_terms: InheritedSymbolMap<TermSymbol>,
         inherited_symbol_qualified_tys: InheritedSymbolMap<PlaceTypeIdx>,
         current_symbol_terms: CurrentSymbolMap<TermSymbol>,
         current_symbol_qualified_tys: CurrentSymbolMap<PlaceTypeIdx>,
-        local_term_region: LocalTermRegion,
+        local_term_region: FluffyTermRegion,
         return_ty: Option<Term>,
         self_ty: Option<Term>,
     ) -> Self {
@@ -63,7 +63,7 @@ impl ExprTypeRegion {
         &self.extra_expr_errors
     }
 
-    pub fn expr_local_terms(&self) -> &ExprMap<ExprTermResult<LocalTerm>> {
+    pub fn expr_local_terms(&self) -> &ExprMap<ExprTermResult<FluffyTerm>> {
         &self.expr_local_terms
     }
 
@@ -75,7 +75,7 @@ impl ExprTypeRegion {
         &self.current_symbol_qualified_tys
     }
 
-    pub fn local_term_region(&self) -> &LocalTermRegion {
+    pub fn local_term_region(&self) -> &FluffyTermRegion {
         &self.local_term_region
     }
 
@@ -107,25 +107,25 @@ pub(crate) fn expr_ty_region(db: &dyn ExprTypeDb, expr_region: ExprRegion) -> Ex
 }
 
 pub(crate) struct PatternExprTypeInfo {
-    ty: PatternExprTypeResult<LocalTerm>,
+    ty: PatternExprTypeResult<FluffyTerm>,
 }
 
 impl PatternExprTypeInfo {
-    pub(crate) fn new(ty: PatternExprTypeResult<LocalTerm>) -> Self {
+    pub(crate) fn new(ty: PatternExprTypeResult<FluffyTerm>) -> Self {
         Self { ty }
     }
 
-    pub(crate) fn ty(&self) -> Result<&LocalTerm, &PatternExprTypeError> {
+    pub(crate) fn ty(&self) -> Result<&FluffyTerm, &PatternExprTypeError> {
         self.ty.as_ref()
     }
 }
 
 pub(crate) struct PatternSymbolTypeInfo {
-    ty: PatternSymbolTypeResult<LocalTerm>,
+    ty: PatternSymbolTypeResult<FluffyTerm>,
 }
 
 impl PatternSymbolTypeInfo {
-    pub(crate) fn new(ty: PatternSymbolTypeResult<LocalTerm>) -> Self {
+    pub(crate) fn new(ty: PatternSymbolTypeResult<FluffyTerm>) -> Self {
         Self { ty }
     }
 }

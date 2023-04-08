@@ -10,15 +10,15 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub struct ExprTypeInfo {
-    ty_result: ExprTypeResult<(ExprDisambiguation, ExprTypeResult<LocalTerm>)>,
-    expectation_rule_idx: OptionLocalTermExpectationIdx,
+    ty_result: ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)>,
+    expectation_rule_idx: OptionFluffyTermExpectationIdx,
     resolve_progress: ExprTypeResolveProgress,
 }
 
 impl ExprTypeInfo {
     pub(crate) fn new(
-        ty_result: ExprTypeResult<(ExprDisambiguation, ExprTypeResult<LocalTerm>)>,
-        expectation_rule_idx: OptionLocalTermExpectationIdx,
+        ty_result: ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)>,
+        expectation_rule_idx: OptionFluffyTermExpectationIdx,
     ) -> Self {
         Self {
             ty_result,
@@ -27,7 +27,7 @@ impl ExprTypeInfo {
         }
     }
 
-    pub(crate) fn finalize(&mut self, unresolved_term_table: &LocalTermRegion) {
+    pub(crate) fn finalize(&mut self, unresolved_term_table: &FluffyTermRegion) {
         let Ok(ty) = self.ty() else { return };
         self.resolve_progress = match self.expectation_rule_idx.into_option() {
             Some(expectation_rule_idx) => unresolved_term_table[expectation_rule_idx]
@@ -35,8 +35,8 @@ impl ExprTypeInfo {
                 .duplicate(expectation_rule_idx)
                 .into(),
             None => match ty {
-                LocalTerm::Term(term) => ExprTypeResolveProgress::Unexpected(Ok(term.into())),
-                LocalTerm::Unresolved(ty) => ExprTypeResolveProgress::Unexpected(Err(
+                FluffyTerm::Term(term) => ExprTypeResolveProgress::Unexpected(Ok(term.into())),
+                FluffyTerm::Unresolved(ty) => ExprTypeResolveProgress::Unexpected(Err(
                     DerivedExprTypeError::UnresolvedLocalTerm.into(),
                 )),
                 _ => todo!(),
@@ -48,7 +48,7 @@ impl ExprTypeInfo {
         &self.resolve_progress
     }
 
-    pub fn ty(&self) -> ExprTypeResultRef<LocalTerm> {
+    pub fn ty(&self) -> ExprTypeResultRef<FluffyTerm> {
         Ok(*self.ty_result.as_ref()?.1.as_ref()?)
     }
 

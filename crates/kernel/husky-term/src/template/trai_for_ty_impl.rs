@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::derive_debug_with_db(db = TermDb, jar = TermJar)]
+#[salsa::derive_debug_with_db(db = TermDb)]
 pub struct TraitForTypeImplTemplate {
     template_parameters: TemplateParameters,
     trai_path: TraitPath,
@@ -12,7 +12,7 @@ pub struct TraitForTypeImplTemplate {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = TermDb, jar = TermJar)]
+#[salsa::derive_debug_with_db(db = TermDb)]
 pub enum TraitForTypeImplTemplateSource {
     ImplBlock(TraitForTypeImplBlock),
     DeriveDecr,

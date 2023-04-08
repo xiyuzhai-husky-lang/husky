@@ -56,7 +56,7 @@ impl<'a> ExprTypeEngine<'a> {
                         .insert_new(current_symbol_idx, symbol)
                 }
             }
-            if let Ok(qualified_ty) = self.new_qualified_ty(current_symbol_idx, signature) {
+            if let Ok(qualified_ty) = self.new_place_ty(current_symbol_idx, signature) {
                 self.current_symbol_qualified_tys
                     .insert_new(current_symbol_idx, qualified_ty)
             }

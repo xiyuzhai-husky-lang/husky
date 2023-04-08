@@ -27,10 +27,10 @@ pub(crate) struct ExprTypeEngine<'a> {
     token_sheet_data: &'a TokenSheetData,
     expr_region_data: &'a ExprRegionData,
     signature_term_region: &'a SignatureRegion,
-    local_term_region: LocalTermRegion,
+    local_term_region: FluffyTermRegion,
     expr_ty_infos: ExprMap<ExprTypeInfo>,
     extra_expr_errors: Vec<(ExprIdx, ExprTypeError)>,
-    expr_terms: ExprMap<ExprTermResult<LocalTerm>>,
+    expr_terms: ExprMap<ExprTermResult<FluffyTerm>>,
     inherited_symbol_terms: InheritedSymbolMap<TermSymbol>,
     inherited_symbol_qualified_tys: InheritedSymbolMap<PlaceTypeIdx>,
     current_symbol_terms: CurrentSymbolMap<TermSymbol>,
@@ -41,15 +41,15 @@ pub(crate) struct ExprTypeEngine<'a> {
     self_ty: Option<Term>,
 }
 
-impl<'a> LocalTermEngine<'a> for ExprTypeEngine<'a> {
+impl<'a> FluffyTermEngine<'a> for ExprTypeEngine<'a> {
     fn db(&self) -> &'a dyn TermDb {
         self.db
     }
-    fn local_term_region(&self) -> &LocalTermRegion {
+    fn fluffy_term_region(&self) -> &FluffyTermRegion {
         &self.local_term_region
     }
 
-    fn local_term_region_mut(&mut self) -> &mut LocalTermRegion {
+    fn fluffy_term_region_mut(&mut self) -> &mut FluffyTermRegion {
         &mut self.local_term_region
     }
 

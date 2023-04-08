@@ -5,7 +5,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: ExprIdx,
         current_symbol_idx: CurrentSymbolIdx,
-    ) -> ExprTypeResult<LocalTerm> {
+    ) -> ExprTypeResult<FluffyTerm> {
         Ok(self
             .current_symbol_qualified_tys
             .get(current_symbol_idx)

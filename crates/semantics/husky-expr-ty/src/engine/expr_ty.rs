@@ -26,7 +26,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: ExprIdx,
         expr_ty_expectation: E,
-    ) -> Option<LocalTerm> {
+    ) -> Option<FluffyTerm> {
         self.infer_new_expr_ty_aux(expr_idx, expr_ty_expectation);
         self.expr_ty_infos[expr_idx].ty().ok()
     }
@@ -50,7 +50,7 @@ impl<'a> ExprTypeEngine<'a> {
     {
         let expectation_idx = self.infer_new_expr_ty_aux(expr_idx, expr_ty_expectation);
         self.local_term_region
-            .resolve_as_much_as_possible(self.db(), LocalTermResolveLevel::Weak);
+            .resolve_as_much_as_possible(self.db(), FluffyTermResolveLevel::Weak);
         let outcome = match expectation_idx.into_option() {
             Some(expectation_idx) => self.local_term_region[expectation_idx]
                 .resolve_progress()
@@ -66,7 +66,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: ExprIdx,
         expr_ty_expectation: E,
-    ) -> OptionLocalTermExpectationIdx {
+    ) -> OptionFluffyTermExpectationIdx {
         let ty_result = self.calc_expr_ty(expr_idx, &expr_ty_expectation);
         let expectation_idx = match ty_result {
             Ok((_, Ok(ty))) => {
@@ -77,7 +77,7 @@ impl<'a> ExprTypeEngine<'a> {
         };
         self.save_new_expr_ty(expr_idx, ExprTypeInfo::new(ty_result, expectation_idx));
         self.local_term_region
-            .resolve_as_much_as_possible(self.db(), LocalTermResolveLevel::Weak);
+            .resolve_as_much_as_possible(self.db(), FluffyTermResolveLevel::Weak);
         expectation_idx
     }
 
@@ -89,7 +89,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: ExprIdx,
         expr_ty_expectation: &impl ExpectLocalTerm,
-    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<LocalTerm>)> {
+    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         match self.expr_region_data[expr_idx] {
             Expr::Literal(literal_token_idx) => Ok((
                 ExprDisambiguation::Trivial,
@@ -237,7 +237,7 @@ impl<'a> ExprTypeEngine<'a> {
             Expr::List { items, .. } => {
                 Ok(
                     match expr_ty_expectation
-                        .disambiguate_ty_path(self.db(), self.local_term_region.unresolved_terms())
+                        .disambiguate_ty_path(self.db(), self.local_term_region.porous_terms())
                     {
                         TypePathDisambiguation::Ontology => {
                             // ad hoc, assume universe is 1
@@ -257,14 +257,14 @@ impl<'a> ExprTypeEngine<'a> {
                             }
                         }
                         TypePathDisambiguation::Constructor => {
-                            let element_ty: LocalTerm = match expr_ty_expectation
-                                .destination_pattern(
+                            let element_ty: FluffyTerm = match expr_ty_expectation
+                                .destination_term_data(
                                     self.db(),
-                                    self.local_term_region.unresolved_terms(),
+                                    self.local_term_region.porous_terms(),
                                 ) {
                                 Some(ty_pattern) => match ty_pattern {
-                                    LocalTermPattern::Literal(_) => todo!(),
-                                    LocalTermPattern::TypeOntology {
+                                    FluffyTermData::Literal(_) => todo!(),
+                                    FluffyTermData::TypeOntology {
                                         path,
                                         refined_path,
                                         argument_tys: arguments,
@@ -276,16 +276,16 @@ impl<'a> ExprTypeEngine<'a> {
                                         Right(PreludeTypePath::Array) => todo!(),
                                         _ => todo!(),
                                     },
-                                    LocalTermPattern::Curry {
+                                    FluffyTermData::Curry {
                                         curry_kind,
                                         variance,
                                         parameter_variable: parameter_symbol,
                                         parameter_ty,
                                         return_ty,
                                     } => todo!(),
-                                    LocalTermPattern::ImplicitSymbol(_, _) => todo!(),
-                                    LocalTermPattern::Category(_) => todo!(),
-                                    LocalTermPattern::Ritchie {
+                                    FluffyTermData::Hole(_, _) => todo!(),
+                                    FluffyTermData::Category(_) => todo!(),
+                                    FluffyTermData::Ritchie {
                                         ritchie_kind,
                                         parameter_contracted_tys,
                                         return_ty,
@@ -307,7 +307,7 @@ impl<'a> ExprTypeEngine<'a> {
                             }
                             (
                                 ListExprDisambiguation::NewList.into(),
-                                LocalTerm::new_application(
+                                FluffyTerm::new_application(
                                     self.db,
                                     &mut self.local_term_region,
                                     expr_idx,
@@ -334,9 +334,9 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         path: Option<EntityPath>,
         expr_ty_expectation: &impl ExpectLocalTerm,
-    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<LocalTerm>)> {
+    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         let disambiguation = expr_ty_expectation
-            .disambiguate_ty_path(self.db(), self.local_term_region.unresolved_terms());
+            .disambiguate_ty_path(self.db(), self.local_term_region.porous_terms());
         Ok((
             disambiguation.into(),
             Ok(path
@@ -353,7 +353,7 @@ impl<'a> ExprTypeEngine<'a> {
         expr_ty_expectation: &impl ExpectLocalTerm,
         implicit_arguments: &Option<ImplicitArgumentList>,
         items: &idx_arena::ArenaIdxRange<Expr>,
-    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<LocalTerm>)> {
+    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         let Some(expectation_ok) = self.infer_new_expr_ty_for_outcome(
             function,
             ExpectEqsFunctionType::new(expr_ty_expectation.final_destination(self)),
@@ -392,7 +392,7 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: ExprIdx,
         owner: ExprIdx,
         indices: ExprIdxRange,
-    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<LocalTerm>)> {
+    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         let Some(owner_ty) = self.infer_new_expr_ty(
             owner,
             ExpectAnyOriginal,
@@ -410,7 +410,7 @@ impl<'a> ExprTypeEngine<'a> {
         function: ExprIdx,
         argument: ExprIdx,
         final_destination: FinalDestination,
-    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<LocalTerm>)> {
+    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         Ok((
             ExprDisambiguation::Trivial,
             self.calc_explicit_application_expr_ty(function, argument, final_destination),

@@ -10,7 +10,7 @@ pub(crate) struct TemplateParameters {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = TermDb, jar = TermJar)]
+#[salsa::derive_debug_with_db(db = TermDb)]
 pub(crate) struct TemplateParameter {
     symbol: TermSymbol,
     /// variable turned from the symbol
