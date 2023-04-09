@@ -24,14 +24,13 @@ pub trait FluffyTermEngine<'a> {
         symbol_idx: impl IntoLocalSymbolIdx,
         signature: SymbolSignature,
     ) -> TermResult<PlaceType> {
-        todo!()
-        // let local_symbol_idx = symbol_idx.into_local_symbol_idx(self.expr_region_data());
-        // let place = match signature.modifier() {
-        //     SymbolModifier::Pure => todo!(),
-        //     SymbolModifier::Mut => todo!(),
-        //     SymbolModifier::Const => Place::Const, // todo: handle variance
-        // };
-        // let ty = Term::ty_from_raw(self.db(), signature.ty()?)?;
-        // Ok(PlaceType::new(self.fluffy_term_region_mut(), place, ty))
+        let local_symbol_idx = symbol_idx.into_local_symbol_idx(self.expr_region_data());
+        let place = match signature.modifier() {
+            SymbolModifier::Pure => todo!(),
+            SymbolModifier::Mut => todo!(),
+            SymbolModifier::Const => Place::Const, // todo: handle variance
+        };
+        let ty = Term::ty_from_raw(self.db(), signature.ty()?)?;
+        Ok(PlaceType::new(self.fluffy_term_region_mut(), place, ty))
     }
 }

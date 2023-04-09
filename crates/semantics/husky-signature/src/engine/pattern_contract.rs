@@ -1,3 +1,5 @@
+use husky_token::PatternSymbolModifierKeywordGroup;
+
 use super::*;
 
 impl<'a> RawTermEngine<'a> {
@@ -8,10 +10,13 @@ impl<'a> RawTermEngine<'a> {
                 PatternExpr::Ident {
                     modifier_keyword_group,
                     ..
-                } => {
-                    todo!()
-                    // (*modifier).into()
-                }
+                } => match modifier_keyword_group {
+                    Some(modifier_keyword_group) => match modifier_keyword_group {
+                        PatternSymbolModifierKeywordGroup::Mut(_) => todo!(),
+                        PatternSymbolModifierKeywordGroup::RefMut(_, _) => todo!(),
+                    },
+                    None => PatternContract::Pure,
+                },
                 PatternExpr::Entity(_) => todo!(),
                 PatternExpr::Tuple { name, fields } => todo!(),
                 PatternExpr::Struct { name, fields } => todo!(),

@@ -25,6 +25,18 @@ impl FluffyTermRegion {
         self.terms.hollow_terms()
     }
 
+    pub fn solid_terms(&self) -> &SolidTerms {
+        self.terms.solid_terms()
+    }
+
+    pub fn hollow_terms_mut(&mut self) -> &HollowTerms {
+        self.terms.hollow_terms_mut()
+    }
+
+    pub fn solid_terms_mut(&mut self) -> &mut SolidTerms {
+        self.terms.solid_terms_mut()
+    }
+
     pub(crate) fn expectations_mut(&mut self) -> &mut FluffyTermExpectations {
         &mut self.expectations
     }

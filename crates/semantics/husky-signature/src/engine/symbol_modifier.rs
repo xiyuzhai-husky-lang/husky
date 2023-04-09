@@ -1,3 +1,5 @@
+use husky_token::PatternSymbolModifierKeywordGroup;
+
 use super::*;
 
 impl<'a> RawTermEngine<'a> {
@@ -18,8 +20,10 @@ impl<'a> RawTermEngine<'a> {
                 } => SymbolModifier::Const,
                 CurrentSymbolVariant::ExplicitParameter {
                     ident,
-                    pattern_symbol,
-                } => todo!(),
+                    pattern_symbol_idx,
+                } => self
+                    .raw_term_symbol_region
+                    .pattern_symbol_modifier(*pattern_symbol_idx),
                 CurrentSymbolVariant::LetVariable {
                     ident,
                     pattern_symbol_idx,
@@ -32,30 +36,31 @@ impl<'a> RawTermEngine<'a> {
     }
 
     fn infer_pattern_symbol_modifiers(&mut self) {
-        for (idx, pattern) in self.expr_region_data.pattern_expr_arena().indexed_iter() {
-            let modifier = match pattern {
-                PatternExpr::Literal(_) => todo!(),
-                PatternExpr::Ident {
-                    modifier_keyword_group: modifier,
-                    ..
-                } => *modifier,
-                PatternExpr::Entity(_) => todo!(),
-                PatternExpr::Tuple { name, fields } => todo!(),
-                PatternExpr::Struct { name, fields } => todo!(),
-                PatternExpr::OneOf { options } => todo!(),
-                PatternExpr::Binding {
-                    ident_token,
-                    asperand_token,
-                    src,
-                } => todo!(),
-                PatternExpr::Range {
-                    start,
-                    dot_dot_token,
-                    end,
-                } => todo!(),
+        for (idx, symbol) in self
+            .expr_region_data
+            .pattern_expr_region()
+            .pattern_symbol_arena()
+            .indexed_iter()
+        {
+            let modifier = match symbol {
+                PatternSymbol::Atom(expr_idx) => {
+                    match self.expr_region_data.pattern_expr_arena()[expr_idx] {
+                        PatternExpr::Ident {
+                            modifier_keyword_group,
+                            ident_token,
+                        } => match modifier_keyword_group {
+                            Some(modifier_keyword_group) => match modifier_keyword_group {
+                                PatternSymbolModifierKeywordGroup::Mut(_) => todo!(),
+                                PatternSymbolModifierKeywordGroup::RefMut(_, _) => todo!(),
+                            },
+                            None => SymbolModifier::Pure,
+                        },
+                        _ => unreachable!(),
+                    }
+                }
             };
-            todo!()
-            // self.pattern_contracts.insert_new(idx, modifier);
+            self.raw_term_symbol_region
+                .add_new_pattern_symbol_modifier(idx, modifier)
         }
     }
 }

@@ -1,15 +1,15 @@
 mod hollow;
-mod sealed;
+mod solid;
 
 pub use self::hollow::*;
-pub use self::sealed::*;
+pub use self::solid::*;
 
 use super::*;
 
 #[derive(Debug, Default, PartialEq, Eq)]
 pub struct FluffyTerms {
     hollow_terms: HollowTerms,
-    sealed_terms: SolidTerms,
+    solid_terms: SolidTerms,
 }
 
 impl FluffyTerms {
@@ -26,7 +26,15 @@ impl FluffyTerms {
         &self.hollow_terms
     }
 
-    pub fn sealed_terms(&self) -> &SolidTerms {
-        &self.sealed_terms
+    pub fn solid_terms(&self) -> &SolidTerms {
+        &self.solid_terms
+    }
+
+    pub fn hollow_terms_mut(&mut self) -> &mut HollowTerms {
+        &mut self.hollow_terms
+    }
+
+    pub fn solid_terms_mut(&mut self) -> &mut SolidTerms {
+        &mut self.solid_terms
     }
 }

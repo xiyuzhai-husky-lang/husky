@@ -1,5 +1,6 @@
 use husky_expr::{
-    CurrentSymbolMap, CurrentSymbolOrderedMap, InheritedSymbolOrderedMap, PatternSymbolOrderedMap,
+    CurrentSymbolMap, CurrentSymbolOrderedMap, InheritedSymbolOrderedMap, PatternSymbolIdx,
+    PatternSymbolOrderedMap,
 };
 
 use super::*;
@@ -39,6 +40,15 @@ impl SymbolSignature {
 
 impl SymbolRawTermRegion {
     #[inline(always)]
+    pub(crate) fn add_new_pattern_symbol_modifier(
+        &mut self,
+        idx: PatternSymbolIdx,
+        modifier: SymbolModifier,
+    ) {
+        self.pattern_symbol_modifiers.insert_next(idx, modifier)
+    }
+
+    #[inline(always)]
     pub(crate) fn add_new_implicit_parameter_symbol_signature(
         &mut self,
         db: &dyn SignatureDb,
@@ -46,7 +56,7 @@ impl SymbolRawTermRegion {
         ty: RawTermSymbolTypeResult<RawTerm>,
     ) {
         let symbol = self.registry.new_symbol(db, ty);
-        self.add_new_symbol_signature(
+        self.add_new_current_symbol_signature(
             db,
             idx,
             SymbolSignature {
@@ -66,11 +76,11 @@ impl SymbolRawTermRegion {
     ) {
         let modifier = self.current_symbol_modifiers[current_symbol];
         let symbol = match modifier {
-            SymbolModifier::Pure => todo!(),
-            SymbolModifier::Mut => todo!(),
+            SymbolModifier::Pure => None,
+            SymbolModifier::Mut => None,
             SymbolModifier::Const => todo!(),
         };
-        self.add_new_symbol_signature(
+        self.add_new_current_symbol_signature(
             db,
             current_symbol,
             SymbolSignature {
@@ -82,7 +92,7 @@ impl SymbolRawTermRegion {
     }
 
     #[inline(always)]
-    fn add_new_symbol_signature(
+    fn add_new_current_symbol_signature(
         &mut self,
         db: &dyn SignatureDb,
         idx: CurrentSymbolIdx,
@@ -197,8 +207,7 @@ impl SymbolRawTermRegion {
         &self,
         inherited_symbol_idx: InheritedSymbolIdx,
     ) -> SymbolSignature {
-        todo!()
-        // self.inherited_symbol_signatures[inherited_symbol_idx]
+        self.inherited_symbol_signatures[inherited_symbol_idx]
     }
 
     pub fn current_symbol_signature(
@@ -208,5 +217,12 @@ impl SymbolRawTermRegion {
         self.current_symbol_signatures
             .get(current_symbol_idx.raw())
             .copied()
+    }
+
+    pub(crate) fn pattern_symbol_modifier(
+        &self,
+        pattern_symbol_idx: PatternSymbolIdx,
+    ) -> SymbolModifier {
+        self.pattern_symbol_modifiers[pattern_symbol_idx]
     }
 }
