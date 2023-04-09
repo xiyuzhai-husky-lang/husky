@@ -32,44 +32,15 @@ impl<'a> RawTermEngine<'a> {
         }
     }
 
-    fn infer_new_pattern_symbol_ty(&mut self, pattern_symbol: PatternSymbolIdx) {
-        let modifier = self.calc_new_pattern_symbol_modifier(pattern_symbol);
-        let base_ty = self.calc_new_pattern_symbol_base_ty(pattern_symbol);
+    fn infer_new_pattern_symbol_ty(&mut self, pattern_symbol_idx: PatternSymbolIdx) {
+        let modifier = self
+            .raw_term_symbol_region
+            .pattern_symbol_modifier(pattern_symbol_idx);
+        let base_ty = self.calc_new_pattern_symbol_base_ty(pattern_symbol_idx);
         self.pattern_symbol_ty_infos.insert_new(
-            pattern_symbol,
+            pattern_symbol_idx,
             PatternSymbolTypeInfo::new(modifier, base_ty),
         )
-    }
-
-    fn calc_new_pattern_symbol_modifier(
-        &mut self,
-        pattern_symbol: PatternSymbolIdx,
-    ) -> SymbolModifier {
-        match self.expr_region_data[pattern_symbol] {
-            PatternSymbol::Atom(pattern_expr) => match self.expr_region_data[pattern_expr] {
-                PatternExpr::Literal(_) => todo!(),
-                PatternExpr::Ident {
-                    modifier_keyword_group,
-                    ident_token,
-                } => {
-                    todo!()
-                }
-                PatternExpr::Entity(_) => todo!(),
-                PatternExpr::Tuple { name, fields } => todo!(),
-                PatternExpr::Struct { name, fields } => todo!(),
-                PatternExpr::OneOf { options } => todo!(),
-                PatternExpr::Binding {
-                    ident_token,
-                    asperand_token,
-                    src,
-                } => todo!(),
-                PatternExpr::Range {
-                    start,
-                    dot_dot_token,
-                    end,
-                } => todo!(),
-            }, // self.pattern_modifiers[pattern_expr],
-        }
     }
 
     fn calc_new_pattern_symbol_base_ty(&mut self, pattern_symbol: PatternSymbolIdx) -> RawTerm {

@@ -59,8 +59,7 @@ impl<'a> ExprTypeEngine<'a> {
                 implicit_parameter_variant,
             } => todo!(),
             CurrentSymbolVariant::ExplicitParameter {
-                pattern_symbol: pattern_symbol_idx,
-                ..
+                pattern_symbol_idx, ..
             } => todo!(),
             CurrentSymbolVariant::LetVariable {
                 pattern_symbol_idx, ..

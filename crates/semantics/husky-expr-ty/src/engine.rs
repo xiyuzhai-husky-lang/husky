@@ -43,8 +43,7 @@ pub(crate) struct ExprTypeEngine<'a> {
 
 impl<'a> FluffyTermEngine<'a> for ExprTypeEngine<'a> {
     fn db(&self) -> &'a dyn FluffyTermDb {
-        todo!()
-        // self.db
+        self.db
     }
     fn fluffy_term_region(&self) -> &FluffyTermRegion {
         &self.fluffy_term_region

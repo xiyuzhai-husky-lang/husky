@@ -150,7 +150,7 @@ impl<'a> RawTermEngine<'a> {
         match self.expr_region_data.symbol_region()[current_symbol].variant() {
             CurrentSymbolVariant::ExplicitParameter {
                 ident,
-                pattern_symbol,
+                pattern_symbol_idx: pattern_symbol,
             } => {
                 let base_ty = self.pattern_symbol_ty_infos[pattern_symbol].base_ty();
                 self.raw_term_symbol_region

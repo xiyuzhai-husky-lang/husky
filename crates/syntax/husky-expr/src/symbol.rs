@@ -144,7 +144,7 @@ pub enum CurrentSymbolVariant {
     },
     ExplicitParameter {
         ident: Ident,
-        pattern_symbol: PatternSymbolIdx,
+        pattern_symbol_idx: PatternSymbolIdx,
     },
     LetVariable {
         ident: Ident,
@@ -190,8 +190,7 @@ impl CurrentSymbolVariant {
                 implicit_parameter_kind: implicit_parameter_variant.kind(),
             },
             CurrentSymbolVariant::ExplicitParameter {
-                pattern_symbol: pattern_symbol_idx,
-                ..
+                pattern_symbol_idx, ..
             } => CurrentSymbolKind::Parameter {
                 pattern_symbol_idx: *pattern_symbol_idx,
             },
