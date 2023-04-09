@@ -15,29 +15,30 @@ impl<'a> ExprTypeEngine<'a> {
         ) else {
             Err(DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred)?
         };
-        let lopd_ty_unravelled = lopd_ty.unravel_borrow(self);
-        match lopd_ty_unravelled.pattern(self) {
-            FluffyTermData::TypeOntology {
-                refined_path: Right(PreludeTypePath::Num(_)),
-                ..
-            }
-            | FluffyTermData::Hole(
-                ImplicitSymbolKind::UnspecifiedIntegerType
-                | ImplicitSymbolKind::UnspecifiedFloatType,
-                _,
-            ) => {
-                self.infer_new_expr_ty(
-                    ropd,
-                    ExpectImplicitlyConvertible::new_ad_hoc(lopd_ty_unravelled),
-                );
-                Ok(lopd_ty_unravelled)
-            }
-            FluffyTermData::TypeOntology { .. }
-            | FluffyTermData::Hole(_, _)
-            | FluffyTermData::Literal(_)
-            | FluffyTermData::Curry { .. }
-            | FluffyTermData::Category(_) => todo!(),
-            FluffyTermData::Ritchie { .. } => todo!(),
-        }
+        todo!()
+        // let lopd_ty_unravelled = lopd_ty.unravel_borrow(self);
+        // match lopd_ty_unravelled.pattern(self) {
+        //     FluffyTermData::TypeOntology {
+        //         refined_path: Right(PreludeTypePath::Num(_)),
+        //         ..
+        //     }
+        //     | FluffyTermData::Hole(
+        //         HoleKind::UnspecifiedIntegerType
+        //         | HoleKind::UnspecifiedFloatType,
+        //         _,
+        //     ) => {
+        //         self.infer_new_expr_ty(
+        //             ropd,
+        //             ExpectImplicitlyConvertible::new_ad_hoc(lopd_ty_unravelled),
+        //         );
+        //         Ok(lopd_ty_unravelled)
+        //     }
+        //     FluffyTermData::TypeOntology { .. }
+        //     | FluffyTermData::Hole(_, _)
+        //     | FluffyTermData::Literal(_)
+        //     | FluffyTermData::Curry { .. }
+        //     | FluffyTermData::Category(_) => todo!(),
+        //     FluffyTermData::Ritchie { .. } => todo!(),
+        // }
     }
 }

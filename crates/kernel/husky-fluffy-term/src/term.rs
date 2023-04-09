@@ -1,7 +1,10 @@
 mod application;
+mod hole;
 mod place_ty;
 mod ritchie;
 
+pub use self::application::*;
+pub use self::hole::*;
 pub use self::place_ty::*;
 pub use self::ritchie::*;
 

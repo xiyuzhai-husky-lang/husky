@@ -16,13 +16,7 @@ impl<'a> ExprTypeEngine<'a> {
         let argument = self
             .infer_new_expr_term(argument)
             .ok_or(DerivedExprTermError::ExplicitApplicationArgumentTermNotInferred)?;
-        FluffyTerm::new_application(
-            self.db,
-            &mut self.fluffy_term_region,
-            expr_idx,
-            function,
-            argument,
-        )
-        .map_err(|e| DerivedExprTermError::ExplicitApplicationTerm(e).into())
+        FluffyTerm::new_application(self, expr_idx, function, argument)
+            .map_err(|e| DerivedExprTermError::ExplicitApplicationTerm(e).into())
     }
 }

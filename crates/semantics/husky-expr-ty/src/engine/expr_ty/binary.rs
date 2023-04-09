@@ -116,9 +116,10 @@ impl<'a> ExprTypeEngine<'a> {
         lopd: ExprIdx,
         ropd: ExprIdx,
     ) -> Result<FluffyTerm, ExprTypeError> {
-        let expr_eval_lifetime = self
-            .fluffy_term_region
-            .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
+        let expr_eval_lifetime = todo!();
+        // self
+        //     .fluffy_term_region
+        //     .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
         match self.infer_new_expr_ty_for_outcome(lopd, ExpectAnyOriginal) {
             Some(_) => todo!(),
             None => {
@@ -135,16 +136,17 @@ impl<'a> ExprTypeEngine<'a> {
         opr: BinaryClosedOpr,
         ropd: ExprIdx,
     ) -> Result<FluffyTerm, ExprTypeError> {
-        let expr_eval_lifetime = self
-            .fluffy_term_region
-            .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
-        match self.infer_new_expr_ty_for_outcome(lopd, ExpectAnyOriginal) {
-            Some(_) => todo!(),
-            None => {
-                self.infer_new_expr_ty_discarded(ropd, ExpectAnyDerived);
-            }
-        };
-        Ok(self.term_menu.unit().into())
+        todo!()
+        // let expr_eval_lifetime = self
+        //     .fluffy_term_region
+        //     .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
+        // match self.infer_new_expr_ty_for_outcome(lopd, ExpectAnyOriginal) {
+        //     Some(_) => todo!(),
+        //     None => {
+        //         self.infer_new_expr_ty_discarded(ropd, ExpectAnyDerived);
+        //     }
+        // };
+        // Ok(self.term_menu.unit().into())
     }
 
     fn calc_binary_assign_shift_expr_ty(
@@ -154,44 +156,46 @@ impl<'a> ExprTypeEngine<'a> {
         opr: BinaryShiftOpr,
         ropd: ExprIdx,
     ) -> Result<FluffyTerm, ExprTypeError> {
-        let expr_eval_lifetime = self
-            .fluffy_term_region
-            .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
-        match self.infer_new_expr_ty_for_outcome(lopd, ExpectAnyOriginal) {
-            Some(_) => todo!(),
-            None => {
-                self.infer_new_expr_ty_discarded(ropd, ExpectAnyDerived);
-            }
-        };
-        Ok(self.term_menu.unit().into())
+        todo!()
+        // let expr_eval_lifetime = self
+        //     .fluffy_term_region
+        //     .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
+        // match self.infer_new_expr_ty_for_outcome(lopd, ExpectAnyOriginal) {
+        //     Some(_) => todo!(),
+        //     None => {
+        //         self.infer_new_expr_ty_discarded(ropd, ExpectAnyDerived);
+        //     }
+        // };
+        // Ok(self.term_menu.unit().into())
     }
 
     fn infer_basic_assign_ropd_ty(&mut self, lopd_ty: FluffyTerm, ropd: ExprIdx) {
         let ropd_ty = self.infer_new_expr_ty(ropd, ExpectAnyOriginal);
         let Some(ropd_ty) = ropd_ty else { return };
-        let lopd_ty = match lopd_ty {
-            FluffyTerm::Term(lopd_ty) => match lopd_ty {
-                Term::Application(lopd_ty) => todo!(),
-                _ => todo!(),
-            },
-            FluffyTerm::Unresolved(lopd_ty) => {
-                match self.fluffy_term_region[lopd_ty].unresolved_term() {
-                    FluffyTermData::ImplicitSymbol(_) => todo!(),
-                    FluffyTermData::TypeOntology(_) => {
-                        todo!()
-                    }
-                    FluffyTermData::Ritchie(_) => todo!(),
-                    FluffyTermData::PlaceType { .. } => todo!(),
-                }
-            }
-            _ => todo!(),
-        };
-        let ropd_ty = match ropd_ty {
-            FluffyTerm::Term(ropd_ty) => todo!(),
-            // self.db.intrinsic_ty(ropd_ty).reduced_term(),
-            FluffyTerm::Unresolved(_) => todo!(),
-            _ => todo!(),
-        };
+        todo!()
+        // let lopd_ty = match lopd_ty {
+        //     FluffyTerm::Term(lopd_ty) => match lopd_ty {
+        //         Term::Application(lopd_ty) => todo!(),
+        //         _ => todo!(),
+        //     },
+        //     FluffyTerm::Unresolved(lopd_ty) => {
+        //         match self.fluffy_term_region[lopd_ty].unresolved_term() {
+        //             FluffyTermData::ImplicitSymbol(_) => todo!(),
+        //             FluffyTermData::TypeOntology(_) => {
+        //                 todo!()
+        //             }
+        //             FluffyTermData::Ritchie(_) => todo!(),
+        //             FluffyTermData::PlaceType { .. } => todo!(),
+        //         }
+        //     }
+        //     _ => todo!(),
+        // };
+        // let ropd_ty = match ropd_ty {
+        //     FluffyTerm::Term(ropd_ty) => todo!(),
+        //     // self.db.intrinsic_ty(ropd_ty).reduced_term(),
+        //     FluffyTerm::Unresolved(_) => todo!(),
+        //     _ => todo!(),
+        // };
     }
 
     fn infer_composite_assign_ropd_ty(

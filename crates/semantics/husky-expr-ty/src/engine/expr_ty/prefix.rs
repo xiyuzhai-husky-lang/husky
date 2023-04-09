@@ -10,31 +10,32 @@ impl<'a> ExprTypeEngine<'a> {
         match opr {
             PrefixOpr::Minus => {
                 let opd_ty = self.infer_new_expr_ty(opd, ExpectAnyOriginal);
-                match opd_ty {
-                    Some(opd_ty) => match opd_ty {
-                        FluffyTerm::Term(_) => todo!(),
-                        FluffyTerm::Unresolved(unresolved_term) => {
-                            match self.fluffy_term_region[unresolved_term].unresolved_term() {
-                                FluffyTermData::ImplicitSymbol(implicit_symbol) => {
-                                    match implicit_symbol.variant() {
-                                        ImplicitSymbolVariant::ExprEvalLifetime => todo!(),
-                                        ImplicitSymbolVariant::UnspecifiedIntegerType
-                                        | ImplicitSymbolVariant::UnspecifiedFloatType => {
-                                            Ok((ExprDisambiguation::Trivial, Ok(opd_ty)))
-                                        }
-                                        ImplicitSymbolVariant::ImplicitType => todo!(),
-                                        ImplicitSymbolVariant::ImplicitLifetime => todo!(),
-                                    }
-                                }
-                                FluffyTermData::TypeOntology(_) => todo!(),
-                                FluffyTermData::Ritchie(_) => todo!(),
-                                FluffyTermData::PlaceType { .. } => todo!(),
-                            }
-                        }
-                        _ => todo!(),
-                    },
-                    None => Err(DerivedExprTypeError::PrefixOperandTypeNotInferred.into()),
-                }
+                todo!()
+                // match opd_ty {
+                //     Some(opd_ty) => match opd_ty {
+                //         FluffyTerm::Term(_) => todo!(),
+                //         FluffyTerm::Unresolved(unresolved_term) => {
+                //             match self.fluffy_term_region[unresolved_term].unresolved_term() {
+                //                 FluffyTermData::ImplicitSymbol(implicit_symbol) => {
+                //                     match implicit_symbol.variant() {
+                //                         ImplicitSymbolVariant::ExprEvalLifetime => todo!(),
+                //                         ImplicitSymbolVariant::UnspecifiedIntegerType
+                //                         | ImplicitSymbolVariant::UnspecifiedFloatType => {
+                //                             Ok((ExprDisambiguation::Trivial, Ok(opd_ty)))
+                //                         }
+                //                         ImplicitSymbolVariant::ImplicitType => todo!(),
+                //                         ImplicitSymbolVariant::ImplicitLifetime => todo!(),
+                //                     }
+                //                 }
+                //                 FluffyTermData::TypeOntology(_) => todo!(),
+                //                 FluffyTermData::Ritchie(_) => todo!(),
+                //                 FluffyTermData::PlaceType { .. } => todo!(),
+                //             }
+                //         }
+                //         _ => todo!(),
+                //     },
+                //     None => Err(DerivedExprTypeError::PrefixOperandTypeNotInferred.into()),
+                // }
             }
             PrefixOpr::Not => {
                 self.infer_new_expr_ty_discarded(opd, self.expect_implicitly_convertible_to_bool());
@@ -83,7 +84,7 @@ impl<'a> ExprTypeEngine<'a> {
         ) else {
             Err(DerivedExprTypeError::BitNotOperandTypeNotInferred)?
         };
-        match ty.pattern(self) {
+        match ty.data(self) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
                 path,

@@ -15,40 +15,40 @@ impl<'a> ExprTypeEngine<'a> {
         ) else {
             Err(DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred)?
         };
-        let lopd_ty_unravelled = lopd_ty.unravel_borrow(self);
-        match lopd_ty_unravelled.data(self) {
-            FluffyTermData::TypeOntology {
-                refined_path: Right(PreludeTypePath::Num(_)),
-                ..
-            }
-            | FluffyTermData::Hole(
-                ImplicitSymbolKind::UnspecifiedIntegerType
-                | ImplicitSymbolKind::UnspecifiedFloatType,
-                _,
-            ) => {
-                if let Some(ropd_ty) = self.infer_new_expr_ty(ropd, ExpectAnyOriginal) {
-                    match ropd_ty.data(self) {
-                        FluffyTermData::Literal(_) => todo!(),
-                        FluffyTermData::TypeOntology {
-                            refined_path: Right(PreludeTypePath::Num(PreludeNumTypePath::Int(_))),
-                            ..
-                        }
-                        | FluffyTermData::Hole(ImplicitSymbolKind::UnspecifiedIntegerType, _) => {}
-                        FluffyTermData::TypeOntology { .. } => todo!(),
-                        FluffyTermData::Curry { .. } => todo!(),
-                        FluffyTermData::Hole(_, _) => todo!(),
-                        FluffyTermData::Category(_) => todo!(),
-                        FluffyTermData::Ritchie { .. } => todo!(),
-                    }
-                }
-                Ok(lopd_ty_unravelled)
-            }
-            FluffyTermData::TypeOntology { .. }
-            | FluffyTermData::Hole(_, _)
-            | FluffyTermData::Literal(_)
-            | FluffyTermData::Curry { .. }
-            | FluffyTermData::Category(_) => todo!(),
-            FluffyTermData::Ritchie { .. } => todo!(),
-        }
+        todo!()
+        // let lopd_ty_unravelled = lopd_ty.unravel_borrow(self);
+        // match lopd_ty_unravelled.data(self) {
+        //     FluffyTermData::TypeOntology {
+        //         refined_path: Right(PreludeTypePath::Num(_)),
+        //         ..
+        //     }
+        //     | FluffyTermData::Hole(
+        //         HoleKind::UnspecifiedIntegerType | HoleKind::UnspecifiedFloatType,
+        //         _,
+        //     ) => {
+        //         if let Some(ropd_ty) = self.infer_new_expr_ty(ropd, ExpectAnyOriginal) {
+        //             match ropd_ty.data(self) {
+        //                 FluffyTermData::Literal(_) => todo!(),
+        //                 FluffyTermData::TypeOntology {
+        //                     refined_path: Right(PreludeTypePath::Num(PreludeNumTypePath::Int(_))),
+        //                     ..
+        //                 }
+        //                 | FluffyTermData::Hole(HoleKind::UnspecifiedIntegerType, _) => {}
+        //                 FluffyTermData::TypeOntology { .. } => todo!(),
+        //                 FluffyTermData::Curry { .. } => todo!(),
+        //                 FluffyTermData::Hole(_, _) => todo!(),
+        //                 FluffyTermData::Category(_) => todo!(),
+        //                 FluffyTermData::Ritchie { .. } => todo!(),
+        //             }
+        //         }
+        //         Ok(lopd_ty_unravelled)
+        //     }
+        //     FluffyTermData::TypeOntology { .. }
+        //     | FluffyTermData::Hole(_, _)
+        //     | FluffyTermData::Literal(_)
+        //     | FluffyTermData::Curry { .. }
+        //     | FluffyTermData::Category(_) => todo!(),
+        //     FluffyTermData::Ritchie { .. } => todo!(),
+        // }
     }
 }

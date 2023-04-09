@@ -19,7 +19,7 @@ impl<'a> ExprTypeEngine<'a> {
                         // match in the order of most frequent to least frequent
                         Ok(match expectation
                             .destination()
-                            .map(|destination| destination.pattern(self))
+                            .map(|destination| destination.data(self))
                         {
                             Some(FluffyTermData::TypeOntology {
                                 refined_path:
@@ -45,18 +45,18 @@ impl<'a> ExprTypeEngine<'a> {
                                 PreludeIntTypePath::R128 => self.term_menu.r128_ty_ontology(),
                                 PreludeIntTypePath::RSize => self.term_menu.rsize_ty_ontology(),
                             },
-                            Some(FluffyTermData::Hole(
-                                ImplicitSymbolKind::UnspecifiedIntegerType,
-                                idx,
-                            )) => return Ok(idx.into()),
+                            Some(FluffyTermData::Hole(HoleKind::UnspecifiedIntegerType, term)) => {
+                                return Ok((*term).into())
+                            }
                             _ => {
-                                return Ok(self
-                                    .fluffy_term_region
-                                    .new_implicit_symbol(
-                                        expr_idx,
-                                        ImplicitSymbolVariant::UnspecifiedIntegerType,
-                                    )
-                                    .into())
+                                todo!()
+                                // return Ok(self
+                                //     .fluffy_term_region
+                                //     .new_implicit_symbol(
+                                //         expr_idx,
+                                //         ImplicitSymbolVariant::UnspecifiedIntegerType,
+                                //     )
+                                //     .into())
                             }
                         }
                         .into())
@@ -84,7 +84,7 @@ impl<'a> ExprTypeEngine<'a> {
                     FloatLiteral::Unspecified => {
                         match expectation
                             .destination()
-                            .map(|destination| destination.pattern(self))
+                            .map(|destination| destination.data(self))
                         {
                             Some(FluffyTermData::TypeOntology {
                                 refined_path:
@@ -98,17 +98,17 @@ impl<'a> ExprTypeEngine<'a> {
                                     Ok(self.term_menu.f64_ty_ontology().into())
                                 }
                             },
-                            Some(FluffyTermData::Hole(
-                                ImplicitSymbolKind::UnspecifiedFloatType,
-                                idx,
-                            )) => return Ok(idx.into()),
-                            _ => Ok(self
-                                .fluffy_term_region
-                                .new_implicit_symbol(
-                                    expr_idx,
-                                    ImplicitSymbolVariant::UnspecifiedFloatType,
-                                )
-                                .into()),
+                            Some(FluffyTermData::Hole(HoleKind::UnspecifiedFloatType, idx)) => {
+                                return Ok((*idx).into())
+                            }
+                            _ => todo!(),
+                            // Ok(self
+                            //     .fluffy_term_region
+                            //     .new_implicit_symbol(
+                            //         expr_idx,
+                            //         ImplicitSymbolVariant::UnspecifiedFloatType,
+                            //     )
+                            //     .into()),
                         }
                     }
                     FloatLiteral::F32(_) => todo!(),

@@ -6,20 +6,21 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: ExprIdx,
         items: ExprIdxRange,
     ) -> Result<FluffyTerm, ExprTypeError> {
-        let element_ty: FluffyTerm = self
-            .fluffy_term_region
-            .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ImplicitType)
-            .into();
-        for item in items {
-            self.infer_new_expr_ty_discarded(
-                item,
-                ExpectImplicitlyConvertible::new_transient(element_ty),
-            );
-        }
-        Ok(self.new_ty_ontology_application(
-            expr_idx,
-            self.entity_path_menu.list_ty_path(),
-            smallvec![element_ty],
-        ))
+        todo!()
+        // let element_ty: FluffyTerm = self
+        //     .fluffy_term_region
+        //     .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ImplicitType)
+        //     .into();
+        // for item in items {
+        //     self.infer_new_expr_ty_discarded(
+        //         item,
+        //         ExpectImplicitlyConvertible::new_transient(element_ty),
+        //     );
+        // }
+        // Ok(self.new_ty_ontology_application(
+        //     expr_idx,
+        //     self.entity_path_menu.list_ty_path(),
+        //     smallvec![element_ty],
+        // ))
     }
 }

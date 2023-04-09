@@ -7,12 +7,6 @@ pub struct HollowTerms {
     first_unresolved_term: usize,
 }
 
-#[derive(Debug, Default, PartialEq, Eq)]
-pub struct HoleRegistry {}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct HoleIdn {}
-
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
 pub struct HollowTermEntry {

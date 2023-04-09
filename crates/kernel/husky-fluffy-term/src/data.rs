@@ -30,6 +30,10 @@ pub enum FluffyTermData {
 }
 
 impl FluffyTerm {
+    pub fn data<'a>(self, db: &'a impl FluffyTermEngine) -> &'a FluffyTermData {
+        todo!()
+    }
+
     pub(crate) fn data_inner<'a>(
         self,
         db: &'a dyn FluffyTermDb,

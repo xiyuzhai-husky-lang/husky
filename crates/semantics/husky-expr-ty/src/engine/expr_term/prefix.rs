@@ -17,20 +17,23 @@ impl<'a> ExprTypeEngine<'a> {
                 .expr_disambiguation(expr_idx)
                 .map_err(|_| DerivedExprTermError::AmbiguousTilde)?
             {
-                ExprDisambiguation::Tilde(disambiguation) => match disambiguation {
-                    TildeDisambiguation::BitNot => todo!(),
-                    TildeDisambiguation::Leash => match opd_term {
-                        FluffyTerm::Term(opd_term) => Ok(TermApplication::new(
-                            self.db,
-                            self.term_menu.leash_ty_ontology(),
-                            opd_term,
-                        )
-                        .map_err(|e| DerivedExprTermError::TildeApplicationTerm(e))?
-                        .into()),
-                        FluffyTerm::Unresolved(_) => todo!(),
-                        _ => todo!(),
-                    },
-                },
+                ExprDisambiguation::Tilde(disambiguation) => {
+                    todo!()
+                    //     match disambiguation {
+                    //     TildeDisambiguation::BitNot => todo!(),
+                    //     TildeDisambiguation::Leash => match opd_term {
+                    //         FluffyTerm::Term(opd_term) => Ok(TermApplication::new(
+                    //             self.db,
+                    //             self.term_menu.leash_ty_ontology(),
+                    //             opd_term,
+                    //         )
+                    //         .map_err(|e| DerivedExprTermError::TildeApplicationTerm(e))?
+                    //         .into()),
+                    //         FluffyTerm::Unresolved(_) => todo!(),
+                    //         _ => todo!(),
+                    //     },
+                    // },
+                }
                 _ => unreachable!(),
             },
             PrefixOpr::Ref => {
@@ -43,8 +46,7 @@ impl<'a> ExprTypeEngine<'a> {
             PrefixOpr::CyclicSlice => todo!(),
             PrefixOpr::Array(_) => todo!(),
             PrefixOpr::Option => Ok(FluffyTerm::new_application(
-                self.db,
-                &mut self.fluffy_term_region,
+                self,
                 expr_idx,
                 self.term_menu.leash_ty_ontology(),
                 opd_term,
