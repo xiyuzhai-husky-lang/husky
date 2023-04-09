@@ -198,7 +198,7 @@ impl Diagnose for (HollowTermSource, &'_ OriginalFluffyTermResolveError) {
     }
 }
 
-impl Diagnose for (HollowTermSource, &'_ OriginalFluffyTermExpectationError) {
+impl Diagnose for (ExpectationSource, &'_ OriginalFluffyTermExpectationError) {
     type Context<'a> = RegionDiagnosticsContext<'a>;
 
     fn message(&self, ctx: &RegionDiagnosticsContext) -> String {

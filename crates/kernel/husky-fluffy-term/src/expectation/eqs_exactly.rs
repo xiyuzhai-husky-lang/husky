@@ -54,7 +54,6 @@ impl ExpectSubtype {
         &self,
         db: &dyn FluffyTermDb,
         fluffy_terms: &mut FluffyTerms,
-        src: HollowTermSource,
         expectee: FluffyTerm,
     ) -> Option<FluffyTermExpectationEffect> {
         if expectee == self.expected {
