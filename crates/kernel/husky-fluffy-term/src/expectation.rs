@@ -48,7 +48,7 @@ pub trait ExpectLocalTerm: Into<FluffyTermExpectationData> + Clone {
 
     #[inline(always)]
     fn disambiguate_ty_path(&self, engine: &impl FluffyTermEngine<'_>) -> TypePathDisambiguation {
-        todo!()
+        self.disambiguate_ty_path_inner(engine.db(), engine.fluffy_terms())
     }
 
     /// if ty_path's type is under this expectation, disambiguate whether it's an ontology or constructor

@@ -37,6 +37,8 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-unicode-symbols = { path = "../../utils/husky-unicode-symbols" }
 
 [dev-dependencies]
+# fs
+husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-package-path = { path = "../../kernel/husky-package-path" }

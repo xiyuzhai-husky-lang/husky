@@ -31,10 +31,8 @@ pub(crate) struct ExprTypeEngine<'a> {
     expr_ty_infos: ExprMap<ExprTypeInfo>,
     extra_expr_errors: Vec<(ExprIdx, ExprTypeError)>,
     expr_terms: ExprMap<ExprTermResult<FluffyTerm>>,
-    inherited_symbol_terms: InheritedSymbolMap<TermSymbol>,
-    inherited_symbol_place_tys: InheritedSymbolMap<PlaceType>,
-    current_symbol_terms: CurrentSymbolMap<TermSymbol>,
-    current_symbol_place_tys: CurrentSymbolMap<PlaceType>,
+    symbol_terms: SymbolMap<FluffyTerm>,
+    symbol_place_tys: SymbolMap<PlaceType>,
     pattern_expr_ty_infos: PatternExprMap<PatternExprTypeInfo>,
     pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
     return_ty: Option<Term>,
@@ -70,22 +68,21 @@ impl<'a> ExprTypeEngine<'a> {
     pub(crate) fn new(db: &'a dyn ExprTypeDb, expr_region: ExprRegion) -> Self {
         let expr_region_data = expr_region.data(db);
         // todo: improve this
-        let return_ty = expr_region_data
-            .parent()
-            .map(|parent| {
-                db.signature_term_region(parent)
-                    .expr_term(parent.data(db).return_ty()?)
+        let parent_expr_region = expr_region_data.parent();
+        let return_ty = parent_expr_region
+            .map(|parent_expr_region| {
+                db.signature_term_region(parent_expr_region)
+                    .expr_term(parent_expr_region.data(db).return_ty()?)
                     .ok()
             })
             .flatten()
             .map(|term| Term::ty_from_raw(db, term).ok())
             .flatten();
         // todo: improve this
-        let self_ty = expr_region_data
-            .parent()
-            .map(|parent| {
-                db.signature_term_region(parent)
-                    .expr_term(parent.data(db).self_ty()?)
+        let self_ty = parent_expr_region
+            .map(|parent_expr_region| {
+                db.signature_term_region(parent_expr_region)
+                    .expr_term(parent_expr_region.data(db).self_ty()?)
                     .ok()
             })
             .flatten()
@@ -94,6 +91,8 @@ impl<'a> ExprTypeEngine<'a> {
         let symbol_region = expr_region_data.symbol_region();
         let pattern_expr_region = expr_region_data.pattern_expr_region();
         let toolchain = expr_region.toolchain(db);
+        let parent_expr_ty_region =
+            parent_expr_region.map(|parent_expr_region| db.expr_ty_region(parent_expr_region));
         Self {
             db,
             toolchain,
@@ -108,12 +107,16 @@ impl<'a> ExprTypeEngine<'a> {
             expr_ty_infos: ExprMap::new(expr_region_data.expr_arena()),
             extra_expr_errors: vec![],
             expr_terms: ExprMap::new(expr_region_data.expr_arena()),
-            inherited_symbol_terms: InheritedSymbolMap::new(symbol_region.inherited_symbol_arena()),
-            inherited_symbol_place_tys: InheritedSymbolMap::new(
-                symbol_region.inherited_symbol_arena(),
+            symbol_terms: SymbolMap::new(
+                parent_expr_ty_region
+                    .map(|parent_expr_ty_region| parent_expr_ty_region.symbol_terms()),
+                expr_region_data.symbol_region(),
             ),
-            current_symbol_terms: CurrentSymbolMap::new(symbol_region.current_symbol_arena()),
-            current_symbol_place_tys: CurrentSymbolMap::new(symbol_region.current_symbol_arena()),
+            symbol_place_tys: SymbolMap::new(
+                parent_expr_ty_region
+                    .map(|parent_expr_ty_region| parent_expr_ty_region.symbol_place_tys()),
+                expr_region_data.symbol_region(),
+            ),
             return_ty,
             pattern_expr_ty_infos: PatternExprMap::new(pattern_expr_region.pattern_expr_arena()),
             pattern_symbol_ty_infos: PatternSymbolMap::new(
@@ -124,7 +127,7 @@ impl<'a> ExprTypeEngine<'a> {
     }
 
     pub(crate) fn infer_all(&mut self) {
-        self.infer_all_parameter_symbols();
+        self.infer_current_parameter_symbols();
         self.infer_all_exprs();
     }
 
@@ -171,10 +174,8 @@ impl<'a> ExprTypeEngine<'a> {
             self.expr_ty_infos,
             self.extra_expr_errors,
             self.expr_terms,
-            self.inherited_symbol_terms,
-            self.inherited_symbol_place_tys,
-            self.current_symbol_terms,
-            self.current_symbol_place_tys,
+            self.symbol_terms,
+            self.symbol_place_tys,
             self.fluffy_term_region,
             self.return_ty,
             self.self_ty,

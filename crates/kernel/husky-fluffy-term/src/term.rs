@@ -34,7 +34,21 @@ pub enum FluffyTerm {
 }
 
 impl From<Term> for FluffyTerm {
-    fn from(value: Term) -> Self {
-        todo!()
+    fn from(term: Term) -> Self {
+        unsafe { std::mem::transmute(term) }
     }
+}
+
+#[test]
+fn term_to_fluffy_term_works() {
+    fn t(a: impl Copy + Into<Term> + Into<FluffyTerm>) {
+        let term: Term = a.into();
+        let fluffy_term: FluffyTerm = a.into();
+        let term_to_fluffy_term: FluffyTerm = term.into();
+        assert_eq!(fluffy_term, term_to_fluffy_term)
+    }
+    let db = DB::default();
+    let toolchain = db.dev_toolchain().unwrap();
+    let term_menu = db.term_menu(toolchain);
+    t(TermLiteral::I8(1))
 }

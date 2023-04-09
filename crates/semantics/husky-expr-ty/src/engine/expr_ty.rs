@@ -106,7 +106,11 @@ impl<'a> ExprTypeEngine<'a> {
                 ..
             } => Ok((
                 ExprDisambiguation::Trivial,
-                match self.inherited_symbol_place_tys.get(inherited_symbol_idx) {
+                match self
+                    .symbol_place_tys
+                    .inherited_symbol_map()
+                    .get(inherited_symbol_idx)
+                {
                     Some(ty) => todo!(),
                     // Ok((*ty).into()),
                     None => Err(DerivedExprTypeError::InheritedSymbolTypeError.into()),

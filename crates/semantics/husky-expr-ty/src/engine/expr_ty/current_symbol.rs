@@ -7,7 +7,8 @@ impl<'a> ExprTypeEngine<'a> {
         current_symbol_idx: CurrentSymbolIdx,
     ) -> ExprTypeResult<FluffyTerm> {
         Ok(self
-            .current_symbol_place_tys
+            .symbol_place_tys
+            .current_symbol_map()
             .get(current_symbol_idx)
             .copied()
             .ok_or(DerivedExprTypeError::CurrentSymbolTypeError)?

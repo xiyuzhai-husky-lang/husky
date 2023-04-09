@@ -39,6 +39,11 @@ impl<T, V> ArenaOrderedMap<T, V> {
         debug_assert_eq!(self.data.len(), idx.raw);
         self.data.push(v)
     }
+
+    #[inline(always)]
+    pub unsafe fn insert_next_unchecked(&mut self, v: V) {
+        self.data.push(v)
+    }
 }
 
 impl<T, V> std::ops::Index<ArenaIdx<T>> for ArenaOrderedMap<T, V> {
