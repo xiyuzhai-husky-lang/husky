@@ -33,12 +33,12 @@ impl ExpectImplicitlyConvertible {
         Self { expected: ty }
     }
 
-    pub(crate) fn try_substitute_unresolved_local_term<'a>(
+    pub(crate) fn try_substitute_unresolved_fluffy_term<'a>(
         &self,
         terms: &'a FluffyTerms,
-    ) -> Result<Option<FluffyTermExpectation>, &'a FluffyTermResolveError> {
+    ) -> Result<Option<FluffyTermExpectationData>, &'a FluffyTermResolveError> {
         todo!()
-        // match terms.try_reduce_local_term(self.expected)? {
+        // match terms.try_reduce_fluffy_term(self.expected)? {
         //     Some(destination) => Ok(Some(
         //         ExpectImplicitlyConvertible {
         //             expected: destination,

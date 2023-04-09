@@ -69,10 +69,11 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> OptionFluffyTermExpectationIdx {
         let ty_result = self.calc_expr_ty(expr_idx, &expr_ty_expectation);
         let expectation_idx = match ty_result {
-            Ok((_, Ok(ty))) => {
-                self.fluffy_term_region
-                    .add_expectation_rule(expr_idx, ty, expr_ty_expectation)
-            }
+            Ok((_, Ok(ty))) => self.fluffy_term_region.add_expectation_rule(
+                ExpectationSource::Expr(expr_idx),
+                ty,
+                expr_ty_expectation,
+            ),
             _ => Default::default(),
         };
         self.save_new_expr_ty(expr_idx, ExprTypeInfo::new(ty_result, expectation_idx));
