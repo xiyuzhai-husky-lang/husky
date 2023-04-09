@@ -30,3 +30,6 @@ use husky_term::*;
 use husky_term_prelude::*;
 use salsa::DebugWithDb as _;
 use smallvec::*;
+
+#[salsa::jar(db = FluffyTermDb)]
+pub struct FluffyTermJar();

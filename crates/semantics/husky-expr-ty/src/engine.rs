@@ -164,9 +164,8 @@ impl<'a> ExprTypeEngine<'a> {
         //     print_debug_expr!(self, expr_idx);
         //     assert!(self.expr_ty_infos.has(expr_idx))
         // }
-        self.fluffy_term_region.finalize_unresolved_term_table(
-            todo!(), // self.db()
-        );
+        self.fluffy_term_region
+            .finalize_unresolved_term_table(self.db);
         ExprTypeRegion::new(
             self.db,
             self.expr_region_data.path(),
