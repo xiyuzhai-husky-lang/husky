@@ -12,12 +12,12 @@ impl ExpectExplicitlyConvertible {
         Self { destination }
     }
 
-    pub(crate) fn try_substitute_unresolved_local_term<'a>(
+    pub(crate) fn try_substitute_unresolved_fluffy_term<'a>(
         &self,
         porous_terms: &'a FluffyTerms,
-    ) -> Result<Option<FluffyTermExpectation>, &'a FluffyTermResolveError> {
+    ) -> Result<Option<FluffyTermExpectationData>, &'a FluffyTermResolveError> {
         todo!()
-        // match porous_terms.try_reduce_local_term(self.destination)? {
+        // match porous_terms.try_reduce_fluffy_term(self.destination)? {
         //     Some(destination) => Ok(Some(ExpectExplicitlyConvertible { destination }.into())),
         //     None => Ok(None),
         // }

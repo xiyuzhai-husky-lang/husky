@@ -1,15 +1,15 @@
 mod expectations;
 mod terms;
 
-pub(crate) use self::expectations::*;
-pub(crate) use self::terms::*;
+pub use self::expectations::*;
+pub use self::terms::*;
 
 use crate::*;
 
 #[derive(Debug, Default, PartialEq, Eq)]
 pub struct FluffyTermRegion {
     terms: FluffyTerms,
-    expectations: (),
+    expectations: FluffyTermExpectations,
 }
 
 impl FluffyTermRegion {
@@ -17,7 +17,21 @@ impl FluffyTermRegion {
         &self.terms
     }
 
+    pub fn expectations(&self) -> &FluffyTermExpectations {
+        &self.expectations
+    }
+
+    pub fn hollow_terms(&self) -> &HollowTerms {
+        self.terms.hollow_terms()
+    }
+
+    pub(crate) fn expectations_mut(&mut self) -> &mut FluffyTermExpectations {
+        &mut self.expectations
+    }
+
     pub fn finalize_unresolved_term_table(&mut self, db: &dyn FluffyTermDb) {
-        todo!()
+        self.resolve_as_much_as_possible(db, FluffyTermResolveLevel::Strong);
+        // ad hoc
+        // todo!()
     }
 }

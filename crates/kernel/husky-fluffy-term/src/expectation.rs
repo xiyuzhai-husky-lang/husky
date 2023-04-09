@@ -22,7 +22,7 @@ use husky_ty_expectation::TypePathDisambiguation;
 use idx_arena::{Arena, ArenaIdx, OptionArenaIdx};
 use thiserror::Error;
 
-pub trait ExpectLocalTerm: Into<FluffyTermExpectation> + Clone {
+pub trait ExpectLocalTerm: Into<FluffyTermExpectationData> + Clone {
     type Outcome: Clone;
 
     fn retrieve_outcome(outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome;
@@ -96,17 +96,8 @@ pub enum FinalDestination {
     AnyDerived,
 }
 
-#[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = FluffyTermDb)]
-pub struct FluffyTermExpectationRule {
-    src: HollowTermSource,
-    expectee: FluffyTerm,
-    expectation: FluffyTermExpectation,
-    resolve_progress: FluffyTermExpectationResolveProgress,
-}
-
-pub type FluffyTermExpectationIdx = ArenaIdx<FluffyTermExpectationRule>;
-pub type OptionFluffyTermExpectationIdx = OptionArenaIdx<FluffyTermExpectationRule>;
+pub type FluffyTermExpectationIdx = ArenaIdx<FluffyTermExpectationEntry>;
+pub type OptionFluffyTermExpectationIdx = OptionArenaIdx<FluffyTermExpectationEntry>;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
@@ -221,36 +212,6 @@ impl FluffyTermExpectationResolveProgress {
     }
 }
 
-impl FluffyTermExpectationRule {
-    pub(crate) fn variant(&self) -> &FluffyTermExpectation {
-        &self.expectation
-    }
-
-    pub fn resolve_progress(&self) -> &FluffyTermExpectationResolveProgress {
-        &self.resolve_progress
-    }
-
-    pub fn original_error(&self) -> Option<&OriginalFluffyTermExpectationError> {
-        match self.resolve_progress {
-            FluffyTermExpectationResolveProgress::Resolved(Err(
-                FluffyTermExpectationError::Original(ref e),
-            )) => Some(e),
-            _ => None,
-        }
-    }
-
-    pub(crate) fn expectee(&self) -> FluffyTerm {
-        self.expectee
-    }
-
-    pub(crate) fn set_resolved(
-        &mut self,
-        result: FluffyTermExpectationResult<FluffyTermExpectationOutcome>,
-    ) {
-        self.resolve_progress = FluffyTermExpectationResolveProgress::Resolved(result)
-    }
-}
-
 pub(super) struct FluffyTermExpectationEffect {
     pub(super) result: FluffyTermExpectationResult<FluffyTermExpectationOutcome>,
     pub(super) actions: SmallVec<[FluffyTermResolveAction; 2]>,
@@ -258,12 +219,12 @@ pub(super) struct FluffyTermExpectationEffect {
 
 #[derive(Default, Debug, PartialEq, Eq)]
 pub struct FluffyTermExpectations {
-    arena: Arena<FluffyTermExpectationRule>,
+    arena: Arena<FluffyTermExpectationEntry>,
     first_unresolved_expectation: usize,
 }
 
 impl std::ops::Index<FluffyTermExpectationIdx> for FluffyTermExpectations {
-    type Output = FluffyTermExpectationRule;
+    type Output = FluffyTermExpectationEntry;
 
     fn index(&self, index: FluffyTermExpectationIdx) -> &Self::Output {
         &self.arena[index]
@@ -273,7 +234,7 @@ impl std::ops::Index<FluffyTermExpectationIdx> for FluffyTermExpectations {
 impl FluffyTermExpectations {
     pub(super) fn unresolved_rule_iter(
         &self,
-    ) -> impl Iterator<Item = (FluffyTermExpectationIdx, &FluffyTermExpectationRule)> {
+    ) -> impl Iterator<Item = (FluffyTermExpectationIdx, &FluffyTermExpectationEntry)> {
         self.arena
             .indexed_iter_with_start(self.first_unresolved_expectation)
             .filter(|(_, rule)| match rule.resolve_progress() {
@@ -282,13 +243,13 @@ impl FluffyTermExpectations {
             })
     }
 
-    pub fn iter(&self) -> impl Iterator<Item = &FluffyTermExpectationRule> {
+    pub fn iter(&self) -> impl Iterator<Item = &FluffyTermExpectationEntry> {
         self.arena.iter()
     }
 
     pub(super) fn unresolved_indexed_iter_mut(
         &mut self,
-    ) -> impl Iterator<Item = (FluffyTermExpectationIdx, &mut FluffyTermExpectationRule)> {
+    ) -> impl Iterator<Item = (FluffyTermExpectationIdx, &mut FluffyTermExpectationEntry)> {
         self.arena
             .indexed_iter_mut_with_start(self.first_unresolved_expectation)
             .filter(|(_, rule)| match rule.resolve_progress() {
@@ -299,7 +260,7 @@ impl FluffyTermExpectations {
 
     pub(super) fn alloc_rule(
         &mut self,
-        rule: FluffyTermExpectationRule,
+        rule: FluffyTermExpectationEntry,
     ) -> FluffyTermExpectationIdx {
         self.arena.alloc_one(rule)
     }
@@ -318,9 +279,9 @@ impl FluffyTermExpectations {
 impl FluffyTermRegion {
     pub fn add_expectation_rule(
         &mut self,
-        src: ExprIdx,
+        src: ExpectationSource,
         expectee: FluffyTerm,
-        expectation: impl Into<FluffyTermExpectation>,
+        expectation: impl Into<FluffyTermExpectationData>,
     ) -> OptionFluffyTermExpectationIdx {
         todo!()
         // self.expectations
@@ -334,7 +295,7 @@ impl FluffyTermRegion {
     }
 }
 
-impl FluffyTermExpectationRule {
+impl FluffyTermExpectationEntry {
     pub(super) fn resolve_expectation(
         &self,
         db: &dyn FluffyTermDb,
@@ -342,28 +303,28 @@ impl FluffyTermExpectationRule {
         idx: FluffyTermExpectationIdx,
         level: FluffyTermResolveLevel,
     ) -> Option<FluffyTermExpectationEffect> {
-        match self.expectation {
-            FluffyTermExpectation::ExplicitlyConvertible(ref expectation) => {
-                expectation.resolve(db, terms, self.expectee, level)
+        match self.data() {
+            FluffyTermExpectationData::ExplicitlyConvertible(ref expectation) => {
+                expectation.resolve(db, terms, self.expectee(), level)
             }
-            FluffyTermExpectation::ImplicitlyConvertible(exp) => {
-                exp.resolve(db, terms, idx, self.expectee, level)
+            FluffyTermExpectationData::ImplicitlyConvertible(exp) => {
+                exp.resolve(db, terms, idx, self.expectee(), level)
             }
-            FluffyTermExpectation::EqsSort(ref expectation) => {
-                expectation.resolve(db, self.expectee, terms)
+            FluffyTermExpectationData::EqsSort(ref expectation) => {
+                expectation.resolve(db, self.expectee(), terms)
             }
-            FluffyTermExpectation::FrameVariableType => todo!(),
-            FluffyTermExpectation::EqsFunctionType(ref expectation) => {
-                expectation.resolve(db, terms, idx, self.expectee)
+            FluffyTermExpectationData::FrameVariableType => todo!(),
+            FluffyTermExpectationData::EqsFunctionType(ref expectation) => {
+                expectation.resolve(db, terms, idx, self.expectee())
             }
-            FluffyTermExpectation::InsSort(ref expectation) => {
-                expectation.resolve(db, terms, self.expectee)
+            FluffyTermExpectationData::InsSort(ref expectation) => {
+                expectation.resolve(db, terms, self.expectee())
             }
-            FluffyTermExpectation::EqsExactly(ref expectation) => {
-                expectation.resolve(db, terms, self.src, self.expectee)
+            FluffyTermExpectationData::EqsExactly(ref expectation) => {
+                expectation.resolve(db, terms, self.src(), self.expectee())
             }
-            FluffyTermExpectation::AnyOriginal(_) => None,
-            FluffyTermExpectation::AnyDerived(_) => None,
+            FluffyTermExpectationData::AnyOriginal(_) => None,
+            FluffyTermExpectationData::AnyDerived(_) => None,
         }
     }
 }
@@ -372,7 +333,7 @@ impl FluffyTermExpectationRule {
 #[non_exhaustive]
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
 #[enum_class::from_variants]
-pub enum FluffyTermExpectation {
+pub enum FluffyTermExpectationData {
     ExplicitlyConvertible(ExpectExplicitlyConvertible),
     ImplicitlyConvertible(ExpectImplicitlyConvertible),
     /// expect term to be an instance of Type u for some universe
@@ -386,7 +347,7 @@ pub enum FluffyTermExpectation {
 }
 
 impl std::ops::Index<FluffyTermExpectationIdx> for FluffyTermRegion {
-    type Output = FluffyTermExpectationRule;
+    type Output = FluffyTermExpectationEntry;
 
     fn index(&self, index: FluffyTermExpectationIdx) -> &Self::Output {
         todo!()

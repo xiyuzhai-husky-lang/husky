@@ -8,6 +8,6 @@ pub enum FluffyTermResolveAction {
     AddExpectation {
         src: ExpectationSource,
         expectee: FluffyTerm,
-        expectation: FluffyTermExpectation,
+        expectation: FluffyTermExpectationData,
     },
 }

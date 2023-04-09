@@ -1,10 +1,17 @@
 use super::*;
 
 #[derive(Debug, Default, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = FluffyTermDb)]
 pub struct HollowTerms {
     pores: HoleRegistry,
     entries: Vec<HollowTermEntry>,
     first_unresolved_term: usize,
+}
+
+impl HollowTerms {
+    pub fn entries(&self) -> &[HollowTermEntry] {
+        self.entries.as_ref()
+    }
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -17,11 +24,20 @@ pub struct HollowTermEntry {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = FluffyTermDb)]
 pub struct HollowTerm {}
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = FluffyTermDb)]
 pub enum HollowTermSource {
     Expectation(FluffyTermExpectationIdx),
+}
+
+impl HollowTermSource {
+    pub fn expr_idx(self) -> ExprIdx {
+        todo!()
+        // self.expr_idx
+    }
 }
 use super::*;
 use vec_like::VecSet;
@@ -41,33 +57,35 @@ impl HollowTermEntry {
     }
 }
 
-// impl HollowTermEntry {
-//     pub fn src(&self) -> ExprIdx {
-//         self.src
-//     }
+impl HollowTermEntry {
+    pub fn src(&self) -> HollowTermSource {
+        self.src
+    }
 
-//     pub fn unresolved_term(&self) -> &FluffyTermData {
-//         &self.unresolved_term
-//     }
+    pub fn data(&self) -> &HollowTermData {
+        &self.data
+    }
 
-//     pub fn original_error(&self) -> Option<&OriginalFluffyTermResolveError> {
-//         match self.resolve_progress {
-//             Err(FluffyTermResolveError::Original(ref e)) => Some(e),
-//             _ => None,
-//         }
-//     }
+    pub fn original_error(&self) -> Option<&OriginalFluffyTermResolveError> {
+        match self.resolve_progress {
+            Err(FluffyTermResolveError::Original(ref e)) => Some(e),
+            _ => None,
+        }
+    }
 
-//     pub(crate) fn resolve_progress(&self) -> Option<FluffyTerm> {
-//         match self.resolve_progress {
-//             Ok(resolve_progress) => Some(resolve_progress),
-//             Err(_) => None,
-//         }
-//     }
+    pub(crate) fn resolve_progress(&self) -> Option<FluffyTerm> {
+        todo!()
+        // match self.resolve_progress {
+        //     Ok(resolve_progress) => Some(resolve_progress),
+        //     Err(_) => None,
+        // }
+    }
 
-//     pub(crate) fn is_done(&self) -> bool {
-//         match self.resolve_progress {
-//             Ok(FluffyTerm::Term(_) | FluffyTerm::PlaceType(_)) | Err(_) => true,
-//             Ok(FluffyTerm::Unresolved(_)) => false,
-//         }
-//     }
-// }
+    pub(crate) fn is_done(&self) -> bool {
+        todo!()
+        // match self.resolve_progress {
+        //     Ok(FluffyTerm::Term(_) | FluffyTerm::PlaceType(_)) | Err(_) => true,
+        //     Ok(FluffyTerm::Unresolved(_)) => false,
+        // }
+    }
+}

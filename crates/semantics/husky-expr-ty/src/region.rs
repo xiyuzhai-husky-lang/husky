@@ -8,12 +8,12 @@ pub struct ExprTypeRegion {
     path: RegionPath,
     expr_ty_infos: ExprMap<ExprTypeInfo>,
     extra_expr_errors: Vec<(ExprIdx, ExprTypeError)>,
-    expr_local_terms: ExprMap<ExprTermResult<FluffyTerm>>,
+    expr_fluffy_terms: ExprMap<ExprTermResult<FluffyTerm>>,
     inherited_symbol_terms: InheritedSymbolMap<TermSymbol>,
     inherited_symbol_qualified_tys: InheritedSymbolMap<PlaceType>,
     current_symbol_terms: CurrentSymbolMap<TermSymbol>,
     current_symbol_qualified_tys: CurrentSymbolMap<PlaceType>,
-    local_term_region: FluffyTermRegion,
+    fluffy_term_region: FluffyTermRegion,
     return_ty: Option<Term>,
     self_ty: Option<Term>,
 }
@@ -24,28 +24,28 @@ impl ExprTypeRegion {
         path: RegionPath,
         mut expr_ty_infos: ExprMap<ExprTypeInfo>,
         extra_expr_errors: Vec<(ExprIdx, ExprTypeError)>,
-        expr_local_terms: ExprMap<ExprTermResult<FluffyTerm>>,
+        expr_fluffy_terms: ExprMap<ExprTermResult<FluffyTerm>>,
         inherited_symbol_terms: InheritedSymbolMap<TermSymbol>,
         inherited_symbol_qualified_tys: InheritedSymbolMap<PlaceType>,
         current_symbol_terms: CurrentSymbolMap<TermSymbol>,
         current_symbol_qualified_tys: CurrentSymbolMap<PlaceType>,
-        local_term_region: FluffyTermRegion,
+        fluffy_term_region: FluffyTermRegion,
         return_ty: Option<Term>,
         self_ty: Option<Term>,
     ) -> Self {
         expr_ty_infos
             .iter_mut()
-            .for_each(|info| info.finalize(&local_term_region));
+            .for_each(|info| info.finalize(&fluffy_term_region));
         Self {
             path,
             expr_ty_infos,
             extra_expr_errors,
-            expr_local_terms,
+            expr_fluffy_terms,
             inherited_symbol_terms,
             inherited_symbol_qualified_tys,
             current_symbol_terms,
             current_symbol_qualified_tys,
-            local_term_region,
+            fluffy_term_region,
             return_ty,
             self_ty,
         }
@@ -63,8 +63,8 @@ impl ExprTypeRegion {
         &self.extra_expr_errors
     }
 
-    pub fn expr_local_terms(&self) -> &ExprMap<ExprTermResult<FluffyTerm>> {
-        &self.expr_local_terms
+    pub fn expr_fluffy_terms(&self) -> &ExprMap<ExprTermResult<FluffyTerm>> {
+        &self.expr_fluffy_terms
     }
 
     pub fn inherited_symbol_qualified_tys(&self) -> &InheritedSymbolMap<PlaceType> {
@@ -75,8 +75,8 @@ impl ExprTypeRegion {
         &self.current_symbol_qualified_tys
     }
 
-    pub fn local_term_region(&self) -> &FluffyTermRegion {
-        &self.local_term_region
+    pub fn fluffy_term_region(&self) -> &FluffyTermRegion {
+        &self.fluffy_term_region
     }
 
     pub fn return_ty(&self) -> Option<Term> {
