@@ -38,6 +38,7 @@ husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 husky-raw-term = { path = "../../kernel/husky-raw-term" }
 husky-raw-ty = { path = "../../kernel/husky-raw-ty" }
 husky-term = { path = "../../kernel/husky-term" }
+husky-fluffy-term = { path = "../../kernel/husky-fluffy-term" }
 # lex
 husky-text = { path = "../../lex/husky-text", features = ["lsp_support"] }
 husky-toml-token = { path = "../../lex/husky-toml-token" }

@@ -49,6 +49,7 @@ husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 husky-raw-term = { path = "../../kernel/husky-raw-term" }
 husky-raw-ty = { path = "../../kernel/husky-raw-ty" }
 husky-term = { path = "../../kernel/husky-term" }
+husky-fluffy-term = { path = "../../kernel/husky-fluffy-term" }
 husky-word = { path = "../../kernel/husky-word" }
 # lex
 husky-token = { path = "../../lex/husky-token" }

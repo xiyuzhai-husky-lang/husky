@@ -12,6 +12,7 @@ use husky_entity_path::EntityPathJar;
 use husky_entity_tree::EntityTreeJar;
 use husky_expr::ExprJar;
 use husky_expr_ty::ExprTypeJar;
+use husky_fluffy_term::FluffyTermJar;
 use husky_folding_range::FoldingRangeJar;
 use husky_hover::HoverJar;
 use husky_layout::LayoutJar;
@@ -57,7 +58,7 @@ use husky_word::WordJar;
     DefnJar,
     // infer
     TokenInfoJar,
-    SignatureJar,
+    SignatureJar,FluffyTermJar,
     ExprTypeJar,
     // ide
     FoldingRangeJar,
