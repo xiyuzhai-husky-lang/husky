@@ -27,7 +27,7 @@ impl<'a> ExprTypeEngine<'a> {
                         .insert_new(inherited_symbol_idx, symbol)
                 }
             }
-            self.inherited_symbol_qualified_tys
+            self.inherited_symbol_place_tys
                 .insert_new(inherited_symbol_idx, todo!())
             // if let Ok(inherited_symbol_signature) = inherited_symbol_signature {
             //     todo!()
@@ -57,7 +57,7 @@ impl<'a> ExprTypeEngine<'a> {
                 }
             }
             if let Ok(qualified_ty) = self.new_place_ty(current_symbol_idx, signature) {
-                self.current_symbol_qualified_tys
+                self.current_symbol_place_tys
                     .insert_new(current_symbol_idx, qualified_ty)
             }
         }

@@ -11,7 +11,7 @@ impl<'a> ExprTypeEngine<'a> {
             return Err(DerivedExprTypeError::FieldOwnerTypeNotInferred.into())
         };
         let owner_ty_unravelled =
-            owner_ty.unravel_borrow(self.db, self.local_term_region.porous_terms());
+            owner_ty.unravel_borrow(self.db, self.fluffy_term_region.porous_terms());
         match owner_ty_unravelled {
             FluffyTerm::Term(owner_ty_unravelled) => {
                 match self.db.field_ty(owner_ty_unravelled, ident_token.ident()) {

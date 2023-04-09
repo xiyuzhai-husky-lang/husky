@@ -22,7 +22,7 @@ impl<'a> ExprTypeEngine<'a> {
                 return Err(DerivedExprTypeError::MethodOwnerTypeNotInferred.into())
             };
         let self_expr_ty_unravelled =
-            self_expr_ty.unravel_borrow(self.db, self.local_term_region.porous_terms());
+            self_expr_ty.unravel_borrow(self.db, self.fluffy_term_region.porous_terms());
         let ty_method_card = match self_expr_ty_unravelled {
             FluffyTerm::Term(self_expr_ty_unravelled) => {
                 match self

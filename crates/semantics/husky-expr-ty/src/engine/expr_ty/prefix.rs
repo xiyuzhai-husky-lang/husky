@@ -14,8 +14,8 @@ impl<'a> ExprTypeEngine<'a> {
                     Some(opd_ty) => match opd_ty {
                         FluffyTerm::Term(_) => todo!(),
                         FluffyTerm::Unresolved(unresolved_term) => {
-                            match self.local_term_region[unresolved_term].unresolved_term() {
-                                LocalTermData::ImplicitSymbol(implicit_symbol) => {
+                            match self.fluffy_term_region[unresolved_term].unresolved_term() {
+                                FluffyTermData::ImplicitSymbol(implicit_symbol) => {
                                     match implicit_symbol.variant() {
                                         ImplicitSymbolVariant::ExprEvalLifetime => todo!(),
                                         ImplicitSymbolVariant::UnspecifiedIntegerType
@@ -26,9 +26,9 @@ impl<'a> ExprTypeEngine<'a> {
                                         ImplicitSymbolVariant::ImplicitLifetime => todo!(),
                                     }
                                 }
-                                LocalTermData::TypeOntology(_) => todo!(),
-                                LocalTermData::Ritchie(_) => todo!(),
-                                LocalTermData::PlaceType { .. } => todo!(),
+                                FluffyTermData::TypeOntology(_) => todo!(),
+                                FluffyTermData::Ritchie(_) => todo!(),
+                                FluffyTermData::PlaceType { .. } => todo!(),
                             }
                         }
                         _ => todo!(),

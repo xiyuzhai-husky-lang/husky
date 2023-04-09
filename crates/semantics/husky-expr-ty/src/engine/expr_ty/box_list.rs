@@ -7,7 +7,7 @@ impl<'a> ExprTypeEngine<'a> {
         items: ExprIdxRange,
     ) -> Result<FluffyTerm, ExprTypeError> {
         let element_ty: FluffyTerm = self
-            .local_term_region
+            .fluffy_term_region
             .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ImplicitType)
             .into();
         for item in items {

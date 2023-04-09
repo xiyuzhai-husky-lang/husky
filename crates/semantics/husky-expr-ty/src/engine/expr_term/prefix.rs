@@ -44,7 +44,7 @@ impl<'a> ExprTypeEngine<'a> {
             PrefixOpr::Array(_) => todo!(),
             PrefixOpr::Option => Ok(FluffyTerm::new_application(
                 self.db,
-                &mut self.local_term_region,
+                &mut self.fluffy_term_region,
                 expr_idx,
                 self.term_menu.leash_ty_ontology(),
                 opd_term,

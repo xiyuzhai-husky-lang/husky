@@ -16,11 +16,11 @@ pub use self::db::*;
 pub use self::engine::*;
 pub use self::expectation::*;
 pub use self::progress::*;
+pub use self::region::*;
 pub use self::resolve::*;
 pub use self::substitution::*;
 pub use self::term::*;
 
-use self::region::*;
 use either::*;
 use husky_entity_path::*;
 use husky_expr::*;

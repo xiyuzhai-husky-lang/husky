@@ -51,7 +51,7 @@ impl<'a> ExprTypeEngine<'a> {
                             )) => return Ok(idx.into()),
                             _ => {
                                 return Ok(self
-                                    .local_term_region
+                                    .fluffy_term_region
                                     .new_implicit_symbol(
                                         expr_idx,
                                         ImplicitSymbolVariant::UnspecifiedIntegerType,
@@ -103,7 +103,7 @@ impl<'a> ExprTypeEngine<'a> {
                                 idx,
                             )) => return Ok(idx.into()),
                             _ => Ok(self
-                                .local_term_region
+                                .fluffy_term_region
                                 .new_implicit_symbol(
                                     expr_idx,
                                     ImplicitSymbolVariant::UnspecifiedFloatType,

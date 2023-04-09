@@ -46,10 +46,15 @@ pub trait ExpectLocalTerm: Into<FluffyTermExpectation> + Clone {
         self.final_destination_inner(engine.db(), engine.fluffy_terms())
     }
 
+    #[inline(always)]
+    fn disambiguate_ty_path(&self, engine: &impl FluffyTermEngine<'_>) -> TypePathDisambiguation {
+        todo!()
+    }
+
     /// if ty_path's type is under this expectation, disambiguate whether it's an ontology or constructor
     // final
     #[inline(always)]
-    fn disambiguate_ty_path(
+    fn disambiguate_ty_path_inner(
         &self,
         db: &dyn FluffyTermDb,
         terms: &FluffyTerms,
@@ -67,7 +72,7 @@ pub trait ExpectLocalTerm: Into<FluffyTermExpectation> + Clone {
     fn destination_term_data(
         &self,
         db: &dyn TermDb,
-        porous_terms: &FluffyTerms,
+        terms: &FluffyTerms,
     ) -> Option<FluffyTermData> {
         todo!()
         // self.destination()
@@ -313,7 +318,7 @@ impl FluffyTermExpectations {
 impl FluffyTermRegion {
     pub fn add_expectation_rule(
         &mut self,
-        src: HollowTermSource,
+        src: ExprIdx,
         expectee: FluffyTerm,
         expectation: impl Into<FluffyTermExpectation>,
     ) -> OptionFluffyTermExpectationIdx {
@@ -342,7 +347,7 @@ impl FluffyTermExpectationRule {
                 expectation.resolve(db, terms, self.expectee, level)
             }
             FluffyTermExpectation::ImplicitlyConvertible(exp) => {
-                exp.resolve(db, terms, self.src, self.expectee, level)
+                exp.resolve(db, terms, idx, self.expectee, level)
             }
             FluffyTermExpectation::EqsSort(ref expectation) => {
                 expectation.resolve(db, self.expectee, terms)
@@ -378,4 +383,12 @@ pub enum FluffyTermExpectation {
     EqsFunctionType(ExpectEqsFunctionType),
     AnyOriginal(ExpectAnyOriginal),
     AnyDerived(ExpectAnyDerived),
+}
+
+impl std::ops::Index<FluffyTermExpectationIdx> for FluffyTermRegion {
+    type Output = FluffyTermExpectationRule;
+
+    fn index(&self, index: FluffyTermExpectationIdx) -> &Self::Output {
+        todo!()
+    }
 }

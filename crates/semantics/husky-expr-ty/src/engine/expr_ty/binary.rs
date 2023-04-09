@@ -117,7 +117,7 @@ impl<'a> ExprTypeEngine<'a> {
         ropd: ExprIdx,
     ) -> Result<FluffyTerm, ExprTypeError> {
         let expr_eval_lifetime = self
-            .local_term_region
+            .fluffy_term_region
             .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
         match self.infer_new_expr_ty_for_outcome(lopd, ExpectAnyOriginal) {
             Some(_) => todo!(),
@@ -136,7 +136,7 @@ impl<'a> ExprTypeEngine<'a> {
         ropd: ExprIdx,
     ) -> Result<FluffyTerm, ExprTypeError> {
         let expr_eval_lifetime = self
-            .local_term_region
+            .fluffy_term_region
             .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
         match self.infer_new_expr_ty_for_outcome(lopd, ExpectAnyOriginal) {
             Some(_) => todo!(),
@@ -155,7 +155,7 @@ impl<'a> ExprTypeEngine<'a> {
         ropd: ExprIdx,
     ) -> Result<FluffyTerm, ExprTypeError> {
         let expr_eval_lifetime = self
-            .local_term_region
+            .fluffy_term_region
             .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);
         match self.infer_new_expr_ty_for_outcome(lopd, ExpectAnyOriginal) {
             Some(_) => todo!(),
@@ -175,13 +175,13 @@ impl<'a> ExprTypeEngine<'a> {
                 _ => todo!(),
             },
             FluffyTerm::Unresolved(lopd_ty) => {
-                match self.local_term_region[lopd_ty].unresolved_term() {
-                    LocalTermData::ImplicitSymbol(_) => todo!(),
-                    LocalTermData::TypeOntology(_) => {
+                match self.fluffy_term_region[lopd_ty].unresolved_term() {
+                    FluffyTermData::ImplicitSymbol(_) => todo!(),
+                    FluffyTermData::TypeOntology(_) => {
                         todo!()
                     }
-                    LocalTermData::Ritchie(_) => todo!(),
-                    LocalTermData::PlaceType { .. } => todo!(),
+                    FluffyTermData::Ritchie(_) => todo!(),
+                    FluffyTermData::PlaceType { .. } => todo!(),
                 }
             }
             _ => todo!(),
