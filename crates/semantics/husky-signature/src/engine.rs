@@ -66,7 +66,7 @@ impl<'a> RawTermEngine<'a> {
     }
 
     fn infer_all(mut self) -> SignatureRegion {
-        self.infer_symbol_modifiers();
+        self.infer_pattern_symbol_modifiers();
         self.infer_pattern_contracts();
         self.init_current_symbol_terms();
         self.raw_term_symbol_region.init_self_ty_and_value(
@@ -131,10 +131,12 @@ impl<'a> RawTermEngine<'a> {
         symbols: CurrentSymbolIdxRange,
     ) {
         let Ok(ty) = self.infer_new_expr_term(ty) else {
-            for symbol in symbols {
+            for idx in symbols {
+                let modifier = self.calc_current_symbol_modifier(idx);
                 self.raw_term_symbol_region.add_new_explicit_parameter_symbol_signature(
                     self.db,
-                    symbol,
+                    idx,
+                    modifier,
                     Err(RawTermSymbolTypeErrorKind::SignatureRawTermError),
                 )
             }
@@ -146,17 +148,36 @@ impl<'a> RawTermEngine<'a> {
         }
     }
 
+    fn calc_current_symbol_modifier(&self, idx: CurrentSymbolIdx) -> SymbolModifier {
+        match self.expr_region_data.symbol_region()[idx].variant() {
+            CurrentSymbolVariant::ImplicitParameter {
+                implicit_parameter_variant,
+            } => todo!(),
+            CurrentSymbolVariant::ExplicitParameter {
+                ident,
+                pattern_symbol_idx,
+            } => todo!(),
+            CurrentSymbolVariant::LetVariable {
+                ident,
+                pattern_symbol_idx,
+            } => todo!(),
+            CurrentSymbolVariant::FrameVariable { ident, expr_idx } => todo!(),
+        }
+    }
+
     fn infer_current_symbol_ty_in_explicit_parameter(&mut self, current_symbol: CurrentSymbolIdx) {
         match self.expr_region_data.symbol_region()[current_symbol].variant() {
             CurrentSymbolVariant::ExplicitParameter {
                 ident,
-                pattern_symbol_idx: pattern_symbol,
+                pattern_symbol_idx,
             } => {
-                let base_ty = self.pattern_symbol_ty_infos[pattern_symbol].base_ty();
+                let base_ty = self.pattern_symbol_ty_infos[pattern_symbol_idx].base_ty();
                 self.raw_term_symbol_region
                     .add_new_explicit_parameter_symbol_signature(
                         self.db,
                         current_symbol,
+                        self.raw_term_symbol_region
+                            .pattern_symbol_modifier(*pattern_symbol_idx),
                         Ok(base_ty),
                     )
             }

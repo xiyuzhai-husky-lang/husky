@@ -9,10 +9,8 @@ pub struct ExprTypeRegion {
     expr_ty_infos: ExprMap<ExprTypeInfo>,
     extra_expr_errors: Vec<(ExprIdx, ExprTypeError)>,
     expr_fluffy_terms: ExprMap<ExprTermResult<FluffyTerm>>,
-    inherited_symbol_terms: InheritedSymbolMap<TermSymbol>,
-    inherited_symbol_qualified_tys: InheritedSymbolMap<PlaceType>,
-    current_symbol_terms: CurrentSymbolMap<TermSymbol>,
-    current_symbol_qualified_tys: CurrentSymbolMap<PlaceType>,
+    symbol_place_tys: SymbolMap<PlaceType>,
+    symbol_terms: SymbolMap<FluffyTerm>,
     fluffy_term_region: FluffyTermRegion,
     return_ty: Option<Term>,
     self_ty: Option<Term>,
@@ -25,10 +23,8 @@ impl ExprTypeRegion {
         mut expr_ty_infos: ExprMap<ExprTypeInfo>,
         extra_expr_errors: Vec<(ExprIdx, ExprTypeError)>,
         expr_fluffy_terms: ExprMap<ExprTermResult<FluffyTerm>>,
-        inherited_symbol_terms: InheritedSymbolMap<TermSymbol>,
-        inherited_symbol_qualified_tys: InheritedSymbolMap<PlaceType>,
-        current_symbol_terms: CurrentSymbolMap<TermSymbol>,
-        current_symbol_qualified_tys: CurrentSymbolMap<PlaceType>,
+        symbol_terms: SymbolMap<FluffyTerm>,
+        symbol_place_tys: SymbolMap<PlaceType>,
         fluffy_term_region: FluffyTermRegion,
         return_ty: Option<Term>,
         self_ty: Option<Term>,
@@ -41,10 +37,8 @@ impl ExprTypeRegion {
             expr_ty_infos,
             extra_expr_errors,
             expr_fluffy_terms,
-            inherited_symbol_terms,
-            inherited_symbol_qualified_tys,
-            current_symbol_terms,
-            current_symbol_qualified_tys,
+            symbol_place_tys,
+            symbol_terms,
             fluffy_term_region,
             return_ty,
             self_ty,
@@ -67,12 +61,12 @@ impl ExprTypeRegion {
         &self.expr_fluffy_terms
     }
 
-    pub fn inherited_symbol_qualified_tys(&self) -> &InheritedSymbolMap<PlaceType> {
-        &self.inherited_symbol_qualified_tys
+    pub fn symbol_terms(&self) -> &SymbolMap<FluffyTerm> {
+        &self.symbol_terms
     }
 
-    pub fn current_symbol_qualified_tys(&self) -> &CurrentSymbolMap<PlaceType> {
-        &self.current_symbol_qualified_tys
+    pub fn symbol_place_tys(&self) -> &SymbolMap<PlaceType> {
+        &self.symbol_place_tys
     }
 
     pub fn fluffy_term_region(&self) -> &FluffyTermRegion {

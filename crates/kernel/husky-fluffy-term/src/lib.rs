@@ -9,6 +9,8 @@ mod region;
 mod resolve;
 mod substitution;
 mod term;
+#[cfg(test)]
+mod tests;
 mod utils;
 
 pub use self::data::*;
@@ -20,6 +22,9 @@ pub use self::region::*;
 pub use self::resolve::*;
 pub use self::substitution::*;
 pub use self::term::*;
+
+#[cfg(test)]
+pub(crate) use self::tests::*;
 
 use either::*;
 use husky_entity_path::*;

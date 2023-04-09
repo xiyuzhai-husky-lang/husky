@@ -14,15 +14,15 @@ mod symbol;
 #[cfg(test)]
 mod tests;
 
-pub use db::*;
-pub use entity_path::*;
-pub use error::*;
-pub use parser::*;
-pub use pattern::*;
-pub use range::*;
-pub use region::*;
-pub use stmt::*;
-pub use symbol::*;
+pub use self::db::*;
+pub use self::entity_path::*;
+pub use self::error::*;
+pub use self::parser::*;
+pub use self::pattern::*;
+pub use self::range::*;
+pub use self::region::*;
+pub use self::stmt::*;
+pub use self::symbol::*;
 
 use husky_entity_path::EntityPath;
 use husky_entity_tree::*;

@@ -12,7 +12,6 @@ use crate::*;
 pub struct ExprTypeInfo {
     ty_result: ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)>,
     expectation_rule_idx: OptionFluffyTermExpectationIdx,
-    resolve_progress: ExprTypeResolveProgress,
 }
 
 impl ExprTypeInfo {
@@ -23,7 +22,6 @@ impl ExprTypeInfo {
         Self {
             ty_result,
             expectation_rule_idx,
-            resolve_progress: ExprTypeResolveProgress::Unresolved,
         }
     }
 
@@ -43,10 +41,6 @@ impl ExprTypeInfo {
         //         _ => todo!(),
         //     },
         // }
-    }
-
-    pub(crate) fn resolve_progress(&self) -> &ExprTypeResolveProgress {
-        &self.resolve_progress
     }
 
     pub fn ty(&self) -> ExprTypeResultRef<FluffyTerm> {

@@ -2,7 +2,6 @@ use crate::*;
 use husky_check_utils::should;
 use std::marker::PhantomData;
 
-#[derive(Clone)]
 pub struct ArenaMap<T, V> {
     data: Vec<Option<V>>,
     phantom: PhantomData<T>,
@@ -55,6 +54,26 @@ impl<T, V> ArenaMap<T, V> {
             data: arena.data.iter().map(|_| None).collect(),
             phantom: PhantomData,
         }
+    }
+
+    pub fn clone_for_extended(&self, extended_arena: &Arena<T>) -> Self
+    where
+        V: Clone,
+    {
+        assert!(self.data.len() <= extended_arena.len());
+        let mut data = self.data.clone();
+        data.reserve(extended_arena.len());
+        for _ in self.data.len()..extended_arena.len() {
+            data.push(None)
+        }
+        Self {
+            data,
+            phantom: PhantomData,
+        }
+    }
+
+    pub fn len(&self) -> usize {
+        self.data.len()
     }
 
     pub fn has(&self, idx: ArenaIdx<T>) -> bool {

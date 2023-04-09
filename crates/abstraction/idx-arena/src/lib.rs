@@ -494,6 +494,9 @@ impl<T> ArenaIdx<T> {
         }
     }
 
+    pub unsafe fn from_raw(raw: usize) -> Self {
+        Self::new(raw)
+    }
     pub fn is(self, raw: usize) -> bool {
         self.raw == raw
     }

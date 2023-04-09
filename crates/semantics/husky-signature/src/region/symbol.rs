@@ -1,7 +1,4 @@
-use husky_expr::{
-    CurrentSymbolMap, CurrentSymbolOrderedMap, InheritedSymbolOrderedMap, PatternSymbolIdx,
-    PatternSymbolOrderedMap,
-};
+use husky_expr::{PatternSymbolIdx, PatternSymbolOrderedMap, SymbolOrderedMap};
 
 use super::*;
 
@@ -10,9 +7,7 @@ use super::*;
 pub struct SymbolRawTermRegion {
     registry: RawTermSymbolRegistry,
     pattern_symbol_modifiers: PatternSymbolOrderedMap<SymbolModifier>,
-    current_symbol_modifiers: CurrentSymbolOrderedMap<SymbolModifier>,
-    inherited_symbol_signatures: InheritedSymbolOrderedMap<SymbolSignature>,
-    current_symbol_signatures: CurrentSymbolOrderedMap<SymbolSignature>,
+    symbol_signatures: SymbolOrderedMap<SymbolSignature>,
     self_ty_term: Option<RawTerm>,
     self_value_term: Option<RawTermSymbol>,
 }
@@ -72,9 +67,9 @@ impl SymbolRawTermRegion {
         &mut self,
         db: &dyn SignatureDb,
         current_symbol: CurrentSymbolIdx,
+        modifier: SymbolModifier,
         ty: RawTermSymbolTypeResult<RawTerm>,
     ) {
-        let modifier = self.current_symbol_modifiers[current_symbol];
         let symbol = match modifier {
             SymbolModifier::Pure => None,
             SymbolModifier::Mut => None,
@@ -98,15 +93,7 @@ impl SymbolRawTermRegion {
         idx: CurrentSymbolIdx,
         signature: SymbolSignature,
     ) {
-        self.current_symbol_signatures.insert_next(idx, signature)
-    }
-
-    pub(crate) fn add_new_current_symbol_modifier(
-        &mut self,
-        idx: CurrentSymbolIdx,
-        modifier: SymbolModifier,
-    ) {
-        self.current_symbol_modifiers.insert_next(idx, modifier)
+        self.symbol_signatures.insert_next(idx, signature)
     }
 }
 
@@ -117,18 +104,12 @@ impl SymbolRawTermRegion {
     /// `self_value_term` is set to that of parent if parent exists, otherwise none
     pub(crate) fn new(parent: Option<&SymbolRawTermRegion>, symbol_region: &SymbolRegion) -> Self {
         let registry = parent.map_or(Default::default(), |parent| parent.registry.clone());
-        let inherited_symbol_signatures =
-            InheritedSymbolOrderedMap::new(symbol_region.inherited_symbol_arena(), |symbol| {
-                parent
-                    .unwrap()
-                    .parent_symbol_term(symbol.parent_symbol_idx())
-            });
         Self {
             registry,
             pattern_symbol_modifiers: Default::default(),
-            current_symbol_modifiers: Default::default(),
-            inherited_symbol_signatures,
-            current_symbol_signatures: Default::default(),
+            symbol_signatures: SymbolOrderedMap::new(
+                parent.map(|parent| &parent.symbol_signatures),
+            ),
             self_ty_term: parent.map(|parent| parent.self_ty_term).flatten(),
             self_value_term: parent.map(|parent| parent.self_value_term).flatten(),
         }
@@ -175,7 +156,8 @@ impl SymbolRawTermRegion {
 
     fn ty_self_ty_term(&self, db: &dyn SignatureDb, ty_path: TypePath) -> RawTerm {
         let mut self_ty: RawTerm = RawTermEntityPath::Type(ty_path.into()).into();
-        for current_symbol_signature in self.current_symbol_signatures.iter().copied() {
+        for current_symbol_signature in self.symbol_signatures.current_symbol_map().iter().copied()
+        {
             self_ty = self_ty.apply(
                 db,
                 current_symbol_signature.symbol().expect("should have term"),
@@ -207,14 +189,15 @@ impl SymbolRawTermRegion {
         &self,
         inherited_symbol_idx: InheritedSymbolIdx,
     ) -> SymbolSignature {
-        self.inherited_symbol_signatures[inherited_symbol_idx]
+        self.symbol_signatures[inherited_symbol_idx]
     }
 
     pub fn current_symbol_signature(
         &self,
         current_symbol_idx: CurrentSymbolIdx,
     ) -> Option<SymbolSignature> {
-        self.current_symbol_signatures
+        self.symbol_signatures
+            .current_symbol_map()
             .get(current_symbol_idx.raw())
             .copied()
     }
