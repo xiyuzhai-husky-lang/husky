@@ -283,10 +283,11 @@ impl<'a> ExprTypeEngine<'a> {
                                     return_ty,
                                 } => todo!(),
                             },
-                            None => self
-                                .fluffy_term_region
-                                .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ImplicitType)
-                                .into(),
+                            None => todo!(),
+                            // self
+                            //     .fluffy_term_region
+                            //     .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ImplicitType)
+                            //     .into(),
                         };
                         for item in items {
                             self.infer_new_expr_ty_discarded(
@@ -297,8 +298,7 @@ impl<'a> ExprTypeEngine<'a> {
                         (
                             ListExprDisambiguation::NewList.into(),
                             FluffyTerm::new_application(
-                                self.db,
-                                &mut self.fluffy_term_region,
+                                self,
                                 expr_idx,
                                 self.term_menu.list_ty_ontology(),
                                 element_ty,

@@ -3,9 +3,8 @@ mod error;
 mod level;
 
 pub use self::action::*;
+pub use self::error::*;
 pub use self::level::*;
-
-pub(crate) use self::error::*;
 
 use crate::*;
 

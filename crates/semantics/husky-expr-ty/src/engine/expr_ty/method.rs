@@ -21,38 +21,38 @@ impl<'a> ExprTypeEngine<'a> {
                 }
                 return Err(DerivedExprTypeError::MethodOwnerTypeNotInferred.into())
             };
-        let self_expr_ty_unravelled =
-            self_expr_ty.unravel_borrow(self.db, self.fluffy_term_region.porous_terms());
-        let ty_method_card = match self_expr_ty_unravelled {
-            FluffyTerm::Term(self_expr_ty_unravelled) => {
-                match self
-                    .db
-                    .ty_method_card(self_expr_ty_unravelled, ident_token.ident())
-                {
-                    Ok(ty_method_card) => ty_method_card,
-                    Err(e) => return Err(DerivedExprTypeError::TypeMethodTypeError(e).into()),
-                }
-            }
-            FluffyTerm::Unresolved(_) => todo!(),
-            _ => todo!(),
-        };
-        if let Some(ty_method_card) = ty_method_card {
-            return Ok((
-                ExprDisambiguation::Method(ty_method_card.into()),
-                self.calc_ty_method_expr_ty(
-                    expr_idx,
-                    ty_method_card,
-                    self_argument,
-                    implicit_arguments,
-                    nonself_arguments,
-                ),
-            ));
-        }
-        Err(OriginalExprTypeError::NoMethodForType {
-            self_expr_ty_unravelled,
-            ident_token,
-        }
-        .into())
+        todo!()
+        // let self_expr_ty_unravelled = self_expr_ty.unravel_borrow(self);
+        // let ty_method_card = match self_expr_ty_unravelled {
+        //     FluffyTerm::Term(self_expr_ty_unravelled) => {
+        //         match self
+        //             .db
+        //             .ty_method_card(self_expr_ty_unravelled, ident_token.ident())
+        //         {
+        //             Ok(ty_method_card) => ty_method_card,
+        //             Err(e) => return Err(DerivedExprTypeError::TypeMethodTypeError(e).into()),
+        //         }
+        //     }
+        //     FluffyTerm::Unresolved(_) => todo!(),
+        //     _ => todo!(),
+        // };
+        // if let Some(ty_method_card) = ty_method_card {
+        //     return Ok((
+        //         ExprDisambiguation::Method(ty_method_card.into()),
+        //         self.calc_ty_method_expr_ty(
+        //             expr_idx,
+        //             ty_method_card,
+        //             self_argument,
+        //             implicit_arguments,
+        //             nonself_arguments,
+        //         ),
+        //     ));
+        // }
+        // Err(OriginalExprTypeError::NoMethodForType {
+        //     self_expr_ty_unravelled,
+        //     ident_token,
+        // }
+        // .into())
     }
 
     fn calc_ty_method_expr_ty(
@@ -65,11 +65,12 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> ExprTypeResult<FluffyTerm> {
         let method_ty_info = ty_method_card.method_ty_info(self.db)?;
         let mut nonself_parameter_contracted_tys: Vec<FluffyTermRitchieParameterContractedType> =
-            method_ty_info
-                .nonself_parameter_contracted_tys()
-                .iter()
-                .map(Into::into)
-                .collect();
+            todo!();
+        // method_ty_info
+        //     .nonself_parameter_contracted_tys()
+        //     .iter()
+        //     .map(Into::into)
+        //     .collect();
         let mut return_ty: FluffyTerm = method_ty_info.return_ty().into();
         if method_ty_info.implicit_parameters().len() > 0 {
             todo!()

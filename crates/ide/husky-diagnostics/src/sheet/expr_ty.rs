@@ -67,20 +67,21 @@ fn collect_expr_ty_diagnostics(
         }
     }
     let local_term_region = expr_ty_region.local_term_region();
-    for (expr_idx, error) in local_term_region
-        .porous_terms()
-        .iter()
-        .filter_map(|entry| Some((entry.src(), entry.original_error()?)))
-    {
-        diagnostics.push((expr_idx, error).to_diagnostic(&ctx))
-    }
-    for (expr_idx, error) in local_term_region
-        .expectations()
-        .iter()
-        .filter_map(|entry| Some((entry.src(), entry.original_error()?)))
-    {
-        diagnostics.push((expr_idx, error).to_diagnostic(&ctx))
-    }
+    todo!()
+    // for (expr_idx, error) in local_term_region
+    //     .porous_terms()
+    //     .iter()
+    //     .filter_map(|entry| Some((entry.src(), entry.original_error()?)))
+    // {
+    //     diagnostics.push((expr_idx, error).to_diagnostic(&ctx))
+    // }
+    // for (expr_idx, error) in local_term_region
+    //     .expectations()
+    //     .iter()
+    //     .filter_map(|entry| Some((entry.src(), entry.original_error()?)))
+    // {
+    //     diagnostics.push((expr_idx, error).to_diagnostic(&ctx))
+    // }
 }
 
 impl Diagnose for (ExprIdx, &'_ OriginalExprTermError) {
@@ -149,11 +150,12 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
                 self_expr_ty_unravelled,
                 ident_token,
             } => {
-                format!(
-                    "Type Error: no method named `{}` for type `{:?}`",
-                    ident_token.ident().data(ctx.db()),
-                    self_expr_ty_unravelled.debug(ctx.db()) // ad hoc
-                )
+                todo!()
+                // format!(
+                //     "Type Error: no method named `{}` for type `{:?}`",
+                //     ident_token.ident().data(ctx.db()),
+                //     self_expr_ty_unravelled.debug(ctx.db()) // ad hoc
+                // )
             }
             OriginalExprTypeError::TodoIndexOrComposeWithList => {
                 format!("Type Error: TodoIndexOrComposeWithList")

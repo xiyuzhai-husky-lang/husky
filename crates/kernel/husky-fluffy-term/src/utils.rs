@@ -29,11 +29,11 @@ impl FluffyTerm {
             FluffyTermData::Hole(kind, idx) => {
                 todo!()
                 //     match kind {
-                //     ImplicitSymbolKind::ImplicitLifetime => todo!(),
-                //     ImplicitSymbolKind::ExprEvalLifetime => todo!(),
-                //     ImplicitSymbolKind::UnspecifiedIntegerType
-                //     | ImplicitSymbolKind::UnspecifiedFloatType
-                //     | ImplicitSymbolKind::ImplicitType => FinalDestination::TypeOntology,
+                //     HoleKind::ImplicitLifetime => todo!(),
+                //     HoleKind::ExprEvalLifetime => todo!(),
+                //     HoleKind::UnspecifiedIntegerType
+                //     | HoleKind::UnspecifiedFloatType
+                //     | HoleKind::ImplicitType => FinalDestination::TypeOntology,
                 // }
             }
             FluffyTermData::Category(_) => FinalDestination::Sort,
