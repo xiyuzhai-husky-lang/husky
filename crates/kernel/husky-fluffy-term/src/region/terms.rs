@@ -6,7 +6,7 @@ pub(crate) use self::sealed::*;
 
 use super::*;
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, Default,PartialEq, Eq)]
 pub struct FluffyTerms {
     hollow_terms: HollowTerms,
     sealed_terms: SolidTerms,

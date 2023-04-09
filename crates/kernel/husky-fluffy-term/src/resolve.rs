@@ -35,3 +35,9 @@ impl FluffyTerm {
         todo!()
     }
 }
+
+impl FluffyTermRegion {
+    pub fn resolve_as_much_as_possible(&mut self, db: &dyn TermDb, level: FluffyTermResolveLevel) {
+        todo!()
+    }
+}

@@ -6,7 +6,7 @@ pub(crate) use self::terms::*;
 
 use crate::*;
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, Default, PartialEq, Eq)]
 pub struct FluffyTermRegion {
     terms: FluffyTerms,
     expectations: (),
@@ -15,5 +15,9 @@ pub struct FluffyTermRegion {
 impl FluffyTermRegion {
     pub fn terms(&self) -> &FluffyTerms {
         &self.terms
+    }
+
+    pub fn finalize_unresolved_term_table(&mut self, db: &dyn FluffyTermDb) {
+        todo!()
     }
 }

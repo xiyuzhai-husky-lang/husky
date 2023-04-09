@@ -35,17 +35,18 @@ impl ExpectImplicitlyConvertible {
 
     pub(crate) fn try_substitute_unresolved_local_term<'a>(
         &self,
-        porous_terms: &'a FluffyTerms,
+        terms: &'a FluffyTerms,
     ) -> Result<Option<FluffyTermExpectation>, &'a FluffyTermResolveError> {
-        match porous_terms.try_reduce_local_term(self.expected)? {
-            Some(destination) => Ok(Some(
-                ExpectImplicitlyConvertible {
-                    expected: destination,
-                }
-                .into(),
-            )),
-            None => Ok(None),
-        }
+        todo!()
+        // match terms.try_reduce_local_term(self.expected)? {
+        //     Some(destination) => Ok(Some(
+        //         ExpectImplicitlyConvertible {
+        //             expected: destination,
+        //         }
+        //         .into(),
+        //     )),
+        //     None => Ok(None),
+        // }
     }
 }
 
@@ -65,7 +66,7 @@ impl ExpectLocalTerm for ExpectImplicitlyConvertible {
         db: &dyn FluffyTermDb,
         terms: &FluffyTerms,
     ) -> FinalDestination {
-        self.expected.final_destination_inner(db, region)
+        self.expected.final_destination_inner(db, terms)
     }
 
     fn destination(&self) -> Option<FluffyTerm> {
@@ -78,7 +79,7 @@ impl ExpectImplicitlyConvertible {
         &self,
         db: &dyn FluffyTermDb,
         terms: &mut FluffyTerms,
-        src: HollowTermSource,
+        parent: FluffyTermExpectationIdx,
         expectee: FluffyTerm,
         level: FluffyTermResolveLevel,
     ) -> Option<FluffyTermExpectationEffect> {
@@ -120,7 +121,7 @@ impl ExpectImplicitlyConvertible {
                     {
                         if src_argument_ty != dst_argument_ty {
                             actions.push(FluffyTermResolveAction::AddExpectation {
-                                src,
+                                src: ExpectationSource::ExpectationResolve { parent },
                                 expectee: *src_argument_ty,
                                 expectation: ExpectSubtype::new(*dst_argument_ty).into(),
                             })
@@ -157,7 +158,7 @@ impl ExpectImplicitlyConvertible {
                     }),
                 },
                 _ => {
-                    p!(src.debug(db), self.expected.debug(db));
+                    p!(expectee.debug(db), self.expected.debug(db));
                     Some(FluffyTermExpectationEffect {
                         result: Err(todo!()),
                         actions: smallvec![],
@@ -169,8 +170,8 @@ impl ExpectImplicitlyConvertible {
                 FluffyTermResolveLevel::Weak => None,
                 FluffyTermResolveLevel::Strong => Some(FluffyTermExpectationEffect {
                     actions: smallvec![FluffyTermResolveAction::SubstituteHole {
-                        hole: dst_implicit_symbol,
-                        substitution: src,
+                        hole: *dst_implicit_symbol,
+                        substitution: expectee,
                     }],
                     result: Ok(ImplicitConversion::None.into()),
                 }),

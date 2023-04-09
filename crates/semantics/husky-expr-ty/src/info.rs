@@ -28,20 +28,21 @@ impl ExprTypeInfo {
     }
 
     pub(crate) fn finalize(&mut self, unresolved_term_table: &FluffyTermRegion) {
-        let Ok(ty) = self.ty() else { return };
-        self.resolve_progress = match self.expectation_rule_idx.into_option() {
-            Some(expectation_rule_idx) => unresolved_term_table[expectation_rule_idx]
-                .resolve_progress()
-                .duplicate(expectation_rule_idx)
-                .into(),
-            None => match ty {
-                FluffyTerm::Term(term) => ExprTypeResolveProgress::Unexpected(Ok(term.into())),
-                FluffyTerm::Unresolved(ty) => ExprTypeResolveProgress::Unexpected(Err(
-                    DerivedExprTypeError::UnresolvedLocalTerm.into(),
-                )),
-                _ => todo!(),
-            },
-        }
+        todo!()
+        // let Ok(ty) = self.ty() else { return };
+        // self.resolve_progress = match self.expectation_rule_idx.into_option() {
+        //     Some(expectation_rule_idx) => unresolved_term_table[expectation_rule_idx]
+        //         .resolve_progress()
+        //         .duplicate(expectation_rule_idx)
+        //         .into(),
+        //     None => match ty {
+        //         FluffyTerm::Term(term) => ExprTypeResolveProgress::Unexpected(Ok(term.into())),
+        //         FluffyTerm::Unresolved(ty) => ExprTypeResolveProgress::Unexpected(Err(
+        //             DerivedExprTypeError::UnresolvedLocalTerm.into(),
+        //         )),
+        //         _ => todo!(),
+        //     },
+        // }
     }
 
     pub(crate) fn resolve_progress(&self) -> &ExprTypeResolveProgress {

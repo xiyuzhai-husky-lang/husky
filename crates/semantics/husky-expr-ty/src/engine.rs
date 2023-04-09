@@ -27,14 +27,14 @@ pub(crate) struct ExprTypeEngine<'a> {
     token_sheet_data: &'a TokenSheetData,
     expr_region_data: &'a ExprRegionData,
     signature_term_region: &'a SignatureRegion,
-    local_term_region: FluffyTermRegion,
+    fluffy_term_region: FluffyTermRegion,
     expr_ty_infos: ExprMap<ExprTypeInfo>,
     extra_expr_errors: Vec<(ExprIdx, ExprTypeError)>,
     expr_terms: ExprMap<ExprTermResult<FluffyTerm>>,
     inherited_symbol_terms: InheritedSymbolMap<TermSymbol>,
-    inherited_symbol_qualified_tys: InheritedSymbolMap<PlaceTypeIdx>,
+    inherited_symbol_place_tys: InheritedSymbolMap<PlaceType>,
     current_symbol_terms: CurrentSymbolMap<TermSymbol>,
-    current_symbol_qualified_tys: CurrentSymbolMap<PlaceTypeIdx>,
+    current_symbol_place_tys: CurrentSymbolMap<PlaceType>,
     pattern_expr_ty_infos: PatternExprMap<PatternExprTypeInfo>,
     pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
     return_ty: Option<Term>,
@@ -42,15 +42,16 @@ pub(crate) struct ExprTypeEngine<'a> {
 }
 
 impl<'a> FluffyTermEngine<'a> for ExprTypeEngine<'a> {
-    fn db(&self) -> &'a dyn TermDb {
-        self.db
+    fn db(&self) -> &'a dyn FluffyTermDb {
+        todo!()
+        // self.db
     }
     fn fluffy_term_region(&self) -> &FluffyTermRegion {
-        &self.local_term_region
+        &self.fluffy_term_region
     }
 
     fn fluffy_term_region_mut(&mut self) -> &mut FluffyTermRegion {
-        &mut self.local_term_region
+        &mut self.fluffy_term_region
     }
 
     fn expr_region_data(&self) -> &'a ExprRegionData {
@@ -104,18 +105,16 @@ impl<'a> ExprTypeEngine<'a> {
                 .unwrap(),
             expr_region_data,
             signature_term_region: db.signature_term_region(expr_region),
-            local_term_region: Default::default(),
+            fluffy_term_region: Default::default(),
             expr_ty_infos: ExprMap::new(expr_region_data.expr_arena()),
             extra_expr_errors: vec![],
             expr_terms: ExprMap::new(expr_region_data.expr_arena()),
             inherited_symbol_terms: InheritedSymbolMap::new(symbol_region.inherited_symbol_arena()),
-            inherited_symbol_qualified_tys: InheritedSymbolMap::new(
+            inherited_symbol_place_tys: InheritedSymbolMap::new(
                 symbol_region.inherited_symbol_arena(),
             ),
             current_symbol_terms: CurrentSymbolMap::new(symbol_region.current_symbol_arena()),
-            current_symbol_qualified_tys: CurrentSymbolMap::new(
-                symbol_region.current_symbol_arena(),
-            ),
+            current_symbol_place_tys: CurrentSymbolMap::new(symbol_region.current_symbol_arena()),
             return_ty,
             pattern_expr_ty_infos: PatternExprMap::new(pattern_expr_region.pattern_expr_arena()),
             pattern_symbol_ty_infos: PatternSymbolMap::new(
@@ -165,8 +164,9 @@ impl<'a> ExprTypeEngine<'a> {
         //     print_debug_expr!(self, expr_idx);
         //     assert!(self.expr_ty_infos.has(expr_idx))
         // }
-        self.local_term_region
-            .finalize_unresolved_term_table(self.db());
+        self.fluffy_term_region.finalize_unresolved_term_table(
+            todo!(), // self.db()
+        );
         ExprTypeRegion::new(
             self.db,
             self.expr_region_data.path(),
@@ -174,10 +174,10 @@ impl<'a> ExprTypeEngine<'a> {
             self.extra_expr_errors,
             self.expr_terms,
             self.inherited_symbol_terms,
-            self.inherited_symbol_qualified_tys,
+            self.inherited_symbol_place_tys,
             self.current_symbol_terms,
-            self.current_symbol_qualified_tys,
-            self.local_term_region,
+            self.current_symbol_place_tys,
+            self.fluffy_term_region,
             self.return_ty,
             self.self_ty,
         )

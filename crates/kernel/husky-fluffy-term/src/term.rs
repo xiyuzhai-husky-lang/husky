@@ -1,3 +1,4 @@
+mod application;
 mod place_ty;
 mod ritchie;
 
@@ -27,4 +28,10 @@ pub enum FluffyTerm {
     Solid(SolidTerm),
     /// terms with undetermined arguments
     Hollow(HollowTerm),
+}
+
+impl From<Term> for FluffyTerm {
+    fn from(value: Term) -> Self {
+        todo!()
+    }
 }

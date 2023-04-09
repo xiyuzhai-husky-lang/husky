@@ -18,7 +18,7 @@ impl<'a> ExprTypeEngine<'a> {
             .ok_or(DerivedExprTermError::ExplicitApplicationArgumentTermNotInferred)?;
         FluffyTerm::new_application(
             self.db,
-            &mut self.local_term_region,
+            &mut self.fluffy_term_region,
             expr_idx,
             function,
             argument,

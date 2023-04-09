@@ -15,8 +15,7 @@ impl<'a> ExprTypeEngine<'a> {
         ) else {
             Err(DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred)?
         };
-        let lopd_ty_unravelled =
-            lopd_ty.unravel_borrow(self.db, self.local_term_region.porous_terms());
+        let lopd_ty_unravelled = lopd_ty.unravel_borrow(self);
         match lopd_ty_unravelled.pattern(self) {
             FluffyTermData::TypeOntology {
                 refined_path: Right(PreludeTypePath::Num(_)),

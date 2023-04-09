@@ -1,13 +1,13 @@
 use super::*;
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, Default, PartialEq, Eq)]
 pub struct HollowTerms {
     pores: HoleRegistry,
     entries: Vec<HollowTermEntry>,
     first_unresolved_term: usize,
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, Default, PartialEq, Eq)]
 pub struct HoleRegistry {}
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -52,7 +52,7 @@ impl HollowTermEntry {
 //         self.src
 //     }
 
-//     pub fn unresolved_term(&self) -> &LocalTermData {
+//     pub fn unresolved_term(&self) -> &FluffyTermData {
 //         &self.unresolved_term
 //     }
 

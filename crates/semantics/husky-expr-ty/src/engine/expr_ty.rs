@@ -49,10 +49,10 @@ impl<'a> ExprTypeEngine<'a> {
         E::Outcome: Clone,
     {
         let expectation_idx = self.infer_new_expr_ty_aux(expr_idx, expr_ty_expectation);
-        self.local_term_region
+        self.fluffy_term_region
             .resolve_as_much_as_possible(self.db(), FluffyTermResolveLevel::Weak);
         let outcome = match expectation_idx.into_option() {
-            Some(expectation_idx) => self.local_term_region[expectation_idx]
+            Some(expectation_idx) => self.fluffy_term_region[expectation_idx]
                 .resolve_progress()
                 .outcome::<E>()
                 .cloned(),
@@ -70,13 +70,13 @@ impl<'a> ExprTypeEngine<'a> {
         let ty_result = self.calc_expr_ty(expr_idx, &expr_ty_expectation);
         let expectation_idx = match ty_result {
             Ok((_, Ok(ty))) => {
-                self.local_term_region
+                self.fluffy_term_region
                     .add_expectation_rule(expr_idx, ty, expr_ty_expectation)
             }
             _ => Default::default(),
         };
         self.save_new_expr_ty(expr_idx, ExprTypeInfo::new(ty_result, expectation_idx));
-        self.local_term_region
+        self.fluffy_term_region
             .resolve_as_much_as_possible(self.db(), FluffyTermResolveLevel::Weak);
         expectation_idx
     }
@@ -105,10 +105,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ..
             } => Ok((
                 ExprDisambiguation::Trivial,
-                match self
-                    .inherited_symbol_qualified_tys
-                    .get(inherited_symbol_idx)
-                {
+                match self.inherited_symbol_place_tys.get(inherited_symbol_idx) {
                     Some(ty) => todo!(),
                     // Ok((*ty).into()),
                     None => Err(DerivedExprTypeError::InheritedSymbolTypeError.into()),
@@ -235,90 +232,81 @@ impl<'a> ExprTypeEngine<'a> {
                 ..
             } => self.calc_index_or_compose_with_list_expr_ty(expr_idx, owner, indices),
             Expr::List { items, .. } => {
-                Ok(
-                    match expr_ty_expectation
-                        .disambiguate_ty_path(self.db(), self.local_term_region.porous_terms())
-                    {
-                        TypePathDisambiguation::Ontology => {
-                            // ad hoc, assume universe is 1
-                            match items.len() {
-                                0 => (
-                                    ListExprDisambiguation::ListFunctor.into(),
-                                    Ok(self.term_menu.ex_co_ty0_to_ty0().into()),
-                                ),
-                                1 => (
-                                    ListExprDisambiguation::ArrayFunctor.into(),
-                                    Ok(self.term_menu.ex_co_ty0_to_ty0().into()),
-                                ),
-                                _ => {
-                                    print_debug_expr!(self, expr_idx);
-                                    todo!()
-                                }
+                Ok(match expr_ty_expectation.disambiguate_ty_path(self) {
+                    TypePathDisambiguation::Ontology => {
+                        // ad hoc, assume universe is 1
+                        match items.len() {
+                            0 => (
+                                ListExprDisambiguation::ListFunctor.into(),
+                                Ok(self.term_menu.ex_co_ty0_to_ty0().into()),
+                            ),
+                            1 => (
+                                ListExprDisambiguation::ArrayFunctor.into(),
+                                Ok(self.term_menu.ex_co_ty0_to_ty0().into()),
+                            ),
+                            _ => {
+                                print_debug_expr!(self, expr_idx);
+                                todo!()
                             }
                         }
-                        TypePathDisambiguation::Constructor => {
-                            let element_ty: FluffyTerm = match expr_ty_expectation
-                                .destination_term_data(
-                                    self.db(),
-                                    self.local_term_region.porous_terms(),
-                                ) {
-                                Some(ty_pattern) => match ty_pattern {
-                                    FluffyTermData::Literal(_) => todo!(),
-                                    FluffyTermData::TypeOntology {
-                                        path,
-                                        refined_path,
-                                        argument_tys: arguments,
-                                    } => match refined_path {
-                                        Right(PreludeTypePath::List) => {
-                                            assert_eq!(arguments.len(), 1);
-                                            arguments[0]
-                                        }
-                                        Right(PreludeTypePath::Array) => todo!(),
-                                        _ => todo!(),
-                                    },
-                                    FluffyTermData::Curry {
-                                        curry_kind,
-                                        variance,
-                                        parameter_variable: parameter_symbol,
-                                        parameter_ty,
-                                        return_ty,
-                                    } => todo!(),
-                                    FluffyTermData::Hole(_, _) => todo!(),
-                                    FluffyTermData::Category(_) => todo!(),
-                                    FluffyTermData::Ritchie {
-                                        ritchie_kind,
-                                        parameter_contracted_tys,
-                                        return_ty,
-                                    } => todo!(),
+                    }
+                    TypePathDisambiguation::Constructor => {
+                        let element_ty: FluffyTerm = match expr_ty_expectation
+                            .destination_term_data(self.db(), self.fluffy_term_region.terms())
+                        {
+                            Some(ty_pattern) => match ty_pattern {
+                                FluffyTermData::Literal(_) => todo!(),
+                                FluffyTermData::TypeOntology {
+                                    path,
+                                    refined_path,
+                                    argument_tys: arguments,
+                                } => match refined_path {
+                                    Right(PreludeTypePath::List) => {
+                                        assert_eq!(arguments.len(), 1);
+                                        arguments[0]
+                                    }
+                                    Right(PreludeTypePath::Array) => todo!(),
+                                    _ => todo!(),
                                 },
-                                None => self
-                                    .local_term_region
-                                    .new_implicit_symbol(
-                                        expr_idx,
-                                        ImplicitSymbolVariant::ImplicitType,
-                                    )
-                                    .into(),
-                            };
-                            for item in items {
-                                self.infer_new_expr_ty_discarded(
-                                    item,
-                                    ExpectImplicitlyConvertible::new_transient(element_ty),
-                                );
-                            }
-                            (
-                                ListExprDisambiguation::NewList.into(),
-                                FluffyTerm::new_application(
-                                    self.db,
-                                    &mut self.local_term_region,
-                                    expr_idx,
-                                    self.term_menu.list_ty_ontology(),
-                                    element_ty,
-                                )
-                                .map_err(|_| todo!()),
-                            )
+                                FluffyTermData::Curry {
+                                    curry_kind,
+                                    variance,
+                                    parameter_variable: parameter_symbol,
+                                    parameter_ty,
+                                    return_ty,
+                                } => todo!(),
+                                FluffyTermData::Hole(_, _) => todo!(),
+                                FluffyTermData::Category(_) => todo!(),
+                                FluffyTermData::Ritchie {
+                                    ritchie_kind,
+                                    parameter_contracted_tys,
+                                    return_ty,
+                                } => todo!(),
+                            },
+                            None => self
+                                .fluffy_term_region
+                                .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ImplicitType)
+                                .into(),
+                        };
+                        for item in items {
+                            self.infer_new_expr_ty_discarded(
+                                item,
+                                ExpectImplicitlyConvertible::new_transient(element_ty),
+                            );
                         }
-                    },
-                )
+                        (
+                            ListExprDisambiguation::NewList.into(),
+                            FluffyTerm::new_application(
+                                self.db,
+                                &mut self.fluffy_term_region,
+                                expr_idx,
+                                self.term_menu.list_ty_ontology(),
+                                element_ty,
+                            )
+                            .map_err(|_| todo!()),
+                        )
+                    }
+                })
             }
             Expr::BoxColonList { .. } => todo!(),
             Expr::Block { stmts } => Ok((
@@ -335,8 +323,7 @@ impl<'a> ExprTypeEngine<'a> {
         path: Option<EntityPath>,
         expr_ty_expectation: &impl ExpectLocalTerm,
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
-        let disambiguation = expr_ty_expectation
-            .disambiguate_ty_path(self.db(), self.local_term_region.porous_terms());
+        let disambiguation = expr_ty_expectation.disambiguate_ty_path(self);
         Ok((
             disambiguation.into(),
             Ok(path
