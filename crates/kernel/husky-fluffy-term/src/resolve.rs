@@ -41,11 +41,10 @@ impl FluffyTermRegion {
         db: &dyn FluffyTermDb,
         level: FluffyTermResolveLevel,
     ) -> Option<(FluffyTermExpectationIdx, FluffyTermExpectationEffect)> {
-        for (idx, rule) in self.expectations().unresolved_rule_iter() {
-            todo!()
-            // if let Some(action) = rule.resolve_expectation(db, &mut self.interner, level) {
-            //     return Some((idx, action));
-            // }
+        for (idx, rule) in self.expectations.unresolved_rule_iter() {
+            if let Some(action) = rule.resolve_expectation(db, &mut self.terms, idx, level) {
+                return Some((idx, action));
+            }
         }
         None
     }
@@ -56,7 +55,7 @@ impl FluffyTermRegion {
         level: FluffyTermResolveLevel,
     ) {
         while let Some((rule_idx, effect)) = self.next_expectation_effect(db, level) {
-            if let Some(actions) = self.expectations_mut().take_effect(rule_idx, effect) {
+            if let Some(actions) = self.expectations.take_effect(rule_idx, effect) {
                 for action in actions {
                     match action {
                         FluffyTermResolveAction::SubstituteHole { hole, substitution } => {
