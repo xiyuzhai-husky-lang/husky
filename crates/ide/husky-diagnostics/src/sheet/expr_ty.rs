@@ -192,6 +192,7 @@ impl Diagnose for (HollowTermSource, &'_ OriginalFluffyTermResolveError) {
 
     fn range(&self, ctx: &RegionDiagnosticsContext) -> TextRange {
         match self.0 {
+            HollowTermSource::Expr(_) => todo!(),
             HollowTermSource::Expectation(_) => todo!(),
         }
         // ctx.expr_text_range()

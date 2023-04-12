@@ -20,7 +20,7 @@ impl ExprTypeRegion {
     pub(crate) fn new(
         db: &dyn ExprTypeDb,
         path: RegionPath,
-        mut expr_ty_infos: ExprMap<ExprTypeInfo>,
+        expr_ty_infos: ExprMap<ExprTypeInfo>,
         extra_expr_errors: Vec<(ExprIdx, ExprTypeError)>,
         expr_fluffy_terms: ExprMap<ExprTermResult<FluffyTerm>>,
         symbol_terms: SymbolMap<FluffyTerm>,
@@ -29,9 +29,6 @@ impl ExprTypeRegion {
         return_ty: Option<Term>,
         self_ty: Option<Term>,
     ) -> Self {
-        expr_ty_infos
-            .iter_mut()
-            .for_each(|info| info.finalize(&fluffy_term_region));
         Self {
             path,
             expr_ty_infos,

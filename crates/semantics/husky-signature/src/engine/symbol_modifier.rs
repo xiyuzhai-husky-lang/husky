@@ -18,8 +18,10 @@ impl<'a> RawTermEngine<'a> {
                             ident_token,
                         } => match modifier_keyword_group {
                             Some(modifier_keyword_group) => match modifier_keyword_group {
-                                PatternSymbolModifierKeywordGroup::Mut(_) => todo!(),
-                                PatternSymbolModifierKeywordGroup::RefMut(_, _) => todo!(),
+                                PatternSymbolModifierKeywordGroup::Mut(_) => SymbolModifier::Mut,
+                                PatternSymbolModifierKeywordGroup::RefMut(_, _) => {
+                                    SymbolModifier::RefMut
+                                }
                             },
                             None => SymbolModifier::Pure,
                         },

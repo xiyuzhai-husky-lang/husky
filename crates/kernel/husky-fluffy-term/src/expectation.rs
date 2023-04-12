@@ -228,14 +228,6 @@ pub enum ExpectationData {
     AnyDerived(ExpectAnyDerived),
 }
 
-impl std::ops::Index<FluffyTermExpectationIdx> for FluffyTermRegion {
-    type Output = ExpectationEntry;
-
-    fn index(&self, index: FluffyTermExpectationIdx) -> &Self::Output {
-        todo!()
-    }
-}
-
 impl ExpectationEntry {
     pub(super) fn resolve_expectation(
         &self,

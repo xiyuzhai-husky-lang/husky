@@ -12,8 +12,10 @@ impl<'a> RawTermEngine<'a> {
                     ..
                 } => match modifier_keyword_group {
                     Some(modifier_keyword_group) => match modifier_keyword_group {
-                        PatternSymbolModifierKeywordGroup::Mut(_) => todo!(),
-                        PatternSymbolModifierKeywordGroup::RefMut(_, _) => todo!(),
+                        PatternSymbolModifierKeywordGroup::Mut(_) => PatternContract::Move,
+                        PatternSymbolModifierKeywordGroup::RefMut(_, _) => {
+                            PatternContract::BorrowMut
+                        }
                     },
                     None => PatternContract::Pure,
                 },

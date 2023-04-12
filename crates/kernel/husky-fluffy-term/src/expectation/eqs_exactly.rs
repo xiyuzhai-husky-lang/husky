@@ -79,8 +79,8 @@ impl ExpectSubtype {
                     } else {
                         Some(FluffyTermExpectationEffect {
                             result: Err(OriginalFluffyTermExpectationError::TypePathMismatch {
-                                expected_path: *expected_path,
-                                expectee_path: *expectee_path,
+                                expected_path,
+                                expectee_path,
                             }
                             .into()),
                             actions: smallvec![],

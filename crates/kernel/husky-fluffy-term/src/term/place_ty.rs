@@ -103,13 +103,12 @@ pub enum Place {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum StackLocationIdx {
-    ExplicitParameter {
-        current_symbol_idx: CurrentSymbolIdx,
-    },
-    Variable {
-        current_symbol_idx: CurrentSymbolIdx,
-    },
+pub struct StackLocationIdx(LocalSymbolIdx);
+
+impl From<LocalSymbolIdx> for StackLocationIdx {
+    fn from(idx: LocalSymbolIdx) -> Self {
+        Self(idx)
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
