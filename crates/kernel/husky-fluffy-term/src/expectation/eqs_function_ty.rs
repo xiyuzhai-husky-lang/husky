@@ -97,11 +97,11 @@ impl ExpectEqsFunctionType {
                 db,
                 terms,
                 idx,
-                *curry_kind,
-                *variance,
-                *parameter_symbol,
-                *parameter_ty,
-                *return_ty,
+                curry_kind,
+                variance,
+                parameter_symbol,
+                parameter_ty,
+                return_ty,
             ),
             FluffyTermData::Hole(_, _) => todo!(),
             FluffyTermData::Category(_) => todo!(),
@@ -112,10 +112,10 @@ impl ExpectEqsFunctionType {
             } => Some(FluffyTermExpectationEffect {
                 result: Ok(ExpectEqsFunctionTypeOutcome {
                     implicit_parameter_substitutions: smallvec![],
-                    return_ty: *return_ty,
+                    return_ty,
                     variant: ExpectEqsFunctionTypeOutcomeVariant::Ritchie {
-                        ritchie_kind: *ritchie_kind,
-                        parameter_contracted_tys: parameter_contracted_tys.clone(),
+                        ritchie_kind,
+                        parameter_contracted_tys: parameter_contracted_tys.to_vec(),
                     },
                 }
                 .into()),

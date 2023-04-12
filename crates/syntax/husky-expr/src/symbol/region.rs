@@ -227,6 +227,7 @@ pub enum Prevariable {}
 /// equal to InheritedSymbolIdx
 ///
 /// equal to CurrentSymbolIdx + number of inherited symbols
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct LocalSymbolIdx(usize);
 
 impl From<InheritedSymbolIdx> for LocalSymbolIdx {

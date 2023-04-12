@@ -49,14 +49,9 @@ impl<'a> ExprTypeEngine<'a> {
                                 return Ok((*term).into())
                             }
                             _ => {
-                                todo!()
-                                // return Ok(self
-                                //     .fluffy_term_region
-                                //     .new_implicit_symbol(
-                                //         expr_idx,
-                                //         ImplicitSymbolVariant::UnspecifiedIntegerType,
-                                //     )
-                                //     .into())
+                                return Ok(self
+                                    .new_hole(expr_idx, HoleKind::UnspecifiedIntegerType)
+                                    .into())
                             }
                         }
                         .into())

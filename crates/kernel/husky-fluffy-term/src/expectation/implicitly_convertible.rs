@@ -122,8 +122,8 @@ impl ExpectImplicitlyConvertible {
                         if src_argument_ty != dst_argument_ty {
                             actions.push(FluffyTermResolveAction::AddExpectation {
                                 src: ExpectationSource::ExpectationResolve { parent },
-                                expectee: *src_argument_ty,
-                                expectation: ExpectSubtype::new(*dst_argument_ty).into(),
+                                expectee: src_argument_ty,
+                                expectation: ExpectSubtype::new(dst_argument_ty).into(),
                             })
                         }
                     }
@@ -139,20 +139,20 @@ impl ExpectImplicitlyConvertible {
                     ..
                 } => Some(FluffyTermExpectationEffect {
                     result: Err(OriginalFluffyTermExpectationError::TypePathMismatch {
-                        expected_path: *dst_path,
-                        expectee_path: *src_path,
+                        expected_path: dst_path,
+                        expectee_path: src_path,
                     }
                     .into()),
                     actions: smallvec![],
                 }),
-                FluffyTermData::Hole(_, src_implicit_symbol) => match level {
+                FluffyTermData::Hole(_, hole) => match level {
                     FluffyTermResolveLevel::Weak => None,
                     FluffyTermResolveLevel::Strong => Some(FluffyTermExpectationEffect {
                         result: Ok(FluffyTermExpectationOutcome::ImplicitlyConvertible(
                             ImplicitConversion::None,
                         )),
                         actions: smallvec![FluffyTermResolveAction::SubstituteHole {
-                            hole: *src_implicit_symbol,
+                            hole,
                             substitution: self.expected,
                         }],
                     }),
@@ -166,11 +166,11 @@ impl ExpectImplicitlyConvertible {
                 }
             },
             FluffyTermData::Curry { .. } => todo!(),
-            FluffyTermData::Hole(_, dst_implicit_symbol) => match level {
+            FluffyTermData::Hole(_, hole) => match level {
                 FluffyTermResolveLevel::Weak => None,
                 FluffyTermResolveLevel::Strong => Some(FluffyTermExpectationEffect {
                     actions: smallvec![FluffyTermResolveAction::SubstituteHole {
-                        hole: *dst_implicit_symbol,
+                        hole,
                         substitution: expectee,
                     }],
                     result: Ok(ImplicitConversion::None.into()),

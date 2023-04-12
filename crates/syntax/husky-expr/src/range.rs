@@ -188,14 +188,13 @@ impl<'a> ExprRangeCalculator<'a> {
             PatternExpr::Ident {
                 ident_token,
                 modifier_keyword_group,
-            } => {
-                todo!()
-                //     match modifier {
-                //     SymbolModifier::Pure => TokenIdxRange::new_single(ident_token.token_idx()),
-                //     SymbolModifier::Mut => todo!(),
-                //     SymbolModifier::Const => todo!(),
-                // }
-            }
+            } => match modifier_keyword_group {
+                Some(modifier_keyword_group) => match modifier_keyword_group {
+                    PatternSymbolModifierKeywordGroup::Mut(_) => todo!(),
+                    PatternSymbolModifierKeywordGroup::RefMut(_, _) => todo!(),
+                },
+                None => TokenIdxRange::new_single(ident_token.token_idx()),
+            },
             PatternExpr::Entity(_) => todo!(),
             PatternExpr::Tuple { name, fields } => todo!(),
             PatternExpr::Struct { name, fields } => todo!(),

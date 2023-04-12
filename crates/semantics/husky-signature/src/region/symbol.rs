@@ -71,9 +71,8 @@ impl SymbolRawTermRegion {
         ty: RawTermSymbolTypeResult<RawTerm>,
     ) {
         let symbol = match modifier {
-            SymbolModifier::Pure => None,
-            SymbolModifier::Mut => None,
             SymbolModifier::Const => todo!(),
+            SymbolModifier::Pure | SymbolModifier::Mut | SymbolModifier::RefMut => None,
         };
         self.add_new_current_symbol_signature(
             db,

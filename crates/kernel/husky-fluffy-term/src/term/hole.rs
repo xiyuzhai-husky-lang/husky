@@ -1,3 +1,5 @@
+use super::*;
+
 #[derive(Debug, Default, PartialEq, Eq)]
 pub struct HoleRegistry {}
 
@@ -8,4 +10,14 @@ pub struct HoleIdn {}
 pub enum HoleKind {
     UnspecifiedIntegerType,
     UnspecifiedFloatType,
+}
+
+impl HollowTerm {
+    pub(crate) fn new_hole(
+        hollow_terms: &mut HollowTerms,
+        src: impl Into<HollowTermSource>,
+        hole_kind: HoleKind,
+    ) -> Self {
+        todo!()
+    }
 }

@@ -25,24 +25,6 @@ impl ExprTypeInfo {
         }
     }
 
-    pub(crate) fn finalize(&mut self, unresolved_term_table: &FluffyTermRegion) {
-        todo!()
-        // let Ok(ty) = self.ty() else { return };
-        // self.resolve_progress = match self.expectation_rule_idx.into_option() {
-        //     Some(expectation_rule_idx) => unresolved_term_table[expectation_rule_idx]
-        //         .resolve_progress()
-        //         .duplicate(expectation_rule_idx)
-        //         .into(),
-        //     None => match ty {
-        //         FluffyTerm::Term(term) => ExprTypeResolveProgress::Unexpected(Ok(term.into())),
-        //         FluffyTerm::Unresolved(ty) => ExprTypeResolveProgress::Unexpected(Err(
-        //             DerivedExprTypeError::UnresolvedLocalTerm.into(),
-        //         )),
-        //         _ => todo!(),
-        //     },
-        // }
-    }
-
     pub fn ty(&self) -> ExprTypeResultRef<FluffyTerm> {
         Ok(*self.ty_result.as_ref()?.1.as_ref()?)
     }

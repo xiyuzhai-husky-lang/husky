@@ -4,7 +4,7 @@ use crate::*;
 pub enum PatternContract {
     Pure,
     Move,
-    Mut,
+    BorrowMut,
     Const,
 }
 
@@ -12,7 +12,8 @@ impl From<SymbolModifier> for PatternContract {
     fn from(modifier: SymbolModifier) -> Self {
         match modifier {
             SymbolModifier::Pure => PatternContract::Pure,
-            SymbolModifier::Mut => PatternContract::Mut,
+            SymbolModifier::Mut => todo!(),
+            SymbolModifier::RefMut => todo!(),
             SymbolModifier::Const => PatternContract::Const,
         }
     }

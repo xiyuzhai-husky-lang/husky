@@ -59,26 +59,23 @@ impl ExpectEqsCategory {
         expectee: FluffyTerm,
         porous_terms: &mut FluffyTerms,
     ) -> Option<FluffyTermExpectationEffect> {
-        todo!()
-        // match expectee {
-        //     FluffyTerm::Term(resolved_expectee) => match resolved_expectee {
-        //         Term::Category(cat) => Some(match cat.universe() >= self.smallest_universe {
-        //             true => FluffyTermExpectationEffect {
-        //                 result: Ok(FluffyTermExpectationOutcome::EqsSort(cat.universe())),
-        //                 actions: smallvec![],
-        //             },
-        //             false => FluffyTermExpectationEffect {
-        //                 result: Err(todo!()),
-        //                 actions: smallvec![],
-        //             },
-        //         }),
-        //         _ => Some(FluffyTermExpectationEffect {
-        //             result: Err(OriginalFluffyTermExpectationError::Todo.into()),
-        //             actions: smallvec![],
-        //         }),
-        //     },
-        //     FluffyTerm::Hollow(_) => todo!(),
-        //     _ => todo!(),
-        // }
+        match expectee {
+            FluffyTerm::Hollow(_) => todo!(),
+            FluffyTerm::Solid(_) => todo!(),
+            FluffyTerm::Category(cat) => Some(match cat.universe() >= self.smallest_universe {
+                true => FluffyTermExpectationEffect {
+                    result: Ok(FluffyTermExpectationOutcome::EqsSort(cat.universe())),
+                    actions: smallvec![],
+                },
+                false => FluffyTermExpectationEffect {
+                    result: Err(todo!()),
+                    actions: smallvec![],
+                },
+            }),
+            _ => Some(FluffyTermExpectationEffect {
+                result: Err(OriginalFluffyTermExpectationError::Todo.into()),
+                actions: smallvec![],
+            }),
+        }
     }
 }

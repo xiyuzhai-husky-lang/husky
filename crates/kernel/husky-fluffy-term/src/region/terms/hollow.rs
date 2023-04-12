@@ -29,7 +29,9 @@ pub struct HollowTerm {}
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
+#[enum_class::from_variants]
 pub enum HollowTermSource {
+    Expr(ExprIdx),
     Expectation(FluffyTermExpectationIdx),
 }
 
