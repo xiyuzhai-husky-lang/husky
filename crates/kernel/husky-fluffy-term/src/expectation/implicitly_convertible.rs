@@ -36,7 +36,7 @@ impl ExpectImplicitlyConvertible {
     pub(crate) fn try_substitute_unresolved_fluffy_term<'a>(
         &self,
         terms: &'a FluffyTerms,
-    ) -> Result<Option<ExpectationData>, &'a FluffyTermResolveError> {
+    ) -> Result<Option<ExpectationData>, &'a HollowTermResolveError> {
         todo!()
         // match terms.try_reduce_fluffy_term(self.expected)? {
         //     Some(destination) => Ok(Some(

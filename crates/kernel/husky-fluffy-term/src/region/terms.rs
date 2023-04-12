@@ -16,7 +16,7 @@ impl FluffyTerms {
     pub(crate) fn new_hole_from_parameter_symbol(
         &mut self,
         db: &dyn FluffyTermDb,
-        src: HollowTermSource,
+        src: HoleSource,
         parameter_symbol: FluffyTerm,
     ) -> HollowTerm {
         todo!()

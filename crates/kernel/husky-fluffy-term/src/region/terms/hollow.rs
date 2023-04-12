@@ -8,20 +8,26 @@ pub struct HollowTerms {
 }
 
 impl HollowTerms {
-    // todo: change this to errors or something
-    pub fn entries(&self) -> &[HollowTermEntry] {
-        self.entries.as_ref()
+    // for ide
+    pub fn errors(&self) -> impl Iterator<Item = (HoleSource, &OriginalHollowTermResolveError)> {
+        self.entries.iter().filter_map(|entry| match entry {
+            HollowTermEntry {
+                data: HollowTermData::Hole(src, _),
+                resolve_progress:
+                    HollowTermResolveProgress::Err(HollowTermResolveError::Original(e)),
+            } => Some((*src, e)),
+            _ => None,
+        })
     }
 
     // alloc something that's actually different
     #[inline(always)]
-    pub(crate) fn alloc_new(&mut self, src: HollowTermSource, data: HollowTermData) -> HollowTerm {
+    pub(crate) fn alloc_new(&mut self, data: HollowTermData) -> HollowTerm {
         let idx = self.entries.len();
         let term = HollowTerm(idx.try_into().expect("within range"));
         self.entries.push(HollowTermEntry {
-            src,
             data,
-            resolve_progress: Ok(Right(term)),
+            resolve_progress: HollowTermResolveProgress::InProgress(term),
         });
         term
     }
@@ -30,29 +36,22 @@ impl HollowTerms {
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
 pub struct HollowTermEntry {
-    src: HollowTermSource,
     data: HollowTermData,
-    resolve_progress: FluffyTermResolveResult<Either<ResolvedTerm, HollowTerm>>,
+    resolve_progress: HollowTermResolveProgress,
+}
+
+#[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = FluffyTermDb)]
+pub enum HollowTermResolveProgress {
+    InProgress(HollowTerm),
+    Ok(ResolvedTerm),
+    Err(HollowTermResolveError),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
 pub struct HollowTerm(u32);
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = FluffyTermDb)]
-#[enum_class::from_variants]
-pub enum HollowTermSource {
-    Expr(ExprIdx),
-    Expectation(FluffyTermExpectationIdx),
-}
-
-impl HollowTermSource {
-    pub fn expr_idx(self) -> ExprIdx {
-        todo!()
-        // self.expr_idx
-    }
-}
 use super::*;
 use vec_like::VecSet;
 
@@ -72,19 +71,8 @@ impl HollowTermEntry {
 }
 
 impl HollowTermEntry {
-    pub fn src(&self) -> HollowTermSource {
-        self.src
-    }
-
     pub fn data(&self) -> &HollowTermData {
         &self.data
-    }
-
-    pub fn original_error(&self) -> Option<&OriginalFluffyTermResolveError> {
-        match self.resolve_progress {
-            Err(FluffyTermResolveError::Original(ref e)) => Some(e),
-            _ => None,
-        }
     }
 
     pub(crate) fn resolve_progress(&self) -> Option<FluffyTerm> {
