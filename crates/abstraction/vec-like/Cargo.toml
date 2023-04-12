@@ -10,5 +10,6 @@ doctest = false
 
 [dependencies]
 thiserror = "1.0.37"
+smallvec = "1.10.0"
 serde = { version = "1.0.106", features = ["derive"] }
 wild-utils = { path = "../../utils/husky-wild-utils" }

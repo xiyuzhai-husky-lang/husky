@@ -116,9 +116,10 @@ impl ExpectImplicitlyConvertible {
                         todo!()
                     }
                     let mut actions = smallvec![];
-                    for (src_argument_ty, dst_argument_ty) in
-                        std::iter::zip(src_argument_tys.into_iter(), dst_argument_tys.into_iter())
-                    {
+                    for (src_argument_ty, dst_argument_ty) in std::iter::zip(
+                        src_argument_tys.iter().copied(),
+                        dst_argument_tys.iter().copied(),
+                    ) {
                         if src_argument_ty != dst_argument_ty {
                             actions.push(FluffyTermResolveAction::AddExpectation {
                                 src: ExpectationSource::ExpectationResolve { parent },

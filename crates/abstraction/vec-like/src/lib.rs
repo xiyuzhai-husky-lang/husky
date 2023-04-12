@@ -1,10 +1,11 @@
 mod append_only;
-mod set;
 mod vec_map;
+mod vec_set;
+mod small_vec_set;
 
 pub use append_only::*;
-pub use set::*;
 pub use vec_map::*;
+pub use vec_set::*;
 
 use serde::{Deserialize, Serialize};
 

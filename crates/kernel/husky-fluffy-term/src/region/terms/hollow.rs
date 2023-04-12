@@ -3,7 +3,6 @@ use super::*;
 #[derive(Debug, Default, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
 pub struct HollowTerms {
-    pores: HoleRegistry,
     entries: Vec<HollowTermEntry>,
     first_unresolved_term: usize,
 }
@@ -19,7 +18,6 @@ impl HollowTerms {
 pub struct HollowTermEntry {
     src: HollowTermSource,
     data: HollowTermData,
-    holes: VecSet<HoleIdn>,
     resolve_progress: FluffyTermResolveResult<Either<ResolvedTerm, HollowTerm>>,
 }
 

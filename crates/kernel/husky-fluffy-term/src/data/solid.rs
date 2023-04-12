@@ -1,4 +1,58 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum SolidTermData {}
+pub enum SolidTermData {
+    TypeOntology {
+        path: TypePath,
+        refined_path: Either<CustomTypePath, PreludeTypePath>,
+        // use fluffy term here because we don't want to recreate vectors when converting
+        argument_tys: SmallVec<[FluffyTerm; 2]>,
+    },
+    Curry {
+        curry_kind: CurryKind,
+        variance: Variance,
+        parameter_variable: Option<SolidTerm>,
+        parameter_ty: SolidTerm,
+        return_ty: SolidTerm,
+    },
+    Ritchie {
+        ritchie_kind: TermRitchieKind,
+        // use fluffy term here because we don't want to recreate vectors when converting
+        parameter_contracted_tys: SmallVec<[FluffyTermRitchieParameterContractedType; 2]>,
+        return_ty: SolidTerm,
+    },
+}
+
+impl<'a> From<&'a SolidTermData> for FluffyTermData<'a> {
+    fn from(data: &'a SolidTermData) -> Self {
+        match data {
+            SolidTermData::TypeOntology {
+                path,
+                refined_path,
+                argument_tys,
+            } => FluffyTermData::TypeOntology {
+                path: *path,
+                refined_path: *refined_path,
+                argument_tys,
+            },
+            SolidTermData::Curry {
+                curry_kind,
+                variance,
+                parameter_variable,
+                parameter_ty,
+                return_ty,
+            } => FluffyTermData::Curry {
+                curry_kind: *curry_kind,
+                variance: *variance,
+                parameter_variable: parameter_variable.map(Into::into),
+                parameter_ty: (*parameter_ty).into(),
+                return_ty: (*return_ty).into(),
+            },
+            SolidTermData::Ritchie {
+                ritchie_kind,
+                parameter_contracted_tys,
+                return_ty,
+            } => todo!(),
+        }
+    }
+}

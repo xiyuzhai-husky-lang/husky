@@ -19,13 +19,16 @@ impl<'a> ExprTypeEngine<'a> {
                         // match in the order of most frequent to least frequent
                         Ok(match expectation
                             .destination()
-                            .map(|destination| destination.data(self))
+                            .map(|destination| (destination, destination.data(self)))
                         {
-                            Some(FluffyTermData::TypeOntology {
-                                refined_path:
-                                    Right(PreludeTypePath::Num(PreludeNumTypePath::Int(path))),
-                                ..
-                            }) => match path {
+                            Some((
+                                _,
+                                FluffyTermData::TypeOntology {
+                                    refined_path:
+                                        Right(PreludeTypePath::Num(PreludeNumTypePath::Int(path))),
+                                    ..
+                                },
+                            )) => match path {
                                 PreludeIntTypePath::I32 => self.term_menu.i32_ty_ontology(),
                                 PreludeIntTypePath::I64 => self.term_menu.i64_ty_ontology(),
                                 PreludeIntTypePath::ISize => self.term_menu.isize_ty_ontology(),
@@ -45,9 +48,10 @@ impl<'a> ExprTypeEngine<'a> {
                                 PreludeIntTypePath::R128 => self.term_menu.r128_ty_ontology(),
                                 PreludeIntTypePath::RSize => self.term_menu.rsize_ty_ontology(),
                             },
-                            Some(FluffyTermData::Hole(HoleKind::UnspecifiedIntegerType, term)) => {
-                                return Ok((*term).into())
-                            }
+                            Some((
+                                destination,
+                                FluffyTermData::Hole(HoleKind::UnspecifiedIntegerType, _),
+                            )) => return Ok(destination),
                             _ => {
                                 return Ok(self
                                     .new_hole(expr_idx, HoleKind::UnspecifiedIntegerType)
