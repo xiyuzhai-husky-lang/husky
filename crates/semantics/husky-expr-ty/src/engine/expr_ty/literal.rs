@@ -98,7 +98,7 @@ impl<'a> ExprTypeEngine<'a> {
                                 }
                             },
                             Some(FluffyTermData::Hole(HoleKind::UnspecifiedFloatType, idx)) => {
-                                return Ok((*idx).into())
+                                return Ok(idx.into())
                             }
                             _ => todo!(),
                             // Ok(self
