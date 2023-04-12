@@ -153,7 +153,7 @@ impl ExpectEqsFunctionType {
                 Some(parameter_symbol) => {
                     let implicit_symbol = terms.new_hole_from_parameter_symbol(
                         db,
-                        HollowTermSource::Expectation(idx),
+                        HoleSource::Expectation(idx),
                         parameter_symbol,
                     );
                     let mut implicit_parameter_substitutions =
@@ -164,7 +164,7 @@ impl ExpectEqsFunctionType {
                     let expectee = return_ty;
                     let expectee = terms.substitute_into_term(
                         db,
-                        HollowTermSource::Expectation(idx),
+                        HoleSource::Expectation(idx),
                         expectee,
                         &implicit_parameter_substitutions,
                     );

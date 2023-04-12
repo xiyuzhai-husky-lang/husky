@@ -11,14 +11,14 @@ pub trait FluffyTermEngine<'a> {
 
     fn new_ty_ontology_application(
         &mut self,
-        src: HollowTermSource,
+        src: HoleSource,
         path: TypePath,
         arguments: SmallVec<[FluffyTerm; 2]>,
     ) -> FluffyTerm {
         todo!()
     }
 
-    fn new_hole(&mut self, src: impl Into<HollowTermSource>, hole_kind: HoleKind) -> FluffyTerm {
+    fn new_hole(&mut self, src: impl Into<HoleSource>, hole_kind: HoleKind) -> FluffyTerm {
         HollowTerm::new_hole(
             self.fluffy_term_region_mut().hollow_terms_mut(),
             src,

@@ -20,7 +20,7 @@ impl FluffyTerms {
     pub(crate) fn substitute_into_term(
         &mut self,
         db: &dyn FluffyTermDb,
-        src: HollowTermSource,
+        src: HoleSource,
         term: FluffyTerm,
         substitution_rules: &[ImplicitParameterSubstitution],
     ) -> FluffyTerm {
@@ -33,7 +33,7 @@ impl FluffyTerms {
     fn substitute_into_term_aux(
         &mut self,
         db: &dyn FluffyTermDb,
-        src: HollowTermSource,
+        src: HoleSource,
         term: FluffyTerm,
         substitution_rules: &[ImplicitParameterSubstitution],
     ) -> FluffyTerm {

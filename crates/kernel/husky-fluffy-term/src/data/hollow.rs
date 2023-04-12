@@ -14,7 +14,7 @@ pub enum HollowTermData {
         parameter_ty: FluffyTerm,
         return_ty: FluffyTerm,
     },
-    Hole(HoleKind),
+    Hole(HoleSource, HoleKind),
     Ritchie {
         ritchie_kind: TermRitchieKind,
         parameter_contracted_tys: Vec<FluffyTermRitchieParameterContractedType>,

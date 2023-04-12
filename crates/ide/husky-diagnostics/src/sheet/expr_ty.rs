@@ -67,12 +67,7 @@ fn collect_expr_ty_diagnostics(
         }
     }
     let fluffy_term_region = expr_ty_region.fluffy_term_region();
-    for (src, error) in fluffy_term_region
-        .hollow_terms()
-        .entries()
-        .iter()
-        .filter_map(|entry| Some((entry.src(), entry.original_error()?)))
-    {
+    for (src, error) in fluffy_term_region.hollow_terms().errors() {
         diagnostics.push((src, error).to_diagnostic(&ctx))
     }
     for (src, error) in fluffy_term_region
@@ -177,12 +172,12 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
     }
 }
 
-impl Diagnose for (HollowTermSource, &'_ OriginalFluffyTermResolveError) {
+impl Diagnose for (HoleSource, &'_ OriginalHollowTermResolveError) {
     type Context<'a> = RegionDiagnosticsContext<'a>;
 
     fn message(&self, _db: &RegionDiagnosticsContext) -> String {
         match self.1 {
-            OriginalFluffyTermResolveError::UnresolvedTerm => "unresolved term".to_string(),
+            OriginalHollowTermResolveError::UnresolvedTerm => "unresolved term".to_string(),
         }
     }
 
@@ -192,8 +187,8 @@ impl Diagnose for (HollowTermSource, &'_ OriginalFluffyTermResolveError) {
 
     fn range(&self, ctx: &RegionDiagnosticsContext) -> TextRange {
         match self.0 {
-            HollowTermSource::Expr(_) => todo!(),
-            HollowTermSource::Expectation(_) => todo!(),
+            HoleSource::Expr(_) => todo!(),
+            HoleSource::Expectation(_) => todo!(),
         }
         // ctx.expr_text_range()
     }
