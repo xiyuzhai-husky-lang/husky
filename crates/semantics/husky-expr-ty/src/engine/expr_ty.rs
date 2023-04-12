@@ -111,8 +111,7 @@ impl<'a> ExprTypeEngine<'a> {
                     .inherited_symbol_map()
                     .get(inherited_symbol_idx)
                 {
-                    Some(ty) => todo!(),
-                    // Ok((*ty).into()),
+                    Some(ty) => Ok((*ty).into()),
                     None => Err(DerivedExprTypeError::InheritedSymbolTypeError.into()),
                 },
             )),

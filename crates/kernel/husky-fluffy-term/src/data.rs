@@ -44,7 +44,16 @@ impl FluffyTerm {
             FluffyTerm::Literal(_) => todo!(),
             FluffyTerm::Symbol(_) => todo!(),
             FluffyTerm::Hole(_) => todo!(),
-            FluffyTerm::EntityPath(_) => todo!(),
+            FluffyTerm::EntityPath(path) => match path {
+                TermEntityPath::Form(_) => todo!(),
+                TermEntityPath::Trait(_) => todo!(),
+                TermEntityPath::TypeOntology(path) => FluffyTermData::TypeOntology {
+                    path,
+                    refined_path: path.refine(db),
+                    argument_tys: &[],
+                },
+                TermEntityPath::TypeConstructor(_) => todo!(),
+            },
             FluffyTerm::Category(term) => FluffyTermData::Category(term),
             FluffyTerm::Universe(_) => todo!(),
             FluffyTerm::Curry(term) => FluffyTermData::Curry {

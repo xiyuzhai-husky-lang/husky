@@ -1,11 +1,5 @@
 use super::*;
 
-#[derive(Debug, Default, PartialEq, Eq)]
-pub struct HoleRegistry {}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct HoleIdn {}
-
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum HoleKind {
     UnspecifiedIntegerType,
@@ -18,6 +12,6 @@ impl HollowTerm {
         src: impl Into<HollowTermSource>,
         hole_kind: HoleKind,
     ) -> Self {
-        todo!()
+        hollow_terms.alloc_new(src.into(), HollowTermData::Hole(hole_kind))
     }
 }

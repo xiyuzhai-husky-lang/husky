@@ -215,23 +215,22 @@ impl<Expectation: ExpectLocalTerm> BranchTypes<Expectation> {
     }
 
     fn visit_branch(&mut self, engine: &mut ExprTypeEngine, block: &ExprResult<StmtIdxRange>) {
-        todo!()
-        // match block {
-        //     Ok(stmts) => match engine.infer_new_block(*stmts, self.expr_expectation.clone()) {
-        //         Some(FluffyTerm::Term(new_block_ty))
-        //             if new_block_ty == engine.term_menu.never() =>
-        //         {
-        //             ()
-        //         }
-        //         Some(new_block_ty) => {
-        //             if self.ever_ty.is_none() {
-        //                 self.ever_ty = Some(new_block_ty)
-        //             }
-        //         }
-        //         None => self.has_error = true,
-        //     },
-        //     Err(_) => self.has_error = true,
-        // };
+        match block {
+            Ok(stmts) => match engine.infer_new_block(*stmts, self.expr_expectation.clone()) {
+                Some(FluffyTerm::EntityPath(TermEntityPath::TypeOntology(path)))
+                    if path == engine.entity_path_menu.never_ty_path() =>
+                {
+                    ()
+                }
+                Some(new_block_ty) => {
+                    if self.ever_ty.is_none() {
+                        self.ever_ty = Some(new_block_ty)
+                    }
+                }
+                None => self.has_error = true,
+            },
+            Err(_) => self.has_error = true,
+        };
     }
 
     fn merge(self, exhaustive: bool, menu: &TermMenu) -> Option<FluffyTerm> {

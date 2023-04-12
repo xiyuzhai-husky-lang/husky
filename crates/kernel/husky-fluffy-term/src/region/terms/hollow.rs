@@ -8,8 +8,22 @@ pub struct HollowTerms {
 }
 
 impl HollowTerms {
+    // todo: change this to errors or something
     pub fn entries(&self) -> &[HollowTermEntry] {
         self.entries.as_ref()
+    }
+
+    // alloc something that's actually different
+    #[inline(always)]
+    pub(crate) fn alloc_new(&mut self, src: HollowTermSource, data: HollowTermData) -> HollowTerm {
+        let idx = self.entries.len();
+        let term = HollowTerm(idx.try_into().expect("within range"));
+        self.entries.push(HollowTermEntry {
+            src,
+            data,
+            resolve_progress: Ok(Right(term)),
+        });
+        term
     }
 }
 
@@ -23,7 +37,7 @@ pub struct HollowTermEntry {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
-pub struct HollowTerm {}
+pub struct HollowTerm(u32);
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
