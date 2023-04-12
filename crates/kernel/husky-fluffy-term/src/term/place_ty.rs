@@ -20,7 +20,7 @@ pub struct PlaceTypeData {
 
 impl Into<FluffyTerm> for PlaceType {
     fn into(self) -> FluffyTerm {
-        todo!()
+        self.0.into()
     }
 }
 
