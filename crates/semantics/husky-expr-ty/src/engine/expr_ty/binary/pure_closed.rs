@@ -15,6 +15,28 @@ impl<'a> ExprTypeEngine<'a> {
         ) else {
             Err(DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred)?
         };
+        match lopd_ty.data(self) {
+            FluffyTermData::Literal(_) => todo!(),
+            FluffyTermData::TypeOntology {
+                path,
+                refined_path,
+                argument_tys,
+            } => todo!(),
+            FluffyTermData::Curry {
+                curry_kind,
+                variance,
+                parameter_variable,
+                parameter_ty,
+                return_ty,
+            } => todo!(),
+            FluffyTermData::Hole(_, _) => todo!(),
+            FluffyTermData::Category(_) => todo!(),
+            FluffyTermData::Ritchie {
+                ritchie_kind,
+                parameter_contracted_tys,
+                return_ty,
+            } => todo!(),
+        }
         todo!()
         // let lopd_ty_unravelled = lopd_ty.unravel_borrow(self);
         // match lopd_ty_unravelled.pattern(self) {
