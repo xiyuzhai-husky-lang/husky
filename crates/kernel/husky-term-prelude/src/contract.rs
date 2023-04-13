@@ -1,20 +1,20 @@
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum PatternContract {
+pub enum Contract {
     Pure,
     Move,
     BorrowMut,
     Const,
 }
 
-impl From<SymbolModifier> for PatternContract {
+impl From<SymbolModifier> for Contract {
     fn from(modifier: SymbolModifier) -> Self {
         match modifier {
-            SymbolModifier::Pure => PatternContract::Pure,
+            SymbolModifier::Pure => Contract::Pure,
             SymbolModifier::Mut => todo!(),
             SymbolModifier::RefMut => todo!(),
-            SymbolModifier::Const => PatternContract::Const,
+            SymbolModifier::Const => Contract::Const,
         }
     }
 }

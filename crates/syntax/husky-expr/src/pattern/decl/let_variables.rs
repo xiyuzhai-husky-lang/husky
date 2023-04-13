@@ -3,7 +3,7 @@ use super::*;
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct LetVariablesPattern {
-    pattern_expr: PatternExprIdx,
+    pattern_expr_idx: PatternExprIdx,
     variables: CurrentSymbolIdxRange,
     colon_token: ExprResult<Option<ColonToken>>,
     ty: Option<ExprIdx>,
@@ -46,7 +46,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         let ty_constraint = ty.map(|ty| PatternTypeConstraint::LetVariables { pattern, ty });
         let variables = self.define_symbols(symbols, ty_constraint);
         Ok(LetVariablesPattern {
-            pattern_expr: pattern,
+            pattern_expr_idx: pattern,
             variables,
             colon_token,
             ty,
@@ -56,15 +56,11 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
 
 impl LetVariablesPattern {
     pub fn pattern_expr_idx(&self) -> PatternExprIdx {
-        self.pattern_expr
+        self.pattern_expr_idx
     }
 
     pub fn ty(&self) -> Option<ExprIdx> {
         self.ty
-    }
-
-    pub fn pattern_expr(&self) -> PatternExprIdx {
-        self.pattern_expr
     }
 
     pub fn variables(&self) -> CurrentSymbolIdxRange {

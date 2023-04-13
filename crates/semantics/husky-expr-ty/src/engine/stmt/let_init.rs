@@ -20,12 +20,20 @@ impl<'a> ExprTypeEngine<'a> {
             Err(_) => todo!(),
         };
         match pattern_ty {
-            Some(ty) => {
+            Some(pattern_ty) => {
+                let contract = self.infer_new_pattern_contract(
+                    let_variable_pattern
+                        .as_ref()
+                        .expect("must be okay")
+                        .pattern_expr_idx(),
+                );
                 initial_value.as_ref().ok().copied().map(|initial_value| {
                     self.infer_new_expr_ty_discarded(
                         initial_value,
                         // ad hoc
-                        ExpectImplicitlyConvertible::new_ad_hoc(ty),
+                        ExpectImplicitlyConvertible::new(
+                            FluffyTermRitchieParameterContractedType::new(todo!(), pattern_ty),
+                        ),
                     )
                 });
             }
@@ -44,7 +52,7 @@ impl<'a> ExprTypeEngine<'a> {
             Some(ty) => {
                 match let_variable_pattern {
                     Ok(let_variable_pattern) => self.infer_pattern_and_symbols_ty(
-                        let_variable_pattern.pattern_expr(),
+                        let_variable_pattern.pattern_expr_idx(),
                         ty,
                         let_variable_pattern.variables(),
                     ),

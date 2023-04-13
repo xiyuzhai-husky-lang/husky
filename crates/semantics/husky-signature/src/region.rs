@@ -22,7 +22,7 @@ pub struct SignatureRegion {
     path: RegionPath,
     term_symbol_region: SymbolRawTermRegion,
     expr_terms: ExprMap<SignatureRawTermResult<RawTerm>>,
-    pattern_contracts: PatternExprMap<PatternContract>,
+    pattern_contracts: PatternExprMap<Contract>,
     pattern_expr_ty_infos: PatternExprMap<PatternExprRawTypeInfo>,
     pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
 }
@@ -32,7 +32,7 @@ impl SignatureRegion {
         path: RegionPath,
         term_symbol_region: SymbolRawTermRegion,
         expr_terms: ExprMap<SignatureRawTermResult<RawTerm>>,
-        pattern_contracts: PatternExprMap<PatternContract>,
+        pattern_contracts: PatternExprMap<Contract>,
         pattern_expr_ty_infos: PatternExprMap<PatternExprRawTypeInfo>,
         pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
     ) -> Self {
@@ -65,7 +65,7 @@ impl SignatureRegion {
     pub fn path(&self) -> RegionPath {
         self.path
     }
-    pub fn pattern_contract(&self, pattern_expr: PatternExprIdx) -> PatternContract {
+    pub fn pattern_contract(&self, pattern_expr: PatternExprIdx) -> Contract {
         self.pattern_contracts[pattern_expr]
     }
 }

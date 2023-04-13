@@ -48,8 +48,8 @@ impl<'a> ExprTypeEngine<'a> {
         lopd: ExprIdx,
         ropd: ExprIdx,
     ) -> Result<FluffyTerm, ExprTypeError> {
-        self.infer_new_expr_ty_discarded(lopd, self.expect_implicitly_convertible_to_bool());
-        self.infer_new_expr_ty_discarded(ropd, self.expect_implicitly_convertible_to_bool());
+        self.infer_new_expr_ty_discarded(lopd, self.expect_argument_ty_bool());
+        self.infer_new_expr_ty_discarded(ropd, self.expect_argument_ty_bool());
         Ok(self.term_menu.bool_ty_ontology().into())
     }
 

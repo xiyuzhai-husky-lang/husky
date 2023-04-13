@@ -38,7 +38,7 @@ impl<'a> ExprTypeEngine<'a> {
                 // }
             }
             PrefixOpr::Not => {
-                self.infer_new_expr_ty_discarded(opd, self.expect_implicitly_convertible_to_bool());
+                self.infer_new_expr_ty_discarded(opd, self.expect_argument_ty_bool());
                 // here we differs from Rust, but agrees with C
                 Ok((
                     ExprDisambiguation::Trivial,
