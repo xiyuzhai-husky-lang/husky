@@ -1,11 +1,14 @@
 use super::*;
+use vec_like::{AsVecMapEntry, VecMap};
 
 #[derive(Debug, Default, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
-pub struct SolidTerms {}
+pub struct SolidTerms {
+    entries: Vec<SolidTermEntry>,
+}
 
 impl SolidTerms {
-    pub(crate) fn intern() -> SolidTerm {
+    fn intern() -> SolidTerm {
         todo!()
     }
 }
@@ -19,11 +22,15 @@ pub struct SolidTermEntry {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
-pub struct SolidTerm {}
+pub struct SolidTerm(u32);
 
 impl SolidTerm {
-    pub(crate) fn new() -> Self {
-        Self {}
+    pub(crate) fn new(solid_terms: &mut SolidTerms, data: SolidTermData) -> Self {
+        Self(todo!())
+    }
+
+    pub(crate) fn data(self, solid_terms: &SolidTerms) -> &SolidTermData {
+        todo!()
     }
 }
 

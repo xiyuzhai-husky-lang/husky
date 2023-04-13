@@ -32,7 +32,7 @@ pub(crate) struct ExprTypeEngine<'a> {
     extra_expr_errors: Vec<(ExprIdx, ExprTypeError)>,
     expr_terms: ExprMap<ExprTermResult<FluffyTerm>>,
     symbol_terms: SymbolMap<FluffyTerm>,
-    symbol_place_tys: SymbolMap<PlaceType>,
+    symbol_place_tys: SymbolMap<FluffyTerm>,
     pattern_expr_ty_infos: PatternExprMap<PatternExprTypeInfo>,
     pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
     return_ty: Option<Term>,
