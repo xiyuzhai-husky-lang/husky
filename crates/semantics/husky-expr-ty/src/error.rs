@@ -25,6 +25,12 @@ impl From<TermError> for ExprTypeError {
     }
 }
 
+impl From<FluffyTypeError> for ExprTypeError {
+    fn from(value: FluffyTypeError) -> Self {
+        todo!()
+    }
+}
+
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum OriginalExprTypeError {
     #[error("unresolved term")]
