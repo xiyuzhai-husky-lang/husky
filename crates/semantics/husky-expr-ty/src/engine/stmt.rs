@@ -59,13 +59,13 @@ impl<'a> ExprTypeEngine<'a> {
                 if let Ok(condition) = condition {
                     self.infer_new_expr_ty_discarded(*condition, self.expect_argument_ty_bool());
                 };
-                Some(self.term_menu.unit().into())
+                Some(self.term_menu.unit_ty_ontology().into())
             }
             Stmt::Assert { ref condition, .. } => {
                 if let Ok(condition) = condition {
                     self.infer_new_expr_ty_discarded(*condition, self.expect_argument_ty_bool());
                 };
-                Some(self.term_menu.unit().into())
+                Some(self.term_menu.unit_ty_ontology().into())
             }
             Stmt::Break { .. } => Some(self.term_menu.never().into()),
             Stmt::Eval { expr_idx } => self.infer_new_expr_ty(expr_idx, expr_expectation),
@@ -87,7 +87,7 @@ impl<'a> ExprTypeEngine<'a> {
                         Some(expected_frame_var_ty) => {
                             self.infer_new_expr_ty_discarded(
                                 bound_expr,
-                                ExpectImplicitlyConvertible::new_pure(expected_frame_var_ty),
+                                ExpectImplicitlyConvertible::new_pure(self, expected_frame_var_ty),
                             );
                         }
                         None => {
@@ -107,7 +107,7 @@ impl<'a> ExprTypeEngine<'a> {
                     let expr_expectation = self.expect_unit();
                     self.infer_new_block(*block, expr_expectation);
                 }
-                Some(self.term_menu.unit().into())
+                Some(self.term_menu.unit_ty_ontology().into())
             }
             Stmt::ForIn {
                 ref condition,
@@ -120,7 +120,7 @@ impl<'a> ExprTypeEngine<'a> {
                     let expr_expectation = self.expect_unit();
                     self.infer_new_block(*block, expr_expectation);
                 }
-                Some(self.term_menu.unit().into())
+                Some(self.term_menu.unit_ty_ontology().into())
             }
             Stmt::While {
                 ref condition,
@@ -139,7 +139,7 @@ impl<'a> ExprTypeEngine<'a> {
                     let expect_unit = self.expect_unit();
                     self.infer_new_block(block, expect_unit)
                 });
-                Some(self.term_menu.unit().into())
+                Some(self.term_menu.unit_ty_ontology().into())
             }
             Stmt::IfElse {
                 ref if_branch,

@@ -56,6 +56,10 @@ impl<'a> FluffyTermEngine<'a> for ExprTypeEngine<'a> {
     fn expr_region_data(&self) -> &'a ExprRegionData {
         self.expr_region_data
     }
+
+    fn term_menu(&self) -> &'a TermMenu {
+        self.term_menu
+    }
 }
 
 impl<'a> std::ops::Index<ExprIdx> for ExprTypeEngine<'a> {

@@ -57,6 +57,13 @@ impl TokenIdxRange {
         }
     }
 
+    pub fn new_closed(first: TokenIdx, last: TokenIdx) -> Self {
+        Self {
+            start: TokenIdxRangeStart(first),
+            end: TokenIdxRangeEnd(last + 1),
+        }
+    }
+
     #[inline(always)]
     pub fn to(self, end: TokenIdxRangeEnd) -> Self {
         Self {

@@ -3,7 +3,7 @@ use super::*;
 impl Term {
     pub fn application_expansion(self, db: &dyn TermDb) -> ApplicationExpansion {
         match self {
-            Term::Application(term) => application_expansion_salsa(db, term),
+            Term::Application(term) => term.application_expansion(db),
             Term::EntityPath(path) => match path {
                 TermEntityPath::Form(_) => todo!(),
                 TermEntityPath::Trait(path) => ApplicationExpansion {
@@ -21,6 +21,12 @@ impl Term {
                 arguments: None,
             },
         }
+    }
+}
+
+impl TermApplication {
+    pub fn application_expansion(self, db: &dyn TermDb) -> ApplicationExpansion {
+        application_expansion_salsa(db, self)
     }
 }
 
