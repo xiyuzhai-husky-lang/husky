@@ -1,6 +1,6 @@
 use super::*;
 
-pub trait FluffyTermEngine<'a> {
+pub trait FluffyTermEngine<'a>: Sized {
     fn db(&self) -> &'a dyn FluffyTermDb;
     fn fluffy_term_region(&self) -> &FluffyTermRegion;
     fn fluffy_term_region_mut(&mut self) -> &mut FluffyTermRegion;
@@ -32,7 +32,7 @@ pub trait FluffyTermEngine<'a> {
         &mut self,
         symbol_idx: impl IntoLocalSymbolIdx,
         signature: SymbolSignature,
-    ) -> TermResult<PlaceType> {
+    ) -> TermResult<FluffyTerm> {
         let local_symbol_idx = symbol_idx.into_local_symbol_idx(self.expr_region_data());
         let place = match signature.modifier() {
             SymbolModifier::Pure => Place::StackPure {
@@ -47,6 +47,6 @@ pub trait FluffyTermEngine<'a> {
             SymbolModifier::Const => Place::Const, // todo: handle variance
         };
         let ty = Term::ty_from_raw(self.db(), signature.ty()?)?;
-        Ok(PlaceType::new(self.fluffy_term_region_mut(), place, ty))
+        Ok(FluffyTerm::new_place_ty(self, place, ty.into()))
     }
 }

@@ -31,7 +31,10 @@ pub enum FluffyTermData<'a> {
 }
 
 impl FluffyTerm {
-    pub fn data<'a>(self, engine: &'a impl FluffyTermEngine<'a>) -> FluffyTermData<'a> {
+    pub fn data<'a, 'b>(self, engine: &'a impl FluffyTermEngine<'b>) -> FluffyTermData<'a>
+    where
+        'b: 'a,
+    {
         self.data_inner(engine.db(), engine.fluffy_terms())
     }
 
@@ -69,7 +72,7 @@ impl FluffyTerm {
             FluffyTerm::Subentity(_) => todo!(),
             FluffyTerm::AsTraitSubentity(_) => todo!(),
             FluffyTerm::TraitConstraint(_) => todo!(),
-            FluffyTerm::Solid(_) => todo!(),
+            FluffyTerm::Solid(term) => term.data(fluffy_terms.solid_terms()).into(),
             FluffyTerm::Hollow(_) => todo!(),
         }
     }

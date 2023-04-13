@@ -1,12 +1,48 @@
 use super::*;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct PlaceType(SolidTerm);
-
-impl PlaceType {
-    pub(crate) fn new(region: &mut FluffyTermRegion, place: Place, ty: Term) -> Self {
-        region.solid_terms_mut();
-        PlaceType(SolidTerm::new())
+impl FluffyTerm {
+    pub(crate) fn new_place_ty(
+        engine: &mut impl FluffyTermEngine,
+        place: Place,
+        ty: FluffyTerm,
+    ) -> Self {
+        match ty.data(engine) {
+            FluffyTermData::Literal(_) => todo!(),
+            FluffyTermData::TypeOntology {
+                path,
+                refined_path,
+                argument_tys,
+            } => todo!(),
+            FluffyTermData::Curry {
+                curry_kind,
+                variance,
+                parameter_variable,
+                parameter_ty,
+                return_ty,
+            } => todo!(),
+            FluffyTermData::Hole(_, _) => todo!(),
+            FluffyTermData::Category(term) => {
+                if place != Place::Const {
+                    todo!()
+                }
+                term.into()
+            }
+            FluffyTermData::Ritchie {
+                ritchie_kind,
+                parameter_contracted_tys,
+                return_ty,
+            } => todo!(),
+        }
+        // SolidTermData::PlaceTypeOntology {
+        //     place,
+        //     path: (),
+        //     refined_path: (),
+        //     argument_tys: (),
+        // };
+        // PlaceType(SolidTerm::new(
+        //     engine.fluffy_term_region_mut().solid_terms_mut(),
+        //     data,
+        // ))
     }
 }
 
@@ -16,12 +52,6 @@ impl PlaceType {
 pub struct PlaceTypeData {
     place: Place,
     ty: Term,
-}
-
-impl Into<FluffyTerm> for PlaceType {
-    fn into(self) -> FluffyTerm {
-        self.0.into()
-    }
 }
 
 /// `PlaceQual` qualifies the place of a base type `T`
