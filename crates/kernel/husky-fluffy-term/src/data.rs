@@ -14,6 +14,12 @@ pub enum FluffyTermData<'a> {
         refined_path: Either<CustomTypePath, PreludeTypePath>,
         argument_tys: &'a [FluffyTerm],
     },
+    PlaceTypeOntology {
+        place: Place,
+        path: TypePath,
+        refined_path: Either<CustomTypePath, PreludeTypePath>,
+        argument_tys: &'a [FluffyTerm],
+    },
     Curry {
         curry_kind: CurryKind,
         variance: Variance,

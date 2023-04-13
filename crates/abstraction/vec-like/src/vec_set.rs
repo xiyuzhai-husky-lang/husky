@@ -150,4 +150,31 @@ impl<K> VecSet<K> {
     pub fn data(&self) -> &[K] {
         self.data.as_ref()
     }
+
+    /// returns the correct position of an existing element or inserts a new element and returns its position.
+    ///
+    /// ```
+    /// use vec_like::VecSet;
+    /// let mut set = VecSet::<i32>::default();
+    /// assert_eq!(set.position_or_insert(2), 0);
+    /// assert_eq!(set.position_or_insert(4), 1);
+    /// assert_eq!(set.position_or_insert(6), 2);
+    /// assert_eq!(set.position_or_insert(8), 3);
+    /// assert_eq!(set.position_or_insert(4), 1);
+    /// assert_eq!(set.position_or_insert(2), 0);
+    /// assert_eq!(set.position_or_insert(10), 4);
+    /// ```
+    pub fn position_or_insert(&mut self, k: K) -> usize
+    where
+        K: PartialEq + Eq,
+    {
+        match self.data.iter().position(|k_| k_ == &k) {
+            Some(position) => position,
+            None => {
+                let position = self.data.len();
+                self.data.push(k);
+                position
+            }
+        }
+    }
 }

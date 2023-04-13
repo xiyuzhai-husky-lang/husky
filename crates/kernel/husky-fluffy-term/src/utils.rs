@@ -13,6 +13,12 @@ impl FluffyTerm {
             | FluffyTermData::Category(_) => self,
             FluffyTermData::Curry { .. } => todo!(),
             FluffyTermData::Ritchie { .. } => todo!(),
+            FluffyTermData::PlaceTypeOntology {
+                place,
+                path,
+                refined_path,
+                argument_tys,
+            } => todo!(),
         }
     }
 
@@ -38,6 +44,12 @@ impl FluffyTerm {
             }
             FluffyTermData::Category(_) => FinalDestination::Sort,
             FluffyTermData::Ritchie { .. } => todo!(),
+            FluffyTermData::PlaceTypeOntology {
+                place,
+                path,
+                refined_path,
+                argument_tys,
+            } => todo!(),
         }
     }
 }

@@ -105,6 +105,12 @@ impl<'a> ExprTypeEngine<'a> {
                 parameter_contracted_tys,
                 return_ty,
             } => todo!(),
+            FluffyTermData::PlaceTypeOntology {
+                place,
+                path,
+                refined_path,
+                argument_tys,
+            } => todo!(),
         }
     }
 }

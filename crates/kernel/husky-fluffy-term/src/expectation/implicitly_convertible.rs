@@ -179,6 +179,12 @@ impl ExpectImplicitlyConvertible {
             },
             FluffyTermData::Category(_) => todo!(),
             FluffyTermData::Ritchie { .. } => todo!(),
+            FluffyTermData::PlaceTypeOntology {
+                place,
+                path,
+                refined_path,
+                argument_tys,
+            } => todo!(),
         }
     }
 }
