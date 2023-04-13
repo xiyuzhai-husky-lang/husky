@@ -19,6 +19,7 @@ impl FluffyTerm {
                         path,
                         refined_path: path.refine(engine.db()),
                         argument_tys: smallvec![],
+                        base_ty_term: Some(TermEntityPath::TypeOntology(path).into()),
                     };
                     SolidTerm::new(engine.fluffy_term_region_mut().solid_terms_mut(), data).into()
                 }
@@ -52,6 +53,7 @@ impl FluffyTerm {
                                 .iter()
                                 .map(|t| (*t).into())
                                 .collect(),
+                            base_ty_term: Some(term.into()),
                         };
                         SolidTerm::new(engine.fluffy_term_region_mut().solid_terms_mut(), data)
                             .into()

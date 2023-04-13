@@ -9,6 +9,14 @@ pub enum SolidTermData {
         // use fluffy term here because we don't want to recreate vectors when converting
         argument_tys: SmallVec<[FluffyTerm; 2]>,
     },
+    PlaceTypeOntology {
+        place: Place,
+        path: TypePath,
+        refined_path: Either<CustomTypePath, PreludeTypePath>,
+        // use fluffy term here because we don't want to recreate vectors when converting
+        argument_tys: SmallVec<[FluffyTerm; 2]>,
+        base_ty_term: Option<Term>,
+    },
     Curry {
         curry_kind: CurryKind,
         variance: Variance,
@@ -21,13 +29,6 @@ pub enum SolidTermData {
         // use fluffy term here because we don't want to recreate vectors when converting
         parameter_contracted_tys: SmallVec<[FluffyTermRitchieParameterContractedType; 2]>,
         return_ty: SolidTerm,
-    },
-    PlaceTypeOntology {
-        place: Place,
-        path: TypePath,
-        refined_path: Either<CustomTypePath, PreludeTypePath>,
-        // use fluffy term here because we don't want to recreate vectors when converting
-        argument_tys: SmallVec<[FluffyTerm; 2]>,
     },
 }
 
@@ -66,6 +67,7 @@ impl<'a> From<&'a SolidTermData> for FluffyTermData<'a> {
                 path,
                 refined_path,
                 argument_tys,
+                base_ty_term,
             } => FluffyTermData::PlaceTypeOntology {
                 place: *place,
                 path: *path,

@@ -18,6 +18,7 @@ husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 husky-ty-expectation = { path = "../../kernel/husky-ty-expectation" }
 husky-term = { path = "../../kernel/husky-term" }
+husky-word = { path = "../../kernel/husky-word" }
 # semantics
 husky-signature = { path = "../../semantics/husky-signature" }
 # syntax
@@ -29,7 +30,6 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
 # kernel
-husky-word = { path = "../../kernel/husky-word" }
 husky-package-path = { path = "../../kernel/husky-package-path" }
 husky-raw-term = { path = "../../kernel/husky-raw-term" }
 husky-raw-ty = { path = "../../kernel/husky-raw-ty" }

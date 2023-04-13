@@ -11,6 +11,7 @@ mod substitution;
 mod term;
 #[cfg(test)]
 mod tests;
+mod ty;
 mod utils;
 
 pub use self::data::*;
@@ -22,6 +23,7 @@ pub use self::region::*;
 pub use self::resolve::*;
 pub use self::substitution::*;
 pub use self::term::*;
+pub use self::ty::*;
 
 #[cfg(test)]
 pub(crate) use self::tests::*;
