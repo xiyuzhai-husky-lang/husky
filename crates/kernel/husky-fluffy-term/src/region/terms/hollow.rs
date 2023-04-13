@@ -1,5 +1,6 @@
 use super::*;
 
+// `Default` is derived because we never inherited hollow terms
 #[derive(Debug, Default, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
 pub struct HollowTerms {

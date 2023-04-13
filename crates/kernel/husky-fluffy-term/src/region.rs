@@ -6,13 +6,21 @@ pub use self::terms::*;
 
 use crate::*;
 
-#[derive(Debug, Default, PartialEq, Eq)]
+// `Default` is not implemented because we might need to initialize `terms` from the parent
+#[derive(Debug, PartialEq, Eq)]
 pub struct FluffyTermRegion {
     pub(crate) terms: FluffyTerms,
     pub(crate) expectations: Expectations,
 }
 
 impl FluffyTermRegion {
+    pub fn new(parent: Option<&Self>) -> Self {
+        Self {
+            terms: FluffyTerms::new(parent.map(|parent| &parent.terms)),
+            expectations: Default::default(),
+        }
+    }
+
     pub fn terms(&self) -> &FluffyTerms {
         &self.terms
     }

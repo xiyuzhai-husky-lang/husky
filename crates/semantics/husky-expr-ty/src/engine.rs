@@ -103,7 +103,9 @@ impl<'a> ExprTypeEngine<'a> {
                 .unwrap(),
             expr_region_data,
             signature_term_region: db.signature_term_region(expr_region),
-            fluffy_term_region: Default::default(),
+            fluffy_term_region: FluffyTermRegion::new(
+                parent_expr_ty_region.map(|r| r.fluffy_term_region()),
+            ),
             expr_ty_infos: ExprMap::new(expr_region_data.expr_arena()),
             extra_expr_errors: vec![],
             expr_terms: ExprMap::new(expr_region_data.expr_arena()),

@@ -1,6 +1,7 @@
 use super::*;
 
-#[derive(Debug, PartialEq, Eq)]
+/// should only use `Clone` in this crate
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub enum SolidTermData {
     TypeOntology {
         path: TypePath,
@@ -65,7 +66,12 @@ impl<'a> From<&'a SolidTermData> for FluffyTermData<'a> {
                 path,
                 refined_path,
                 argument_tys,
-            } => todo!(),
+            } => FluffyTermData::PlaceTypeOntology {
+                place: *place,
+                path: *path,
+                refined_path: *refined_path,
+                argument_tys,
+            },
         }
     }
 }

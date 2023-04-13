@@ -6,43 +6,47 @@ impl FluffyTerm {
         place: Place,
         ty: FluffyTerm,
     ) -> Self {
-        match ty.data(engine) {
-            FluffyTermData::Literal(_) => todo!(),
-            FluffyTermData::TypeOntology {
-                path,
-                refined_path,
-                argument_tys,
-            } => todo!(),
-            FluffyTermData::Curry {
-                curry_kind,
-                variance,
-                parameter_variable,
-                parameter_ty,
-                return_ty,
-            } => todo!(),
-            FluffyTermData::Hole(_, _) => todo!(),
-            FluffyTermData::Category(term) => {
-                if place != Place::Const {
-                    todo!()
+        match ty {
+            FluffyTerm::Literal(_) => todo!(),
+            FluffyTerm::Symbol(_) => todo!(),
+            FluffyTerm::Hole(_) => todo!(),
+            FluffyTerm::EntityPath(path) => match path {
+                TermEntityPath::Form(_) => todo!(),
+                TermEntityPath::Trait(_) => todo!(),
+                TermEntityPath::TypeOntology(path) => {
+                    let data = SolidTermData::PlaceTypeOntology {
+                        place,
+                        path,
+                        refined_path: path.refine(engine.db()),
+                        argument_tys: smallvec![],
+                    };
+                    SolidTerm::new(engine.fluffy_term_region_mut().solid_terms_mut(), data).into()
                 }
-                term.into()
-            }
-            FluffyTermData::Ritchie {
-                ritchie_kind,
-                parameter_contracted_tys,
-                return_ty,
-            } => todo!(),
+                TermEntityPath::TypeConstructor(_) => todo!(),
+            },
+            FluffyTerm::Category(term) => match place {
+                Place::Const => term.into(),
+                Place::StackPure { location } => todo!(),
+                Place::ImmutableStackOwned { location } => todo!(),
+                Place::MutableStackOwned { location } => todo!(),
+                Place::Transient => todo!(),
+                Place::Ref { guard } => todo!(),
+                Place::RefMut { guard } => todo!(),
+                Place::Leashed => todo!(),
+                Place::Todo => todo!(),
+            },
+            FluffyTerm::Universe(_) => todo!(),
+            FluffyTerm::Curry(_) => todo!(),
+            FluffyTerm::Ritchie(_) => todo!(),
+            FluffyTerm::Abstraction(_) => todo!(),
+            FluffyTerm::Application(_) => todo!(),
+            FluffyTerm::Subentity(_) => todo!(),
+            FluffyTerm::AsTraitSubentity(_) => todo!(),
+            FluffyTerm::TraitConstraint(_) => todo!(),
+            FluffyTerm::Solid(_) => todo!(),
+            FluffyTerm::Hollow(_) => todo!(),
         }
-        // SolidTermData::PlaceTypeOntology {
-        //     place,
-        //     path: (),
-        //     refined_path: (),
-        //     argument_tys: (),
-        // };
-        // PlaceType(SolidTerm::new(
-        //     engine.fluffy_term_region_mut().solid_terms_mut(),
-        //     data,
-        // ))
+        // SolidTerm::new(engine.fluffy_term_region_mut().solid_terms_mut(), data).into()
     }
 }
 

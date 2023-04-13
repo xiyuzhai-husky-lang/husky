@@ -36,6 +36,12 @@ impl<'a> ExprTypeEngine<'a> {
                 parameter_contracted_tys,
                 return_ty,
             } => todo!(),
+            FluffyTermData::PlaceTypeOntology {
+                place,
+                path,
+                refined_path,
+                argument_tys,
+            } => todo!(),
         }
         todo!()
         // let lopd_ty_unravelled = lopd_ty.unravel_borrow(self);

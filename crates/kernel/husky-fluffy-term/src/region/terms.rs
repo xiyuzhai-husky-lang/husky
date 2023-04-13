@@ -6,13 +6,22 @@ pub use self::solid::*;
 
 use super::*;
 
-#[derive(Debug, Default, PartialEq, Eq)]
+// `Default` is not implemented because we might need to initialize `solid_terms` from the parent
+#[derive(Debug, PartialEq, Eq)]
 pub struct FluffyTerms {
     hollow_terms: HollowTerms,
     solid_terms: SolidTerms,
 }
 
 impl FluffyTerms {
+    pub(crate) fn new(terms: Option<&Self>) -> Self {
+        Self {
+            // `Default` is derived for `hollow_terms` because we never inherited hollow terms
+            hollow_terms: Default::default(),
+            solid_terms: SolidTerms::new(terms.map(|terms| &terms.solid_terms)),
+        }
+    }
+
     pub(crate) fn new_hole_from_parameter_symbol(
         &mut self,
         db: &dyn FluffyTermDb,

@@ -1,23 +1,31 @@
 use super::*;
-use vec_like::{AsVecMapEntry, VecMap};
+use vec_like::{AsVecMapEntry, VecMap, VecSet};
 
-#[derive(Debug, Default, PartialEq, Eq)]
+// `Default` is not implemented because we might need to initialize it from the parent
+#[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
 pub struct SolidTerms {
-    entries: Vec<SolidTermEntry>,
+    entries: VecSet<SolidTermData>,
 }
 
 impl SolidTerms {
-    fn intern() -> SolidTerm {
-        todo!()
+    pub(crate) fn new(terms: Option<&SolidTerms>) -> Self {
+        let entries = match terms {
+            Some(terms) => terms.entries.clone(),
+            None => Default::default(),
+        };
+        Self { entries }
     }
-}
 
-#[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = FluffyTermDb)]
-pub struct SolidTermEntry {
-    src: SolidTermSource,
-    data: SolidTermData,
+    fn intern(&mut self, data: SolidTermData) -> SolidTerm {
+        let raw = self
+            .entries
+            .position_or_insert(data)
+            .try_into()
+            .expect("size of entries shouldn't be too large");
+        assert!((raw as usize) < self.entries.len());
+        SolidTerm(raw)
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -26,11 +34,11 @@ pub struct SolidTerm(u32);
 
 impl SolidTerm {
     pub(crate) fn new(solid_terms: &mut SolidTerms, data: SolidTermData) -> Self {
-        Self(todo!())
+        solid_terms.intern(data)
     }
 
     pub(crate) fn data(self, solid_terms: &SolidTerms) -> &SolidTermData {
-        todo!()
+        &solid_terms.entries.data()[self.0 as usize]
     }
 }
 
