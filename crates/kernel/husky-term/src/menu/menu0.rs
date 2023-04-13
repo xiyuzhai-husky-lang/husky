@@ -265,7 +265,7 @@ impl TermMenu0 {
         self.list_ty_ontology
     }
 
-    pub fn unit(&self) -> Term {
+    pub fn unit_ty_ontology(&self) -> Term {
         self.unit
     }
 

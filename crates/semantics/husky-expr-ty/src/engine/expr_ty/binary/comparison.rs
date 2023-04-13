@@ -10,7 +10,7 @@ impl<'a> ExprTypeEngine<'a> {
         match lopd_ty {
             Some(destination) => self.infer_new_expr_ty_discarded(
                 ropd,
-                ExpectImplicitlyConvertible::new_pure(destination),
+                ExpectImplicitlyConvertible::new_pure(self, destination),
             ),
             None => self.infer_new_expr_ty_discarded(ropd, ExpectAnyDerived),
         };

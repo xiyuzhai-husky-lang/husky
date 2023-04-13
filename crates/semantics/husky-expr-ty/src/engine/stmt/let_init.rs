@@ -58,9 +58,9 @@ impl<'a> ExprTypeEngine<'a> {
                     ),
                     Err(_) => todo!(),
                 };
-                Some(self.term_menu.unit().into())
+                Some(self.term_menu.unit_ty_ontology().into())
             }
-            None => Some(self.term_menu.unit().into()),
+            None => Some(self.term_menu.unit_ty_ontology().into()),
         }
     }
 }

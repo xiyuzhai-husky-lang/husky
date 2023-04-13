@@ -227,7 +227,7 @@ impl<'a> ExprTypeEngine<'a> {
             )),
             Expr::Unit { .. } => Ok((
                 ExprDisambiguation::Trivial,
-                Ok(self.term_menu.unit().into()),
+                Ok(self.term_menu.unit_ty_ontology().into()),
             )),
             Expr::NewTuple { items, .. } => todo!(),
             Expr::IndexOrCompositionWithList {

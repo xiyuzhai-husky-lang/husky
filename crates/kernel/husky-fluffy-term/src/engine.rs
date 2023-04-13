@@ -7,6 +7,7 @@ pub trait FluffyTermEngine<'a>: Sized {
     fn fluffy_terms(&self) -> &FluffyTerms {
         self.fluffy_term_region().terms()
     }
+    fn term_menu(&self) -> &'a TermMenu;
     fn expr_region_data(&self) -> &'a ExprRegionData;
 
     fn new_ty_ontology_application(

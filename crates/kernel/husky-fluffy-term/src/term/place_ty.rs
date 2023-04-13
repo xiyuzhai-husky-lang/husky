@@ -39,7 +39,27 @@ impl FluffyTerm {
             FluffyTerm::Curry(_) => todo!(),
             FluffyTerm::Ritchie(_) => todo!(),
             FluffyTerm::Abstraction(_) => todo!(),
-            FluffyTerm::Application(_) => todo!(),
+            FluffyTerm::Application(term) => {
+                let expansion = term.application_expansion(engine.db());
+                match expansion.function() {
+                    TermFunctionReduced::TypeOntology(path) => {
+                        let data = SolidTermData::PlaceTypeOntology {
+                            place,
+                            path,
+                            refined_path: path.refine(engine.db()),
+                            argument_tys: expansion
+                                .arguments(engine.db())
+                                .iter()
+                                .map(|t| (*t).into())
+                                .collect(),
+                        };
+                        SolidTerm::new(engine.fluffy_term_region_mut().solid_terms_mut(), data)
+                            .into()
+                    }
+                    TermFunctionReduced::Trait(_) => todo!(),
+                    TermFunctionReduced::Other(_) => todo!(),
+                }
+            }
             FluffyTerm::Subentity(_) => todo!(),
             FluffyTerm::AsTraitSubentity(_) => todo!(),
             FluffyTerm::TraitConstraint(_) => todo!(),
