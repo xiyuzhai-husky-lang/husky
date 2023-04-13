@@ -11,7 +11,7 @@ pub(crate) fn trai_for_ty_method_signature(
         let impl_block = decl.associated_item(db).impl_block(db);
         let contract = match decl.self_parameter(db) {
             Some(self_parameter) => todo!(),
-            None => PatternContract::Pure,
+            None => Contract::Pure,
         };
         match impl_block {
             ImplBlock::TraitForType(impl_block) => {

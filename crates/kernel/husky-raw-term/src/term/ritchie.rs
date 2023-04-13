@@ -65,12 +65,12 @@ where
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = RawTermDb)]
 pub struct RawTermRitchieParameterContractedType {
-    contract: PatternContract,
+    contract: Contract,
     ty: RawTerm,
 }
 
 impl RawTermRitchieParameterContractedType {
-    pub fn new(contract: PatternContract, ty: RawTerm) -> Self {
+    pub fn new(contract: Contract, ty: RawTerm) -> Self {
         Self { contract, ty }
     }
 
@@ -81,7 +81,7 @@ impl RawTermRitchieParameterContractedType {
         }
     }
 
-    pub fn contract(&self) -> PatternContract {
+    pub fn contract(&self) -> Contract {
         self.contract
     }
 

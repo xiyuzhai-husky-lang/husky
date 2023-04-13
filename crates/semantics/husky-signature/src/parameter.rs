@@ -110,7 +110,7 @@ impl std::ops::Deref for ImplicitParameterSignatures {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct ExplicitParameterSignature {
-    contract: PatternContract,
+    contract: Contract,
     ty: RawTerm,
 }
 
@@ -121,11 +121,11 @@ impl ExplicitParameterSignature {
 }
 
 impl ExplicitParameterSignature {
-    pub(crate) fn new(contract: PatternContract, ty: RawTerm) -> Self {
+    pub(crate) fn new(contract: Contract, ty: RawTerm) -> Self {
         Self { contract, ty }
     }
 
-    pub fn contract(&self) -> PatternContract {
+    pub fn contract(&self) -> Contract {
         self.contract
     }
 

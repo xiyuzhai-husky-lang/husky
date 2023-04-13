@@ -2669,7 +2669,7 @@ Ok(
                                                     },
                                                     let_variable_pattern: Ok(
                                                         LetVariablesPattern {
-                                                            pattern_expr: 9,
+                                                            pattern_expr_idx: 9,
                                                             variables: ArenaIdxRange(
                                                                 9..10,
                                                             ),
@@ -2718,7 +2718,7 @@ Ok(
                                                     },
                                                     let_variable_pattern: Ok(
                                                         LetVariablesPattern {
-                                                            pattern_expr: 11,
+                                                            pattern_expr_idx: 11,
                                                             variables: ArenaIdxRange(
                                                                 11..12,
                                                             ),
@@ -2747,7 +2747,7 @@ Ok(
                                                     },
                                                     let_variable_pattern: Ok(
                                                         LetVariablesPattern {
-                                                            pattern_expr: 12,
+                                                            pattern_expr_idx: 12,
                                                             variables: ArenaIdxRange(
                                                                 12..13,
                                                             ),
@@ -2816,7 +2816,7 @@ Ok(
                                                     },
                                                     let_variable_pattern: Ok(
                                                         LetVariablesPattern {
-                                                            pattern_expr: 14,
+                                                            pattern_expr_idx: 14,
                                                             variables: ArenaIdxRange(
                                                                 14..15,
                                                             ),
@@ -2888,7 +2888,7 @@ Ok(
                                                     },
                                                     let_variable_pattern: Ok(
                                                         LetVariablesPattern {
-                                                            pattern_expr: 2,
+                                                            pattern_expr_idx: 2,
                                                             variables: ArenaIdxRange(
                                                                 2..3,
                                                             ),
@@ -2927,7 +2927,7 @@ Ok(
                                                     },
                                                     let_variable_pattern: Ok(
                                                         LetVariablesPattern {
-                                                            pattern_expr: 4,
+                                                            pattern_expr_idx: 4,
                                                             variables: ArenaIdxRange(
                                                                 4..5,
                                                             ),
@@ -2966,7 +2966,7 @@ Ok(
                                                     },
                                                     let_variable_pattern: Ok(
                                                         LetVariablesPattern {
-                                                            pattern_expr: 6,
+                                                            pattern_expr_idx: 6,
                                                             variables: ArenaIdxRange(
                                                                 6..7,
                                                             ),
@@ -2995,7 +2995,7 @@ Ok(
                                                     },
                                                     let_variable_pattern: Ok(
                                                         LetVariablesPattern {
-                                                            pattern_expr: 7,
+                                                            pattern_expr_idx: 7,
                                                             variables: ArenaIdxRange(
                                                                 7..8,
                                                             ),
@@ -4121,7 +4121,7 @@ Ok(
                                                     },
                                                     let_variable_pattern: Ok(
                                                         LetVariablesPattern {
-                                                            pattern_expr: 0,
+                                                            pattern_expr_idx: 0,
                                                             variables: ArenaIdxRange(
                                                                 0..1,
                                                             ),
@@ -4819,7 +4819,7 @@ Ok(
                                                     },
                                                     let_variable_pattern: Ok(
                                                         LetVariablesPattern {
-                                                            pattern_expr: 0,
+                                                            pattern_expr_idx: 0,
                                                             variables: ArenaIdxRange(
                                                                 0..1,
                                                             ),

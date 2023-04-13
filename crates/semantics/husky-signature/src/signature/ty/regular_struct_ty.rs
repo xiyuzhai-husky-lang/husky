@@ -54,7 +54,7 @@ pub struct RegularStructFieldSignature {
 
 impl RegularStructFieldSignature {
     pub fn into_ritchie_parameter_contracted_ty(self) -> RawTermRitchieParameterContractedType {
-        RawTermRitchieParameterContractedType::new(PatternContract::Move, self.ty)
+        RawTermRitchieParameterContractedType::new(Contract::Move, self.ty)
     }
 
     pub fn ident(&self) -> Ident {

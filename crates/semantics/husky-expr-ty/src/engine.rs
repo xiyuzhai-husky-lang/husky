@@ -5,6 +5,7 @@ mod stmt;
 mod symbol;
 #[macro_use]
 mod utils;
+mod pattern_contract;
 mod pattern_ty;
 mod symbol_liason;
 
@@ -35,6 +36,7 @@ pub(crate) struct ExprTypeEngine<'a> {
     symbol_place_tys: SymbolMap<FluffyTerm>,
     pattern_expr_ty_infos: PatternExprMap<PatternExprTypeInfo>,
     pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
+    pattern_expr_contracts: PatternExprMap<Contract>,
     return_ty: Option<Term>,
     self_ty: Option<Term>,
 }
@@ -125,6 +127,7 @@ impl<'a> ExprTypeEngine<'a> {
                 pattern_expr_region.pattern_symbol_arena(),
             ),
             self_ty,
+            pattern_expr_contracts: PatternExprMap::new(pattern_expr_region.pattern_expr_arena()),
         }
     }
 
@@ -149,7 +152,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ExprRootKind::BlockExpr => match self.return_ty {
                     Some(return_ty) => self.infer_new_expr_ty_discarded(
                         root.expr(),
-                        ExpectImplicitlyConvertible::new_transient(return_ty.into()),
+                        ExpectImplicitlyConvertible::new_move(return_ty.into()),
                     ),
                     None => self.infer_new_expr_ty_discarded(root.expr(), ExpectAnyDerived),
                 },

@@ -12,12 +12,10 @@ impl<'a> RawTermEngine<'a> {
                     ..
                 } => match modifier_keyword_group {
                     Some(modifier_keyword_group) => match modifier_keyword_group {
-                        PatternSymbolModifierKeywordGroup::Mut(_) => PatternContract::Move,
-                        PatternSymbolModifierKeywordGroup::RefMut(_, _) => {
-                            PatternContract::BorrowMut
-                        }
+                        PatternSymbolModifierKeywordGroup::Mut(_) => Contract::Move,
+                        PatternSymbolModifierKeywordGroup::RefMut(_, _) => Contract::BorrowMut,
                     },
-                    None => PatternContract::Pure,
+                    None => Contract::Pure,
                 },
                 PatternExpr::Entity(_) => todo!(),
                 PatternExpr::Tuple { name, fields } => todo!(),
@@ -34,7 +32,7 @@ impl<'a> RawTermEngine<'a> {
                     end,
                 } => todo!(),
             };
-            self.pattern_contracts.insert_new(idx, contract);
+            self.pattern_expr_contracts.insert_new(idx, contract);
         }
     }
 }
