@@ -75,7 +75,7 @@ impl<'a, Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntitySymbolTable
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct EntitySymbolEntry {
     ident: Ident,
-    visibility: Visibility,
+    visibility: Scope,
     symbol: EntitySymbol,
 }
 
@@ -84,7 +84,7 @@ impl EntitySymbolEntry {
         let root_module_path = ModulePath::new_root(db, crate_path);
         Self {
             ident: db.word_menu().crate_ident(),
-            visibility: Visibility::PubUnder(root_module_path),
+            visibility: Scope::PubUnder(root_module_path),
             symbol: EntitySymbol::CrateRoot { root_module_path },
         }
     }
@@ -96,7 +96,7 @@ impl EntitySymbolEntry {
         let package_path = package_dependency.package_path();
         Self {
             ident: package_path.ident(db),
-            visibility: Visibility::Pub,
+            visibility: Scope::Pub,
             symbol: EntitySymbol::PackageDependency {
                 entity_path: package_path.lib_module(db).into(),
             },
@@ -156,7 +156,7 @@ impl EntitySymbolEntry {
         self.ident
     }
 
-    pub fn visibility(&self) -> Visibility {
+    pub fn visibility(&self) -> Scope {
         self.visibility
     }
 }
@@ -190,7 +190,7 @@ impl NativeEntitySymbolTable {
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct NativeEntitySymbolEntry {
     ident: Ident,
-    visibility: Visibility,
+    visibility: Scope,
     symbol: NativeEntitySymbol,
 }
 
@@ -205,7 +205,7 @@ impl From<&NativeEntitySymbolEntry> for EntitySymbolEntry {
 }
 
 impl NativeEntitySymbolEntry {
-    pub fn new(ident: Ident, visibility: Visibility, symbol: NativeEntitySymbol) -> Self {
+    pub fn new(ident: Ident, visibility: Scope, symbol: NativeEntitySymbol) -> Self {
         Self {
             ident,
             visibility,

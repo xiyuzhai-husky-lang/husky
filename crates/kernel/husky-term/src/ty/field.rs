@@ -1,7 +1,54 @@
 use super::*;
 use husky_raw_ty::ty_path_field_raw_ty;
 
-pub(crate) fn field_ty(db: &dyn TermDb, owner_ty: Term, ident: Ident) -> TermResult<Option<Term>> {
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct FieldType {
+    visibility: Visibility,
+    modifier: FieldModifier,
+    ty: Term,
+}
+
+impl FieldType {
+    fn leashed(self) -> Self {
+        Self {
+            visibility: self.visibility,
+            modifier: FieldModifier::Leashed,
+            ty: self.ty,
+        }
+    }
+
+    pub fn visibility(&self) -> Visibility {
+        self.visibility
+    }
+
+    pub fn modifier(&self) -> FieldModifier {
+        self.modifier
+    }
+
+    pub fn ty(&self) -> Term {
+        self.ty
+    }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum FieldModifier {
+    Pure,
+    Mut,
+    Const,
+    Leashed,
+}
+
+impl Term {
+    pub fn field_ty(self, db: &dyn TermDb, ident: Ident) -> TermResult<Option<FieldType>> {
+        field_ty(db, self, ident)
+    }
+}
+
+pub(crate) fn field_ty(
+    db: &dyn TermDb,
+    owner_ty: Term,
+    ident: Ident,
+) -> TermResult<Option<FieldType>> {
     match owner_ty {
         Term::Literal(_) => todo!(),
         Term::Symbol(_) => todo!(),
@@ -20,10 +67,7 @@ pub(crate) fn field_ty(db: &dyn TermDb, owner_ty: Term, ident: Ident) -> TermRes
         Term::Curry(_) => todo!(),
         Term::Ritchie(_) => todo!(),
         Term::Abstraction(_) => todo!(),
-        Term::Application(_) => {
-            p!(owner_ty.debug(db));
-            todo!()
-        }
+        Term::Application(term) => term_application_field_ty(db, term, ident),
         Term::Subentity(_) => todo!(),
         Term::AsTraitSubentity(_) => todo!(),
         Term::TraitConstraint(_) => todo!(),
@@ -34,13 +78,45 @@ fn ty_ontology_path_field_ty(
     db: &dyn TermDb,
     path: TypePath,
     ident: Ident,
-) -> TermResult<Option<Term>> {
+) -> TermResult<Option<FieldType>> {
     let Some(field_raw_ty) = ty_path_field_raw_ty(db, path, ident)? else {
         return Ok(None)
     };
-    Ok(Some(Term::from_raw(
-        db,
-        field_raw_ty,
-        TermTypeExpectation::FinalDestinationEqsSort,
-    )?))
+    Ok(Some(FieldType {
+        visibility: todo!(),
+        modifier: todo!(),
+        ty: Term::from_raw_unchecked(
+            db,
+            field_raw_ty,
+            TermTypeExpectation::FinalDestinationEqsSort,
+        )?,
+    }))
+}
+
+#[salsa::tracked(jar = TermJar)]
+pub(crate) fn term_application_field_ty(
+    db: &dyn TermDb,
+    term: TermApplication,
+    ident: Ident,
+) -> TermResult<Option<FieldType>> {
+    let expansion = term.application_expansion(db);
+    let TermFunctionReduced::TypeOntology(path) = expansion.function() else {
+        todo!("err")
+    };
+    match path.refine(db) {
+        Right(PreludeTypePath::Borrow(path)) => match path {
+            PreludeBorrowTypePath::Ref => todo!(),
+            PreludeBorrowTypePath::RefMut => todo!(),
+            PreludeBorrowTypePath::Leash => {
+                let arguments = expansion.arguments(db);
+                if arguments.len() != 1 {
+                    todo!()
+                }
+                arguments[0]
+                    .field_ty(db, ident)
+                    .map(|opt| opt.map(|ty| ty.leashed()))
+            }
+        },
+        _ => todo!(),
+    }
 }

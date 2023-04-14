@@ -1,12 +1,45 @@
 use super::*;
 use husky_word::Ident;
 
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+struct FluffyFieldType {
+    place: Option<Place>,
+    visibility: Visibility,
+    modifier: FieldModifier,
+    ty: FluffyTerm,
+}
+
+impl FluffyFieldType {
+    fn from_field_ty(place: Option<Place>, field_ty: FieldType) -> Self {
+        Self {
+            place,
+            visibility: field_ty.visibility(),
+            modifier: field_ty.modifier(),
+            ty: field_ty.ty().into(),
+        }
+    }
+
+    fn to_term(self, engine: &mut impl FluffyTermEngine) -> FluffyTerm {
+        todo!()
+    }
+}
+
 impl FluffyTerm {
     pub fn field_ty(
         self,
         engine: &mut impl FluffyTermEngine,
         ident: Ident,
-    ) -> FluffyTypeResult<Self> {
+    ) -> FluffyTypeResult<Option<FluffyTerm>> {
+        Ok(self
+            .field_ty_aux(engine, ident)?
+            .map(|field_ty| field_ty.to_term(engine)))
+    }
+
+    fn field_ty_aux(
+        self,
+        engine: &mut impl FluffyTermEngine,
+        ident: Ident,
+    ) -> FluffyTypeResult<Option<FluffyFieldType>> {
         match self {
             FluffyTerm::Literal(_) => todo!(),
             FluffyTerm::Symbol(_) => todo!(),
@@ -21,7 +54,7 @@ impl FluffyTerm {
             FluffyTerm::Subentity(_) => todo!(),
             FluffyTerm::AsTraitSubentity(_) => todo!(),
             FluffyTerm::TraitConstraint(_) => todo!(),
-            FluffyTerm::Solid(term) => term.field_ty(engine, ident).map(Into::into),
+            FluffyTerm::Solid(term) => term.field_ty(engine, ident).map(|opt| opt.map(Into::into)),
             FluffyTerm::Hollow(_) => todo!(),
         }
         // let owner_ty_unravelled =
@@ -41,7 +74,11 @@ impl FluffyTerm {
 }
 
 impl SolidTerm {
-    fn field_ty(self, engine: &mut impl FluffyTermEngine, ident: Ident) -> FluffyTypeResult<Self> {
+    fn field_ty(
+        self,
+        engine: &mut impl FluffyTermEngine,
+        ident: Ident,
+    ) -> FluffyTypeResult<Option<FluffyFieldType>> {
         match self.data(engine.fluffy_terms().solid_terms()) {
             SolidTermData::TypeOntology {
                 path,
@@ -50,14 +87,18 @@ impl SolidTerm {
             } => todo!(),
             SolidTermData::PlaceTypeOntology {
                 place,
+                base_ty_term: Some(base_ty_term),
+                ..
+            } => Ok(base_ty_term
+                .field_ty(engine.db(), ident)?
+                .map(|field_ty| FluffyFieldType::from_field_ty(Some(*place), field_ty))),
+            SolidTermData::PlaceTypeOntology {
+                place,
                 path,
                 refined_path,
                 argument_tys,
-                base_ty_term,
-            } => match base_ty_term {
-                Some(_) => todo!(),
-                None => todo!(),
-            },
+                ..
+            } => todo!(),
             SolidTermData::Curry { .. } | SolidTermData::Ritchie { .. } => todo!(),
         }
     }

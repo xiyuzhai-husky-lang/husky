@@ -3,14 +3,14 @@ mod error;
 pub use self::error::*;
 
 use husky_opn_syntax::Bracket;
+use husky_scope::Scope;
 use husky_token::*;
 use husky_vfs::{ModulePath, VfsDb};
-use husky_visibility::Visibility;
 use parsec::StreamParser;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct VisibilityExpr {
-    visibility: Visibility,
+    visibility: Scope,
     variant: VisibilityExprVariant,
 }
 
@@ -18,12 +18,12 @@ impl VisibilityExpr {
     #[inline(always)]
     pub fn new_protected(module_path: ModulePath) -> Self {
         VisibilityExpr {
-            visibility: Visibility::PubUnder(module_path),
+            visibility: Scope::PubUnder(module_path),
             variant: VisibilityExprVariant::Protected,
         }
     }
 
-    pub fn visibility(&self) -> Visibility {
+    pub fn visibility(&self) -> Scope {
         self.visibility
     }
 
@@ -39,7 +39,7 @@ impl VisibilityExpr {
                     todo!()
                 } else if let Some(super_token) = token_stream.parse::<SuperToken>()? {
                     VisibilityExpr {
-                        visibility: Visibility::PubUnder(
+                        visibility: Scope::PubUnder(
                             module_path
                                 .parent(db)
                                 .ok_or(OriginalVisibilityExprError::NoSuperForRoot(state))?,
@@ -58,7 +58,7 @@ impl VisibilityExpr {
                 }
             } else {
                 VisibilityExpr {
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     variant: VisibilityExprVariant::Pub { pub_token },
                 }
             }

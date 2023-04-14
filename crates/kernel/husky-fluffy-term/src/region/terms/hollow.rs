@@ -32,6 +32,18 @@ impl HollowTerms {
         });
         term
     }
+
+    pub(crate) fn resolve_progress(&self, hollow_term: HollowTerm) -> &HollowTermResolveProgress {
+        &self.entry(hollow_term).resolve_progress
+    }
+
+    pub(crate) fn data(&self, hollow_term: HollowTerm) -> &HollowTermData {
+        &self.entry(hollow_term).data
+    }
+
+    fn entry(&self, hollow_term: HollowTerm) -> &HollowTermEntry {
+        &self.entries[hollow_term.0 as usize]
+    }
 }
 
 #[derive(Debug, PartialEq, Eq)]

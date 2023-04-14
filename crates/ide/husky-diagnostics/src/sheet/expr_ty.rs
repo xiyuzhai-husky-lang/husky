@@ -155,6 +155,9 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
             OriginalExprTypeError::TodoIndexOrComposeWithList => {
                 format!("Type Error: TodoIndexOrComposeWithList")
             }
+            OriginalExprTypeError::TodoMemo => {
+                format!("Type Error: TodoMemo")
+            }
         }
     }
 

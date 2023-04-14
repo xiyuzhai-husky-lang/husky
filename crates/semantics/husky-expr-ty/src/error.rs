@@ -69,6 +69,8 @@ pub enum OriginalExprTypeError {
     },
     #[error("TodoIndexOrComposeWithList")]
     TodoIndexOrComposeWithList,
+    #[error("TodoMemo")]
+    TodoMemo,
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
@@ -143,6 +145,8 @@ pub enum DerivedExprTypeError {
     IntegerLiteralExpectationTypePathRefine(EntityPathError),
     #[error("BitNotOperandTypeNotInferred")]
     BitNotOperandTypeNotInferred,
+    #[error("BinaryShiftRightOperandTypeNotInferred")]
+    BinaryShiftRightOperandTypeNotInferred,
 }
 
 pub type ExprTypeResult<T> = Result<T, ExprTypeError>;

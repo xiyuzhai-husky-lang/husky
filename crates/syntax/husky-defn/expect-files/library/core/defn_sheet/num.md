@@ -1179,7 +1179,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             is_generic: false,
                                         },
                                         ast_idx: 0,
@@ -1873,7 +1873,7 @@ Ok(
                                             associated_item_kind: TraitForTypeItem(
                                                 MethodFn,
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             is_generic: false,
                                         },
                                         ast_idx: 1,
@@ -2762,7 +2762,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             is_generic: false,
                                         },
                                         ast_idx: 2,
@@ -3456,7 +3456,7 @@ Ok(
                                             associated_item_kind: TraitForTypeItem(
                                                 MethodFn,
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             is_generic: false,
                                         },
                                         ast_idx: 3,
@@ -4345,7 +4345,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             is_generic: false,
                                         },
                                         ast_idx: 4,
@@ -5039,7 +5039,7 @@ Ok(
                                             associated_item_kind: TraitForTypeItem(
                                                 MethodFn,
                                             ),
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `core::num`,
                                             ),
                                             is_generic: false,
@@ -5930,7 +5930,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             is_generic: false,
                                         },
                                         ast_idx: 6,
@@ -6624,7 +6624,7 @@ Ok(
                                             associated_item_kind: TraitForTypeItem(
                                                 MethodFn,
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             is_generic: false,
                                         },
                                         ast_idx: 7,
@@ -7513,7 +7513,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             is_generic: false,
                                         },
                                         ast_idx: 8,
@@ -8207,7 +8207,7 @@ Ok(
                                             associated_item_kind: TraitForTypeItem(
                                                 MethodFn,
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             is_generic: false,
                                         },
                                         ast_idx: 9,
@@ -9096,7 +9096,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             is_generic: false,
                                         },
                                         ast_idx: 10,
@@ -9790,7 +9790,7 @@ Ok(
                                             associated_item_kind: TraitForTypeItem(
                                                 MethodFn,
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             is_generic: false,
                                         },
                                         ast_idx: 11,
@@ -10679,7 +10679,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             is_generic: false,
                                         },
                                         ast_idx: 12,
@@ -11373,7 +11373,7 @@ Ok(
                                             associated_item_kind: TraitForTypeItem(
                                                 MethodFn,
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             is_generic: false,
                                         },
                                         ast_idx: 13,
@@ -12262,7 +12262,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             is_generic: false,
                                         },
                                         ast_idx: 14,
@@ -12956,7 +12956,7 @@ Ok(
                                             associated_item_kind: TraitForTypeItem(
                                                 MethodFn,
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             is_generic: false,
                                         },
                                         ast_idx: 15,
@@ -13845,7 +13845,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             is_generic: false,
                                         },
                                         ast_idx: 16,
@@ -14539,7 +14539,7 @@ Ok(
                                             associated_item_kind: TraitForTypeItem(
                                                 MethodFn,
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             is_generic: false,
                                         },
                                         ast_idx: 17,
@@ -15428,7 +15428,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             is_generic: false,
                                         },
                                         ast_idx: 18,
@@ -16122,7 +16122,7 @@ Ok(
                                             associated_item_kind: TraitForTypeItem(
                                                 MethodFn,
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             is_generic: false,
                                         },
                                         ast_idx: 19,
@@ -17011,7 +17011,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             is_generic: false,
                                         },
                                         ast_idx: 20,
@@ -17705,7 +17705,7 @@ Ok(
                                             associated_item_kind: TraitForTypeItem(
                                                 MethodFn,
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             is_generic: false,
                                         },
                                         ast_idx: 21,
@@ -18594,7 +18594,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             is_generic: false,
                                         },
                                         ast_idx: 22,
@@ -19288,7 +19288,7 @@ Ok(
                                             associated_item_kind: TraitForTypeItem(
                                                 MethodFn,
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             is_generic: false,
                                         },
                                         ast_idx: 23,
@@ -20177,7 +20177,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             is_generic: false,
                                         },
                                         ast_idx: 24,
@@ -20871,7 +20871,7 @@ Ok(
                                             associated_item_kind: TraitForTypeItem(
                                                 MethodFn,
                                             ),
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `core::num`,
                                             ),
                                             is_generic: false,
@@ -21762,7 +21762,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             is_generic: false,
                                         },
                                         ast_idx: 26,
@@ -22456,7 +22456,7 @@ Ok(
                                             associated_item_kind: TraitForTypeItem(
                                                 MethodFn,
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             is_generic: false,
                                         },
                                         ast_idx: 27,

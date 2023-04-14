@@ -1,18 +1,19 @@
 [package]
-name = "husky-visibility-expr"
+name = "husky-scope"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
-thiserror = "1.0.37"
+salsa = { path = "../../abstraction/salsa" }
 # abstraction
-parsec = { path = "../../abstraction/parsec" }
+with-db = { path = "../../abstraction/with-db" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
-# kernel
-husky-visibility = { path = "../../kernel/husky-visibility" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
-# syntax
-husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
+
+[dev-dependencies]
+# kernel
+husky-word = { path = "../../kernel/husky-word" }
+husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }

@@ -57,7 +57,7 @@ impl UseExprRules {
 pub struct UseExprRule {
     ast_idx: AstIdx,
     use_expr_idx: UseExprIdx,
-    visibility: Visibility,
+    visibility: Scope,
     variant: UseExprRuleVariant,
     parent: Option<EntityPath>,
     state: UseExprRuleState,
@@ -149,7 +149,7 @@ impl UseExprRule {
         &self.variant
     }
 
-    pub(crate) fn visibility(&self) -> Visibility {
+    pub(crate) fn visibility(&self) -> Scope {
         self.visibility
     }
 

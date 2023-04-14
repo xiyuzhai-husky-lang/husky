@@ -7,6 +7,7 @@ pub use self::field::*;
 pub use self::method::*;
 
 use crate::*;
+use husky_scope::*;
 use husky_raw_ty::{trai_path_raw_ty, ty_constructor_path_raw_ty, ty_ontology_path_raw_ty};
 
 impl Term {

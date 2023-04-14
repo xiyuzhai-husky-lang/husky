@@ -116,7 +116,6 @@ impl<'a> ExprTypeEngine<'a> {
         lopd: ExprIdx,
         ropd: ExprIdx,
     ) -> Result<FluffyTerm, ExprTypeError> {
-        let expr_eval_lifetime = todo!();
         // self
         //     .fluffy_term_region
         //     .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ExprEvalLifetime);

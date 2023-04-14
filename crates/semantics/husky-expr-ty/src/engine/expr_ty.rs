@@ -194,10 +194,7 @@ impl<'a> ExprTypeEngine<'a> {
             ),
             Expr::Field {
                 owner, ident_token, ..
-            } => Ok((
-                ExprDisambiguation::Trivial,
-                self.calc_field_expr_ty(owner, ident_token),
-            )),
+            } => self.calc_field_or_memo_expr_ty(owner, ident_token),
             Expr::MethodCall {
                 self_argument,
                 ident_token,

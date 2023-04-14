@@ -11,7 +11,7 @@ use husky_token::{IdentToken, TokenIdx};
 pub struct ModuleItemSymbol {
     #[id]
     pub path: ModuleItemPath,
-    pub visibility: Visibility,
+    pub visibility: Scope,
     pub ast_idx: AstIdx,
     pub ident_token: IdentToken,
 }
@@ -20,7 +20,7 @@ pub struct ModuleItemSymbol {
 pub struct SubmoduleSymbol {
     #[id]
     pub path: ModulePath,
-    pub visibility: Visibility,
+    pub visibility: Scope,
     pub ast_idx: AstIdx,
     pub ident_token: IdentToken,
 }
@@ -30,7 +30,7 @@ pub struct UseSymbol {
     #[id]
     pub original_symbol: EntitySymbol,
     pub path: EntityPath,
-    pub visibility: Visibility,
+    pub visibility: Scope,
     pub ast_idx: AstIdx,
     pub use_expr_idx: UseExprIdx,
 }
@@ -64,15 +64,15 @@ pub enum EntitySymbol {
 }
 
 impl EntitySymbol {
-    fn visibility(self, db: &dyn EntityTreeDb) -> Visibility {
+    fn visibility(self, db: &dyn EntityTreeDb) -> Scope {
         match self {
-            EntitySymbol::CrateRoot { root_module_path } => Visibility::PubUnder(root_module_path),
-            EntitySymbol::SelfModule { module_path } => Visibility::Private(module_path),
+            EntitySymbol::CrateRoot { root_module_path } => Scope::PubUnder(root_module_path),
+            EntitySymbol::SelfModule { module_path } => Scope::Private(module_path),
             EntitySymbol::SuperModule {
                 current_module_path,
                 ..
-            } => Visibility::Private(current_module_path),
-            EntitySymbol::PackageDependency { .. } => Visibility::Pub,
+            } => Scope::Private(current_module_path),
+            EntitySymbol::PackageDependency { .. } => Scope::Pub,
             EntitySymbol::Submodule(symbol) => symbol.visibility(db),
             EntitySymbol::ModuleItem(symbol) => symbol.visibility(db),
             EntitySymbol::Use(symbol) => symbol.visibility(db),
