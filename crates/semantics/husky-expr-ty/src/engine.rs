@@ -5,7 +5,6 @@ mod stmt;
 mod symbol;
 #[macro_use]
 mod utils;
-mod pattern_contract;
 mod pattern_ty;
 mod symbol_liason;
 

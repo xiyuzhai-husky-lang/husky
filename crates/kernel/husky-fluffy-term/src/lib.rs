@@ -41,4 +41,4 @@ use salsa::DebugWithDb as _;
 use smallvec::*;
 
 #[salsa::jar(db = FluffyTermDb)]
-pub struct FluffyTermJar(term_ritchie_fluffy_term_parameter_contracted_tys);
+pub struct FluffyTermJar(term_ritchie_fluffy_data, term_application_fluffy_data);
