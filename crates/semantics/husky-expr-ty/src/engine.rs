@@ -33,7 +33,7 @@ pub(crate) struct ExprTypeEngine<'a> {
     extra_expr_errors: Vec<(ExprIdx, ExprTypeError)>,
     expr_terms: ExprMap<ExprTermResult<FluffyTerm>>,
     symbol_terms: SymbolMap<FluffyTerm>,
-    symbol_place_tys: SymbolMap<FluffyTerm>,
+    symbol_tys: SymbolMap<FluffyTerm>,
     pattern_expr_ty_infos: PatternExprMap<PatternExprTypeInfo>,
     pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
     pattern_expr_contracts: PatternExprMap<Contract>,
@@ -120,7 +120,7 @@ impl<'a> ExprTypeEngine<'a> {
                     .map(|parent_expr_ty_region| parent_expr_ty_region.symbol_terms()),
                 expr_region_data.symbol_region(),
             ),
-            symbol_place_tys: SymbolMap::new(
+            symbol_tys: SymbolMap::new(
                 parent_expr_ty_region
                     .map(|parent_expr_ty_region| parent_expr_ty_region.symbol_place_tys()),
                 expr_region_data.symbol_region(),
@@ -184,7 +184,7 @@ impl<'a> ExprTypeEngine<'a> {
             self.extra_expr_errors,
             self.expr_terms,
             self.symbol_terms,
-            self.symbol_place_tys,
+            self.symbol_tys,
             self.fluffy_term_region,
             self.return_ty,
             self.self_ty,

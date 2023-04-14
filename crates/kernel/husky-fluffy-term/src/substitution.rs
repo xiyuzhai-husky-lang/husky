@@ -43,7 +43,7 @@ impl FluffyTerms {
             FluffyTermData::TypeOntology {
                 path,
                 refined_path,
-                argument_tys: arguments,
+                arguments,
             } => todo!(),
             FluffyTermData::Curry {
                 curry_kind,
@@ -59,7 +59,12 @@ impl FluffyTerms {
                 place,
                 path,
                 refined_path,
-                argument_tys,
+                arguments: argument_tys,
+            } => todo!(),
+            FluffyTermData::PlaceHole {
+                place,
+                hole_kind,
+                hole,
             } => todo!(),
         }
     }

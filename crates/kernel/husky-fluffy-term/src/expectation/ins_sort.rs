@@ -6,7 +6,7 @@ pub struct ExpectInsSort {
     smallest_universe: TermUniverse,
 }
 
-impl ExpectLocalTerm for ExpectInsSort {
+impl ExpectFluffyTerm for ExpectInsSort {
     type Outcome = ExpectInsSortOutcome;
 
     fn retrieve_outcome(outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome {

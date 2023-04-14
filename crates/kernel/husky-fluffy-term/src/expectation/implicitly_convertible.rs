@@ -30,7 +30,7 @@ impl ExpectImplicitlyConvertible {
                 place,
                 path,
                 refined_path,
-                argument_tys,
+                arguments: argument_tys,
             } => unreachable!(),
             _ => (),
         }
@@ -50,7 +50,7 @@ impl ExpectImplicitlyConvertible {
                 place,
                 path,
                 refined_path,
-                argument_tys,
+                arguments: argument_tys,
             } => match argument_tys.len() {
                 0 => TermEntityPath::TypeOntology(path).into(),
                 _ => todo!(),
@@ -124,7 +124,7 @@ impl ExpectImplicitlyConvertible {
     }
 }
 
-impl ExpectLocalTerm for ExpectImplicitlyConvertible {
+impl ExpectFluffyTerm for ExpectImplicitlyConvertible {
     type Outcome = ImplicitConversion;
 
     fn retrieve_outcome(outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome {
@@ -170,7 +170,7 @@ impl ExpectImplicitlyConvertible {
             FluffyTermData::TypeOntology {
                 path,
                 refined_path,
-                argument_tys,
+                arguments: argument_tys,
             } => self.resolve_convertible_to_ty_ontology(
                 db,
                 terms,
@@ -211,7 +211,7 @@ impl ExpectImplicitlyConvertible {
                 place,
                 path,
                 refined_path,
-                argument_tys,
+                arguments: argument_tys,
             } => self.resolve_convertible_to_place_ty_ontology(
                 db,
                 terms,
@@ -223,6 +223,11 @@ impl ExpectImplicitlyConvertible {
                 refined_path,
                 argument_tys,
             ),
+            FluffyTermData::PlaceHole {
+                place,
+                hole_kind,
+                hole,
+            } => todo!(),
         }
     }
 
@@ -247,7 +252,7 @@ impl ExpectImplicitlyConvertible {
             }),
             FluffyTermData::TypeOntology {
                 refined_path: src_path,
-                argument_tys: src_argument_tys,
+                arguments: src_argument_tys,
                 ..
             } if dst_refined_path == src_path => {
                 if dst_argument_tys.len() != src_argument_tys.len() {
@@ -278,7 +283,7 @@ impl ExpectImplicitlyConvertible {
             FluffyTermData::TypeOntology {
                 path: src_path,
                 refined_path: src_refined_path,
-                argument_tys: src_arguments,
+                arguments: src_arguments,
                 ..
             } => Some(FluffyTermExpectationEffect {
                 result: Err(OriginalFluffyTermExpectationError::TypePathMismatch {
@@ -291,7 +296,7 @@ impl ExpectImplicitlyConvertible {
             FluffyTermData::PlaceTypeOntology {
                 place,
                 refined_path: src_path,
-                argument_tys: src_argument_tys,
+                arguments: src_argument_tys,
                 ..
             } if dst_refined_path == src_path => {
                 if dst_argument_tys.len() != src_argument_tys.len() {
@@ -322,7 +327,7 @@ impl ExpectImplicitlyConvertible {
             FluffyTermData::PlaceTypeOntology {
                 path: src_path,
                 refined_path: src_refined_path,
-                argument_tys: src_arguments,
+                arguments: src_arguments,
                 ..
             } => {
                 // todo: consider `Deref` and `DerefMut`

@@ -12,13 +12,13 @@ pub enum FluffyTermData<'a> {
     TypeOntology {
         path: TypePath,
         refined_path: Either<CustomTypePath, PreludeTypePath>,
-        argument_tys: &'a [FluffyTerm],
+        arguments: &'a [FluffyTerm],
     },
     PlaceTypeOntology {
         place: Place,
         path: TypePath,
         refined_path: Either<CustomTypePath, PreludeTypePath>,
-        argument_tys: &'a [FluffyTerm],
+        arguments: &'a [FluffyTerm],
     },
     Curry {
         curry_kind: CurryKind,
@@ -27,12 +27,17 @@ pub enum FluffyTermData<'a> {
         parameter_ty: FluffyTerm,
         return_ty: FluffyTerm,
     },
-    Hole(HoleKind, HollowTerm),
+    Hole(HoleKind, Hole),
     Category(TermCategory),
     Ritchie {
         ritchie_kind: TermRitchieKind,
         parameter_contracted_tys: &'a [FluffyTermRitchieParameterContractedType],
         return_ty: FluffyTerm,
+    },
+    PlaceHole {
+        place: Place,
+        hole_kind: HoleKind,
+        hole: Hole,
     },
 }
 
@@ -59,7 +64,7 @@ impl FluffyTerm {
                 TermEntityPath::TypeOntology(path) => FluffyTermData::TypeOntology {
                     path,
                     refined_path: path.refine(db),
-                    argument_tys: &[],
+                    arguments: &[],
                 },
                 TermEntityPath::TypeConstructor(_) => todo!(),
             },
@@ -72,7 +77,13 @@ impl FluffyTerm {
                 parameter_ty: term.parameter_ty(db).into(),
                 return_ty: term.return_ty(db).into(),
             },
-            FluffyTerm::Ritchie(_) => todo!(),
+            FluffyTerm::Ritchie(term) => FluffyTermData::Ritchie {
+                ritchie_kind: term.ritchie_kind(db),
+                parameter_contracted_tys: term_ritchie_fluffy_term_parameter_contracted_tys(
+                    db, term,
+                ),
+                return_ty: term.return_ty(db).into(),
+            },
             FluffyTerm::Abstraction(_) => todo!(),
             FluffyTerm::Application(_) => todo!(),
             FluffyTerm::Subentity(_) => todo!(),
@@ -111,7 +122,7 @@ impl<'a, _Db: TermDb + ?Sized> ::salsa::DebugWithDb<_Db> for FluffyTermData<'a> 
             FluffyTermData::TypeOntology {
                 ref path,
                 ref refined_path,
-                ref argument_tys,
+                arguments: ref argument_tys,
             } => {
                 let mut debug_struct = &mut f.debug_struct("FluffyTermData::TypeOntology");
                 debug_struct = debug_struct.field(
@@ -150,7 +161,7 @@ impl<'a, _Db: TermDb + ?Sized> ::salsa::DebugWithDb<_Db> for FluffyTermData<'a> 
                 ref place,
                 ref path,
                 ref refined_path,
-                ref argument_tys,
+                arguments: ref argument_tys,
             } => {
                 let mut debug_struct = &mut f.debug_struct("FluffyTermData::PlaceTypeOntology");
                 debug_struct = debug_struct.field(
@@ -321,6 +332,23 @@ impl<'a, _Db: TermDb + ?Sized> ::salsa::DebugWithDb<_Db> for FluffyTermData<'a> 
                 );
                 debug_struct.finish()
             }
+            FluffyTermData::PlaceHole {
+                place,
+                hole_kind,
+                hole,
+            } => todo!(),
         }
     }
+}
+
+#[salsa::tracked(jar = FluffyTermJar, return_ref)]
+pub(crate) fn term_ritchie_fluffy_term_parameter_contracted_tys(
+    db: &dyn FluffyTermDb,
+    term: TermRitchie,
+) -> SmallVec<[FluffyTermRitchieParameterContractedType; 2]> {
+    term.parameter_contracted_tys(db)
+        .iter()
+        .copied()
+        .map(Into::into)
+        .collect()
 }

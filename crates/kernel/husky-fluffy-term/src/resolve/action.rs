@@ -2,7 +2,7 @@ use super::*;
 
 pub enum FluffyTermResolveAction {
     SubstituteHole {
-        hole: HollowTerm,
+        hole: Hole,
         substitution: FluffyTerm,
     },
     AddExpectation {

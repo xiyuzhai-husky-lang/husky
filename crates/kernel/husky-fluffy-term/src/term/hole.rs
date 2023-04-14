@@ -21,14 +21,22 @@ impl HoleSource {
 pub enum HoleKind {
     UnspecifiedIntegerType,
     UnspecifiedFloatType,
+    ImplicitType,
 }
 
 impl HollowTerm {
+    pub(crate) fn new(engine: &mut impl FluffyTermEngine, data: HollowTermData) -> Self {
+        engine
+            .fluffy_term_region_mut()
+            .hollow_terms_mut()
+            .alloc_new(data)
+    }
+
     pub(crate) fn new_hole(
-        hollow_terms: &mut HollowTerms,
+        engine: &mut impl FluffyTermEngine,
         src: impl Into<HoleSource>,
         hole_kind: HoleKind,
     ) -> Self {
-        hollow_terms.alloc_new(HollowTermData::Hole(src.into(), hole_kind))
+        Self::new(engine, HollowTermData::Hole(src.into(), hole_kind))
     }
 }

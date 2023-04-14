@@ -31,7 +31,7 @@ impl<'a> ExprTypeEngine<'a> {
                 place,
                 path,
                 refined_path: Right(PreludeTypePath::Num(_)),
-                argument_tys,
+                arguments: argument_tys,
             } => {
                 self.calc_num_ty_binary_shift_ropd_ty(ropd)?;
                 Ok(TermEntityPath::TypeOntology(path).into())
@@ -43,6 +43,11 @@ impl<'a> ExprTypeEngine<'a> {
             | FluffyTermData::Category(_) => todo!(),
             FluffyTermData::Ritchie { .. } => todo!(),
             FluffyTermData::PlaceTypeOntology { .. } => todo!(),
+            FluffyTermData::PlaceHole {
+                place,
+                hole_kind,
+                hole,
+            } => todo!(),
         }
     }
 
@@ -63,6 +68,16 @@ impl<'a> ExprTypeEngine<'a> {
             FluffyTermData::Category(_) => todo!(),
             FluffyTermData::Ritchie { .. } => todo!(),
             FluffyTermData::PlaceTypeOntology { .. } => todo!(),
+            FluffyTermData::PlaceHole {
+                place,
+                hole_kind,
+                hole,
+            } => todo!(),
+            FluffyTermData::PlaceHole {
+                place,
+                hole_kind,
+                hole,
+            } => todo!(),
         }
     }
 }

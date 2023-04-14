@@ -1,11 +1,30 @@
 use super::*;
 
 impl FluffyTerm {
-    pub(crate) fn new_place_ty(
+    #[inline(always)]
+    pub fn new_symbol_ty_from_signature(
         engine: &mut impl FluffyTermEngine,
-        place: Place,
-        ty: FluffyTerm,
-    ) -> Self {
+        symbol_idx: impl IntoLocalSymbolIdx,
+        signature: SymbolSignature,
+    ) -> TermResult<FluffyTerm> {
+        let local_symbol_idx = symbol_idx.into_local_symbol_idx(engine.expr_region_data());
+        let place = match signature.modifier() {
+            SymbolModifier::Pure => Place::StackPure {
+                location: local_symbol_idx.into(),
+            },
+            SymbolModifier::Mut => Place::MutableStackOwned {
+                location: local_symbol_idx.into(),
+            },
+            SymbolModifier::RefMut => Place::RefMut {
+                guard: Left(local_symbol_idx.into()),
+            },
+            SymbolModifier::Const => Place::Const, // todo: handle variance
+        };
+        let ty = Term::ty_from_raw(engine.db(), signature.ty()?)?;
+        Ok(FluffyTerm::new_symbol_ty(engine, place, ty.into()))
+    }
+
+    pub fn new_symbol_ty(engine: &mut impl FluffyTermEngine, place: Place, ty: FluffyTerm) -> Self {
         match ty {
             FluffyTerm::Literal(_) => todo!(),
             FluffyTerm::Symbol(_) => todo!(),
@@ -18,7 +37,7 @@ impl FluffyTerm {
                         place,
                         path,
                         refined_path: path.refine(engine.db()),
-                        argument_tys: smallvec![],
+                        arguments: smallvec![],
                         base_ty_term: Some(TermEntityPath::TypeOntology(path).into()),
                     };
                     SolidTerm::new(engine.fluffy_term_region_mut().solid_terms_mut(), data).into()
@@ -48,7 +67,7 @@ impl FluffyTerm {
                             place,
                             path,
                             refined_path: path.refine(engine.db()),
-                            argument_tys: expansion
+                            arguments: expansion
                                 .arguments(engine.db())
                                 .iter()
                                 .map(|t| (*t).into())
@@ -66,7 +85,46 @@ impl FluffyTerm {
             FluffyTerm::AsTraitSubentity(_) => todo!(),
             FluffyTerm::TraitConstraint(_) => todo!(),
             FluffyTerm::Solid(_) => todo!(),
-            FluffyTerm::Hollow(_) => todo!(),
+            FluffyTerm::Hollow(_) => {
+                let data = match ty.data(engine) {
+                    FluffyTermData::Literal(_) => todo!(),
+                    FluffyTermData::TypeOntology {
+                        path,
+                        refined_path,
+                        arguments,
+                    } => todo!(),
+                    FluffyTermData::PlaceTypeOntology {
+                        place,
+                        path,
+                        refined_path,
+                        arguments,
+                    } => todo!(),
+                    FluffyTermData::Curry {
+                        curry_kind,
+                        variance,
+                        parameter_variable,
+                        parameter_ty,
+                        return_ty,
+                    } => todo!(),
+                    FluffyTermData::Hole(hole_kind, hole) => HollowTermData::PlaceHole {
+                        place,
+                        hole_kind,
+                        hole,
+                    },
+                    FluffyTermData::Category(_) => todo!(),
+                    FluffyTermData::Ritchie {
+                        ritchie_kind,
+                        parameter_contracted_tys,
+                        return_ty,
+                    } => todo!(),
+                    FluffyTermData::PlaceHole {
+                        place,
+                        hole_kind,
+                        hole,
+                    } => todo!(),
+                };
+                HollowTerm::new(engine, data).into()
+            }
         }
         // SolidTerm::new(engine.fluffy_term_region_mut().solid_terms_mut(), data).into()
     }

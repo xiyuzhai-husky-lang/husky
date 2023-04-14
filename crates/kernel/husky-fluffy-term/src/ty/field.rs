@@ -83,7 +83,7 @@ impl SolidTerm {
             SolidTermData::TypeOntology {
                 path,
                 refined_path,
-                argument_tys,
+                arguments: argument_tys,
             } => todo!(),
             SolidTermData::PlaceTypeOntology {
                 place,
@@ -96,7 +96,7 @@ impl SolidTerm {
                 place,
                 path,
                 refined_path,
-                argument_tys,
+                arguments: argument_tys,
                 ..
             } => todo!(),
             SolidTermData::Curry { .. } | SolidTermData::Ritchie { .. } => todo!(),

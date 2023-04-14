@@ -111,7 +111,11 @@ impl<'a> RawTermEngine<'a> {
                         .add_new_implicit_parameter_symbol_signature(self.db, symbols.start(), ty)
                 }
                 PatternTypeConstraint::ExplicitParameter { pattern_expr, ty } => self
-                    .init_current_symbol_terms_in_explicit_parameter(*pattern_expr, *ty, *symbols),
+                    .init_current_symbol_signatures_in_explicit_parameter(
+                        *pattern_expr,
+                        *ty,
+                        *symbols,
+                    ),
                 PatternTypeConstraint::LetVariables { .. }
                 | PatternTypeConstraint::FrameVariable => {
                     // need only to compute for decl region
@@ -124,18 +128,18 @@ impl<'a> RawTermEngine<'a> {
     /// explicit parameters are infered in this crate;
     ///
     /// let variables, be variables and match variables are infered in `husky-expr-ty`
-    fn init_current_symbol_terms_in_explicit_parameter(
+    fn init_current_symbol_signatures_in_explicit_parameter(
         &mut self,
         pattern_expr: PatternExprIdx,
         ty: ExprIdx,
         symbols: CurrentSymbolIdxRange,
     ) {
         let Ok(ty) = self.infer_new_expr_term(ty) else {
-            for idx in symbols {
-                let modifier = self.calc_current_symbol_modifier(idx);
+            for symbol in symbols {
+                let modifier = self.calc_current_symbol_modifier_in_explicit_parameter(symbol);
                 self.raw_term_symbol_region.add_new_explicit_parameter_symbol_signature(
                     self.db,
-                    idx,
+                    symbol,
                     modifier,
                     Err(RawTermSymbolTypeErrorKind::SignatureRawTermError),
                 )
@@ -144,28 +148,33 @@ impl<'a> RawTermEngine<'a> {
         };
         self.infer_pattern_tys_in_explicit_parameter(pattern_expr, ty);
         for symbol in symbols {
-            self.infer_current_symbol_ty_in_explicit_parameter(symbol)
+            self.infer_current_symbol_signature_in_explicit_parameter(symbol)
         }
     }
 
-    fn calc_current_symbol_modifier(&self, idx: CurrentSymbolIdx) -> SymbolModifier {
+    /// calculate from pattern symbol idx
+    fn calc_current_symbol_modifier_in_explicit_parameter(
+        &self,
+        idx: CurrentSymbolIdx,
+    ) -> SymbolModifier {
         match self.expr_region_data.symbol_region()[idx].variant() {
-            CurrentSymbolVariant::ImplicitParameter {
-                implicit_parameter_variant,
-            } => todo!(),
             CurrentSymbolVariant::ExplicitParameter {
-                ident,
-                pattern_symbol_idx,
-            } => todo!(),
-            CurrentSymbolVariant::LetVariable {
-                ident,
-                pattern_symbol_idx,
-            } => todo!(),
-            CurrentSymbolVariant::FrameVariable { ident, expr_idx } => todo!(),
+                pattern_symbol_idx, ..
+            }
+            | CurrentSymbolVariant::LetVariable {
+                pattern_symbol_idx, ..
+            } => self
+                .raw_term_symbol_region
+                .pattern_symbol_modifier(*pattern_symbol_idx),
+            CurrentSymbolVariant::ImplicitParameter { .. }
+            | CurrentSymbolVariant::FrameVariable { .. } => unreachable!(),
         }
     }
 
-    fn infer_current_symbol_ty_in_explicit_parameter(&mut self, current_symbol: CurrentSymbolIdx) {
+    fn infer_current_symbol_signature_in_explicit_parameter(
+        &mut self,
+        current_symbol: CurrentSymbolIdx,
+    ) {
         match self.expr_region_data.symbol_region()[current_symbol].variant() {
             CurrentSymbolVariant::ExplicitParameter {
                 ident,

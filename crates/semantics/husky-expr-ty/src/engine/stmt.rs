@@ -6,7 +6,7 @@ impl<'a> ExprTypeEngine<'a> {
     pub(super) fn infer_new_block(
         &mut self,
         stmts: StmtIdxRange,
-        expr_expectation: impl ExpectLocalTerm,
+        expr_expectation: impl ExpectFluffyTerm,
     ) -> Option<FluffyTerm> {
         for stmt in stmts.start()..(stmts.end() - 1) {
             self.infer_new_nonlast_stmt(stmt)
@@ -22,7 +22,7 @@ impl<'a> ExprTypeEngine<'a> {
     fn infer_new_last_stmt(
         &mut self,
         stmt_idx: StmtIdx,
-        expr_expectation: impl ExpectLocalTerm,
+        expr_expectation: impl ExpectFluffyTerm,
     ) -> Option<FluffyTerm> {
         self.calc_stmt(stmt_idx, expr_expectation)
     }
@@ -30,7 +30,7 @@ impl<'a> ExprTypeEngine<'a> {
     fn calc_stmt(
         &mut self,
         stmt_idx: StmtIdx,
-        expr_expectation: impl ExpectLocalTerm,
+        expr_expectation: impl ExpectFluffyTerm,
     ) -> Option<FluffyTerm> {
         match self.expr_region_data[stmt_idx] {
             Stmt::Let {
@@ -77,8 +77,10 @@ impl<'a> ExprTypeEngine<'a> {
             } => {
                 let mut expected_frame_var_ty: Option<FluffyTerm> = None;
                 if let Some(bound_expr) = particulars.range.initial_boundary.bound_expr {
-                    match self.infer_new_expr_ty(bound_expr, ExpectAnyOriginal) {
-                        Some(bound_expr_ty) => expected_frame_var_ty = Some(bound_expr_ty),
+                    match self.infer_new_expr_ty_for_outcome(bound_expr, ExpectNumType) {
+                        Some(num_ty_outcome) => {
+                            expected_frame_var_ty = Some(num_ty_outcome.placeless_num_ty())
+                        }
                         None => (),
                     }
                 }
@@ -99,9 +101,15 @@ impl<'a> ExprTypeEngine<'a> {
                     }
                 }
                 if let Some(expected_frame_var_ty) = expected_frame_var_ty {
-                    let expected_frame_var_ty = todo!();
-                    self.symbol_place_tys
-                        .insert_new(frame_var_symbol_idx, expected_frame_var_ty)
+                    let place = Place::ImmutableStackOwned {
+                        location: frame_var_symbol_idx
+                            .into_local_symbol_idx(self.expr_region_data)
+                            .into(),
+                    };
+                    let frame_var_symbol_ty =
+                        FluffyTerm::new_symbol_ty(self, place, expected_frame_var_ty);
+                    self.symbol_tys
+                        .insert_new(frame_var_symbol_idx, frame_var_symbol_ty)
                 }
                 if let Ok(block) = block {
                     let expr_expectation = self.expect_unit();
@@ -164,7 +172,7 @@ impl<'a> ExprTypeEngine<'a> {
         if_branch: &IfBranch,
         elif_branches: &[ElifBranch],
         else_branch: Option<&ElseBranch>,
-        expr_expectation: impl ExpectLocalTerm,
+        expr_expectation: impl ExpectFluffyTerm,
     ) -> Option<FluffyTerm> {
         let mut branch_tys = BranchTypes::new(expr_expectation);
         if_branch
@@ -187,7 +195,7 @@ impl<'a> ExprTypeEngine<'a> {
     }
 }
 
-struct BranchTypes<Expectation: ExpectLocalTerm> {
+struct BranchTypes<Expectation: ExpectFluffyTerm> {
     /// this is true if the type of one of the branches cannot be inferred
     has_error: bool,
     /// this is true if the type of one of the branches is inferred to be not never
@@ -195,7 +203,7 @@ struct BranchTypes<Expectation: ExpectLocalTerm> {
     expr_expectation: Expectation,
 }
 
-impl<Expectation: ExpectLocalTerm> BranchTypes<Expectation> {
+impl<Expectation: ExpectFluffyTerm> BranchTypes<Expectation> {
     fn new(expr_expectation: Expectation) -> Self {
         Self {
             has_error: false,

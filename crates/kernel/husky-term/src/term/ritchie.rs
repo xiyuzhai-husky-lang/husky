@@ -226,6 +226,10 @@ impl TermRitchieParameterContractedType {
         Self { contract, ty }
     }
 
+    pub fn contract(&self) -> Contract {
+        self.contract
+    }
+
     pub fn ty(&self) -> Term {
         self.ty
     }

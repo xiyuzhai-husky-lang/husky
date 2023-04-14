@@ -15,14 +15,14 @@ use husky_opn_syntax::*;
 use husky_term::has_ty::HasTypeGivenDisambiguation;
 use husky_ty_expectation::TypePathDisambiguation;
 
-pub(crate) enum ExprTypeResolveProgress<E: ExpectLocalTerm> {
+pub(crate) enum ExprTypeResolveProgress<E: ExpectFluffyTerm> {
     Unresolved,
     Outcome(E::Outcome),
     ResolvedErr,
 }
 
 impl<'a> ExprTypeEngine<'a> {
-    pub(super) fn infer_new_expr_ty<E: ExpectLocalTerm>(
+    pub(super) fn infer_new_expr_ty<E: ExpectFluffyTerm>(
         &mut self,
         expr_idx: ExprIdx,
         expr_ty_expectation: E,
@@ -31,7 +31,7 @@ impl<'a> ExprTypeEngine<'a> {
         self.expr_ty_infos[expr_idx].ty().ok()
     }
 
-    pub(super) fn infer_new_expr_ty_discarded<E: ExpectLocalTerm>(
+    pub(super) fn infer_new_expr_ty_discarded<E: ExpectFluffyTerm>(
         &mut self,
         expr_idx: ExprIdx,
         expr_ty_expectation: E,
@@ -40,7 +40,7 @@ impl<'a> ExprTypeEngine<'a> {
     }
 
     #[inline(always)]
-    pub(super) fn infer_new_expr_ty_for_outcome<E: ExpectLocalTerm>(
+    pub(super) fn infer_new_expr_ty_for_outcome<E: ExpectFluffyTerm>(
         &mut self,
         expr_idx: ExprIdx,
         expr_ty_expectation: E,
@@ -62,7 +62,7 @@ impl<'a> ExprTypeEngine<'a> {
     }
 
     #[inline(always)]
-    fn infer_new_expr_ty_aux<E: ExpectLocalTerm>(
+    fn infer_new_expr_ty_aux<E: ExpectFluffyTerm>(
         &mut self,
         expr_idx: ExprIdx,
         expr_ty_expectation: E,
@@ -89,7 +89,7 @@ impl<'a> ExprTypeEngine<'a> {
     fn calc_expr_ty(
         &mut self,
         expr_idx: ExprIdx,
-        expr_ty_expectation: &impl ExpectLocalTerm,
+        expr_ty_expectation: &impl ExpectFluffyTerm,
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         match self.expr_region_data[expr_idx] {
             Expr::Literal(literal_token_idx) => Ok((
@@ -107,7 +107,7 @@ impl<'a> ExprTypeEngine<'a> {
             } => Ok((
                 ExprDisambiguation::Trivial,
                 match self
-                    .symbol_place_tys
+                    .symbol_tys
                     .inherited_symbol_map()
                     .get(inherited_symbol_idx)
                 {
@@ -260,7 +260,7 @@ impl<'a> ExprTypeEngine<'a> {
                                 FluffyTermData::TypeOntology {
                                     path,
                                     refined_path,
-                                    argument_tys: arguments,
+                                    arguments,
                                 } => match refined_path {
                                     Right(PreludeTypePath::List) => {
                                         assert_eq!(arguments.len(), 1);
@@ -287,14 +287,15 @@ impl<'a> ExprTypeEngine<'a> {
                                     place,
                                     path,
                                     refined_path,
-                                    argument_tys,
+                                    arguments: argument_tys,
+                                } => todo!(),
+                                FluffyTermData::PlaceHole {
+                                    place,
+                                    hole_kind,
+                                    hole,
                                 } => todo!(),
                             },
-                            None => todo!(),
-                            // self
-                            //     .fluffy_term_region
-                            //     .new_implicit_symbol(expr_idx, ImplicitSymbolVariant::ImplicitType)
-                            //     .into(),
+                            None => self.new_hole(expr_idx, HoleKind::ImplicitType).into(),
                         };
                         for item in items {
                             self.infer_new_expr_ty_discarded(
@@ -328,7 +329,7 @@ impl<'a> ExprTypeEngine<'a> {
     fn calc_entity_path_expr_ty(
         &mut self,
         path: Option<EntityPath>,
-        expr_ty_expectation: &impl ExpectLocalTerm,
+        expr_ty_expectation: &impl ExpectFluffyTerm,
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         let disambiguation = expr_ty_expectation.disambiguate_ty_path(self);
         Ok((
@@ -344,7 +345,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: ExprIdx,
         function: ExprIdx,
-        expr_ty_expectation: &impl ExpectLocalTerm,
+        expr_ty_expectation: &impl ExpectFluffyTerm,
         implicit_arguments: &Option<ImplicitArgumentList>,
         items: &idx_arena::ArenaIdxRange<Expr>,
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
