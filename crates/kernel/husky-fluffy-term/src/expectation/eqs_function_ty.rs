@@ -12,7 +12,7 @@ impl ExpectEqsFunctionType {
     }
 }
 
-impl ExpectLocalTerm for ExpectEqsFunctionType {
+impl ExpectFluffyTerm for ExpectEqsFunctionType {
     type Outcome = ExpectEqsFunctionTypeOutcome;
 
     fn retrieve_outcome(outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome {
@@ -82,7 +82,7 @@ impl ExpectEqsFunctionType {
             FluffyTermData::TypeOntology {
                 path,
                 refined_path,
-                argument_tys: arguments,
+                arguments,
             } => Some(FluffyTermExpectationEffect {
                 result: Err(OriginalFluffyTermExpectationError::Todo.into()),
                 actions: smallvec![],
@@ -125,7 +125,12 @@ impl ExpectEqsFunctionType {
                 place,
                 path,
                 refined_path,
-                argument_tys,
+                arguments: argument_tys,
+            } => todo!(),
+            FluffyTermData::PlaceHole {
+                place,
+                hole_kind,
+                hole,
             } => todo!(),
         }
     }
@@ -194,7 +199,7 @@ impl ExpectEqsFunctionType {
             FluffyTermData::TypeOntology {
                 path,
                 refined_path,
-                argument_tys: arguments,
+                arguments,
             } => todo!(),
             FluffyTermData::Curry {
                 curry_kind,
@@ -210,7 +215,12 @@ impl ExpectEqsFunctionType {
                 place,
                 path,
                 refined_path,
-                argument_tys,
+                arguments: argument_tys,
+            } => todo!(),
+            FluffyTermData::PlaceHole {
+                place,
+                hole_kind,
+                hole,
             } => todo!(),
         }
     }

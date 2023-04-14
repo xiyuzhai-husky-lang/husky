@@ -5,7 +5,7 @@ pub enum HollowTermData {
     TypeOntology {
         path: TypePath,
         refined_path: Either<CustomTypePath, PreludeTypePath>,
-        argument_tys: SmallVec<[FluffyTerm; 2]>,
+        arguments: SmallVec<[FluffyTerm; 2]>,
     },
     Curry {
         curry_kind: CurryKind,
@@ -20,6 +20,33 @@ pub enum HollowTermData {
         parameter_contracted_tys: Vec<FluffyTermRitchieParameterContractedType>,
         return_ty: FluffyTerm,
     },
+    PlaceTypeOntology {
+        place: Place,
+        path: TypePath,
+        refined_path: Either<CustomTypePath, PreludeTypePath>,
+        arguments: SmallVec<[FluffyTerm; 2]>,
+    },
+    PlaceHole {
+        place: Place,
+        hole_kind: HoleKind,
+        hole: Hole,
+    },
+}
+
+/// refinement of HollowTerm
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct Hole(HollowTerm);
+
+impl Into<HollowTerm> for Hole {
+    fn into(self) -> HollowTerm {
+        self.0
+    }
+}
+
+impl Into<FluffyTerm> for Hole {
+    fn into(self) -> FluffyTerm {
+        self.0.into()
+    }
 }
 
 impl HollowTerm {
@@ -36,11 +63,11 @@ impl HollowTerm {
             HollowTermData::TypeOntology {
                 path,
                 refined_path,
-                argument_tys,
+                arguments: argument_tys,
             } => FluffyTermData::TypeOntology {
                 path: *path,
                 refined_path: *refined_path,
-                argument_tys,
+                arguments: argument_tys,
             },
             HollowTermData::Curry {
                 curry_kind,
@@ -55,12 +82,27 @@ impl HollowTerm {
                 parameter_ty: (*parameter_ty).into(),
                 return_ty: (*return_ty).into(),
             },
-            HollowTermData::Hole(_, hole_kind) => FluffyTermData::Hole(*hole_kind, self),
+            HollowTermData::Hole(_, hole_kind) => FluffyTermData::Hole(*hole_kind, Hole(self)),
             HollowTermData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,
                 return_ty,
             } => todo!(),
+            HollowTermData::PlaceTypeOntology {
+                place,
+                path,
+                refined_path,
+                arguments,
+            } => todo!(),
+            HollowTermData::PlaceHole {
+                place,
+                hole_kind,
+                hole,
+            } => FluffyTermData::PlaceHole {
+                place: *place,
+                hole_kind: *hole_kind,
+                hole: *hole,
+            },
         }
     }
 }

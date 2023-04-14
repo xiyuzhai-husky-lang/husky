@@ -17,7 +17,12 @@ impl FluffyTerm {
                 place,
                 path,
                 refined_path,
-                argument_tys,
+                arguments: argument_tys,
+            } => todo!(),
+            FluffyTermData::PlaceHole {
+                place,
+                hole_kind,
+                hole,
             } => todo!(),
         }
     }
@@ -48,7 +53,12 @@ impl FluffyTerm {
                 place,
                 path,
                 refined_path,
-                argument_tys,
+                arguments: argument_tys,
+            } => todo!(),
+            FluffyTermData::PlaceHole {
+                place,
+                hole_kind,
+                hole,
             } => todo!(),
         }
     }

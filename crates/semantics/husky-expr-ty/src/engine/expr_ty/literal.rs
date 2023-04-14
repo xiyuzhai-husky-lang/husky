@@ -6,7 +6,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: ExprIdx,
         literal_token_idx: TokenIdx,
-        expectation: &impl ExpectLocalTerm,
+        expectation: &impl ExpectFluffyTerm,
     ) -> Result<FluffyTerm, ExprTypeError> {
         let literal_token = self.token_sheet_data[literal_token_idx];
         match literal_token {

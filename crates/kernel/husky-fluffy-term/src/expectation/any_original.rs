@@ -3,7 +3,7 @@ use super::*;
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ExpectAnyOriginal;
 
-impl ExpectLocalTerm for ExpectAnyOriginal {
+impl ExpectFluffyTerm for ExpectAnyOriginal {
     type Outcome = FluffyTerm;
 
     fn retrieve_outcome(_outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome {

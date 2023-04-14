@@ -34,13 +34,13 @@ impl<'a> ExprTypeEngine<'a> {
             FluffyTermData::TypeOntology {
                 path,
                 refined_path,
-                argument_tys,
+                arguments: argument_tys,
             } => todo!(),
             FluffyTermData::PlaceTypeOntology {
                 place,
                 path,
                 refined_path,
-                argument_tys,
+                arguments: argument_tys,
             } => todo!(),
             FluffyTermData::Curry {
                 curry_kind,
@@ -55,6 +55,11 @@ impl<'a> ExprTypeEngine<'a> {
                 ritchie_kind,
                 parameter_contracted_tys,
                 return_ty,
+            } => todo!(),
+            FluffyTermData::PlaceHole {
+                place,
+                hole_kind,
+                hole,
             } => todo!(),
         }
     }

@@ -6,6 +6,15 @@ pub struct FluffyTermRitchieParameterContractedType {
     ty: FluffyTerm,
 }
 
+impl From<TermRitchieParameterContractedType> for FluffyTermRitchieParameterContractedType {
+    fn from(contracted_ty: TermRitchieParameterContractedType) -> Self {
+        Self {
+            contract: contracted_ty.contract(),
+            ty: contracted_ty.ty().into(),
+        }
+    }
+}
+
 impl FluffyTermRitchieParameterContractedType {
     #[inline(always)]
     pub fn new(contract: Contract, ty: FluffyTerm) -> Self {

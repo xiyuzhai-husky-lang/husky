@@ -19,9 +19,10 @@ impl<'a> ExprTypeEngine<'a> {
                         .insert_new(current_symbol_idx, symbol.into())
                 }
             }
-            if let Ok(qualified_ty) = self.new_place_ty(current_symbol_idx, signature) {
-                self.symbol_place_tys
-                    .insert_new(current_symbol_idx, qualified_ty)
+            if let Ok(qualified_ty) =
+                FluffyTerm::new_symbol_ty_from_signature(self, current_symbol_idx, signature)
+            {
+                self.symbol_tys.insert_new(current_symbol_idx, qualified_ty)
             }
         }
     }

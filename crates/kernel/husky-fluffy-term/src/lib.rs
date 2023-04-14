@@ -4,6 +4,7 @@ mod data;
 mod db;
 mod engine;
 mod expectation;
+mod nested;
 mod progress;
 mod region;
 mod resolve;
@@ -28,6 +29,7 @@ pub use self::ty::*;
 #[cfg(test)]
 pub(crate) use self::tests::*;
 
+use self::nested::*;
 use either::*;
 use husky_entity_path::*;
 use husky_expr::*;
@@ -39,4 +41,4 @@ use salsa::DebugWithDb as _;
 use smallvec::*;
 
 #[salsa::jar(db = FluffyTermDb)]
-pub struct FluffyTermJar();
+pub struct FluffyTermJar(term_ritchie_fluffy_term_parameter_contracted_tys);

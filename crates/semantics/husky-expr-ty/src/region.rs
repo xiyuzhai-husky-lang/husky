@@ -9,7 +9,7 @@ pub struct ExprTypeRegion {
     expr_ty_infos: ExprMap<ExprTypeInfo>,
     extra_expr_errors: Vec<(ExprIdx, ExprTypeError)>,
     expr_fluffy_terms: ExprMap<ExprTermResult<FluffyTerm>>,
-    symbol_place_tys: SymbolMap<FluffyTerm>,
+    symbol_tys: SymbolMap<FluffyTerm>,
     symbol_terms: SymbolMap<FluffyTerm>,
     fluffy_term_region: FluffyTermRegion,
     return_ty: Option<Term>,
@@ -24,7 +24,7 @@ impl ExprTypeRegion {
         extra_expr_errors: Vec<(ExprIdx, ExprTypeError)>,
         expr_fluffy_terms: ExprMap<ExprTermResult<FluffyTerm>>,
         symbol_terms: SymbolMap<FluffyTerm>,
-        symbol_place_tys: SymbolMap<FluffyTerm>,
+        symbol_tys: SymbolMap<FluffyTerm>,
         fluffy_term_region: FluffyTermRegion,
         return_ty: Option<Term>,
         self_ty: Option<Term>,
@@ -34,7 +34,7 @@ impl ExprTypeRegion {
             expr_ty_infos,
             extra_expr_errors,
             expr_fluffy_terms,
-            symbol_place_tys,
+            symbol_tys,
             symbol_terms,
             fluffy_term_region,
             return_ty,
@@ -63,7 +63,7 @@ impl ExprTypeRegion {
     }
 
     pub fn symbol_place_tys(&self) -> &SymbolMap<FluffyTerm> {
-        &self.symbol_place_tys
+        &self.symbol_tys
     }
 
     pub fn fluffy_term_region(&self) -> &FluffyTermRegion {

@@ -23,7 +23,7 @@ impl ExpectEqsCategory {
     }
 }
 
-impl ExpectLocalTerm for ExpectEqsCategory {
+impl ExpectFluffyTerm for ExpectEqsCategory {
     type Outcome = TermUniverse;
 
     fn retrieve_outcome(outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome {

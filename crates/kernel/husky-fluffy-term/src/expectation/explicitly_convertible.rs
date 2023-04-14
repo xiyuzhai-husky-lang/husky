@@ -30,7 +30,7 @@ pub struct ExpectExplicitlyConvertibleOutcome {
     destination: FluffyTerm,
 }
 
-impl ExpectLocalTerm for ExpectExplicitlyConvertible {
+impl ExpectFluffyTerm for ExpectExplicitlyConvertible {
     type Outcome = ExpectExplicitlyConvertibleOutcome;
 
     fn retrieve_outcome(outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome {

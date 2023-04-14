@@ -5,6 +5,7 @@ use super::*;
 #[salsa::derive_debug_with_db(db = EntityPathDb, jar = EntityPathJar)]
 pub enum PreludeTypePath {
     Basic(PreludeBasicTypePath),
+    // stack representable numbers
     Num(PreludeNumTypePath),
     Borrow(PreludeBorrowTypePath),
     Nat,

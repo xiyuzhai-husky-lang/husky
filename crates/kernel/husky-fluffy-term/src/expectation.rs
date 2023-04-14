@@ -6,6 +6,7 @@ mod eqs_function_ty;
 mod explicitly_convertible;
 mod implicitly_convertible;
 mod ins_sort;
+mod num_ty;
 
 pub use self::any_derived::*;
 pub use self::any_original::*;
@@ -15,6 +16,7 @@ pub use self::eqs_function_ty::*;
 pub use self::explicitly_convertible::*;
 pub use self::implicitly_convertible::*;
 pub use self::ins_sort::*;
+pub use self::num_ty::*;
 
 use super::*;
 use husky_print_utils::p;
@@ -22,7 +24,25 @@ use husky_ty_expectation::TypePathDisambiguation;
 use idx_arena::{Arena, ArenaIdx, OptionArenaIdx};
 use thiserror::Error;
 
-pub trait ExpectLocalTerm: Into<ExpectationData> + Clone {
+#[derive(Debug, PartialEq, Eq)]
+#[non_exhaustive]
+#[salsa::derive_debug_with_db(db = FluffyTermDb)]
+#[enum_class::from_variants]
+pub enum ExpectationData {
+    ExplicitlyConvertible(ExpectExplicitlyConvertible),
+    ImplicitlyConvertible(ExpectImplicitlyConvertible),
+    /// expect term to be an instance of Type u for some universe
+    InsSort(ExpectInsSort),
+    EqsSort(ExpectEqsCategory),
+    FrameVariableType,
+    EqsExactly(ExpectSubtype),
+    EqsFunctionType(ExpectEqsFunctionType),
+    AnyOriginal(ExpectAnyOriginal),
+    AnyDerived(ExpectAnyDerived),
+    NumType(ExpectNumType),
+}
+
+pub trait ExpectFluffyTerm: Into<ExpectationData> + Clone {
     type Outcome: Clone;
 
     fn retrieve_outcome(outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome;
@@ -69,14 +89,13 @@ pub trait ExpectLocalTerm: Into<ExpectationData> + Clone {
 
     fn destination(&self) -> Option<FluffyTerm>;
 
-    fn destination_term_data(
+    fn destination_term_data<'a>(
         &self,
-        db: &dyn TermDb,
-        terms: &FluffyTerms,
-    ) -> Option<FluffyTermData> {
-        todo!()
-        // self.destination()
-        //     .map(|destination| destination.data_inner(db, porous_terms))
+        db: &'a dyn FluffyTermDb,
+        fluffy_terms: &'a FluffyTerms,
+    ) -> Option<FluffyTermData<'a>> {
+        self.destination()
+            .map(|destination| destination.data_inner(db, fluffy_terms))
     }
 }
 
@@ -109,6 +128,7 @@ pub enum FluffyTermExpectationOutcome {
     EqsSort(TermUniverse),
     EqsExactly(ExpectSubtypeOutcome),
     EqsRitchieCallType(ExpectEqsFunctionTypeOutcome),
+    NumType(ExpectNumTypeOutcome),
 }
 
 impl FluffyTermExpectationOutcome {
@@ -120,6 +140,7 @@ impl FluffyTermExpectationOutcome {
             FluffyTermExpectationOutcome::EqsSort(_) => todo!(),
             FluffyTermExpectationOutcome::EqsExactly(result) => result.resolved(),
             FluffyTermExpectationOutcome::EqsRitchieCallType(_) => todo!(),
+            FluffyTermExpectationOutcome::NumType(_) => todo!(),
         }
     }
 }
@@ -132,7 +153,7 @@ pub enum ExpectationResolveProgress {
 }
 
 impl ExpectationResolveProgress {
-    pub fn outcome<E: ExpectLocalTerm>(&self) -> Option<&E::Outcome> {
+    pub fn outcome<E: ExpectFluffyTerm>(&self) -> Option<&E::Outcome> {
         match self {
             ExpectationResolveProgress::Unresolved => None,
             ExpectationResolveProgress::Resolved(Ok(outcome)) => Some(E::retrieve_outcome(outcome)),
@@ -211,23 +232,6 @@ pub(super) struct FluffyTermExpectationEffect {
     pub(super) actions: SmallVec<[FluffyTermResolveAction; 2]>,
 }
 
-#[derive(Debug, PartialEq, Eq)]
-#[non_exhaustive]
-#[salsa::derive_debug_with_db(db = FluffyTermDb)]
-#[enum_class::from_variants]
-pub enum ExpectationData {
-    ExplicitlyConvertible(ExpectExplicitlyConvertible),
-    ImplicitlyConvertible(ExpectImplicitlyConvertible),
-    /// expect term to be an instance of Type u for some universe
-    InsSort(ExpectInsSort),
-    EqsSort(ExpectEqsCategory),
-    FrameVariableType,
-    EqsExactly(ExpectSubtype),
-    EqsFunctionType(ExpectEqsFunctionType),
-    AnyOriginal(ExpectAnyOriginal),
-    AnyDerived(ExpectAnyDerived),
-}
-
 impl ExpectationEntry {
     pub(super) fn resolve_expectation(
         &self,
@@ -240,8 +244,8 @@ impl ExpectationEntry {
             ExpectationData::ExplicitlyConvertible(ref expectation) => {
                 expectation.resolve(db, terms, self.expectee(), level)
             }
-            ExpectationData::ImplicitlyConvertible(exp) => {
-                exp.resolve(db, terms, idx, self.expectee(), level)
+            ExpectationData::ImplicitlyConvertible(expectation) => {
+                expectation.resolve(db, terms, idx, self.expectee(), level)
             }
             ExpectationData::EqsSort(ref expectation) => {
                 expectation.resolve(db, self.expectee(), terms)
@@ -258,6 +262,9 @@ impl ExpectationEntry {
             }
             ExpectationData::AnyOriginal(_) => None,
             ExpectationData::AnyDerived(_) => None,
+            ExpectationData::NumType(expectation) => {
+                expectation.resolve(db, terms, self.expectee())
+            }
         }
     }
 }

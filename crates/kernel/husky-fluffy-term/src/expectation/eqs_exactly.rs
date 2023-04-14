@@ -14,7 +14,7 @@ impl ExpectSubtype {
     }
 }
 
-impl ExpectLocalTerm for ExpectSubtype {
+impl ExpectFluffyTerm for ExpectSubtype {
     type Outcome = ExpectSubtypeOutcome;
 
     fn retrieve_outcome(outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome {
@@ -66,12 +66,12 @@ impl ExpectSubtype {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
                 path: expected_path,
-                argument_tys,
+                arguments: argument_tys,
                 ..
             } => match expectee.data_inner(db, fluffy_terms) {
                 FluffyTermData::TypeOntology {
                     path: expectee_path,
-                    argument_tys,
+                    arguments: argument_tys,
                     ..
                 } => {
                     if expected_path == expectee_path {
@@ -111,7 +111,12 @@ impl ExpectSubtype {
                 place,
                 path,
                 refined_path,
-                argument_tys,
+                arguments: argument_tys,
+            } => todo!(),
+            FluffyTermData::PlaceHole {
+                place,
+                hole_kind,
+                hole,
             } => todo!(),
         }
     }

@@ -57,7 +57,7 @@ pub struct HollowTermEntry {
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
 pub enum HollowTermResolveProgress {
     InProgress(HollowTerm),
-    Ok(ResolvedTerm),
+    Ok(NestedFluffyTerm),
     Err(HollowTermResolveError),
 }
 
@@ -69,7 +69,7 @@ use super::*;
 use vec_like::VecSet;
 
 impl HollowTermEntry {
-    pub(super) fn force_resolve_term(&mut self) -> Option<ResolvedTerm> {
+    pub(super) fn force_resolve_term(&mut self) -> Option<NestedFluffyTerm> {
         todo!()
         // match self.resolve_progress {
         //     Ok(FluffyTerm::Term(term)) => Some(term),
