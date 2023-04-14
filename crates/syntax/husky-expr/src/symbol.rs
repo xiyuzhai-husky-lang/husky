@@ -33,6 +33,7 @@ pub enum ImplicitParameterSymbol {
 #[salsa::derive_debug_with_db(db = ExprDb)]
 pub struct InheritedSymbol {
     parent_symbol_idx: ParentSymbolIdx,
+    modifier: SymbolModifier,
     kind: InheritedSymbolKind,
 }
 
@@ -70,9 +71,10 @@ pub enum InheritedImplicitParameterSymbol {
     Type { ident: Ident },
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = ExprDb)]
 pub struct CurrentSymbol {
+    modifier: SymbolModifier,
     access_start: TokenIdx,
     /// this is none only for lambda variable
     access_end: Option<TokenIdxRangeEnd>,
@@ -81,15 +83,21 @@ pub struct CurrentSymbol {
 
 impl CurrentSymbol {
     pub fn new(
+        pattern_expr_region: &PatternExprRegion,
         access_start: TokenIdx,
         access_end: Option<TokenIdxRangeEnd>,
         variant: CurrentSymbolVariant,
     ) -> Self {
         Self {
+            modifier: variant.modifier(pattern_expr_region),
             access_start,
             access_end,
             variant,
         }
+    }
+
+    pub fn modifier(&self) -> SymbolModifier {
+        self.modifier
     }
 
     pub fn kind(&self) -> CurrentSymbolKind {
@@ -141,7 +149,7 @@ pub enum CurrentImplicitParameterSymbolKind {
     Lifetime { label_token: LifetimeLabelToken },
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum CurrentSymbolVariant {
     ImplicitParameter {
@@ -161,7 +169,24 @@ pub enum CurrentSymbolVariant {
     },
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+impl CurrentSymbolVariant {
+    fn modifier(&self, pattern_expr_region: &PatternExprRegion) -> SymbolModifier {
+        match self {
+            CurrentSymbolVariant::ImplicitParameter {
+                implicit_parameter_variant,
+            } => SymbolModifier::Const,
+            CurrentSymbolVariant::ExplicitParameter {
+                pattern_symbol_idx, ..
+            }
+            | CurrentSymbolVariant::LetVariable {
+                pattern_symbol_idx, ..
+            } => pattern_expr_region.pattern_symbol_modifier(*pattern_symbol_idx),
+            CurrentSymbolVariant::FrameVariable { ident, expr_idx } => SymbolModifier::Pure,
+        }
+    }
+}
+
+#[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = ExprDb)]
 #[non_exhaustive]
 pub enum CurrentImplicitParameterSymbol {

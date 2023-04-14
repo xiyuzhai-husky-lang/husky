@@ -6,7 +6,6 @@ use super::*;
 #[salsa::derive_debug_with_db(db = SignatureDb)]
 pub struct SymbolRawTermRegion {
     registry: RawTermSymbolRegistry,
-    pattern_symbol_modifiers: PatternSymbolOrderedMap<SymbolModifier>,
     symbol_signatures: SymbolOrderedMap<SymbolSignature>,
     self_ty_term: Option<RawTerm>,
     self_value_term: Option<RawTermSymbol>,
@@ -34,15 +33,6 @@ impl SymbolSignature {
 }
 
 impl SymbolRawTermRegion {
-    #[inline(always)]
-    pub(crate) fn add_new_pattern_symbol_modifier(
-        &mut self,
-        idx: PatternSymbolIdx,
-        modifier: SymbolModifier,
-    ) {
-        self.pattern_symbol_modifiers.insert_next(idx, modifier)
-    }
-
     #[inline(always)]
     pub(crate) fn add_new_implicit_parameter_symbol_signature(
         &mut self,
@@ -105,7 +95,6 @@ impl SymbolRawTermRegion {
         let registry = parent.map_or(Default::default(), |parent| parent.registry.clone());
         Self {
             registry,
-            pattern_symbol_modifiers: Default::default(),
             symbol_signatures: SymbolOrderedMap::new(
                 parent.map(|parent| &parent.symbol_signatures),
             ),
@@ -199,12 +188,5 @@ impl SymbolRawTermRegion {
             .current_symbol_map()
             .get(current_symbol_idx.raw())
             .copied()
-    }
-
-    pub(crate) fn pattern_symbol_modifier(
-        &self,
-        pattern_symbol_idx: PatternSymbolIdx,
-    ) -> SymbolModifier {
-        self.pattern_symbol_modifiers[pattern_symbol_idx]
     }
 }

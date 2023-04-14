@@ -1,6 +1,4 @@
-mod pattern_contract;
 mod pattern_ty;
-mod symbol_modifier;
 
 pub(crate) use self::pattern_ty::*;
 
@@ -17,7 +15,6 @@ pub(super) struct RawTermEngine<'a> {
     raw_term_symbol_region: SymbolRawTermRegion,
     expr_terms: ExprMap<SignatureRawTermResult<RawTerm>>,
     /// todo: change this to ordered
-    pattern_expr_contracts: PatternExprMap<Contract>,
     pattern_expr_ty_infos: PatternExprMap<PatternExprRawTypeInfo>,
     pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
 }
@@ -55,7 +52,6 @@ impl<'a> RawTermEngine<'a> {
                 expr_region_data.symbol_region(),
             ),
             expr_terms: ExprMap::new(expr_region_data.expr_arena()),
-            pattern_expr_contracts: PatternExprMap::new(expr_region_data.pattern_expr_arena()),
             pattern_expr_ty_infos: PatternExprMap::new(expr_region_data.pattern_expr_arena()),
             pattern_symbol_ty_infos: PatternSymbolMap::new(
                 expr_region_data
@@ -66,8 +62,6 @@ impl<'a> RawTermEngine<'a> {
     }
 
     fn infer_all(mut self) -> SignatureRegion {
-        self.infer_pattern_symbol_modifiers();
-        self.infer_pattern_contracts();
         self.init_current_symbol_terms();
         self.raw_term_symbol_region.init_self_ty_and_value(
             self.db,
@@ -136,7 +130,7 @@ impl<'a> RawTermEngine<'a> {
     ) {
         let Ok(ty) = self.infer_new_expr_term(ty) else {
             for symbol in symbols {
-                let modifier = self.calc_current_symbol_modifier_in_explicit_parameter(symbol);
+                let modifier = self.expr_region_data[symbol].modifier();
                 self.raw_term_symbol_region.add_new_explicit_parameter_symbol_signature(
                     self.db,
                     symbol,
@@ -152,30 +146,12 @@ impl<'a> RawTermEngine<'a> {
         }
     }
 
-    /// calculate from pattern symbol idx
-    fn calc_current_symbol_modifier_in_explicit_parameter(
-        &self,
-        idx: CurrentSymbolIdx,
-    ) -> SymbolModifier {
-        match self.expr_region_data.symbol_region()[idx].variant() {
-            CurrentSymbolVariant::ExplicitParameter {
-                pattern_symbol_idx, ..
-            }
-            | CurrentSymbolVariant::LetVariable {
-                pattern_symbol_idx, ..
-            } => self
-                .raw_term_symbol_region
-                .pattern_symbol_modifier(*pattern_symbol_idx),
-            CurrentSymbolVariant::ImplicitParameter { .. }
-            | CurrentSymbolVariant::FrameVariable { .. } => unreachable!(),
-        }
-    }
-
     fn infer_current_symbol_signature_in_explicit_parameter(
         &mut self,
-        current_symbol: CurrentSymbolIdx,
+        current_symbol_idx: CurrentSymbolIdx,
     ) {
-        match self.expr_region_data.symbol_region()[current_symbol].variant() {
+        let current_symbol = &self.expr_region_data.symbol_region()[current_symbol_idx];
+        match current_symbol.variant() {
             CurrentSymbolVariant::ExplicitParameter {
                 ident,
                 pattern_symbol_idx,
@@ -184,9 +160,8 @@ impl<'a> RawTermEngine<'a> {
                 self.raw_term_symbol_region
                     .add_new_explicit_parameter_symbol_signature(
                         self.db,
-                        current_symbol,
-                        self.raw_term_symbol_region
-                            .pattern_symbol_modifier(*pattern_symbol_idx),
+                        current_symbol_idx,
+                        current_symbol.modifier(),
                         Ok(base_ty),
                     )
             }
@@ -230,7 +205,6 @@ impl<'a> RawTermEngine<'a> {
             self.expr_region_data.path(),
             self.raw_term_symbol_region,
             self.expr_terms,
-            self.pattern_expr_contracts,
             self.pattern_expr_ty_infos,
             self.pattern_symbol_ty_infos,
         )

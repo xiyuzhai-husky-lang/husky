@@ -41,6 +41,7 @@ impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for ImplicitParameterDecl
         if let Some(ident_token) = ctx.parse::<IdentToken>()? {
             let access_start = ctx.state();
             let parameter_symbol = CurrentSymbol::new(
+                ctx.pattern_expr_region(),
                 access_start,
                 None,
                 CurrentSymbolVariant::ImplicitParameter {
@@ -62,6 +63,7 @@ impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for ImplicitParameterDecl
             let access_start = ctx.state();
             let symbols = ctx.define_symbols(
                 [CurrentSymbol::new(
+                    ctx.pattern_expr_region(),
                     access_start,
                     None,
                     CurrentSymbolVariant::ImplicitParameter {

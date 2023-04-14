@@ -22,6 +22,7 @@ impl<'a, 'b> ParseFromStream<ExprParseContext<'a, 'b>> for RegularParameterDeclP
                 .iter()
                 .map(|(ident, pattern_symbol_idx)| {
                     CurrentSymbol::new(
+                        ctx.pattern_expr_region(),
                         access_start,
                         None,
                         CurrentSymbolVariant::ExplicitParameter {

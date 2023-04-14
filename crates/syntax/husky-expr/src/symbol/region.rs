@@ -164,6 +164,7 @@ impl SymbolRegion {
             };
             inherited_symbol_arena.alloc_one(InheritedSymbol {
                 kind,
+                modifier: current_symbol.modifier,
                 parent_symbol_idx: current_symbol_idx.into(),
             });
         }

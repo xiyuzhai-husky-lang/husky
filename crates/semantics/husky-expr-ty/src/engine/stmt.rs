@@ -107,7 +107,7 @@ impl<'a> ExprTypeEngine<'a> {
                             .into(),
                     };
                     let frame_var_symbol_ty =
-                        FluffyTerm::new_symbol_ty(self, place, expected_frame_var_ty);
+                        SymbolType::new(self, frame_var_symbol_idx, expected_frame_var_ty);
                     self.symbol_tys
                         .insert_new(frame_var_symbol_idx, frame_var_symbol_ty)
                 }

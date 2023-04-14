@@ -34,7 +34,7 @@ impl<'a> RawTermEngine<'a> {
 
     fn infer_new_pattern_symbol_ty(&mut self, pattern_symbol_idx: PatternSymbolIdx) {
         let modifier = self
-            .raw_term_symbol_region
+            .expr_region_data
             .pattern_symbol_modifier(pattern_symbol_idx);
         let base_ty = self.calc_new_pattern_symbol_base_ty(pattern_symbol_idx);
         self.pattern_symbol_ty_infos.insert_new(

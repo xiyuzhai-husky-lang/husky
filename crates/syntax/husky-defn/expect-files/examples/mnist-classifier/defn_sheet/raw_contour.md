@@ -108,9 +108,15 @@ Ok(
                                                 pattern_expr_arena: Arena {
                                                     data: [],
                                                 },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [],
+                                                },
                                                 pattern_infos: [],
-                                                pattern_symbol_maps: [],
                                                 pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_modifiers: ArenaMap {
                                                     data: [],
                                                 },
                                             },
@@ -243,9 +249,15 @@ Ok(
                                                 pattern_expr_arena: Arena {
                                                     data: [],
                                                 },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [],
+                                                },
                                                 pattern_infos: [],
-                                                pattern_symbol_maps: [],
                                                 pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_modifiers: ArenaMap {
                                                     data: [],
                                                 },
                                             },
@@ -395,10 +407,26 @@ Ok(
                                                         },
                                                     ],
                                                 },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [
+                                                        Pure,
+                                                        Pure,
+                                                    ],
+                                                },
                                                 pattern_infos: [
                                                     Parameter,
                                                     Parameter,
                                                 ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        PatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                        PatternSymbol::Atom(
+                                                            1,
+                                                        ),
+                                                    ],
+                                                },
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
@@ -413,14 +441,10 @@ Ok(
                                                         ),
                                                     ],
                                                 ],
-                                                pattern_symbol_arena: Arena {
+                                                pattern_symbol_modifiers: ArenaMap {
                                                     data: [
-                                                        PatternSymbol::Atom(
-                                                            0,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            1,
-                                                        ),
+                                                        Pure,
+                                                        Pure,
                                                     ],
                                                 },
                                             },
@@ -431,6 +455,7 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 407,
                                                             ),
@@ -441,6 +466,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 411,
                                                             ),
@@ -662,10 +688,26 @@ Ok(
                                                                 },
                                                             ],
                                                         },
+                                                        pattern_expr_contracts: ArenaMap {
+                                                            data: [
+                                                                Pure,
+                                                                Pure,
+                                                            ],
+                                                        },
                                                         pattern_infos: [
                                                             Parameter,
                                                             Parameter,
                                                         ],
+                                                        pattern_symbol_arena: Arena {
+                                                            data: [
+                                                                PatternSymbol::Atom(
+                                                                    0,
+                                                                ),
+                                                                PatternSymbol::Atom(
+                                                                    1,
+                                                                ),
+                                                            ],
+                                                        },
                                                         pattern_symbol_maps: [
                                                             [
                                                                 (
@@ -680,14 +722,10 @@ Ok(
                                                                 ),
                                                             ],
                                                         ],
-                                                        pattern_symbol_arena: Arena {
+                                                        pattern_symbol_modifiers: ArenaMap {
                                                             data: [
-                                                                PatternSymbol::Atom(
-                                                                    0,
-                                                                ),
-                                                                PatternSymbol::Atom(
-                                                                    1,
-                                                                ),
+                                                                Pure,
+                                                                Pure,
                                                             ],
                                                         },
                                                     },
@@ -698,6 +736,7 @@ Ok(
                                                         current_symbol_arena: Arena {
                                                             data: [
                                                                 CurrentSymbol {
+                                                                    modifier: Pure,
                                                                     access_start: TokenIdx(
                                                                         407,
                                                                     ),
@@ -708,6 +747,7 @@ Ok(
                                                                     },
                                                                 },
                                                                 CurrentSymbol {
+                                                                    modifier: Pure,
                                                                     access_start: TokenIdx(
                                                                         411,
                                                                     ),
@@ -861,9 +901,15 @@ Ok(
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
+                                            pattern_expr_contracts: ArenaMap {
+                                                data: [],
+                                            },
                                             pattern_infos: [],
-                                            pattern_symbol_maps: [],
                                             pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_modifiers: ArenaMap {
                                                 data: [],
                                             },
                                         },
@@ -874,6 +920,7 @@ Ok(
                                                         parent_symbol_idx: Current(
                                                             0,
                                                         ),
+                                                        modifier: Pure,
                                                         kind: InheritedSymbolKind::ExplicitParameter {
                                                             ident: `row`,
                                                         },
@@ -882,6 +929,7 @@ Ok(
                                                         parent_symbol_idx: Current(
                                                             1,
                                                         ),
+                                                        modifier: Pure,
                                                         kind: InheritedSymbolKind::ExplicitParameter {
                                                             ident: `j`,
                                                         },
@@ -1036,10 +1084,26 @@ Ok(
                                                         },
                                                     ],
                                                 },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [
+                                                        Pure,
+                                                        Pure,
+                                                    ],
+                                                },
                                                 pattern_infos: [
                                                     Parameter,
                                                     Parameter,
                                                 ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        PatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                        PatternSymbol::Atom(
+                                                            1,
+                                                        ),
+                                                    ],
+                                                },
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
@@ -1054,14 +1118,10 @@ Ok(
                                                         ),
                                                     ],
                                                 ],
-                                                pattern_symbol_arena: Arena {
+                                                pattern_symbol_modifiers: ArenaMap {
                                                     data: [
-                                                        PatternSymbol::Atom(
-                                                            0,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            1,
-                                                        ),
+                                                        Pure,
+                                                        Pure,
                                                     ],
                                                 },
                                             },
@@ -1072,6 +1132,7 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 432,
                                                             ),
@@ -1082,6 +1143,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 436,
                                                             ),
@@ -1303,10 +1365,26 @@ Ok(
                                                                 },
                                                             ],
                                                         },
+                                                        pattern_expr_contracts: ArenaMap {
+                                                            data: [
+                                                                Pure,
+                                                                Pure,
+                                                            ],
+                                                        },
                                                         pattern_infos: [
                                                             Parameter,
                                                             Parameter,
                                                         ],
+                                                        pattern_symbol_arena: Arena {
+                                                            data: [
+                                                                PatternSymbol::Atom(
+                                                                    0,
+                                                                ),
+                                                                PatternSymbol::Atom(
+                                                                    1,
+                                                                ),
+                                                            ],
+                                                        },
                                                         pattern_symbol_maps: [
                                                             [
                                                                 (
@@ -1321,14 +1399,10 @@ Ok(
                                                                 ),
                                                             ],
                                                         ],
-                                                        pattern_symbol_arena: Arena {
+                                                        pattern_symbol_modifiers: ArenaMap {
                                                             data: [
-                                                                PatternSymbol::Atom(
-                                                                    0,
-                                                                ),
-                                                                PatternSymbol::Atom(
-                                                                    1,
-                                                                ),
+                                                                Pure,
+                                                                Pure,
                                                             ],
                                                         },
                                                     },
@@ -1339,6 +1413,7 @@ Ok(
                                                         current_symbol_arena: Arena {
                                                             data: [
                                                                 CurrentSymbol {
+                                                                    modifier: Pure,
                                                                     access_start: TokenIdx(
                                                                         432,
                                                                     ),
@@ -1349,6 +1424,7 @@ Ok(
                                                                     },
                                                                 },
                                                                 CurrentSymbol {
+                                                                    modifier: Pure,
                                                                     access_start: TokenIdx(
                                                                         436,
                                                                     ),
@@ -1478,9 +1554,15 @@ Ok(
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
+                                            pattern_expr_contracts: ArenaMap {
+                                                data: [],
+                                            },
                                             pattern_infos: [],
-                                            pattern_symbol_maps: [],
                                             pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_modifiers: ArenaMap {
                                                 data: [],
                                             },
                                         },
@@ -1491,6 +1573,7 @@ Ok(
                                                         parent_symbol_idx: Current(
                                                             0,
                                                         ),
+                                                        modifier: Pure,
                                                         kind: InheritedSymbolKind::ExplicitParameter {
                                                             ident: `row`,
                                                         },
@@ -1499,6 +1582,7 @@ Ok(
                                                         parent_symbol_idx: Current(
                                                             1,
                                                         ),
+                                                        modifier: Pure,
                                                         kind: InheritedSymbolKind::ExplicitParameter {
                                                             ident: `j`,
                                                         },
@@ -1653,10 +1737,26 @@ Ok(
                                                         },
                                                     ],
                                                 },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [
+                                                        Pure,
+                                                        Pure,
+                                                    ],
+                                                },
                                                 pattern_infos: [
                                                     Parameter,
                                                     Parameter,
                                                 ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        PatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                        PatternSymbol::Atom(
+                                                            1,
+                                                        ),
+                                                    ],
+                                                },
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
@@ -1671,14 +1771,10 @@ Ok(
                                                         ),
                                                     ],
                                                 ],
-                                                pattern_symbol_arena: Arena {
+                                                pattern_symbol_modifiers: ArenaMap {
                                                     data: [
-                                                        PatternSymbol::Atom(
-                                                            0,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            1,
-                                                        ),
+                                                        Pure,
+                                                        Pure,
                                                     ],
                                                 },
                                             },
@@ -1689,6 +1785,7 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 453,
                                                             ),
@@ -1699,6 +1796,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 457,
                                                             ),
@@ -1920,10 +2018,26 @@ Ok(
                                                                 },
                                                             ],
                                                         },
+                                                        pattern_expr_contracts: ArenaMap {
+                                                            data: [
+                                                                Pure,
+                                                                Pure,
+                                                            ],
+                                                        },
                                                         pattern_infos: [
                                                             Parameter,
                                                             Parameter,
                                                         ],
+                                                        pattern_symbol_arena: Arena {
+                                                            data: [
+                                                                PatternSymbol::Atom(
+                                                                    0,
+                                                                ),
+                                                                PatternSymbol::Atom(
+                                                                    1,
+                                                                ),
+                                                            ],
+                                                        },
                                                         pattern_symbol_maps: [
                                                             [
                                                                 (
@@ -1938,14 +2052,10 @@ Ok(
                                                                 ),
                                                             ],
                                                         ],
-                                                        pattern_symbol_arena: Arena {
+                                                        pattern_symbol_modifiers: ArenaMap {
                                                             data: [
-                                                                PatternSymbol::Atom(
-                                                                    0,
-                                                                ),
-                                                                PatternSymbol::Atom(
-                                                                    1,
-                                                                ),
+                                                                Pure,
+                                                                Pure,
                                                             ],
                                                         },
                                                     },
@@ -1956,6 +2066,7 @@ Ok(
                                                         current_symbol_arena: Arena {
                                                             data: [
                                                                 CurrentSymbol {
+                                                                    modifier: Pure,
                                                                     access_start: TokenIdx(
                                                                         453,
                                                                     ),
@@ -1966,6 +2077,7 @@ Ok(
                                                                     },
                                                                 },
                                                                 CurrentSymbol {
+                                                                    modifier: Pure,
                                                                     access_start: TokenIdx(
                                                                         457,
                                                                     ),
@@ -2119,9 +2231,15 @@ Ok(
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
+                                            pattern_expr_contracts: ArenaMap {
+                                                data: [],
+                                            },
                                             pattern_infos: [],
-                                            pattern_symbol_maps: [],
                                             pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_modifiers: ArenaMap {
                                                 data: [],
                                             },
                                         },
@@ -2132,6 +2250,7 @@ Ok(
                                                         parent_symbol_idx: Current(
                                                             0,
                                                         ),
+                                                        modifier: Pure,
                                                         kind: InheritedSymbolKind::ExplicitParameter {
                                                             ident: `row`,
                                                         },
@@ -2140,6 +2259,7 @@ Ok(
                                                         parent_symbol_idx: Current(
                                                             1,
                                                         ),
+                                                        modifier: Pure,
                                                         kind: InheritedSymbolKind::ExplicitParameter {
                                                             ident: `j`,
                                                         },
@@ -2324,11 +2444,31 @@ Ok(
                                                         },
                                                     ],
                                                 },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [
+                                                        Pure,
+                                                        Pure,
+                                                        Pure,
+                                                    ],
+                                                },
                                                 pattern_infos: [
                                                     Parameter,
                                                     Parameter,
                                                     Parameter,
                                                 ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        PatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                        PatternSymbol::Atom(
+                                                            1,
+                                                        ),
+                                                        PatternSymbol::Atom(
+                                                            2,
+                                                        ),
+                                                    ],
+                                                },
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
@@ -2349,17 +2489,11 @@ Ok(
                                                         ),
                                                     ],
                                                 ],
-                                                pattern_symbol_arena: Arena {
+                                                pattern_symbol_modifiers: ArenaMap {
                                                     data: [
-                                                        PatternSymbol::Atom(
-                                                            0,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            1,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            2,
-                                                        ),
+                                                        Pure,
+                                                        Pure,
+                                                        Pure,
                                                     ],
                                                 },
                                             },
@@ -2370,6 +2504,7 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 478,
                                                             ),
@@ -2380,6 +2515,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 482,
                                                             ),
@@ -2390,6 +2526,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 486,
                                                             ),
@@ -2672,11 +2809,31 @@ Ok(
                                                                 },
                                                             ],
                                                         },
+                                                        pattern_expr_contracts: ArenaMap {
+                                                            data: [
+                                                                Pure,
+                                                                Pure,
+                                                                Pure,
+                                                            ],
+                                                        },
                                                         pattern_infos: [
                                                             Parameter,
                                                             Parameter,
                                                             Parameter,
                                                         ],
+                                                        pattern_symbol_arena: Arena {
+                                                            data: [
+                                                                PatternSymbol::Atom(
+                                                                    0,
+                                                                ),
+                                                                PatternSymbol::Atom(
+                                                                    1,
+                                                                ),
+                                                                PatternSymbol::Atom(
+                                                                    2,
+                                                                ),
+                                                            ],
+                                                        },
                                                         pattern_symbol_maps: [
                                                             [
                                                                 (
@@ -2697,17 +2854,11 @@ Ok(
                                                                 ),
                                                             ],
                                                         ],
-                                                        pattern_symbol_arena: Arena {
+                                                        pattern_symbol_modifiers: ArenaMap {
                                                             data: [
-                                                                PatternSymbol::Atom(
-                                                                    0,
-                                                                ),
-                                                                PatternSymbol::Atom(
-                                                                    1,
-                                                                ),
-                                                                PatternSymbol::Atom(
-                                                                    2,
-                                                                ),
+                                                                Pure,
+                                                                Pure,
+                                                                Pure,
                                                             ],
                                                         },
                                                     },
@@ -2718,6 +2869,7 @@ Ok(
                                                         current_symbol_arena: Arena {
                                                             data: [
                                                                 CurrentSymbol {
+                                                                    modifier: Pure,
                                                                     access_start: TokenIdx(
                                                                         478,
                                                                     ),
@@ -2728,6 +2880,7 @@ Ok(
                                                                     },
                                                                 },
                                                                 CurrentSymbol {
+                                                                    modifier: Pure,
                                                                     access_start: TokenIdx(
                                                                         482,
                                                                     ),
@@ -2738,6 +2891,7 @@ Ok(
                                                                     },
                                                                 },
                                                                 CurrentSymbol {
+                                                                    modifier: Pure,
                                                                     access_start: TokenIdx(
                                                                         486,
                                                                     ),
@@ -3022,10 +3176,26 @@ Ok(
                                                     },
                                                 ],
                                             },
+                                            pattern_expr_contracts: ArenaMap {
+                                                data: [
+                                                    Pure,
+                                                    Pure,
+                                                ],
+                                            },
                                             pattern_infos: [
                                                 Let,
                                                 Let,
                                             ],
+                                            pattern_symbol_arena: Arena {
+                                                data: [
+                                                    PatternSymbol::Atom(
+                                                        0,
+                                                    ),
+                                                    PatternSymbol::Atom(
+                                                        1,
+                                                    ),
+                                                ],
+                                            },
                                             pattern_symbol_maps: [
                                                 [
                                                     (
@@ -3040,14 +3210,10 @@ Ok(
                                                     ),
                                                 ],
                                             ],
-                                            pattern_symbol_arena: Arena {
+                                            pattern_symbol_modifiers: ArenaMap {
                                                 data: [
-                                                    PatternSymbol::Atom(
-                                                        0,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        1,
-                                                    ),
+                                                    Pure,
+                                                    Pure,
                                                 ],
                                             },
                                         },
@@ -3058,6 +3224,7 @@ Ok(
                                                         parent_symbol_idx: Current(
                                                             0,
                                                         ),
+                                                        modifier: Pure,
                                                         kind: InheritedSymbolKind::ExplicitParameter {
                                                             ident: `row_above`,
                                                         },
@@ -3066,6 +3233,7 @@ Ok(
                                                         parent_symbol_idx: Current(
                                                             1,
                                                         ),
+                                                        modifier: Pure,
                                                         kind: InheritedSymbolKind::ExplicitParameter {
                                                             ident: `row_below`,
                                                         },
@@ -3074,6 +3242,7 @@ Ok(
                                                         parent_symbol_idx: Current(
                                                             2,
                                                         ),
+                                                        modifier: Pure,
                                                         kind: InheritedSymbolKind::ExplicitParameter {
                                                             ident: `j`,
                                                         },
@@ -3083,6 +3252,7 @@ Ok(
                                             current_symbol_arena: Arena {
                                                 data: [
                                                     CurrentSymbol {
+                                                        modifier: Pure,
                                                         access_start: TokenIdx(
                                                             495,
                                                         ),
@@ -3099,6 +3269,7 @@ Ok(
                                                         },
                                                     },
                                                     CurrentSymbol {
+                                                        modifier: Pure,
                                                         access_start: TokenIdx(
                                                             504,
                                                         ),
@@ -3261,10 +3432,26 @@ Ok(
                                                         },
                                                     ],
                                                 },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [
+                                                        Pure,
+                                                        Pure,
+                                                    ],
+                                                },
                                                 pattern_infos: [
                                                     Parameter,
                                                     Parameter,
                                                 ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        PatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                        PatternSymbol::Atom(
+                                                            1,
+                                                        ),
+                                                    ],
+                                                },
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
@@ -3279,14 +3466,10 @@ Ok(
                                                         ),
                                                     ],
                                                 ],
-                                                pattern_symbol_arena: Arena {
+                                                pattern_symbol_modifiers: ArenaMap {
                                                     data: [
-                                                        PatternSymbol::Atom(
-                                                            0,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            1,
-                                                        ),
+                                                        Pure,
+                                                        Pure,
                                                     ],
                                                 },
                                             },
@@ -3297,6 +3480,7 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 624,
                                                             ),
@@ -3307,6 +3491,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 628,
                                                             ),
@@ -3528,10 +3713,26 @@ Ok(
                                                                 },
                                                             ],
                                                         },
+                                                        pattern_expr_contracts: ArenaMap {
+                                                            data: [
+                                                                Pure,
+                                                                Pure,
+                                                            ],
+                                                        },
                                                         pattern_infos: [
                                                             Parameter,
                                                             Parameter,
                                                         ],
+                                                        pattern_symbol_arena: Arena {
+                                                            data: [
+                                                                PatternSymbol::Atom(
+                                                                    0,
+                                                                ),
+                                                                PatternSymbol::Atom(
+                                                                    1,
+                                                                ),
+                                                            ],
+                                                        },
                                                         pattern_symbol_maps: [
                                                             [
                                                                 (
@@ -3546,14 +3747,10 @@ Ok(
                                                                 ),
                                                             ],
                                                         ],
-                                                        pattern_symbol_arena: Arena {
+                                                        pattern_symbol_modifiers: ArenaMap {
                                                             data: [
-                                                                PatternSymbol::Atom(
-                                                                    0,
-                                                                ),
-                                                                PatternSymbol::Atom(
-                                                                    1,
-                                                                ),
+                                                                Pure,
+                                                                Pure,
                                                             ],
                                                         },
                                                     },
@@ -3564,6 +3761,7 @@ Ok(
                                                         current_symbol_arena: Arena {
                                                             data: [
                                                                 CurrentSymbol {
+                                                                    modifier: Pure,
                                                                     access_start: TokenIdx(
                                                                         624,
                                                                     ),
@@ -3574,6 +3772,7 @@ Ok(
                                                                     },
                                                                 },
                                                                 CurrentSymbol {
+                                                                    modifier: Pure,
                                                                     access_start: TokenIdx(
                                                                         628,
                                                                     ),
@@ -3873,9 +4072,21 @@ Ok(
                                                     },
                                                 ],
                                             },
+                                            pattern_expr_contracts: ArenaMap {
+                                                data: [
+                                                    Pure,
+                                                ],
+                                            },
                                             pattern_infos: [
                                                 Let,
                                             ],
+                                            pattern_symbol_arena: Arena {
+                                                data: [
+                                                    PatternSymbol::Atom(
+                                                        0,
+                                                    ),
+                                                ],
+                                            },
                                             pattern_symbol_maps: [
                                                 [
                                                     (
@@ -3884,11 +4095,9 @@ Ok(
                                                     ),
                                                 ],
                                             ],
-                                            pattern_symbol_arena: Arena {
+                                            pattern_symbol_modifiers: ArenaMap {
                                                 data: [
-                                                    PatternSymbol::Atom(
-                                                        0,
-                                                    ),
+                                                    Pure,
                                                 ],
                                             },
                                         },
@@ -3899,6 +4108,7 @@ Ok(
                                                         parent_symbol_idx: Current(
                                                             0,
                                                         ),
+                                                        modifier: Pure,
                                                         kind: InheritedSymbolKind::ExplicitParameter {
                                                             ident: `inward`,
                                                         },
@@ -3907,6 +4117,7 @@ Ok(
                                                         parent_symbol_idx: Current(
                                                             1,
                                                         ),
+                                                        modifier: Pure,
                                                         kind: InheritedSymbolKind::ExplicitParameter {
                                                             ident: `outward`,
                                                         },
@@ -3916,6 +4127,7 @@ Ok(
                                             current_symbol_arena: Arena {
                                                 data: [
                                                     CurrentSymbol {
+                                                        modifier: Pure,
                                                         access_start: TokenIdx(
                                                             636,
                                                         ),
@@ -4138,12 +4350,36 @@ Ok(
                                                         },
                                                     ],
                                                 },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [
+                                                        Pure,
+                                                        Pure,
+                                                        Pure,
+                                                        Pure,
+                                                    ],
+                                                },
                                                 pattern_infos: [
                                                     Parameter,
                                                     Parameter,
                                                     Parameter,
                                                     Parameter,
                                                 ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        PatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                        PatternSymbol::Atom(
+                                                            1,
+                                                        ),
+                                                        PatternSymbol::Atom(
+                                                            2,
+                                                        ),
+                                                        PatternSymbol::Atom(
+                                                            3,
+                                                        ),
+                                                    ],
+                                                },
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
@@ -4170,20 +4406,12 @@ Ok(
                                                         ),
                                                     ],
                                                 ],
-                                                pattern_symbol_arena: Arena {
+                                                pattern_symbol_modifiers: ArenaMap {
                                                     data: [
-                                                        PatternSymbol::Atom(
-                                                            0,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            1,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            2,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            3,
-                                                        ),
+                                                        Pure,
+                                                        Pure,
+                                                        Pure,
+                                                        Pure,
                                                     ],
                                                 },
                                             },
@@ -4194,6 +4422,7 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 688,
                                                             ),
@@ -4204,6 +4433,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 692,
                                                             ),
@@ -4214,6 +4444,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 696,
                                                             ),
@@ -4224,6 +4455,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 700,
                                                             ),
@@ -4562,12 +4794,36 @@ Ok(
                                                                 },
                                                             ],
                                                         },
+                                                        pattern_expr_contracts: ArenaMap {
+                                                            data: [
+                                                                Pure,
+                                                                Pure,
+                                                                Pure,
+                                                                Pure,
+                                                            ],
+                                                        },
                                                         pattern_infos: [
                                                             Parameter,
                                                             Parameter,
                                                             Parameter,
                                                             Parameter,
                                                         ],
+                                                        pattern_symbol_arena: Arena {
+                                                            data: [
+                                                                PatternSymbol::Atom(
+                                                                    0,
+                                                                ),
+                                                                PatternSymbol::Atom(
+                                                                    1,
+                                                                ),
+                                                                PatternSymbol::Atom(
+                                                                    2,
+                                                                ),
+                                                                PatternSymbol::Atom(
+                                                                    3,
+                                                                ),
+                                                            ],
+                                                        },
                                                         pattern_symbol_maps: [
                                                             [
                                                                 (
@@ -4594,20 +4850,12 @@ Ok(
                                                                 ),
                                                             ],
                                                         ],
-                                                        pattern_symbol_arena: Arena {
+                                                        pattern_symbol_modifiers: ArenaMap {
                                                             data: [
-                                                                PatternSymbol::Atom(
-                                                                    0,
-                                                                ),
-                                                                PatternSymbol::Atom(
-                                                                    1,
-                                                                ),
-                                                                PatternSymbol::Atom(
-                                                                    2,
-                                                                ),
-                                                                PatternSymbol::Atom(
-                                                                    3,
-                                                                ),
+                                                                Pure,
+                                                                Pure,
+                                                                Pure,
+                                                                Pure,
                                                             ],
                                                         },
                                                     },
@@ -4618,6 +4866,7 @@ Ok(
                                                         current_symbol_arena: Arena {
                                                             data: [
                                                                 CurrentSymbol {
+                                                                    modifier: Pure,
                                                                     access_start: TokenIdx(
                                                                         688,
                                                                     ),
@@ -4628,6 +4877,7 @@ Ok(
                                                                     },
                                                                 },
                                                                 CurrentSymbol {
+                                                                    modifier: Pure,
                                                                     access_start: TokenIdx(
                                                                         692,
                                                                     ),
@@ -4638,6 +4888,7 @@ Ok(
                                                                     },
                                                                 },
                                                                 CurrentSymbol {
+                                                                    modifier: Pure,
                                                                     access_start: TokenIdx(
                                                                         696,
                                                                     ),
@@ -4648,6 +4899,7 @@ Ok(
                                                                     },
                                                                 },
                                                                 CurrentSymbol {
+                                                                    modifier: Pure,
                                                                     access_start: TokenIdx(
                                                                         700,
                                                                     ),
@@ -4941,10 +5193,26 @@ Ok(
                                                     },
                                                 ],
                                             },
+                                            pattern_expr_contracts: ArenaMap {
+                                                data: [
+                                                    Pure,
+                                                    Pure,
+                                                ],
+                                            },
                                             pattern_infos: [
                                                 Let,
                                                 Let,
                                             ],
+                                            pattern_symbol_arena: Arena {
+                                                data: [
+                                                    PatternSymbol::Atom(
+                                                        0,
+                                                    ),
+                                                    PatternSymbol::Atom(
+                                                        1,
+                                                    ),
+                                                ],
+                                            },
                                             pattern_symbol_maps: [
                                                 [
                                                     (
@@ -4959,14 +5227,10 @@ Ok(
                                                     ),
                                                 ],
                                             ],
-                                            pattern_symbol_arena: Arena {
+                                            pattern_symbol_modifiers: ArenaMap {
                                                 data: [
-                                                    PatternSymbol::Atom(
-                                                        0,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        1,
-                                                    ),
+                                                    Pure,
+                                                    Pure,
                                                 ],
                                             },
                                         },
@@ -4977,6 +5241,7 @@ Ok(
                                                         parent_symbol_idx: Current(
                                                             0,
                                                         ),
+                                                        modifier: Pure,
                                                         kind: InheritedSymbolKind::ExplicitParameter {
                                                             ident: `row_above`,
                                                         },
@@ -4985,6 +5250,7 @@ Ok(
                                                         parent_symbol_idx: Current(
                                                             1,
                                                         ),
+                                                        modifier: Pure,
                                                         kind: InheritedSymbolKind::ExplicitParameter {
                                                             ident: `row_below`,
                                                         },
@@ -4993,6 +5259,7 @@ Ok(
                                                         parent_symbol_idx: Current(
                                                             2,
                                                         ),
+                                                        modifier: Pure,
                                                         kind: InheritedSymbolKind::ExplicitParameter {
                                                             ident: `j`,
                                                         },
@@ -5001,6 +5268,7 @@ Ok(
                                                         parent_symbol_idx: Current(
                                                             3,
                                                         ),
+                                                        modifier: Pure,
                                                         kind: InheritedSymbolKind::ExplicitParameter {
                                                             ident: `inward_direction`,
                                                         },
@@ -5010,6 +5278,7 @@ Ok(
                                             current_symbol_arena: Arena {
                                                 data: [
                                                     CurrentSymbol {
+                                                        modifier: Pure,
                                                         access_start: TokenIdx(
                                                             709,
                                                         ),
@@ -5026,6 +5295,7 @@ Ok(
                                                         },
                                                     },
                                                     CurrentSymbol {
+                                                        modifier: Pure,
                                                         access_start: TokenIdx(
                                                             718,
                                                         ),
@@ -5148,9 +5418,15 @@ Ok(
                                                 pattern_expr_arena: Arena {
                                                     data: [],
                                                 },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [],
+                                                },
                                                 pattern_infos: [],
-                                                pattern_symbol_maps: [],
                                                 pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_modifiers: ArenaMap {
                                                     data: [],
                                                 },
                                             },
@@ -5352,9 +5628,21 @@ Ok(
                                                         },
                                                     ],
                                                 },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [
+                                                        Pure,
+                                                    ],
+                                                },
                                                 pattern_infos: [
                                                     Parameter,
                                                 ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        PatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                    ],
+                                                },
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
@@ -5363,11 +5651,9 @@ Ok(
                                                         ),
                                                     ],
                                                 ],
-                                                pattern_symbol_arena: Arena {
+                                                pattern_symbol_modifiers: ArenaMap {
                                                     data: [
-                                                        PatternSymbol::Atom(
-                                                            0,
-                                                        ),
+                                                        Pure,
                                                     ],
                                                 },
                                             },
@@ -5378,6 +5664,7 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 927,
                                                             ),
@@ -5557,9 +5844,21 @@ Ok(
                                                                 },
                                                             ],
                                                         },
+                                                        pattern_expr_contracts: ArenaMap {
+                                                            data: [
+                                                                Pure,
+                                                            ],
+                                                        },
                                                         pattern_infos: [
                                                             Parameter,
                                                         ],
+                                                        pattern_symbol_arena: Arena {
+                                                            data: [
+                                                                PatternSymbol::Atom(
+                                                                    0,
+                                                                ),
+                                                            ],
+                                                        },
                                                         pattern_symbol_maps: [
                                                             [
                                                                 (
@@ -5568,11 +5867,9 @@ Ok(
                                                                 ),
                                                             ],
                                                         ],
-                                                        pattern_symbol_arena: Arena {
+                                                        pattern_symbol_modifiers: ArenaMap {
                                                             data: [
-                                                                PatternSymbol::Atom(
-                                                                    0,
-                                                                ),
+                                                                Pure,
                                                             ],
                                                         },
                                                     },
@@ -5583,6 +5880,7 @@ Ok(
                                                         current_symbol_arena: Arena {
                                                             data: [
                                                                 CurrentSymbol {
+                                                                    modifier: Pure,
                                                                     access_start: TokenIdx(
                                                                         927,
                                                                     ),
@@ -6089,11 +6387,31 @@ Ok(
                                                     },
                                                 ],
                                             },
+                                            pattern_expr_contracts: ArenaMap {
+                                                data: [
+                                                    Pure,
+                                                    Pure,
+                                                    Pure,
+                                                ],
+                                            },
                                             pattern_infos: [
                                                 Let,
                                                 Let,
                                                 Let,
                                             ],
+                                            pattern_symbol_arena: Arena {
+                                                data: [
+                                                    PatternSymbol::Atom(
+                                                        0,
+                                                    ),
+                                                    PatternSymbol::Atom(
+                                                        1,
+                                                    ),
+                                                    PatternSymbol::Atom(
+                                                        2,
+                                                    ),
+                                                ],
+                                            },
                                             pattern_symbol_maps: [
                                                 [
                                                     (
@@ -6114,17 +6432,11 @@ Ok(
                                                     ),
                                                 ],
                                             ],
-                                            pattern_symbol_arena: Arena {
+                                            pattern_symbol_modifiers: ArenaMap {
                                                 data: [
-                                                    PatternSymbol::Atom(
-                                                        0,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        1,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        2,
-                                                    ),
+                                                    Pure,
+                                                    Pure,
+                                                    Pure,
                                                 ],
                                             },
                                         },
@@ -6135,6 +6447,7 @@ Ok(
                                                         parent_symbol_idx: Current(
                                                             0,
                                                         ),
+                                                        modifier: Pure,
                                                         kind: InheritedSymbolKind::ExplicitParameter {
                                                             ident: `points`,
                                                         },
@@ -6144,6 +6457,7 @@ Ok(
                                             current_symbol_arena: Arena {
                                                 data: [
                                                     CurrentSymbol {
+                                                        modifier: Pure,
                                                         access_start: TokenIdx(
                                                             937,
                                                         ),
@@ -6160,6 +6474,7 @@ Ok(
                                                         },
                                                     },
                                                     CurrentSymbol {
+                                                        modifier: Pure,
                                                         access_start: TokenIdx(
                                                             945,
                                                         ),
@@ -6176,6 +6491,7 @@ Ok(
                                                         },
                                                     },
                                                     CurrentSymbol {
+                                                        modifier: Pure,
                                                         access_start: TokenIdx(
                                                             954,
                                                         ),
@@ -6330,9 +6646,21 @@ Ok(
                                                         },
                                                     ],
                                                 },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [
+                                                        Pure,
+                                                    ],
+                                                },
                                                 pattern_infos: [
                                                     Parameter,
                                                 ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        PatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                    ],
+                                                },
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
@@ -6341,11 +6669,9 @@ Ok(
                                                         ),
                                                     ],
                                                 ],
-                                                pattern_symbol_arena: Arena {
+                                                pattern_symbol_modifiers: ArenaMap {
                                                     data: [
-                                                        PatternSymbol::Atom(
-                                                            0,
-                                                        ),
+                                                        Pure,
                                                     ],
                                                 },
                                             },
@@ -6356,6 +6682,7 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 993,
                                                             ),
@@ -6542,9 +6869,21 @@ Ok(
                                                                 },
                                                             ],
                                                         },
+                                                        pattern_expr_contracts: ArenaMap {
+                                                            data: [
+                                                                Pure,
+                                                            ],
+                                                        },
                                                         pattern_infos: [
                                                             Parameter,
                                                         ],
+                                                        pattern_symbol_arena: Arena {
+                                                            data: [
+                                                                PatternSymbol::Atom(
+                                                                    0,
+                                                                ),
+                                                            ],
+                                                        },
                                                         pattern_symbol_maps: [
                                                             [
                                                                 (
@@ -6553,11 +6892,9 @@ Ok(
                                                                 ),
                                                             ],
                                                         ],
-                                                        pattern_symbol_arena: Arena {
+                                                        pattern_symbol_modifiers: ArenaMap {
                                                             data: [
-                                                                PatternSymbol::Atom(
-                                                                    0,
-                                                                ),
+                                                                Pure,
                                                             ],
                                                         },
                                                     },
@@ -6568,6 +6905,7 @@ Ok(
                                                         current_symbol_arena: Arena {
                                                             data: [
                                                                 CurrentSymbol {
+                                                                    modifier: Pure,
                                                                     access_start: TokenIdx(
                                                                         993,
                                                                     ),
@@ -11017,6 +11355,33 @@ Ok(
                                                     },
                                                 ],
                                             },
+                                            pattern_expr_contracts: ArenaMap {
+                                                data: [
+                                                    Move,
+                                                    Move,
+                                                    Pure,
+                                                    Pure,
+                                                    Pure,
+                                                    Pure,
+                                                    Move,
+                                                    Move,
+                                                    Move,
+                                                    Move,
+                                                    Move,
+                                                    Move,
+                                                    Pure,
+                                                    Pure,
+                                                    Pure,
+                                                    Move,
+                                                    Move,
+                                                    Move,
+                                                    Move,
+                                                    Move,
+                                                    Move,
+                                                    Pure,
+                                                    Pure,
+                                                ],
+                                            },
                                             pattern_infos: [
                                                 Let,
                                                 Let,
@@ -11042,6 +11407,79 @@ Ok(
                                                 Let,
                                                 Let,
                                             ],
+                                            pattern_symbol_arena: Arena {
+                                                data: [
+                                                    PatternSymbol::Atom(
+                                                        0,
+                                                    ),
+                                                    PatternSymbol::Atom(
+                                                        1,
+                                                    ),
+                                                    PatternSymbol::Atom(
+                                                        2,
+                                                    ),
+                                                    PatternSymbol::Atom(
+                                                        3,
+                                                    ),
+                                                    PatternSymbol::Atom(
+                                                        4,
+                                                    ),
+                                                    PatternSymbol::Atom(
+                                                        5,
+                                                    ),
+                                                    PatternSymbol::Atom(
+                                                        6,
+                                                    ),
+                                                    PatternSymbol::Atom(
+                                                        7,
+                                                    ),
+                                                    PatternSymbol::Atom(
+                                                        8,
+                                                    ),
+                                                    PatternSymbol::Atom(
+                                                        9,
+                                                    ),
+                                                    PatternSymbol::Atom(
+                                                        10,
+                                                    ),
+                                                    PatternSymbol::Atom(
+                                                        11,
+                                                    ),
+                                                    PatternSymbol::Atom(
+                                                        12,
+                                                    ),
+                                                    PatternSymbol::Atom(
+                                                        13,
+                                                    ),
+                                                    PatternSymbol::Atom(
+                                                        14,
+                                                    ),
+                                                    PatternSymbol::Atom(
+                                                        15,
+                                                    ),
+                                                    PatternSymbol::Atom(
+                                                        16,
+                                                    ),
+                                                    PatternSymbol::Atom(
+                                                        17,
+                                                    ),
+                                                    PatternSymbol::Atom(
+                                                        18,
+                                                    ),
+                                                    PatternSymbol::Atom(
+                                                        19,
+                                                    ),
+                                                    PatternSymbol::Atom(
+                                                        20,
+                                                    ),
+                                                    PatternSymbol::Atom(
+                                                        21,
+                                                    ),
+                                                    PatternSymbol::Atom(
+                                                        22,
+                                                    ),
+                                                ],
+                                            },
                                             pattern_symbol_maps: [
                                                 [
                                                     (
@@ -11182,77 +11620,31 @@ Ok(
                                                     ),
                                                 ],
                                             ],
-                                            pattern_symbol_arena: Arena {
+                                            pattern_symbol_modifiers: ArenaMap {
                                                 data: [
-                                                    PatternSymbol::Atom(
-                                                        0,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        1,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        2,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        3,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        4,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        5,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        6,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        7,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        8,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        9,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        10,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        11,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        12,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        13,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        14,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        15,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        16,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        17,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        18,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        19,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        20,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        21,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        22,
-                                                    ),
+                                                    Mut,
+                                                    Mut,
+                                                    Pure,
+                                                    Pure,
+                                                    Pure,
+                                                    Pure,
+                                                    Mut,
+                                                    Mut,
+                                                    Mut,
+                                                    Mut,
+                                                    Mut,
+                                                    Mut,
+                                                    Pure,
+                                                    Pure,
+                                                    Pure,
+                                                    Mut,
+                                                    Mut,
+                                                    Mut,
+                                                    Mut,
+                                                    Mut,
+                                                    Mut,
+                                                    Pure,
+                                                    Pure,
                                                 ],
                                             },
                                         },
@@ -11263,6 +11655,7 @@ Ok(
                                                         parent_symbol_idx: Current(
                                                             0,
                                                         ),
+                                                        modifier: Pure,
                                                         kind: InheritedSymbolKind::ExplicitParameter {
                                                             ident: `cc`,
                                                         },
@@ -11272,6 +11665,7 @@ Ok(
                                             current_symbol_arena: Arena {
                                                 data: [
                                                     CurrentSymbol {
+                                                        modifier: Mut,
                                                         access_start: TokenIdx(
                                                             1005,
                                                         ),
@@ -11288,6 +11682,7 @@ Ok(
                                                         },
                                                     },
                                                     CurrentSymbol {
+                                                        modifier: Mut,
                                                         access_start: TokenIdx(
                                                             1014,
                                                         ),
@@ -11304,6 +11699,7 @@ Ok(
                                                         },
                                                     },
                                                     CurrentSymbol {
+                                                        modifier: Pure,
                                                         access_start: TokenIdx(
                                                             1025,
                                                         ),
@@ -11320,6 +11716,7 @@ Ok(
                                                         },
                                                     },
                                                     CurrentSymbol {
+                                                        modifier: Pure,
                                                         access_start: TokenIdx(
                                                             1027,
                                                         ),
@@ -11336,6 +11733,7 @@ Ok(
                                                         },
                                                     },
                                                     CurrentSymbol {
+                                                        modifier: Pure,
                                                         access_start: TokenIdx(
                                                             1038,
                                                         ),
@@ -11352,6 +11750,7 @@ Ok(
                                                         },
                                                     },
                                                     CurrentSymbol {
+                                                        modifier: Pure,
                                                         access_start: TokenIdx(
                                                             1047,
                                                         ),
@@ -11368,6 +11767,7 @@ Ok(
                                                         },
                                                     },
                                                     CurrentSymbol {
+                                                        modifier: Pure,
                                                         access_start: TokenIdx(
                                                             1053,
                                                         ),
@@ -11384,6 +11784,7 @@ Ok(
                                                         },
                                                     },
                                                     CurrentSymbol {
+                                                        modifier: Pure,
                                                         access_start: TokenIdx(
                                                             1091,
                                                         ),
@@ -11400,6 +11801,7 @@ Ok(
                                                         },
                                                     },
                                                     CurrentSymbol {
+                                                        modifier: Mut,
                                                         access_start: TokenIdx(
                                                             1100,
                                                         ),
@@ -11416,6 +11818,7 @@ Ok(
                                                         },
                                                     },
                                                     CurrentSymbol {
+                                                        modifier: Mut,
                                                         access_start: TokenIdx(
                                                             1110,
                                                         ),
@@ -11432,6 +11835,7 @@ Ok(
                                                         },
                                                     },
                                                     CurrentSymbol {
+                                                        modifier: Mut,
                                                         access_start: TokenIdx(
                                                             1115,
                                                         ),
@@ -11448,6 +11852,7 @@ Ok(
                                                         },
                                                     },
                                                     CurrentSymbol {
+                                                        modifier: Mut,
                                                         access_start: TokenIdx(
                                                             1127,
                                                         ),
@@ -11464,6 +11869,7 @@ Ok(
                                                         },
                                                     },
                                                     CurrentSymbol {
+                                                        modifier: Mut,
                                                         access_start: TokenIdx(
                                                             1139,
                                                         ),
@@ -11480,6 +11886,7 @@ Ok(
                                                         },
                                                     },
                                                     CurrentSymbol {
+                                                        modifier: Mut,
                                                         access_start: TokenIdx(
                                                             1149,
                                                         ),
@@ -11496,6 +11903,7 @@ Ok(
                                                         },
                                                     },
                                                     CurrentSymbol {
+                                                        modifier: Pure,
                                                         access_start: TokenIdx(
                                                             1160,
                                                         ),
@@ -11512,6 +11920,7 @@ Ok(
                                                         },
                                                     },
                                                     CurrentSymbol {
+                                                        modifier: Pure,
                                                         access_start: TokenIdx(
                                                             1164,
                                                         ),
@@ -11528,6 +11937,7 @@ Ok(
                                                         },
                                                     },
                                                     CurrentSymbol {
+                                                        modifier: Pure,
                                                         access_start: TokenIdx(
                                                             1168,
                                                         ),
@@ -11544,6 +11954,7 @@ Ok(
                                                         },
                                                     },
                                                     CurrentSymbol {
+                                                        modifier: Mut,
                                                         access_start: TokenIdx(
                                                             1173,
                                                         ),
@@ -11560,6 +11971,7 @@ Ok(
                                                         },
                                                     },
                                                     CurrentSymbol {
+                                                        modifier: Mut,
                                                         access_start: TokenIdx(
                                                             1178,
                                                         ),
@@ -11576,6 +11988,7 @@ Ok(
                                                         },
                                                     },
                                                     CurrentSymbol {
+                                                        modifier: Mut,
                                                         access_start: TokenIdx(
                                                             1183,
                                                         ),
@@ -11592,6 +12005,7 @@ Ok(
                                                         },
                                                     },
                                                     CurrentSymbol {
+                                                        modifier: Mut,
                                                         access_start: TokenIdx(
                                                             1188,
                                                         ),
@@ -11608,6 +12022,7 @@ Ok(
                                                         },
                                                     },
                                                     CurrentSymbol {
+                                                        modifier: Mut,
                                                         access_start: TokenIdx(
                                                             1194,
                                                         ),
@@ -11624,6 +12039,7 @@ Ok(
                                                         },
                                                     },
                                                     CurrentSymbol {
+                                                        modifier: Mut,
                                                         access_start: TokenIdx(
                                                             1200,
                                                         ),
@@ -11640,6 +12056,7 @@ Ok(
                                                         },
                                                     },
                                                     CurrentSymbol {
+                                                        modifier: Pure,
                                                         access_start: TokenIdx(
                                                             1222,
                                                         ),
@@ -11656,6 +12073,7 @@ Ok(
                                                         },
                                                     },
                                                     CurrentSymbol {
+                                                        modifier: Pure,
                                                         access_start: TokenIdx(
                                                             1235,
                                                         ),
@@ -11817,9 +12235,15 @@ Ok(
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
+                                            pattern_expr_contracts: ArenaMap {
+                                                data: [],
+                                            },
                                             pattern_infos: [],
-                                            pattern_symbol_maps: [],
                                             pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_modifiers: ArenaMap {
                                                 data: [],
                                             },
                                         },
@@ -12013,9 +12437,15 @@ Ok(
                                                                 pattern_expr_arena: Arena {
                                                                     data: [],
                                                                 },
+                                                                pattern_expr_contracts: ArenaMap {
+                                                                    data: [],
+                                                                },
                                                                 pattern_infos: [],
-                                                                pattern_symbol_maps: [],
                                                                 pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_modifiers: ArenaMap {
                                                                     data: [],
                                                                 },
                                                             },
@@ -12089,9 +12519,15 @@ Ok(
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
                                                     pattern_infos: [],
-                                                    pattern_symbol_maps: [],
                                                     pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
                                                         data: [],
                                                     },
                                                 },
@@ -12171,9 +12607,15 @@ Ok(
                                                                         pattern_expr_arena: Arena {
                                                                             data: [],
                                                                         },
+                                                                        pattern_expr_contracts: ArenaMap {
+                                                                            data: [],
+                                                                        },
                                                                         pattern_infos: [],
-                                                                        pattern_symbol_maps: [],
                                                                         pattern_symbol_arena: Arena {
+                                                                            data: [],
+                                                                        },
+                                                                        pattern_symbol_maps: [],
+                                                                        pattern_symbol_modifiers: ArenaMap {
                                                                             data: [],
                                                                         },
                                                                     },
@@ -12247,9 +12689,15 @@ Ok(
                                                             pattern_expr_arena: Arena {
                                                                 data: [],
                                                             },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
                                                             pattern_infos: [],
-                                                            pattern_symbol_maps: [],
                                                             pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
                                                                 data: [],
                                                             },
                                                         },
@@ -12391,9 +12839,15 @@ Ok(
                                                 pattern_expr_arena: Arena {
                                                     data: [],
                                                 },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [],
+                                                },
                                                 pattern_infos: [],
-                                                pattern_symbol_maps: [],
                                                 pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_modifiers: ArenaMap {
                                                     data: [],
                                                 },
                                             },
@@ -12591,9 +13045,15 @@ Ok(
                                                                 pattern_expr_arena: Arena {
                                                                     data: [],
                                                                 },
+                                                                pattern_expr_contracts: ArenaMap {
+                                                                    data: [],
+                                                                },
                                                                 pattern_infos: [],
-                                                                pattern_symbol_maps: [],
                                                                 pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_modifiers: ArenaMap {
                                                                     data: [],
                                                                 },
                                                             },
@@ -12667,9 +13127,15 @@ Ok(
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
                                                     pattern_infos: [],
-                                                    pattern_symbol_maps: [],
                                                     pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
                                                         data: [],
                                                     },
                                                 },
@@ -12749,9 +13215,15 @@ Ok(
                                                                         pattern_expr_arena: Arena {
                                                                             data: [],
                                                                         },
+                                                                        pattern_expr_contracts: ArenaMap {
+                                                                            data: [],
+                                                                        },
                                                                         pattern_infos: [],
-                                                                        pattern_symbol_maps: [],
                                                                         pattern_symbol_arena: Arena {
+                                                                            data: [],
+                                                                        },
+                                                                        pattern_symbol_maps: [],
+                                                                        pattern_symbol_modifiers: ArenaMap {
                                                                             data: [],
                                                                         },
                                                                     },
@@ -12825,9 +13297,15 @@ Ok(
                                                             pattern_expr_arena: Arena {
                                                                 data: [],
                                                             },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
                                                             pattern_infos: [],
-                                                            pattern_symbol_maps: [],
                                                             pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
                                                                 data: [],
                                                             },
                                                         },
@@ -13881,6 +14359,16 @@ Ok(
                                                         },
                                                     ],
                                                 },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [
+                                                        Pure,
+                                                        Move,
+                                                        Move,
+                                                        Move,
+                                                        Move,
+                                                        Pure,
+                                                    ],
+                                                },
                                                 pattern_infos: [
                                                     Let,
                                                     Let,
@@ -13889,6 +14377,28 @@ Ok(
                                                     Let,
                                                     Let,
                                                 ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        PatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                        PatternSymbol::Atom(
+                                                            1,
+                                                        ),
+                                                        PatternSymbol::Atom(
+                                                            2,
+                                                        ),
+                                                        PatternSymbol::Atom(
+                                                            3,
+                                                        ),
+                                                        PatternSymbol::Atom(
+                                                            4,
+                                                        ),
+                                                        PatternSymbol::Atom(
+                                                            5,
+                                                        ),
+                                                    ],
+                                                },
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
@@ -13927,26 +14437,14 @@ Ok(
                                                         ),
                                                     ],
                                                 ],
-                                                pattern_symbol_arena: Arena {
+                                                pattern_symbol_modifiers: ArenaMap {
                                                     data: [
-                                                        PatternSymbol::Atom(
-                                                            0,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            1,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            2,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            3,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            4,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            5,
-                                                        ),
+                                                        Pure,
+                                                        Mut,
+                                                        Mut,
+                                                        Mut,
+                                                        Mut,
+                                                        Pure,
                                                     ],
                                                 },
                                             },
@@ -13957,6 +14455,7 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 63,
                                                             ),
@@ -13973,6 +14472,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Mut,
                                                             access_start: TokenIdx(
                                                                 73,
                                                             ),
@@ -13989,6 +14489,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Mut,
                                                             access_start: TokenIdx(
                                                                 80,
                                                             ),
@@ -14005,6 +14506,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Mut,
                                                             access_start: TokenIdx(
                                                                 87,
                                                             ),
@@ -14021,6 +14523,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Mut,
                                                             access_start: TokenIdx(
                                                                 94,
                                                             ),
@@ -14037,6 +14540,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 109,
                                                             ),
@@ -14053,6 +14557,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 111,
                                                             ),
@@ -14264,9 +14769,15 @@ Ok(
                                                                 pattern_expr_arena: Arena {
                                                                     data: [],
                                                                 },
+                                                                pattern_expr_contracts: ArenaMap {
+                                                                    data: [],
+                                                                },
                                                                 pattern_infos: [],
-                                                                pattern_symbol_maps: [],
                                                                 pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_modifiers: ArenaMap {
                                                                     data: [],
                                                                 },
                                                             },
@@ -14340,9 +14851,15 @@ Ok(
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
                                                     pattern_infos: [],
-                                                    pattern_symbol_maps: [],
                                                     pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
                                                         data: [],
                                                     },
                                                 },
@@ -14422,9 +14939,15 @@ Ok(
                                                                         pattern_expr_arena: Arena {
                                                                             data: [],
                                                                         },
+                                                                        pattern_expr_contracts: ArenaMap {
+                                                                            data: [],
+                                                                        },
                                                                         pattern_infos: [],
-                                                                        pattern_symbol_maps: [],
                                                                         pattern_symbol_arena: Arena {
+                                                                            data: [],
+                                                                        },
+                                                                        pattern_symbol_maps: [],
+                                                                        pattern_symbol_modifiers: ArenaMap {
                                                                             data: [],
                                                                         },
                                                                     },
@@ -14498,9 +15021,15 @@ Ok(
                                                             pattern_expr_arena: Arena {
                                                                 data: [],
                                                             },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
                                                             pattern_infos: [],
-                                                            pattern_symbol_maps: [],
                                                             pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
                                                                 data: [],
                                                             },
                                                         },
@@ -14658,9 +15187,15 @@ Ok(
                                                 pattern_expr_arena: Arena {
                                                     data: [],
                                                 },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [],
+                                                },
                                                 pattern_infos: [],
-                                                pattern_symbol_maps: [],
                                                 pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_modifiers: ArenaMap {
                                                     data: [],
                                                 },
                                             },
@@ -14858,9 +15393,15 @@ Ok(
                                                                 pattern_expr_arena: Arena {
                                                                     data: [],
                                                                 },
+                                                                pattern_expr_contracts: ArenaMap {
+                                                                    data: [],
+                                                                },
                                                                 pattern_infos: [],
-                                                                pattern_symbol_maps: [],
                                                                 pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_modifiers: ArenaMap {
                                                                     data: [],
                                                                 },
                                                             },
@@ -14934,9 +15475,15 @@ Ok(
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
                                                     pattern_infos: [],
-                                                    pattern_symbol_maps: [],
                                                     pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
                                                         data: [],
                                                     },
                                                 },
@@ -15016,9 +15563,15 @@ Ok(
                                                                         pattern_expr_arena: Arena {
                                                                             data: [],
                                                                         },
+                                                                        pattern_expr_contracts: ArenaMap {
+                                                                            data: [],
+                                                                        },
                                                                         pattern_infos: [],
-                                                                        pattern_symbol_maps: [],
                                                                         pattern_symbol_arena: Arena {
+                                                                            data: [],
+                                                                        },
+                                                                        pattern_symbol_maps: [],
+                                                                        pattern_symbol_modifiers: ArenaMap {
                                                                             data: [],
                                                                         },
                                                                     },
@@ -15092,9 +15645,15 @@ Ok(
                                                             pattern_expr_arena: Arena {
                                                                 data: [],
                                                             },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
                                                             pattern_infos: [],
-                                                            pattern_symbol_maps: [],
                                                             pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
                                                                 data: [],
                                                             },
                                                         },
@@ -16112,6 +16671,15 @@ Ok(
                                                         },
                                                     ],
                                                 },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [
+                                                        Move,
+                                                        Pure,
+                                                        Pure,
+                                                        Pure,
+                                                        Pure,
+                                                    ],
+                                                },
                                                 pattern_infos: [
                                                     Let,
                                                     Let,
@@ -16119,6 +16687,25 @@ Ok(
                                                     Let,
                                                     Let,
                                                 ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        PatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                        PatternSymbol::Atom(
+                                                            1,
+                                                        ),
+                                                        PatternSymbol::Atom(
+                                                            2,
+                                                        ),
+                                                        PatternSymbol::Atom(
+                                                            3,
+                                                        ),
+                                                        PatternSymbol::Atom(
+                                                            4,
+                                                        ),
+                                                    ],
+                                                },
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
@@ -16151,23 +16738,13 @@ Ok(
                                                         ),
                                                     ],
                                                 ],
-                                                pattern_symbol_arena: Arena {
+                                                pattern_symbol_modifiers: ArenaMap {
                                                     data: [
-                                                        PatternSymbol::Atom(
-                                                            0,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            1,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            2,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            3,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            4,
-                                                        ),
+                                                        Mut,
+                                                        Pure,
+                                                        Pure,
+                                                        Pure,
+                                                        Pure,
                                                     ],
                                                 },
                                             },
@@ -16178,6 +16755,7 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
+                                                            modifier: Mut,
                                                             access_start: TokenIdx(
                                                                 208,
                                                             ),
@@ -16194,6 +16772,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 223,
                                                             ),
@@ -16210,6 +16789,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 225,
                                                             ),
@@ -16226,6 +16806,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 236,
                                                             ),
@@ -16242,6 +16823,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 274,
                                                             ),
@@ -16258,6 +16840,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 291,
                                                             ),
@@ -16456,9 +17039,15 @@ Ok(
                                                                 pattern_expr_arena: Arena {
                                                                     data: [],
                                                                 },
+                                                                pattern_expr_contracts: ArenaMap {
+                                                                    data: [],
+                                                                },
                                                                 pattern_infos: [],
-                                                                pattern_symbol_maps: [],
                                                                 pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_modifiers: ArenaMap {
                                                                     data: [],
                                                                 },
                                                             },
@@ -16593,10 +17182,26 @@ Ok(
                                                             },
                                                         ],
                                                     },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [
+                                                            Pure,
+                                                            Pure,
+                                                        ],
+                                                    },
                                                     pattern_infos: [
                                                         Parameter,
                                                         Parameter,
                                                     ],
+                                                    pattern_symbol_arena: Arena {
+                                                        data: [
+                                                            PatternSymbol::Atom(
+                                                                0,
+                                                            ),
+                                                            PatternSymbol::Atom(
+                                                                1,
+                                                            ),
+                                                        ],
+                                                    },
                                                     pattern_symbol_maps: [
                                                         [
                                                             (
@@ -16611,14 +17216,10 @@ Ok(
                                                             ),
                                                         ],
                                                     ],
-                                                    pattern_symbol_arena: Arena {
+                                                    pattern_symbol_modifiers: ArenaMap {
                                                         data: [
-                                                            PatternSymbol::Atom(
-                                                                0,
-                                                            ),
-                                                            PatternSymbol::Atom(
-                                                                1,
-                                                            ),
+                                                            Pure,
+                                                            Pure,
                                                         ],
                                                     },
                                                 },
@@ -16629,6 +17230,7 @@ Ok(
                                                     current_symbol_arena: Arena {
                                                         data: [
                                                             CurrentSymbol {
+                                                                modifier: Pure,
                                                                 access_start: TokenIdx(
                                                                     333,
                                                                 ),
@@ -16639,6 +17241,7 @@ Ok(
                                                                 },
                                                             },
                                                             CurrentSymbol {
+                                                                modifier: Pure,
                                                                 access_start: TokenIdx(
                                                                     337,
                                                                 ),
@@ -16804,9 +17407,15 @@ Ok(
                                                                         pattern_expr_arena: Arena {
                                                                             data: [],
                                                                         },
+                                                                        pattern_expr_contracts: ArenaMap {
+                                                                            data: [],
+                                                                        },
                                                                         pattern_infos: [],
-                                                                        pattern_symbol_maps: [],
                                                                         pattern_symbol_arena: Arena {
+                                                                            data: [],
+                                                                        },
+                                                                        pattern_symbol_maps: [],
+                                                                        pattern_symbol_modifiers: ArenaMap {
                                                                             data: [],
                                                                         },
                                                                     },
@@ -16941,10 +17550,26 @@ Ok(
                                                                     },
                                                                 ],
                                                             },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [
+                                                                    Pure,
+                                                                    Pure,
+                                                                ],
+                                                            },
                                                             pattern_infos: [
                                                                 Parameter,
                                                                 Parameter,
                                                             ],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [
+                                                                    PatternSymbol::Atom(
+                                                                        0,
+                                                                    ),
+                                                                    PatternSymbol::Atom(
+                                                                        1,
+                                                                    ),
+                                                                ],
+                                                            },
                                                             pattern_symbol_maps: [
                                                                 [
                                                                     (
@@ -16959,14 +17584,10 @@ Ok(
                                                                     ),
                                                                 ],
                                                             ],
-                                                            pattern_symbol_arena: Arena {
+                                                            pattern_symbol_modifiers: ArenaMap {
                                                                 data: [
-                                                                    PatternSymbol::Atom(
-                                                                        0,
-                                                                    ),
-                                                                    PatternSymbol::Atom(
-                                                                        1,
-                                                                    ),
+                                                                    Pure,
+                                                                    Pure,
                                                                 ],
                                                             },
                                                         },
@@ -16977,6 +17598,7 @@ Ok(
                                                             current_symbol_arena: Arena {
                                                                 data: [
                                                                     CurrentSymbol {
+                                                                        modifier: Pure,
                                                                         access_start: TokenIdx(
                                                                             333,
                                                                         ),
@@ -16987,6 +17609,7 @@ Ok(
                                                                         },
                                                                     },
                                                                     CurrentSymbol {
+                                                                        modifier: Pure,
                                                                         access_start: TokenIdx(
                                                                             337,
                                                                         ),
@@ -17381,11 +18004,31 @@ Ok(
                                                         },
                                                     ],
                                                 },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [
+                                                        Pure,
+                                                        Pure,
+                                                        Pure,
+                                                    ],
+                                                },
                                                 pattern_infos: [
                                                     Let,
                                                     Let,
                                                     Let,
                                                 ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        PatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                        PatternSymbol::Atom(
+                                                            1,
+                                                        ),
+                                                        PatternSymbol::Atom(
+                                                            2,
+                                                        ),
+                                                    ],
+                                                },
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
@@ -17406,17 +18049,11 @@ Ok(
                                                         ),
                                                     ],
                                                 ],
-                                                pattern_symbol_arena: Arena {
+                                                pattern_symbol_modifiers: ArenaMap {
                                                     data: [
-                                                        PatternSymbol::Atom(
-                                                            0,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            1,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            2,
-                                                        ),
+                                                        Pure,
+                                                        Pure,
+                                                        Pure,
                                                     ],
                                                 },
                                             },
@@ -17427,6 +18064,7 @@ Ok(
                                                             parent_symbol_idx: Current(
                                                                 0,
                                                             ),
+                                                            modifier: Pure,
                                                             kind: InheritedSymbolKind::ExplicitParameter {
                                                                 ident: `start`,
                                                             },
@@ -17435,6 +18073,7 @@ Ok(
                                                             parent_symbol_idx: Current(
                                                                 1,
                                                             ),
+                                                            modifier: Pure,
                                                             kind: InheritedSymbolKind::ExplicitParameter {
                                                                 ident: `end`,
                                                             },
@@ -17444,6 +18083,7 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 345,
                                                             ),
@@ -17460,6 +18100,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 355,
                                                             ),
@@ -17476,6 +18117,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 366,
                                                             ),
