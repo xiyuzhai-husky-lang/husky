@@ -29,20 +29,20 @@ impl FluffyTermRegion {
         &self.expectations
     }
 
-    pub fn hollow_terms(&self) -> &HollowTerms {
-        self.terms.hollow_terms()
-    }
-
     pub fn solid_terms(&self) -> &SolidTerms {
         self.terms.solid_terms()
     }
 
-    pub(crate) fn hollow_terms_mut(&mut self) -> &mut HollowTerms {
-        self.terms.hollow_terms_mut()
-    }
-
     pub(crate) fn solid_terms_mut(&mut self) -> &mut SolidTerms {
         self.terms.solid_terms_mut()
+    }
+
+    pub fn hollow_terms(&self) -> &HollowTerms {
+        self.terms.hollow_terms()
+    }
+
+    pub(crate) fn hollow_terms_mut(&mut self) -> &mut HollowTerms {
+        self.terms.hollow_terms_mut()
     }
 
     pub fn finalize_unresolved_term_table(&mut self, db: &dyn FluffyTermDb) {

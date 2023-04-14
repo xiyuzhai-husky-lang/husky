@@ -31,9 +31,8 @@ impl FluffyTermRegion {
             if let Some(actions) = self.expectations.take_effect(rule_idx, effect) {
                 for action in actions {
                     match action {
-                        FluffyTermResolveAction::SubstituteHole { hole, substitution } => {
-                            todo!()
-                            // self.substitute_hole(db, implicit_symbol, substitution)
+                        FluffyTermResolveAction::FillHole { hole, term } => {
+                            self.hollow_terms_mut().fill_hole(db, hole, term)
                         }
                         FluffyTermResolveAction::AddExpectation {
                             src,

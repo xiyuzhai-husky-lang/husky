@@ -39,3 +39,9 @@ impl From<FluffyTerm> for NestedFluffyTerm {
         }
     }
 }
+
+impl FluffyTerm {
+    pub(crate) fn nested(self) -> NestedFluffyTerm {
+        self.into()
+    }
+}

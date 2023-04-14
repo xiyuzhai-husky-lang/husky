@@ -14,7 +14,11 @@ pub enum HollowTermData {
         parameter_ty: FluffyTerm,
         return_ty: FluffyTerm,
     },
-    Hole(HoleSource, HoleKind),
+    Hole {
+        hole_source: HoleSource,
+        hole_kind: HoleKind,
+        fill: Option<FluffyTerm>,
+    },
     Ritchie {
         ritchie_kind: TermRitchieKind,
         parameter_contracted_tys: Vec<FluffyTermRitchieParameterContractedType>,
@@ -37,6 +41,19 @@ pub enum HollowTermData {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct Hole(HollowTerm);
 
+impl Hole {
+    pub fn term(self) -> HollowTerm {
+        self.0
+    }
+}
+
+impl Hole {
+    #[inline(always)]
+    pub(crate) fn idx(self) -> usize {
+        self.0.idx()
+    }
+}
+
 impl Into<HollowTerm> for Hole {
     fn into(self) -> HollowTerm {
         self.0
@@ -50,16 +67,25 @@ impl Into<FluffyTerm> for Hole {
 }
 
 impl HollowTerm {
-    pub(crate) fn fluffy_data<'a>(self, hollow_terms: &'a HollowTerms) -> FluffyTermData<'a> {
-        match hollow_terms.resolve_progress(self) {
-            HollowTermResolveProgress::InProgress(term) => term.fluffy_data_aux(hollow_terms),
-            HollowTermResolveProgress::Ok(_) => todo!(),
-            HollowTermResolveProgress::Err(_) => todo!(),
+    pub(crate) fn fluffy_data<'a>(
+        self,
+        db: &'a dyn FluffyTermDb,
+        fluffy_terms: &'a FluffyTerms,
+    ) -> FluffyTermData<'a> {
+        match fluffy_terms.hollow_terms().resolve_progress(self) {
+            HollowTermResolveProgress::Unresolved => self.fluffy_data_aux(db, fluffy_terms),
+            HollowTermResolveProgress::ResolvedEthereal(_) => todo!(),
+            HollowTermResolveProgress::ResolvedSolid(_) => todo!(),
+            HollowTermResolveProgress::Err => todo!(),
         }
     }
 
-    pub(crate) fn fluffy_data_aux<'a>(self, hollow_terms: &'a HollowTerms) -> FluffyTermData<'a> {
-        match hollow_terms.data(self) {
+    pub(crate) fn fluffy_data_aux<'a>(
+        self,
+        db: &'a dyn FluffyTermDb,
+        fluffy_terms: &'a FluffyTerms,
+    ) -> FluffyTermData<'a> {
+        match fluffy_terms.hollow_terms().data(self) {
             HollowTermData::TypeOntology {
                 path,
                 refined_path,
@@ -82,7 +108,14 @@ impl HollowTerm {
                 parameter_ty: (*parameter_ty).into(),
                 return_ty: (*return_ty).into(),
             },
-            HollowTermData::Hole(_, hole_kind) => FluffyTermData::Hole(*hole_kind, Hole(self)),
+            HollowTermData::Hole {
+                fill: Some(fill), ..
+            } => fill.data_inner(db, fluffy_terms),
+            HollowTermData::Hole {
+                hole_kind,
+                fill: None,
+                ..
+            } => FluffyTermData::Hole(*hole_kind, Hole(self)),
             HollowTermData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,

@@ -185,9 +185,9 @@ impl ExpectImplicitlyConvertible {
             FluffyTermData::Hole(_, hole) => match level {
                 FluffyTermResolveLevel::Weak => None,
                 FluffyTermResolveLevel::Strong => Some(FluffyTermExpectationEffect {
-                    actions: smallvec![FluffyTermResolveAction::SubstituteHole {
+                    actions: smallvec![FluffyTermResolveAction::FillHole {
                         hole,
-                        substitution: expectee,
+                        term: expectee,
                     }],
                     result: Ok(ImplicitConversion::Trivial.into()),
                 }),
