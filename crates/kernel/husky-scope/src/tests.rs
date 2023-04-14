@@ -16,7 +16,7 @@ impl Database for DB {}
 
 #[test]
 fn visibility_partial_ord_works() {
-    use Visibility::*;
+    use Scope::*;
 
     let db = DB::default();
     let path_menu = db.dev_path_menu().unwrap();

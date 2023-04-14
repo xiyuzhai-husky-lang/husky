@@ -13,6 +13,7 @@ pub enum ExprDisambiguation {
     Tilde(TildeDisambiguation),
     Method(MethodCallDisambiguation),
     Trivial,
+    FieldOrMemo(FieldOrMemoDisambiguation),
 }
 
 impl ExprDisambiguation {
@@ -91,4 +92,10 @@ impl From<TraitForTypeMethodFnCard> for MethodCallDisambiguation {
     fn from(value: TraitForTypeMethodFnCard) -> Self {
         MethodCallDisambiguation(value.into())
     }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum FieldOrMemoDisambiguation {
+    Field,
+    Memo,
 }

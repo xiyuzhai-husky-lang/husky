@@ -13,7 +13,7 @@ pub struct UseAllRule {
     parent: KinshipedModulePath,
     ast_idx: AstIdx,
     use_expr_idx: UseExprIdx,
-    visibility: Visibility,
+    visibility: Scope,
     // how many symbols have been checked
     progress: usize,
 }
@@ -69,7 +69,7 @@ impl UseAllRule {
         parent: ModulePath,
         ast_idx: AstIdx,
         use_expr_idx: UseExprIdx,
-        visibility: Visibility,
+        visibility: Scope,
     ) -> Self {
         Self {
             parent: KinshipedModulePath::new(db, sheet.module_path().crate_path(db), parent),
@@ -104,7 +104,7 @@ impl UseAllRule {
         self.use_expr_idx
     }
 
-    pub fn visibility(&self) -> Visibility {
+    pub fn visibility(&self) -> Scope {
         self.visibility
     }
 

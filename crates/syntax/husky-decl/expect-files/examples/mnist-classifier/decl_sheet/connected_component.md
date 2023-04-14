@@ -1455,7 +1455,7 @@ Ok(
                                         associated_item_kind: TypeItem(
                                             Memo,
                                         ),
-                                        visibility: Visibility::PubUnder(
+                                        visibility: Scope::PubUnder(
                                             `mnist_classifier::connected_component`,
                                         ),
                                         is_generic: false,
@@ -1735,7 +1735,7 @@ Ok(
                                         associated_item_kind: TypeItem(
                                             Memo,
                                         ),
-                                        visibility: Visibility::PubUnder(
+                                        visibility: Scope::PubUnder(
                                             `mnist_classifier::connected_component`,
                                         ),
                                         is_generic: false,
@@ -2000,7 +2000,7 @@ Ok(
                                         associated_item_kind: TypeItem(
                                             Memo,
                                         ),
-                                        visibility: Visibility::PubUnder(
+                                        visibility: Scope::PubUnder(
                                             `mnist_classifier::connected_component`,
                                         ),
                                         is_generic: false,
@@ -2265,7 +2265,7 @@ Ok(
                                         associated_item_kind: TypeItem(
                                             Memo,
                                         ),
-                                        visibility: Visibility::PubUnder(
+                                        visibility: Scope::PubUnder(
                                             `mnist_classifier::connected_component`,
                                         ),
                                         is_generic: false,
@@ -2530,7 +2530,7 @@ Ok(
                                         associated_item_kind: TypeItem(
                                             Memo,
                                         ),
-                                        visibility: Visibility::PubUnder(
+                                        visibility: Scope::PubUnder(
                                             `mnist_classifier::connected_component`,
                                         ),
                                         is_generic: false,
@@ -2795,7 +2795,7 @@ Ok(
                                         associated_item_kind: TypeItem(
                                             Memo,
                                         ),
-                                        visibility: Visibility::PubUnder(
+                                        visibility: Scope::PubUnder(
                                             `mnist_classifier::connected_component`,
                                         ),
                                         is_generic: false,
@@ -3060,7 +3060,7 @@ Ok(
                                         associated_item_kind: TypeItem(
                                             Memo,
                                         ),
-                                        visibility: Visibility::PubUnder(
+                                        visibility: Scope::PubUnder(
                                             `mnist_classifier::connected_component`,
                                         ),
                                         is_generic: false,
@@ -3325,7 +3325,7 @@ Ok(
                                         associated_item_kind: TypeItem(
                                             Memo,
                                         ),
-                                        visibility: Visibility::PubUnder(
+                                        visibility: Scope::PubUnder(
                                             `mnist_classifier::connected_component`,
                                         ),
                                         is_generic: false,
@@ -3600,7 +3600,7 @@ Ok(
                                         associated_item_kind: TypeItem(
                                             MethodFn,
                                         ),
-                                        visibility: Visibility::PubUnder(
+                                        visibility: Scope::PubUnder(
                                             `mnist_classifier::connected_component`,
                                         ),
                                         is_generic: false,
@@ -3962,7 +3962,7 @@ Ok(
                                         associated_item_kind: TypeItem(
                                             MethodFn,
                                         ),
-                                        visibility: Visibility::PubUnder(
+                                        visibility: Scope::PubUnder(
                                             `mnist_classifier::connected_component`,
                                         ),
                                         is_generic: false,

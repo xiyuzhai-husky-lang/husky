@@ -105,4 +105,6 @@ pub struct TermJar(
     // template
     TemplateParameters,
     ty_path_template_parameters,
+    // field
+    term_application_field_ty,
 );

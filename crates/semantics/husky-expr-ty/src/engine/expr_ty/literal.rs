@@ -19,16 +19,13 @@ impl<'a> ExprTypeEngine<'a> {
                         // match in the order of most frequent to least frequent
                         Ok(match expectation
                             .destination()
-                            .map(|destination| (destination, destination.data(self)))
+                            .map(|destination| destination.data(self))
                         {
-                            Some((
-                                _,
-                                FluffyTermData::TypeOntology {
-                                    refined_path:
-                                        Right(PreludeTypePath::Num(PreludeNumTypePath::Int(path))),
-                                    ..
-                                },
-                            )) => match path {
+                            Some(FluffyTermData::TypeOntology {
+                                refined_path:
+                                    Right(PreludeTypePath::Num(PreludeNumTypePath::Int(path))),
+                                ..
+                            }) => match path {
                                 PreludeIntTypePath::I32 => self.term_menu.i32_ty_ontology(),
                                 PreludeIntTypePath::I64 => self.term_menu.i64_ty_ontology(),
                                 PreludeIntTypePath::ISize => self.term_menu.isize_ty_ontology(),
@@ -48,10 +45,10 @@ impl<'a> ExprTypeEngine<'a> {
                                 PreludeIntTypePath::R128 => self.term_menu.r128_ty_ontology(),
                                 PreludeIntTypePath::RSize => self.term_menu.rsize_ty_ontology(),
                             },
-                            Some((
+                            Some(FluffyTermData::Hole(
+                                HoleKind::UnspecifiedIntegerType,
                                 destination,
-                                FluffyTermData::Hole(HoleKind::UnspecifiedIntegerType, _),
-                            )) => return Ok(destination),
+                            )) => return Ok(destination.into()),
                             _ => {
                                 return Ok(self
                                     .new_hole(expr_idx, HoleKind::UnspecifiedIntegerType)
@@ -97,17 +94,15 @@ impl<'a> ExprTypeEngine<'a> {
                                     Ok(self.term_menu.f64_ty_ontology().into())
                                 }
                             },
-                            Some(FluffyTermData::Hole(HoleKind::UnspecifiedFloatType, idx)) => {
-                                return Ok(idx.into())
+                            Some(FluffyTermData::Hole(
+                                HoleKind::UnspecifiedFloatType,
+                                destination,
+                            )) => return Ok(destination.into()),
+                            _ => {
+                                return Ok(self
+                                    .new_hole(expr_idx, HoleKind::UnspecifiedFloatType)
+                                    .into())
                             }
-                            _ => todo!(),
-                            // Ok(self
-                            //     .fluffy_term_region
-                            //     .new_implicit_symbol(
-                            //         expr_idx,
-                            //         ImplicitSymbolVariant::UnspecifiedFloatType,
-                            //     )
-                            //     .into()),
                         }
                     }
                     FloatLiteral::F32(_) => todo!(),

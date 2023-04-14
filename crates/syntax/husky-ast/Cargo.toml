@@ -29,10 +29,10 @@ husky-package-path = { path = "../../kernel/husky-package-path" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
-husky-visibility = { path = "../../kernel/husky-visibility" }
+husky-scope = { path = "../../kernel/husky-scope" }
 # syntax
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
-husky-visibility-expr = { path = "../../syntax/husky-visibility-expr" }
+husky-scope-expr = { path = "../../syntax/husky-scope-expr" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 

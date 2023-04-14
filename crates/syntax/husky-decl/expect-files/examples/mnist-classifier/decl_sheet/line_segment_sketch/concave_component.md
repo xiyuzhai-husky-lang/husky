@@ -652,7 +652,7 @@ Ok(
                                         associated_item_kind: TypeItem(
                                             Memo,
                                         ),
-                                        visibility: Visibility::PubUnder(
+                                        visibility: Scope::PubUnder(
                                             `mnist_classifier::line_segment_sketch::concave_component`,
                                         ),
                                         is_generic: false,
@@ -917,7 +917,7 @@ Ok(
                                         associated_item_kind: TypeItem(
                                             Memo,
                                         ),
-                                        visibility: Visibility::PubUnder(
+                                        visibility: Scope::PubUnder(
                                             `mnist_classifier::line_segment_sketch::concave_component`,
                                         ),
                                         is_generic: false,
@@ -1182,7 +1182,7 @@ Ok(
                                         associated_item_kind: TypeItem(
                                             Memo,
                                         ),
-                                        visibility: Visibility::PubUnder(
+                                        visibility: Scope::PubUnder(
                                             `mnist_classifier::line_segment_sketch::concave_component`,
                                         ),
                                         is_generic: false,
@@ -1447,7 +1447,7 @@ Ok(
                                         associated_item_kind: TypeItem(
                                             Memo,
                                         ),
-                                        visibility: Visibility::PubUnder(
+                                        visibility: Scope::PubUnder(
                                             `mnist_classifier::line_segment_sketch::concave_component`,
                                         ),
                                         is_generic: false,
@@ -1712,7 +1712,7 @@ Ok(
                                         associated_item_kind: TypeItem(
                                             Memo,
                                         ),
-                                        visibility: Visibility::PubUnder(
+                                        visibility: Scope::PubUnder(
                                             `mnist_classifier::line_segment_sketch::concave_component`,
                                         ),
                                         is_generic: false,
@@ -1977,7 +1977,7 @@ Ok(
                                         associated_item_kind: TypeItem(
                                             Memo,
                                         ),
-                                        visibility: Visibility::PubUnder(
+                                        visibility: Scope::PubUnder(
                                             `mnist_classifier::line_segment_sketch::concave_component`,
                                         ),
                                         is_generic: false,
@@ -2252,7 +2252,7 @@ Ok(
                                         associated_item_kind: TypeItem(
                                             MethodFn,
                                         ),
-                                        visibility: Visibility::PubUnder(
+                                        visibility: Scope::PubUnder(
                                             `mnist_classifier::line_segment_sketch::concave_component`,
                                         ),
                                         is_generic: false,
@@ -2536,7 +2536,7 @@ Ok(
                                         associated_item_kind: TypeItem(
                                             MethodFn,
                                         ),
-                                        visibility: Visibility::PubUnder(
+                                        visibility: Scope::PubUnder(
                                             `mnist_classifier::line_segment_sketch::concave_component`,
                                         ),
                                         is_generic: false,
@@ -2820,7 +2820,7 @@ Ok(
                                         associated_item_kind: TypeItem(
                                             MethodFn,
                                         ),
-                                        visibility: Visibility::PubUnder(
+                                        visibility: Scope::PubUnder(
                                             `mnist_classifier::line_segment_sketch::concave_component`,
                                         ),
                                         is_generic: false,
@@ -3104,7 +3104,7 @@ Ok(
                                         associated_item_kind: TypeItem(
                                             MethodFn,
                                         ),
-                                        visibility: Visibility::PubUnder(
+                                        visibility: Scope::PubUnder(
                                             `mnist_classifier::line_segment_sketch::concave_component`,
                                         ),
                                         is_generic: false,
@@ -3388,7 +3388,7 @@ Ok(
                                         associated_item_kind: TypeItem(
                                             MethodFn,
                                         ),
-                                        visibility: Visibility::PubUnder(
+                                        visibility: Scope::PubUnder(
                                             `mnist_classifier::line_segment_sketch::concave_component`,
                                         ),
                                         is_generic: false,
@@ -3672,7 +3672,7 @@ Ok(
                                         associated_item_kind: TypeItem(
                                             MethodFn,
                                         ),
-                                        visibility: Visibility::PubUnder(
+                                        visibility: Scope::PubUnder(
                                             `mnist_classifier::line_segment_sketch::concave_component`,
                                         ),
                                         is_generic: false,

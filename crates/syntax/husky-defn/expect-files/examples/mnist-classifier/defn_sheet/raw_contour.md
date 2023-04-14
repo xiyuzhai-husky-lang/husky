@@ -11928,7 +11928,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 Memo,
                                             ),
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier::raw_contour`,
                                             ),
                                             is_generic: false,
@@ -12506,7 +12506,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 Memo,
                                             ),
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier::raw_contour`,
                                             ),
                                             is_generic: false,
@@ -14179,7 +14179,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 Memo,
                                             ),
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier::raw_contour`,
                                             ),
                                             is_generic: false,
@@ -14773,7 +14773,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 Memo,
                                             ),
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier::raw_contour`,
                                             ),
                                             is_generic: false,
@@ -16397,7 +16397,7 @@ Ok(
                                             associated_item_kind: TypeItem(
                                                 MethodFn,
                                             ),
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier::raw_contour`,
                                             ),
                                             is_generic: false,

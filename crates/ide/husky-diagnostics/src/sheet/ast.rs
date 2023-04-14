@@ -1,6 +1,6 @@
 use husky_ast::{Ast, AstError, OriginalAstError};
+use husky_scope_expr::OriginalVisibilityExprError;
 use husky_token::TokenGroupIdx;
-use husky_visibility_expr::OriginalVisibilityExprError;
 
 use super::*;
 

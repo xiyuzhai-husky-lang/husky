@@ -1,8 +1,8 @@
+use husky_scope_expr::{
+    DerivedVisibilityExprError, OriginalVisibilityExprError, VisibilityExprError,
+};
 use husky_token::{
     IdentToken, Punctuation, TokenError, TokenGroupIdx, TokenIdx, TokenIdxRange, TokenParseContext,
-};
-use husky_visibility_expr::{
-    DerivedVisibilityExprError, OriginalVisibilityExprError, VisibilityExprError,
 };
 use parsec::OriginalError;
 use thiserror::Error;
