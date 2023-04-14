@@ -9,6 +9,12 @@ pub enum ExprTermError {
     Derived(#[from] DerivedExprTermError),
 }
 
+impl From<TermError> for ExprTermError {
+    fn from(value: TermError) -> Self {
+        todo!()
+    }
+}
+
 #[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub enum OriginalExprTermError {
