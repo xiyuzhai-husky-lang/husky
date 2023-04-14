@@ -8,6 +8,7 @@ pub fn ty_method_signature(
     decl: TypeMethodFnDecl,
 ) -> SignatureResult<TypeMethodSignature> {
     let expr_region = decl.expr_region(db);
+    let expr_region_data = expr_region.data(db);
     let signature_term_region = signature_term_region(db, expr_region);
     let self_parameter = {
         let impl_block = decl.associated_item(db).impl_block(db);
@@ -28,8 +29,11 @@ pub fn ty_method_signature(
         signature_term_region,
         raw_term_menu,
     );
-    let nonself_regular_parameters =
-        ExplicitParameterSignatures::from_decl(decl.regular_parameters(db), signature_term_region)?;
+    let nonself_regular_parameters = ExplicitParameterSignatures::from_decl(
+        decl.regular_parameters(db),
+        expr_region_data,
+        signature_term_region,
+    )?;
     let return_ty = match decl.return_ty(db) {
         Some(return_ty) => signature_term_region.expr_term(return_ty.expr())?,
         None => raw_term_menu.unit(),

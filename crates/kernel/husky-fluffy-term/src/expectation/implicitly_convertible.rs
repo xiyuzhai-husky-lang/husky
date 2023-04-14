@@ -274,7 +274,7 @@ impl ExpectImplicitlyConvertible {
                 }
                 let result = match self.parameter_contracted_ty.contract() {
                     Contract::Pure => Ok(ImplicitConversion::Trivial.into()),
-                    Contract::Move => todo!(),
+                    Contract::Move => Ok(ImplicitConversion::Trivial.into()),
                     Contract::BorrowMut => todo!(),
                     Contract::Const => todo!(),
                 };

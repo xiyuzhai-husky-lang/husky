@@ -1,3 +1,4 @@
+mod contract;
 mod decl;
 mod region;
 mod symbol;
@@ -10,7 +11,7 @@ use super::*;
 use husky_entity_path::EntityPath;
 use husky_token::{AtToken, DotDotToken, IdentToken, TokenStream};
 use husky_word::Ident;
-use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
+use idx_arena::{ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange};
 use ordered_float::NotNan;
 use parsec::{ParseFromStream, StreamParser};
 
@@ -71,3 +72,4 @@ pub(crate) type PatternExprArena = Arena<PatternExpr>;
 pub type PatternExprIdx = ArenaIdx<PatternExpr>;
 pub type PatternExprIdxRange = ArenaIdxRange<PatternExpr>;
 pub type PatternExprMap<V> = ArenaMap<PatternExpr, V>;
+pub type PatternExprOrderedMap<V> = ArenaOrderedMap<PatternExpr, V>;

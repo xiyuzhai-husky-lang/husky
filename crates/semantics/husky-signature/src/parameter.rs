@@ -1,4 +1,6 @@
-use husky_expr::{ImplicitParameterDeclPatternVariant, RegularParameterDeclPattern};
+use husky_expr::{
+    ExprRegionData, ImplicitParameterDeclPatternVariant, RegularParameterDeclPattern,
+};
 use husky_token::VarianceToken;
 
 use crate::*;
@@ -150,7 +152,8 @@ impl std::ops::Deref for ExplicitParameterSignatures {
 impl ExplicitParameterSignatures {
     pub(crate) fn from_decl(
         parameters: &[RegularParameterDeclPattern],
-        region: &SignatureRegion,
+        expr_region_data: &ExprRegionData,
+        signature_region: &SignatureRegion,
     ) -> SignatureResult<Self> {
         Ok(Self {
             parameters: parameters
@@ -159,7 +162,7 @@ impl ExplicitParameterSignatures {
                 .map(|(i, parameter)| {
                     let ty = parameter.ty();
                     parameter.pattern();
-                    let ty = match region.expr_term(ty) {
+                    let ty = match signature_region.expr_term(ty) {
                         Ok(ty) => ty,
                         Err(_) => {
                             return Err(SignatureError::ParameterTypeRawTermError(
@@ -168,7 +171,7 @@ impl ExplicitParameterSignatures {
                         }
                     };
                     Ok(ExplicitParameterSignature::new(
-                        region.pattern_contract(parameter.pattern()),
+                        expr_region_data.pattern_contract(parameter.pattern()),
                         ty,
                     ))
                 })

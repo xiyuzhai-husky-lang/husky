@@ -21,7 +21,7 @@ impl<'a> ExprTypeEngine<'a> {
         };
         match pattern_ty {
             Some(pattern_ty) => {
-                let contract = self.signature_term_region.pattern_contract(
+                let contract = self.expr_region_data.pattern_contract(
                     let_variable_pattern
                         .as_ref()
                         .expect("must be okay")

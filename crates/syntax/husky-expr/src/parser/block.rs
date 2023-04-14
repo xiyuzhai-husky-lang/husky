@@ -259,8 +259,12 @@ impl<'a> BlockExprParser<'a> {
                     .token_idx();
                 let access_end =
                     self.ast_token_idx_range_sheet[body.ast_idx_range().end() - 1].end();
-                let frame_var_symbol =
-                    CurrentSymbol::new(access_start, Some(access_end), current_symbol_variant);
+                let frame_var_symbol = CurrentSymbol::new(
+                    &self.pattern_expr_region,
+                    access_start,
+                    Some(access_end),
+                    current_symbol_variant,
+                );
                 let frame_var_symbol_idx = self
                     .define_symbols(
                         vec![frame_var_symbol],

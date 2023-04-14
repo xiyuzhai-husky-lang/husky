@@ -4,9 +4,11 @@ use super::*;
 #[salsa::derive_debug_with_db(db = ExprDb)]
 pub struct PatternExprRegion {
     pattern_expr_arena: PatternExprArena,
+    pattern_expr_contracts: PatternExprOrderedMap<Contract>,
     pattern_infos: Vec<PatternExprInfo>,
-    pattern_symbol_maps: Vec<IdentPairMap<PatternSymbolIdx>>,
     pattern_symbol_arena: PatternSymbolArena,
+    pattern_symbol_maps: PatternExprOrderedMap<IdentPairMap<PatternSymbolIdx>>,
+    pattern_symbol_modifiers: PatternSymbolOrderedMap<SymbolModifier>,
 }
 
 impl PatternExprRegion {
@@ -15,17 +17,57 @@ impl PatternExprRegion {
         expr: PatternExpr,
         env: PatternExprInfo,
     ) -> PatternExprIdx {
-        let expr_idx = self.pattern_expr_arena.alloc_one(expr);
-        assert_eq!(expr_idx.raw(), self.pattern_infos.len());
+        // order matters
+        let contract = expr.contract();
+        let idx = self.pattern_expr_arena.alloc_one(expr);
+        assert_eq!(idx.raw(), self.pattern_infos.len());
         self.pattern_infos.push(env);
-        let expr = &self.pattern_expr_arena[expr_idx];
-        assert_eq!(expr_idx.raw(), self.pattern_symbol_maps.len());
-        self.pattern_symbol_maps.push(collect_symbols(
-            expr_idx,
-            expr,
-            &mut self.pattern_symbol_arena,
-        ));
-        expr_idx
+        let symbols = self.collect_symbols(idx);
+        assert_eq!(idx.raw(), self.pattern_symbol_maps.len());
+        self.pattern_symbol_maps.insert_next(idx, symbols);
+        self.pattern_expr_contracts.insert_next(idx, contract);
+        idx
+    }
+
+    // expr must be allocated already
+    fn collect_symbols(
+        &mut self,
+        pattern_expr_idx: PatternExprIdx,
+    ) -> IdentPairMap<PatternSymbolIdx> {
+        let symbols: IdentPairMap<PatternSymbolIdx> =
+            match self.pattern_expr_arena[pattern_expr_idx] {
+                PatternExpr::Literal(_) => Default::default(),
+                PatternExpr::Ident {
+                    ident_token,
+                    modifier_keyword_group: contract,
+                } => [(
+                    ident_token.ident(),
+                    self.alloc_new_symbol(PatternSymbol::Atom(pattern_expr_idx)),
+                )]
+                .into(),
+                PatternExpr::Entity(_) => todo!(),
+                PatternExpr::Tuple { name, fields } => todo!(),
+                PatternExpr::Struct { name, fields } => todo!(),
+                PatternExpr::OneOf { options } => todo!(),
+                PatternExpr::Binding {
+                    ident_token,
+                    asperand_token,
+                    src,
+                } => todo!(),
+                PatternExpr::Range {
+                    start,
+                    dot_dot_token,
+                    end,
+                } => todo!(),
+            };
+        symbols
+    }
+
+    fn alloc_new_symbol(&mut self, symbol: PatternSymbol) -> PatternSymbolIdx {
+        let modifier = symbol.modifier(&self.pattern_expr_arena);
+        let idx = self.pattern_symbol_arena.alloc_one(symbol);
+        self.pattern_symbol_modifiers.insert_next(idx, modifier);
+        idx
     }
 
     pub fn pattern_exprs<'a>(
@@ -38,7 +80,7 @@ impl PatternExprRegion {
         &self,
         pattern_expr_idx: PatternExprIdx,
     ) -> &[(Ident, PatternSymbolIdx)] {
-        &self.pattern_symbol_maps[pattern_expr_idx.raw()]
+        &self.pattern_symbol_maps[pattern_expr_idx]
     }
 
     pub fn pattern_info(&self, pattern_expr_idx: PatternExprIdx) -> PatternExprInfo {
@@ -51,38 +93,6 @@ impl PatternExprRegion {
 
     pub fn pattern_symbol_arena(&self) -> &PatternSymbolArena {
         &self.pattern_symbol_arena
-    }
-}
-
-fn collect_symbols(
-    pattern_expr_idx: PatternExprIdx,
-    pattern_expr: &PatternExpr,
-    pattern_symbol_arena: &mut PatternSymbolArena,
-) -> IdentPairMap<PatternSymbolIdx> {
-    match pattern_expr {
-        PatternExpr::Literal(_) => Default::default(),
-        PatternExpr::Ident {
-            ident_token,
-            modifier_keyword_group: contract,
-        } => [(
-            ident_token.ident(),
-            pattern_symbol_arena.alloc_one(PatternSymbol::Atom(pattern_expr_idx)),
-        )]
-        .into(),
-        PatternExpr::Entity(_) => todo!(),
-        PatternExpr::Tuple { name, fields } => todo!(),
-        PatternExpr::Struct { name, fields } => todo!(),
-        PatternExpr::OneOf { options } => todo!(),
-        PatternExpr::Binding {
-            ident_token,
-            asperand_token,
-            src,
-        } => todo!(),
-        PatternExpr::Range {
-            start,
-            dot_dot_token,
-            end,
-        } => todo!(),
     }
 }
 
@@ -107,5 +117,27 @@ impl std::ops::Index<&PatternSymbolIdx> for PatternExprRegion {
 
     fn index(&self, index: &PatternSymbolIdx) -> &Self::Output {
         &self.pattern_symbol_arena[index]
+    }
+}
+
+impl ExprRegionData {
+    pub fn pattern_contract(&self, pattern_expr_idx: PatternExprIdx) -> Contract {
+        self.pattern_expr_region()
+            .pattern_contract(pattern_expr_idx)
+    }
+
+    pub fn pattern_symbol_modifier(&self, pattern_symbol_idx: PatternSymbolIdx) -> SymbolModifier {
+        self.pattern_expr_region()
+            .pattern_symbol_modifier(pattern_symbol_idx)
+    }
+}
+
+impl PatternExprRegion {
+    fn pattern_contract(&self, pattern_expr_idx: PatternExprIdx) -> Contract {
+        self.pattern_expr_contracts[pattern_expr_idx]
+    }
+
+    pub fn pattern_symbol_modifier(&self, pattern_symbol_idx: PatternSymbolIdx) -> SymbolModifier {
+        self.pattern_symbol_modifiers[pattern_symbol_idx]
     }
 }

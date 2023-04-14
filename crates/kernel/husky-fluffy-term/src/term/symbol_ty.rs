@@ -1,14 +1,40 @@
 use super::*;
 
-impl FluffyTerm {
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = FluffyTermDb)]
+pub struct SymbolType(FluffyTerm);
+
+impl SymbolType {
+    pub fn term(self) -> FluffyTerm {
+        self.0
+    }
+}
+
+impl Into<FluffyTerm> for SymbolType {
+    fn into(self) -> FluffyTerm {
+        self.term()
+    }
+}
+
+impl SymbolType {
     #[inline(always)]
-    pub fn new_symbol_ty_from_signature(
+    pub fn new_from_signature(
         engine: &mut impl FluffyTermEngine,
-        symbol_idx: impl IntoLocalSymbolIdx,
+        current_symbol_idx: CurrentSymbolIdx,
         signature: SymbolSignature,
-    ) -> TermResult<FluffyTerm> {
-        let local_symbol_idx = symbol_idx.into_local_symbol_idx(engine.expr_region_data());
-        let place = match signature.modifier() {
+    ) -> TermResult<Self> {
+        let ty = Term::ty_from_raw(engine.db(), signature.ty()?)?;
+        Ok(Self::new(engine, current_symbol_idx, ty.into()))
+    }
+
+    pub fn new(
+        engine: &mut impl FluffyTermEngine,
+        current_symbol_idx: CurrentSymbolIdx,
+        ty: FluffyTerm,
+    ) -> Self {
+        let expr_region_data = engine.expr_region_data();
+        let local_symbol_idx = current_symbol_idx.into_local_symbol_idx(expr_region_data);
+        let place = match expr_region_data[current_symbol_idx].modifier() {
             SymbolModifier::Pure => Place::StackPure {
                 location: local_symbol_idx.into(),
             },
@@ -20,12 +46,7 @@ impl FluffyTerm {
             },
             SymbolModifier::Const => Place::Const, // todo: handle variance
         };
-        let ty = Term::ty_from_raw(engine.db(), signature.ty()?)?;
-        Ok(FluffyTerm::new_symbol_ty(engine, place, ty.into()))
-    }
-
-    pub fn new_symbol_ty(engine: &mut impl FluffyTermEngine, place: Place, ty: FluffyTerm) -> Self {
-        match ty {
+        Self(match ty {
             FluffyTerm::Literal(_) => todo!(),
             FluffyTerm::Symbol(_) => todo!(),
             FluffyTerm::Hole(_) => todo!(),
@@ -125,8 +146,7 @@ impl FluffyTerm {
                 };
                 HollowTerm::new(engine, data).into()
             }
-        }
-        // SolidTerm::new(engine.fluffy_term_region_mut().solid_terms_mut(), data).into()
+        })
     }
 }
 

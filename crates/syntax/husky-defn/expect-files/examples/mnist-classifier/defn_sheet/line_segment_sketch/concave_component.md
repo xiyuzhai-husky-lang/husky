@@ -129,9 +129,15 @@ Ok(
                                                 pattern_expr_arena: Arena {
                                                     data: [],
                                                 },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [],
+                                                },
                                                 pattern_infos: [],
-                                                pattern_symbol_maps: [],
                                                 pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_modifiers: ArenaMap {
                                                     data: [],
                                                 },
                                             },
@@ -340,9 +346,21 @@ Ok(
                                                         },
                                                     ],
                                                 },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [
+                                                        Pure,
+                                                    ],
+                                                },
                                                 pattern_infos: [
                                                     Parameter,
                                                 ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        PatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                    ],
+                                                },
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
@@ -351,11 +369,9 @@ Ok(
                                                         ),
                                                     ],
                                                 ],
-                                                pattern_symbol_arena: Arena {
+                                                pattern_symbol_modifiers: ArenaMap {
                                                     data: [
-                                                        PatternSymbol::Atom(
-                                                            0,
-                                                        ),
+                                                        Pure,
                                                     ],
                                                 },
                                             },
@@ -366,6 +382,7 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 525,
                                                             ),
@@ -552,9 +569,21 @@ Ok(
                                                                 },
                                                             ],
                                                         },
+                                                        pattern_expr_contracts: ArenaMap {
+                                                            data: [
+                                                                Pure,
+                                                            ],
+                                                        },
                                                         pattern_infos: [
                                                             Parameter,
                                                         ],
+                                                        pattern_symbol_arena: Arena {
+                                                            data: [
+                                                                PatternSymbol::Atom(
+                                                                    0,
+                                                                ),
+                                                            ],
+                                                        },
                                                         pattern_symbol_maps: [
                                                             [
                                                                 (
@@ -563,11 +592,9 @@ Ok(
                                                                 ),
                                                             ],
                                                         ],
-                                                        pattern_symbol_arena: Arena {
+                                                        pattern_symbol_modifiers: ArenaMap {
                                                             data: [
-                                                                PatternSymbol::Atom(
-                                                                    0,
-                                                                ),
+                                                                Pure,
                                                             ],
                                                         },
                                                     },
@@ -578,6 +605,7 @@ Ok(
                                                         current_symbol_arena: Arena {
                                                             data: [
                                                                 CurrentSymbol {
+                                                                    modifier: Pure,
                                                                     access_start: TokenIdx(
                                                                         525,
                                                                     ),
@@ -1695,6 +1723,15 @@ Ok(
                                                     },
                                                 ],
                                             },
+                                            pattern_expr_contracts: ArenaMap {
+                                                data: [
+                                                    Move,
+                                                    Pure,
+                                                    Move,
+                                                    Move,
+                                                    Pure,
+                                                ],
+                                            },
                                             pattern_infos: [
                                                 Let,
                                                 Let,
@@ -1702,6 +1739,25 @@ Ok(
                                                 Let,
                                                 Let,
                                             ],
+                                            pattern_symbol_arena: Arena {
+                                                data: [
+                                                    PatternSymbol::Atom(
+                                                        0,
+                                                    ),
+                                                    PatternSymbol::Atom(
+                                                        1,
+                                                    ),
+                                                    PatternSymbol::Atom(
+                                                        2,
+                                                    ),
+                                                    PatternSymbol::Atom(
+                                                        3,
+                                                    ),
+                                                    PatternSymbol::Atom(
+                                                        4,
+                                                    ),
+                                                ],
+                                            },
                                             pattern_symbol_maps: [
                                                 [
                                                     (
@@ -1734,23 +1790,13 @@ Ok(
                                                     ),
                                                 ],
                                             ],
-                                            pattern_symbol_arena: Arena {
+                                            pattern_symbol_modifiers: ArenaMap {
                                                 data: [
-                                                    PatternSymbol::Atom(
-                                                        0,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        1,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        2,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        3,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        4,
-                                                    ),
+                                                    Mut,
+                                                    Pure,
+                                                    Mut,
+                                                    Mut,
+                                                    Pure,
                                                 ],
                                             },
                                         },
@@ -1761,6 +1807,7 @@ Ok(
                                                         parent_symbol_idx: Current(
                                                             0,
                                                         ),
+                                                        modifier: Pure,
                                                         kind: InheritedSymbolKind::ExplicitParameter {
                                                             ident: `line_segment_sketch`,
                                                         },
@@ -1770,6 +1817,7 @@ Ok(
                                             current_symbol_arena: Arena {
                                                 data: [
                                                     CurrentSymbol {
+                                                        modifier: Mut,
                                                         access_start: TokenIdx(
                                                             537,
                                                         ),
@@ -1786,6 +1834,7 @@ Ok(
                                                         },
                                                     },
                                                     CurrentSymbol {
+                                                        modifier: Pure,
                                                         access_start: TokenIdx(
                                                             546,
                                                         ),
@@ -1802,6 +1851,7 @@ Ok(
                                                         },
                                                     },
                                                     CurrentSymbol {
+                                                        modifier: Mut,
                                                         access_start: TokenIdx(
                                                             557,
                                                         ),
@@ -1818,6 +1868,7 @@ Ok(
                                                         },
                                                     },
                                                     CurrentSymbol {
+                                                        modifier: Mut,
                                                         access_start: TokenIdx(
                                                             562,
                                                         ),
@@ -1834,6 +1885,7 @@ Ok(
                                                         },
                                                     },
                                                     CurrentSymbol {
+                                                        modifier: Pure,
                                                         access_start: TokenIdx(
                                                             582,
                                                         ),
@@ -1983,9 +2035,15 @@ Ok(
                                             pattern_expr_arena: Arena {
                                                 data: [],
                                             },
+                                            pattern_expr_contracts: ArenaMap {
+                                                data: [],
+                                            },
                                             pattern_infos: [],
-                                            pattern_symbol_maps: [],
                                             pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_modifiers: ArenaMap {
                                                 data: [],
                                             },
                                         },
@@ -2179,9 +2237,15 @@ Ok(
                                                                 pattern_expr_arena: Arena {
                                                                     data: [],
                                                                 },
+                                                                pattern_expr_contracts: ArenaMap {
+                                                                    data: [],
+                                                                },
                                                                 pattern_infos: [],
-                                                                pattern_symbol_maps: [],
                                                                 pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_modifiers: ArenaMap {
                                                                     data: [],
                                                                 },
                                                             },
@@ -2255,9 +2319,15 @@ Ok(
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
                                                     pattern_infos: [],
-                                                    pattern_symbol_maps: [],
                                                     pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
                                                         data: [],
                                                     },
                                                 },
@@ -2337,9 +2407,15 @@ Ok(
                                                                         pattern_expr_arena: Arena {
                                                                             data: [],
                                                                         },
+                                                                        pattern_expr_contracts: ArenaMap {
+                                                                            data: [],
+                                                                        },
                                                                         pattern_infos: [],
-                                                                        pattern_symbol_maps: [],
                                                                         pattern_symbol_arena: Arena {
+                                                                            data: [],
+                                                                        },
+                                                                        pattern_symbol_maps: [],
+                                                                        pattern_symbol_modifiers: ArenaMap {
                                                                             data: [],
                                                                         },
                                                                     },
@@ -2413,9 +2489,15 @@ Ok(
                                                             pattern_expr_arena: Arena {
                                                                 data: [],
                                                             },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
                                                             pattern_infos: [],
-                                                            pattern_symbol_maps: [],
                                                             pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
                                                                 data: [],
                                                             },
                                                         },
@@ -2493,9 +2575,15 @@ Ok(
                                                 pattern_expr_arena: Arena {
                                                     data: [],
                                                 },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [],
+                                                },
                                                 pattern_infos: [],
-                                                pattern_symbol_maps: [],
                                                 pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_modifiers: ArenaMap {
                                                     data: [],
                                                 },
                                             },
@@ -2693,9 +2781,15 @@ Ok(
                                                                 pattern_expr_arena: Arena {
                                                                     data: [],
                                                                 },
+                                                                pattern_expr_contracts: ArenaMap {
+                                                                    data: [],
+                                                                },
                                                                 pattern_infos: [],
-                                                                pattern_symbol_maps: [],
                                                                 pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_modifiers: ArenaMap {
                                                                     data: [],
                                                                 },
                                                             },
@@ -2769,9 +2863,15 @@ Ok(
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
                                                     pattern_infos: [],
-                                                    pattern_symbol_maps: [],
                                                     pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
                                                         data: [],
                                                     },
                                                 },
@@ -2851,9 +2951,15 @@ Ok(
                                                                         pattern_expr_arena: Arena {
                                                                             data: [],
                                                                         },
+                                                                        pattern_expr_contracts: ArenaMap {
+                                                                            data: [],
+                                                                        },
                                                                         pattern_infos: [],
-                                                                        pattern_symbol_maps: [],
                                                                         pattern_symbol_arena: Arena {
+                                                                            data: [],
+                                                                        },
+                                                                        pattern_symbol_maps: [],
+                                                                        pattern_symbol_modifiers: ArenaMap {
                                                                             data: [],
                                                                         },
                                                                     },
@@ -2927,9 +3033,15 @@ Ok(
                                                             pattern_expr_arena: Arena {
                                                                 data: [],
                                                             },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
                                                             pattern_infos: [],
-                                                            pattern_symbol_maps: [],
                                                             pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
                                                                 data: [],
                                                             },
                                                         },
@@ -3066,9 +3178,15 @@ Ok(
                                                 pattern_expr_arena: Arena {
                                                     data: [],
                                                 },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [],
+                                                },
                                                 pattern_infos: [],
-                                                pattern_symbol_maps: [],
                                                 pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_modifiers: ArenaMap {
                                                     data: [],
                                                 },
                                             },
@@ -3266,9 +3384,15 @@ Ok(
                                                                 pattern_expr_arena: Arena {
                                                                     data: [],
                                                                 },
+                                                                pattern_expr_contracts: ArenaMap {
+                                                                    data: [],
+                                                                },
                                                                 pattern_infos: [],
-                                                                pattern_symbol_maps: [],
                                                                 pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_modifiers: ArenaMap {
                                                                     data: [],
                                                                 },
                                                             },
@@ -3342,9 +3466,15 @@ Ok(
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
                                                     pattern_infos: [],
-                                                    pattern_symbol_maps: [],
                                                     pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
                                                         data: [],
                                                     },
                                                 },
@@ -3424,9 +3554,15 @@ Ok(
                                                                         pattern_expr_arena: Arena {
                                                                             data: [],
                                                                         },
+                                                                        pattern_expr_contracts: ArenaMap {
+                                                                            data: [],
+                                                                        },
                                                                         pattern_infos: [],
-                                                                        pattern_symbol_maps: [],
                                                                         pattern_symbol_arena: Arena {
+                                                                            data: [],
+                                                                        },
+                                                                        pattern_symbol_maps: [],
+                                                                        pattern_symbol_modifiers: ArenaMap {
                                                                             data: [],
                                                                         },
                                                                     },
@@ -3500,9 +3636,15 @@ Ok(
                                                             pattern_expr_arena: Arena {
                                                                 data: [],
                                                             },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
                                                             pattern_infos: [],
-                                                            pattern_symbol_maps: [],
                                                             pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
                                                                 data: [],
                                                             },
                                                         },
@@ -4270,6 +4412,16 @@ Ok(
                                                         },
                                                     ],
                                                 },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [
+                                                        Move,
+                                                        Pure,
+                                                        Pure,
+                                                        Pure,
+                                                        Pure,
+                                                        Pure,
+                                                    ],
+                                                },
                                                 pattern_infos: [
                                                     Let,
                                                     Let,
@@ -4278,6 +4430,28 @@ Ok(
                                                     Let,
                                                     Let,
                                                 ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        PatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                        PatternSymbol::Atom(
+                                                            1,
+                                                        ),
+                                                        PatternSymbol::Atom(
+                                                            2,
+                                                        ),
+                                                        PatternSymbol::Atom(
+                                                            3,
+                                                        ),
+                                                        PatternSymbol::Atom(
+                                                            4,
+                                                        ),
+                                                        PatternSymbol::Atom(
+                                                            5,
+                                                        ),
+                                                    ],
+                                                },
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
@@ -4316,26 +4490,14 @@ Ok(
                                                         ),
                                                     ],
                                                 ],
-                                                pattern_symbol_arena: Arena {
+                                                pattern_symbol_modifiers: ArenaMap {
                                                     data: [
-                                                        PatternSymbol::Atom(
-                                                            0,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            1,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            2,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            3,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            4,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            5,
-                                                        ),
+                                                        Mut,
+                                                        Pure,
+                                                        Pure,
+                                                        Pure,
+                                                        Pure,
+                                                        Pure,
                                                     ],
                                                 },
                                             },
@@ -4346,6 +4508,7 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
+                                                            modifier: Mut,
                                                             access_start: TokenIdx(
                                                                 89,
                                                             ),
@@ -4362,6 +4525,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 93,
                                                             ),
@@ -4378,6 +4542,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 105,
                                                             ),
@@ -4394,6 +4559,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 113,
                                                             ),
@@ -4410,6 +4576,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 138,
                                                             ),
@@ -4426,6 +4593,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 140,
                                                             ),
@@ -4442,6 +4610,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 151,
                                                             ),
@@ -4653,9 +4822,15 @@ Ok(
                                                                 pattern_expr_arena: Arena {
                                                                     data: [],
                                                                 },
+                                                                pattern_expr_contracts: ArenaMap {
+                                                                    data: [],
+                                                                },
                                                                 pattern_infos: [],
-                                                                pattern_symbol_maps: [],
                                                                 pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_modifiers: ArenaMap {
                                                                     data: [],
                                                                 },
                                                             },
@@ -4729,9 +4904,15 @@ Ok(
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
                                                     pattern_infos: [],
-                                                    pattern_symbol_maps: [],
                                                     pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
                                                         data: [],
                                                     },
                                                 },
@@ -4811,9 +4992,15 @@ Ok(
                                                                         pattern_expr_arena: Arena {
                                                                             data: [],
                                                                         },
+                                                                        pattern_expr_contracts: ArenaMap {
+                                                                            data: [],
+                                                                        },
                                                                         pattern_infos: [],
-                                                                        pattern_symbol_maps: [],
                                                                         pattern_symbol_arena: Arena {
+                                                                            data: [],
+                                                                        },
+                                                                        pattern_symbol_maps: [],
+                                                                        pattern_symbol_modifiers: ArenaMap {
                                                                             data: [],
                                                                         },
                                                                     },
@@ -4887,9 +5074,15 @@ Ok(
                                                             pattern_expr_arena: Arena {
                                                                 data: [],
                                                             },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
                                                             pattern_infos: [],
-                                                            pattern_symbol_maps: [],
                                                             pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
                                                                 data: [],
                                                             },
                                                         },
@@ -5479,11 +5672,31 @@ Ok(
                                                         },
                                                     ],
                                                 },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [
+                                                        Move,
+                                                        Move,
+                                                        Pure,
+                                                    ],
+                                                },
                                                 pattern_infos: [
                                                     Let,
                                                     Let,
                                                     Let,
                                                 ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        PatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                        PatternSymbol::Atom(
+                                                            1,
+                                                        ),
+                                                        PatternSymbol::Atom(
+                                                            2,
+                                                        ),
+                                                    ],
+                                                },
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
@@ -5504,17 +5717,11 @@ Ok(
                                                         ),
                                                     ],
                                                 ],
-                                                pattern_symbol_arena: Arena {
+                                                pattern_symbol_modifiers: ArenaMap {
                                                     data: [
-                                                        PatternSymbol::Atom(
-                                                            0,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            1,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            2,
-                                                        ),
+                                                        Mut,
+                                                        Mut,
+                                                        Pure,
                                                     ],
                                                 },
                                             },
@@ -5525,6 +5732,7 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
+                                                            modifier: Mut,
                                                             access_start: TokenIdx(
                                                                 177,
                                                             ),
@@ -5541,6 +5749,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Mut,
                                                             access_start: TokenIdx(
                                                                 182,
                                                             ),
@@ -5557,6 +5766,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 212,
                                                             ),
@@ -5573,6 +5783,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 214,
                                                             ),
@@ -5784,9 +5995,15 @@ Ok(
                                                                 pattern_expr_arena: Arena {
                                                                     data: [],
                                                                 },
+                                                                pattern_expr_contracts: ArenaMap {
+                                                                    data: [],
+                                                                },
                                                                 pattern_infos: [],
-                                                                pattern_symbol_maps: [],
                                                                 pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_modifiers: ArenaMap {
                                                                     data: [],
                                                                 },
                                                             },
@@ -5860,9 +6077,15 @@ Ok(
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
                                                     pattern_infos: [],
-                                                    pattern_symbol_maps: [],
                                                     pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
                                                         data: [],
                                                     },
                                                 },
@@ -5942,9 +6165,15 @@ Ok(
                                                                         pattern_expr_arena: Arena {
                                                                             data: [],
                                                                         },
+                                                                        pattern_expr_contracts: ArenaMap {
+                                                                            data: [],
+                                                                        },
                                                                         pattern_infos: [],
-                                                                        pattern_symbol_maps: [],
                                                                         pattern_symbol_arena: Arena {
+                                                                            data: [],
+                                                                        },
+                                                                        pattern_symbol_maps: [],
+                                                                        pattern_symbol_modifiers: ArenaMap {
                                                                             data: [],
                                                                         },
                                                                     },
@@ -6018,9 +6247,15 @@ Ok(
                                                             pattern_expr_arena: Arena {
                                                                 data: [],
                                                             },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
                                                             pattern_infos: [],
-                                                            pattern_symbol_maps: [],
                                                             pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
                                                                 data: [],
                                                             },
                                                         },
@@ -7134,6 +7369,16 @@ Ok(
                                                         },
                                                     ],
                                                 },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [
+                                                        Pure,
+                                                        Move,
+                                                        Move,
+                                                        Move,
+                                                        Move,
+                                                        Pure,
+                                                    ],
+                                                },
                                                 pattern_infos: [
                                                     Let,
                                                     Let,
@@ -7142,6 +7387,28 @@ Ok(
                                                     Let,
                                                     Let,
                                                 ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        PatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                        PatternSymbol::Atom(
+                                                            1,
+                                                        ),
+                                                        PatternSymbol::Atom(
+                                                            2,
+                                                        ),
+                                                        PatternSymbol::Atom(
+                                                            3,
+                                                        ),
+                                                        PatternSymbol::Atom(
+                                                            4,
+                                                        ),
+                                                        PatternSymbol::Atom(
+                                                            5,
+                                                        ),
+                                                    ],
+                                                },
                                                 pattern_symbol_maps: [
                                                     [
                                                         (
@@ -7180,26 +7447,14 @@ Ok(
                                                         ),
                                                     ],
                                                 ],
-                                                pattern_symbol_arena: Arena {
+                                                pattern_symbol_modifiers: ArenaMap {
                                                     data: [
-                                                        PatternSymbol::Atom(
-                                                            0,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            1,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            2,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            3,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            4,
-                                                        ),
-                                                        PatternSymbol::Atom(
-                                                            5,
-                                                        ),
+                                                        Pure,
+                                                        Mut,
+                                                        Mut,
+                                                        Mut,
+                                                        Mut,
+                                                        Pure,
                                                     ],
                                                 },
                                             },
@@ -7210,6 +7465,7 @@ Ok(
                                                 current_symbol_arena: Arena {
                                                     data: [
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 248,
                                                             ),
@@ -7226,6 +7482,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Mut,
                                                             access_start: TokenIdx(
                                                                 261,
                                                             ),
@@ -7242,6 +7499,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Mut,
                                                             access_start: TokenIdx(
                                                                 268,
                                                             ),
@@ -7258,6 +7516,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Mut,
                                                             access_start: TokenIdx(
                                                                 275,
                                                             ),
@@ -7274,6 +7533,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Mut,
                                                             access_start: TokenIdx(
                                                                 282,
                                                             ),
@@ -7290,6 +7550,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 301,
                                                             ),
@@ -7306,6 +7567,7 @@ Ok(
                                                             },
                                                         },
                                                         CurrentSymbol {
+                                                            modifier: Pure,
                                                             access_start: TokenIdx(
                                                                 303,
                                                             ),
@@ -7517,9 +7779,15 @@ Ok(
                                                                 pattern_expr_arena: Arena {
                                                                     data: [],
                                                                 },
+                                                                pattern_expr_contracts: ArenaMap {
+                                                                    data: [],
+                                                                },
                                                                 pattern_infos: [],
-                                                                pattern_symbol_maps: [],
                                                                 pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_modifiers: ArenaMap {
                                                                     data: [],
                                                                 },
                                                             },
@@ -7593,9 +7861,15 @@ Ok(
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
                                                     pattern_infos: [],
-                                                    pattern_symbol_maps: [],
                                                     pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
                                                         data: [],
                                                     },
                                                 },
@@ -7675,9 +7949,15 @@ Ok(
                                                                         pattern_expr_arena: Arena {
                                                                             data: [],
                                                                         },
+                                                                        pattern_expr_contracts: ArenaMap {
+                                                                            data: [],
+                                                                        },
                                                                         pattern_infos: [],
-                                                                        pattern_symbol_maps: [],
                                                                         pattern_symbol_arena: Arena {
+                                                                            data: [],
+                                                                        },
+                                                                        pattern_symbol_maps: [],
+                                                                        pattern_symbol_modifiers: ArenaMap {
                                                                             data: [],
                                                                         },
                                                                     },
@@ -7751,9 +8031,15 @@ Ok(
                                                             pattern_expr_arena: Arena {
                                                                 data: [],
                                                             },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
                                                             pattern_infos: [],
-                                                            pattern_symbol_maps: [],
                                                             pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
                                                                 data: [],
                                                             },
                                                         },
@@ -7882,9 +8168,15 @@ Ok(
                                                 pattern_expr_arena: Arena {
                                                     data: [],
                                                 },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [],
+                                                },
                                                 pattern_infos: [],
-                                                pattern_symbol_maps: [],
                                                 pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_modifiers: ArenaMap {
                                                     data: [],
                                                 },
                                             },
@@ -8069,9 +8361,15 @@ Ok(
                                                                 pattern_expr_arena: Arena {
                                                                     data: [],
                                                                 },
+                                                                pattern_expr_contracts: ArenaMap {
+                                                                    data: [],
+                                                                },
                                                                 pattern_infos: [],
-                                                                pattern_symbol_maps: [],
                                                                 pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_modifiers: ArenaMap {
                                                                     data: [],
                                                                 },
                                                             },
@@ -8145,9 +8443,15 @@ Ok(
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
                                                     pattern_infos: [],
-                                                    pattern_symbol_maps: [],
                                                     pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
                                                         data: [],
                                                     },
                                                 },
@@ -8262,9 +8566,15 @@ Ok(
                                                                         pattern_expr_arena: Arena {
                                                                             data: [],
                                                                         },
+                                                                        pattern_expr_contracts: ArenaMap {
+                                                                            data: [],
+                                                                        },
                                                                         pattern_infos: [],
-                                                                        pattern_symbol_maps: [],
                                                                         pattern_symbol_arena: Arena {
+                                                                            data: [],
+                                                                        },
+                                                                        pattern_symbol_maps: [],
+                                                                        pattern_symbol_modifiers: ArenaMap {
                                                                             data: [],
                                                                         },
                                                                     },
@@ -8338,9 +8648,15 @@ Ok(
                                                             pattern_expr_arena: Arena {
                                                                 data: [],
                                                             },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
                                                             pattern_infos: [],
-                                                            pattern_symbol_maps: [],
                                                             pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
                                                                 data: [],
                                                             },
                                                         },
@@ -8587,9 +8903,15 @@ Ok(
                                                 pattern_expr_arena: Arena {
                                                     data: [],
                                                 },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [],
+                                                },
                                                 pattern_infos: [],
-                                                pattern_symbol_maps: [],
                                                 pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_modifiers: ArenaMap {
                                                     data: [],
                                                 },
                                             },
@@ -8774,9 +9096,15 @@ Ok(
                                                                 pattern_expr_arena: Arena {
                                                                     data: [],
                                                                 },
+                                                                pattern_expr_contracts: ArenaMap {
+                                                                    data: [],
+                                                                },
                                                                 pattern_infos: [],
-                                                                pattern_symbol_maps: [],
                                                                 pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_modifiers: ArenaMap {
                                                                     data: [],
                                                                 },
                                                             },
@@ -8850,9 +9178,15 @@ Ok(
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
                                                     pattern_infos: [],
-                                                    pattern_symbol_maps: [],
                                                     pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
                                                         data: [],
                                                     },
                                                 },
@@ -8967,9 +9301,15 @@ Ok(
                                                                         pattern_expr_arena: Arena {
                                                                             data: [],
                                                                         },
+                                                                        pattern_expr_contracts: ArenaMap {
+                                                                            data: [],
+                                                                        },
                                                                         pattern_infos: [],
-                                                                        pattern_symbol_maps: [],
                                                                         pattern_symbol_arena: Arena {
+                                                                            data: [],
+                                                                        },
+                                                                        pattern_symbol_maps: [],
+                                                                        pattern_symbol_modifiers: ArenaMap {
                                                                             data: [],
                                                                         },
                                                                     },
@@ -9043,9 +9383,15 @@ Ok(
                                                             pattern_expr_arena: Arena {
                                                                 data: [],
                                                             },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
                                                             pattern_infos: [],
-                                                            pattern_symbol_maps: [],
                                                             pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
                                                                 data: [],
                                                             },
                                                         },
@@ -9179,9 +9525,15 @@ Ok(
                                                 pattern_expr_arena: Arena {
                                                     data: [],
                                                 },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [],
+                                                },
                                                 pattern_infos: [],
-                                                pattern_symbol_maps: [],
                                                 pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_modifiers: ArenaMap {
                                                     data: [],
                                                 },
                                             },
@@ -9366,9 +9718,15 @@ Ok(
                                                                 pattern_expr_arena: Arena {
                                                                     data: [],
                                                                 },
+                                                                pattern_expr_contracts: ArenaMap {
+                                                                    data: [],
+                                                                },
                                                                 pattern_infos: [],
-                                                                pattern_symbol_maps: [],
                                                                 pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_modifiers: ArenaMap {
                                                                     data: [],
                                                                 },
                                                             },
@@ -9442,9 +9800,15 @@ Ok(
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
                                                     pattern_infos: [],
-                                                    pattern_symbol_maps: [],
                                                     pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
                                                         data: [],
                                                     },
                                                 },
@@ -9559,9 +9923,15 @@ Ok(
                                                                         pattern_expr_arena: Arena {
                                                                             data: [],
                                                                         },
+                                                                        pattern_expr_contracts: ArenaMap {
+                                                                            data: [],
+                                                                        },
                                                                         pattern_infos: [],
-                                                                        pattern_symbol_maps: [],
                                                                         pattern_symbol_arena: Arena {
+                                                                            data: [],
+                                                                        },
+                                                                        pattern_symbol_maps: [],
+                                                                        pattern_symbol_modifiers: ArenaMap {
                                                                             data: [],
                                                                         },
                                                                     },
@@ -9635,9 +10005,15 @@ Ok(
                                                             pattern_expr_arena: Arena {
                                                                 data: [],
                                                             },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
                                                             pattern_infos: [],
-                                                            pattern_symbol_maps: [],
                                                             pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
                                                                 data: [],
                                                             },
                                                         },
@@ -9771,9 +10147,15 @@ Ok(
                                                 pattern_expr_arena: Arena {
                                                     data: [],
                                                 },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [],
+                                                },
                                                 pattern_infos: [],
-                                                pattern_symbol_maps: [],
                                                 pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_modifiers: ArenaMap {
                                                     data: [],
                                                 },
                                             },
@@ -9958,9 +10340,15 @@ Ok(
                                                                 pattern_expr_arena: Arena {
                                                                     data: [],
                                                                 },
+                                                                pattern_expr_contracts: ArenaMap {
+                                                                    data: [],
+                                                                },
                                                                 pattern_infos: [],
-                                                                pattern_symbol_maps: [],
                                                                 pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_modifiers: ArenaMap {
                                                                     data: [],
                                                                 },
                                                             },
@@ -10034,9 +10422,15 @@ Ok(
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
                                                     pattern_infos: [],
-                                                    pattern_symbol_maps: [],
                                                     pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
                                                         data: [],
                                                     },
                                                 },
@@ -10151,9 +10545,15 @@ Ok(
                                                                         pattern_expr_arena: Arena {
                                                                             data: [],
                                                                         },
+                                                                        pattern_expr_contracts: ArenaMap {
+                                                                            data: [],
+                                                                        },
                                                                         pattern_infos: [],
-                                                                        pattern_symbol_maps: [],
                                                                         pattern_symbol_arena: Arena {
+                                                                            data: [],
+                                                                        },
+                                                                        pattern_symbol_maps: [],
+                                                                        pattern_symbol_modifiers: ArenaMap {
                                                                             data: [],
                                                                         },
                                                                     },
@@ -10227,9 +10627,15 @@ Ok(
                                                             pattern_expr_arena: Arena {
                                                                 data: [],
                                                             },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
                                                             pattern_infos: [],
-                                                            pattern_symbol_maps: [],
                                                             pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
                                                                 data: [],
                                                             },
                                                         },
@@ -10339,9 +10745,15 @@ Ok(
                                                 pattern_expr_arena: Arena {
                                                     data: [],
                                                 },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [],
+                                                },
                                                 pattern_infos: [],
-                                                pattern_symbol_maps: [],
                                                 pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_modifiers: ArenaMap {
                                                     data: [],
                                                 },
                                             },
@@ -10526,9 +10938,15 @@ Ok(
                                                                 pattern_expr_arena: Arena {
                                                                     data: [],
                                                                 },
+                                                                pattern_expr_contracts: ArenaMap {
+                                                                    data: [],
+                                                                },
                                                                 pattern_infos: [],
-                                                                pattern_symbol_maps: [],
                                                                 pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_modifiers: ArenaMap {
                                                                     data: [],
                                                                 },
                                                             },
@@ -10602,9 +11020,15 @@ Ok(
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
                                                     pattern_infos: [],
-                                                    pattern_symbol_maps: [],
                                                     pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
                                                         data: [],
                                                     },
                                                 },
@@ -10719,9 +11143,15 @@ Ok(
                                                                         pattern_expr_arena: Arena {
                                                                             data: [],
                                                                         },
+                                                                        pattern_expr_contracts: ArenaMap {
+                                                                            data: [],
+                                                                        },
                                                                         pattern_infos: [],
-                                                                        pattern_symbol_maps: [],
                                                                         pattern_symbol_arena: Arena {
+                                                                            data: [],
+                                                                        },
+                                                                        pattern_symbol_maps: [],
+                                                                        pattern_symbol_modifiers: ArenaMap {
                                                                             data: [],
                                                                         },
                                                                     },
@@ -10795,9 +11225,15 @@ Ok(
                                                             pattern_expr_arena: Arena {
                                                                 data: [],
                                                             },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
                                                             pattern_infos: [],
-                                                            pattern_symbol_maps: [],
                                                             pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
                                                                 data: [],
                                                             },
                                                         },
@@ -10919,9 +11355,15 @@ Ok(
                                                 pattern_expr_arena: Arena {
                                                     data: [],
                                                 },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [],
+                                                },
                                                 pattern_infos: [],
-                                                pattern_symbol_maps: [],
                                                 pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_modifiers: ArenaMap {
                                                     data: [],
                                                 },
                                             },
@@ -11106,9 +11548,15 @@ Ok(
                                                                 pattern_expr_arena: Arena {
                                                                     data: [],
                                                                 },
+                                                                pattern_expr_contracts: ArenaMap {
+                                                                    data: [],
+                                                                },
                                                                 pattern_infos: [],
-                                                                pattern_symbol_maps: [],
                                                                 pattern_symbol_arena: Arena {
+                                                                    data: [],
+                                                                },
+                                                                pattern_symbol_maps: [],
+                                                                pattern_symbol_modifiers: ArenaMap {
                                                                     data: [],
                                                                 },
                                                             },
@@ -11182,9 +11630,15 @@ Ok(
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
+                                                    pattern_expr_contracts: ArenaMap {
+                                                        data: [],
+                                                    },
                                                     pattern_infos: [],
-                                                    pattern_symbol_maps: [],
                                                     pattern_symbol_arena: Arena {
+                                                        data: [],
+                                                    },
+                                                    pattern_symbol_maps: [],
+                                                    pattern_symbol_modifiers: ArenaMap {
                                                         data: [],
                                                     },
                                                 },
@@ -11299,9 +11753,15 @@ Ok(
                                                                         pattern_expr_arena: Arena {
                                                                             data: [],
                                                                         },
+                                                                        pattern_expr_contracts: ArenaMap {
+                                                                            data: [],
+                                                                        },
                                                                         pattern_infos: [],
-                                                                        pattern_symbol_maps: [],
                                                                         pattern_symbol_arena: Arena {
+                                                                            data: [],
+                                                                        },
+                                                                        pattern_symbol_maps: [],
+                                                                        pattern_symbol_modifiers: ArenaMap {
                                                                             data: [],
                                                                         },
                                                                     },
@@ -11375,9 +11835,15 @@ Ok(
                                                             pattern_expr_arena: Arena {
                                                                 data: [],
                                                             },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
                                                             pattern_infos: [],
-                                                            pattern_symbol_maps: [],
                                                             pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
                                                                 data: [],
                                                             },
                                                         },
@@ -11499,9 +11965,15 @@ Ok(
                                                 pattern_expr_arena: Arena {
                                                     data: [],
                                                 },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [],
+                                                },
                                                 pattern_infos: [],
-                                                pattern_symbol_maps: [],
                                                 pattern_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                pattern_symbol_maps: [],
+                                                pattern_symbol_modifiers: ArenaMap {
                                                     data: [],
                                                 },
                                             },

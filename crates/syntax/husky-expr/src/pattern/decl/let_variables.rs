@@ -26,6 +26,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             .iter()
             .map(|(ident, pattern_symbol)| {
                 CurrentSymbol::new(
+                    self.pattern_expr_region(),
                     access_start,
                     Some(access_end),
                     CurrentSymbolVariant::LetVariable {

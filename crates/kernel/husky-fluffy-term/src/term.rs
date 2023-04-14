@@ -1,13 +1,13 @@
 mod application;
 mod hole;
-mod place_ty;
 mod ritchie;
+mod symbol_ty;
 mod utils;
 
 pub use self::application::*;
 pub use self::hole::*;
-pub use self::place_ty::*;
 pub use self::ritchie::*;
+pub use self::symbol_ty::*;
 
 use crate::*;
 
