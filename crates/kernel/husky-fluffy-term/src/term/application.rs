@@ -1,6 +1,7 @@
 use super::*;
 
 impl FluffyTerm {
+    #[inline(always)]
     pub fn new_application(
         engine: &mut impl FluffyTermEngine,
         expr_idx: ExprIdx,
@@ -91,5 +92,14 @@ impl FluffyTerm {
             // (FluffyTerm::Unresolved(_), FluffyTerm::Unresolved(_)) => todo!(),
             // _ => todo!(),
         }
+    }
+
+    pub fn new_leashed(
+        engine: &mut impl FluffyTermEngine,
+        expr_idx: ExprIdx,
+        ty: FluffyTerm,
+    ) -> TermResult<Self> {
+        let function: FluffyTerm = engine.term_menu().leash_ty_ontology().into();
+        Self::new_application(engine, expr_idx, function, ty)
     }
 }

@@ -17,23 +17,12 @@ impl<'a> ExprTypeEngine<'a> {
                 .expr_disambiguation(expr_idx)
                 .map_err(|_| DerivedExprTermError::AmbiguousTilde)?
             {
-                ExprDisambiguation::Tilde(disambiguation) => {
-                    todo!()
-                    //     match disambiguation {
-                    //     TildeDisambiguation::BitNot => todo!(),
-                    //     TildeDisambiguation::Leash => match opd_term {
-                    //         FluffyTerm::Term(opd_term) => Ok(TermApplication::new(
-                    //             self.db,
-                    //             self.term_menu.leash_ty_ontology(),
-                    //             opd_term,
-                    //         )
-                    //         .map_err(|e| DerivedExprTermError::TildeApplicationTerm(e))?
-                    //         .into()),
-                    //         FluffyTerm::Unresolved(_) => todo!(),
-                    //         _ => todo!(),
-                    //     },
-                    // },
-                }
+                ExprDisambiguation::Tilde(disambiguation) => match disambiguation {
+                    TildeDisambiguation::BitNot => todo!(),
+                    TildeDisambiguation::Leash => {
+                        Ok(FluffyTerm::new_leashed(self, expr_idx, opd_term)?)
+                    }
+                },
                 _ => unreachable!(),
             },
             PrefixOpr::Ref => {
