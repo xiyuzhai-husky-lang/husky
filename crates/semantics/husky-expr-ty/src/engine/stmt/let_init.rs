@@ -21,7 +21,7 @@ impl<'a> ExprTypeEngine<'a> {
         };
         match pattern_ty {
             Some(pattern_ty) => {
-                let contract = self.infer_new_pattern_contract(
+                let contract = self.signature_term_region.pattern_contract(
                     let_variable_pattern
                         .as_ref()
                         .expect("must be okay")
@@ -32,7 +32,7 @@ impl<'a> ExprTypeEngine<'a> {
                         initial_value,
                         // ad hoc
                         ExpectImplicitlyConvertible::new(
-                            FluffyTermRitchieParameterContractedType::new(todo!(), pattern_ty),
+                            FluffyTermRitchieParameterContractedType::new(contract, pattern_ty),
                         ),
                     )
                 });

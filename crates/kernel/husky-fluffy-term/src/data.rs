@@ -79,13 +79,11 @@ impl FluffyTerm {
             },
             FluffyTerm::Ritchie(term) => FluffyTermData::Ritchie {
                 ritchie_kind: term.ritchie_kind(db),
-                parameter_contracted_tys: term_ritchie_fluffy_term_parameter_contracted_tys(
-                    db, term,
-                ),
+                parameter_contracted_tys: term_ritchie_fluffy_data(db, term),
                 return_ty: term.return_ty(db).into(),
             },
             FluffyTerm::Abstraction(_) => todo!(),
-            FluffyTerm::Application(_) => todo!(),
+            FluffyTerm::Application(term) => term_application_fluffy_data(db, term).into(),
             FluffyTerm::Subentity(_) => todo!(),
             FluffyTerm::AsTraitSubentity(_) => todo!(),
             FluffyTerm::TraitConstraint(_) => todo!(),
@@ -342,7 +340,7 @@ impl<'a, _Db: TermDb + ?Sized> ::salsa::DebugWithDb<_Db> for FluffyTermData<'a> 
 }
 
 #[salsa::tracked(jar = FluffyTermJar, return_ref)]
-pub(crate) fn term_ritchie_fluffy_term_parameter_contracted_tys(
+pub(crate) fn term_ritchie_fluffy_data(
     db: &dyn FluffyTermDb,
     term: TermRitchie,
 ) -> SmallVec<[FluffyTermRitchieParameterContractedType; 2]> {
@@ -351,4 +349,51 @@ pub(crate) fn term_ritchie_fluffy_term_parameter_contracted_tys(
         .copied()
         .map(Into::into)
         .collect()
+}
+
+#[salsa::tracked(jar = FluffyTermJar, return_ref)]
+pub(crate) fn term_application_fluffy_data(
+    db: &dyn FluffyTermDb,
+    term: TermApplication,
+) -> TermApplicationFluffyData {
+    let expansion = term.application_expansion(db);
+    match expansion.function() {
+        TermFunctionReduced::TypeOntology(path) => TermApplicationFluffyData::TypeOntology {
+            path,
+            refined_path: path.refine(db),
+            arguments: expansion
+                .arguments(db)
+                .iter()
+                .copied()
+                .map(Into::into)
+                .collect(),
+        },
+        TermFunctionReduced::Trait(_) => todo!(),
+        TermFunctionReduced::Other(_) => todo!(),
+    }
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub(crate) enum TermApplicationFluffyData {
+    TypeOntology {
+        path: TypePath,
+        refined_path: Either<CustomTypePath, PreludeTypePath>,
+        arguments: SmallVec<[FluffyTerm; 2]>,
+    },
+}
+
+impl<'a> Into<FluffyTermData<'a>> for &'a TermApplicationFluffyData {
+    fn into(self) -> FluffyTermData<'a> {
+        match self {
+            TermApplicationFluffyData::TypeOntology {
+                path,
+                refined_path,
+                arguments,
+            } => FluffyTermData::TypeOntology {
+                path: *path,
+                refined_path: *refined_path,
+                arguments,
+            },
+        }
+    }
 }
