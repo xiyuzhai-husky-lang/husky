@@ -1,9 +1,9 @@
 use super::*;
 
 pub enum FluffyTermResolveAction {
-    SubstituteHole {
+    FillHole {
         hole: Hole,
-        substitution: FluffyTerm,
+        term: FluffyTerm,
     },
     AddExpectation {
         src: ExpectationSource,

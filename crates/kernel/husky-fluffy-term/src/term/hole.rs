@@ -37,6 +37,13 @@ impl HollowTerm {
         src: impl Into<HoleSource>,
         hole_kind: HoleKind,
     ) -> Self {
-        Self::new(engine, HollowTermData::Hole(src.into(), hole_kind))
+        Self::new(
+            engine,
+            HollowTermData::Hole {
+                hole_source: src.into(),
+                hole_kind,
+                fill: None,
+            },
+        )
     }
 }
