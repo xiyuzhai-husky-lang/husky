@@ -15,6 +15,7 @@ vec-like = { path = "../../abstraction/vec-like" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-term = { path = "../../kernel/husky-term" }
+husky-ty = { path = "../../kernel/husky-ty" }
 # debugtime
 husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
 # vm

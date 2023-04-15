@@ -205,17 +205,6 @@ impl Term {
         todo!()
     }
 
-    fn ty_unchecked(self, db: &dyn TermDb) -> TermResult<Either<Term, PreludeTypePath>> {
-        Ok(match self.raw_ty(db)? {
-            Left(raw_ty) => Left(Term::from_raw_unchecked(
-                db,
-                raw_ty,
-                TermTypeExpectation::FinalDestinationEqsSort,
-            )?),
-            Right(prelude_ty_path) => Right(prelude_ty_path),
-        })
-    }
-
     fn reduce(self, db: &dyn TermDb) -> Self {
         match self {
             Term::Literal(_)

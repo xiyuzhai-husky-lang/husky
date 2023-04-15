@@ -39,6 +39,7 @@ use husky_print_utils::p;
 use husky_signature::*;
 use husky_term::*;
 use husky_term_prelude::*;
+use husky_ty::*;
 use salsa::DebugWithDb as _;
 use smallvec::*;
 

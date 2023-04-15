@@ -1,13 +1,11 @@
 use super::*;
 
-impl Term {
-    pub(super) fn ty_method_ty(
-        self,
-        db: &dyn TermDb,
-        ident: Ident,
-    ) -> TermResult<Option<(TypeMethodDisambiguation, TermResult<Term>)>> {
-        todo!()
-    }
+pub(super) fn ty_method_ty(
+    db: &dyn TypeDb,
+    term: Term,
+    ident: Ident,
+) -> TypeResult<Option<(TypeMethodDisambiguation, TypeResult<Term>)>> {
+    todo!()
 }
 
 #[derive(Debug, PartialEq, Eq)]

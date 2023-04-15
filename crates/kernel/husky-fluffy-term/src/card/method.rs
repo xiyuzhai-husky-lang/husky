@@ -10,6 +10,5 @@ use super::*;
 pub(crate) struct FluffyMethodCard {
     place: Option<Place>,
     visibility: Visibility,
-    modifier: FieldModifier,
     ty: FluffyTerm,
 }

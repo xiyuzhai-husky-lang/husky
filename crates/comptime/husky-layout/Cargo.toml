@@ -7,3 +7,4 @@ edition = "2021"
 [dependencies]
 salsa = { path = "../../abstraction/salsa" }
 husky-term = { path = "../../kernel/husky-term" }
+husky-ty = { path = "../../kernel/husky-ty" }

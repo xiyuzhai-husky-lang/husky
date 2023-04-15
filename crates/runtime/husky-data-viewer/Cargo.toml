@@ -11,6 +11,7 @@ serde_json = { version = "1.0.48", features = ["preserve_order"] }
 salsa = { path = "../../abstraction/salsa" }
 # kernel
 husky-term = { path = "../../kernel/husky-term" }
+husky-ty = { path = "../../kernel/husky-ty" }
 husky-word = { path = "../../kernel/husky-word" }
 # syntax
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }

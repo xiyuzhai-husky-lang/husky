@@ -12,7 +12,7 @@ mod utils;
 
 use super::*;
 use husky_opn_syntax::*;
-use husky_term::has_ty::HasTypeGivenDisambiguation;
+use husky_ty::*;
 use husky_ty_expectation::TypePathDisambiguation;
 
 pub(crate) enum ExprTypeResolveProgress<E: ExpectFluffyTerm> {

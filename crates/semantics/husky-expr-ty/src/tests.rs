@@ -20,6 +20,7 @@ use husky_term_prelude::TermPreludeJar;
 use husky_token::TokenJar;
 use husky_toml_ast::TomlAstJar;
 use husky_toml_token::TomlTokenJar;
+use husky_ty::TypeJar;
 use husky_vfs::*;
 use husky_word::WordJar;
 
@@ -45,6 +46,7 @@ use husky_word::WordJar;
     SignatureJar,
     RawTypeJar,
     TermJar,
+    TypeJar,
     FluffyTermJar,
     ExprTypeJar
 )]

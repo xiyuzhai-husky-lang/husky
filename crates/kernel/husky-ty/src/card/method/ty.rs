@@ -5,7 +5,7 @@ use vec_like::VecMapGetEntry;
 
 use super::*;
 
-#[salsa::tracked(db = TermDb, jar = TermJar, constructor = new_inner)]
+#[salsa::tracked(db = TypeDb, jar = TypeJar, constructor = new_inner)]
 pub struct TypeMethodFnCard {
     #[id]
     pub id: AssociatedItemId,
@@ -14,13 +14,12 @@ pub struct TypeMethodFnCard {
     pub method_ty: TermResult<Term>,
 }
 
-impl Term {
-    pub fn ty_method_card(
-        self,
-        db: &dyn TermDb,
-        ident: Ident,
-    ) -> TermResult<Option<TypeMethodFnCard>> {
-        assert!(self.is_reduced(db));
+pub trait HasTypeMethodCard: Copy {
+    fn ty_method_card(self, db: &dyn TypeDb, ident: Ident) -> TermResult<Option<TypeMethodFnCard>>;
+}
+
+impl HasTypeMethodCard for Term {
+    fn ty_method_card(self, db: &dyn TypeDb, ident: Ident) -> TermResult<Option<TypeMethodFnCard>> {
         // using the fact that owner_ty is reduced
         match self {
             Term::EntityPath(TermEntityPath::TypeOntology(path)) => {
@@ -33,20 +32,21 @@ impl Term {
 }
 
 impl TypeMethodFnCard {
-    fn new(db: &dyn TermDb, decl: TypeMethodFnDecl) -> Self {
-        let id = decl.associated_item(db).id(db);
-        let signature = ty_method_signature(db, decl);
-        let method_ty_info: TermResult<MethodTypeInfo> =
-            MethodTypeInfo::new_ty_method_ty_info(db, signature);
-        let method_ty = method_ty_info
-            .as_ref()
-            .map_err(|e| *e)
-            .map(|ty_info| ty_info.ty(db))
-            .flatten();
-        Self::new_inner(db, id, method_ty_info, method_ty)
+    fn new(db: &dyn TypeDb, decl: TypeMethodFnDecl) -> Self {
+        todo!()
+        // let id = decl.associated_item(db).id(db);
+        // let signature = ty_method_signature(db, decl);
+        // let method_ty_info: TermResult<MethodTypeInfo> =
+        //     MethodTypeInfo::new_ty_method_ty_info(db, signature);
+        // let method_ty = method_ty_info
+        //     .as_ref()
+        //     .map_err(|e| *e)
+        //     .map(|ty_info| ty_info.ty(db))
+        //     .flatten();
+        // Self::new_inner(db, id, method_ty_info, method_ty)
     }
 
-    pub fn method_ty_info<'a>(self, db: &'a dyn TermDb) -> TermResult<&'a MethodTypeInfo> {
+    pub fn method_ty_info<'a>(self, db: &'a dyn TypeDb) -> TermResult<&'a MethodTypeInfo> {
         match self.method_ty_info_inner(db) {
             Ok(ty_info) => Ok(ty_info),
             Err(e) => Err(*e),
@@ -56,7 +56,7 @@ impl TypeMethodFnCard {
 
 impl MethodTypeInfo {
     fn new_ty_method_ty_info(
-        db: &dyn TermDb,
+        db: &dyn TypeDb,
         signature: SignatureResult<TypeMethodSignature>,
     ) -> TermResult<Self> {
         // todo: formal method, method that is not a function pointer
@@ -65,11 +65,7 @@ impl MethodTypeInfo {
             |param: &ExplicitParameterSignature| -> TermResult<TermRitchieParameterContractedType> {
                 Ok(TermRitchieParameterContractedType::new(
                     param.contract(),
-                    Term::from_raw_unchecked(
-                        db,
-                        param.ty(),
-                        TermTypeExpectation::FinalDestinationEqsSort,
-                    )?,
+                    Term::from_raw(db, param.ty(), TermTypeExpectation::FinalDestinationEqsSort)?,
                 ))
             };
         let self_contracted_ty = t(signature.self_parameter(db))?;
@@ -95,7 +91,7 @@ impl MethodTypeInfo {
 }
 
 pub(crate) fn ty_ontology_path_ty_method_card(
-    db: &dyn TermDb,
+    db: &dyn TypeDb,
     path: TypePath,
     ident: Ident,
 ) -> TermResult<Option<TypeMethodFnCard>> {
@@ -109,28 +105,29 @@ pub(crate) fn ty_ontology_path_ty_method_card(
     Ok(Some(ty_method_card))
 }
 
-#[salsa::tracked(jar = TermJar)]
+#[salsa::tracked(jar = TypeJar)]
 pub(crate) fn term_application_ty_method_card(
-    db: &dyn TermDb,
+    db: &dyn TypeDb,
     raw_ty: TermApplication,
     ident: Ident,
 ) -> TermResult<Option<TypeMethodFnCard>> {
-    let application_expansion = application_expansion_salsa(db, raw_ty);
-    let function = application_expansion.function();
-    match function {
-        TermFunctionReduced::TypeOntology(path) => ty_ontology_path_application_ty_method_card(
-            db,
-            path,
-            application_expansion.opt_arguments(db).unwrap(),
-            ident,
-        ),
-        TermFunctionReduced::Trait(_) => todo!(),
-        TermFunctionReduced::Other(_) => todo!(),
-    }
+    todo!()
+    // let application_expansion = application_expansion_salsa(db, raw_ty);
+    // let function = application_expansion.function();
+    // match function {
+    //     TermFunctionReduced::TypeOntology(path) => ty_ontology_path_application_ty_method_card(
+    //         db,
+    //         path,
+    //         application_expansion.opt_arguments(db).unwrap(),
+    //         ident,
+    //     ),
+    //     TermFunctionReduced::Trait(_) => todo!(),
+    //     TermFunctionReduced::Other(_) => todo!(),
+    // }
 }
 
 fn ty_ontology_path_application_ty_method_card(
-    db: &dyn TermDb,
+    db: &dyn TypeDb,
     path: TypePath,
     _arguments: &[Term],
     ident: Ident,
@@ -146,7 +143,7 @@ fn ty_ontology_path_application_ty_method_card(
 }
 
 pub(crate) fn ty_path_ty_method_cards(
-    db: &dyn TermDb,
+    db: &dyn TypeDb,
     path: TypePath,
 ) -> EntityTreeBundleResultRef<&[(Ident, Result<TypeMethodFnCard, ()>)]> {
     match ty_path_ty_method_cards_aux(db, path) {
@@ -155,9 +152,9 @@ pub(crate) fn ty_path_ty_method_cards(
     }
 }
 
-#[salsa::tracked(jar = TermJar, return_ref)]
+#[salsa::tracked(jar = TypeJar, return_ref)]
 pub(crate) fn ty_path_ty_method_cards_aux(
-    db: &dyn TermDb,
+    db: &dyn TypeDb,
     path: TypePath,
 ) -> EntityTreeBundleResult<IdentPairMap<Result<TypeMethodFnCard, ()>>> {
     Ok(path

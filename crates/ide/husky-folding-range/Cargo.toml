@@ -23,6 +23,7 @@ expect-test = "1.4.0"
 husky-package-path = { path = "../../kernel/husky-package-path" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-term = { path = "../../kernel/husky-term" }
+husky-ty = { path = "../../kernel/husky-ty" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
 husky-ast = { path = "../../syntax/husky-ast", features = ["test-utils"] }

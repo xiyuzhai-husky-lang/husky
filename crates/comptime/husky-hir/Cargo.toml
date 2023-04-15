@@ -14,6 +14,7 @@ vec-like = { path = "../../abstraction/vec-like" }
 husky-signature = { path = "../../semantics/husky-signature" }
 # kernel
 husky-term = { path = "../../kernel/husky-term" }
+husky-ty = { path = "../../kernel/husky-ty" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 husky-word = { path = "../../kernel/husky-word" }

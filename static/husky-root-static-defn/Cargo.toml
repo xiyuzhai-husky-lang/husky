@@ -16,6 +16,7 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 cyclic-slice = { path = "../../abstraction/cyclic-slice" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-term = { path = "../../kernel/husky-term" }
+husky-ty = { path = "../../kernel/husky-ty" }
 husky-vm = { path = "../../vm/husky-vm" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
