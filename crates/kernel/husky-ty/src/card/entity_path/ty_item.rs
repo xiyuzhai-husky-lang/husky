@@ -15,16 +15,16 @@ pub enum TypeItemCard {
     AssociatedFn(TypeAssociatedFnCard),
 }
 
-#[salsa::tracked(db = TermDb, jar = TermJar)]
+#[salsa::tracked(db = TypeDb, jar = TypeJar)]
 pub struct TypeAssociatedFnCard {
     #[id]
     pub id: AssociatedItemId,
 }
 
-pub(crate) fn ty_item_path_ty(db: &dyn TermDb, path: TypeItemPath) -> TermResult<Term> {
+pub(crate) fn ty_item_path_ty(db: &dyn TypeDb, path: TypeItemPath) -> TermResult<Term> {
     ty_item_path_ty_unchecked(db, path)?.checked(db)
 }
 
-pub(crate) fn ty_item_path_ty_unchecked(db: &dyn TermDb, path: TypeItemPath) -> TermResult<Term> {
+pub(crate) fn ty_item_path_ty_unchecked(db: &dyn TypeDb, path: TypeItemPath) -> TermResult<Term> {
     Term::ty_from_raw_unchecked(db, path.raw_ty(db)?)
 }

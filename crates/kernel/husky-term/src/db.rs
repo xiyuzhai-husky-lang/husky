@@ -9,13 +9,13 @@ use salsa::DbWithJar;
 
 pub trait TermDb: DbWithJar<TermJar> + RawTypeDb + DecrDb {
     fn term_menu(&self, toolchain: Toolchain) -> &TermMenu;
-    fn ty_path_ty(
-        &self,
-        path: TypePath,
-        disambiguation: TypePathDisambiguation,
-    ) -> TermResult<Term>;
-    fn trai_path_ty(&self, trai_path: TraitPath) -> TermResult<Term>;
-    fn form_path_ty(&self, form_path: FormPath) -> TermResult<Term>;
+    // fn ty_path_ty(
+    //     &self,
+    //     path: TypePath,
+    //     disambiguation: TypePathDisambiguation,
+    // ) -> TermResult<Term>;
+    // fn trai_path_ty(&self, trai_path: TraitPath) -> TermResult<Term>;
+    // fn form_path_ty(&self, form_path: FormPath) -> TermResult<Term>;
     // fn ty_method_card(&self, ty: Term, ident: Ident) -> TermResult<Option<TypeMethodFnCard>>;
     // fn field_ty(&self, ty: Term, ident: Ident) -> TermResult<Option<Term>>;
 }
@@ -28,21 +28,21 @@ where
         term_menu(self, toolchain)
     }
 
-    fn ty_path_ty(
-        &self,
-        path: TypePath,
-        disambiguation: TypePathDisambiguation,
-    ) -> TermResult<Term> {
-        ty_path_ty(self, path, disambiguation)
-    }
+    // fn ty_path_ty(
+    //     &self,
+    //     path: TypePath,
+    //     disambiguation: TypePathDisambiguation,
+    // ) -> TermResult<Term> {
+    //     ty_path_ty(self, path, disambiguation)
+    // }
 
-    fn trai_path_ty(&self, trai_path: TraitPath) -> TermResult<Term> {
-        trai_path_ty_unchecked(self, trai_path)?.checked(self)
-    }
+    // fn trai_path_ty(&self, trai_path: TraitPath) -> TermResult<Term> {
+    //     trai_path_ty_unchecked(self, trai_path)?.checked(self)
+    // }
 
-    fn form_path_ty(&self, form_path: FormPath) -> TermResult<Term> {
-        form_path_ty_unchecked(self, form_path)?.checked(self)
-    }
+    // fn form_path_ty(&self, form_path: FormPath) -> TermResult<Term> {
+    //     form_path_ty_unchecked(self, form_path)?.checked(self)
+    // }
 
     // fn ty_method_card(&self, ty: Term, ident: Ident) -> TermResult<Option<TypeMethodFnCard>> {
     //     ty_method_card(self, ty, ident)

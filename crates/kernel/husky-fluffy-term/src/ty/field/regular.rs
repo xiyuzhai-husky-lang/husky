@@ -19,10 +19,11 @@ impl FluffyTerm {
     > {
         match self.nested() {
             NestedFluffyTerm::Ethereal(term) => {
-                let Some(card) = term.regular_field_card(engine.db(), ident)? else {
-                    return Ok(None)
-                };
-                Ok(Some((todo!(), todo!())))
+                todo!()
+                // let Some(card) = term.regular_field_ty(engine.db(), ident)? else {
+                //     return Ok(None)
+                // };
+                // Ok(Some((todo!(), todo!())))
             }
             NestedFluffyTerm::Solid(term) => term.regular_field_ty(engine, ident),
             NestedFluffyTerm::Hollow(term) => term.regular_field_ty(engine, ident),
@@ -75,21 +76,22 @@ impl SolidTerm {
             } => match base_ty_term {
                 Some(base_ty_term) => {
                     let db = engine.db();
-                    let Some(card) = base_ty_term.regular_field_card(db, ident)? else {
-                        return Ok(None)
-                    };
-                    match place {
-                        Place::Const => todo!(),
-                        Place::StackPure { location } => todo!(),
-                        Place::ImmutableStackOwned { location } => todo!(),
-                        Place::MutableStackOwned { location } => todo!(),
-                        Place::Transient => todo!(),
-                        Place::Ref { guard } => todo!(),
-                        Place::RefMut { guard } => todo!(),
-                        Place::Leashed => todo!(),
-                        Place::Todo => todo!(),
-                    }
-                    Ok(Some((todo!(), todo!())))
+                    todo!();
+                    // let Some(card) = base_ty_term.regular_field_card(db, ident)? else {
+                    //     return Ok(None)
+                    // };
+                    // match place {
+                    //     Place::Const => todo!(),
+                    //     Place::StackPure { location } => todo!(),
+                    //     Place::ImmutableStackOwned { location } => todo!(),
+                    //     Place::MutableStackOwned { location } => todo!(),
+                    //     Place::Transient => todo!(),
+                    //     Place::Ref { guard } => todo!(),
+                    //     Place::RefMut { guard } => todo!(),
+                    //     Place::Leashed => todo!(),
+                    //     Place::Todo => todo!(),
+                    // }
+                    // Ok(Some((todo!(), todo!())))
                 }
                 None => todo!(),
             },

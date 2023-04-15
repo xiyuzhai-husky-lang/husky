@@ -30,6 +30,7 @@ use husky_token::TokenJar;
 use husky_token_info::TokenInfoJar;
 use husky_toml_ast::TomlAstJar;
 use husky_toml_token::TomlTokenJar;
+use husky_ty::TypeJar;
 use husky_vfs::*;
 use husky_word::WordJar;
 
@@ -51,6 +52,7 @@ use husky_word::WordJar;
     RawTermJar,
     RawTypeJar,
     TermJar,
+    TypeJar,
     // syntax
     ExprJar,
     DeclJar,
@@ -58,7 +60,8 @@ use husky_word::WordJar;
     DefnJar,
     // infer
     TokenInfoJar,
-    SignatureJar,FluffyTermJar,
+    SignatureJar,
+    FluffyTermJar,
     ExprTypeJar,
     // ide
     FoldingRangeJar,

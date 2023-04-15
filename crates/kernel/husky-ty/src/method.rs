@@ -6,24 +6,33 @@ pub use self::dyn_trai::*;
 pub use self::trai_for_ty::*;
 pub use self::ty::*;
 
-use super::*;
+use crate::*;
 
-impl Term {
-    pub fn method_ty(
+pub trait HasMethodType: Copy {
+    fn method_ty(
         self,
-        db: &dyn TermDb,
+        db: &dyn TypeDb,
         ident: Ident,
         available_traits: &[TraitPath],
-    ) -> TermResult<(MethodDisambiguation, TermResult<Term>)> {
-        if let Some((disambiguation, ty_result)) = self.ty_method_ty(db, ident)? {
+    ) -> TypeResult<(MethodDisambiguation, TypeResult<Term>)>;
+}
+
+impl HasMethodType for Term {
+    fn method_ty(
+        self,
+        db: &dyn TypeDb,
+        ident: Ident,
+        available_traits: &[TraitPath],
+    ) -> TypeResult<(MethodDisambiguation, TypeResult<Term>)> {
+        if let Some((disambiguation, ty_result)) = ty_method_ty(db, self, ident)? {
             return Ok((disambiguation.into(), ty_result));
         }
         if let Some((disambiguation, ty_result)) =
-            self.trai_for_ty_method_ty(db, ident, available_traits)?
+            trai_for_ty_method_ty(db, self, ident, available_traits)?
         {
             return Ok((disambiguation.into(), ty_result));
         }
-        Err(TermError::NoSuchMethod.into())
+        Err(OriginalTypeError::NoSuchMethod.into())
     }
 }
 

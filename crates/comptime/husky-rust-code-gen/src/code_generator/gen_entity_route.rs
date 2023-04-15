@@ -1,4 +1,5 @@
 use husky_term::*;
+use husky_ty::*;
 
 use super::*;
 

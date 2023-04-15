@@ -4,11 +4,10 @@
 #![feature(let_chains)]
 
 // #![deny(unsafe_code, missing_docs, clippy::unwrap_used)]
-mod card;
 mod context;
+mod conversion;
 mod db;
 mod error;
-pub mod has_ty;
 mod menu;
 mod rewrite;
 mod template;
@@ -19,7 +18,6 @@ mod trai;
 mod ty;
 mod utils;
 
-pub use self::card::*;
 pub use self::context::*;
 pub use self::db::*;
 pub use self::error::*;
@@ -91,13 +89,6 @@ pub struct TermJar(
     // other
     term_from_raw_term_explicit_application_or_ritchie_call_unchecked,
     term_from_raw_term_list_unchecked,
-    // card
-    // method ty
-    term_application_ty_method_card,
-    ty_path_ty_method_cards_aux,
-    TypeMethodFnCard,
-    TraitForTypeMethodFnCard,
-    TypeAssociatedFnCard,
     utils::curry_term_toolchain,
     utils::application_term_toolchain,
     utils::ritchie_term_toolchain,
@@ -108,6 +99,4 @@ pub struct TermJar(
     // template
     TemplateParameters,
     ty_path_template_parameters,
-    // field
-    term_application_field_ty,
 );

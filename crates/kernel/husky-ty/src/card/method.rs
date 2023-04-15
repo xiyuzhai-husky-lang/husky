@@ -13,7 +13,7 @@ use husky_raw_ty::ty_path_ty_method_raw_ty;
 use husky_signature::{SignatureResult, TypeMethodSignature};
 use husky_word::IdentPairMap;
 
-#[salsa::tracked(db = TermDb, jar = TermJar, constructor = new_inner)]
+#[salsa::tracked(db = TypeDb, jar = TypeJar, constructor = new_inner)]
 pub struct TraitForTypeMethodFnCard {
     #[id]
     id: AssociatedItemId,
@@ -30,7 +30,7 @@ pub struct MethodTypeInfo {
 }
 
 impl MethodTypeInfo {
-    fn ty(&self, db: &dyn TermDb) -> TermResult<Term> {
+    fn ty(&self, db: &dyn TypeDb) -> TermResult<Term> {
         match self {
             MethodTypeInfo {
                 implicit_parameters,
@@ -40,13 +40,9 @@ impl MethodTypeInfo {
                 where_clause,
             } => {
                 let mut parameter_tys = vec![];
-                let mut method_ty: Term = TermRitchie::new_unchecked(
-                    db,
-                    TermRitchieKind::FnType,
-                    parameter_tys,
-                    *return_ty,
-                )
-                .into();
+                let mut method_ty: Term =
+                    TermRitchie::new(db, TermRitchieKind::FnType, parameter_tys, *return_ty)?
+                        .into();
                 for implicit_signature in implicit_parameters.iter().copied() {
                     todo!()
                 }

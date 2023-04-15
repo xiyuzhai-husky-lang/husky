@@ -8,6 +8,7 @@ mod db;
 pub use db::*;
 
 use husky_term::*;
+use husky_ty::*;
 use husky_vm::InstructionSheet;
 use husky_word::*;
 use std::sync::Arc;

@@ -15,6 +15,7 @@ husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-term = { path = "../../kernel/husky-term" }
+husky-ty = { path = "../../kernel/husky-ty" }
 husky-word = { path = "../../kernel/husky-word" }
 # runtime
 husky-feature-gen = { path = "../../runtime/husky-feature-gen" }

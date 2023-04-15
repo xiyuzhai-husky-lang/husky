@@ -1,0 +1,16 @@
+use super::*;
+
+pub(super) fn trai_for_ty_method_ty(
+    db: &dyn TypeDb,
+    term: Term,
+    ident: Ident,
+    available_traits: &[TraitPath],
+) -> TypeResult<Option<(TypeMethodDisambiguation, TypeResult<Term>)>> {
+    todo!()
+}
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct TraitForTypeMethodDisambiguation {
+    indirections: SmallVec<[MethodIndirection; 2]>,
+    ty_path: TypePath,
+}

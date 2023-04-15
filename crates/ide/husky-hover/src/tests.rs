@@ -23,6 +23,7 @@ use husky_token::{TokenDb, TokenIdx, TokenJar};
 use husky_token_info::TokenInfoJar;
 use husky_toml_ast::TomlAstJar;
 use husky_toml_token::TomlTokenJar;
+use husky_ty::TypeJar;
 use husky_word::WordJar;
 
 #[salsa::db(
@@ -48,6 +49,7 @@ use husky_word::WordJar;
     SignatureJar,
     RawTypeJar,
     TermJar,
+    TypeJar,
     FluffyTermJar,
     ExprTypeJar,
     HoverJar

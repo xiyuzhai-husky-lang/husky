@@ -20,6 +20,7 @@ husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-term = { path = "../../kernel/husky-term" }
+husky-ty = { path = "../../kernel/husky-ty" }
 husky-word = { path = "../../kernel/husky-word" }
 # syntax
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }

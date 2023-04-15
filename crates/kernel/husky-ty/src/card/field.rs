@@ -1,5 +1,7 @@
 use super::*;
+use husky_print_utils::p;
 use husky_raw_ty::ty_path_field_raw_ty;
+use salsa::DebugWithDb;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct RegularFieldCard {
@@ -30,18 +32,18 @@ impl RegularFieldCard {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum FieldModifier {
-    Pure,
-    Mut,
-    Const,
-    Leashed,
+pub trait HasRegularFieldCard: Copy {
+    fn regular_field_card(
+        self,
+        db: &dyn TypeDb,
+        ident: Ident,
+    ) -> TermResult<Option<RegularFieldCard>>;
 }
 
-impl Term {
-    pub fn regular_field_card(
+impl HasRegularFieldCard for Term {
+    fn regular_field_card(
         self,
-        db: &dyn TermDb,
+        db: &dyn TypeDb,
         ident: Ident,
     ) -> TermResult<Option<RegularFieldCard>> {
         match self {
@@ -71,7 +73,7 @@ impl Term {
 }
 
 fn ty_ontology_path_field_ty(
-    db: &dyn TermDb,
+    db: &dyn TypeDb,
     path: TypePath,
     ident: Ident,
 ) -> TermResult<Option<RegularFieldCard>> {
@@ -81,7 +83,7 @@ fn ty_ontology_path_field_ty(
     Ok(Some(RegularFieldCard {
         visibility: todo!(),
         modifier: todo!(),
-        ty: Term::from_raw_unchecked(
+        ty: Term::from_raw(
             db,
             field_raw_ty,
             TermTypeExpectation::FinalDestinationEqsSort,
@@ -89,9 +91,9 @@ fn ty_ontology_path_field_ty(
     }))
 }
 
-#[salsa::tracked(jar = TermJar)]
+#[salsa::tracked(jar = TypeJar)]
 pub(crate) fn term_application_field_ty(
-    db: &dyn TermDb,
+    db: &dyn TypeDb,
     term: TermApplication,
     ident: Ident,
 ) -> TermResult<Option<RegularFieldCard>> {

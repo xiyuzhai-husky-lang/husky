@@ -25,6 +25,7 @@ use husky_fluffy_term::*;
 use husky_signature::*;
 use husky_term::*;
 use husky_term_prelude::*;
+use husky_ty::*;
 use salsa::DebugWithDb;
 use smallvec::*;
 

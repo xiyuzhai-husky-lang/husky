@@ -14,12 +14,12 @@ pub struct FluffyFieldCard {
 }
 
 impl FluffyFieldCard {
-    fn from_ethereal(place: Option<Place>, field_ty: RegularFieldCard) -> Self {
+    fn from_ethereal(place: Option<Place>, field_card: RegularFieldCard) -> Self {
         Self {
             place,
-            visibility: field_ty.visibility(),
-            modifier: field_ty.modifier(),
-            ty: field_ty.ty().into(),
+            visibility: field_card.visibility(),
+            modifier: field_card.modifier(),
+            ty: field_card.ty().into(),
         }
     }
 
