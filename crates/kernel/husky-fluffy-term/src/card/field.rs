@@ -6,7 +6,7 @@ use super::*;
 use husky_word::Ident;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-struct FluffyFieldCard {
+pub(crate) struct FluffyFieldCard {
     place: Option<Place>,
     visibility: Visibility,
     modifier: FieldModifier,

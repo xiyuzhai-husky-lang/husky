@@ -21,6 +21,7 @@ impl<'a> ExprTypeEngine<'a> {
                 }
                 return Err(DerivedExprTypeError::MethodOwnerTypeNotInferred.into())
             };
+        self_expr_ty.method_ty();
         todo!()
         // let self_expr_ty_unravelled = self_expr_ty.unravel_borrow(self);
         // let ty_method_card = match self_expr_ty_unravelled {

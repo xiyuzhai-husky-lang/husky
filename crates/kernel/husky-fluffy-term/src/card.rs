@@ -1,3 +1,4 @@
+/// a card contains checked information from signature
 mod error;
 mod field;
 mod method;
