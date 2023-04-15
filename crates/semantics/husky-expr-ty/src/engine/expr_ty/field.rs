@@ -12,7 +12,7 @@ impl<'a> ExprTypeEngine<'a> {
         };
         if let Some(field_ty) = owner_ty.field_ty(self, ident_token.ident())? {
             return Ok((
-                ExprDisambiguation::FieldOrMemo(FieldOrMemoDisambiguation::Field),
+                ExprDisambiguation::Field(FluffyFieldDisambiguation::Field),
                 Ok(field_ty),
             ));
         }

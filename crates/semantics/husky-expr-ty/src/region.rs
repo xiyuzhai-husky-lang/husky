@@ -81,7 +81,7 @@ impl ExprTypeRegion {
     pub fn expr_disambiguation(
         &self,
         expr_idx: ExprIdx,
-    ) -> Option<ExprTypeResultRef<ExprDisambiguation>> {
+    ) -> Option<ExprTypeResultRef<&ExprDisambiguation>> {
         // ad hoc
         // todo: change this to always some
         self.expr_ty_infos

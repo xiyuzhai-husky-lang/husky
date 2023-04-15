@@ -1,7 +1,8 @@
+use crate::*;
 use husky_term::{MethodCard, TraitForTypeMethodFnCard, TypeMethodFnCard};
 use husky_ty_expectation::TypePathDisambiguation;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq)]
 #[enum_class::from_variants]
 pub enum ExprDisambiguation {
     IndexOrComposeWithList(IndexOrComposeWithListExprDisambiguation),
@@ -11,15 +12,15 @@ pub enum ExprDisambiguation {
     List(ListExprDisambiguation),
     ExplicitApplication(ExplicitApplicationDisambiguation),
     Tilde(TildeDisambiguation),
-    Method(MethodCallDisambiguation),
+    Method(FluffyMethodDisambiguation),
     Trivial,
-    FieldOrMemo(FieldOrMemoDisambiguation),
+    Field(FluffyFieldDisambiguation),
 }
 
 impl ExprDisambiguation {
-    pub(crate) fn list(self) -> Option<ListExprDisambiguation> {
+    pub(crate) fn list_expr_disambiguation(&self) -> Option<ListExprDisambiguation> {
         match self {
-            ExprDisambiguation::List(disambiguation) => Some(disambiguation),
+            ExprDisambiguation::List(disambiguation) => Some(*disambiguation),
             _ => None,
         }
     }
@@ -73,29 +74,29 @@ pub enum TildeDisambiguation {
     Leash,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct MethodCallDisambiguation(MethodCard);
+// #[derive(Debug, PartialEq, Eq, Clone, Copy)]
+// pub struct MethodCallDisambiguation(MethodCard);
 
-impl From<MethodCard> for MethodCallDisambiguation {
-    fn from(value: MethodCard) -> Self {
-        MethodCallDisambiguation(value)
-    }
-}
+// impl From<MethodCard> for MethodCallDisambiguation {
+//     fn from(value: MethodCard) -> Self {
+//         MethodCallDisambiguation(value)
+//     }
+// }
 
-impl From<TypeMethodFnCard> for MethodCallDisambiguation {
-    fn from(value: TypeMethodFnCard) -> Self {
-        MethodCallDisambiguation(value.into())
-    }
-}
+// impl From<TypeMethodFnCard> for MethodCallDisambiguation {
+//     fn from(value: TypeMethodFnCard) -> Self {
+//         MethodCallDisambiguation(value.into())
+//     }
+// }
 
-impl From<TraitForTypeMethodFnCard> for MethodCallDisambiguation {
-    fn from(value: TraitForTypeMethodFnCard) -> Self {
-        MethodCallDisambiguation(value.into())
-    }
-}
+// impl From<TraitForTypeMethodFnCard> for MethodCallDisambiguation {
+//     fn from(value: TraitForTypeMethodFnCard) -> Self {
+//         MethodCallDisambiguation(value.into())
+//     }
+// }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum FieldOrMemoDisambiguation {
-    Field,
-    Memo,
-}
+// #[derive(Debug, PartialEq, Eq, Clone, Copy)]
+// pub enum FieldOrMemoDisambiguation {
+//     Field,
+//     Memo,
+// }

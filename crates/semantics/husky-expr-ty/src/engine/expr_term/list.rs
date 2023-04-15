@@ -9,7 +9,7 @@ impl<'a> ExprTypeEngine<'a> {
         match self
             .expr_disambiguation(expr_idx)
             .map_err(|_| DerivedExprTermError::Todo)?
-            .list()
+            .list_expr_disambiguation()
             .expect("seriously?")
         {
             ListExprDisambiguation::NewList => todo!(),

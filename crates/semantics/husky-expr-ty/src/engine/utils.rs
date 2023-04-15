@@ -8,7 +8,7 @@ impl<'a> ExprTypeEngine<'a> {
     pub(super) fn expr_disambiguation(
         &self,
         expr_idx: ExprIdx,
-    ) -> ExprTypeResultRef<ExprDisambiguation> {
+    ) -> ExprTypeResultRef<&ExprDisambiguation> {
         self.expr_ty_infos[expr_idx].disambiguation()
     }
 
