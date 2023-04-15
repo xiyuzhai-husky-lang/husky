@@ -5,7 +5,15 @@ impl FluffyTerm {
         self,
         ident: Ident,
         available_traits: &[TraitPath],
-    ) -> FluffyMethodTypeResult<Option<FluffyMethodType>> {
+    ) -> FluffyMethodTypeResult<
+        Option<(
+            SmallVec<[FluffyMethodIndirection; 2]>,
+            TypePath,
+            TraitPath,
+            FluffyTerm, // trai
+            FluffyMethodTypeResult<FluffyTerm>,
+        )>,
+    > {
         for trai in available_traits {
             todo!()
         }

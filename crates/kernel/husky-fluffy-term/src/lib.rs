@@ -26,12 +26,12 @@ pub use self::region::*;
 pub use self::resolve::*;
 pub use self::substitution::*;
 pub use self::term::*;
+pub use self::ty::*;
 
 #[cfg(test)]
 pub(crate) use self::tests::*;
 
 use self::nested::*;
-use self::ty::*;
 use either::*;
 use husky_entity_path::*;
 use husky_expr::*;

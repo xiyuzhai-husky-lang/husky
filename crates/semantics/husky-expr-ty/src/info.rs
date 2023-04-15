@@ -29,7 +29,7 @@ impl ExprTypeInfo {
         Ok(*self.ty_result.as_ref()?.1.as_ref()?)
     }
 
-    pub fn disambiguation(&self) -> ExprTypeResultRef<ExprDisambiguation> {
-        Ok(self.ty_result.as_ref()?.0)
+    pub fn disambiguation(&self) -> ExprTypeResultRef<&ExprDisambiguation> {
+        Ok(&self.ty_result.as_ref()?.0)
     }
 }
