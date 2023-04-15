@@ -1,7 +1,10 @@
 use super::*;
 
 impl FluffyTerm {
-    pub fn ty_method_ty(self) -> FluffyMethodTypeResult<Option<MethodType>> {
+    pub(super) fn ty_method_ty(
+        self,
+        ident: Ident,
+    ) -> FluffyMethodTypeResult<Option<FluffyMethodType>> {
         todo!()
     }
 }
