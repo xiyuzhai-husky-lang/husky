@@ -17,7 +17,7 @@ impl<'a> ExprTypeEngine<'a> {
                     todo!()
                 }
                 for argument in nonself_arguments {
-                    self.infer_new_expr_ty_discarded(argument, ExpectAnyDerived,  );
+                    self.infer_new_expr_ty_discarded(argument, ExpectAnyDerived);
                 }
                 return Err(DerivedExprTypeError::MethodOwnerTypeNotInferred.into())
             };

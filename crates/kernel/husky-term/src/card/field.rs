@@ -2,13 +2,13 @@ use super::*;
 use husky_raw_ty::ty_path_field_raw_ty;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct FieldType {
+pub struct FieldCard {
     visibility: Visibility,
     modifier: FieldModifier,
     ty: Term,
 }
 
-impl FieldType {
+impl FieldCard {
     fn leashed(self) -> Self {
         Self {
             visibility: self.visibility,
@@ -39,7 +39,7 @@ pub enum FieldModifier {
 }
 
 impl Term {
-    pub fn field_ty(self, db: &dyn TermDb, ident: Ident) -> TermResult<Option<FieldType>> {
+    pub fn field_ty(self, db: &dyn TermDb, ident: Ident) -> TermResult<Option<FieldCard>> {
         field_ty(db, self, ident)
     }
 }
@@ -48,7 +48,7 @@ pub(crate) fn field_ty(
     db: &dyn TermDb,
     owner_ty: Term,
     ident: Ident,
-) -> TermResult<Option<FieldType>> {
+) -> TermResult<Option<FieldCard>> {
     match owner_ty {
         Term::Literal(_) => todo!(),
         Term::Symbol(_) => todo!(),
@@ -78,11 +78,11 @@ fn ty_ontology_path_field_ty(
     db: &dyn TermDb,
     path: TypePath,
     ident: Ident,
-) -> TermResult<Option<FieldType>> {
+) -> TermResult<Option<FieldCard>> {
     let Some(field_raw_ty) = ty_path_field_raw_ty(db, path, ident)? else {
         return Ok(None)
     };
-    Ok(Some(FieldType {
+    Ok(Some(FieldCard {
         visibility: todo!(),
         modifier: todo!(),
         ty: Term::from_raw_unchecked(
@@ -98,7 +98,7 @@ pub(crate) fn term_application_field_ty(
     db: &dyn TermDb,
     term: TermApplication,
     ident: Ident,
-) -> TermResult<Option<FieldType>> {
+) -> TermResult<Option<FieldCard>> {
     let expansion = term.application_expansion(db);
     let TermFunctionReduced::TypeOntology(path) = expansion.function() else {
         todo!("err")
