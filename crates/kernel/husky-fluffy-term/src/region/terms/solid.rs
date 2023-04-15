@@ -37,7 +37,11 @@ impl SolidTerm {
         solid_terms.intern(data)
     }
 
-    pub(crate) fn data(self, solid_terms: &SolidTerms) -> &SolidTermData {
+    pub(crate) fn data(self, engine: &impl FluffyTermEngine) -> &SolidTermData {
+        self.data2(&engine.fluffy_terms().solid_terms())
+    }
+
+    pub(crate) fn data2(self, solid_terms: &SolidTerms) -> &SolidTermData {
         &solid_terms.entries.data()[self.0 as usize]
     }
 }

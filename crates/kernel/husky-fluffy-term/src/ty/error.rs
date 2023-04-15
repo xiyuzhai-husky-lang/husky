@@ -9,6 +9,12 @@ pub enum FluffyTypeError {
     Derived(#[from] DerivedFluffyTypeError),
 }
 
+impl From<TermError> for FluffyTypeError {
+    fn from(value: TermError) -> Self {
+        todo!()
+    }
+}
+
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum OriginalFluffyTypeError {
     #[error("NoSuchMethod")]

@@ -49,6 +49,8 @@ pub enum TermError {
     EntityTreeBundleError,
     #[error("ForDeriveArgument")]
     ExpectTraitForDeriveArgument,
+    #[error("NoSuchMethod")]
+    NoSuchMethod,
 }
 
 impl From<EntityPathError> for TermError {

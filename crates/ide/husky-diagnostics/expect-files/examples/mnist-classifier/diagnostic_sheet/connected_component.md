@@ -48,7 +48,7 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Type Error: TodoMemo",
+                message: "Type Error: Type",
                 severity: Error,
                 range: [16:15, 16:29),
             },

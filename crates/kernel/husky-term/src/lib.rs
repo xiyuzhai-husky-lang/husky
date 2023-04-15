@@ -16,6 +16,7 @@ mod term;
 #[cfg(test)]
 mod tests;
 mod trai;
+mod ty;
 mod utils;
 
 pub use self::card::*;
@@ -26,6 +27,7 @@ pub use self::menu::*;
 pub use self::rewrite::*;
 pub use self::term::*;
 pub use self::trai::*;
+pub use self::ty::*;
 
 use self::template::*;
 #[cfg(test)]
@@ -39,6 +41,7 @@ use husky_ty_expectation::TermTypeExpectation;
 use husky_vfs::*;
 use husky_word::Ident;
 use salsa::DebugWithDb;
+use smallvec::*;
 
 #[salsa::jar(db = TermDb)]
 pub struct TermJar(

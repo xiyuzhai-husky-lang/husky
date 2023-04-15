@@ -2,13 +2,13 @@ use super::*;
 use husky_raw_ty::ty_path_field_raw_ty;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct FieldCard {
+pub struct RegularFieldCard {
     visibility: Visibility,
     modifier: FieldModifier,
     ty: Term,
 }
 
-impl FieldCard {
+impl RegularFieldCard {
     fn leashed(self) -> Self {
         Self {
             visibility: self.visibility,
@@ -39,38 +39,34 @@ pub enum FieldModifier {
 }
 
 impl Term {
-    pub fn field_ty(self, db: &dyn TermDb, ident: Ident) -> TermResult<Option<FieldCard>> {
-        field_ty(db, self, ident)
-    }
-}
-
-pub(crate) fn field_ty(
-    db: &dyn TermDb,
-    owner_ty: Term,
-    ident: Ident,
-) -> TermResult<Option<FieldCard>> {
-    match owner_ty {
-        Term::Literal(_) => todo!(),
-        Term::Symbol(_) => todo!(),
-        Term::Hole(_) => todo!(),
-        Term::EntityPath(path) => match path {
-            TermEntityPath::Form(_) => todo!(),
-            TermEntityPath::Trait(_) => todo!(),
-            TermEntityPath::TypeOntology(path) => ty_ontology_path_field_ty(db, path, ident),
-            TermEntityPath::TypeConstructor(_) => {
-                p!(owner_ty.debug(db), ident.debug(db));
-                todo!()
-            }
-        },
-        Term::Category(_) => todo!(),
-        Term::Universe(_) => todo!(),
-        Term::Curry(_) => todo!(),
-        Term::Ritchie(_) => todo!(),
-        Term::Abstraction(_) => todo!(),
-        Term::Application(term) => term_application_field_ty(db, term, ident),
-        Term::Subentity(_) => todo!(),
-        Term::AsTraitSubentity(_) => todo!(),
-        Term::TraitConstraint(_) => todo!(),
+    pub fn regular_field_card(
+        self,
+        db: &dyn TermDb,
+        ident: Ident,
+    ) -> TermResult<Option<RegularFieldCard>> {
+        match self {
+            Term::Literal(_) => todo!(),
+            Term::Symbol(_) => todo!(),
+            Term::Hole(_) => todo!(),
+            Term::EntityPath(path) => match path {
+                TermEntityPath::Form(_) => todo!(),
+                TermEntityPath::Trait(_) => todo!(),
+                TermEntityPath::TypeOntology(path) => ty_ontology_path_field_ty(db, path, ident),
+                TermEntityPath::TypeConstructor(_) => {
+                    p!(self.debug(db), ident.debug(db));
+                    todo!()
+                }
+            },
+            Term::Category(_) => todo!(),
+            Term::Universe(_) => todo!(),
+            Term::Curry(_) => todo!(),
+            Term::Ritchie(_) => todo!(),
+            Term::Abstraction(_) => todo!(),
+            Term::Application(term) => term_application_field_ty(db, term, ident),
+            Term::Subentity(_) => todo!(),
+            Term::AsTraitSubentity(_) => todo!(),
+            Term::TraitConstraint(_) => todo!(),
+        }
     }
 }
 
@@ -78,11 +74,11 @@ fn ty_ontology_path_field_ty(
     db: &dyn TermDb,
     path: TypePath,
     ident: Ident,
-) -> TermResult<Option<FieldCard>> {
+) -> TermResult<Option<RegularFieldCard>> {
     let Some(field_raw_ty) = ty_path_field_raw_ty(db, path, ident)? else {
         return Ok(None)
     };
-    Ok(Some(FieldCard {
+    Ok(Some(RegularFieldCard {
         visibility: todo!(),
         modifier: todo!(),
         ty: Term::from_raw_unchecked(
@@ -98,7 +94,7 @@ pub(crate) fn term_application_field_ty(
     db: &dyn TermDb,
     term: TermApplication,
     ident: Ident,
-) -> TermResult<Option<FieldCard>> {
+) -> TermResult<Option<RegularFieldCard>> {
     let expansion = term.application_expansion(db);
     let TermFunctionReduced::TypeOntology(path) = expansion.function() else {
         todo!("err")
@@ -113,7 +109,7 @@ pub(crate) fn term_application_field_ty(
                     todo!()
                 }
                 arguments[0]
-                    .field_ty(db, ident)
+                    .regular_field_card(db, ident)
                     .map(|opt| opt.map(|ty| ty.leashed()))
             }
         },
