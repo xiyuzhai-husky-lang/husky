@@ -8,25 +8,6 @@ pub use self::ty::*;
 use super::*;
 use husky_word::Ident;
 
-#[derive(Debug, PartialEq, Eq)]
-#[enum_class::from_variants]
-pub enum FluffyMethodDisambiguation {
-    Type(FluffyTypeMethodDisambiguation),
-    TraitForType(FluffyTraitForTypeMethodDisambiguation),
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum FluffyMethodIndirection {}
-
-#[derive(Debug, PartialEq, Eq)]
-pub enum FluffyMethodDisambiguationVariant {
-    Type,
-    Trait {
-        trai_path: TraitPath,
-        trai: FluffyTerm,
-    },
-}
-
 impl FluffyTerm {
     pub fn method_ty(
         self,
@@ -44,4 +25,23 @@ impl FluffyTerm {
         }
         Err(OriginalFluffyTypeError::NoSuchMethod.into())
     }
+}
+
+#[derive(Debug, PartialEq, Eq)]
+#[enum_class::from_variants]
+pub enum FluffyMethodDisambiguation {
+    Type(FluffyTypeMethodDisambiguation),
+    TraitForType(FluffyTraitForTypeMethodDisambiguation),
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum FluffyMethodIndirection {}
+
+#[derive(Debug, PartialEq, Eq)]
+pub enum FluffyMethodDisambiguationVariant {
+    Type,
+    Trait {
+        trai_path: TraitPath,
+        trai: FluffyTerm,
+    },
 }

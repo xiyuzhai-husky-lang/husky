@@ -88,7 +88,7 @@ impl FluffyTerm {
             FluffyTerm::Subentity(_) => todo!(),
             FluffyTerm::AsTraitSubentity(_) => todo!(),
             FluffyTerm::TraitConstraint(_) => todo!(),
-            FluffyTerm::Solid(term) => term.data(fluffy_terms.solid_terms()).into(),
+            FluffyTerm::Solid(term) => term.data2(fluffy_terms.solid_terms()).into(),
             FluffyTerm::Hollow(term) => term.fluffy_data(db, fluffy_terms),
         }
     }
