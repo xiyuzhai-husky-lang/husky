@@ -114,12 +114,7 @@ impl SymbolType {
                         refined_path,
                         arguments,
                     } => todo!(),
-                    FluffyTermData::PlaceTypeOntology {
-                        place,
-                        path,
-                        refined_path,
-                        arguments,
-                    } => todo!(),
+                    FluffyTermData::PlaceTypeOntology { .. } => todo!(),
                     FluffyTermData::Curry {
                         curry_kind,
                         variance,

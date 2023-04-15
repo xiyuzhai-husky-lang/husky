@@ -70,7 +70,7 @@ impl<'a> ExprTypeEngine<'a> {
         let ty_result = self.calc_expr_ty(expr_idx, &expr_ty_expectation);
         let expectation_idx = match ty_result {
             Ok((_, Ok(ty))) => self.fluffy_term_region.add_expectation_rule(
-                ExpectationSource::Expr(expr_idx),
+                ExpectationSource::new_expr(expr_idx),
                 ty,
                 expr_ty_expectation,
             ),
@@ -283,12 +283,7 @@ impl<'a> ExprTypeEngine<'a> {
                                     parameter_contracted_tys,
                                     return_ty,
                                 } => todo!(),
-                                FluffyTermData::PlaceTypeOntology {
-                                    place,
-                                    path,
-                                    refined_path,
-                                    arguments: argument_tys,
-                                } => todo!(),
+                                FluffyTermData::PlaceTypeOntology { .. } => todo!(),
                                 FluffyTermData::PlaceHole {
                                     place,
                                     hole_kind,

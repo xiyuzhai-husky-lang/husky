@@ -107,12 +107,7 @@ impl ExpectSubtype {
                 parameter_contracted_tys,
                 return_ty,
             } => todo!(),
-            FluffyTermData::PlaceTypeOntology {
-                place,
-                path,
-                refined_path,
-                arguments: argument_tys,
-            } => todo!(),
+            FluffyTermData::PlaceTypeOntology { .. } => todo!(),
             FluffyTermData::PlaceHole {
                 place,
                 hole_kind,

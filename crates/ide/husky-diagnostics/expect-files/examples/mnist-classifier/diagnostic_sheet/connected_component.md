@@ -48,19 +48,19 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Type Error: NoSuchField",
+                message: "Type Error: TodoMemo",
                 severity: Error,
                 range: [16:15, 16:29),
             },
             Diagnostic {
-                message: "Type Error: no method named `push` for type `LocalTerm::Resolved(Term(`TypeOntology(core::list::List) TypeOntology(core::mem::Leash) TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::raw_contour::RawContour)`))`",
+                message: "Type Error: Type",
                 severity: Error,
-                range: [34:17, 34:21),
+                range: [34:9, 34:71),
             },
             Diagnostic {
-                message: "Type Error: no method named `push` for type `LocalTerm::Resolved(Term(`TypeOntology(core::list::List) TypeOntology(core::mem::Leash) TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::raw_contour::RawContour)`))`",
+                message: "Type Error: Type",
                 severity: Error,
-                range: [35:17, 35:21),
+                range: [35:9, 35:71),
             },
             Diagnostic {
                 message: "type path mismatch: expect core::option::Option, but got core::mem::Leash instead",

@@ -26,12 +26,7 @@ impl ExpectImplicitlyConvertible {
     pub fn new_const(engine: &impl FluffyTermEngine, ty: FluffyTerm) -> Self {
         #[cfg(test)]
         match ty.data(engine) {
-            FluffyTermData::PlaceTypeOntology {
-                place,
-                path,
-                refined_path,
-                arguments: argument_tys,
-            } => unreachable!(),
+            FluffyTermData::PlaceTypeOntology { .. } => unreachable!(),
             _ => (),
         }
         Self {
@@ -47,11 +42,8 @@ impl ExpectImplicitlyConvertible {
     pub fn new_pure(engine: &impl FluffyTermEngine, ty: FluffyTerm) -> Self {
         let ty = match ty.data(engine) {
             FluffyTermData::PlaceTypeOntology {
-                place,
-                path,
-                refined_path,
-                arguments: argument_tys,
-            } => match argument_tys.len() {
+                path, arguments, ..
+            } => match arguments.len() {
                 0 => TermEntityPath::TypeOntology(path).into(),
                 _ => todo!(),
             },
@@ -155,7 +147,7 @@ impl ExpectImplicitlyConvertible {
         &self,
         db: &dyn FluffyTermDb,
         terms: &mut FluffyTerms,
-        parent: FluffyTermExpectationIdx,
+        child_src: ExpectationSource,
         expectee: FluffyTerm,
         level: FluffyTermResolveLevel,
     ) -> Option<FluffyTermExpectationEffect> {
@@ -174,7 +166,7 @@ impl ExpectImplicitlyConvertible {
             } => self.resolve_convertible_to_ty_ontology(
                 db,
                 terms,
-                parent,
+                child_src,
                 level,
                 expectee,
                 path,
@@ -211,17 +203,18 @@ impl ExpectImplicitlyConvertible {
                 place,
                 path,
                 refined_path,
-                arguments: argument_tys,
+                arguments,
+                ..
             } => self.resolve_convertible_to_place_ty_ontology(
                 db,
                 terms,
-                parent,
+                child_src,
                 level,
                 expectee,
                 place,
                 path,
                 refined_path,
-                argument_tys,
+                arguments,
             ),
             FluffyTermData::PlaceHole {
                 place,
@@ -235,7 +228,7 @@ impl ExpectImplicitlyConvertible {
         &self,
         db: &dyn FluffyTermDb,
         fluffy_terms: &FluffyTerms,
-        parent: ArenaIdx<ExpectationEntry>,
+        child_src: ExpectationSource,
         level: FluffyTermResolveLevel,
         expectee: FluffyTerm,
         dst_path: TypePath,
@@ -266,7 +259,7 @@ impl ExpectImplicitlyConvertible {
                 ) {
                     if src_argument_ty != dst_argument_ty {
                         actions.push(FluffyTermResolveAction::AddExpectation {
-                            src: ExpectationSource::ExpectationResolve { parent },
+                            src: child_src,
                             expectee: src_argument_ty,
                             expectation: ExpectSubtype::new(dst_argument_ty).into(),
                         })
@@ -310,7 +303,7 @@ impl ExpectImplicitlyConvertible {
                 ) {
                     if src_argument_ty != dst_argument_ty {
                         actions.push(FluffyTermResolveAction::AddExpectation {
-                            src: ExpectationSource::ExpectationResolve { parent },
+                            src: child_src,
                             expectee: src_argument_ty,
                             expectation: ExpectSubtype::new(dst_argument_ty).into(),
                         })
@@ -318,7 +311,7 @@ impl ExpectImplicitlyConvertible {
                 }
                 let result = match self.parameter_contracted_ty.contract() {
                     Contract::Pure => Ok(ImplicitConversion::Trivial.into()),
-                    Contract::Move => todo!(),
+                    Contract::Move => Ok(ImplicitConversion::Trivial.into()),
                     Contract::BorrowMut => todo!(),
                     Contract::Const => todo!(),
                 };
@@ -372,7 +365,7 @@ impl ExpectImplicitlyConvertible {
         &self,
         db: &dyn FluffyTermDb,
         fluffy_terms: &FluffyTerms,
-        parent: ArenaIdx<ExpectationEntry>,
+        child_src: ExpectationSource,
         level: FluffyTermResolveLevel,
         expectee: FluffyTerm,
         place: Place,

@@ -73,6 +73,7 @@ impl<'a> From<&'a SolidTermData> for FluffyTermData<'a> {
                 path: *path,
                 refined_path: *refined_path,
                 arguments: argument_tys,
+                base_ty_term: *base_ty_term,
             },
         }
     }

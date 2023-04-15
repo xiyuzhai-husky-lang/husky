@@ -13,13 +13,6 @@ use husky_raw_ty::ty_path_ty_method_raw_ty;
 use husky_signature::{SignatureResult, TypeMethodSignature};
 use husky_word::IdentPairMap;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[enum_class::from_variants]
-pub enum MethodCard {
-    TypeMethodFn(TypeMethodFnCard),
-    TraitForTypeMethodFn(TraitForTypeMethodFnCard),
-}
-
 #[salsa::tracked(db = TermDb, jar = TermJar, constructor = new_inner)]
 pub struct TraitForTypeMethodFnCard {
     #[id]

@@ -25,9 +25,18 @@ impl From<TermError> for ExprTypeError {
     }
 }
 
-impl From<FluffyTypeError> for ExprTypeError {
-    fn from(value: FluffyTypeError) -> Self {
+impl From<FluffyCardError> for ExprTypeError {
+    fn from(value: FluffyCardError) -> Self {
         todo!()
+    }
+}
+
+impl From<FluffyTypeError> for ExprTypeError {
+    fn from(e: FluffyTypeError) -> Self {
+        match e {
+            FluffyTypeError::Original(e) => ExprTypeError::Original(e.into()),
+            FluffyTypeError::Derived(e) => ExprTypeError::Derived(e.into()),
+        }
     }
 }
 
@@ -71,6 +80,8 @@ pub enum OriginalExprTypeError {
     TodoIndexOrComposeWithList,
     #[error("TodoMemo")]
     TodoMemo,
+    #[error("{0}")]
+    Type(#[from] OriginalFluffyTypeError),
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
@@ -147,6 +158,8 @@ pub enum DerivedExprTypeError {
     BitNotOperandTypeNotInferred,
     #[error("BinaryShiftRightOperandTypeNotInferred")]
     BinaryShiftRightOperandTypeNotInferred,
+    #[error("{0}")]
+    Type(#[from] DerivedFluffyTypeError),
 }
 
 pub type ExprTypeResult<T> = Result<T, ExprTypeError>;
