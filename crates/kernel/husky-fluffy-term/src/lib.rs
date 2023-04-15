@@ -13,6 +13,7 @@ mod substitution;
 mod term;
 #[cfg(test)]
 mod tests;
+mod ty;
 mod utils;
 
 pub use self::card::*;
@@ -30,6 +31,7 @@ pub use self::term::*;
 pub(crate) use self::tests::*;
 
 use self::nested::*;
+use self::ty::*;
 use either::*;
 use husky_entity_path::*;
 use husky_expr::*;
