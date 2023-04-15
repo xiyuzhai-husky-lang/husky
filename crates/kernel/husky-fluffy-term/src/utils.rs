@@ -13,12 +13,7 @@ impl FluffyTerm {
             | FluffyTermData::Category(_) => self,
             FluffyTermData::Curry { .. } => todo!(),
             FluffyTermData::Ritchie { .. } => todo!(),
-            FluffyTermData::PlaceTypeOntology {
-                place,
-                path,
-                refined_path,
-                arguments: argument_tys,
-            } => todo!(),
+            FluffyTermData::PlaceTypeOntology { .. } => todo!(),
             FluffyTermData::PlaceHole {
                 place,
                 hole_kind,
@@ -37,24 +32,14 @@ impl FluffyTerm {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology { .. } => FinalDestination::TypeOntology,
             FluffyTermData::Curry { .. } => todo!(),
-            FluffyTermData::Hole(kind, idx) => {
-                todo!()
-                //     match kind {
-                //     HoleKind::ImplicitLifetime => todo!(),
-                //     HoleKind::ExprEvalLifetime => todo!(),
-                //     HoleKind::UnspecifiedIntegerType
-                //     | HoleKind::UnspecifiedFloatType
-                //     | HoleKind::ImplicitType => FinalDestination::TypeOntology,
-                // }
-            }
+            FluffyTermData::Hole(kind, idx) => match kind {
+                HoleKind::UnspecifiedIntegerType
+                | HoleKind::UnspecifiedFloatType
+                | HoleKind::ImplicitType => FinalDestination::TypeOntology,
+            },
             FluffyTermData::Category(_) => FinalDestination::Sort,
             FluffyTermData::Ritchie { .. } => todo!(),
-            FluffyTermData::PlaceTypeOntology {
-                place,
-                path,
-                refined_path,
-                arguments: argument_tys,
-            } => todo!(),
+            FluffyTermData::PlaceTypeOntology { .. } => todo!(),
             FluffyTermData::PlaceHole {
                 place,
                 hole_kind,

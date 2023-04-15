@@ -1,18 +1,18 @@
 mod dyn_trai;
-mod error;
 mod trai_for_ty;
 mod ty;
 
-pub use self::error::*;
+pub use self::trai_for_ty::*;
+pub use self::ty::*;
 
 use super::*;
 use husky_word::Ident;
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct FluffyMethodDisambiguation {
-    indirections: SmallVec<[FluffyMethodIndirection; 2]>,
-    ty_path: TypePath,
-    variant: FluffyMethodDisambiguationVariant,
+#[enum_class::from_variants]
+pub enum FluffyMethodDisambiguation {
+    Type(FluffyTypeMethodDisambiguation),
+    TraitForType(FluffyTraitForTypeMethodDisambiguation),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -33,32 +33,15 @@ impl FluffyTerm {
         engine: &mut impl FluffyTermEngine,
         ident: Ident,
         available_traits: &[TraitPath],
-    ) -> FluffyMethodTypeResult<(
-        FluffyMethodDisambiguation,
-        FluffyMethodTypeResult<FluffyTerm>,
-    )> {
-        if let Some((indirections, ty_path, ty_result)) = self.ty_method_ty(ident)? {
-            return Ok((
-                FluffyMethodDisambiguation {
-                    indirections,
-                    ty_path,
-                    variant: FluffyMethodDisambiguationVariant::Type,
-                },
-                ty_result,
-            ));
+    ) -> FluffyTypeResult<(FluffyMethodDisambiguation, FluffyTypeResult<FluffyTerm>)> {
+        if let Some((disambiguation, ty_result)) = self.ty_method_ty(engine, ident)? {
+            return Ok((disambiguation.into(), ty_result));
         }
-        if let Some((indirections, ty_path, trai_path, trai, ty_result)) =
+        if let Some((disambiguation, ty_result)) =
             self.trai_for_ty_method_ty(ident, available_traits)?
         {
-            return Ok((
-                FluffyMethodDisambiguation {
-                    indirections,
-                    ty_path,
-                    variant: FluffyMethodDisambiguationVariant::Trait { trai_path, trai },
-                },
-                ty_result,
-            ));
+            return Ok((disambiguation.into(), ty_result));
         }
-        todo!()
+        Err(OriginalFluffyTypeError::NoSuchMethod.into())
     }
 }

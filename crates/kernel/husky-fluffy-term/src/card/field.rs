@@ -33,7 +33,7 @@ impl FluffyTerm {
         self,
         engine: &mut impl FluffyTermEngine,
         ident: Ident,
-    ) -> FluffyTypeResult<Option<FluffyTerm>> {
+    ) -> FluffyCardResult<Option<FluffyTerm>> {
         Ok(self
             .field_ty_aux(engine, ident)?
             .map(|field_ty| field_ty.to_term(engine)))
@@ -43,7 +43,7 @@ impl FluffyTerm {
         self,
         engine: &mut impl FluffyTermEngine,
         ident: Ident,
-    ) -> FluffyTypeResult<Option<FluffyFieldCard>> {
+    ) -> FluffyCardResult<Option<FluffyFieldCard>> {
         match self {
             FluffyTerm::Literal(_) => todo!(),
             FluffyTerm::Symbol(_) => todo!(),
@@ -82,7 +82,7 @@ impl SolidTerm {
         self,
         engine: &mut impl FluffyTermEngine,
         ident: Ident,
-    ) -> FluffyTypeResult<Option<FluffyFieldCard>> {
+    ) -> FluffyCardResult<Option<FluffyFieldCard>> {
         match self.data(engine.fluffy_terms().solid_terms()) {
             SolidTermData::TypeOntology {
                 path,

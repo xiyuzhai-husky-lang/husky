@@ -19,6 +19,7 @@ pub enum FluffyTermData<'a> {
         path: TypePath,
         refined_path: Either<CustomTypePath, PreludeTypePath>,
         arguments: &'a [FluffyTerm],
+        base_ty_term: Option<Term>,
     },
     Curry {
         curry_kind: CurryKind,
@@ -159,7 +160,8 @@ impl<'a, _Db: TermDb + ?Sized> ::salsa::DebugWithDb<_Db> for FluffyTermData<'a> 
                 ref place,
                 ref path,
                 ref refined_path,
-                arguments: ref argument_tys,
+                ref arguments,
+                ..
             } => {
                 let mut debug_struct = &mut f.debug_struct("FluffyTermData::PlaceTypeOntology");
                 debug_struct = debug_struct.field(
@@ -196,7 +198,7 @@ impl<'a, _Db: TermDb + ?Sized> ::salsa::DebugWithDb<_Db> for FluffyTermData<'a> 
                     "argument_tys",
                     &::salsa::debug::helper::SalsaDebug::<&'a [FluffyTerm], _Db>::salsa_debug(
                         #[allow(clippy::needless_borrow)]
-                        argument_tys,
+                        arguments,
                         _db,
                         _level.next(),
                     ),

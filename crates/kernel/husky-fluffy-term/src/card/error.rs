@@ -2,23 +2,23 @@ use super::*;
 use thiserror::Error;
 
 #[derive(Debug, Error)]
-pub enum FluffyTypeError {
+pub enum FluffyCardError {
     #[error("{0}")]
-    Original(OriginalFluffyTypeError),
+    Original(OriginalFluffyCardError),
     #[error("{0}")]
-    Derived(DerivedFluffyTypeError),
+    Derived(DerivedFluffyCardError),
 }
 
-pub type FluffyTypeResult<T> = Result<T, FluffyTypeError>;
+pub type FluffyCardResult<T> = Result<T, FluffyCardError>;
 
-impl From<TermError> for FluffyTypeError {
+impl From<TermError> for FluffyCardError {
     fn from(value: TermError) -> Self {
         todo!()
     }
 }
 
 #[derive(Debug, Error)]
-pub enum OriginalFluffyTypeError {}
+pub enum OriginalFluffyCardError {}
 
 #[derive(Debug, Error)]
-pub enum DerivedFluffyTypeError {}
+pub enum DerivedFluffyCardError {}

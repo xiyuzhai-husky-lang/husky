@@ -5,19 +5,92 @@ use vec_like::VecMapGetEntry;
 
 use super::*;
 
-pub(crate) fn ty_method_card(
-    db: &dyn TermDb,
-    owner_ty: Term,
-    ident: Ident,
-) -> TermResult<Option<TypeMethodFnCard>> {
-    assert!(owner_ty.is_reduced(db));
-    // using the fact that owner_ty is reduced
-    match owner_ty {
-        Term::EntityPath(TermEntityPath::TypeOntology(path)) => {
-            ty_ontology_path_ty_method_card(db, path, ident)
+#[salsa::tracked(db = TermDb, jar = TermJar, constructor = new_inner)]
+pub struct TypeMethodFnCard {
+    #[id]
+    pub id: AssociatedItemId,
+    #[return_ref]
+    pub method_ty_info_inner: TermResult<MethodTypeInfo>,
+    pub method_ty: TermResult<Term>,
+}
+
+impl Term {
+    pub fn ty_method_card(
+        self,
+        db: &dyn TermDb,
+        ident: Ident,
+    ) -> TermResult<Option<TypeMethodFnCard>> {
+        assert!(self.is_reduced(db));
+        // using the fact that owner_ty is reduced
+        match self {
+            Term::EntityPath(TermEntityPath::TypeOntology(path)) => {
+                ty_ontology_path_ty_method_card(db, path, ident)
+            }
+            Term::Application(raw_ty) => term_application_ty_method_card(db, raw_ty, ident),
+            _ => Ok(None),
         }
-        Term::Application(raw_ty) => term_application_ty_method_card(db, raw_ty, ident),
-        _ => Ok(None),
+    }
+}
+
+impl TypeMethodFnCard {
+    fn new(db: &dyn TermDb, decl: TypeMethodFnDecl) -> Self {
+        let id = decl.associated_item(db).id(db);
+        let signature = ty_method_signature(db, decl);
+        let method_ty_info: TermResult<MethodTypeInfo> =
+            MethodTypeInfo::new_ty_method_ty_info(db, signature);
+        let method_ty = method_ty_info
+            .as_ref()
+            .map_err(|e| *e)
+            .map(|ty_info| ty_info.ty(db))
+            .flatten();
+        Self::new_inner(db, id, method_ty_info, method_ty)
+    }
+
+    pub fn method_ty_info<'a>(self, db: &'a dyn TermDb) -> TermResult<&'a MethodTypeInfo> {
+        match self.method_ty_info_inner(db) {
+            Ok(ty_info) => Ok(ty_info),
+            Err(e) => Err(*e),
+        }
+    }
+}
+
+impl MethodTypeInfo {
+    fn new_ty_method_ty_info(
+        db: &dyn TermDb,
+        signature: SignatureResult<TypeMethodSignature>,
+    ) -> TermResult<Self> {
+        // todo: formal method, method that is not a function pointer
+        let signature = signature?;
+        let t =
+            |param: &ExplicitParameterSignature| -> TermResult<TermRitchieParameterContractedType> {
+                Ok(TermRitchieParameterContractedType::new(
+                    param.contract(),
+                    Term::from_raw_unchecked(
+                        db,
+                        param.ty(),
+                        TermTypeExpectation::FinalDestinationEqsSort,
+                    )?,
+                ))
+            };
+        let self_contracted_ty = t(signature.self_parameter(db))?;
+        let nonself_parameter_contracted_tys = signature
+            .nonself_regular_parameters(db)
+            .iter()
+            .map(t)
+            .collect::<TermResult<Vec<_>>>()?;
+        let return_ty = Term::ty_from_raw(db, signature.return_ty(db))?;
+        let implicit_parameters = signature
+            .implicit_parameters(db)
+            .iter()
+            .map(|_| todo!())
+            .collect();
+        Ok(Self {
+            implicit_parameters,
+            self_contracted_ty,
+            nonself_parameter_contracted_tys,
+            return_ty,
+            where_clause: (),
+        })
     }
 }
 
@@ -102,75 +175,4 @@ pub(crate) fn ty_path_ty_method_cards_aux(
             ))
         })
         .collect())
-}
-
-#[salsa::tracked(db = TermDb, jar = TermJar, constructor = new_inner)]
-pub struct TypeMethodFnCard {
-    #[id]
-    pub id: AssociatedItemId,
-    #[return_ref]
-    pub method_ty_info_inner: TermResult<MethodTypeInfo>,
-    pub method_ty: TermResult<Term>,
-}
-
-impl TypeMethodFnCard {
-    fn new(db: &dyn TermDb, decl: TypeMethodFnDecl) -> Self {
-        let id = decl.associated_item(db).id(db);
-        let signature = ty_method_signature(db, decl);
-        let method_ty_info: TermResult<MethodTypeInfo> =
-            MethodTypeInfo::new_ty_method_ty_info(db, signature);
-        let method_ty = method_ty_info
-            .as_ref()
-            .map_err(|e| *e)
-            .map(|ty_info| ty_info.ty(db))
-            .flatten();
-        Self::new_inner(db, id, method_ty_info, method_ty)
-    }
-
-    pub fn method_ty_info<'a>(self, db: &'a dyn TermDb) -> TermResult<&'a MethodTypeInfo> {
-        match self.method_ty_info_inner(db) {
-            Ok(ty_info) => Ok(ty_info),
-            Err(e) => Err(*e),
-        }
-    }
-}
-
-impl MethodTypeInfo {
-    fn new_ty_method_ty_info(
-        db: &dyn TermDb,
-        signature: SignatureResult<TypeMethodSignature>,
-    ) -> TermResult<Self> {
-        // todo: formal method, method that is not a function pointer
-        let signature = signature?;
-        let t =
-            |param: &ExplicitParameterSignature| -> TermResult<TermRitchieParameterContractedType> {
-                Ok(TermRitchieParameterContractedType::new(
-                    param.contract(),
-                    Term::from_raw_unchecked(
-                        db,
-                        param.ty(),
-                        TermTypeExpectation::FinalDestinationEqsSort,
-                    )?,
-                ))
-            };
-        let self_contracted_ty = t(signature.self_parameter(db))?;
-        let nonself_parameter_contracted_tys = signature
-            .nonself_regular_parameters(db)
-            .iter()
-            .map(t)
-            .collect::<TermResult<Vec<_>>>()?;
-        let return_ty = Term::ty_from_raw(db, signature.return_ty(db))?;
-        let implicit_parameters = signature
-            .implicit_parameters(db)
-            .iter()
-            .map(|_| todo!())
-            .collect();
-        Ok(Self {
-            implicit_parameters,
-            self_contracted_ty,
-            nonself_parameter_contracted_tys,
-            return_ty,
-            where_clause: (),
-        })
-    }
 }

@@ -37,12 +37,7 @@ impl FluffyTerm {
                             arguments,
                         }
                     }
-                    FluffyTermData::PlaceTypeOntology {
-                        place,
-                        path,
-                        refined_path,
-                        arguments: argument_tys,
-                    } => todo!(),
+                    FluffyTermData::PlaceTypeOntology { .. } => todo!(),
                     FluffyTermData::Curry {
                         curry_kind,
                         variance,

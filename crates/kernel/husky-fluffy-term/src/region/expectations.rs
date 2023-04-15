@@ -58,14 +58,36 @@ impl Expectations {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum ExpectationSource {
-    Expr(ExprIdx),
-    ExpectationResolve { parent: FluffyTermExpectationIdx },
+pub struct ExpectationSource {
+    expr_idx: ExprIdx,
+    kind: ExpectationSourceKind,
+}
+
+impl ExpectationSource {
+    pub fn new_expr(expr_idx: ExprIdx) -> Self {
+        Self {
+            expr_idx,
+            kind: ExpectationSourceKind::Expr,
+        }
+    }
+
+    pub(crate) fn child_src(self, idx: FluffyTermExpectationIdx) -> Self {
+        Self {
+            expr_idx: self.expr_idx,
+            kind: ExpectationSourceKind::Expectation(idx),
+        }
+    }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum ExpectationSourceKind {
+    Expr,
+    Expectation(FluffyTermExpectationIdx),
 }
 
 impl ExpectationSource {
     pub fn expr_idx(self) -> ExprIdx {
-        todo!()
+        self.expr_idx
     }
 }
 

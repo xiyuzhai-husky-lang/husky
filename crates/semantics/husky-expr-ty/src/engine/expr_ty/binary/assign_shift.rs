@@ -31,7 +31,7 @@ impl<'a> ExprTypeEngine<'a> {
                 place,
                 path,
                 refined_path: Right(PreludeTypePath::Num(_)),
-                arguments: argument_tys,
+                ..
             } => {
                 self.calc_num_ty_binary_shift_ropd_ty(ropd)?;
                 Ok(TermEntityPath::TypeOntology(path).into())

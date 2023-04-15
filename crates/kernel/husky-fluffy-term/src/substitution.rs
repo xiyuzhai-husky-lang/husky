@@ -55,12 +55,7 @@ impl FluffyTerms {
             FluffyTermData::Hole(_, _) => todo!(),
             FluffyTermData::Category(_) => todo!(),
             FluffyTermData::Ritchie { .. } => todo!(),
-            FluffyTermData::PlaceTypeOntology {
-                place,
-                path,
-                refined_path,
-                arguments: argument_tys,
-            } => todo!(),
+            FluffyTermData::PlaceTypeOntology { .. } => todo!(),
             FluffyTermData::PlaceHole {
                 place,
                 hole_kind,

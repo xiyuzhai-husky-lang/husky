@@ -245,7 +245,7 @@ impl ExpectationEntry {
                 expectation.resolve(db, terms, self.expectee(), level)
             }
             ExpectationData::ImplicitlyConvertible(expectation) => {
-                expectation.resolve(db, terms, idx, self.expectee(), level)
+                expectation.resolve(db, terms, self.src().child_src(idx), self.expectee(), level)
             }
             ExpectationData::EqsSort(ref expectation) => {
                 expectation.resolve(db, self.expectee(), terms)

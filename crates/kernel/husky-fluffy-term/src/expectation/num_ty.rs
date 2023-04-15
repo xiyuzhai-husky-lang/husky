@@ -24,6 +24,7 @@ impl ExpectNumType {
                 path,
                 refined_path,
                 arguments,
+                ..
             } => todo!(),
             FluffyTermData::Curry {
                 curry_kind,
@@ -32,7 +33,10 @@ impl ExpectNumType {
                 parameter_ty,
                 return_ty,
             } => todo!(),
-            FluffyTermData::Hole(_, _) => todo!(),
+            FluffyTermData::Hole(hole_kind, _) => match hole_kind {
+                HoleKind::UnspecifiedIntegerType | HoleKind::UnspecifiedFloatType => None,
+                HoleKind::ImplicitType => todo!(),
+            },
             FluffyTermData::Category(_) => todo!(),
             FluffyTermData::Ritchie {
                 ritchie_kind,
@@ -78,7 +82,7 @@ impl ExpectFluffyTerm for ExpectNumType {
     }
 
     fn destination(&self) -> Option<FluffyTerm> {
-        todo!()
+        None
     }
 }
 
