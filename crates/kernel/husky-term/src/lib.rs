@@ -4,6 +4,7 @@
 #![feature(let_chains)]
 
 // #![deny(unsafe_code, missing_docs, clippy::unwrap_used)]
+mod card;
 mod context;
 mod db;
 mod error;
@@ -15,9 +16,9 @@ mod term;
 #[cfg(test)]
 mod tests;
 mod trai;
-mod ty;
 mod utils;
 
+pub use self::card::*;
 pub use self::context::*;
 pub use self::db::*;
 pub use self::error::*;
@@ -25,7 +26,6 @@ pub use self::menu::*;
 pub use self::rewrite::*;
 pub use self::term::*;
 pub use self::trai::*;
-pub use self::ty::*;
 
 use self::template::*;
 #[cfg(test)]

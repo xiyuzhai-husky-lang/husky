@@ -1,16 +1,20 @@
+mod leashed;
+mod memo;
+mod regular;
+
 use super::*;
 use husky_word::Ident;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-struct FluffyFieldType {
+struct FluffyFieldCard {
     place: Option<Place>,
     visibility: Visibility,
     modifier: FieldModifier,
     ty: FluffyTerm,
 }
 
-impl FluffyFieldType {
-    fn from_field_ty(place: Option<Place>, field_ty: FieldType) -> Self {
+impl FluffyFieldCard {
+    fn from_field_ty(place: Option<Place>, field_ty: FieldCard) -> Self {
         Self {
             place,
             visibility: field_ty.visibility(),
@@ -39,7 +43,7 @@ impl FluffyTerm {
         self,
         engine: &mut impl FluffyTermEngine,
         ident: Ident,
-    ) -> FluffyTypeResult<Option<FluffyFieldType>> {
+    ) -> FluffyTypeResult<Option<FluffyFieldCard>> {
         match self {
             FluffyTerm::Literal(_) => todo!(),
             FluffyTerm::Symbol(_) => todo!(),
@@ -78,7 +82,7 @@ impl SolidTerm {
         self,
         engine: &mut impl FluffyTermEngine,
         ident: Ident,
-    ) -> FluffyTypeResult<Option<FluffyFieldType>> {
+    ) -> FluffyTypeResult<Option<FluffyFieldCard>> {
         match self.data(engine.fluffy_terms().solid_terms()) {
             SolidTermData::TypeOntology {
                 path,
@@ -91,7 +95,7 @@ impl SolidTerm {
                 ..
             } => Ok(base_ty_term
                 .field_ty(engine.db(), ident)?
-                .map(|field_ty| FluffyFieldType::from_field_ty(Some(*place), field_ty))),
+                .map(|field_ty| FluffyFieldCard::from_field_ty(Some(*place), field_ty))),
             SolidTermData::PlaceTypeOntology {
                 place,
                 path,

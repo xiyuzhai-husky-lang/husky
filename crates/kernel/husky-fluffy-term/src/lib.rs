@@ -1,5 +1,6 @@
 #![feature(anonymous_lifetime_in_impl_trait)]
 #![feature(trait_upcasting)]
+mod card;
 mod data;
 mod db;
 mod engine;
@@ -12,9 +13,9 @@ mod substitution;
 mod term;
 #[cfg(test)]
 mod tests;
-mod ty;
 mod utils;
 
+pub use self::card::*;
 pub use self::data::*;
 pub use self::db::*;
 pub use self::engine::*;
@@ -24,7 +25,6 @@ pub use self::region::*;
 pub use self::resolve::*;
 pub use self::substitution::*;
 pub use self::term::*;
-pub use self::ty::*;
 
 #[cfg(test)]
 pub(crate) use self::tests::*;
