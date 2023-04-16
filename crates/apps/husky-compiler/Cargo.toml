@@ -23,7 +23,6 @@ husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
 husky-diagnostics = { path = "../../ide/husky-diagnostics" }
 # kernel
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
-husky-ethereal-ty = { path = "../../kernel/husky-ethereal-ty" }
 husky-word = { path = "../../kernel/husky-word" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }

@@ -1,5 +1,122 @@
-use super::*;
+use crate::*;
 use husky_declarative_ty::*;
+use husky_ty_expectation::TypePathDisambiguation;
+use husky_vfs::Toolchain;
+
+pub trait HasType: Copy {
+    fn ty(self, db: &dyn EtherealTermDb) -> TermResult<EtherealTerm>;
+}
+
+pub trait HasTypeGivenToolchain: Copy {
+    fn ty(self, db: &dyn EtherealTermDb, toolchain: Toolchain) -> TermResult<EtherealTerm>;
+}
+
+pub trait HasTypeGivenDisambiguation: Copy {
+    fn ty(
+        self,
+        db: &dyn EtherealTermDb,
+        disambiguation: TypePathDisambiguation,
+    ) -> TermResult<EtherealTerm>;
+}
+
+impl HasTypeGivenDisambiguation for EntityPath {
+    fn ty(
+        self,
+        db: &dyn EtherealTermDb,
+        disambiguation: TypePathDisambiguation,
+    ) -> TermResult<EtherealTerm> {
+        match self {
+            EntityPath::Module(path) => Ok(db.term_menu(path.toolchain(db)).module_ty_ontology()),
+            EntityPath::ModuleItem(path) => path.ty(db, disambiguation),
+            EntityPath::AssociatedItem(path) => path.ty(db),
+            EntityPath::TypeVariant(path) => path.ty(db),
+        }
+    }
+}
+
+impl HasTypeGivenDisambiguation for ModuleItemPath {
+    fn ty(
+        self,
+        db: &dyn EtherealTermDb,
+        disambiguation: TypePathDisambiguation,
+    ) -> TermResult<EtherealTerm> {
+        match self {
+            ModuleItemPath::Type(path) => path.ty(db, disambiguation),
+            ModuleItemPath::Trait(path) => path.ty(db),
+            ModuleItemPath::Form(path) => path.ty(db),
+        }
+    }
+}
+
+impl HasType for TraitPath {
+    fn ty(self, db: &dyn EtherealTermDb) -> TermResult<EtherealTerm> {
+        EtherealTerm::ty_from_raw(db, trai_path_raw_ty(db, self)?)
+    }
+}
+
+impl HasType for FormPath {
+    fn ty(self, db: &dyn EtherealTermDb) -> TermResult<EtherealTerm> {
+        EtherealTerm::ty_from_raw(db, form_path_raw_ty(db, self)?)
+    }
+}
+
+impl HasTypeGivenDisambiguation for TypePath {
+    fn ty(
+        self,
+        db: &dyn EtherealTermDb,
+        disambiguation: TypePathDisambiguation,
+    ) -> TermResult<EtherealTerm> {
+        match disambiguation {
+            TypePathDisambiguation::Ontology => {
+                EtherealTerm::ty_from_raw(db, ty_ontology_path_raw_ty(db, self)?)
+            }
+            TypePathDisambiguation::Constructor => {
+                EtherealTerm::ty_from_raw(db, ty_constructor_path_raw_ty(db, self)?)
+            }
+        }
+    }
+}
+
+impl HasType for AssociatedItemPath {
+    fn ty(self, db: &dyn EtherealTermDb) -> TermResult<EtherealTerm> {
+        match self {
+            AssociatedItemPath::TypeItem(path) => path.ty(db),
+            AssociatedItemPath::TraitItem(path) => path.ty(db),
+            AssociatedItemPath::TraitForTypeItem(path) => path.ty(db),
+        }
+    }
+}
+
+impl HasType for TypeItemPath {
+    fn ty(self, db: &dyn EtherealTermDb) -> TermResult<EtherealTerm> {
+        EtherealTerm::ty_from_raw_unchecked(db, self.raw_ty(db)?)
+    }
+}
+
+impl HasType for TraitItemPath {
+    fn ty(self, db: &dyn EtherealTermDb) -> TermResult<EtherealTerm> {
+        todo!()
+    }
+}
+
+impl HasType for TraitForTypeItemPath {
+    fn ty(self, db: &dyn EtherealTermDb) -> TermResult<EtherealTerm> {
+        todo!()
+    }
+}
+
+impl HasType for TypeVariantPath {
+    fn ty(self, db: &dyn EtherealTermDb) -> TermResult<EtherealTerm> {
+        EtherealTerm::ty_from_raw(db, ty_variant_path_raw_ty(db, self)?)
+    }
+}
+
+impl HasTypeGivenToolchain for EtherealTerm {
+    fn ty(self, db: &dyn EtherealTermDb, toolchain: Toolchain) -> TermResult<EtherealTerm> {
+        todo!()
+        // self.ty_unchecked(db)?.checked(db)
+    }
+}
 
 impl EtherealTerm {
     pub fn ty_unchecked(

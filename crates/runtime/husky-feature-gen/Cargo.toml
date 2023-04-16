@@ -26,7 +26,6 @@ map-collect = { path = "../../abstraction/map-collect" }
 husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
 husky-vm = { path = "../../vm/husky-vm" }
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
-husky-ethereal-ty = { path = "../../kernel/husky-ethereal-ty" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
 husky-word = { path = "../../kernel/husky-word" }

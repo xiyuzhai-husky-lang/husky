@@ -10,8 +10,7 @@ mod ritchie_call_ty;
 mod suffix;
 mod utils;
 
-use super::*;
-use husky_ethereal_ty::*;
+use super::*; 
 use husky_opn_syntax::*;
 use husky_ty_expectation::TypePathDisambiguation;
 
@@ -133,7 +132,10 @@ impl<'a> ExprTypeEngine<'a> {
             Expr::SelfType(_) => Ok((
                 ExprDisambiguation::Trivial,
                 match self.self_ty {
-                    Some(self_ty) => Ok(self_ty.ty(self.db, self.toolchain)?.into()), // todo: impl binding
+                    Some(self_ty) => match self_ty.ty_unchecked(self.db)? {
+                        Left(self_ty_ty) => Ok(self_ty_ty.into()),
+                        Right(_) => unreachable!(),
+                    }, // todo: impl binding
                     None => Err(DerivedExprTypeError::SelfTypeNotInferredForSelfValue.into()),
                 },
             )),

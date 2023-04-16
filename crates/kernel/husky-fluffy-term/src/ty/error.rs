@@ -9,11 +9,11 @@ pub enum FluffyTypeError {
     Derived(#[from] DerivedFluffyTypeError),
 }
 
-impl From<TypeError> for FluffyTypeError {
-    fn from(value: TypeError) -> Self {
-        todo!()
-    }
-}
+// impl From<TypeError> for FluffyTypeError {
+//     fn from(value: TypeError) -> Self {
+//         todo!()
+//     }
+// }
 
 impl From<TermError> for FluffyTypeError {
     fn from(value: TermError) -> Self {

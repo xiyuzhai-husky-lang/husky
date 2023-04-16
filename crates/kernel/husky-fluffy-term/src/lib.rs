@@ -35,7 +35,6 @@ use self::nested::*;
 use either::*;
 use husky_entity_path::*;
 use husky_ethereal_term::*;
-use husky_ethereal_ty::*;
 use husky_expr::*;
 use husky_print_utils::p;
 use husky_signature::*;

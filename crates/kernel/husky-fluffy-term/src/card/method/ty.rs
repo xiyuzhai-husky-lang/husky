@@ -28,14 +28,15 @@ impl FluffyTerm {
                 base_ty_term,
             } => match base_ty_term {
                 Some(base_ty_term) => {
-                    let db = engine.db();
-                    let Some(card) = base_ty_term.ty_method_card(db, ident)? else {
-                        return Ok(None)
-                    };
-                    Ok(Some(FluffyTypeMethodCard {
-                        id: card.id(db),
-                        method_ty: card.method_ty(db).map(Into::into).map_err(Into::into),
-                    }))
+                    todo!()
+                    // let db = engine.db();
+                    // let Some(card) = base_ty_term.ty_method_card(db, ident)? else {
+                    //     return Ok(None)
+                    // };
+                    // Ok(Some(FluffyTypeMethodCard {
+                    //     id: card.id(db),
+                    //     method_ty: card.method_ty(db).map(Into::into).map_err(Into::into),
+                    // }))
                 }
                 None => todo!(),
             },
