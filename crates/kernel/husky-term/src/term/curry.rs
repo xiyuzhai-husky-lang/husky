@@ -92,11 +92,6 @@ pub(crate) fn term_curry_from_raw_unchecked(
     ))
 }
 
-#[salsa::tracked(jar = TermJar)]
-pub(crate) fn check_term_curry_validity(db: &dyn TermDb, term_curry: TermCurry) -> TermResult<()> {
-    todo!()
-}
-
 impl<Db: TermDb + ?Sized> salsa::DisplayWithDb<Db> for TermCurry {
     fn display_with_db_fmt(
         &self,

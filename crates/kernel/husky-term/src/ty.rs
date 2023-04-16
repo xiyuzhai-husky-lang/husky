@@ -13,12 +13,12 @@ impl Term {
         })
     }
 
-    pub(crate) fn raw_ty(self, db: &dyn TermDb) -> TermResult<Either<RawTerm, PreludeTypePath>> {
+    pub fn raw_ty(self, db: &dyn TermDb) -> TermResult<Either<RawTerm, PreludeTypePath>> {
         Ok(match self {
             Term::Literal(literal) => Right(literal.ty()),
             // term.raw_ty(db),
             Term::Symbol(symbol) => todo!(),
-            Term::Hole(_) => todo!(),
+            Term::Placeholder(_) => todo!(),
             Term::EntityPath(path) => match path {
                 TermEntityPath::Form(_) => todo!(),
                 TermEntityPath::Trait(path) => Left(trai_path_raw_ty(db, path)?),

@@ -81,13 +81,6 @@ impl TermRitchie {
         todo!()
     }
 
-    pub(super) fn check(self, db: &dyn TermDb) -> TermResult<()> {
-        for parameter_contracted_ty in self.parameter_contracted_tys(db) {
-            parameter_contracted_ty.check(db)?
-        }
-        self.return_ty(db).check_is_ins_ty0(db)
-    }
-
     #[inline(always)]
     pub(crate) fn from_raw_unchecked(
         db: &dyn TermDb,
@@ -142,14 +135,6 @@ pub(crate) fn term_ritchie_from_raw_unchecked(
     )
 }
 
-#[salsa::tracked(jar = TermJar)]
-pub(crate) fn check_term_ritchie_validity(
-    db: &dyn TermDb,
-    term_ritchie: TermRitchie,
-) -> TermResult<()> {
-    todo!()
-}
-
 impl<Db> salsa::DisplayWithDb<Db> for TermRitchie
 where
     Db: TermDb + ?Sized,
@@ -185,10 +170,6 @@ pub struct TermRitchieParameterContractedType {
 }
 
 impl TermRitchieParameterContractedType {
-    fn check(self, db: &dyn TermDb) -> TermResult<()> {
-        self.ty.check_is_ins_ty0(db)
-    }
-
     fn reduce(self, db: &dyn TermDb) -> Self {
         Self {
             contract: self.contract,

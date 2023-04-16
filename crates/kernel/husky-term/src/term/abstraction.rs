@@ -23,10 +23,6 @@ impl TermAbstraction {
         todo!()
     }
 
-    pub(super) fn check(self, db: &dyn TermDb) -> TermResult<()> {
-        check_term_abstraction_validity(db, self)
-    }
-
     pub fn ty(&self) -> Term {
         todo!()
     }
@@ -39,14 +35,6 @@ impl TermAbstraction {
     ) -> std::fmt::Result {
         todo!()
     }
-}
-
-#[salsa::tracked(jar = TermJar)]
-pub(crate) fn check_term_abstraction_validity(
-    db: &dyn TermDb,
-    term_abstraction: TermAbstraction,
-) -> TermResult<()> {
-    todo!()
 }
 
 impl TermAbstraction {

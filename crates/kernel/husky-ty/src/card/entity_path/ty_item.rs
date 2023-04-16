@@ -22,7 +22,8 @@ pub struct TypeAssociatedFnCard {
 }
 
 pub(crate) fn ty_item_path_ty(db: &dyn TypeDb, path: TypeItemPath) -> TermResult<Term> {
-    ty_item_path_ty_unchecked(db, path)?.checked(db)
+    ty_item_path_ty_unchecked(db, path)
+    // ?.checked(db)
 }
 
 pub(crate) fn ty_item_path_ty_unchecked(db: &dyn TypeDb, path: TypeItemPath) -> TermResult<Term> {

@@ -59,7 +59,6 @@ impl TermApplication {
         let shift = argument_ty_total_number_of_curry_parameters
             - function_parameter_ty_total_number_of_curry_parameters;
         let term = Self::new_unchecked(db, function, argument, shift);
-        term.check(db)?;
         Ok(term)
     }
 
@@ -82,10 +81,6 @@ impl TermApplication {
     ) -> TermResult<Term> {
         // todo: implicit arguments
         term_uncheck_from_raw_term_application(db, raw_term_application, term_ty_expectation)
-    }
-
-    pub(super) fn check(self, db: &dyn TermDb) -> TermResult<()> {
-        check_term_application_validity(db, self)
     }
 
     pub(crate) fn raw_ty(self, db: &dyn TermDb) -> TermResult<RawTerm> {
@@ -202,36 +197,6 @@ impl Term {
             Left(raw_ty) => raw_ty.total_number_of_curry_parameters(db),
             Right(_) => 0,
         })
-    }
-}
-
-#[salsa::tracked(jar = TermJar)]
-pub(crate) fn check_term_application_validity(
-    db: &dyn TermDb,
-    term_application: TermApplication,
-) -> TermResult<()> {
-    let function = term_application.function(db);
-    let argument = term_application.argument(db);
-    let shift = term_application.shift(db);
-    function.check(db)?;
-    argument.check(db)?;
-    match shift {
-        0 => {
-            let function_ty = match function.ty_unchecked(db)? {
-                Left(Term::Curry(function_ty)) => function_ty,
-                _ => unreachable!(),
-            };
-            let argument_ty = argument.ty_unchecked(db)?;
-            let parameter_ty = function_ty.parameter_ty(db);
-            if !parameter_ty.is_ty_trivially_convertible_from(db, argument_ty)? {
-                return Err(TermError::TermApplicationWrongArgumentType {
-                    parameter_ty,
-                    argument_ty,
-                });
-            }
-            Ok(())
-        }
-        _ => todo!(),
     }
 }
 

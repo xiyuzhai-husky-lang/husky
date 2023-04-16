@@ -36,7 +36,7 @@ pub enum Term {
     /// literal: 1,1.0, true, false; variable, entityPath
     Literal(TermLiteral),
     Symbol(TermSymbol),
-    Hole(TermPlaceholder),
+    Placeholder(TermPlaceholder),
     EntityPath(TermEntityPath),
     Category(TermCategory),
     Universe(TermUniverse),
@@ -75,9 +75,7 @@ impl Term {
         raw_term: RawTerm,
         term_ty_expectation: TermTypeExpectation,
     ) -> TermResult<Self> {
-        let term = Self::from_raw_unchecked(db, raw_term, term_ty_expectation)?;
-        term.check(db)?;
-        Ok(term)
+        Self::from_raw_unchecked(db, raw_term, term_ty_expectation)
     }
 
     pub fn ty_from_raw(db: &dyn TermDb, raw_term: RawTerm) -> TermResult<Self> {
@@ -86,37 +84,6 @@ impl Term {
 
     pub fn ty_from_raw_unchecked(db: &dyn TermDb, raw_term: RawTerm) -> TermResult<Self> {
         Self::from_raw_unchecked(db, raw_term, TermTypeExpectation::FinalDestinationEqsSort)
-    }
-
-    pub fn checked(self, db: &dyn TermDb) -> TermResult<Self> {
-        self.check(db)?;
-        Ok(self)
-    }
-
-    fn check(self, db: &dyn TermDb) -> TermResult<()> {
-        match self {
-            Term::Literal(_) => Ok(()),
-            Term::Symbol(term) => term.check(db),
-            Term::Hole(term) => term.check(db),
-            Term::EntityPath(path) => Ok(()),
-            Term::Category(_) => Ok(()),
-            Term::Universe(_) => Ok(()),
-            Term::Curry(term) => term.check(db),
-            Term::Ritchie(term) => term.check(db),
-            Term::Abstraction(term) => term.check(db),
-            Term::Application(term) => term.check(db),
-            Term::Subentity(term) => term.check(db),
-            Term::AsTraitSubentity(term) => term.check(db),
-            Term::TraitConstraint(term) => term.check(db),
-        }
-    }
-
-    fn check_is_ins_ty0(self, db: &dyn TermDb) -> TermResult<()> {
-        self.check(db);
-        match self.raw_ty(db)? {
-            Left(RawTerm::Category(cat)) if cat.universe().raw() == 1 => Ok(()),
-            _ => todo!(),
-        }
     }
 
     pub(crate) fn from_raw_unchecked(
@@ -209,7 +176,7 @@ impl Term {
         match self {
             Term::Literal(_)
             | Term::Symbol(_)
-            | Term::Hole(_)
+            | Term::Placeholder(_)
             | Term::EntityPath(
                 TermEntityPath::Trait(_)
                 | TermEntityPath::TypeOntology(_)
@@ -384,7 +351,7 @@ impl Term {
         match self {
             Term::Literal(term) => term.show_with_db_fmt(f, db),
             Term::Symbol(term) => term.show_with_db_fmt(f, db, ctx),
-            Term::Hole(term) => term.show_with_db_fmt(f, db, ctx),
+            Term::Placeholder(term) => term.show_with_db_fmt(f, db, ctx),
             Term::EntityPath(term) => term.show_with_db_fmt(f, db),
             Term::Category(term) => f.write_str(&term.to_string()),
             Term::Universe(term) => f.write_str(&term.to_string()),

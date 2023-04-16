@@ -37,14 +37,6 @@ impl TermTraitConstraint {
     }
 }
 
-#[salsa::tracked(jar = TermJar)]
-pub(crate) fn check_term_trai_constraint_validity(
-    db: &dyn TermDb,
-    term_trai_constraint: TermTraitConstraint,
-) -> TermResult<()> {
-    todo!()
-}
-
 impl TermTraitConstraint {
     fn substitute(self, db: &dyn TermDb, substituation: &TermSubstitution) -> Term {
         todo!()

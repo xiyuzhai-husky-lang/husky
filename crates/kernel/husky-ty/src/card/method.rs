@@ -46,7 +46,8 @@ impl MethodTypeInfo {
                 for implicit_signature in implicit_parameters.iter().copied() {
                     todo!()
                 }
-                method_ty.checked(db)
+                Ok(method_ty)
+                // method_ty.checked(db)
             }
         }
     }

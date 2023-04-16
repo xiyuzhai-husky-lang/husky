@@ -55,18 +55,14 @@ pub struct TermJar(
     // curry
     TermCurry,
     term_curry_from_raw_unchecked,
-    check_term_curry_validity,
     // total_number_of_curry_parameters,
     // ritchie
     TermRitchie,
     term_ritchie_from_raw_unchecked,
-    check_term_ritchie_validity,
     // abstraction
     TermAbstraction,
-    check_term_abstraction_validity,
     // application
     TermApplication,
-    check_term_application_validity,
     application_expansion_salsa,
     term_uncheck_from_raw_term_application,
     term_application_raw_ty,
@@ -78,13 +74,10 @@ pub struct TermJar(
     ApplicationArguments,
     // subentity
     TermSubentity,
-    check_term_subentity_validity,
     // as trait subentity
     TermAsTraitSubentity,
-    check_term_as_trai_subentity_validity,
     // trait constraint
     TermTraitConstraint,
-    check_term_trai_constraint_validity,
     term_menu,
     // other
     term_from_raw_term_explicit_application_or_ritchie_call_unchecked,
