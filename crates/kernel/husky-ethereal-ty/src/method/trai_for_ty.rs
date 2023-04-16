@@ -1,7 +1,7 @@
 use super::*;
 
 pub(super) fn trai_for_ty_method_ty(
-    db: &dyn TypeDb,
+    db: &dyn EtherealTypeDb,
     term: EtherealTerm,
     ident: Ident,
     available_traits: &[TraitPath],

@@ -2,7 +2,7 @@ use super::*;
 use husky_raw_ty::ty_variant_path_raw_ty;
 
 pub(crate) fn ty_variant_path_ty(
-    db: &dyn TypeDb,
+    db: &dyn EtherealTypeDb,
     path: TypeVariantPath,
 ) -> TermResult<EtherealTerm> {
     EtherealTerm::from_raw(

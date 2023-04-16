@@ -21,11 +21,11 @@ use husky_entity_path::*;
 use husky_entity_taxonomy::*;
 use husky_entity_tree::*;
 use husky_ethereal_term::*;
+use husky_ethereal_ty::*;
 use husky_expr::*;
 use husky_fluffy_term::*;
 use husky_signature::*;
 use husky_term_prelude::*;
-use husky_ty::*;
 use salsa::DebugWithDb;
 use smallvec::*;
 

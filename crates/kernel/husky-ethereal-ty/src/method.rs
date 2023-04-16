@@ -11,7 +11,7 @@ use crate::*;
 pub trait HasMethodType: Copy {
     fn method_ty(
         self,
-        db: &dyn TypeDb,
+        db: &dyn EtherealTypeDb,
         ident: Ident,
         available_traits: &[TraitPath],
     ) -> TypeResult<(MethodDisambiguation, TypeResult<EtherealTerm>)>;
@@ -20,7 +20,7 @@ pub trait HasMethodType: Copy {
 impl HasMethodType for EtherealTerm {
     fn method_ty(
         self,
-        db: &dyn TypeDb,
+        db: &dyn EtherealTypeDb,
         ident: Ident,
         available_traits: &[TraitPath],
     ) -> TypeResult<(MethodDisambiguation, TypeResult<EtherealTerm>)> {

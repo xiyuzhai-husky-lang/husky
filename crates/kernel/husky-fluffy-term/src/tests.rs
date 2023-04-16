@@ -42,7 +42,7 @@ use husky_word::WordJar;
     SignatureJar,
     RawTypeJar,
     EtherealTermJar,
-    TypeJar,
+    EtherealTypeJar,
     FluffyTermJar
 )]
 #[derive(Default)]

@@ -1,7 +1,7 @@
 use super::*;
 
 pub(super) fn regular_field_ty(
-    db: &dyn TypeDb,
+    db: &dyn EtherealTypeDb,
     term: EtherealTerm,
     ident: Ident,
 ) -> TypeResult<Option<(RegularFieldDisambiguation, TypeResult<EtherealTerm>)>> {

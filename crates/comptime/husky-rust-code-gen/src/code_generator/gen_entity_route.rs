@@ -1,5 +1,5 @@
 use husky_ethereal_term::*;
-use husky_ty::*;
+use husky_ethereal_ty::*;
 
 use super::*;
 

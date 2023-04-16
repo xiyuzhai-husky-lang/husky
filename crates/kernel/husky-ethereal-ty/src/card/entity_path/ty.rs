@@ -1,7 +1,7 @@
 use super::*;
 
 pub(crate) fn ty_path_ty(
-    db: &dyn TypeDb,
+    db: &dyn EtherealTypeDb,
     path: TypePath,
     disambiguation: TypePathDisambiguation,
 ) -> TermResult<EtherealTerm> {
@@ -12,7 +12,7 @@ pub(crate) fn ty_path_ty(
 }
 
 pub(crate) fn ty_ontology_path_ty_unchecked(
-    db: &dyn TypeDb,
+    db: &dyn EtherealTypeDb,
     path: TypePath,
 ) -> TermResult<EtherealTerm> {
     EtherealTerm::from_raw(
@@ -23,7 +23,7 @@ pub(crate) fn ty_ontology_path_ty_unchecked(
 }
 
 pub(crate) fn ty_constructor_path_ty_unchecked(
-    db: &dyn TypeDb,
+    db: &dyn EtherealTypeDb,
     path: TypePath,
 ) -> TermResult<EtherealTerm> {
     EtherealTerm::from_raw(

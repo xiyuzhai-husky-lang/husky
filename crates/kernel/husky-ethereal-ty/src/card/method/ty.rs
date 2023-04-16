@@ -5,7 +5,7 @@ use vec_like::VecMapGetEntry;
 
 use super::*;
 
-#[salsa::tracked(db = TypeDb, jar = TypeJar, constructor = new_inner)]
+#[salsa::tracked(db = EtherealTypeDb, jar = EtherealTypeJar, constructor = new_inner)]
 pub struct TypeMethodFnCard {
     #[id]
     pub id: AssociatedItemId,
@@ -15,11 +15,19 @@ pub struct TypeMethodFnCard {
 }
 
 pub trait HasTypeMethodCard: Copy {
-    fn ty_method_card(self, db: &dyn TypeDb, ident: Ident) -> TermResult<Option<TypeMethodFnCard>>;
+    fn ty_method_card(
+        self,
+        db: &dyn EtherealTypeDb,
+        ident: Ident,
+    ) -> TermResult<Option<TypeMethodFnCard>>;
 }
 
 impl HasTypeMethodCard for EtherealTerm {
-    fn ty_method_card(self, db: &dyn TypeDb, ident: Ident) -> TermResult<Option<TypeMethodFnCard>> {
+    fn ty_method_card(
+        self,
+        db: &dyn EtherealTypeDb,
+        ident: Ident,
+    ) -> TermResult<Option<TypeMethodFnCard>> {
         // using the fact that owner_ty is reduced
         match self {
             EtherealTerm::EntityPath(TermEntityPath::TypeOntology(path)) => {
@@ -32,7 +40,7 @@ impl HasTypeMethodCard for EtherealTerm {
 }
 
 impl TypeMethodFnCard {
-    fn new(db: &dyn TypeDb, decl: TypeMethodFnDecl) -> Self {
+    fn new(db: &dyn EtherealTypeDb, decl: TypeMethodFnDecl) -> Self {
         todo!()
         // let id = decl.associated_item(db).id(db);
         // let signature = ty_method_signature(db, decl);
@@ -46,7 +54,7 @@ impl TypeMethodFnCard {
         // Self::new_inner(db, id, method_ty_info, method_ty)
     }
 
-    pub fn method_ty_info<'a>(self, db: &'a dyn TypeDb) -> TermResult<&'a MethodTypeInfo> {
+    pub fn method_ty_info<'a>(self, db: &'a dyn EtherealTypeDb) -> TermResult<&'a MethodTypeInfo> {
         match self.method_ty_info_inner(db) {
             Ok(ty_info) => Ok(ty_info),
             Err(e) => Err(*e),
@@ -56,7 +64,7 @@ impl TypeMethodFnCard {
 
 impl MethodTypeInfo {
     fn new_ty_method_ty_info(
-        db: &dyn TypeDb,
+        db: &dyn EtherealTypeDb,
         signature: SignatureResult<TypeMethodSignature>,
     ) -> TermResult<Self> {
         // todo: formal method, method that is not a function pointer
@@ -95,7 +103,7 @@ impl MethodTypeInfo {
 }
 
 pub(crate) fn ty_ontology_path_ty_method_card(
-    db: &dyn TypeDb,
+    db: &dyn EtherealTypeDb,
     path: TypePath,
     ident: Ident,
 ) -> TermResult<Option<TypeMethodFnCard>> {
@@ -109,9 +117,9 @@ pub(crate) fn ty_ontology_path_ty_method_card(
     Ok(Some(ty_method_card))
 }
 
-#[salsa::tracked(jar = TypeJar)]
+#[salsa::tracked(jar = EtherealTypeJar)]
 pub(crate) fn term_application_ty_method_card(
-    db: &dyn TypeDb,
+    db: &dyn EtherealTypeDb,
     ty_term: EtherealTermApplication,
     ident: Ident,
 ) -> TermResult<Option<TypeMethodFnCard>> {
@@ -130,7 +138,7 @@ pub(crate) fn term_application_ty_method_card(
 }
 
 fn ty_ontology_path_application_ty_method_card(
-    db: &dyn TypeDb,
+    db: &dyn EtherealTypeDb,
     path: TypePath,
     _arguments: &[EtherealTerm],
     ident: Ident,
@@ -146,7 +154,7 @@ fn ty_ontology_path_application_ty_method_card(
 }
 
 pub(crate) fn ty_path_ty_method_cards(
-    db: &dyn TypeDb,
+    db: &dyn EtherealTypeDb,
     path: TypePath,
 ) -> EntityTreeBundleResultRef<&[(Ident, Result<TypeMethodFnCard, ()>)]> {
     match ty_path_ty_method_cards_aux(db, path) {
@@ -155,9 +163,9 @@ pub(crate) fn ty_path_ty_method_cards(
     }
 }
 
-#[salsa::tracked(jar = TypeJar, return_ref)]
+#[salsa::tracked(jar = EtherealTypeJar, return_ref)]
 pub(crate) fn ty_path_ty_method_cards_aux(
-    db: &dyn TypeDb,
+    db: &dyn EtherealTypeDb,
     path: TypePath,
 ) -> EntityTreeBundleResult<IdentPairMap<Result<TypeMethodFnCard, ()>>> {
     Ok(path

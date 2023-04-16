@@ -5,13 +5,13 @@ use crate::*;
 pub struct CheckedTerm(EtherealTerm);
 
 impl CheckedTerm {
-    pub fn new(db: &dyn TypeDb, term: EtherealTerm) -> TypeResult<Self> {
+    pub fn new(db: &dyn EtherealTypeDb, term: EtherealTerm) -> TypeResult<Self> {
         check_term_validity(db, term)?;
         Ok(CheckedTerm(term))
     }
 }
 
-fn check_term_validity(db: &dyn TypeDb, term: EtherealTerm) -> TypeResult<()> {
+fn check_term_validity(db: &dyn EtherealTypeDb, term: EtherealTerm) -> TypeResult<()> {
     match term {
         EtherealTerm::Literal(_) => Ok(()),
         EtherealTerm::Symbol(term) => check_term_symbol_validity(db, term),
@@ -29,7 +29,7 @@ fn check_term_validity(db: &dyn TypeDb, term: EtherealTerm) -> TypeResult<()> {
     }
 }
 
-fn check_term_is_ins_ty0(db: &dyn TypeDb, term: EtherealTerm) -> TypeResult<()> {
+fn check_term_is_ins_ty0(db: &dyn EtherealTypeDb, term: EtherealTerm) -> TypeResult<()> {
     check_term_validity(db, term)?;
     match term.raw_ty(db)? {
         Left(RawTerm::Category(cat)) if cat.universe().raw() == 1 => Ok(()),
@@ -37,17 +37,17 @@ fn check_term_is_ins_ty0(db: &dyn TypeDb, term: EtherealTerm) -> TypeResult<()> 
     }
 }
 
-#[salsa::tracked(jar = TypeJar)]
+#[salsa::tracked(jar = EtherealTypeJar)]
 pub(crate) fn check_term_abstraction_validity(
-    db: &dyn TypeDb,
+    db: &dyn EtherealTypeDb,
     term_abstraction: EtherealTermAbstraction,
 ) -> TypeResult<()> {
     todo!()
 }
 
-#[salsa::tracked(jar = TypeJar)]
+#[salsa::tracked(jar = EtherealTypeJar)]
 pub(crate) fn check_term_application_validity(
-    db: &dyn TypeDb,
+    db: &dyn EtherealTypeDb,
     term_application: EtherealTermApplication,
 ) -> TypeResult<()> {
     let function = term_application.function(db);
@@ -75,55 +75,55 @@ pub(crate) fn check_term_application_validity(
     }
 }
 
-#[salsa::tracked(jar = TypeJar)]
+#[salsa::tracked(jar = EtherealTypeJar)]
 pub(crate) fn check_term_as_trai_subentity_validity(
-    db: &dyn TypeDb,
+    db: &dyn EtherealTypeDb,
     term_as_trai_subentity: EtherealTermAsTraitSubentity,
 ) -> TypeResult<()> {
     todo!()
 }
 
-#[salsa::tracked(jar = TypeJar)]
+#[salsa::tracked(jar = EtherealTypeJar)]
 pub(crate) fn check_term_trai_constraint_validity(
-    db: &dyn TypeDb,
+    db: &dyn EtherealTypeDb,
     term_trai_constraint: EtherealTermTraitConstraint,
 ) -> TypeResult<()> {
     todo!()
 }
 
-#[salsa::tracked(jar = TypeJar)]
+#[salsa::tracked(jar = EtherealTypeJar)]
 pub(crate) fn check_term_curry_validity(
-    db: &dyn TypeDb,
+    db: &dyn EtherealTypeDb,
     term_curry: EtherealTermCurry,
 ) -> TypeResult<()> {
     todo!()
 }
 
 pub(super) fn check_term_symbol_validity(
-    db: &dyn TypeDb,
+    db: &dyn EtherealTypeDb,
     term_symbol: EtherealTermSymbol,
 ) -> TypeResult<()> {
     check_term_validity(db, term_symbol.ty(db))
 }
 
 pub(super) fn check_term_placeholder_validity(
-    db: &dyn TypeDb,
+    db: &dyn EtherealTypeDb,
     term_symbol: EtherealTermPlaceholder,
 ) -> TypeResult<()> {
     check_term_validity(db, term_symbol.ty(db))
 }
 
-#[salsa::tracked(jar = TypeJar)]
+#[salsa::tracked(jar = EtherealTypeJar)]
 pub(crate) fn check_term_subentity_validity(
-    db: &dyn TypeDb,
+    db: &dyn EtherealTypeDb,
     term_subentity: EtherealTermSubentity,
 ) -> TypeResult<()> {
     todo!()
 }
 
-#[salsa::tracked(jar = TypeJar)]
+#[salsa::tracked(jar = EtherealTypeJar)]
 pub(crate) fn check_term_ritchie_validity(
-    db: &dyn TypeDb,
+    db: &dyn EtherealTypeDb,
     term_ritchie: EtherealTermRitchie,
 ) -> TypeResult<()> {
     for parameter_contracted_ty in term_ritchie.parameter_contracted_tys(db) {

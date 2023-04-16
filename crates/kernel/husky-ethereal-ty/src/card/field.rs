@@ -35,7 +35,7 @@ impl RegularFieldCard {
 pub trait HasRegularFieldCard: Copy {
     fn regular_field_card(
         self,
-        db: &dyn TypeDb,
+        db: &dyn EtherealTypeDb,
         ident: Ident,
     ) -> TermResult<Option<RegularFieldCard>>;
 }
@@ -43,7 +43,7 @@ pub trait HasRegularFieldCard: Copy {
 impl HasRegularFieldCard for EtherealTerm {
     fn regular_field_card(
         self,
-        db: &dyn TypeDb,
+        db: &dyn EtherealTypeDb,
         ident: Ident,
     ) -> TermResult<Option<RegularFieldCard>> {
         match self {
@@ -73,7 +73,7 @@ impl HasRegularFieldCard for EtherealTerm {
 }
 
 fn ty_ontology_path_field_ty(
-    db: &dyn TypeDb,
+    db: &dyn EtherealTypeDb,
     path: TypePath,
     ident: Ident,
 ) -> TermResult<Option<RegularFieldCard>> {
@@ -91,9 +91,9 @@ fn ty_ontology_path_field_ty(
     }))
 }
 
-#[salsa::tracked(jar = TypeJar)]
+#[salsa::tracked(jar = EtherealTypeJar)]
 pub(crate) fn term_application_field_ty(
-    db: &dyn TypeDb,
+    db: &dyn EtherealTypeDb,
     term: EtherealTermApplication,
     ident: Ident,
 ) -> TermResult<Option<RegularFieldCard>> {

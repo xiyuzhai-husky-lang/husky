@@ -6,7 +6,7 @@ pub mod query;
 pub mod registration;
 
 use convert_case::{Case, Casing};
-// use husky_ethereal_term::*;use husky_ty::*;
+// use husky_ethereal_term::*;use husky_ethereal_ty::*;
 use std::fmt::Display;
 
 pub struct BuildCodeGenStart;

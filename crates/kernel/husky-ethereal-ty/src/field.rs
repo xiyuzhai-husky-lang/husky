@@ -9,7 +9,7 @@ use super::*;
 pub trait HasFieldType: Copy {
     fn field_ty(
         self,
-        db: &dyn TypeDb,
+        db: &dyn EtherealTypeDb,
         ident: Ident,
         available_traits: &[TraitPath],
     ) -> TypeResult<(FieldDisambiguation, TypeResult<EtherealTerm>)> {
@@ -26,12 +26,12 @@ pub trait HasFieldType: Copy {
 
     fn regular_field_ty(
         self,
-        db: &dyn TypeDb,
+        db: &dyn EtherealTypeDb,
         ident: Ident,
     ) -> TypeResult<Option<(RegularFieldDisambiguation, TypeResult<EtherealTerm>)>>;
     fn ty_memo_ty(
         self,
-        db: &dyn TypeDb,
+        db: &dyn EtherealTypeDb,
         ident: Ident,
     ) -> TypeResult<Option<(TypeMemoDisambiguation, TypeResult<EtherealTerm>)>>;
 }
@@ -39,7 +39,7 @@ pub trait HasFieldType: Copy {
 impl HasFieldType for EtherealTerm {
     fn regular_field_ty(
         self,
-        db: &dyn TypeDb,
+        db: &dyn EtherealTypeDb,
         ident: Ident,
     ) -> TypeResult<Option<(RegularFieldDisambiguation, TypeResult<EtherealTerm>)>> {
         regular_field_ty(db, self, ident)
@@ -47,7 +47,7 @@ impl HasFieldType for EtherealTerm {
 
     fn ty_memo_ty(
         self,
-        db: &dyn TypeDb,
+        db: &dyn EtherealTypeDb,
         ident: Ident,
     ) -> TypeResult<Option<(TypeMemoDisambiguation, TypeResult<EtherealTerm>)>> {
         ty_memo_ty(db, self, ident)
