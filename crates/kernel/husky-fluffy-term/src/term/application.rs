@@ -28,6 +28,7 @@ impl FluffyTerm {
                         path,
                         refined_path,
                         arguments,
+                        ..
                     } => {
                         let mut arguments = arguments.to_smallvec();
                         arguments.push(argument.into());

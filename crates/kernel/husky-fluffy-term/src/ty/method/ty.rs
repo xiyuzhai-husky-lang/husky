@@ -48,6 +48,7 @@ impl FluffyTerm {
                 path,
                 refined_path,
                 arguments,
+                ..
             } => todo!(),
             FluffyTermData::PlaceTypeOntology {
                 place,

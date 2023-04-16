@@ -35,6 +35,7 @@ impl<'a> ExprTypeEngine<'a> {
                 path,
                 refined_path,
                 arguments,
+                ..
             } => todo!(),
             FluffyTermData::PlaceTypeOntology { .. } => todo!(),
             FluffyTermData::Curry {

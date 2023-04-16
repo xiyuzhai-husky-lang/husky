@@ -44,6 +44,7 @@ impl FluffyTerms {
                 path,
                 refined_path,
                 arguments,
+                ..
             } => todo!(),
             FluffyTermData::Curry {
                 curry_kind,

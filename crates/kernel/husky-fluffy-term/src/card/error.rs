@@ -17,6 +17,12 @@ impl From<TermError> for FluffyCardError {
     }
 }
 
+impl From<SignatureError> for FluffyCardError {
+    fn from(value: SignatureError) -> Self {
+        todo!()
+    }
+}
+
 #[derive(Debug, Error)]
 pub enum OriginalFluffyCardError {}
 

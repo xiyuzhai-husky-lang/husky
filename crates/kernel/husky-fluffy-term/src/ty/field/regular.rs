@@ -17,16 +17,63 @@ impl FluffyTerm {
             FluffyTypeResult<FluffyTerm>,
         )>,
     > {
+        let mut indirections = smallvec![];
+        let Some((ty_path, ty_result)) = self.regular_field_ty_aux(engine,ident,&mut indirections)? else {
+            return Ok(None)
+        };
+        Ok(Some((
+            FluffyRegularFieldDisambiguation {
+                indirections,
+                ty_path,
+            },
+            ty_result,
+        )))
+    }
+
+    fn regular_field_ty_aux(
+        self,
+        engine: &mut impl FluffyTermEngine,
+        ident: Ident,
+        indirections: &mut SmallVec<[FluffyFieldIndirection; 2]>,
+    ) -> FluffyTypeResult<Option<(TypePath, FluffyTypeResult<FluffyTerm>)>> {
         todo!()
-        // match self.nested() {
-        //     NestedFluffyTerm::Ethereal(term) => {
-        //         let Some((disambiguation, ty_result)) = term.regular_field_ty(engine.db(), ident)? else {
-        //             return Ok(None)
-        //         };
-        //         Ok(Some((todo!(), todo!())))
+        // if let Some(card) = self.regular_field_card(engine, ident)? {
+        //     todo!()
+        // } else {
+        //     match self.data(engine) {
+        //         FluffyTermData::Literal(_) => todo!(),
+        //         FluffyTermData::TypeOntology {
+        //             path,
+        //             refined_path,
+        //             arguments,
+        //         } => todo!(),
+        //         FluffyTermData::PlaceTypeOntology {
+        //             place,
+        //             path,
+        //             refined_path,
+        //             arguments,
+        //             base_ty_term,
+        //         } => todo!(),
+        //         FluffyTermData::Curry {
+        //             curry_kind,
+        //             variance,
+        //             parameter_variable,
+        //             parameter_ty,
+        //             return_ty,
+        //         } => todo!(),
+        //         FluffyTermData::Hole(_, _) => todo!(),
+        //         FluffyTermData::Category(_) => todo!(),
+        //         FluffyTermData::Ritchie {
+        //             ritchie_kind,
+        //             parameter_contracted_tys,
+        //             return_ty,
+        //         } => todo!(),
+        //         FluffyTermData::PlaceHole {
+        //             place,
+        //             hole_kind,
+        //             hole,
+        //         } => todo!(),
         //     }
-        //     NestedFluffyTerm::Solid(term) => term.regular_field_ty(engine, ident),
-        //     NestedFluffyTerm::Hollow(term) => term.regular_field_ty(engine, ident),
         // }
     }
 }

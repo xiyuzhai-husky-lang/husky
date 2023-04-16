@@ -13,13 +13,14 @@ pub enum FluffyTermData<'a> {
         path: TypePath,
         refined_path: Either<CustomTypePath, PreludeTypePath>,
         arguments: &'a [FluffyTerm],
+        ty_ethereal_term: Option<EtherealTerm>,
     },
     PlaceTypeOntology {
         place: Place,
         path: TypePath,
         refined_path: Either<CustomTypePath, PreludeTypePath>,
         arguments: &'a [FluffyTerm],
-        base_ty_term: Option<EtherealTerm>,
+        base_ty_ethereal_term: Option<EtherealTerm>,
     },
     Curry {
         curry_kind: CurryKind,
@@ -62,10 +63,11 @@ impl FluffyTerm {
             FluffyTerm::EntityPath(path) => match path {
                 TermEntityPath::Form(_) => todo!(),
                 TermEntityPath::Trait(_) => todo!(),
-                TermEntityPath::TypeOntology(path) => FluffyTermData::TypeOntology {
-                    path,
-                    refined_path: path.refine(db),
+                TermEntityPath::TypeOntology(ty_path) => FluffyTermData::TypeOntology {
+                    path: ty_path,
+                    refined_path: ty_path.refine(db),
                     arguments: &[],
+                    ty_ethereal_term: Some(path.into()),
                 },
                 TermEntityPath::TypeConstructor(_) => todo!(),
             },
@@ -84,7 +86,9 @@ impl FluffyTerm {
                 return_ty: term.return_ty(db).into(),
             },
             FluffyTerm::Abstraction(_) => todo!(),
-            FluffyTerm::Application(term) => term_application_fluffy_data(db, term).into(),
+            FluffyTerm::Application(term) => {
+                term_application_fluffy_data(db, term).to_fluffy(term.into())
+            }
             FluffyTerm::Subentity(_) => todo!(),
             FluffyTerm::AsTraitSubentity(_) => todo!(),
             FluffyTerm::TraitConstraint(_) => todo!(),
@@ -121,7 +125,8 @@ impl<'a, _Db: EtherealTermDb + ?Sized> ::salsa::DebugWithDb<_Db> for FluffyTermD
             FluffyTermData::TypeOntology {
                 ref path,
                 ref refined_path,
-                arguments: ref argument_tys,
+                ref arguments,
+                ..
             } => {
                 let mut debug_struct = &mut f.debug_struct("FluffyTermData::TypeOntology");
                 debug_struct = debug_struct.field(
@@ -149,7 +154,7 @@ impl<'a, _Db: EtherealTermDb + ?Sized> ::salsa::DebugWithDb<_Db> for FluffyTermD
                     "argument_tys",
                     &::salsa::debug::helper::SalsaDebug::<&'a [FluffyTerm], _Db>::salsa_debug(
                         #[allow(clippy::needless_borrow)]
-                        argument_tys,
+                        arguments,
                         _db,
                         _level.next(),
                     ),
@@ -384,8 +389,8 @@ pub(crate) enum TermApplicationFluffyData {
     },
 }
 
-impl<'a> Into<FluffyTermData<'a>> for &'a TermApplicationFluffyData {
-    fn into(self) -> FluffyTermData<'a> {
+impl TermApplicationFluffyData {
+    fn to_fluffy<'a>(&'a self, ty_ethereal_term: EtherealTerm) -> FluffyTermData<'a> {
         match self {
             TermApplicationFluffyData::TypeOntology {
                 path,
@@ -395,6 +400,7 @@ impl<'a> Into<FluffyTermData<'a>> for &'a TermApplicationFluffyData {
                 path: *path,
                 refined_path: *refined_path,
                 arguments,
+                ty_ethereal_term: Some(ty_ethereal_term),
             },
         }
     }

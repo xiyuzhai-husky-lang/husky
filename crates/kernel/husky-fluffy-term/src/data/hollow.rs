@@ -94,6 +94,7 @@ impl HollowTerm {
                 path: *path,
                 refined_path: *refined_path,
                 arguments: argument_tys,
+                ty_ethereal_term: None,
             },
             HollowTermData::Curry {
                 curry_kind,

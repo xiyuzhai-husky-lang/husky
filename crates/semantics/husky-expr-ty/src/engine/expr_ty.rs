@@ -10,7 +10,7 @@ mod ritchie_call_ty;
 mod suffix;
 mod utils;
 
-use super::*; 
+use super::*;
 use husky_opn_syntax::*;
 use husky_ty_expectation::TypePathDisambiguation;
 
@@ -263,6 +263,7 @@ impl<'a> ExprTypeEngine<'a> {
                                     path,
                                     refined_path,
                                     arguments,
+                                    ..
                                 } => match refined_path {
                                     Right(PreludeTypePath::List) => {
                                         assert_eq!(arguments.len(), 1);

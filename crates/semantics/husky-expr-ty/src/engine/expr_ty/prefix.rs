@@ -89,7 +89,8 @@ impl<'a> ExprTypeEngine<'a> {
             FluffyTermData::TypeOntology {
                 path,
                 refined_path,
-                arguments: argument_tys,
+                arguments,
+                ..
             } => todo!(),
             FluffyTermData::Curry {
                 curry_kind,
