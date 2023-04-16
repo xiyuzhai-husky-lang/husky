@@ -13,7 +13,7 @@ use husky_raw_ty::ty_path_ty_method_raw_ty;
 use husky_signature::{SignatureResult, TypeMethodSignature};
 use husky_word::IdentPairMap;
 
-#[salsa::tracked(db = TypeDb, jar = TypeJar, constructor = new_inner)]
+#[salsa::tracked(db = EtherealTypeDb, jar = EtherealTypeJar, constructor = new_inner)]
 pub struct TraitForTypeMethodFnCard {
     #[id]
     id: AssociatedItemId,
@@ -30,7 +30,7 @@ pub struct MethodTypeInfo {
 }
 
 impl MethodTypeInfo {
-    fn ty(&self, db: &dyn TypeDb) -> TermResult<EtherealTerm> {
+    fn ty(&self, db: &dyn EtherealTypeDb) -> TermResult<EtherealTerm> {
         match self {
             MethodTypeInfo {
                 implicit_parameters,

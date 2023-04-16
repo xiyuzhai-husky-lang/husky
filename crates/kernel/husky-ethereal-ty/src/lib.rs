@@ -23,8 +23,8 @@ use husky_ty_expectation::*;
 use husky_word::*;
 use smallvec::*;
 
-#[salsa::jar(db = TypeDb)]
-pub struct TypeJar(
+#[salsa::jar(db = EtherealTypeDb)]
+pub struct EtherealTypeJar(
     // cards
     // method ty
     term_application_ty_method_card,

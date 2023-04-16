@@ -3,17 +3,17 @@ use husky_ty_expectation::TypePathDisambiguation;
 use husky_vfs::Toolchain;
 
 pub trait HasType: Copy {
-    fn ty(self, db: &dyn TypeDb) -> TermResult<EtherealTerm>;
+    fn ty(self, db: &dyn EtherealTypeDb) -> TermResult<EtherealTerm>;
 }
 
 pub trait HasTypeGivenToolchain: Copy {
-    fn ty(self, db: &dyn TypeDb, toolchain: Toolchain) -> TermResult<EtherealTerm>;
+    fn ty(self, db: &dyn EtherealTypeDb, toolchain: Toolchain) -> TermResult<EtherealTerm>;
 }
 
 pub trait HasTypeGivenDisambiguation: Copy {
     fn ty(
         self,
-        db: &dyn TypeDb,
+        db: &dyn EtherealTypeDb,
         disambiguation: TypePathDisambiguation,
     ) -> TermResult<EtherealTerm>;
 }
@@ -21,7 +21,7 @@ pub trait HasTypeGivenDisambiguation: Copy {
 impl HasTypeGivenDisambiguation for EntityPath {
     fn ty(
         self,
-        db: &dyn TypeDb,
+        db: &dyn EtherealTypeDb,
         disambiguation: TypePathDisambiguation,
     ) -> TermResult<EtherealTerm> {
         match self {
@@ -36,7 +36,7 @@ impl HasTypeGivenDisambiguation for EntityPath {
 impl HasTypeGivenDisambiguation for ModuleItemPath {
     fn ty(
         self,
-        db: &dyn TypeDb,
+        db: &dyn EtherealTypeDb,
         disambiguation: TypePathDisambiguation,
     ) -> TermResult<EtherealTerm> {
         match self {
@@ -48,13 +48,13 @@ impl HasTypeGivenDisambiguation for ModuleItemPath {
 }
 
 impl HasType for TraitPath {
-    fn ty(self, db: &dyn TypeDb) -> TermResult<EtherealTerm> {
+    fn ty(self, db: &dyn EtherealTypeDb) -> TermResult<EtherealTerm> {
         trai_path_ty(db, self)
     }
 }
 
 impl HasType for FormPath {
-    fn ty(self, db: &dyn TypeDb) -> TermResult<EtherealTerm> {
+    fn ty(self, db: &dyn EtherealTypeDb) -> TermResult<EtherealTerm> {
         form_path_ty(db, self)
     }
 }
@@ -62,7 +62,7 @@ impl HasType for FormPath {
 impl HasTypeGivenDisambiguation for TypePath {
     fn ty(
         self,
-        db: &dyn TypeDb,
+        db: &dyn EtherealTypeDb,
         disambiguation: TypePathDisambiguation,
     ) -> TermResult<EtherealTerm> {
         ty_path_ty(db, self, disambiguation)
@@ -72,7 +72,7 @@ impl HasTypeGivenDisambiguation for TypePath {
 impl HasTypeGivenDisambiguation for AssociatedItemPath {
     fn ty(
         self,
-        db: &dyn TypeDb,
+        db: &dyn EtherealTypeDb,
         disambiguation: TypePathDisambiguation,
     ) -> TermResult<EtherealTerm> {
         match self {
@@ -86,7 +86,7 @@ impl HasTypeGivenDisambiguation for AssociatedItemPath {
 impl HasTypeGivenDisambiguation for TypeItemPath {
     fn ty(
         self,
-        db: &dyn TypeDb,
+        db: &dyn EtherealTypeDb,
         disambiguation: TypePathDisambiguation,
     ) -> TermResult<EtherealTerm> {
         ty_item_path_ty(db, self)
@@ -96,7 +96,7 @@ impl HasTypeGivenDisambiguation for TypeItemPath {
 impl HasTypeGivenDisambiguation for TraitItemPath {
     fn ty(
         self,
-        db: &dyn TypeDb,
+        db: &dyn EtherealTypeDb,
         disambiguation: TypePathDisambiguation,
     ) -> TermResult<EtherealTerm> {
         todo!()
@@ -106,7 +106,7 @@ impl HasTypeGivenDisambiguation for TraitItemPath {
 impl HasTypeGivenDisambiguation for TraitForTypeItemPath {
     fn ty(
         self,
-        db: &dyn TypeDb,
+        db: &dyn EtherealTypeDb,
         disambiguation: TypePathDisambiguation,
     ) -> TermResult<EtherealTerm> {
         todo!()
@@ -116,7 +116,7 @@ impl HasTypeGivenDisambiguation for TraitForTypeItemPath {
 impl HasTypeGivenDisambiguation for TypeVariantPath {
     fn ty(
         self,
-        db: &dyn TypeDb,
+        db: &dyn EtherealTypeDb,
         disambiguation: TypePathDisambiguation,
     ) -> TermResult<EtherealTerm> {
         ty_variant_path_ty(db, self)
@@ -124,7 +124,7 @@ impl HasTypeGivenDisambiguation for TypeVariantPath {
 }
 
 impl HasTypeGivenToolchain for EtherealTerm {
-    fn ty(self, db: &dyn TypeDb, toolchain: Toolchain) -> TermResult<EtherealTerm> {
+    fn ty(self, db: &dyn EtherealTypeDb, toolchain: Toolchain) -> TermResult<EtherealTerm> {
         todo!()
         // self.ty_unchecked(db)?.checked(db)
     }

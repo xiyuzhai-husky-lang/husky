@@ -1,7 +1,7 @@
 use super::*;
 
 pub(super) fn ty_method_ty(
-    db: &dyn TypeDb,
+    db: &dyn EtherealTypeDb,
     term: EtherealTerm,
     ident: Ident,
 ) -> TypeResult<Option<(TypeMethodDisambiguation, TypeResult<EtherealTerm>)>> {
