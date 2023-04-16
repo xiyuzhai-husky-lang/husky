@@ -108,22 +108,21 @@ pub(crate) fn ty_ontology_path_ty_method_card(
 #[salsa::tracked(jar = TypeJar)]
 pub(crate) fn term_application_ty_method_card(
     db: &dyn TypeDb,
-    raw_ty: TermApplication,
+    ty_term: TermApplication,
     ident: Ident,
 ) -> TermResult<Option<TypeMethodFnCard>> {
-    todo!()
-    // let application_expansion = application_expansion_salsa(db, raw_ty);
-    // let function = application_expansion.function();
-    // match function {
-    //     TermFunctionReduced::TypeOntology(path) => ty_ontology_path_application_ty_method_card(
-    //         db,
-    //         path,
-    //         application_expansion.opt_arguments(db).unwrap(),
-    //         ident,
-    //     ),
-    //     TermFunctionReduced::Trait(_) => todo!(),
-    //     TermFunctionReduced::Other(_) => todo!(),
-    // }
+    let application_expansion = ty_term.application_expansion(db);
+    let function = application_expansion.function();
+    match function {
+        TermFunctionReduced::TypeOntology(path) => ty_ontology_path_application_ty_method_card(
+            db,
+            path,
+            application_expansion.opt_arguments(db).unwrap(),
+            ident,
+        ),
+        TermFunctionReduced::Trait(_) => todo!(),
+        TermFunctionReduced::Other(_) => todo!(),
+    }
 }
 
 fn ty_ontology_path_application_ty_method_card(
