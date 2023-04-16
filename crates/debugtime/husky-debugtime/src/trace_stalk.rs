@@ -1,5 +1,5 @@
 use crate::*;
-use husky_term::Term;
+use husky_ethereal_term::EtherealTerm;
 
 impl Debugtime {
     pub fn trace_stalk(&self, trace_id: TraceId) -> &TraceStalk {
@@ -117,7 +117,7 @@ impl Debugtime {
     fn trace_stalk_from_result(
         &self,
         result: __VMResult<__Register<'static>>,
-        ty: Term,
+        ty: EtherealTerm,
     ) -> TraceStalk {
         TraceStalk {
             extra_tokens: vec![
@@ -135,7 +135,7 @@ impl Debugtime {
     pub(crate) fn trace_token_from_result(
         &self,
         result: __VMResult<__Register<'static>>,
-        ty: Term,
+        ty: EtherealTerm,
     ) -> TraceTokenData {
         match result {
             Ok(value) => self.trace_token_from_value(value, ty),
@@ -150,7 +150,7 @@ impl Debugtime {
     pub(crate) fn trace_token_from_value(
         &self,
         value: __Register<'static>,
-        ty: Term,
+        ty: EtherealTerm,
     ) -> TraceTokenData {
         TraceTokenData {
             kind: TraceTokenKind::Fade,

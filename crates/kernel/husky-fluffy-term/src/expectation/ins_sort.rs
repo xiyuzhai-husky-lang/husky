@@ -49,7 +49,7 @@ pub struct ExpectInsSortOutcome {
 }
 
 impl ExpectInsSortOutcome {
-    pub(crate) fn resolved(&self) -> Option<Term> {
+    pub(crate) fn resolved(&self) -> Option<EtherealTerm> {
         todo!()
     }
 }
@@ -64,7 +64,7 @@ impl ExpectInsSort {
     ) -> Option<FluffyTermExpectationEffect> {
         todo!()
         // match expectee {
-        //     FluffyTerm::Term(resolved_expectee) => {
+        //     FluffyTerm::EtherealTerm(resolved_expectee) => {
         //         todo!()
         //         // let expectee_ty = term_ty(
         //         //     self.db(),
@@ -75,7 +75,7 @@ impl ExpectInsSort {
         //         // );
         //         // Some(match expectee_ty {
         //         //     Ok(expectee_ty) => match expectee_ty {
-        //         //         Term::Category(cat) => {
+        //         //         EtherealTerm::Category(cat) => {
         //         //             match cat.universe() >= expectation.smallest_universe {
         //         //                 true => FluffyTermExpectationEffect {
         //         //                     result: Ok(FluffyTermExpectationOutcome::InsSort(

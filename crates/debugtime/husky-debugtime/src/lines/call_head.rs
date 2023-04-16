@@ -26,7 +26,7 @@ impl<'a> TraceLineGenerator<'a> {
                 entity.ident,
                 parameters,
             ),
-            EntityDefnVariant::Term { .. } => todo!(),
+            EntityDefnVariant::EtherealTerm { .. } => todo!(),
             EntityDefnVariant::Trait { .. } => todo!(),
             EntityDefnVariant::EnumVariant { .. } => todo!(),
             EntityDefnVariant::Builtin => todo!(),

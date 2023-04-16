@@ -1,4 +1,4 @@
-use husky_term::Term;
+use husky_ethereal_term::EtherealTerm;
 use husky_text::{HasTextRange, TextPosition};
 
 use super::*;
@@ -141,7 +141,7 @@ impl<'a> TraceLineGenerator<'a> {
     pub(super) fn gen_result_token(
         &mut self,
         result: __VMResult<__Register<'static>>,
-        intrinsic_ty: Term,
+        intrinsic_ty: EtherealTerm,
         opt_pos: Option<TextPosition>,
     ) {
         self.push_token(

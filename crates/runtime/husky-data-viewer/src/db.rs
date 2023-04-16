@@ -1,14 +1,14 @@
 use crate::*;
 
-use husky_term::Term;
+use husky_ethereal_term::EtherealTerm;
 
 use std::sync::Arc;
 
 pub trait DataViewerDb {
-    fn ty_data_viewer(&self, ty: Term) -> Arc<HuskyDataViewer>;
+    fn ty_data_viewer(&self, ty: EtherealTerm) -> Arc<HuskyDataViewer>;
 }
 
-fn ty_data_viewer(_db: &dyn DataViewerDb, _ty: Term) -> Arc<HuskyDataViewer> {
+fn ty_data_viewer(_db: &dyn DataViewerDb, _ty: EtherealTerm) -> Arc<HuskyDataViewer> {
     todo!()
     // let ty_decl: Arc<TyDecl> = db.ty_decl(ty).unwrap();
     // let comptime = db;

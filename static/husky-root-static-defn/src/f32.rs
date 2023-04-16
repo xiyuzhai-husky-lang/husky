@@ -6,7 +6,7 @@ use super::*;
 pub static F32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "f32",
     items: &[],
-    variant: EntityStaticDefnVariant::Term {
+    variant: EntityStaticDefnVariant::EtherealTerm {
         base_route: "f32",
         spatial_parameters: &[],
         trait_impls: &[],

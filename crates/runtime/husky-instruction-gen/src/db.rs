@@ -3,7 +3,10 @@ use husky_entity_path::EntityPath;
 
 pub trait InstructionDb {
     fn entity_instruction_sheet(&self, entity_path: EntityPath) -> Option<Arc<InstructionSheet>>;
-    fn method_opt_instruction_sheet(&self, member_route: Term) -> Option<Arc<InstructionSheet>>;
+    fn method_opt_instruction_sheet(
+        &self,
+        member_route: EtherealTerm,
+    ) -> Option<Arc<InstructionSheet>>;
     fn dataset_config_instruction_sheet(
         &self,
         target_entrance: EntityPath,
@@ -42,7 +45,7 @@ fn entity_instruction_sheet(
     //         stmts,
     //         false, // has_this
     //     )),
-    //     EntityDefnVariant::Term { .. } => todo!(),
+    //     EntityDefnVariant::EtherealTerm { .. } => todo!(),
     //     EntityDefnVariant::Builtin => {
     //         p!(route.ident());
     //         todo!()
@@ -78,13 +81,13 @@ fn entity_instruction_sheet(
 
 fn method_opt_instruction_sheet(
     _db: &dyn InstructionDb,
-    _member_route: Term,
+    _member_route: EtherealTerm,
 ) -> Option<Arc<InstructionSheet>> {
     todo!()
     // let ty = member_route.parent();
     // let entity_defn = db.entity_defn(ty).unwrap();
     // match entity_defn.variant {
-    //     EntityDefnVariant::Term { .. } => {
+    //     EntityDefnVariant::EtherealTerm { .. } => {
     //         let method_defn = db.member_defn(member_route);
     //         match method_defn.variant {
     //             EntityDefnVariant::Method {

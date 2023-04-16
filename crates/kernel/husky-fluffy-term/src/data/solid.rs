@@ -15,7 +15,7 @@ pub enum SolidTermData {
         refined_path: Either<CustomTypePath, PreludeTypePath>,
         // use fluffy term here because we don't want to recreate vectors when converting
         arguments: SmallVec<[FluffyTerm; 2]>,
-        base_ty_term: Option<Term>,
+        base_ty_term: Option<EtherealTerm>,
     },
     Curry {
         curry_kind: CurryKind,

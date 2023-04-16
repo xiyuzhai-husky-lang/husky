@@ -11,7 +11,7 @@ inductive EntityRouteVariant
   deriving DecidableEq
 
 inductive SpatialArgument
-  | Term (route : EntityRoutePtr)
+  | EtherealTerm (route : EntityRoutePtr)
   | ConstUsize (value : Nat)
   deriving DecidableEq
   
@@ -27,5 +27,5 @@ end SpatialArgument
 namespace EntityRouteVariant
 end EntityRouteVariant
 
-structure Term
+structure EtherealTerm
   deriving DecidableEq

@@ -44,7 +44,7 @@ pub struct ExpectSubtypeOutcome {
 }
 
 impl ExpectSubtypeOutcome {
-    pub(crate) fn resolved(&self) -> Option<Term> {
+    pub(crate) fn resolved(&self) -> Option<EtherealTerm> {
         todo!()
     }
 }

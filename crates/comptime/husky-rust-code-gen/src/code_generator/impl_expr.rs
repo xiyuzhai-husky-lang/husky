@@ -79,7 +79,7 @@ impl<'a> RustCodeGenerator<'a> {
                 }
                 EagerOpnVariant::Prefix { opr, .. } => match opr {
                     PrefixOpr::Not => match opds[0].intrinsic_ty() {
-                        Term::Root(RootBuiltinIdent::Bool) => {
+                        EtherealTerm::Root(RootBuiltinIdent::Bool) => {
                             self.write("!");
                             self.gen_expr(indent, &opds[0]);
                         }
@@ -323,7 +323,7 @@ impl<'a> RustCodeGenerator<'a> {
     //     self.indent(indent + 8);
     //     let ty_defn = self.db.entity_defn(ty).unwrap();
     //     let ty_members = match ty_defn.variant {
-    //         EntityDefnVariant::Term { ref ty_members, .. } => ty_members,
+    //         EntityDefnVariant::EtherealTerm { ref ty_members, .. } => ty_members,
     //         _ => panic!(),
     //     };
     //     for (_i, (parameter, expr)) in

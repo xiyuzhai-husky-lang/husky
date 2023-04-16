@@ -6,7 +6,7 @@ use crate::*;
 pub enum HistoryEntry<'eval> {
     PureExpr {
         result: __VMResult<__Register<'eval>>,
-        ty: Term,
+        ty: EtherealTerm,
     },
     Exec {
         mutations: Vec<MutationData<'eval>>,

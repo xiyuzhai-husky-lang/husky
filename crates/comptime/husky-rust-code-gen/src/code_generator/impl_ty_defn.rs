@@ -8,7 +8,7 @@ use super::*;
 impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_enum_defn(
         &mut self,
-        base_route: Term,
+        base_route: EtherealTerm,
         tyname: Ident,
         variants: &[Arc<EntityDefn>],
     ) {
@@ -67,7 +67,7 @@ impl From<i32> for {tyname} {{
 
     pub(super) fn gen_struct_defn(
         &mut self,
-        base_route: Term,
+        base_route: EtherealTerm,
         tyname: Ident,
         ty_members: &[Arc<EntityDefn>],
         trait_impls: &[Arc<TraitImplDefn>],
@@ -116,7 +116,7 @@ impl From<i32> for {tyname} {{
 
     fn gen_struct_impls<'b>(
         &mut self,
-        base_route: Term,
+        base_route: EtherealTerm,
         tyname: Ident,
         ty_members: &[Arc<EntityDefn>],
         ty_contains_eval_ref: bool,
@@ -382,7 +382,7 @@ impl From<i32> for {tyname} {{
 
     fn gen_has_static_type_info_impl(
         &mut self,
-        base_route: Term,
+        base_route: EtherealTerm,
         tyname: Ident,
         ty_contains_eval_ref: bool,
     ) {

@@ -5,7 +5,7 @@ use super::*;
 pub static B32_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "r32",
     items: &[],
-    variant: EntityStaticDefnVariant::Term {
+    variant: EntityStaticDefnVariant::EtherealTerm {
         base_route: "r32",
         spatial_parameters: &[],
         trait_impls: &[],

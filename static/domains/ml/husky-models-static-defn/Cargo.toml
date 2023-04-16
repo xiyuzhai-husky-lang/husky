@@ -11,7 +11,7 @@ serde_json = { version = "1.0.48", features = ["preserve_order"] }
 ordered-float = "3.0.0"
 linfa-svm = "0.6.0"
 husky-word = { path = "../../../../kernel/husky-word" }
-husky-term = { path = "../../../../kernel/husky-term" }
+husky-ethereal-term = { path = "../../../../kernel/husky-ethereal-term" }
 husky-vm = { path = "../../../../vm/husky-vm" }
 husky-print-utils = { path = "../../../../utils/husky-print-utils" }
 husky-dev-utils = { path = "../../../../utils/husky-dev-utils" }

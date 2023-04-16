@@ -71,7 +71,7 @@ impl FluffyTerm {
     //     // let owner_ty_unravelled =
     //     //     owner_ty.unravel_borrow(self.db, self.fluffy_term_region.porous_terms());
     //     // match owner_ty_unravelled {
-    //     //     FluffyTerm::Term(owner_ty_unravelled) => {
+    //     //     FluffyTerm::EtherealTerm(owner_ty_unravelled) => {
     //     //         match self.db.field_ty(owner_ty_unravelled, ident_token.ident()) {
     //     //             Ok(Some(field_ty)) => Ok(field_ty.into()),
     //     //             Ok(None) => Err(OriginalExprTypeError::NoSuchField.into()),

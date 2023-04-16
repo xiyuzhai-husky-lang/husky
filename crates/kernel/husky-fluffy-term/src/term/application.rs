@@ -13,7 +13,7 @@ impl FluffyTerm {
         let argument = argument.into();
         match (function, argument) {
             (NestedFluffyTerm::Ethereal(function), NestedFluffyTerm::Ethereal(argument)) => {
-                Ok(TermApplication::new(db, function, argument)?.into())
+                Ok(EtherealTermApplication::new(db, function, argument)?.into())
             }
             (
                 NestedFluffyTerm::Ethereal(_) | NestedFluffyTerm::Solid(_),

@@ -17,7 +17,7 @@ use husky_static_visualizer::StaticVisualTy;
 pub static VEC_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "Vec",
     items: &[],
-    variant: EntityStaticDefnVariant::Term {
+    variant: EntityStaticDefnVariant::EtherealTerm {
         base_route: "Vec",
         spatial_parameters: &[StaticSpatialParameter {
             name: "E",

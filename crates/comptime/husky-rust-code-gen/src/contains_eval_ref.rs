@@ -2,7 +2,7 @@ use super::*;
 
 pub(super) fn entity_route_variant_contains_eval_ref(
     _db: &dyn RustTranspileDb,
-    _entity_path: Term,
+    _entity_path: EtherealTerm,
 ) -> bool {
     // let base_route = db.intern_entity_route(EntityRoute {
     //     variant: entity_path.variant.clone(),
@@ -103,7 +103,7 @@ pub(super) fn entity_route_variant_contains_eval_ref(
 
 pub(super) fn entity_route_contains_eval_ref(
     _db: &dyn RustTranspileDb,
-    _entity_path: Term,
+    _entity_path: EtherealTerm,
 ) -> bool {
     todo!()
     // if db.entity_route_variant_contains_eval_ref(entity_path) {

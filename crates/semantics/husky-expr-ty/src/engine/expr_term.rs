@@ -130,7 +130,7 @@ impl<'a> ExprTypeEngine<'a> {
                 EntityPath::AssociatedItem(_) => todo!(),
                 EntityPath::TypeVariant(_) => todo!(),
             },
-            //  Ok(Term::new(db,entity_path.into()).into()),
+            //  Ok(EtherealTerm::new(db,entity_path.into()).into()),
             None => todo!(),
         }
     }

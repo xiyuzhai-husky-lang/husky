@@ -20,7 +20,7 @@ pub use __std::*;
 pub use domains::*;
 pub use eq::*;
 pub use etc::*;
-pub use husky_term::Term as __EntityRoutePtr;
+pub use husky_ethereal_term::EtherealTerm as __EntityRoutePtr;
 pub use r32::*;
 pub use serde::Serialize as __Serialize;
 pub use serde_json::value::Value as __JsonValue;
@@ -80,7 +80,7 @@ pub fn __resolve_root_defn(ident: Ident) -> &'static EntityStaticDefn {
 pub static VOID_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "void",
     items: &[],
-    variant: EntityStaticDefnVariant::Term {
+    variant: EntityStaticDefnVariant::EtherealTerm {
         base_route: "void",
         spatial_parameters: &[],
         trait_impls: &[],
@@ -99,7 +99,7 @@ pub static VOID_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
 pub static B64_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "b64",
     items: &[],
-    variant: EntityStaticDefnVariant::Term {
+    variant: EntityStaticDefnVariant::EtherealTerm {
         base_route: "b64",
         spatial_parameters: &[],
         trait_impls: &[],
@@ -118,7 +118,7 @@ pub static B64_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
 pub static BOOL_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "bool",
     items: &[],
-    variant: EntityStaticDefnVariant::Term {
+    variant: EntityStaticDefnVariant::EtherealTerm {
         base_route: "bool",
         spatial_parameters: &[],
         trait_impls: &[],

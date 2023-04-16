@@ -15,7 +15,7 @@ pub type LazyImage256Inner = [[[u8; 3]; 256]; 256];
 pub static LAZY_IMAGE256_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "LazyImage256",
     items: &[],
-    variant: EntityStaticDefnVariant::Term {
+    variant: EntityStaticDefnVariant::EtherealTerm {
         base_route: "cv::datasets::imagenet::LazyImage256",
         spatial_parameters: &[],
         trait_impls: &[],

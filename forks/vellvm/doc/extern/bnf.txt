@@ -3043,7 +3043,7 @@ DIEnumeratorField
 
 // ref: ParseDITemplateTypeParameter
 //
-//   ::= !DITemplateTypeParameter(name: "Term", type: !1)
+//   ::= !DITemplateTypeParameter(name: "EtherealTerm", type: !1)
 //
 //  OPTIONAL(name, MDStringField, );
 //  REQUIRED(type, MDField, );

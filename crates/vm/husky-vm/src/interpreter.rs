@@ -1,8 +1,8 @@
 mod exec;
 mod query;
 
+use husky_ethereal_term::EtherealTerm;
 use husky_print_utils::ps;
-use husky_term::Term;
 use husky_text::ModuleRange;
 use husky_word::Ident;
 use indexmap::IndexMap;
@@ -17,7 +17,7 @@ pub struct Interpreter<'a, 'eval: 'a> {
     pub(crate) history: History<'eval>,
     opt_snapshot_saved: Option<StackSnapshot<'eval>>,
     pub(crate) frames: Vec<LoopFrameData<'eval>>,
-    variable_mutations: IndexMap<VMStackIdx, (Ident, ModuleRange, Term)>,
+    variable_mutations: IndexMap<VMStackIdx, (Ident, ModuleRange, EtherealTerm)>,
     vm_config: &'a VMConfig,
 }
 
@@ -91,7 +91,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         }
     }
 
-    fn push_new_virtual_struct(&mut self, ty: Term, fields: &[Ident]) {
+    fn push_new_virtual_struct(&mut self, ty: EtherealTerm, fields: &[Ident]) {
         let parameters = self.stack.drain(fields.len().try_into().unwrap());
         let value =
             unsafe { DeprecatedVirtualStruct::new_struct(ty, parameters, fields).__to_register() };
@@ -112,7 +112,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         stack_idx: VMStackIdx,
         varname: Ident,
         range: ModuleRange,
-        ty: Term,
+        ty: EtherealTerm,
     ) {
         self.variable_mutations
             .insert(stack_idx, (varname, range, ty));

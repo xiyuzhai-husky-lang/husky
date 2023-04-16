@@ -9,6 +9,7 @@ use husky_decr::DecrJar;
 use husky_defn::DefnJar;
 use husky_entity_path::EntityPathJar;
 use husky_entity_tree::EntityTreeJar;
+use husky_ethereal_term::EtherealTermJar;
 use husky_expr::ExprJar;
 use husky_expr_ty::ExprTypeJar;
 use husky_fluffy_term::FluffyTermJar;
@@ -17,7 +18,6 @@ use husky_manifest_ast::ManifestAstJar;
 use husky_raw_term::RawTermJar;
 use husky_raw_ty::RawTypeJar;
 use husky_signature::SignatureJar;
-use husky_term::TermJar;
 use husky_term_prelude::TermPreludeJar;
 use husky_token::TokenJar;
 use husky_toml_ast::TomlAstJar;
@@ -46,7 +46,7 @@ use husky_word::WordJar;
     TermPreludeJar,
     RawTermJar,
     RawTypeJar,
-    TermJar,
+    EtherealTermJar,
     TypeJar,
     SignatureJar,
     FluffyTermJar,

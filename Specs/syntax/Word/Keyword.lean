@@ -9,7 +9,7 @@ import Specs.syntax.Word.Keyword.ParadigmKeyword
 inductive Keyword
   | Config: ConfigKeyword -> Keyword
   | Paradigm: ParadigmKeyword -> Keyword
-  | Term: TyKeyword -> Keyword
+  | EtherealTerm: TyKeyword -> Keyword
   | Stmt: StmtKeyword -> Keyword
   | Liason: LiasonKeyword -> Keyword
   | Main
@@ -24,7 +24,7 @@ namespace Keyword
   def kindName : Keyword -> String
     | Config _ => "Config"
     | Paradigm _ => "Paradigm"
-    | Term _ => "Term"
+    | EtherealTerm _ => "EtherealTerm"
     | Stmt _ => "Stmt"
     | Liason _ => "Liason"
     | Main => "Main"
@@ -36,7 +36,7 @@ namespace Keyword
     toString : Keyword -> String
     | Config kw => s!"Keyword::Config({kw})"
     | Paradigm kw => s!"Keyword::Paradigm({kw})"
-    | Term kw => s!"Keyword::Term({kw})"
+    | EtherealTerm kw => s!"Keyword::EtherealTerm({kw})"
     | Stmt kw => s!"Keyword::Stmt({kw})"
     | Liason kw => s!"Keyword::Liason({kw})"
     | Main => "Keyword::Main"
@@ -48,7 +48,7 @@ namespace Keyword
   def huskyCode : Keyword -> String
     | Config kw => kw.huskyCode
     | Paradigm kw => kw.huskyCode
-    | Term kw => kw.huskyCode
+    | EtherealTerm kw => kw.huskyCode
     | Stmt kw => kw.huskyCode
     | Liason kw => kw.huskyCode
     | Main => "main"

@@ -6,8 +6,8 @@ pub use self::term::*;
 
 use crate::*;
 use husky_entity_path::EntityPathError;
+use husky_ethereal_term::TermError;
 use husky_expr::ExprIdx;
-use husky_term::TermError;
 use husky_token::IdentToken;
 use thiserror::Error;
 

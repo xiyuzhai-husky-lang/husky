@@ -19,7 +19,7 @@ pub enum FluffyTermData<'a> {
         path: TypePath,
         refined_path: Either<CustomTypePath, PreludeTypePath>,
         arguments: &'a [FluffyTerm],
-        base_ty_term: Option<Term>,
+        base_ty_term: Option<EtherealTerm>,
     },
     Curry {
         curry_kind: CurryKind,
@@ -95,7 +95,7 @@ impl FluffyTerm {
 }
 
 // todo: replace this with macro
-impl<'a, _Db: TermDb + ?Sized> ::salsa::DebugWithDb<_Db> for FluffyTermData<'a> {
+impl<'a, _Db: EtherealTermDb + ?Sized> ::salsa::DebugWithDb<_Db> for FluffyTermData<'a> {
     fn fmt(
         &self,
         f: &mut ::std::fmt::Formatter<'_>,
@@ -344,7 +344,7 @@ impl<'a, _Db: TermDb + ?Sized> ::salsa::DebugWithDb<_Db> for FluffyTermData<'a> 
 #[salsa::tracked(jar = FluffyTermJar, return_ref)]
 pub(crate) fn term_ritchie_fluffy_data(
     db: &dyn FluffyTermDb,
-    term: TermRitchie,
+    term: EtherealTermRitchie,
 ) -> SmallVec<[FluffyTermRitchieParameterContractedType; 2]> {
     term.parameter_contracted_tys(db)
         .iter()
@@ -356,7 +356,7 @@ pub(crate) fn term_ritchie_fluffy_data(
 #[salsa::tracked(jar = FluffyTermJar, return_ref)]
 pub(crate) fn term_application_fluffy_data(
     db: &dyn FluffyTermDb,
-    term: TermApplication,
+    term: EtherealTermApplication,
 ) -> TermApplicationFluffyData {
     let expansion = term.application_expansion(db);
     match expansion.function() {

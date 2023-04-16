@@ -21,11 +21,14 @@ pub struct TypeAssociatedFnCard {
     pub id: AssociatedItemId,
 }
 
-pub(crate) fn ty_item_path_ty(db: &dyn TypeDb, path: TypeItemPath) -> TermResult<Term> {
+pub(crate) fn ty_item_path_ty(db: &dyn TypeDb, path: TypeItemPath) -> TermResult<EtherealTerm> {
     ty_item_path_ty_unchecked(db, path)
     // ?.checked(db)
 }
 
-pub(crate) fn ty_item_path_ty_unchecked(db: &dyn TypeDb, path: TypeItemPath) -> TermResult<Term> {
-    Term::ty_from_raw_unchecked(db, path.raw_ty(db)?)
+pub(crate) fn ty_item_path_ty_unchecked(
+    db: &dyn TypeDb,
+    path: TypeItemPath,
+) -> TermResult<EtherealTerm> {
+    EtherealTerm::ty_from_raw_unchecked(db, path.raw_ty(db)?)
 }

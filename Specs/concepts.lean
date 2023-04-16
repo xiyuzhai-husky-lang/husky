@@ -1,4 +1,4 @@
-import Specs.concepts.Term
+import Specs.concepts.EtherealTerm
 import Specs.concepts.Paradigm
 import Specs.concepts.decl
 

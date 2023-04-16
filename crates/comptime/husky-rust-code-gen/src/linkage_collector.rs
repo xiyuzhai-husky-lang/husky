@@ -5,11 +5,11 @@ mod impl_stmt;
 
 pub(crate) struct LinkageCollector<'a> {
     db: &'a dyn RustTranspileDb,
-    linkages: VecSet<Term>,
+    linkages: VecSet<EtherealTerm>,
 }
 
 impl<'a> LinkageCollector<'a> {
-    pub(crate) fn insert(&mut self, _entity_path: Term) {
+    pub(crate) fn insert(&mut self, _entity_path: EtherealTerm) {
         todo!()
         // match entity_path.variant {
         //     EntityRouteVariant::TraitForTypeMember { trai, .. } => {
@@ -41,7 +41,7 @@ impl<'a> LinkageCollector<'a> {
         // self.linkages.insert(entity_path.intrinsic())
     }
 
-    fn produce_from_entity_defn(self, _entity_path: Term) -> Arc<VecSet<Term>> {
+    fn produce_from_entity_defn(self, _entity_path: EtherealTerm) -> Arc<VecSet<EtherealTerm>> {
         todo!()
         // let defn = self.db.entity_defn(entity_path).unwrap();
         // self.collect_from_entity_defn(&defn);
@@ -51,8 +51,8 @@ impl<'a> LinkageCollector<'a> {
 
 pub(crate) fn entity_immediate_link_dependees(
     _db: &dyn RustTranspileDb,
-    _entity_route: Term,
-) -> Arc<VecSet<Term>> {
+    _entity_route: EtherealTerm,
+) -> Arc<VecSet<EtherealTerm>> {
     todo!()
     // if entity_path.spatial_arguments.len() > 0 {
     //     let entity_defn = db.entity_defn(entity_path).unwrap();
@@ -91,13 +91,13 @@ pub(crate) fn entity_immediate_link_dependees(
 
 pub(crate) fn entity_link_dependees(
     db: &dyn RustTranspileDb,
-    entity_path: Term,
-) -> Arc<VecSet<Term>> {
+    entity_path: EtherealTerm,
+) -> Arc<VecSet<EtherealTerm>> {
     let mut dependees = (*db.entity_immediate_link_dependees(entity_path)).clone();
     visit_all(db, &mut dependees, 0);
     return Arc::new(dependees);
 
-    fn visit_all(_db: &dyn RustTranspileDb, _dependees: &mut VecSet<Term>, _start: usize) {
+    fn visit_all(_db: &dyn RustTranspileDb, _dependees: &mut VecSet<EtherealTerm>, _start: usize) {
         todo!()
         // let len0 = dependees.len();
         // for subroute in dependees[start..]

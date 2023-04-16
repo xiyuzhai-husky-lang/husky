@@ -62,10 +62,10 @@ impl<'a> ExprTypeEngine<'a> {
             };
         // todo
         // match ropd_ty {
-        //     Term::Entity(path) if path == self.entity_path_menu.trai_ty().into() => {
+        //     EtherealTerm::Entity(path) if path == self.entity_path_menu.trai_ty().into() => {
         //         todo!()
         //     }
-        //     Term::Category(_) => {
+        //     EtherealTerm::Category(_) => {
         //         todo!()
         //         // if let Some(ropd_term) = self.infer_new_expr_term(ropd) {
         //         //     ropd_expectation = ExpectImplicitConversion {
@@ -107,7 +107,7 @@ impl<'a> ExprTypeEngine<'a> {
                 return Err(DerivedExprTypeError::BinaryOperationRightOperandTypeNotInferred.into())
             };
         todo!()
-        // Ok(Term::new_category(x_u.max(y_u)).into())
+        // Ok(EtherealTerm::new_category(x_u.max(y_u)).into())
     }
 
     fn calc_binary_assign_expr_ty(
@@ -172,8 +172,8 @@ impl<'a> ExprTypeEngine<'a> {
         let Some(ropd_ty) = ropd_ty else { return };
         todo!()
         // let lopd_ty = match lopd_ty {
-        //     FluffyTerm::Term(lopd_ty) => match lopd_ty {
-        //         Term::Application(lopd_ty) => todo!(),
+        //     FluffyTerm::EtherealTerm(lopd_ty) => match lopd_ty {
+        //         EtherealTerm::Application(lopd_ty) => todo!(),
         //         _ => todo!(),
         //     },
         //     FluffyTerm::Unresolved(lopd_ty) => {
@@ -189,7 +189,7 @@ impl<'a> ExprTypeEngine<'a> {
         //     _ => todo!(),
         // };
         // let ropd_ty = match ropd_ty {
-        //     FluffyTerm::Term(ropd_ty) => todo!(),
+        //     FluffyTerm::EtherealTerm(ropd_ty) => todo!(),
         //     // self.db.intrinsic_ty(ropd_ty).reduced_term(),
         //     FluffyTerm::Unresolved(_) => todo!(),
         //     _ => todo!(),

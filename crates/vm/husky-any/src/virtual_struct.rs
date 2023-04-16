@@ -1,18 +1,18 @@
 use super::*;
-use husky_term::Term;
+use husky_ethereal_term::EtherealTerm;
 use husky_word::{Ident, IdentPairMap};
 use serde::Serialize;
 use std::borrow::Cow;
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct DeprecatedVirtualStruct<'eval> {
-    ty: Term,
+    ty: EtherealTerm,
     fields: IdentPairMap<__Register<'eval>>,
 }
 
 impl<'eval> DeprecatedVirtualStruct<'eval> {
     pub fn new_struct(
-        ty: Term,
+        ty: EtherealTerm,
         arguments: impl Iterator<Item = __Register<'eval>>,
         field_liasons: &[Ident],
     ) -> Self {

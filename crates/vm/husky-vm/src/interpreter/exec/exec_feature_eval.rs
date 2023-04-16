@@ -6,7 +6,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         feature_uid: EntityUid,
         mode: Mode,
         ins: &Instruction,
-        ty: Term,
+        ty: EtherealTerm,
     ) -> __VMResult<()> {
         let ctx = self.opt_ctx.unwrap();
         let result = ctx.eval_feature_from_uid(feature_uid.raw());

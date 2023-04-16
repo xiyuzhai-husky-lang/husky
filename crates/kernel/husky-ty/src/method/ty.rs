@@ -2,9 +2,9 @@ use super::*;
 
 pub(super) fn ty_method_ty(
     db: &dyn TypeDb,
-    term: Term,
+    term: EtherealTerm,
     ident: Ident,
-) -> TypeResult<Option<(TypeMethodDisambiguation, TypeResult<Term>)>> {
+) -> TypeResult<Option<(TypeMethodDisambiguation, TypeResult<EtherealTerm>)>> {
     todo!()
 }
 

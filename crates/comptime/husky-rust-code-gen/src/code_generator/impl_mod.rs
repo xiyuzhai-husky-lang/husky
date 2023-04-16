@@ -24,7 +24,7 @@ impl<'a> RustCodeGenerator<'a> {
                     ref stmts,
                     ..
                 } => self.gen_proc_defn(0, entity.base_route, parameters, output.route, stmts),
-                EntityDefnVariant::Term {
+                EntityDefnVariant::EtherealTerm {
                     ref ty_members,
                     ref variants,
                     ty_kind: kind,

@@ -1,6 +1,6 @@
 use crate::*;
 
-pub(crate) fn is_defn_static(_db: &dyn RustTranspileDb, _entity_path: Term) -> bool {
+pub(crate) fn is_defn_static(_db: &dyn RustTranspileDb, _entity_path: EtherealTerm) -> bool {
     todo!()
     // let entity_path = entity_path.intrinsic();
     // match entity_path.variant {
@@ -18,7 +18,10 @@ pub(crate) fn is_defn_static(_db: &dyn RustTranspileDb, _entity_path: Term) -> b
     // }
 }
 
-pub(crate) fn contains_spatial_parameters(_db: &dyn RustTranspileDb, _entity_path: Term) -> bool {
+pub(crate) fn contains_spatial_parameters(
+    _db: &dyn RustTranspileDb,
+    _entity_path: EtherealTerm,
+) -> bool {
     todo!()
     // let entity_path = entity_path.intrinsic();
     // if entity_path.spatial_arguments.len() > 0 {

@@ -2,10 +2,10 @@ use super::*;
 
 pub(super) fn trai_for_ty_method_ty(
     db: &dyn TypeDb,
-    term: Term,
+    term: EtherealTerm,
     ident: Ident,
     available_traits: &[TraitPath],
-) -> TypeResult<Option<(TypeMethodDisambiguation, TypeResult<Term>)>> {
+) -> TypeResult<Option<(TypeMethodDisambiguation, TypeResult<EtherealTerm>)>> {
     todo!()
 }
 

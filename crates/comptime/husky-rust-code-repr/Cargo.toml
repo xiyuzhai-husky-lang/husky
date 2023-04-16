@@ -7,10 +7,10 @@ edition = "2021"
 [dependencies]
 salsa = { version = "0.17.0-pre.2", optional = true }
 convert_case = "0.6.0"
-husky-term = { path = "../../kernel/husky-term", optional = true }
+husky-ethereal-term = { path = "../../kernel/husky-ethereal-term", optional = true }
 xxhash-rust = { version = "0.8.5", features = ["const_xxh3", "xxh3"] }
 
 [features]
 query = ["dep:salsa"]
-entity_path = ["query", "dep:husky-term"]
+entity_path = ["query", "dep:husky-ethereal-term"]
 registration = []

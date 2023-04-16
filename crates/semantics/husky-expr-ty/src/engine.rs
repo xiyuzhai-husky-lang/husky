@@ -36,8 +36,8 @@ pub(crate) struct ExprTypeEngine<'a> {
     pattern_expr_ty_infos: PatternExprMap<PatternExprTypeInfo>,
     pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
     pattern_expr_contracts: PatternExprMap<Contract>,
-    return_ty: Option<Term>,
-    self_ty: Option<Term>,
+    return_ty: Option<EtherealTerm>,
+    self_ty: Option<EtherealTerm>,
 }
 
 impl<'a> FluffyTermEngine<'a> for ExprTypeEngine<'a> {
@@ -81,7 +81,7 @@ impl<'a> ExprTypeEngine<'a> {
                     .ok()
             })
             .flatten()
-            .map(|term| Term::ty_from_raw(db, term).ok())
+            .map(|term| EtherealTerm::ty_from_raw(db, term).ok())
             .flatten();
         // todo: improve this
         let self_ty = parent_expr_region
@@ -91,7 +91,7 @@ impl<'a> ExprTypeEngine<'a> {
                     .ok()
             })
             .flatten()
-            .map(|term| Term::ty_from_raw(db, term).ok())
+            .map(|term| EtherealTerm::ty_from_raw(db, term).ok())
             .flatten();
         let symbol_region = expr_region_data.symbol_region();
         let pattern_expr_region = expr_region_data.pattern_expr_region();

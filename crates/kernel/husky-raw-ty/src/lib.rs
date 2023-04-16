@@ -51,7 +51,7 @@ pub struct RawTypeJar(
     ty_item_entity_variances,
     ty_item_entity_variance_reprs,
     application_expansion_salsa,
-    ApplicationArguments,
+    EtherealApplicationArguments,
     ty_path_ty_method_raw_ty,
     ty_path_field_raw_ty,
     application_raw_term_raw_ty,

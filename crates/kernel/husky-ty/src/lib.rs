@@ -17,7 +17,7 @@ pub use self::method::*;
 
 use either::*;
 use husky_entity_path::*;
-use husky_term::*;
+use husky_ethereal_term::*;
 use husky_term_prelude::*;
 use husky_ty_expectation::*;
 use husky_word::*;

@@ -1,11 +1,14 @@
 use super::*;
 
-pub(crate) fn mangled_intrinsic_ty(_db: &dyn RustTranspileDb, _entity_path: Term) -> Arc<String> {
+pub(crate) fn mangled_intrinsic_ty(
+    _db: &dyn RustTranspileDb,
+    _entity_path: EtherealTerm,
+) -> Arc<String> {
     todo!()
     // db.mangled_ty(entity_path.intrinsic())
 }
 
-pub(crate) fn mangled_ty(_db: &dyn RustTranspileDb, _entity_path: Term) -> Arc<String> {
+pub(crate) fn mangled_ty(_db: &dyn RustTranspileDb, _entity_path: EtherealTerm) -> Arc<String> {
     todo!()
     // msg_once!("ad hoc");
     // Arc::new(if entity_path.spatial_arguments.len() > 0 {
@@ -23,18 +26,21 @@ pub(crate) fn mangled_ty(_db: &dyn RustTranspileDb, _entity_path: Term) -> Arc<S
 
 pub(crate) fn mangled_intrinsic_ty_vtable(
     _db: &dyn RustTranspileDb,
-    _entity_path: Term,
+    _entity_path: EtherealTerm,
 ) -> Arc<String> {
     todo!()
     // db.mangled_ty_vtable(entity_path.intrinsic())
 }
-pub(crate) fn mangled_ty_vtable(_db: &dyn RustTranspileDb, _entity_path: Term) -> Arc<String> {
+pub(crate) fn mangled_ty_vtable(
+    _db: &dyn RustTranspileDb,
+    _entity_path: EtherealTerm,
+) -> Arc<String> {
     todo!()
     // Arc::new(match entity_path {
-    //     Term::Root(_) => {
+    //     EtherealTerm::Root(_) => {
     //         format!("__{}_VTABLE", entity_path.ident().as_str().to_uppercase())
     //     }
-    //     Term::Custom(_) => format!(
+    //     EtherealTerm::Custom(_) => format!(
     //         "__{}_VTABLE",
     //         &db.mangled_ty(entity_path).to_case(Case::UpperSnake)
     //     ),

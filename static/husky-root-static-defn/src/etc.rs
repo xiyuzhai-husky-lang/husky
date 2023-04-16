@@ -5,7 +5,7 @@ use crate::*;
 pub static TYPE_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "TypeType",
     items: &[],
-    variant: EntityStaticDefnVariant::Term {
+    variant: EntityStaticDefnVariant::EtherealTerm {
         base_route: "Type",
         spatial_parameters: &[],
         trait_impls: &[],
@@ -23,7 +23,7 @@ pub static TYPE_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
 pub static TRAIT_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "TraitType",
     items: &[],
-    variant: EntityStaticDefnVariant::Term {
+    variant: EntityStaticDefnVariant::EtherealTerm {
         base_route: "Trait",
         spatial_parameters: &[],
         trait_impls: &[],
@@ -41,7 +41,7 @@ pub static TRAIT_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
 pub static MODULE_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "ModuleType",
     items: &[],
-    variant: EntityStaticDefnVariant::Term {
+    variant: EntityStaticDefnVariant::EtherealTerm {
         base_route: "Module",
         spatial_parameters: &[],
         trait_impls: &[],
