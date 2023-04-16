@@ -21,7 +21,6 @@ husky-token = { path = "../../lex/husky-token" }
 husky-text = { path = "../../lex/husky-text" }
 # kernel
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
-husky-ethereal-ty = { path = "../../kernel/husky-ethereal-ty" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-expr = { path = "../../syntax/husky-expr" }
@@ -39,7 +38,6 @@ husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 husky-declarative-term = { path = "../../kernel/husky-declarative-term" }
 husky-declarative-ty = { path = "../../kernel/husky-declarative-ty" }
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
-husky-ethereal-ty = { path = "../../kernel/husky-ethereal-ty" }
 husky-fluffy-term = { path = "../../kernel/husky-fluffy-term" }
 # lex
 husky-text = { path = "../../lex/husky-text", features = ["lsp_support"] }

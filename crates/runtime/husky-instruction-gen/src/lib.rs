@@ -8,7 +8,6 @@ mod db;
 pub use db::*;
 
 use husky_ethereal_term::*;
-use husky_ethereal_ty::*;
 use husky_vm::InstructionSheet;
 use husky_word::*;
 use std::sync::Arc;

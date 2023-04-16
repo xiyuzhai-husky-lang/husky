@@ -1,5 +1,4 @@
 use crate::*;
-use husky_ethereal_ty::{TraitForTypeMethodFnCard, TypeMethodFnCard};
 use husky_ty_expectation::TypePathDisambiguation;
 
 #[derive(Debug, PartialEq, Eq)]

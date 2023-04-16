@@ -57,35 +57,36 @@ impl<'a> ExprTypeEngine<'a> {
         // .into())
     }
 
-    fn calc_ty_method_expr_ty(
-        &mut self,
-        expr_idx: ExprIdx,
-        ty_method_card: TypeMethodFnCard,
-        self_argument: ExprIdx,
-        implicit_arguments: Option<&ImplicitArgumentList>,
-        nonself_arguments: ExprIdxRange,
-    ) -> ExprTypeResult<FluffyTerm> {
-        let method_ty_info = ty_method_card.method_ty_info(self.db)?;
-        let mut nonself_parameter_contracted_tys: Vec<FluffyTermRitchieParameterContractedType> =
-            todo!();
-        // method_ty_info
-        //     .nonself_parameter_contracted_tys()
-        //     .iter()
-        //     .map(Into::into)
-        //     .collect();
-        let mut return_ty: FluffyTerm = method_ty_info.return_ty().into();
-        if method_ty_info.implicit_parameters().len() > 0 {
-            todo!()
-        } else {
-            if implicit_arguments.is_some() {
-                todo!()
-            }
-        }
-        self.calc_ritchie_call_nonself_arguments_expr_ty(
-            expr_idx,
-            &nonself_parameter_contracted_tys,
-            nonself_arguments,
-        );
-        Ok(return_ty)
-    }
+    // fn calc_ty_method_expr_ty(
+    //     &mut self,
+    //     expr_idx: ExprIdx,
+    //     ty_method_card: TypeMethodFnCard,
+    //     self_argument: ExprIdx,
+    //     implicit_arguments: Option<&ImplicitArgumentList>,
+    //     nonself_arguments: ExprIdxRange,
+    // ) -> ExprTypeResult<FluffyTerm> {
+    //     todo!()
+    //     // let method_ty_info = ty_method_card.method_ty_info(self.db)?;
+    //     // let mut nonself_parameter_contracted_tys: Vec<FluffyTermRitchieParameterContractedType> =
+    //     //     todo!();
+    //     // method_ty_info
+    //     //     .nonself_parameter_contracted_tys()
+    //     //     .iter()
+    //     //     .map(Into::into)
+    //     //     .collect();
+    //     // let mut return_ty: FluffyTerm = method_ty_info.return_ty().into();
+    //     // if method_ty_info.implicit_parameters().len() > 0 {
+    //     //     todo!()
+    //     // } else {
+    //     //     if implicit_arguments.is_some() {
+    //     //         todo!()
+    //     //     }
+    //     // }
+    //     // self.calc_ritchie_call_nonself_arguments_expr_ty(
+    //     //     expr_idx,
+    //     //     &nonself_parameter_contracted_tys,
+    //     //     nonself_arguments,
+    //     // );
+    //     // Ok(return_ty)
+    // }
 }

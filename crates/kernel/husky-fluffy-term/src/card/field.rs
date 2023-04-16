@@ -14,15 +14,6 @@ pub struct FluffyFieldCard {
 }
 
 impl FluffyFieldCard {
-    fn from_ethereal(place: Option<Place>, field_card: RegularFieldCard) -> Self {
-        Self {
-            place,
-            visibility: field_card.visibility(),
-            modifier: field_card.modifier(),
-            ty: field_card.ty().into(),
-        }
-    }
-
     fn to_term(self, engine: &mut impl FluffyTermEngine) -> FluffyTerm {
         todo!()
     }
@@ -100,9 +91,10 @@ impl SolidTerm {
                 place,
                 base_ty_term: Some(base_ty_term),
                 ..
-            } => Ok(base_ty_term
-                .regular_field_card(engine.db(), ident)?
-                .map(|field_card| FluffyFieldCard::from_ethereal(Some(*place), field_card))),
+            } => todo!(),
+            // Ok(base_ty_term
+            //     .regular_field_card(engine.db(), ident)?
+            //     .map(|field_card| FluffyFieldCard::from_ethereal(Some(*place), field_card))),
             SolidTermData::PlaceTypeOntology {
                 place,
                 path,
