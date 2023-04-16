@@ -14,15 +14,21 @@ impl FluffyTerm {
         ident: Ident,
         available_traits: &[TraitPath],
     ) -> FluffyTypeResult<(FluffyFieldDisambiguation, FluffyTypeResult<FluffyTerm>)> {
-        if let Some((disambiguation, ty_result)) = self.regular_field_ty(engine, ident)? {
-            return Ok((disambiguation.into(), ty_result));
-        }
-        if let Some((disambiguation, ty_result)) = self.ty_memo_ty(engine, ident)? {
-            return Ok((disambiguation.into(), ty_result));
-        }
-        // todo: trait for ty memos
-        // todo: dyn trait memos
-        Err(OriginalFluffyTypeError::NoSuchMethod.into())
+        let Some(card) = self.field_card(engine, ident, available_traits)? else {
+            Err(OriginalFluffyTypeError::NoSuchField)?
+        };
+        // p!(card.debug(engine.db()));
+        todo!()
+    }
+
+    pub fn field_ty_aux(
+        self,
+        engine: &mut impl FluffyTermEngine,
+        ident: Ident,
+        available_traits: &[TraitPath],
+        indirections: &mut SmallVec<[FluffyIndirection; 2]>,
+    ) -> FluffyTypeResult<(FluffyFieldDisambiguation, FluffyTypeResult<FluffyTerm>)> {
+        todo!()
     }
 }
 

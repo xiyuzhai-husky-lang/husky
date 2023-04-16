@@ -1,13 +1,16 @@
-mod leashed;
-mod memo;
 mod regular;
+mod ty_memo;
 
+use self::regular::*;
+use self::ty_memo::*;
 use super::*;
 use husky_word::Ident;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = FluffyTermDb)]
 pub struct FluffyFieldCard {
-    place: Option<Place>,
+    indirections: SmallVec<[FluffyIndirection; 2]>,
+    owner_ty_path: TypePath,
     visibility: Visibility,
     modifier: FieldModifier,
     ty: FluffyTerm,
@@ -20,89 +23,105 @@ impl FluffyFieldCard {
 }
 
 impl FluffyTerm {
-    pub fn field_card(
+    pub(crate) fn field_card(
         self,
         engine: &mut impl FluffyTermEngine,
         ident: Ident,
+        available_traits: &[TraitPath],
     ) -> FluffyCardResult<Option<FluffyFieldCard>> {
-        match self.nested() {
-            NestedFluffyTerm::Ethereal(_) => todo!(),
-            NestedFluffyTerm::Solid(term) => term.field_card(engine, ident),
-            NestedFluffyTerm::Hollow(_) => todo!(),
-        }
-        // Ok(self
-        //     .field_card_aux(engine, ident)?
-        //     .map(|field_ty| field_ty.to_term(engine)))
+        self.field_card_aux(engine, ident, available_traits, smallvec![])
     }
 
-    // fn field_card_aux(
-    //     self,
-    //     engine: &mut impl FluffyTermEngine,
-    //     ident: Ident,
-    // ) -> FluffyCardResult<Option<FluffyFieldCard>> {
-    //     // match self {
-    //     //     FluffyTerm::Literal(_) => todo!(),
-    //     //     FluffyTerm::Symbol(_) => todo!(),
-    //     //     FluffyTerm::Hole(_) => todo!(),
-    //     //     FluffyTerm::EntityPath(_) => todo!(),
-    //     //     FluffyTerm::Category(_) => todo!(),
-    //     //     FluffyTerm::Universe(_) => todo!(),
-    //     //     FluffyTerm::Curry(_) => todo!(),
-    //     //     FluffyTerm::Ritchie(_) => todo!(),
-    //     //     FluffyTerm::Abstraction(_) => todo!(),
-    //     //     FluffyTerm::Application(_) => todo!(),
-    //     //     FluffyTerm::Subentity(_) => todo!(),
-    //     //     FluffyTerm::AsTraitSubentity(_) => todo!(),
-    //     //     FluffyTerm::TraitConstraint(_) => todo!(),
-    //     //     FluffyTerm::Solid(term) => term
-    //     //         .field_card(engine, ident)
-    //     //         .map(|opt| opt.map(Into::into)),
-    //     //     FluffyTerm::Hollow(_) => todo!(),
-    //     // }
-    //     // let owner_ty_unravelled =
-    //     //     owner_ty.unravel_borrow(self.db, self.fluffy_term_region.porous_terms());
-    //     // match owner_ty_unravelled {
-    //     //     FluffyTerm::EtherealTerm(owner_ty_unravelled) => {
-    //     //         match self.db.field_ty(owner_ty_unravelled, ident_token.ident()) {
-    //     //             Ok(Some(field_ty)) => Ok(field_ty.into()),
-    //     //             Ok(None) => Err(OriginalExprTypeError::NoSuchField.into()),
-    //     //             Err(e) => Err(DerivedExprTypeError::FieldTypeTermError(e).into()),
-    //     //         }
-    //     //     }
-    //     //     FluffyTerm::Unresolved(_) => todo!(),
-    //     //     _ => todo!(),
-    //     // }
-    // }
-}
-
-impl SolidTerm {
-    fn field_card(
+    fn field_card_aux(
         self,
         engine: &mut impl FluffyTermEngine,
         ident: Ident,
+        available_traits: &[TraitPath],
+        mut indirections: SmallVec<[FluffyIndirection; 2]>,
     ) -> FluffyCardResult<Option<FluffyFieldCard>> {
         match self.data(engine) {
-            SolidTermData::TypeOntology {
+            FluffyTermData::TypeOntology {
                 path,
                 refined_path,
-                arguments: argument_tys,
-            } => todo!(),
-            SolidTermData::PlaceTypeOntology {
-                place,
-                base_ty_term: Some(base_ty_term),
-                ..
-            } => todo!(),
-            // Ok(base_ty_term
-            //     .regular_field_card(engine.db(), ident)?
-            //     .map(|field_card| FluffyFieldCard::from_ethereal(Some(*place), field_card))),
-            SolidTermData::PlaceTypeOntology {
+                arguments,
+                ty_ethereal_term,
+            } => field_card_aux(
+                engine,
+                path,
+                refined_path,
+                arguments.to_smallvec(),
+                ty_ethereal_term,
+                ident,
+                available_traits,
+                indirections,
+            ),
+            FluffyTermData::PlaceTypeOntology {
                 place,
                 path,
                 refined_path,
-                arguments: argument_tys,
-                ..
-            } => todo!(),
-            SolidTermData::Curry { .. } | SolidTermData::Ritchie { .. } => todo!(),
+                arguments,
+                base_ty_ethereal_term,
+            } => {
+                indirections.push(FluffyIndirection::Place(place));
+                field_card_aux(
+                    engine,
+                    path,
+                    refined_path,
+                    arguments.to_smallvec(),
+                    base_ty_ethereal_term,
+                    ident,
+                    available_traits,
+                    indirections,
+                )
+            }
+            _ => Ok(None),
         }
     }
+}
+
+#[inline(always)]
+fn field_card_aux(
+    engine: &mut impl FluffyTermEngine,
+    ty_path: TypePath,
+    refined_path: Either<CustomTypePath, PreludeTypePath>,
+    arguments: SmallVec<[FluffyTerm; 2]>,
+    ty_ethereal_term: Option<EtherealTerm>,
+    ident: Ident,
+    available_traits: &[TraitPath],
+    mut indirections: SmallVec<[FluffyIndirection; 2]>,
+) -> FluffyCardResult<Option<FluffyFieldCard>> {
+    match refined_path {
+        Right(PreludeTypePath::Borrow(ty_path)) => match ty_path {
+            PreludeBorrowTypePath::Ref => todo!(),
+            PreludeBorrowTypePath::RefMut => todo!(),
+            PreludeBorrowTypePath::Leash => {
+                debug_assert_eq!(arguments.len(), 1);
+                indirections.push(FluffyIndirection::Unleash);
+                arguments[0].field_card_aux(engine, ident, available_traits, indirections)
+            }
+        },
+        _ => {
+            let signature = ty_path.signature(engine.db())?;
+            if let Some(card) = direct_field_card(engine, signature, arguments, ident)? {
+                return Ok(Some(card));
+            }
+            // todo: consider `Deref` `DerefMut` `Carrier`
+            Ok(None)
+        }
+    }
+}
+
+fn direct_field_card(
+    engine: &mut impl FluffyTermEngine,
+    signature: TypeSignature,
+    arguments: SmallVec<[FluffyTerm; 2]>,
+    ident: Ident,
+) -> FluffyCardResult<Option<FluffyFieldCard>> {
+    if let Some(card) = direct_regular_field_card(engine, signature, &arguments, ident)? {
+        return Ok(Some(card));
+    }
+    if let Some(card) = direct_ty_memo_field_card(engine, signature, &arguments, ident)? {
+        return Ok(Some(card));
+    }
+    Ok(None)
 }

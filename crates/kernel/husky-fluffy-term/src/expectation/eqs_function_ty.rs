@@ -83,6 +83,7 @@ impl ExpectEqsFunctionType {
                 path,
                 refined_path,
                 arguments,
+                ..
             } => Some(FluffyTermExpectationEffect {
                 result: Err(OriginalFluffyTermExpectationError::Todo.into()),
                 actions: smallvec![],
@@ -195,6 +196,7 @@ impl ExpectEqsFunctionType {
                 path,
                 refined_path,
                 arguments,
+                ..
             } => todo!(),
             FluffyTermData::Curry {
                 curry_kind,

@@ -113,6 +113,7 @@ impl SymbolType {
                         path,
                         refined_path,
                         arguments,
+                        ..
                     } => todo!(),
                     FluffyTermData::PlaceTypeOntology { .. } => todo!(),
                     FluffyTermData::Curry {

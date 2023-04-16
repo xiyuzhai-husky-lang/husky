@@ -15,15 +15,10 @@ impl FluffyTerm {
         ident: Ident,
         available_traits: &[TraitPath],
     ) -> FluffyTypeResult<(FluffyMethodDisambiguation, FluffyTypeResult<FluffyTerm>)> {
-        if let Some((disambiguation, ty_result)) = self.ty_method_ty(engine, ident)? {
-            return Ok((disambiguation.into(), ty_result));
-        }
-        if let Some((disambiguation, ty_result)) =
-            self.trai_for_ty_method_ty(ident, available_traits)?
-        {
-            return Ok((disambiguation.into(), ty_result));
-        }
-        Err(OriginalFluffyTypeError::NoSuchMethod.into())
+        let Some(card) = self.method_card(engine, ident, available_traits)? else {
+            Err(OriginalFluffyTypeError::NoSuchMethod)?
+        };
+        todo!()
     }
 }
 

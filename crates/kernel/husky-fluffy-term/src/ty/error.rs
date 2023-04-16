@@ -25,6 +25,8 @@ impl From<TermError> for FluffyTypeError {
 pub enum OriginalFluffyTypeError {
     #[error("NoSuchMethod")]
     NoSuchMethod,
+    #[error("NoSuchField")]
+    NoSuchField,
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]

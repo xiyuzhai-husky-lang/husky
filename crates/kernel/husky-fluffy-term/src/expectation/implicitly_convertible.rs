@@ -162,7 +162,8 @@ impl ExpectImplicitlyConvertible {
             FluffyTermData::TypeOntology {
                 path,
                 refined_path,
-                arguments: argument_tys,
+                arguments,
+                ..
             } => self.resolve_convertible_to_ty_ontology(
                 db,
                 terms,
@@ -171,7 +172,7 @@ impl ExpectImplicitlyConvertible {
                 expectee,
                 path,
                 refined_path,
-                argument_tys,
+                arguments,
             ),
             FluffyTermData::Curry { .. } => todo!(),
             FluffyTermData::Hole(_, hole) => match level {
