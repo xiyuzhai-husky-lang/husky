@@ -3,7 +3,7 @@ use husky_decr::DeriveDecr;
 
 #[salsa::interned(db = SignatureDb, jar = SignatureJar)]
 pub struct DeriveDecrSignature {
-    pub traits: Vec<RawTerm>,
+    pub traits: Vec<DeclarativeTerm>,
 }
 
 impl HasSignature for DeriveDecr {
@@ -27,6 +27,6 @@ pub fn derive_decr_signature(
         .iter()
         .copied()
         .map(|trai_expr| signature_term_region.expr_term(trai_expr.expr()))
-        .collect::<SignatureRawTermResultBorrowed<Vec<_>>>()?;
+        .collect::<SignatureDeclarativeTermResultBorrowed<Vec<_>>>()?;
     Ok(DeriveDecrSignature::new(db, traits))
 }

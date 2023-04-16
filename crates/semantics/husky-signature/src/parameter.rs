@@ -8,15 +8,15 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct ImplicitParameterSignature {
     annotated_variance: Option<Variance>,
-    symbol: RawTermSymbol,
-    traits: Vec<RawTerm>,
+    symbol: DeclarativeTermSymbol,
+    traits: Vec<DeclarativeTerm>,
 }
 
 impl ImplicitParameterSignature {
     fn from_decl(
         parameter_decl: &ImplicitParameterDecl,
         region: &SignatureRegion,
-        raw_term_menu: &RawTermMenu,
+        raw_term_menu: &DeclarativeTermMenu,
     ) -> ImplicitParameterSignature {
         let pattern = &parameter_decl.pattern();
         let symbol = pattern.symbol();
@@ -55,15 +55,15 @@ impl ImplicitParameterSignature {
         }
     }
 
-    pub fn symbol(&self) -> RawTermSymbol {
+    pub fn symbol(&self) -> DeclarativeTermSymbol {
         self.symbol
     }
 
-    pub fn ty(&self, db: &dyn RawTermDb) -> RawTerm {
+    pub fn ty(&self, db: &dyn DeclarativeTermDb) -> DeclarativeTerm {
         self.symbol.ty(db).expect("should be okay")
     }
 
-    pub fn traits(&self) -> &[RawTerm] {
+    pub fn traits(&self) -> &[DeclarativeTerm] {
         self.traits.as_ref()
     }
 
@@ -81,7 +81,7 @@ impl ImplicitParameterSignatures {
     pub(crate) fn from_decl(
         implicit_parameters: &[ImplicitParameterDecl],
         signature_term_region: &SignatureRegion,
-        raw_term_menu: &RawTermMenu,
+        raw_term_menu: &DeclarativeTermMenu,
     ) -> Self {
         Self {
             data: implicit_parameters
@@ -113,17 +113,19 @@ impl std::ops::Deref for ImplicitParameterSignatures {
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct ExplicitParameterSignature {
     contract: Contract,
-    ty: RawTerm,
+    ty: DeclarativeTerm,
 }
 
 impl ExplicitParameterSignature {
-    pub fn into_ritchie_parameter_contracted_ty(self) -> RawTermRitchieParameterContractedType {
-        RawTermRitchieParameterContractedType::new(self.contract, self.ty)
+    pub fn into_ritchie_parameter_contracted_ty(
+        self,
+    ) -> DeclarativeTermRitchieParameterContractedType {
+        DeclarativeTermRitchieParameterContractedType::new(self.contract, self.ty)
     }
 }
 
 impl ExplicitParameterSignature {
-    pub(crate) fn new(contract: Contract, ty: RawTerm) -> Self {
+    pub(crate) fn new(contract: Contract, ty: DeclarativeTerm) -> Self {
         Self { contract, ty }
     }
 
@@ -131,7 +133,7 @@ impl ExplicitParameterSignature {
         self.contract
     }
 
-    pub fn ty(&self) -> RawTerm {
+    pub fn ty(&self) -> DeclarativeTerm {
         self.ty
     }
 }
@@ -165,7 +167,7 @@ impl ExplicitParameterSignatures {
                     let ty = match signature_region.expr_term(ty) {
                         Ok(ty) => ty,
                         Err(_) => {
-                            return Err(SignatureError::ParameterTypeRawTermError(
+                            return Err(SignatureError::ParameterTypeDeclarativeTermError(
                                 i.try_into().unwrap(),
                             ))
                         }

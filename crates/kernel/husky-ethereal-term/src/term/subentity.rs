@@ -19,7 +19,7 @@ impl EtherealTermSubentity {
     #[inline(always)]
     pub(crate) fn from_raw_unchecked(
         db: &dyn EtherealTermDb,
-        valid_term: RawTermSubentity,
+        valid_term: DeclarativeTermSubentity,
         term_ty_expectation: TermTypeExpectation,
     ) -> TermResult<EtherealTerm> {
         todo!()

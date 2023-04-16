@@ -13,7 +13,7 @@ enum-class = { path = "../../abstraction/enum-class" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
-husky-raw-term = { path = "../../kernel/husky-raw-term" }
+husky-declarative-term = { path = "../../kernel/husky-declarative-term" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 # syntax

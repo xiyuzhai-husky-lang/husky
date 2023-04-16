@@ -84,7 +84,7 @@ impl EtherealTermRitchie {
     #[inline(always)]
     pub(crate) fn from_raw_unchecked(
         db: &dyn EtherealTermDb,
-        raw_term_ritchie: RawTermRitchie,
+        raw_term_ritchie: DeclarativeTermRitchie,
     ) -> TermResult<Self> {
         term_ritchie_from_raw_unchecked(db, raw_term_ritchie)
     }
@@ -114,7 +114,7 @@ impl EtherealTermRitchie {
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn term_ritchie_from_raw_unchecked(
     db: &dyn EtherealTermDb,
-    raw_term_ritchie: RawTermRitchie,
+    raw_term_ritchie: DeclarativeTermRitchie,
 ) -> TermResult<EtherealTermRitchie> {
     let t = |raw_term| {
         EtherealTerm::from_raw_unchecked(db, raw_term, TermTypeExpectation::FinalDestinationEqsSort)

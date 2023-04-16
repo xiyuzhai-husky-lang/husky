@@ -4,22 +4,22 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = SignatureDb)]
-pub struct SymbolRawTermRegion {
-    registry: RawTermSymbolRegistry,
+pub struct SymbolDeclarativeTermRegion {
+    registry: DeclarativeTermSymbolRegistry,
     symbol_signatures: SymbolOrderedMap<SymbolSignature>,
-    self_ty_term: Option<RawTerm>,
-    self_value_term: Option<RawTermSymbol>,
+    self_ty_term: Option<DeclarativeTerm>,
+    self_value_term: Option<DeclarativeTermSymbol>,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct SymbolSignature {
-    symbol: Option<RawTermSymbol>,
+    symbol: Option<DeclarativeTermSymbol>,
     modifier: SymbolModifier,
-    ty: RawTermSymbolTypeResult<RawTerm>,
+    ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
 }
 
 impl SymbolSignature {
-    pub fn symbol(self) -> Option<RawTermSymbol> {
+    pub fn symbol(self) -> Option<DeclarativeTermSymbol> {
         self.symbol
     }
 
@@ -27,18 +27,18 @@ impl SymbolSignature {
         self.modifier
     }
 
-    pub fn ty(&self) -> RawTermSymbolTypeResult<RawTerm> {
+    pub fn ty(&self) -> DeclarativeTermSymbolTypeResult<DeclarativeTerm> {
         self.ty
     }
 }
 
-impl SymbolRawTermRegion {
+impl SymbolDeclarativeTermRegion {
     #[inline(always)]
     pub(crate) fn add_new_implicit_parameter_symbol_signature(
         &mut self,
         db: &dyn SignatureDb,
         idx: CurrentSymbolIdx,
-        ty: RawTermSymbolTypeResult<RawTerm>,
+        ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
     ) {
         let symbol = self.registry.new_symbol(db, ty);
         self.add_new_current_symbol_signature(
@@ -58,7 +58,7 @@ impl SymbolRawTermRegion {
         db: &dyn SignatureDb,
         current_symbol: CurrentSymbolIdx,
         modifier: SymbolModifier,
-        ty: RawTermSymbolTypeResult<RawTerm>,
+        ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
     ) {
         let symbol = match modifier {
             SymbolModifier::Const => todo!(),
@@ -86,12 +86,15 @@ impl SymbolRawTermRegion {
     }
 }
 
-impl SymbolRawTermRegion {
+impl SymbolDeclarativeTermRegion {
     /// will initialize `inherited_symbol_terms`;
     /// but will leave current_symbol_terms unintialized;
     /// `self_ty_term` is set to that of parent if parent exists, otherwise none;
     /// `self_value_term` is set to that of parent if parent exists, otherwise none
-    pub(crate) fn new(parent: Option<&SymbolRawTermRegion>, symbol_region: &SymbolRegion) -> Self {
+    pub(crate) fn new(
+        parent: Option<&SymbolDeclarativeTermRegion>,
+        symbol_region: &SymbolRegion,
+    ) -> Self {
         let registry = parent.map_or(Default::default(), |parent| parent.registry.clone());
         Self {
             registry,
@@ -137,13 +140,15 @@ impl SymbolRawTermRegion {
             )
         }
     }
-    fn trai_self_ty_term(&mut self, db: &dyn SignatureDb) -> RawTerm {
+    fn trai_self_ty_term(&mut self, db: &dyn SignatureDb) -> DeclarativeTerm {
         // todo: general universe
-        self.registry.new_symbol(db, Ok(RawTerm::TYPE)).into()
+        self.registry
+            .new_symbol(db, Ok(DeclarativeTerm::TYPE))
+            .into()
     }
 
-    fn ty_self_ty_term(&self, db: &dyn SignatureDb, ty_path: TypePath) -> RawTerm {
-        let mut self_ty: RawTerm = RawTermEntityPath::Type(ty_path.into()).into();
+    fn ty_self_ty_term(&self, db: &dyn SignatureDb, ty_path: TypePath) -> DeclarativeTerm {
+        let mut self_ty: DeclarativeTerm = DeclarativeTermEntityPath::Type(ty_path.into()).into();
         for current_symbol_signature in self.symbol_signatures.current_symbol_map().iter().copied()
         {
             self_ty = self_ty.apply(
@@ -154,11 +159,11 @@ impl SymbolRawTermRegion {
         self_ty
     }
 
-    pub fn self_ty_term(&self) -> Option<RawTerm> {
+    pub fn self_ty_term(&self) -> Option<DeclarativeTerm> {
         self.self_ty_term
     }
 
-    pub fn self_value_term(&self) -> Option<RawTermSymbol> {
+    pub fn self_value_term(&self) -> Option<DeclarativeTermSymbol> {
         self.self_value_term
     }
 

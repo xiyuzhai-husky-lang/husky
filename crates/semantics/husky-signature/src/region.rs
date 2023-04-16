@@ -20,18 +20,18 @@ use husky_expr::{
 #[derive(Debug, PartialEq, Eq)]
 pub struct SignatureRegion {
     path: RegionPath,
-    term_symbol_region: SymbolRawTermRegion,
-    expr_terms: ExprMap<SignatureRawTermResult<RawTerm>>,
-    pattern_expr_ty_infos: PatternExprMap<PatternExprRawTypeInfo>,
+    term_symbol_region: SymbolDeclarativeTermRegion,
+    expr_terms: ExprMap<SignatureDeclarativeTermResult<DeclarativeTerm>>,
+    pattern_expr_ty_infos: PatternExprMap<PatternExprDeclarativeTypeInfo>,
     pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
 }
 
 impl SignatureRegion {
     pub(crate) fn new(
         path: RegionPath,
-        term_symbol_region: SymbolRawTermRegion,
-        expr_terms: ExprMap<SignatureRawTermResult<RawTerm>>,
-        pattern_expr_ty_infos: PatternExprMap<PatternExprRawTypeInfo>,
+        term_symbol_region: SymbolDeclarativeTermRegion,
+        expr_terms: ExprMap<SignatureDeclarativeTermResult<DeclarativeTerm>>,
+        pattern_expr_ty_infos: PatternExprMap<PatternExprDeclarativeTypeInfo>,
         pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
     ) -> Self {
         Self {
@@ -43,7 +43,7 @@ impl SignatureRegion {
         }
     }
 
-    pub fn term_symbol_region(&self) -> &SymbolRawTermRegion {
+    pub fn term_symbol_region(&self) -> &SymbolDeclarativeTermRegion {
         &self.term_symbol_region
     }
 
@@ -55,7 +55,7 @@ impl SignatureRegion {
             .current_symbol_signature(current_symbol_idx)
     }
 
-    pub fn expr_term(&self, expr: ExprIdx) -> SignatureRawTermResultBorrowed<RawTerm> {
+    pub fn expr_term(&self, expr: ExprIdx) -> SignatureDeclarativeTermResultBorrowed<DeclarativeTerm> {
         self.expr_terms[expr].as_ref().copied()
     }
 

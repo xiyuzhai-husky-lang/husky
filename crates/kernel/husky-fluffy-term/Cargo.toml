@@ -34,8 +34,8 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
 # kernel
 husky-package-path = { path = "../../kernel/husky-package-path" }
-husky-raw-term = { path = "../../kernel/husky-raw-term" }
-husky-raw-ty = { path = "../../kernel/husky-raw-ty" }
+husky-declarative-term = { path = "../../kernel/husky-declarative-term" }
+husky-declarative-ty = { path = "../../kernel/husky-declarative-ty" }
 # infer
 husky-manifest = { path = "../../semantics/husky-manifest" }
 husky-corgi-config = { path = "../../semantics/husky-corgi-config" }

@@ -24,7 +24,7 @@ pub fn regular_struct_ty_signature(
                     ty: match signature_term_region.expr_term(field.ty()) {
                         Ok(ty) => ty,
                         Err(_) => {
-                            return Err(SignatureError::FieldTypeRawTermError(
+                            return Err(SignatureError::FieldTypeDeclarativeTermError(
                                 i.try_into().unwrap(),
                             ))
                         }
@@ -49,19 +49,21 @@ impl RegularStructTypeSignature {}
 #[salsa::derive_debug_with_db(db = SignatureDb, jar= SignatureJar)]
 pub struct RegularStructFieldSignature {
     ident: Ident,
-    ty: RawTerm,
+    ty: DeclarativeTerm,
 }
 
 impl RegularStructFieldSignature {
-    pub fn into_ritchie_parameter_contracted_ty(self) -> RawTermRitchieParameterContractedType {
-        RawTermRitchieParameterContractedType::new(Contract::Move, self.ty)
+    pub fn into_ritchie_parameter_contracted_ty(
+        self,
+    ) -> DeclarativeTermRitchieParameterContractedType {
+        DeclarativeTermRitchieParameterContractedType::new(Contract::Move, self.ty)
     }
 
     pub fn ident(&self) -> Ident {
         self.ident
     }
 
-    pub fn ty(&self) -> RawTerm {
+    pub fn ty(&self) -> DeclarativeTerm {
         self.ty
     }
 }

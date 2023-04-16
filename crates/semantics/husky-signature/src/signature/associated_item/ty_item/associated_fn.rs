@@ -6,7 +6,7 @@ pub struct TypeAssociatedFnSignature {
     pub implicit_parameters: ImplicitParameterSignatures,
     #[return_ref]
     pub parameters: ExplicitParameterSignatures,
-    pub return_ty: RawTerm,
+    pub return_ty: DeclarativeTerm,
 }
 
 impl HasSignature for TypeAssociatedFnDecl {

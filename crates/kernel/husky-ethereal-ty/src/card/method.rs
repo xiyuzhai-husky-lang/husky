@@ -8,8 +8,8 @@ pub use self::ty::*;
 
 use crate::*;
 use husky_decl::{TypeItemDecl, TypeMethodFnDecl};
+use husky_declarative_ty::ty_path_ty_method_raw_ty;
 use husky_entity_tree::{AssociatedItemId, EntityTreeBundleResult};
-use husky_raw_ty::ty_path_ty_method_raw_ty;
 use husky_signature::{SignatureResult, TypeMethodSignature};
 use husky_word::IdentPairMap;
 

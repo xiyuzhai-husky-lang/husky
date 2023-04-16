@@ -13,5 +13,5 @@ pub(crate) fn trai_for_ty_associated_form_fn_signature(
 
 #[salsa::interned(db = SignatureDb, jar = SignatureJar)]
 pub struct TraitForTypeAssociatedFnSignature {
-    pub return_ty: RawTerm,
+    pub return_ty: DeclarativeTerm,
 }

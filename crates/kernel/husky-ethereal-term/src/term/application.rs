@@ -45,7 +45,7 @@ impl EtherealTermApplication {
         argument: EtherealTerm,
     ) -> TermResult<EtherealTerm> {
         let function_raw_ty = match function.raw_ty(db)? {
-            Left(RawTerm::Curry(function_raw_ty)) => function_raw_ty,
+            Left(DeclarativeTerm::Curry(function_raw_ty)) => function_raw_ty,
             _ => return Err(todo!()),
         };
         let parameter_ty = function_raw_ty.parameter_ty(db);
@@ -80,14 +80,14 @@ impl EtherealTermApplication {
     /// returns EtherealTerm instead of EtherealTermApplication because it might reduce to a non application term
     pub(crate) fn from_raw_unchecked(
         db: &dyn EtherealTermDb,
-        raw_term_application: RawTermExplicitApplication,
+        raw_term_application: DeclarativeTermExplicitApplication,
         term_ty_expectation: TermTypeExpectation,
     ) -> TermResult<EtherealTerm> {
         // todo: implicit arguments
         term_uncheck_from_raw_term_application(db, raw_term_application, term_ty_expectation)
     }
 
-    pub(crate) fn raw_ty(self, db: &dyn EtherealTermDb) -> TermResult<RawTerm> {
+    pub(crate) fn raw_ty(self, db: &dyn EtherealTermDb) -> TermResult<DeclarativeTerm> {
         term_application_raw_ty(db, self)
     }
 
@@ -106,7 +106,7 @@ impl EtherealTermApplication {
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn term_uncheck_from_raw_term_application(
     db: &dyn EtherealTermDb,
-    raw_term_application: RawTermExplicitApplication,
+    raw_term_application: DeclarativeTermExplicitApplication,
     raw_ty_expectation: TermTypeExpectation,
 ) -> TermResult<EtherealTerm> {
     // todo: implicit arguments
@@ -122,16 +122,16 @@ pub(crate) fn term_uncheck_from_raw_term_application(
     )
 }
 
-/// argument is `RawTerm` instead of `EtherealTerm` is because we need to read function type to get expectation for argument
+/// argument is `DeclarativeTerm` instead of `EtherealTerm` is because we need to read function type to get expectation for argument
 pub(crate) fn term_uncheck_from_raw_term_application_aux(
     db: &dyn EtherealTermDb,
     function: EtherealTerm,
-    argument: RawTerm,
+    argument: DeclarativeTerm,
     raw_ty_expectation: TermTypeExpectation,
 ) -> TermResult<EtherealTerm> {
     // todo: implicit arguments
     let function_raw_ty = match function.raw_ty(db)? {
-        Left(RawTerm::Curry(function_raw_ty)) => function_raw_ty,
+        Left(DeclarativeTerm::Curry(function_raw_ty)) => function_raw_ty,
         _ => return Err(todo!()),
     };
     let parameter_ty = function_raw_ty.parameter_ty(db);
@@ -155,15 +155,15 @@ pub(crate) fn term_uncheck_from_raw_term_application_aux(
 
 fn parameter_ty_raw_term_to_argument_ty_expectation(
     db: &dyn EtherealTermDb,
-    raw_term: RawTerm,
+    raw_term: DeclarativeTerm,
 ) -> TermTypeExpectation {
     match raw_term {
-        RawTerm::EntityPath(RawTermEntityPath::Type(path)) => {
+        DeclarativeTerm::EntityPath(DeclarativeTermEntityPath::Type(path)) => {
             TermTypeExpectation::FinalDestinationEqsNonSortTypePath(path)
         }
-        RawTerm::Category(_) => TermTypeExpectation::FinalDestinationEqsSort,
-        RawTerm::Curry(_) => todo!(),
-        RawTerm::ExplicitApplication(_) => todo!(),
+        DeclarativeTerm::Category(_) => TermTypeExpectation::FinalDestinationEqsSort,
+        DeclarativeTerm::Curry(_) => todo!(),
+        DeclarativeTerm::ExplicitApplication(_) => todo!(),
         _ => TermTypeExpectation::Any,
     }
 }
@@ -171,7 +171,7 @@ fn parameter_ty_raw_term_to_argument_ty_expectation(
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn parameter_ty_raw_term_curry_to_argument_ty_expectation(
     db: &dyn EtherealTermDb,
-    raw_term_curry: RawTermCurry,
+    raw_term_curry: DeclarativeTermCurry,
 ) -> TermTypeExpectation {
     todo!()
 }
@@ -186,11 +186,11 @@ pub(crate) fn parameter_ty_raw_term_application_to_argument_ty_expectation(
 pub(crate) fn term_application_raw_ty(
     db: &dyn EtherealTermDb,
     term_application: EtherealTermApplication,
-) -> TermResult<RawTerm> {
+) -> TermResult<DeclarativeTerm> {
     let function = term_application.function(db);
     let argument = term_application.argument(db);
     let function_raw_ty = match function.raw_ty(db)? {
-        Left(RawTerm::Curry(function_raw_ty)) => function_raw_ty,
+        Left(DeclarativeTerm::Curry(function_raw_ty)) => function_raw_ty,
         _ => return Err(todo!()),
     };
     Ok(match function_raw_ty.parameter_variable(db) {

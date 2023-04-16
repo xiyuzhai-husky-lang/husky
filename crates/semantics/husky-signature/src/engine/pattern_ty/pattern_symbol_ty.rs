@@ -4,11 +4,11 @@ use super::*;
 #[salsa::derive_debug_with_db(db = SignatureDb)]
 pub struct PatternSymbolTypeInfo {
     modifier: SymbolModifier,
-    base_ty: RawTerm,
+    base_ty: DeclarativeTerm,
 }
 
 impl PatternSymbolTypeInfo {
-    fn new(modifier: SymbolModifier, base_ty: RawTerm) -> Self {
+    fn new(modifier: SymbolModifier, base_ty: DeclarativeTerm) -> Self {
         Self { modifier, base_ty }
     }
 
@@ -16,12 +16,12 @@ impl PatternSymbolTypeInfo {
         self.modifier
     }
 
-    pub fn base_ty(&self) -> RawTerm {
+    pub fn base_ty(&self) -> DeclarativeTerm {
         self.base_ty
     }
 }
 
-impl<'a> RawTermEngine<'a> {
+impl<'a> DeclarativeTermEngine<'a> {
     pub(super) fn infer_pattern_symbol_tys(&mut self, pattern_expr: PatternExprIdx) {
         for (_, pattern_symbol) in self
             .expr_region_data
@@ -43,7 +43,10 @@ impl<'a> RawTermEngine<'a> {
         )
     }
 
-    fn calc_new_pattern_symbol_base_ty(&mut self, pattern_symbol: PatternSymbolIdx) -> RawTerm {
+    fn calc_new_pattern_symbol_base_ty(
+        &mut self,
+        pattern_symbol: PatternSymbolIdx,
+    ) -> DeclarativeTerm {
         match self.expr_region_data[pattern_symbol] {
             PatternSymbol::Atom(pattern_expr) => self
                 .get_pattern_expr_ty(pattern_expr)

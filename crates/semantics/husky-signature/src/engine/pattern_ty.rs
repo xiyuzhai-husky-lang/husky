@@ -6,12 +6,12 @@ pub(crate) use self::pattern_symbol_ty::*;
 
 use super::*;
 
-impl<'a> RawTermEngine<'a> {
+impl<'a> DeclarativeTermEngine<'a> {
     /// only use this for explicit parameters
     pub(super) fn infer_pattern_tys_in_explicit_parameter(
         &mut self,
         pattern_expr: PatternExprIdx,
-        ty: RawTerm,
+        ty: DeclarativeTerm,
     ) {
         self.infer_pattern_expr_tys(pattern_expr, ty);
         self.infer_pattern_symbol_tys(pattern_expr)

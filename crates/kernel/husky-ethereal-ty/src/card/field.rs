@@ -1,6 +1,6 @@
 use super::*;
+use husky_declarative_ty::ty_path_field_raw_ty;
 use husky_print_utils::p;
-use husky_raw_ty::ty_path_field_raw_ty;
 use salsa::DebugWithDb;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

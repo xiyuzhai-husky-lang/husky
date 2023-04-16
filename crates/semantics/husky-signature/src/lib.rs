@@ -18,8 +18,8 @@ pub use self::region::*;
 pub use self::signature::*;
 
 use husky_decl::*;
+use husky_declarative_term::*;
 use husky_entity_path::*;
-use husky_raw_term::*;
 use husky_term_prelude::*;
 use husky_word::*;
 

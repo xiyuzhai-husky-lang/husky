@@ -6,13 +6,13 @@ use crate::*;
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
 pub enum SignatureError {
     #[error("todo")]
-    RawTermError,
+    DeclarativeTermError,
     #[error("todo")]
-    ParameterTypeRawTermError(u8),
+    ParameterTypeDeclarativeTermError(u8),
     #[error("todo")]
-    FieldTypeRawTermError(u8),
+    FieldTypeDeclarativeTermError(u8),
     #[error("todo")]
-    ReturnTypeRawTermError,
+    ReturnTypeDeclarativeTermError,
     // derived
     #[error("todo")]
     DeclError,
@@ -39,9 +39,9 @@ impl From<&ExprError> for SignatureError {
     }
 }
 
-impl From<&SignatureRawTermError> for SignatureError {
-    fn from(value: &SignatureRawTermError) -> Self {
-        SignatureError::RawTermError
+impl From<&SignatureDeclarativeTermError> for SignatureError {
+    fn from(value: &SignatureDeclarativeTermError) -> Self {
+        SignatureError::DeclarativeTermError
     }
 }
 

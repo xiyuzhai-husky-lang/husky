@@ -1,36 +1,36 @@
 #[derive(Debug, PartialEq, Eq)]
-pub enum SignatureRawTermError {
-    Original(OriginalSignatureRawTermError),
-    Derived(DerivedSignatureRawTermError),
+pub enum SignatureDeclarativeTermError {
+    Original(OriginalSignatureDeclarativeTermError),
+    Derived(DerivedSignatureDeclarativeTermError),
 }
 
-impl From<OriginalSignatureRawTermError> for SignatureRawTermError {
-    fn from(v: OriginalSignatureRawTermError) -> Self {
+impl From<OriginalSignatureDeclarativeTermError> for SignatureDeclarativeTermError {
+    fn from(v: OriginalSignatureDeclarativeTermError) -> Self {
         Self::Original(v)
     }
 }
 
-impl From<DerivedSignatureRawTermError> for SignatureRawTermError {
-    fn from(v: DerivedSignatureRawTermError) -> Self {
+impl From<DerivedSignatureDeclarativeTermError> for SignatureDeclarativeTermError {
+    fn from(v: DerivedSignatureDeclarativeTermError) -> Self {
         Self::Derived(v)
     }
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum OriginalSignatureRawTermError {
+pub enum OriginalSignatureDeclarativeTermError {
     ExpectedLiteralForArrayLength,
     InvalidSymbolForTerm,
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum DerivedSignatureRawTermError {
+pub enum DerivedSignatureDeclarativeTermError {
     InvalidEntityPath,
-    CannotInferFunctionRawTermInApplication,
-    CannotInferArgumentRawTermInApplication,
-    CannotInferOperandRawTermInPrefix,
+    CannotInferFunctionDeclarativeTermInApplication,
+    CannotInferArgumentDeclarativeTermInApplication,
+    CannotInferOperandDeclarativeTermInPrefix,
     ExprError,
-    RawTermAbortion,
-    CannotInferArgumentRawTermInBoxList,
+    DeclarativeTermAbortion,
+    CannotInferArgumentDeclarativeTermInBoxList,
     CannotInferArrayLength,
     // should have been reported as syntax error
     SelfTypeNotAllowedInThisRegion,
@@ -38,5 +38,6 @@ pub enum DerivedSignatureRawTermError {
     SelfValueNotAllowedInThisRegion,
 }
 
-pub type SignatureRawTermResult<T> = Result<T, SignatureRawTermError>;
-pub type SignatureRawTermResultBorrowed<'a, T> = Result<T, &'a SignatureRawTermError>;
+pub type SignatureDeclarativeTermResult<T> = Result<T, SignatureDeclarativeTermError>;
+pub type SignatureDeclarativeTermResultBorrowed<'a, T> =
+    Result<T, &'a SignatureDeclarativeTermError>;

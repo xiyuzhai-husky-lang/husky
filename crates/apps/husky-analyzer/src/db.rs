@@ -5,6 +5,8 @@ use husky_ast::AstJar;
 use husky_corgi_config::CorgiConfigJar;
 use husky_corgi_config_ast::CorgiConfigAstJar;
 use husky_decl::DeclJar;
+use husky_declarative_term::DeclarativeTermJar;
+use husky_declarative_ty::DeclarativeTypeJar;
 use husky_decr::DecrJar;
 use husky_defn::DefnJar;
 use husky_diagnostics::DiagnosticsJar;
@@ -20,8 +22,6 @@ use husky_hover::HoverJar;
 use husky_layout::LayoutJar;
 use husky_manifest::ManifestJar;
 use husky_manifest_ast::ManifestAstJar;
-use husky_raw_term::RawTermJar;
-use husky_raw_ty::RawTypeJar;
 use husky_rust_code_gen::RustTranspileJar;
 use husky_semantic_token::SemanticTokenJar;
 use husky_signature::SignatureJar;
@@ -49,8 +49,8 @@ use husky_word::WordJar;
     CorgiConfigJar,CorgiConfigAstJar, ManifestJar,
     // kernel
     TermPreludeJar,
-    RawTermJar,
-    RawTypeJar,
+    DeclarativeTermJar,
+    DeclarativeTypeJar,
     EtherealTermJar,
     EtherealTypeJar,
     // syntax

@@ -1,9 +1,9 @@
 use crate::*;
 use husky_decl::DeclExprError;
+use husky_declarative_ty::DeclarativeTypeError;
 use husky_decr::DecrError;
 use husky_entity_path::{EntityPath, EntityPathError};
 use husky_entity_tree::{EntityTreeBundleError, EntityTreeError};
-use husky_raw_ty::RawTypeError;
 use husky_signature::SignatureError;
 use std::sync::Arc;
 use thiserror::Error;
@@ -23,12 +23,12 @@ pub enum TermError {
     NoDeclForEntityPath { entity_path: EntityPath },
     #[error("EntityPathError")]
     EntityPathError,
-    #[error("RawTypeError")]
-    RawTypeError(#[from] RawTypeError),
+    #[error("DeclarativeTypeError")]
+    DeclarativeTypeError(#[from] DeclarativeTypeError),
     #[error("ExpectationNotMatchedForCurry")]
     ExpectationNotMatchedForCurry,
-    #[error("RawTermSymbolTypeErrorKind")]
-    RawTermSymbolTypeErrorKind(#[from] RawTermSymbolTypeErrorKind),
+    #[error("DeclarativeTermSymbolTypeErrorKind")]
+    DeclarativeTermSymbolTypeErrorKind(#[from] DeclarativeTermSymbolTypeErrorKind),
     #[error("ExpectFinalDestinationEqsNonSortTypePath")]
     ExpectFinalDestinationEqsNonSortTypePath {
         path_expected: TypePath,
