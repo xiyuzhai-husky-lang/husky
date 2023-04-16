@@ -49,11 +49,3 @@ impl TermSubentity {
         // TermSubentity::new(db, parent, ident)
     }
 }
-
-#[salsa::tracked(jar = TermJar)]
-pub(crate) fn check_term_subentity_validity(
-    db: &dyn TermDb,
-    term_subentity: TermSubentity,
-) -> TermResult<()> {
-    todo!()
-}

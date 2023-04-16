@@ -49,7 +49,7 @@ impl HasRegularFieldCard for Term {
         match self {
             Term::Literal(_) => todo!(),
             Term::Symbol(_) => todo!(),
-            Term::Hole(_) => todo!(),
+            Term::Placeholder(_) => todo!(),
             Term::EntityPath(path) => match path {
                 TermEntityPath::Form(_) => todo!(),
                 TermEntityPath::Trait(_) => todo!(),

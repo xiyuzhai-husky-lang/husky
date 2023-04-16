@@ -1,6 +1,7 @@
+use crate::*;
 use thiserror::Error;
 
-#[derive(Debug, Error, PartialEq, Eq)]
+#[derive(Debug, Error, PartialEq, Eq, Clone)]
 pub enum TypeError {
     #[error("{0}")]
     Original(#[from] OriginalTypeError),
@@ -8,13 +9,24 @@ pub enum TypeError {
     Derived(#[from] DerivedTypeError),
 }
 
+impl From<TermError> for TypeError {
+    fn from(value: TermError) -> Self {
+        todo!()
+    }
+}
+
 pub type TypeResult<T> = Result<T, TypeError>;
 
-#[derive(Debug, Error, PartialEq, Eq)]
+#[derive(Debug, Error, PartialEq, Eq, Clone)]
 pub enum OriginalTypeError {
     #[error("NoSuchMethod")]
     NoSuchMethod,
+    #[error("TermApplicationWrongArgumentType")]
+    TermApplicationWrongArgumentType {
+        parameter_ty: Term,
+        argument_ty: Either<Term, PreludeTypePath>,
+    },
 }
 
-#[derive(Debug, Error, PartialEq, Eq)]
+#[derive(Debug, Error, PartialEq, Eq, Clone)]
 pub enum DerivedTypeError {}

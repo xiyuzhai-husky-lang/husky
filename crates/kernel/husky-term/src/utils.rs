@@ -6,7 +6,7 @@ impl Term {
         match self {
             Term::Literal(_) => None,
             Term::Symbol(term) => term.toolchain(db),
-            Term::Hole(term) => term.toolchain(db),
+            Term::Placeholder(term) => term.toolchain(db),
             Term::EntityPath(path) => Some(path.toolchain(db)),
             Term::Category(_) => todo!(),
             Term::Universe(_) => None,
