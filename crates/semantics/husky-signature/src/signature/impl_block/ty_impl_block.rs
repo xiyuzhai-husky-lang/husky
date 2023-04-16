@@ -6,7 +6,7 @@ use super::*;
 pub struct TypeImplBlockSignature {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterSignatures,
-    pub ty: RawTerm,
+    pub ty: DeclarativeTerm,
 }
 
 impl HasSignature for TypeImplBlock {

@@ -55,5 +55,5 @@ pub struct TraitForTypeMethodSignature {
     pub self_parameter: ExplicitParameterSignature,
     #[return_ref]
     pub nonself_regular_parameters: ExplicitParameterSignatures,
-    pub return_ty: RawTerm,
+    pub return_ty: DeclarativeTerm,
 }

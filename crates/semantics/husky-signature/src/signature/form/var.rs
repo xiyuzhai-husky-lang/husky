@@ -2,7 +2,7 @@ use crate::*;
 
 #[salsa::interned(db = SignatureDb, jar = SignatureJar)]
 pub struct VarSignature {
-    pub return_ty: RawTerm,
+    pub return_ty: DeclarativeTerm,
 }
 
 impl HasSignature for FeatureDecl {

@@ -1,4 +1,4 @@
-use husky_raw_term::RawTerm;
+use husky_declarative_term::DeclarativeTerm;
 
 use crate::*;
 
@@ -32,7 +32,7 @@ fn check_term_validity(db: &dyn EtherealTypeDb, term: EtherealTerm) -> TypeResul
 fn check_term_is_ins_ty0(db: &dyn EtherealTypeDb, term: EtherealTerm) -> TypeResult<()> {
     check_term_validity(db, term)?;
     match term.raw_ty(db)? {
-        Left(RawTerm::Category(cat)) if cat.universe().raw() == 1 => Ok(()),
+        Left(DeclarativeTerm::Category(cat)) if cat.universe().raw() == 1 => Ok(()),
         _ => todo!(),
     }
 }

@@ -28,5 +28,5 @@ impl TupleStructTypeSignature {}
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct TupleStructFieldSignature {
-    ty: RawTerm,
+    ty: DeclarativeTerm,
 }

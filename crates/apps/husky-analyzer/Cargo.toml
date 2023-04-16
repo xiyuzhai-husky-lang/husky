@@ -46,8 +46,8 @@ husky-corgi-config = { path = "../../semantics/husky-corgi-config" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-package-path = { path = "../../kernel/husky-package-path" }
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
-husky-raw-term = { path = "../../kernel/husky-raw-term" }
-husky-raw-ty = { path = "../../kernel/husky-raw-ty" }
+husky-declarative-term = { path = "../../kernel/husky-declarative-term" }
+husky-declarative-ty = { path = "../../kernel/husky-declarative-ty" }
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-ethereal-ty = { path = "../../kernel/husky-ethereal-ty" }
 husky-fluffy-term = { path = "../../kernel/husky-fluffy-term" }

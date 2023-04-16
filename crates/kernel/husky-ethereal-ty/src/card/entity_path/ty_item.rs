@@ -4,8 +4,8 @@ pub use self::method::*;
 
 use super::*;
 use husky_decl::{TypeAssociatedFnDecl, TypeItemDecl};
+use husky_declarative_ty::HasDeclarativeType;
 use husky_entity_tree::AssociatedItemId;
-use husky_raw_ty::HasRawType;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = EntityPathDb)]

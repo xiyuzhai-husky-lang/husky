@@ -1,5 +1,5 @@
 use super::*;
-use husky_raw_ty::*;
+use husky_declarative_ty::*;
 
 impl EtherealTerm {
     pub fn ty_unchecked(
@@ -16,7 +16,10 @@ impl EtherealTerm {
         })
     }
 
-    pub fn raw_ty(self, db: &dyn EtherealTermDb) -> TermResult<Either<RawTerm, PreludeTypePath>> {
+    pub fn raw_ty(
+        self,
+        db: &dyn EtherealTermDb,
+    ) -> TermResult<Either<DeclarativeTerm, PreludeTypePath>> {
         Ok(match self {
             EtherealTerm::Literal(literal) => Right(literal.ty()),
             // term.raw_ty(db),

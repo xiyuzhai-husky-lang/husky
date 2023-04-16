@@ -26,18 +26,18 @@ fn term_curry_size_works() {
 impl EtherealTermCurry {
     pub(crate) fn from_raw_unchecked(
         db: &dyn EtherealTermDb,
-        raw_term_curry: RawTermCurry,
+        raw_term_curry: DeclarativeTermCurry,
     ) -> TermResult<Self> {
         term_curry_from_raw_unchecked(db, raw_term_curry)
     }
 
     pub(super) fn check(self, db: &dyn EtherealTermDb) -> TermResult<()> {
         match self.parameter_ty(db).raw_ty(db)? {
-            Left(RawTerm::Category(_)) => (),
+            Left(DeclarativeTerm::Category(_)) => (),
             _ => todo!(),
         };
         match self.return_ty(db).raw_ty(db)? {
-            Left(RawTerm::Category(_)) => Ok(()),
+            Left(DeclarativeTerm::Category(_)) => Ok(()),
             _ => todo!(),
         }
     }
@@ -80,7 +80,7 @@ impl EtherealTermCurry {
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn term_curry_from_raw_unchecked(
     db: &dyn EtherealTermDb,
-    raw_term_curry: RawTermCurry,
+    raw_term_curry: DeclarativeTermCurry,
 ) -> TermResult<EtherealTermCurry> {
     let t = |raw_ty| {
         EtherealTerm::from_raw_unchecked(db, raw_ty, TermTypeExpectation::FinalDestinationEqsSort)

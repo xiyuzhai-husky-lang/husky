@@ -5,8 +5,8 @@ use husky_entity_tree::TraitForTypeImplBlock;
 pub struct TraitForTypeImplBlockSignature {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterSignatures,
-    pub trai: RawTerm,
-    pub ty: RawTerm,
+    pub trai: DeclarativeTerm,
+    pub ty: DeclarativeTerm,
 }
 
 impl HasSignature for TraitForTypeImplBlock {

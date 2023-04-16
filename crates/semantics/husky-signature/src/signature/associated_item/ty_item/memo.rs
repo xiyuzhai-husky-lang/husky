@@ -18,5 +18,5 @@ pub(crate) fn ty_memo_signature(
 
 #[salsa::interned(db = SignatureDb, jar = SignatureJar)]
 pub struct TypeMemoSignature {
-    pub return_ty: RawTerm,
+    pub return_ty: DeclarativeTerm,
 }

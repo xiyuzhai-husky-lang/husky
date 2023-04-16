@@ -33,7 +33,7 @@ use husky_word::WordJar;
     DeclJar,
     DecrJar,
     TermPreludeJar,
-    RawTermJar,
+    DeclarativeTermJar,
     SignatureJar
 )]
 #[derive(Default)]

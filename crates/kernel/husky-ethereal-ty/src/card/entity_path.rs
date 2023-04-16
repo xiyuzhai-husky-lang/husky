@@ -11,7 +11,7 @@ pub(crate) use self::ty_item::*;
 pub(crate) use self::ty_variant::*;
 
 use super::*;
-use husky_raw_ty::{
+use husky_declarative_ty::{
     form_path_raw_ty, trai_path_raw_ty, ty_constructor_path_raw_ty, ty_ontology_path_raw_ty,
 };
 use husky_ty_expectation::{TermTypeExpectation, TypePathDisambiguation};

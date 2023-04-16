@@ -12,7 +12,7 @@ impl EtherealTermPlaceholder {
     #[inline(always)]
     pub(crate) fn from_raw_unchecked(
         db: &dyn EtherealTermDb,
-        raw_term_variable: RawTermPlaceholder,
+        raw_term_variable: DeclarativeTermPlaceholder,
     ) -> TermResult<Self> {
         let ty = raw_term_variable.ty(db)?;
         let ty =

@@ -17,7 +17,7 @@ fn term_abstraction_size_works() {
 impl EtherealTermAbstraction {
     pub(crate) fn from_raw_unchecked(
         db: &dyn EtherealTermDb,
-        precise_term: RawTermAbstraction,
+        precise_term: DeclarativeTermAbstraction,
         term_ty_expectation: TermTypeExpectation,
     ) -> TermResult<Self> {
         todo!()

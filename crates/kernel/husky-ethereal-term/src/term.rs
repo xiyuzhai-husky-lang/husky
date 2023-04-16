@@ -21,9 +21,9 @@ pub use self::subentity::*;
 pub use self::symbol::*;
 
 use crate::*;
+use husky_declarative_term::DeclarativeTerm;
+use husky_declarative_ty::{ty_constructor_path_raw_ty, ty_ontology_path_raw_ty};
 use husky_entity_path::EntityPath;
-use husky_raw_term::RawTerm;
-use husky_raw_ty::{ty_constructor_path_raw_ty, ty_ontology_path_raw_ty};
 use husky_ty_expectation::TermTypeExpectation;
 use husky_word::Ident;
 use salsa::{DebugWithDb, DisplayWithDb};
@@ -72,41 +72,44 @@ pub enum EtherealTerm {
 impl EtherealTerm {
     pub fn from_raw(
         db: &dyn EtherealTermDb,
-        raw_term: RawTerm,
+        raw_term: DeclarativeTerm,
         term_ty_expectation: TermTypeExpectation,
     ) -> TermResult<Self> {
         Self::from_raw_unchecked(db, raw_term, term_ty_expectation)
     }
 
-    pub fn ty_from_raw(db: &dyn EtherealTermDb, raw_term: RawTerm) -> TermResult<Self> {
+    pub fn ty_from_raw(db: &dyn EtherealTermDb, raw_term: DeclarativeTerm) -> TermResult<Self> {
         Self::from_raw(db, raw_term, TermTypeExpectation::FinalDestinationEqsSort)
     }
 
-    pub fn ty_from_raw_unchecked(db: &dyn EtherealTermDb, raw_term: RawTerm) -> TermResult<Self> {
+    pub fn ty_from_raw_unchecked(
+        db: &dyn EtherealTermDb,
+        raw_term: DeclarativeTerm,
+    ) -> TermResult<Self> {
         Self::from_raw_unchecked(db, raw_term, TermTypeExpectation::FinalDestinationEqsSort)
     }
 
     pub(crate) fn from_raw_unchecked(
         db: &dyn EtherealTermDb,
-        raw_term: RawTerm,
+        raw_term: DeclarativeTerm,
         term_ty_expectation: TermTypeExpectation,
     ) -> TermResult<Self> {
         Ok(match raw_term {
-            RawTerm::Literal(literal) => {
+            DeclarativeTerm::Literal(literal) => {
                 match literal {
-                    RawTermLiteral::Resolved(literal) => literal.into(),
-                    RawTermLiteral::Unresolved(_) => todo!(),
+                    DeclarativeTermLiteral::Resolved(literal) => literal.into(),
+                    DeclarativeTermLiteral::Unresolved(_) => todo!(),
                 }
                 //  TermLiteral::from_raw_unchecked(db, raw_term, ty_expectation)?.into()
             }
-            RawTerm::Symbol(raw_term) => {
+            DeclarativeTerm::Symbol(raw_term) => {
                 EtherealTermSymbol::from_raw_unchecked(db, raw_term)?.into()
             }
-            RawTerm::Hole(_) => todo!(),
-            RawTerm::EntityPath(raw_term) => match raw_term {
-                RawTermEntityPath::Form(path) => TermEntityPath::Form(path).into(),
-                RawTermEntityPath::Trait(path) => TermEntityPath::Trait(path).into(),
-                RawTermEntityPath::Type(path) => match term_ty_expectation {
+            DeclarativeTerm::Hole(_) => todo!(),
+            DeclarativeTerm::EntityPath(raw_term) => match raw_term {
+                DeclarativeTermEntityPath::Form(path) => TermEntityPath::Form(path).into(),
+                DeclarativeTermEntityPath::Trait(path) => TermEntityPath::Trait(path).into(),
+                DeclarativeTermEntityPath::Type(path) => match term_ty_expectation {
                     TermTypeExpectation::FinalDestinationEqsSort => {
                         TermEntityPath::TypeOntology(path).into()
                     }
@@ -123,39 +126,41 @@ impl EtherealTerm {
                     TermTypeExpectation::Any => TermEntityPath::TypeConstructor(path).into(),
                 },
             },
-            RawTerm::Category(raw_term) => raw_term.into(),
-            RawTerm::Universe(raw_term) => raw_term.into(),
-            RawTerm::Curry(raw_term) => EtherealTermCurry::from_raw_unchecked(db, raw_term)?.into(),
-            RawTerm::Ritchie(raw_term) => {
+            DeclarativeTerm::Category(raw_term) => raw_term.into(),
+            DeclarativeTerm::Universe(raw_term) => raw_term.into(),
+            DeclarativeTerm::Curry(raw_term) => {
+                EtherealTermCurry::from_raw_unchecked(db, raw_term)?.into()
+            }
+            DeclarativeTerm::Ritchie(raw_term) => {
                 EtherealTermRitchie::from_raw_unchecked(db, raw_term)?.into()
             }
-            RawTerm::Abstraction(raw_term) => {
+            DeclarativeTerm::Abstraction(raw_term) => {
                 EtherealTermAbstraction::from_raw_unchecked(db, raw_term, term_ty_expectation)?
                     .into()
             }
-            RawTerm::ExplicitApplication(raw_term) => {
+            DeclarativeTerm::ExplicitApplication(raw_term) => {
                 // todo: implicit arguments
                 EtherealTermApplication::from_raw_unchecked(db, raw_term, term_ty_expectation)?
             }
-            RawTerm::ExplicitApplicationOrRitchieCall(raw_term) => {
+            DeclarativeTerm::ExplicitApplicationOrRitchieCall(raw_term) => {
                 term_from_raw_term_explicit_application_or_ritchie_call_unchecked(
                     db,
                     raw_term,
                     term_ty_expectation,
                 )?
             }
-            RawTerm::Subentity(raw_term) => {
+            DeclarativeTerm::Subentity(raw_term) => {
                 EtherealTermSubentity::from_raw_unchecked(db, raw_term, term_ty_expectation)?
             }
-            RawTerm::AsTraitSubentity(raw_term) => {
+            DeclarativeTerm::AsTraitSubentity(raw_term) => {
                 EtherealTermAsTraitSubentity::from_raw_unchecked(db, raw_term, term_ty_expectation)?
                     .into()
             }
-            RawTerm::TraitConstraint(raw_term) => {
+            DeclarativeTerm::TraitConstraint(raw_term) => {
                 EtherealTermTraitConstraint::from_raw_unchecked(db, raw_term, term_ty_expectation)?
                     .into()
             }
-            RawTerm::LeashOrBitNot(toolchain) => match term_ty_expectation {
+            DeclarativeTerm::LeashOrBitNot(toolchain) => match term_ty_expectation {
                 TermTypeExpectation::FinalDestinationEqsSort => {
                     db.term_menu(toolchain).leash_ty_ontology()
                 }
@@ -169,13 +174,13 @@ impl EtherealTerm {
                 }
                 TermTypeExpectation::Any => todo!(),
             },
-            RawTerm::List(raw_term_list) => {
+            DeclarativeTerm::List(raw_term_list) => {
                 term_from_raw_term_list_unchecked(db, raw_term_list, term_ty_expectation)?
             }
         })
     }
 
-    pub fn from_raw_inner(db: &dyn EtherealTermDb, valid_term: RawTerm) -> Self {
+    pub fn from_raw_inner(db: &dyn EtherealTermDb, valid_term: DeclarativeTerm) -> Self {
         todo!()
     }
 
@@ -228,20 +233,20 @@ impl EtherealTerm {
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn term_from_raw_term_explicit_application_or_ritchie_call_unchecked(
     db: &dyn EtherealTermDb,
-    raw_term: RawTermExplicitApplicationOrRitchieCall,
+    raw_term: DeclarativeTermExplicitApplicationOrRitchieCall,
     term_ty_expectation: TermTypeExpectation,
 ) -> TermResult<EtherealTerm> {
     let function =
         EtherealTerm::from_raw_unchecked(db, raw_term.function(db), term_ty_expectation)?;
     match function.raw_ty(db)? {
         Left(raw_ty) => match raw_ty {
-            RawTerm::Literal(_) => todo!(),
-            RawTerm::Symbol(_) => todo!(),
-            RawTerm::Hole(_) => todo!(),
-            RawTerm::EntityPath(_) => todo!(),
-            RawTerm::Category(_) => todo!(),
-            RawTerm::Universe(_) => todo!(),
-            RawTerm::Curry(_) => {
+            DeclarativeTerm::Literal(_) => todo!(),
+            DeclarativeTerm::Symbol(_) => todo!(),
+            DeclarativeTerm::Hole(_) => todo!(),
+            DeclarativeTerm::EntityPath(_) => todo!(),
+            DeclarativeTerm::Category(_) => todo!(),
+            DeclarativeTerm::Universe(_) => todo!(),
+            DeclarativeTerm::Curry(_) => {
                 let items = raw_term.items(db);
                 let argument = match items.len() {
                     0 => unreachable!(),
@@ -255,15 +260,15 @@ pub(crate) fn term_from_raw_term_explicit_application_or_ritchie_call_unchecked(
                     term_ty_expectation,
                 )
             }
-            RawTerm::Ritchie(_) => todo!(),
-            RawTerm::Abstraction(_) => todo!(),
-            RawTerm::ExplicitApplication(_) => todo!(),
-            RawTerm::ExplicitApplicationOrRitchieCall(_) => todo!(),
-            RawTerm::Subentity(_) => todo!(),
-            RawTerm::AsTraitSubentity(_) => todo!(),
-            RawTerm::TraitConstraint(_) => todo!(),
-            RawTerm::LeashOrBitNot(_) => todo!(),
-            RawTerm::List(_) => todo!(),
+            DeclarativeTerm::Ritchie(_) => todo!(),
+            DeclarativeTerm::Abstraction(_) => todo!(),
+            DeclarativeTerm::ExplicitApplication(_) => todo!(),
+            DeclarativeTerm::ExplicitApplicationOrRitchieCall(_) => todo!(),
+            DeclarativeTerm::Subentity(_) => todo!(),
+            DeclarativeTerm::AsTraitSubentity(_) => todo!(),
+            DeclarativeTerm::TraitConstraint(_) => todo!(),
+            DeclarativeTerm::LeashOrBitNot(_) => todo!(),
+            DeclarativeTerm::List(_) => todo!(),
         },
         Right(_) => todo!(),
     }
@@ -272,7 +277,7 @@ pub(crate) fn term_from_raw_term_explicit_application_or_ritchie_call_unchecked(
 #[salsa::tracked(jar = EtherealTermJar)]
 pub(crate) fn term_from_raw_term_list_unchecked(
     db: &dyn EtherealTermDb,
-    raw_term_list: RawTermList,
+    raw_term_list: DeclarativeTermList,
     term_ty_expectation: TermTypeExpectation,
 ) -> TermResult<EtherealTerm> {
     match term_ty_expectation {

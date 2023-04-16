@@ -25,14 +25,17 @@ fn term_symbol_size_works() {
 
 impl EtherealTermSymbol {
     #[inline(always)]
-    pub fn from_raw(db: &dyn EtherealTermDb, raw_term_symbol: RawTermSymbol) -> TermResult<Self> {
+    pub fn from_raw(
+        db: &dyn EtherealTermDb,
+        raw_term_symbol: DeclarativeTermSymbol,
+    ) -> TermResult<Self> {
         Self::from_raw_unchecked(db, raw_term_symbol)
     }
 
     #[inline(always)]
     pub(crate) fn from_raw_unchecked(
         db: &dyn EtherealTermDb,
-        raw_term_symbol: RawTermSymbol,
+        raw_term_symbol: DeclarativeTermSymbol,
     ) -> TermResult<Self> {
         let ty = raw_term_symbol.ty(db)?;
         let ty = EtherealTerm::ty_from_raw_unchecked(db, ty)?;
