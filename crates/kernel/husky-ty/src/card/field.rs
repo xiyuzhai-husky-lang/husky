@@ -7,7 +7,7 @@ use salsa::DebugWithDb;
 pub struct RegularFieldCard {
     visibility: Visibility,
     modifier: FieldModifier,
-    ty: Term,
+    ty: EtherealTerm,
 }
 
 impl RegularFieldCard {
@@ -27,7 +27,7 @@ impl RegularFieldCard {
         self.modifier
     }
 
-    pub fn ty(&self) -> Term {
+    pub fn ty(&self) -> EtherealTerm {
         self.ty
     }
 }
@@ -40,17 +40,17 @@ pub trait HasRegularFieldCard: Copy {
     ) -> TermResult<Option<RegularFieldCard>>;
 }
 
-impl HasRegularFieldCard for Term {
+impl HasRegularFieldCard for EtherealTerm {
     fn regular_field_card(
         self,
         db: &dyn TypeDb,
         ident: Ident,
     ) -> TermResult<Option<RegularFieldCard>> {
         match self {
-            Term::Literal(_) => todo!(),
-            Term::Symbol(_) => todo!(),
-            Term::Placeholder(_) => todo!(),
-            Term::EntityPath(path) => match path {
+            EtherealTerm::Literal(_) => todo!(),
+            EtherealTerm::Symbol(_) => todo!(),
+            EtherealTerm::Placeholder(_) => todo!(),
+            EtherealTerm::EntityPath(path) => match path {
                 TermEntityPath::Form(_) => todo!(),
                 TermEntityPath::Trait(_) => todo!(),
                 TermEntityPath::TypeOntology(path) => ty_ontology_path_field_ty(db, path, ident),
@@ -59,15 +59,15 @@ impl HasRegularFieldCard for Term {
                     todo!()
                 }
             },
-            Term::Category(_) => todo!(),
-            Term::Universe(_) => todo!(),
-            Term::Curry(_) => todo!(),
-            Term::Ritchie(_) => todo!(),
-            Term::Abstraction(_) => todo!(),
-            Term::Application(term) => term_application_field_ty(db, term, ident),
-            Term::Subentity(_) => todo!(),
-            Term::AsTraitSubentity(_) => todo!(),
-            Term::TraitConstraint(_) => todo!(),
+            EtherealTerm::Category(_) => todo!(),
+            EtherealTerm::Universe(_) => todo!(),
+            EtherealTerm::Curry(_) => todo!(),
+            EtherealTerm::Ritchie(_) => todo!(),
+            EtherealTerm::Abstraction(_) => todo!(),
+            EtherealTerm::Application(term) => term_application_field_ty(db, term, ident),
+            EtherealTerm::Subentity(_) => todo!(),
+            EtherealTerm::AsTraitSubentity(_) => todo!(),
+            EtherealTerm::TraitConstraint(_) => todo!(),
         }
     }
 }
@@ -83,7 +83,7 @@ fn ty_ontology_path_field_ty(
     Ok(Some(RegularFieldCard {
         visibility: todo!(),
         modifier: todo!(),
-        ty: Term::from_raw(
+        ty: EtherealTerm::from_raw(
             db,
             field_raw_ty,
             TermTypeExpectation::FinalDestinationEqsSort,
@@ -94,7 +94,7 @@ fn ty_ontology_path_field_ty(
 #[salsa::tracked(jar = TypeJar)]
 pub(crate) fn term_application_field_ty(
     db: &dyn TypeDb,
-    term: TermApplication,
+    term: EtherealTermApplication,
     ident: Ident,
 ) -> TermResult<Option<RegularFieldCard>> {
     let expansion = term.application_expansion(db);

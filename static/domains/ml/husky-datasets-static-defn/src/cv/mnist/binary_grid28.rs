@@ -9,7 +9,7 @@ pub static BINARY_GRID_28_BASE_ROUTE: &'static str = "cv::datasets::mnist::Binar
 pub static BINARY_GRID_28_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "BinaryGrid28",
     items: &[],
-    variant: EntityStaticDefnVariant::Term {
+    variant: EntityStaticDefnVariant::EtherealTerm {
         base_route: BINARY_GRID_28_BASE_ROUTE,
         spatial_parameters: &[],
         trait_impls: &[StaticTraitImplDefn {

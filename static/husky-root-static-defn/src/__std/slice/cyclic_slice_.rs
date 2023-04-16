@@ -12,7 +12,7 @@ use super::*;
 pub static STD_SLICE_CYCLIC_SLICE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "CyclicSlice",
     items: &[],
-    variant: EntityStaticDefnVariant::Term {
+    variant: EntityStaticDefnVariant::EtherealTerm {
         base_route: "std::slice::CyclicSlice",
         spatial_parameters: &[StaticSpatialParameter {
             name: "E",

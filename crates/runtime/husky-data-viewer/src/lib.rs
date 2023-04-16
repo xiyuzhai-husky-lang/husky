@@ -1,7 +1,7 @@
 mod db;
 
 pub use db::*;
-use husky_term::Term;
+use husky_ethereal_term::EtherealTerm;
 use husky_vm_binding::Binding;
 use husky_word::{Ident, IdentPairMap};
 
@@ -13,18 +13,18 @@ pub enum HuskyDataViewer {
         ty: Ident,
     },
     Struct {
-        fields: IdentPairMap<(__Linkage, Term)>,
+        fields: IdentPairMap<(__Linkage, EtherealTerm)>,
     },
     Vec {
         ilen: __ResolvedLinkage,
         index: __Linkage,
-        elem_ty: Term,
+        elem_ty: EtherealTerm,
     },
     CyclicSlice {
         start: __ResolvedLinkage,
         end: __ResolvedLinkage,
         index: __Linkage,
-        elem_ty: Term,
+        elem_ty: EtherealTerm,
     },
 }
 

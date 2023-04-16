@@ -17,20 +17,20 @@ use husky_word::IdentPairMap;
 pub struct TraitForTypeMethodFnCard {
     #[id]
     id: AssociatedItemId,
-    method_ty: TermResult<Term>,
+    method_ty: TermResult<EtherealTerm>,
 }
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct MethodTypeInfo {
-    implicit_parameters: Vec<TermSymbol>,
+    implicit_parameters: Vec<EtherealTermSymbol>,
     self_contracted_ty: TermRitchieParameterContractedType,
     nonself_parameter_contracted_tys: Vec<TermRitchieParameterContractedType>,
-    return_ty: Term,
+    return_ty: EtherealTerm,
     where_clause: (),
 }
 
 impl MethodTypeInfo {
-    fn ty(&self, db: &dyn TypeDb) -> TermResult<Term> {
+    fn ty(&self, db: &dyn TypeDb) -> TermResult<EtherealTerm> {
         match self {
             MethodTypeInfo {
                 implicit_parameters,
@@ -40,9 +40,13 @@ impl MethodTypeInfo {
                 where_clause,
             } => {
                 let mut parameter_tys = vec![];
-                let mut method_ty: Term =
-                    TermRitchie::new(db, TermRitchieKind::FnType, parameter_tys, *return_ty)?
-                        .into();
+                let mut method_ty: EtherealTerm = EtherealTermRitchie::new(
+                    db,
+                    TermRitchieKind::FnType,
+                    parameter_tys,
+                    *return_ty,
+                )?
+                .into();
                 for implicit_signature in implicit_parameters.iter().copied() {
                     todo!()
                 }
@@ -52,7 +56,7 @@ impl MethodTypeInfo {
         }
     }
 
-    pub fn implicit_parameters(&self) -> &[TermSymbol] {
+    pub fn implicit_parameters(&self) -> &[EtherealTermSymbol] {
         self.implicit_parameters.as_ref()
     }
 
@@ -64,7 +68,7 @@ impl MethodTypeInfo {
         self.nonself_parameter_contracted_tys.as_ref()
     }
 
-    pub fn return_ty(&self) -> Term {
+    pub fn return_ty(&self) -> EtherealTerm {
         self.return_ty
     }
 

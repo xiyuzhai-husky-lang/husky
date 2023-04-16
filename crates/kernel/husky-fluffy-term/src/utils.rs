@@ -49,12 +49,12 @@ impl FluffyTerm {
     }
 }
 
-fn curry_destination(db: &dyn TermDb, term: Term) -> Term {
+fn curry_destination(db: &dyn EtherealTermDb, term: EtherealTerm) -> EtherealTerm {
     match term {
-        Term::Literal(_) => todo!(),
-        Term::Symbol(_) => todo!(),
-        Term::Placeholder(_) => todo!(),
-        Term::EntityPath(path) => match path {
+        EtherealTerm::Literal(_) => todo!(),
+        EtherealTerm::Symbol(_) => todo!(),
+        EtherealTerm::Placeholder(_) => todo!(),
+        EtherealTerm::EntityPath(path) => match path {
             TermEntityPath::Form(_) => todo!(),
             TermEntityPath::Trait(_)
             | TermEntityPath::TypeOntology(_)
@@ -68,14 +68,14 @@ fn curry_destination(db: &dyn TermDb, term: Term) -> Term {
         // },
         // EntityPath::AssociatedItem(_) => todo!(),
         // EntityPath::Variant(_) => todo!(),
-        Term::Category(_) => term,
-        Term::Universe(_) => todo!(),
-        Term::Curry(_) => todo!(),
-        Term::Ritchie(_) => todo!(),
-        Term::Abstraction(_) => todo!(),
-        Term::Application(_) => term,
-        Term::Subentity(_) => todo!(),
-        Term::AsTraitSubentity(_) => todo!(),
-        Term::TraitConstraint(_) => todo!(),
+        EtherealTerm::Category(_) => term,
+        EtherealTerm::Universe(_) => todo!(),
+        EtherealTerm::Curry(_) => todo!(),
+        EtherealTerm::Ritchie(_) => todo!(),
+        EtherealTerm::Abstraction(_) => todo!(),
+        EtherealTerm::Application(_) => term,
+        EtherealTerm::Subentity(_) => todo!(),
+        EtherealTerm::AsTraitSubentity(_) => todo!(),
+        EtherealTerm::TraitConstraint(_) => todo!(),
     }
 }

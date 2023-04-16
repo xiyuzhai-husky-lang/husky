@@ -12,8 +12,8 @@ pub struct ExprTypeRegion {
     symbol_tys: SymbolMap<SymbolType>,
     symbol_terms: SymbolMap<FluffyTerm>,
     fluffy_term_region: FluffyTermRegion,
-    return_ty: Option<Term>,
-    self_ty: Option<Term>,
+    return_ty: Option<EtherealTerm>,
+    self_ty: Option<EtherealTerm>,
 }
 
 impl ExprTypeRegion {
@@ -26,8 +26,8 @@ impl ExprTypeRegion {
         symbol_terms: SymbolMap<FluffyTerm>,
         symbol_tys: SymbolMap<SymbolType>,
         fluffy_term_region: FluffyTermRegion,
-        return_ty: Option<Term>,
-        self_ty: Option<Term>,
+        return_ty: Option<EtherealTerm>,
+        self_ty: Option<EtherealTerm>,
     ) -> Self {
         Self {
             path,
@@ -70,11 +70,11 @@ impl ExprTypeRegion {
         &self.fluffy_term_region
     }
 
-    pub fn return_ty(&self) -> Option<Term> {
+    pub fn return_ty(&self) -> Option<EtherealTerm> {
         self.return_ty
     }
 
-    pub fn self_ty(&self) -> Option<Term> {
+    pub fn self_ty(&self) -> Option<EtherealTerm> {
         self.self_ty
     }
 

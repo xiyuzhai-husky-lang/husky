@@ -35,8 +35,8 @@ pub use snapshot::StackSnapshot;
 pub use stack::*;
 pub use stack_idx::*;
 
+use husky_ethereal_term::EtherealTerm;
 use husky_loop_syntax::*;
-use husky_term::Term;
 
 use husky_word::Ident;
 use std::sync::Arc;

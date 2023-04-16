@@ -23,8 +23,8 @@ pub enum OriginalTypeError {
     NoSuchMethod,
     #[error("TermApplicationWrongArgumentType")]
     TermApplicationWrongArgumentType {
-        parameter_ty: Term,
-        argument_ty: Either<Term, PreludeTypePath>,
+        parameter_ty: EtherealTerm,
+        argument_ty: Either<EtherealTerm, PreludeTypePath>,
     },
 }
 

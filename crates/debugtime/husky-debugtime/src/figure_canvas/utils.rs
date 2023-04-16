@@ -1,4 +1,4 @@
-use husky_term::Term;
+use husky_ethereal_term::EtherealTerm;
 use husky_text::TextRange;
 
 use crate::*;
@@ -7,7 +7,7 @@ impl Debugtime {
     pub fn visualize_temp_value(
         &self,
         value: &__Register<'static>,
-        ty: Term,
+        ty: EtherealTerm,
         file: DiffPath,
         range: TextRange,
     ) -> __VMResult<VisualData> {

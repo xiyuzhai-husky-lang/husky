@@ -7,7 +7,7 @@ mod db;
 
 pub use db::*;
 
-use husky_term::*;
+use husky_ethereal_term::*;
 use husky_ty::*;
 use husky_vm::InstructionSheet;
 use husky_word::*;

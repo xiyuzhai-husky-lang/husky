@@ -1,10 +1,10 @@
-use husky_term::*;
+use husky_ethereal_term::*;
 use husky_ty::*;
 
 use super::*;
 
 impl<'a> RustCodeGenerator<'a> {
-    pub(super) fn gen_entity_route(&mut self, _entity_route: Term, _role: EntityRouteRole) {
+    pub(super) fn gen_entity_route(&mut self, _entity_route: EtherealTerm, _role: EntityRouteRole) {
         todo!()
         // if let Some(_) = self
         //     .entity_route_uses

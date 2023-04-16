@@ -16,18 +16,18 @@ use crate::*;
 #[enum_class::from_variants]
 pub enum FluffyTerm {
     Literal(TermLiteral),
-    Symbol(TermSymbol),
-    Hole(TermPlaceholder),
+    Symbol(EtherealTermSymbol),
+    Hole(EtherealTermPlaceholder),
     EntityPath(TermEntityPath),
     Category(TermCategory),
     Universe(TermUniverse),
-    Curry(TermCurry),
-    Ritchie(TermRitchie),
-    Abstraction(TermAbstraction),
-    Application(TermApplication),
-    Subentity(TermSubentity),
-    AsTraitSubentity(TermAsTraitSubentity),
-    TraitConstraint(TermTraitConstraint),
+    Curry(EtherealTermCurry),
+    Ritchie(EtherealTermRitchie),
+    Abstraction(EtherealTermAbstraction),
+    Application(EtherealTermApplication),
+    Subentity(EtherealTermSubentity),
+    AsTraitSubentity(EtherealTermAsTraitSubentity),
+    TraitConstraint(EtherealTermTraitConstraint),
     /// terms with determined local lifetimes and places, without undetermined arguments
     Solid(SolidTerm),
     /// terms with undetermined arguments
@@ -35,7 +35,7 @@ pub enum FluffyTerm {
 }
 
 impl FluffyTerm {
-    pub fn ethereal(self) -> Option<Term> {
+    pub fn ethereal(self) -> Option<EtherealTerm> {
         match self {
             FluffyTerm::Solid(_) | FluffyTerm::Hollow(_) => None,
             _ => Some(unsafe { std::mem::transmute(self) }),
@@ -43,16 +43,16 @@ impl FluffyTerm {
     }
 }
 
-impl From<Term> for FluffyTerm {
-    fn from(term: Term) -> Self {
+impl From<EtherealTerm> for FluffyTerm {
+    fn from(term: EtherealTerm) -> Self {
         unsafe { std::mem::transmute(term) }
     }
 }
 
 #[test]
 fn term_to_fluffy_term_works() {
-    fn t(a: impl Copy + Into<Term> + Into<FluffyTerm>) {
-        let term: Term = a.into();
+    fn t(a: impl Copy + Into<EtherealTerm> + Into<FluffyTerm>) {
+        let term: EtherealTerm = a.into();
         let fluffy_term: FluffyTerm = a.into();
         let term_to_fluffy_term: FluffyTerm = term.into();
         assert_eq!(fluffy_term, term_to_fluffy_term)

@@ -6,7 +6,7 @@ inductive PurePattern
 inductive EagerSuffixOpr
   | Incr                           -- ++
   | Decr                           -- --
-  | AsTy (ty : Term)  -- :
+  | AsTy (ty : EtherealTerm)  -- :
   | BePattern (patt : PurePattern) -- be <patt>
   | Unveil                         -- ?
   deriving DecidableEq

@@ -14,7 +14,7 @@ impl<'a> ExprTypeEngine<'a> {
                 return
             };
             if let Some(symbol) = signature.symbol() {
-                if let Ok(symbol) = TermSymbol::from_raw(self.db, symbol) {
+                if let Ok(symbol) = EtherealTermSymbol::from_raw(self.db, symbol) {
                     self.symbol_terms
                         .insert_new(current_symbol_idx, symbol.into())
                 }
@@ -27,7 +27,7 @@ impl<'a> ExprTypeEngine<'a> {
         }
     }
 
-    fn parameter_pattern_ty(&self, pattern_expr_idx: PatternExprIdx) -> Term {
+    fn parameter_pattern_ty(&self, pattern_expr_idx: PatternExprIdx) -> EtherealTerm {
         match self
             .expr_region_data
             .symbol_region()

@@ -14,16 +14,16 @@ pub trait HasMethodType: Copy {
         db: &dyn TypeDb,
         ident: Ident,
         available_traits: &[TraitPath],
-    ) -> TypeResult<(MethodDisambiguation, TypeResult<Term>)>;
+    ) -> TypeResult<(MethodDisambiguation, TypeResult<EtherealTerm>)>;
 }
 
-impl HasMethodType for Term {
+impl HasMethodType for EtherealTerm {
     fn method_ty(
         self,
         db: &dyn TypeDb,
         ident: Ident,
         available_traits: &[TraitPath],
-    ) -> TypeResult<(MethodDisambiguation, TypeResult<Term>)> {
+    ) -> TypeResult<(MethodDisambiguation, TypeResult<EtherealTerm>)> {
         if let Some((disambiguation, ty_result)) = ty_method_ty(db, self, ident)? {
             return Ok((disambiguation.into(), ty_result));
         }

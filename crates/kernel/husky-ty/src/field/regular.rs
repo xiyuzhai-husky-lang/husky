@@ -2,9 +2,9 @@ use super::*;
 
 pub(super) fn regular_field_ty(
     db: &dyn TypeDb,
-    term: Term,
+    term: EtherealTerm,
     ident: Ident,
-) -> TypeResult<Option<(RegularFieldDisambiguation, TypeResult<Term>)>> {
+) -> TypeResult<Option<(RegularFieldDisambiguation, TypeResult<EtherealTerm>)>> {
     todo!()
 }
 

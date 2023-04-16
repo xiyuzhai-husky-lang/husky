@@ -23,7 +23,7 @@ impl SymbolType {
         current_symbol_idx: CurrentSymbolIdx,
         signature: SymbolSignature,
     ) -> TermResult<Self> {
-        let ty = Term::ty_from_raw(engine.db(), signature.ty()?)?;
+        let ty = EtherealTerm::ty_from_raw(engine.db(), signature.ty()?)?;
         Ok(Self::new(engine, current_symbol_idx, ty.into()))
     }
 
@@ -150,7 +150,7 @@ impl SymbolType {
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
 pub struct PlaceTypeData {
     place: Place,
-    ty: Term,
+    ty: EtherealTerm,
 }
 
 /// `PlaceQual` qualifies the place of a base type `T`

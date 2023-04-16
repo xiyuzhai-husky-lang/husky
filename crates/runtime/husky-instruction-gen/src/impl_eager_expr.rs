@@ -285,7 +285,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //         // assert!(!discard);
         //         // let ty_defn = self.db.entity_defn(ranged_ty.route).unwrap();
         //         // let instruction_variant = match ty_defn.variant {
-        //         //     EntityDefnVariant::Term {
+        //         //     EntityDefnVariant::EtherealTerm {
         //         //         ty_kind: kind,
         //         //         ref ty_members,
         //         //         ..
@@ -512,7 +512,7 @@ impl<'a> InstructionSheetBuilder<'a> {
     ) {
         todo!()
         // match opds[0].intrinsic_ty() {
-        //     Term::Root(_) => {
+        //     EtherealTerm::Root(_) => {
         //         let ins_kind = InstructionVariant::CallRoutine {
         //             resolved_linkage: match opr {
         //                 BinaryOpr::PureClosed(pure_binary_opr) => {
@@ -544,7 +544,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //         let instruction = Instruction::new(ins_kind, expr.clone());
         //         self.push_instruction(instruction)
         //     }
-        //     Term::Custom(_) => {
+        //     EtherealTerm::Custom(_) => {
         //         let ins_variant = match opr {
         //             BinaryOpr::PureClosed(pure_binary_opr) => match pure_binary_opr {
         //                 BinaryPureClosedOpr::Add => todo!(),
@@ -612,7 +612,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         // let this = &opds[0];
         // let this_ty = this.intrinsic_ty();
         // match this_ty {
-        //     Term::Root(_) => {
+        //     EtherealTerm::Root(_) => {
         //         let instruction = Instruction::new(
         //             InstructionVariant::CallRoutine {
         //                 resolved_linkage: resolve_primitive_prefix_opr_linkage(
@@ -628,7 +628,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //         );
         //         self.push_instruction(instruction)
         //     }
-        //     Term::Custom(_) => todo!(),
+        //     EtherealTerm::Custom(_) => todo!(),
         // }
     }
 
@@ -652,8 +652,8 @@ impl<'a> InstructionSheetBuilder<'a> {
 
     fn method_call_instruction_variant(
         &self,
-        method_route: Term,
-        return_ty: Term,
+        method_route: EtherealTerm,
+        return_ty: EtherealTerm,
         output_binding: Binding,
         nargs: u8,
         discard: bool,

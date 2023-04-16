@@ -24,11 +24,11 @@ pub(crate) fn application_expansion_salsa(
 #[salsa::derive_debug_with_db(db = RawTypeDb, jar = RawTypeJar)]
 pub struct ApplicationExpansion {
     f: RawTerm,
-    arguments: Option<ApplicationArguments>,
+    arguments: Option<EtherealApplicationArguments>,
 }
 
 #[salsa::tracked(db = RawTypeDb, jar = RawTypeJar)]
-pub(crate) struct ApplicationArguments {
+pub(crate) struct EtherealApplicationArguments {
     #[return_ref]
     data: Vec<RawTerm>,
 }
@@ -52,7 +52,7 @@ impl ApplicationExpansion {
         arguments.push(argument);
         Self {
             f: self.f,
-            arguments: Some(ApplicationArguments::new(db, arguments)),
+            arguments: Some(EtherealApplicationArguments::new(db, arguments)),
         }
     }
 }

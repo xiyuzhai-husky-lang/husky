@@ -1,4 +1,4 @@
-use husky_term::Term;
+use husky_ethereal_term::EtherealTerm;
 
 use crate::lazy_branch::FeatureArrivalIndicatorVariant;
 
@@ -11,7 +11,7 @@ pub struct FeatureLazyBody {
     pub file: DiffPath,
     pub range: TextRange,
     pub eval_id: FeatureEvalId,
-    pub return_ty: Term,
+    pub return_ty: EtherealTerm,
     pub stmts: Vec<Arc<FeatureLazyStmt>>,
 }
 
@@ -37,7 +37,7 @@ impl<'eval> FeatureLazyBody {
         externals: &[FeatureSymbol],
         mut opt_arrival_indicator: Option<Arc<FeatureDomainIndicator>>,
         feature_interner: &FeatureInterner,
-        ty: Term,
+        ty: EtherealTerm,
     ) -> Arc<FeatureLazyBody> {
         let mut symbols: Vec<FeatureSymbol> = externals.into();
         // for checking

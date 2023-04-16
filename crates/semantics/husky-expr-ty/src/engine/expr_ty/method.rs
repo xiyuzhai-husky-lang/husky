@@ -26,7 +26,7 @@ impl<'a> ExprTypeEngine<'a> {
         Ok((disambiguation.into(), ty_result.map_err(Into::into)))
         // let self_expr_ty_unravelled = self_expr_ty.unravel_borrow(self);
         // let ty_method_card = match self_expr_ty_unravelled {
-        //     FluffyTerm::Term(self_expr_ty_unravelled) => {
+        //     FluffyTerm::EtherealTerm(self_expr_ty_unravelled) => {
         //         match self
         //             .db
         //             .ty_method_card(self_expr_ty_unravelled, ident_token.ident())

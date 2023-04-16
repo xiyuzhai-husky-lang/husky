@@ -12,7 +12,7 @@ pub trait HasFieldType: Copy {
         db: &dyn TypeDb,
         ident: Ident,
         available_traits: &[TraitPath],
-    ) -> TypeResult<(FieldDisambiguation, TypeResult<Term>)> {
+    ) -> TypeResult<(FieldDisambiguation, TypeResult<EtherealTerm>)> {
         if let Some((disambiguation, ty_result)) = self.regular_field_ty(db, ident)? {
             return Ok((disambiguation.into(), ty_result));
         }
@@ -28,20 +28,20 @@ pub trait HasFieldType: Copy {
         self,
         db: &dyn TypeDb,
         ident: Ident,
-    ) -> TypeResult<Option<(RegularFieldDisambiguation, TypeResult<Term>)>>;
+    ) -> TypeResult<Option<(RegularFieldDisambiguation, TypeResult<EtherealTerm>)>>;
     fn ty_memo_ty(
         self,
         db: &dyn TypeDb,
         ident: Ident,
-    ) -> TypeResult<Option<(TypeMemoDisambiguation, TypeResult<Term>)>>;
+    ) -> TypeResult<Option<(TypeMemoDisambiguation, TypeResult<EtherealTerm>)>>;
 }
 
-impl HasFieldType for Term {
+impl HasFieldType for EtherealTerm {
     fn regular_field_ty(
         self,
         db: &dyn TypeDb,
         ident: Ident,
-    ) -> TypeResult<Option<(RegularFieldDisambiguation, TypeResult<Term>)>> {
+    ) -> TypeResult<Option<(RegularFieldDisambiguation, TypeResult<EtherealTerm>)>> {
         regular_field_ty(db, self, ident)
     }
 
@@ -49,7 +49,7 @@ impl HasFieldType for Term {
         self,
         db: &dyn TypeDb,
         ident: Ident,
-    ) -> TypeResult<Option<(TypeMemoDisambiguation, TypeResult<Term>)>> {
+    ) -> TypeResult<Option<(TypeMemoDisambiguation, TypeResult<EtherealTerm>)>> {
         ty_memo_ty(db, self, ident)
     }
 }

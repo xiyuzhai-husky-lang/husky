@@ -25,7 +25,7 @@ pub static DATASETS_MODULE_DEFN: EntityStaticDefn = EntityStaticDefn {
 pub static DATASET_TYPE_DEFN: EntityStaticDefn = EntityStaticDefn {
     name: "Dataset",
     items: &[],
-    variant: EntityStaticDefnVariant::Term {
+    variant: EntityStaticDefnVariant::EtherealTerm {
         base_route: "Dataset",
         spatial_parameters: &[
             StaticSpatialParameter {

@@ -137,19 +137,19 @@ impl<'a> FeatureExprBuilder<'a> {
 
     fn compile_binary_opn(
         &self,
-        this: Term,
+        this: EtherealTerm,
         lopd: Arc<FeatureLazyExpr>,
         opr: BinaryPureClosedOpr,
         ropd: Arc<FeatureLazyExpr>,
     ) -> (FeatureLazyExprVariant, FeatureItd) {
         todo!()
         // match this {
-        //     Term::Root(RootBuiltinIdentifier::Void)
-        //     | Term::Root(RootBuiltinIdentifier::I32)
-        //     | Term::Root(RootBuiltinIdentifier::F32)
-        //     | Term::Root(RootBuiltinIdentifier::F64)
-        //     | Term::Root(RootBuiltinIdentifier::B32)
-        //     | Term::Root(RootBuiltinIdentifier::B64) => {
+        //     EtherealTerm::Root(RootBuiltinIdentifier::Void)
+        //     | EtherealTerm::Root(RootBuiltinIdentifier::I32)
+        //     | EtherealTerm::Root(RootBuiltinIdentifier::F32)
+        //     | EtherealTerm::Root(RootBuiltinIdentifier::F64)
+        //     | EtherealTerm::Root(RootBuiltinIdentifier::B32)
+        //     | EtherealTerm::Root(RootBuiltinIdentifier::B64) => {
         //         let feature = self.feature_interner.intern(Feature::PrimitiveBinaryOpr {
         //             opr,
         //             lopd: lopd.feature,
@@ -168,7 +168,7 @@ impl<'a> FeatureExprBuilder<'a> {
         //             feature,
         //         )
         //     }
-        //     Term::Root(RootBuiltinIdentifier::Bool) => {
+        //     EtherealTerm::Root(RootBuiltinIdentifier::Bool) => {
         //         let feature = self.feature_interner.intern(Feature::PrimitiveBinaryOpr {
         //             opr,
         //             lopd: lopd.feature,
@@ -275,7 +275,7 @@ impl<'a> FeatureExprBuilder<'a> {
     fn compile_method_call(
         &self,
         _method_ident: RangedIdentifier,
-        _method_route: Term,
+        _method_route: EtherealTerm,
         _opds: &[Arc<LazyExpr>],
     ) -> (FeatureLazyExprVariant, FeatureItd) {
         todo!()
@@ -347,7 +347,7 @@ impl<'a> FeatureExprBuilder<'a> {
         //         let lazy_field_route = self.db.subroute(this_ty, field_ident.ident, thin_vec![]);
         //         let field_uid = self.db.entity_uid(lazy_field_route);
         //         match this_ty_defn.variant {
-        //             EntityDefnVariant::Term { ref ty_members, .. } => {
+        //             EntityDefnVariant::EtherealTerm { ref ty_members, .. } => {
         //                 match ty_members.get_entry(field_ident.ident).unwrap().variant {
         //                     EntityDefnVariant::TyField {
         //                         ref field_variant, ..
@@ -403,7 +403,7 @@ impl<'a> FeatureExprBuilder<'a> {
         //                     thin_vec![],
         //                 )));
         //         match this_ty_defn.variant {
-        //             EntityDefnVariant::Term { ref ty_members, .. } => {
+        //             EntityDefnVariant::EtherealTerm { ref ty_members, .. } => {
         //                 match ty_members.get_entry(field_ident.ident).unwrap().variant {
         //                     EntityDefnVariant::TyField {
         //                         ref field_variant, ..

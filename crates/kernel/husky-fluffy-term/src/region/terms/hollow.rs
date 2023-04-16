@@ -178,7 +178,7 @@ impl HollowTermEntry {
     pub(super) fn force_resolve_term(&mut self) -> Option<NestedFluffyTerm> {
         todo!()
         // match self.resolve_progress {
-        //     Ok(FluffyTerm::Term(term)) => Some(term),
+        //     Ok(FluffyTerm::EtherealTerm(term)) => Some(term),
         //     Ok(FluffyTerm::Unresolved(_)) => {
         //         self.resolve_progress = Err(OriginalFluffyTermResolveError::UnresolvedTerm.into());
         //         None
@@ -212,7 +212,7 @@ impl HollowTermEntry {
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
 pub enum HollowTermResolveProgress {
     Unresolved,
-    ResolvedEthereal(Term),
+    ResolvedEthereal(EtherealTerm),
     ResolvedSolid(SolidTerm),
     Err,
 }
@@ -236,7 +236,7 @@ impl HollowTermResolveProgressBuf {
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
 pub enum HollowTermResolveProgressBuf {
     Unresolved,
-    ResolvedEthereal(Term),
+    ResolvedEthereal(EtherealTerm),
     ResolvedSolid(SolidTerm),
     Err(HollowTermResolveError),
 }

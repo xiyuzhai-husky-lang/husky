@@ -4,7 +4,7 @@ use crate::*;
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
 #[enum_class::from_variants]
 pub enum NestedFluffyTerm {
-    Ethereal(Term),
+    Ethereal(EtherealTerm),
     /// terms with determined local lifetimes and places, without undetermined arguments
     Solid(SolidTerm),
     Hollow(HollowTerm),

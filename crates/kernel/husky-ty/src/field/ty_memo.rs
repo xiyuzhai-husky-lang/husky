@@ -2,9 +2,9 @@ use super::*;
 
 pub(super) fn ty_memo_ty(
     db: &dyn TypeDb,
-    term: Term,
+    term: EtherealTerm,
     ident: Ident,
-) -> TypeResult<Option<(TypeMemoDisambiguation, TypeResult<Term>)>> {
+) -> TypeResult<Option<(TypeMemoDisambiguation, TypeResult<EtherealTerm>)>> {
     todo!()
 }
 

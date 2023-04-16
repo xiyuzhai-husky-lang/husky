@@ -1,4 +1,4 @@
-use husky_term::Term;
+use husky_ethereal_term::EtherealTerm;
 use husky_text::ModuleRange;
 use husky_word::Ident;
 
@@ -8,7 +8,7 @@ use crate::*;
 pub struct MutationData<'eval> {
     pub range: ModuleRange,
     pub kind: MutationDataVariant,
-    pub ty: Term,
+    pub ty: EtherealTerm,
     pub before: Option<__Register<'eval>>,
     pub after: __Register<'eval>,
 }

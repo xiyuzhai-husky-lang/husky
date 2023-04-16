@@ -13,7 +13,7 @@ impl<'a> ExprTypeEngine<'a> {
                 todo!()
                 // match opd_ty {
                 //     Some(opd_ty) => match opd_ty {
-                //         FluffyTerm::Term(_) => todo!(),
+                //         FluffyTerm::EtherealTerm(_) => todo!(),
                 //         FluffyTerm::Unresolved(unresolved_term) => {
                 //             match self.fluffy_term_region[unresolved_term].unresolved_term() {
                 //                 FluffyTermData::ImplicitSymbol(implicit_symbol) => {

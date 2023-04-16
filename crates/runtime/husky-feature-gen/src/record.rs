@@ -36,7 +36,7 @@ pub(crate) fn expr_record_field<'eval>(
             ref opds,
             ..
         } => match entity.variant {
-            EntityDefnVariant::Term { ref ty_members, .. } => {
+            EntityDefnVariant::EtherealTerm { ref ty_members, .. } => {
                 if let Some((idx, type_member)) = ty_members.iget_entry(field_ident) {
                     match type_member.variant {
                         EntityDefnVariant::TyField {

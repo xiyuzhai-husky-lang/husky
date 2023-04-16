@@ -11,21 +11,21 @@ pub struct TypeMethodFnCard {
     pub id: AssociatedItemId,
     #[return_ref]
     pub method_ty_info_inner: TermResult<MethodTypeInfo>,
-    pub method_ty: TermResult<Term>,
+    pub method_ty: TermResult<EtherealTerm>,
 }
 
 pub trait HasTypeMethodCard: Copy {
     fn ty_method_card(self, db: &dyn TypeDb, ident: Ident) -> TermResult<Option<TypeMethodFnCard>>;
 }
 
-impl HasTypeMethodCard for Term {
+impl HasTypeMethodCard for EtherealTerm {
     fn ty_method_card(self, db: &dyn TypeDb, ident: Ident) -> TermResult<Option<TypeMethodFnCard>> {
         // using the fact that owner_ty is reduced
         match self {
-            Term::EntityPath(TermEntityPath::TypeOntology(path)) => {
+            EtherealTerm::EntityPath(TermEntityPath::TypeOntology(path)) => {
                 ty_ontology_path_ty_method_card(db, path, ident)
             }
-            Term::Application(raw_ty) => term_application_ty_method_card(db, raw_ty, ident),
+            EtherealTerm::Application(raw_ty) => term_application_ty_method_card(db, raw_ty, ident),
             _ => Ok(None),
         }
     }
@@ -65,7 +65,11 @@ impl MethodTypeInfo {
             |param: &ExplicitParameterSignature| -> TermResult<TermRitchieParameterContractedType> {
                 Ok(TermRitchieParameterContractedType::new(
                     param.contract(),
-                    Term::from_raw(db, param.ty(), TermTypeExpectation::FinalDestinationEqsSort)?,
+                    EtherealTerm::from_raw(
+                        db,
+                        param.ty(),
+                        TermTypeExpectation::FinalDestinationEqsSort,
+                    )?,
                 ))
             };
         let self_contracted_ty = t(signature.self_parameter(db))?;
@@ -74,7 +78,7 @@ impl MethodTypeInfo {
             .iter()
             .map(t)
             .collect::<TermResult<Vec<_>>>()?;
-        let return_ty = Term::ty_from_raw(db, signature.return_ty(db))?;
+        let return_ty = EtherealTerm::ty_from_raw(db, signature.return_ty(db))?;
         let implicit_parameters = signature
             .implicit_parameters(db)
             .iter()
@@ -108,7 +112,7 @@ pub(crate) fn ty_ontology_path_ty_method_card(
 #[salsa::tracked(jar = TypeJar)]
 pub(crate) fn term_application_ty_method_card(
     db: &dyn TypeDb,
-    ty_term: TermApplication,
+    ty_term: EtherealTermApplication,
     ident: Ident,
 ) -> TermResult<Option<TypeMethodFnCard>> {
     let application_expansion = ty_term.application_expansion(db);
@@ -128,7 +132,7 @@ pub(crate) fn term_application_ty_method_card(
 fn ty_ontology_path_application_ty_method_card(
     db: &dyn TypeDb,
     path: TypePath,
-    _arguments: &[Term],
+    _arguments: &[EtherealTerm],
     ident: Ident,
 ) -> TermResult<Option<TypeMethodFnCard>> {
     let ty_method_cards = ty_path_ty_method_cards(db, path)?;

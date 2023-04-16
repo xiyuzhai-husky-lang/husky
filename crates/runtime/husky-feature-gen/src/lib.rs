@@ -29,7 +29,7 @@
 // use husky_word::{IdentPairMap, Ident};
 // use husky_opn_syntax::*;
 // use husky_print_utils::*;
-// use husky_term::Term;
+// use husky_ethereal_term::EtherealTerm;
 // use husky_text::*;
 // use husky_vm::EntityUid;
 // use std::sync::Arc;
@@ -46,7 +46,7 @@
 // pub enum Feature {
 //     Input, // ad hoc: needs to include task config
 //     PrimitiveLiteral(PrimitiveValueData),
-//     EnumLiteral(Term),
+//     EnumLiteral(EtherealTerm),
 //     Assert {
 //         condition: FeatureItd,
 //     },
@@ -69,7 +69,7 @@
 //         ropd: FeatureItd,
 //     },
 //     FunctionCall {
-//         func: Term,
+//         func: EtherealTerm,
 //         uid: EntityUid,
 //         inputs: Vec<FeatureItd>,
 //     },
@@ -100,7 +100,7 @@
 //         uid: EntityUid,
 //     },
 //     RecordTypeCall {
-//         ty: Term,
+//         ty: EtherealTerm,
 //         uid: EntityUid,
 //         opds: Vec<FeatureItd>,
 //     },

@@ -1,21 +1,21 @@
 use crate::*;
-use husky_term::{Term, TermApplication, TermDb};
+use husky_ethereal_term::{EtherealTerm, EtherealTermApplication, EtherealTermDb};
 use salsa::DbWithJar;
 
-pub trait LayoutDb: DbWithJar<LayoutJar> + TermDb {
-    fn reg_memory_kind(&self, ty: Term) -> RegMemoryKind;
+pub trait LayoutDb: DbWithJar<LayoutJar> + EtherealTermDb {
+    fn reg_memory_kind(&self, ty: EtherealTerm) -> RegMemoryKind;
 }
 
 impl<T> LayoutDb for T
 where
-    T: DbWithJar<LayoutJar> + TermDb,
+    T: DbWithJar<LayoutJar> + EtherealTermDb,
 {
-    fn reg_memory_kind(&self, _ty: Term) -> RegMemoryKind {
+    fn reg_memory_kind(&self, _ty: EtherealTerm) -> RegMemoryKind {
         todo!()
     }
 }
 
-pub(crate) fn reg_memory_kind(_db: &dyn LayoutDb, _ty: Term) -> RegMemoryKind {
+pub(crate) fn reg_memory_kind(_db: &dyn LayoutDb, _ty: EtherealTerm) -> RegMemoryKind {
     todo!()
     // let ty = ty.intrinsic();
     // if ty.is_primitive() {
@@ -32,7 +32,7 @@ pub(crate) fn reg_memory_kind(_db: &dyn LayoutDb, _ty: Term) -> RegMemoryKind {
 #[salsa::tracked(jar = LayoutJar)]
 pub(crate) fn application_reg_memory_kind(
     _db: &dyn LayoutDb,
-    _ty: TermApplication,
+    _ty: EtherealTermApplication,
 ) -> RegMemoryKind {
     todo!()
 }

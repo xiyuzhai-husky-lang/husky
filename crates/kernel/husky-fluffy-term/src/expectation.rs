@@ -132,7 +132,7 @@ pub enum FluffyTermExpectationOutcome {
 }
 
 impl FluffyTermExpectationOutcome {
-    fn resolved(&self) -> Option<Term> {
+    fn resolved(&self) -> Option<EtherealTerm> {
         match self {
             FluffyTermExpectationOutcome::ExplicitlyConvertible(_) => todo!(),
             FluffyTermExpectationOutcome::ImplicitlyConvertible(_) => todo!(),
@@ -189,7 +189,10 @@ pub enum OriginalFluffyTermExpectationError {
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
 pub enum DerivedFluffyTermExpectationError {
     #[error("{term:?} {error}")]
-    TermTypeError { term: Term, error: TermError },
+    TermTypeError {
+        term: EtherealTerm,
+        error: TermError,
+    },
     #[error("{0}")]
     Type(#[from] TermError),
     #[error("target substitution failure")]
@@ -218,7 +221,7 @@ impl ExpectationResolveProgress {
         }
     }
 
-    pub(crate) fn reduced_term(&self) -> Option<Term> {
+    pub(crate) fn reduced_term(&self) -> Option<EtherealTerm> {
         match self {
             ExpectationResolveProgress::Unresolved
             | ExpectationResolveProgress::Resolved(Err(_)) => None,

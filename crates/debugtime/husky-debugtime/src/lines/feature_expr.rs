@@ -1,8 +1,8 @@
 use super::*;
 use crate::*;
+use husky_ethereal_term::EtherealTerm;
 use husky_lazy_semantics::{LazyExpr, LazyExprVariant, LazyOpnKind};
 use husky_pattern_semantics::{PurePattern, PurePatternVariant};
-use husky_term::Term;
 use husky_text::RangedIdent;
 
 impl<'a> TraceLineGenerator<'a> {
@@ -221,7 +221,7 @@ impl<'a> TraceLineGenerator<'a> {
     fn feature_entity_call_tokens(
         &mut self,
         file: DiffPath,
-        ranged_scope: Term,
+        ranged_scope: EtherealTerm,
         inputs: &[Arc<FeatureLazyExpr>],
         opt_associated_trace_id: Option<TraceId>,
         config: ExprTokenConfig,
