@@ -112,16 +112,20 @@ impl<'a> ExprTypeEngine<'a> {
                 EntityPath::Module(_) => todo!(),
                 EntityPath::ModuleItem(path) => match path {
                     ModuleItemPath::Type(path) => match self
-                        .expr_disambiguation(expr_idx)
+                        .expr_ty_info_variant(expr_idx)
                         .map_err(|_| DerivedExprTermError::AmbiguousTypePath)?
                     {
-                        ExprDisambiguation::TypePath(disambiguation) => Ok(match disambiguation {
-                            TypePathDisambiguation::Ontology => TermEntityPath::TypeOntology(path),
-                            TypePathDisambiguation::Constructor => {
-                                TermEntityPath::TypeConstructor(path)
+                        ExprTypeInfoVariant::TypePathDisambiguation(disambiguation) => {
+                            Ok(match disambiguation {
+                                TypePathDisambiguation::Ontology => {
+                                    TermEntityPath::TypeOntology(path)
+                                }
+                                TypePathDisambiguation::Constructor => {
+                                    TermEntityPath::TypeConstructor(path)
+                                }
                             }
+                            .into())
                         }
-                        .into()),
                         _ => unreachable!(),
                     },
                     ModuleItemPath::Trait(_) => todo!(),

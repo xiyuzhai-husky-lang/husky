@@ -14,7 +14,7 @@ impl FluffyTerm {
         engine: &mut impl FluffyTermEngine,
         ident: Ident,
         available_traits: &[TraitPath],
-    ) -> FluffyTypeResult<(FluffyMethodDisambiguation, FluffyTypeResult<FluffyTerm>)> {
+    ) -> FluffyTypeResult<(FluffyMethodTypeInfo, FluffyTypeResult<FluffyTerm>)> {
         let Some(card) = self.method_card(engine, ident, available_traits)? else {
             Err(OriginalFluffyTypeError::NoSuchMethod)?
         };
@@ -24,7 +24,7 @@ impl FluffyTerm {
 
 #[derive(Debug, PartialEq, Eq)]
 #[enum_class::from_variants]
-pub enum FluffyMethodDisambiguation {
+pub enum FluffyMethodTypeInfo {
     Type(FluffyTypeMethodDisambiguation),
     TraitForType(FluffyTraitForTypeMethodDisambiguation),
 }

@@ -7,7 +7,7 @@ impl<'a> ExprTypeEngine<'a> {
         items: ExprIdxRange,
     ) -> ExprTermResult<FluffyTerm> {
         match self
-            .expr_disambiguation(expr_idx)
+            .expr_ty_info_variant(expr_idx)
             .map_err(|_| DerivedExprTermError::Todo)?
             .list_expr_disambiguation()
             .expect("seriously?")

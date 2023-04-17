@@ -13,7 +13,7 @@ impl FluffyTerm {
         engine: &mut impl FluffyTermEngine,
         ident: Ident,
         available_traits: &[TraitPath],
-    ) -> FluffyTypeResult<(FluffyFieldDisambiguation, FluffyTypeResult<FluffyTerm>)> {
+    ) -> FluffyTypeResult<(FluffyFieldTypeInfo, FluffyTypeResult<FluffyTerm>)> {
         let Some(card) = self.field_card(engine, ident, available_traits)? else {
             Err(OriginalFluffyTypeError::NoSuchField)?
         };
@@ -27,14 +27,14 @@ impl FluffyTerm {
         ident: Ident,
         available_traits: &[TraitPath],
         indirections: &mut SmallVec<[FluffyIndirection; 2]>,
-    ) -> FluffyTypeResult<(FluffyFieldDisambiguation, FluffyTypeResult<FluffyTerm>)> {
+    ) -> FluffyTypeResult<(FluffyFieldTypeInfo, FluffyTypeResult<FluffyTerm>)> {
         todo!()
     }
 }
 
 #[derive(Debug, PartialEq, Eq)]
 #[enum_class::from_variants]
-pub enum FluffyFieldDisambiguation {
+pub enum FluffyFieldTypeInfo {
     Regular(FluffyRegularFieldDisambiguation),
     TypeMemo(FluffyTypeMemoFieldDisambiguation),
 }

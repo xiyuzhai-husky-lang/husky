@@ -3,23 +3,23 @@ use husky_ty_expectation::TypePathDisambiguation;
 
 #[derive(Debug, PartialEq, Eq)]
 #[enum_class::from_variants]
-pub enum ExprDisambiguation {
-    IndexOrComposeWithList(IndexOrComposeWithListExprDisambiguation),
-    UnveilOrComposeWithOption(UnveilOrComposeWithOptionExprDisambiguation),
-    ExplicitApplicationOrRitchieCall(ApplicationOrRitchieCallExprDisambiguation),
-    TypePath(TypePathDisambiguation),
-    List(ListExprDisambiguation),
-    ExplicitApplication(ExplicitApplicationDisambiguation),
-    Tilde(TildeDisambiguation),
-    Method(FluffyMethodDisambiguation),
+pub enum ExprTypeInfoVariant {
     Trivial,
-    Field(FluffyFieldDisambiguation),
+    IndexOrComposeWithListDisambiguation(IndexOrComposeWithListExprDisambiguation),
+    UnveilOrComposeWithOptionDisambiguation(UnveilOrComposeWithOptionExprDisambiguation),
+    ExplicitApplicationOrRitchieCallDisambiguation(ApplicationOrRitchieCallExprDisambiguation),
+    TypePathDisambiguation(TypePathDisambiguation),
+    ListDisambiguation(ListExprDisambiguation),
+    ExplicitApplicationDisambiguation(ExplicitApplicationDisambiguation),
+    TildeDisambiguation(TildeDisambiguation),
+    FieldTypeInfo(FluffyFieldTypeInfo),
+    MethodTypeInfo(FluffyMethodTypeInfo),
 }
 
-impl ExprDisambiguation {
+impl ExprTypeInfoVariant {
     pub(crate) fn list_expr_disambiguation(&self) -> Option<ListExprDisambiguation> {
         match self {
-            ExprDisambiguation::List(disambiguation) => Some(*disambiguation),
+            ExprTypeInfoVariant::ListDisambiguation(disambiguation) => Some(*disambiguation),
             _ => None,
         }
     }

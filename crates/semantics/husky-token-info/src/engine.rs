@@ -4,7 +4,7 @@ use husky_defn::*;
 
 use husky_entity_tree::ParentUseExpr;
 use husky_expr::*;
-use husky_expr_ty::{ExprDisambiguation, ExprTypeRegion};
+use husky_expr_ty::{ExprTypeInfoVariant, ExprTypeRegion};
 
 pub(crate) struct InferEngine<'a> {
     db: &'a dyn TokenInfoDb,
@@ -334,9 +334,11 @@ impl<'a> InferContext<'a> {
             } => {
                 // ad hoc
                 // this should always be some
-                match self.expr_ty_region.expr_disambiguation(expr_idx) {
+                match self.expr_ty_region.expr_ty_info_variant(expr_idx) {
                     Some(Ok(disambiguation)) => match disambiguation {
-                        ExprDisambiguation::IndexOrComposeWithList(_disambiguation) => todo!(),
+                        ExprTypeInfoVariant::IndexOrComposeWithListDisambiguation(
+                            _disambiguation,
+                        ) => todo!(),
                         _ => unreachable!(),
                     },
                     None | Some(Err(_)) => (),

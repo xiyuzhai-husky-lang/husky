@@ -13,7 +13,7 @@ mod substitution;
 mod term;
 #[cfg(test)]
 mod tests;
-mod ty;
+mod ty_info;
 mod utils;
 
 pub use self::card::*;
@@ -26,7 +26,7 @@ pub use self::region::*;
 pub use self::resolve::*;
 pub use self::substitution::*;
 pub use self::term::*;
-pub use self::ty::*;
+pub use self::ty_info::*;
 
 #[cfg(test)]
 pub(crate) use self::tests::*;
