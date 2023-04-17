@@ -6,7 +6,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         owner: ExprIdx,
         ident_token: IdentToken,
-    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
+    ) -> ExprTypeResult<(ExprTypeInfoVariant, ExprTypeResult<FluffyTerm>)> {
         let Some(owner_ty) = self.infer_new_expr_ty(owner, ExpectAnyOriginal,  )else {
             return Err(DerivedExprTypeError::FieldOwnerTypeNotInferred.into())
         };

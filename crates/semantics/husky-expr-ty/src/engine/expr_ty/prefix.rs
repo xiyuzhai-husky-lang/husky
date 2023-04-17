@@ -6,7 +6,7 @@ impl<'a> ExprTypeEngine<'a> {
         opr: PrefixOpr,
         opd: ExprIdx,
         final_destination: FinalDestination,
-    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
+    ) -> ExprTypeResult<(ExprTypeInfoVariant, ExprTypeResult<FluffyTerm>)> {
         match opr {
             PrefixOpr::Minus => {
                 let opd_ty = self.infer_new_expr_ty(opd, ExpectAnyOriginal);
@@ -41,7 +41,7 @@ impl<'a> ExprTypeEngine<'a> {
                 self.infer_new_expr_ty_discarded(opd, self.expect_argument_ty_bool());
                 // here we differs from Rust, but agrees with C
                 Ok((
-                    ExprDisambiguation::Trivial,
+                    ExprTypeInfoVariant::Trivial,
                     Ok(self.term_menu.bool_ty_ontology().into()),
                 ))
             }
@@ -49,21 +49,24 @@ impl<'a> ExprTypeEngine<'a> {
                 FinalDestination::Sort => {
                     self.infer_new_expr_ty_discarded(opd, self.expect_eqs_ty0());
                     Ok((
-                        ExprDisambiguation::Tilde(TildeDisambiguation::Leash),
+                        ExprTypeInfoVariant::TildeDisambiguation(TildeDisambiguation::Leash),
                         Ok(self.term_menu.ty0().into()),
                     ))
                 }
                 FinalDestination::TypeOntology
                 | FinalDestination::AnyOriginal
                 | FinalDestination::AnyDerived => Ok((
-                    ExprDisambiguation::Tilde(TildeDisambiguation::BitNot),
+                    ExprTypeInfoVariant::TildeDisambiguation(TildeDisambiguation::BitNot),
                     self.calc_bitnot_expr_ty(opd),
                 )),
             },
             PrefixOpr::Ref => {
                 self.infer_new_expr_ty_discarded(opd, self.expect_eqs_ty0());
                 // Should consider more cases, could also be taking references
-                Ok((ExprDisambiguation::Trivial, Ok(self.term_menu.ty0().into())))
+                Ok((
+                    ExprTypeInfoVariant::Trivial,
+                    Ok(self.term_menu.ty0().into()),
+                ))
             }
             PrefixOpr::Vector => todo!(),
             PrefixOpr::Slice => todo!(),
@@ -72,7 +75,10 @@ impl<'a> ExprTypeEngine<'a> {
             PrefixOpr::Option => {
                 // todo!("consider universe");
                 self.infer_new_expr_ty_discarded(opd, self.expect_eqs_ty0());
-                Ok((ExprDisambiguation::Trivial, Ok(self.term_menu.ty0().into())))
+                Ok((
+                    ExprTypeInfoVariant::Trivial,
+                    Ok(self.term_menu.ty0().into()),
+                ))
             }
         }
     }

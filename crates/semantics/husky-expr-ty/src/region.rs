@@ -78,15 +78,15 @@ impl ExprTypeRegion {
         self.self_ty
     }
 
-    pub fn expr_disambiguation(
+    pub fn expr_ty_info_variant(
         &self,
         expr_idx: ExprIdx,
-    ) -> Option<ExprTypeResultRef<&ExprDisambiguation>> {
+    ) -> Option<ExprTypeResultRef<&ExprTypeInfoVariant>> {
         // ad hoc
         // todo: change this to always some
         self.expr_ty_infos
             .get(expr_idx)
-            .map(|ty_info| ty_info.disambiguation())
+            .map(|ty_info| ty_info.variant())
     }
 }
 

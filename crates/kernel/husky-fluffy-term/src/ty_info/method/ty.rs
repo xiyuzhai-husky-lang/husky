@@ -58,13 +58,14 @@ impl FluffyTerm {
                 ..
             } => match refined_path {
                 Right(PreludeTypePath::Borrow(_)) => todo!(),
-                _ => match self.ty_method_card(engine, ident)? {
-                    Some(_) => todo!(),
-                    None => {
-                        // todo: `Deref` and `Carrier`
-                        Ok(None)
-                    },
-                }
+                _ => todo!(),
+                // match self.ty_method_card(engine, ident)? {
+                //     Some(_) => todo!(),
+                //     None => {
+                //         // todo: `Deref` and `Carrier`
+                //         Ok(None)
+                //     },
+                // }
                 // match base_ty_term {
                 //     Some(base_ty_term) => todo!(),
                 //     None => todo!(),

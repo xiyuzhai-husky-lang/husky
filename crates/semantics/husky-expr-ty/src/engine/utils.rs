@@ -5,11 +5,11 @@ impl<'a> ExprTypeEngine<'a> {
         self.expr_region_data.path_ref().debug(self.db)
     }
 
-    pub(super) fn expr_disambiguation(
+    pub(super) fn expr_ty_info_variant(
         &self,
         expr_idx: ExprIdx,
-    ) -> ExprTypeResultRef<&ExprDisambiguation> {
-        self.expr_ty_infos[expr_idx].disambiguation()
+    ) -> ExprTypeResultRef<&ExprTypeInfoVariant> {
+        self.expr_ty_infos[expr_idx].variant()
     }
 
     pub(crate) fn debug<'b>(
