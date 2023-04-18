@@ -8,7 +8,7 @@ impl<'a> ExprTypeEngine<'a> {
             .current_symbol_index_iter()
         {
             let Some(signature) = self
-                .signature_term_region
+                .declarative_term_region
                 .term_symbol_region()
                 .current_symbol_signature(current_symbol_idx) else {
                 return

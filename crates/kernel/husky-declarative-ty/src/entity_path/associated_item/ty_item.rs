@@ -6,20 +6,20 @@ pub(crate) fn ty_item_path_raw_ty(
     path: TypeItemPath,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     let signature = path
-        .signature(db)
+        .declarative_signature(db)
         .map_err(|_| DerivedDeclarativeTypeError::SignatureError)?;
     let Ok(variances) = ty_item_entity_variances(db, path) else {
         todo!()
     };
-    let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
+    let declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
     match signature {
-        TypeItemSignature::AssociatedFn(signature) => {
+        TypeItemDeclarativeSignature::AssociatedFn(signature) => {
             ty_associated_fn_path_raw_ty(db, variances, signature)
         }
-        TypeItemSignature::MethodFn(_) => todo!(),
-        TypeItemSignature::AssociatedType(_) => todo!(),
-        TypeItemSignature::AssociatedValue(_) => todo!(),
-        TypeItemSignature::Memo(_) => todo!(),
+        TypeItemDeclarativeSignature::MethodFn(_) => todo!(),
+        TypeItemDeclarativeSignature::AssociatedType(_) => todo!(),
+        TypeItemDeclarativeSignature::AssociatedValue(_) => todo!(),
+        TypeItemDeclarativeSignature::Memo(_) => todo!(),
     }
 }
 

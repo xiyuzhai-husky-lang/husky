@@ -11,22 +11,22 @@ pub fn ty_path_field_raw_ty(
         Ok(decl) => decl,
         Err(_) => return Err(DerivedDeclarativeTypeError::TypePathFieldDeclError.into()),
     };
-    let signature = match db.ty_signature_from_decl(decl) {
+    let signature = match db.ty_declarative_signature_from_decl(decl) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedDeclarativeTypeError::SignatureError.into()),
     };
     Ok(match signature {
-        TypeSignature::RegularStruct(signature) => signature
+        TypeDeclarativeSignature::RegularStruct(signature) => signature
             .fields(db)
             .iter()
             .find_map(|field| (field.ident() == ident).then_some(field.ty())),
-        TypeSignature::Record(_) => todo!(),
-        TypeSignature::Structure(_) => todo!(),
-        TypeSignature::Enum(_)
-        | TypeSignature::UnitStruct(_)
-        | TypeSignature::TupleStruct(_)
-        | TypeSignature::Inductive(_)
-        | TypeSignature::Foreign(_)
-        | TypeSignature::Union(_) => None,
+        TypeDeclarativeSignature::Record(_) => todo!(),
+        TypeDeclarativeSignature::Structure(_) => todo!(),
+        TypeDeclarativeSignature::Enum(_)
+        | TypeDeclarativeSignature::UnitStruct(_)
+        | TypeDeclarativeSignature::TupleStruct(_)
+        | TypeDeclarativeSignature::Inductive(_)
+        | TypeDeclarativeSignature::Foreign(_)
+        | TypeDeclarativeSignature::Union(_) => None,
     })
 }

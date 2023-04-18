@@ -43,7 +43,7 @@ impl DeclarativeTermMenu {
 }
 
 #[salsa::tracked(jar = DeclarativeTermJar, return_ref)]
-pub(crate) fn raw_term_menu(
+pub(crate) fn declarative_term_menu(
     db: &dyn DeclarativeTermDb,
     toolchain: Toolchain,
 ) -> DeclarativeTermResult<DeclarativeTermMenu> {

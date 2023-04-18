@@ -2,28 +2,28 @@ use super::*;
 
 pub(super) fn direct_regular_field_card(
     engine: &mut impl FluffyTermEngine,
-    signature: TypeSignature,
+    signature: TypeDeclarativeSignature,
     arguments: &[FluffyTerm],
     ident: Ident,
 ) -> Result<Option<FluffyFieldCard>, FluffyCardError> {
     match signature {
-        TypeSignature::Enum(_) => todo!(),
-        TypeSignature::RegularStruct(signature) => {
+        TypeDeclarativeSignature::Enum(_) => todo!(),
+        TypeDeclarativeSignature::RegularStruct(signature) => {
             regular_struct_direct_regular_field_card(engine, signature, arguments, ident)
         }
-        TypeSignature::UnitStruct(_) => todo!(),
-        TypeSignature::TupleStruct(_) => todo!(),
-        TypeSignature::Record(_) => todo!(),
-        TypeSignature::Inductive(_) => todo!(),
-        TypeSignature::Structure(_) => todo!(),
-        TypeSignature::Foreign(_) => todo!(),
-        TypeSignature::Union(_) => todo!(),
+        TypeDeclarativeSignature::UnitStruct(_) => todo!(),
+        TypeDeclarativeSignature::TupleStruct(_) => todo!(),
+        TypeDeclarativeSignature::Record(_) => todo!(),
+        TypeDeclarativeSignature::Inductive(_) => todo!(),
+        TypeDeclarativeSignature::Structure(_) => todo!(),
+        TypeDeclarativeSignature::Foreign(_) => todo!(),
+        TypeDeclarativeSignature::Union(_) => todo!(),
     }
 }
 
 fn regular_struct_direct_regular_field_card(
     engine: &mut impl FluffyTermEngine,
-    signature: RegularStructTypeSignature,
+    signature: RegularStructTypeDeclarativeSignature,
     arguments: &[FluffyTerm],
     ident: Ident,
 ) -> FluffyCardResult<Option<FluffyFieldCard>> {

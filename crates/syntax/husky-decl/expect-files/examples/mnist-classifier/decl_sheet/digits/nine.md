@@ -11,8 +11,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Feature(
-                            FeatureDecl {
+                        FormDecl::Val(
+                            ValDecl {
                                 path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                                 ast_idx: 36,
                                 colon_token: Some(
@@ -135,8 +135,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Feature(
-                            FeatureDecl {
+                        FormDecl::Val(
+                            ValDecl {
                                 path: FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                                 ast_idx: 37,
                                 colon_token: Some(
@@ -259,8 +259,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Feature(
-                            FeatureDecl {
+                        FormDecl::Val(
+                            ValDecl {
                                 path: FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                                 ast_idx: 38,
                                 colon_token: Some(

@@ -178,18 +178,17 @@ impl<'a> InferEngine<'a> {
 
     fn visit_form(&mut self, defn: FormDefn) {
         match defn {
-            FormDefn::Function(defn) => self.visit_function(defn),
-            FormDefn::Feature(defn) => self.visit_feature(defn),
-            FormDefn::Morphism(defn) => self.visit_morphism(defn),
-            FormDefn::Value(defn) => self.visit_value(defn),
+            FormDefn::Fn(defn) => self.visit_function(defn),
+            FormDefn::Val(defn) => self.visit_feature(defn),
+            FormDefn::Gn(defn) => self.visit_morphism(defn),
         }
     }
 
-    fn visit_function(&mut self, _defn: FunctionDefn) {}
+    fn visit_function(&mut self, _defn: FnDefn) {}
 
-    fn visit_feature(&mut self, _defn: FeatureDefn) {}
+    fn visit_feature(&mut self, _defn: ValDefn) {}
 
-    fn visit_morphism(&mut self, defn: MorphismDefn) {
+    fn visit_morphism(&mut self, defn: GnDefn) {
         let _decl = defn.decl(self.db);
         // todo!()
     }

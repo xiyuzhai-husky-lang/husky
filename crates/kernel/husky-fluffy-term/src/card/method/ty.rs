@@ -9,7 +9,7 @@ use husky_word::Ident;
 
 pub(super) fn direct_ty_method_card(
     engine: &mut impl FluffyTermEngine,
-    signature: TypeSignature,
+    signature: TypeDeclarativeSignature,
     arguments: &[FluffyTerm],
     ident: Ident,
 ) -> FluffyCardResult<Option<FluffyMethodCard>> {

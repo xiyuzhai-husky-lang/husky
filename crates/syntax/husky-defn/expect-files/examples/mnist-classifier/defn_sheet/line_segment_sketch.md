@@ -238,8 +238,8 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Function(
-                            FunctionDefn {
+                        FormDefn::Fn(
+                            FnDefn {
                                 path: FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                                 decl: FnDecl {
                                     path: FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
@@ -1697,8 +1697,8 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Function(
-                            FunctionDefn {
+                        FormDefn::Fn(
+                            FnDefn {
                                 path: FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                                 decl: FnDecl {
                                     path: FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
@@ -3156,8 +3156,8 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Function(
-                            FunctionDefn {
+                        FormDefn::Fn(
+                            FnDefn {
                                 path: FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
                                 decl: FnDecl {
                                     path: FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
@@ -6199,8 +6199,8 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Function(
-                            FunctionDefn {
+                        FormDefn::Fn(
+                            FnDefn {
                                 path: FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
                                 decl: FnDecl {
                                     path: FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
@@ -9648,8 +9648,8 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Function(
-                            FunctionDefn {
+                        FormDefn::Fn(
+                            FnDefn {
                                 path: FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
                                 decl: FnDecl {
                                     path: FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),

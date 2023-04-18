@@ -28,7 +28,7 @@ pub(crate) fn entity_variance_reprs(
     db: &dyn DeclarativeTypeDb,
     path: EntityPath,
 ) -> VarianceResultRef<&[VarianceRepr]> {
-    let _raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
+    let _declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
     match path {
         EntityPath::Module(_) => todo!(),
         EntityPath::ModuleItem(path) => match path {
@@ -52,12 +52,12 @@ pub(crate) fn ty_entity_variance_reprs(
     db: &dyn DeclarativeTypeDb,
     path: TypePath,
 ) -> VarianceResult<Vec<VarianceRepr>> {
-    let _raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
+    let _declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
     let decl = match path.decl(db) {
         Ok(decl) => decl,
         Err(_) => return Err(DerivedVarianceError::DeclError.into()),
     };
-    let signature = match db.ty_signature_from_decl(decl) {
+    let signature = match db.ty_declarative_signature_from_decl(decl) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedVarianceError::SignatureError.into()),
     };
@@ -75,15 +75,15 @@ pub(crate) fn ty_entity_variance_reprs(
     if reprs.len() > 0 {
         // ad hoc: todo
         // match signature {
-        //      TypeSignature::Enum(_) => todo!(),
-        //      TypeSignature::RegularStruct(_) => todo!(),
-        //      TypeSignature::UnitStruct(_) => todo!(),
-        //      TypeSignature::TupleStruct(_) => todo!(),
-        //      TypeSignature::Record(_) => todo!(),
-        //      TypeSignature::Inductive(_) => todo!(),
-        //      TypeSignature::Structure(_) => todo!(),
-        //      TypeSignature::Foreign(_) => (),
-        //      TypeSignature::Union(_) => todo!(),
+        //      TypeDeclarativeSignature::Enum(_) => todo!(),
+        //      TypeDeclarativeSignature::RegularStruct(_) => todo!(),
+        //      TypeDeclarativeSignature::UnitStruct(_) => todo!(),
+        //      TypeDeclarativeSignature::TupleStruct(_) => todo!(),
+        //      TypeDeclarativeSignature::Record(_) => todo!(),
+        //      TypeDeclarativeSignature::Inductive(_) => todo!(),
+        //      TypeDeclarativeSignature::Structure(_) => todo!(),
+        //      TypeDeclarativeSignature::Foreign(_) => (),
+        //      TypeDeclarativeSignature::Union(_) => todo!(),
         // }
     }
     for (_repr, implicit_parameter) in std::iter::zip(reprs.iter(), implicit_parameters.iter()) {
@@ -100,12 +100,12 @@ pub(crate) fn trai_entity_variance_reprs(
     db: &dyn DeclarativeTypeDb,
     path: TraitPath,
 ) -> VarianceResult<Vec<VarianceRepr>> {
-    let _raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
+    let _declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
     let decl = match path.decl(db) {
         Ok(decl) => decl,
         Err(_) => return Err(DerivedVarianceError::DeclError.into()),
     };
-    let signature = match db.trai_signature(decl) {
+    let signature = match db.trai_declarative_signature(decl) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedVarianceError::SignatureError.into()),
     };
@@ -135,7 +135,7 @@ pub(crate) fn form_entity_variance_reprs(
         Ok(decl) => decl,
         Err(_) => return Err(DerivedVarianceError::DeclError.into()),
     };
-    let signature = match decl.signature(db) {
+    let signature = match decl.declarative_signature(db) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedVarianceError::SignatureError.into()),
     };
@@ -161,7 +161,7 @@ pub(crate) fn ty_item_entity_variance_reprs(
     db: &dyn DeclarativeTypeDb,
     path: TypeItemPath,
 ) -> VarianceResult<Vec<VarianceRepr>> {
-    let signature = match db.ty_item_signature(path) {
+    let signature = match db.ty_item_declarative_signature(path) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedVarianceError::SignatureError.into()),
     };

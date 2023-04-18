@@ -247,8 +247,8 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Function(
-                            FunctionDefn {
+                        FormDefn::Fn(
+                            FnDefn {
                                 path: FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                 decl: FnDecl {
                                     path: FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),

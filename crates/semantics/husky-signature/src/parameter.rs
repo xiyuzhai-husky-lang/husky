@@ -15,8 +15,8 @@ pub struct ImplicitParameterSignature {
 impl ImplicitParameterSignature {
     fn from_decl(
         parameter_decl: &ImplicitParameterDecl,
-        region: &SignatureRegion,
-        raw_term_menu: &DeclarativeTermMenu,
+        region: &DeclarativeTermRegion,
+        declarative_term_menu: &DeclarativeTermMenu,
     ) -> ImplicitParameterSignature {
         let pattern = &parameter_decl.pattern();
         let symbol = pattern.symbol();
@@ -80,8 +80,8 @@ pub struct ImplicitParameterSignatures {
 impl ImplicitParameterSignatures {
     pub(crate) fn from_decl(
         implicit_parameters: &[ImplicitParameterDecl],
-        signature_term_region: &SignatureRegion,
-        raw_term_menu: &DeclarativeTermMenu,
+        declarative_term_region: &DeclarativeTermRegion,
+        declarative_term_menu: &DeclarativeTermMenu,
     ) -> Self {
         Self {
             data: implicit_parameters
@@ -89,8 +89,8 @@ impl ImplicitParameterSignatures {
                 .map(|parameter| {
                     ImplicitParameterSignature::from_decl(
                         parameter,
-                        signature_term_region,
-                        raw_term_menu,
+                        declarative_term_region,
+                        declarative_term_menu,
                     )
                 })
                 .collect(),
@@ -155,8 +155,8 @@ impl ExplicitParameterSignatures {
     pub(crate) fn from_decl(
         parameters: &[RegularParameterDeclPattern],
         expr_region_data: &ExprRegionData,
-        signature_region: &SignatureRegion,
-    ) -> SignatureResult<Self> {
+        signature_region: &DeclarativeTermRegion,
+    ) -> DeclarativeSignatureResult<Self> {
         Ok(Self {
             parameters: parameters
                 .iter()

@@ -11,8 +11,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Feature(
-                            FeatureDecl {
+                        FormDecl::Val(
+                            ValDecl {
                                 path: FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                                 ast_idx: 18,
                                 colon_token: Some(
@@ -135,8 +135,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Feature(
-                            FeatureDecl {
+                        FormDecl::Val(
+                            ValDecl {
                                 path: FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                                 ast_idx: 19,
                                 colon_token: Some(

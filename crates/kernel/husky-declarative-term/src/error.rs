@@ -32,4 +32,3 @@ impl From<&EntityPathError> for DeclarativeTermError {
 
 pub type DeclarativeTermResult<T> = Result<T, DeclarativeTermError>;
 pub type DeclarativeTermResultRef<'a, T> = Result<T, &'a DeclarativeTermError>;
-pub type DeclarativeTermResultArc<T> = Result<Arc<T>, DeclarativeTermError>;

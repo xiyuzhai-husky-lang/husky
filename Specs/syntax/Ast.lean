@@ -69,7 +69,7 @@ inductive AstVariant where
   | TypeDefnHead
   | MainDefnHead
   | CallFormDefnHead
-  | FeatureDefnHead
+  | ValDefnHead
   | FieldDefnHead
   | DatasetConfigDefnHead
   | Stmt (stmt : RawStmt) : AstVariant

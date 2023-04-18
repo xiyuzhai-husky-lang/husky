@@ -1,29 +1,29 @@
 #[derive(Debug, PartialEq, Eq)]
-pub enum SignatureDeclarativeTermError {
-    Original(OriginalSignatureDeclarativeTermError),
-    Derived(DerivedSignatureDeclarativeTermError),
+pub enum DeclarativeTermError2 {
+    Original(OriginalDeclarativeTermError2),
+    Derived(DerivedDeclarativeTermError2),
 }
 
-impl From<OriginalSignatureDeclarativeTermError> for SignatureDeclarativeTermError {
-    fn from(v: OriginalSignatureDeclarativeTermError) -> Self {
+impl From<OriginalDeclarativeTermError2> for DeclarativeTermError2 {
+    fn from(v: OriginalDeclarativeTermError2) -> Self {
         Self::Original(v)
     }
 }
 
-impl From<DerivedSignatureDeclarativeTermError> for SignatureDeclarativeTermError {
-    fn from(v: DerivedSignatureDeclarativeTermError) -> Self {
+impl From<DerivedDeclarativeTermError2> for DeclarativeTermError2 {
+    fn from(v: DerivedDeclarativeTermError2) -> Self {
         Self::Derived(v)
     }
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum OriginalSignatureDeclarativeTermError {
+pub enum OriginalDeclarativeTermError2 {
     ExpectedLiteralForArrayLength,
     InvalidSymbolForTerm,
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum DerivedSignatureDeclarativeTermError {
+pub enum DerivedDeclarativeTermError2 {
     InvalidEntityPath,
     CannotInferFunctionDeclarativeTermInApplication,
     CannotInferArgumentDeclarativeTermInApplication,
@@ -38,6 +38,5 @@ pub enum DerivedSignatureDeclarativeTermError {
     SelfValueNotAllowedInThisRegion,
 }
 
-pub type SignatureDeclarativeTermResult<T> = Result<T, SignatureDeclarativeTermError>;
-pub type SignatureDeclarativeTermResultBorrowed<'a, T> =
-    Result<T, &'a SignatureDeclarativeTermError>;
+pub type DeclarativeTermResult2<T> = Result<T, DeclarativeTermError2>;
+pub type DeclarativeTermResultBorrowed2<'a, T> = Result<T, &'a DeclarativeTermError2>;

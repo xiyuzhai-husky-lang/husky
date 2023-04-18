@@ -46,7 +46,7 @@ pub struct DeclJar(
     // form
     form_decl,
     ValueDecl,
-    FeatureDecl,
+    ValDecl,
     FnDecl,
     GnDecl,
     TypeAliasDecl,

@@ -7,27 +7,32 @@ pub use self::ty_impl_block::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = SignatureDb, jar = SignatureJar)]
+#[salsa::derive_debug_with_db(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 #[enum_class::from_variants]
-pub enum ImplSignature {
+pub enum ImplBlockDeclarativeSignature {
     TypeImpl(TypeImplBlockSignature),
-    TraitForTypeImpl(TraitForTypeImplBlockSignature),
+    TraitForTypeImpl(TraitForTypeImplBlockDeclarativeSignature),
 }
 
-pub(crate) fn impl_block_signature_from_decl(
-    db: &dyn SignatureDb,
-    decl: ImplBlockDecl,
-) -> SignatureResult<ImplSignature> {
-    match decl {
-        ImplBlockDecl::Type(decl) => ty_impl_block_signature(db, decl).map(Into::into),
-        ImplBlockDecl::TraitForType(decl) => {
-            trai_for_ty_impl_block_signature(db, decl).map(Into::into)
+impl HasDeclarativeSignature for ImplBlockDecl {
+    type DeclarativeSignature = ImplBlockDeclarativeSignature;
+
+    fn declarative_signature(
+        self,
+        db: &dyn DeclarativeSignatureDb,
+    ) -> DeclarativeSignatureResult<Self::DeclarativeSignature> {
+        match self {
+            ImplBlockDecl::Type(decl) => decl.declarative_signature(db).map(Into::into),
+            ImplBlockDecl::TraitForType(decl) => decl.declarative_signature(db).map(Into::into),
         }
     }
 }
 
-impl ImplSignature {
-    pub fn implicit_parameters(self, _db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
+impl ImplBlockDeclarativeSignature {
+    pub fn implicit_parameters(
+        self,
+        _db: &dyn DeclarativeSignatureDb,
+    ) -> &[ImplicitParameterSignature] {
         todo!()
     }
 }

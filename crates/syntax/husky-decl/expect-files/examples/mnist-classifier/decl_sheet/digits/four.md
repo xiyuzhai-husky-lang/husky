@@ -11,8 +11,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Feature(
-                            FeatureDecl {
+                        FormDecl::Val(
+                            ValDecl {
                                 path: FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                                 ast_idx: 38,
                                 colon_token: Some(
@@ -365,8 +365,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Feature(
-                            FeatureDecl {
+                        FormDecl::Val(
+                            ValDecl {
                                 path: FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                                 ast_idx: 40,
                                 colon_token: Some(
@@ -489,8 +489,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Feature(
-                            FeatureDecl {
+                        FormDecl::Val(
+                            ValDecl {
                                 path: FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                                 ast_idx: 41,
                                 colon_token: Some(
@@ -613,8 +613,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Feature(
-                            FeatureDecl {
+                        FormDecl::Val(
+                            ValDecl {
                                 path: FormPath(`mnist_classifier::digits::four::is_four`, `Val`),
                                 ast_idx: 42,
                                 colon_token: Some(

@@ -24,7 +24,10 @@ pub(crate) fn entity_variance_crate_dependencies(
     db: &dyn DeclarativeTypeDb,
     id: VarianceId,
 ) -> VarianceResultRef<&[VarianceId]> {
-    let _raw_term_menu = db.raw_term_menu(id.path.toolchain(db)).as_ref().unwrap();
+    let _declarative_term_menu = db
+        .declarative_term_menu(id.path.toolchain(db))
+        .as_ref()
+        .unwrap();
     match id.path {
         EntityPath::Module(_) => todo!(),
         EntityPath::ModuleItem(path) => match path {
@@ -53,25 +56,25 @@ pub(crate) fn raw_ty_entity_variance_crate_dependencies(
     path: TypePath,
     _idx: u8,
 ) -> VarianceResult<VecSet<VarianceId>> {
-    let _raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
+    let _declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
     let decl = match path.decl(db) {
         Ok(decl) => decl,
         Err(_) => return Err(DerivedVarianceError::DeclError.into()),
     };
-    let signature = match db.ty_signature_from_decl(decl) {
+    let signature = match db.ty_declarative_signature_from_decl(decl) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedVarianceError::SignatureError.into()),
     };
     match signature {
-        TypeSignature::Enum(_) => todo!(),
-        TypeSignature::RegularStruct(_) => todo!(),
-        TypeSignature::UnitStruct(_) => todo!(),
-        TypeSignature::TupleStruct(_) => todo!(),
-        TypeSignature::Record(_) => todo!(),
-        TypeSignature::Inductive(_) => todo!(),
-        TypeSignature::Structure(_) => todo!(),
-        TypeSignature::Foreign(_) => (),
-        TypeSignature::Union(_) => todo!(),
+        TypeDeclarativeSignature::Enum(_) => todo!(),
+        TypeDeclarativeSignature::RegularStruct(_) => todo!(),
+        TypeDeclarativeSignature::UnitStruct(_) => todo!(),
+        TypeDeclarativeSignature::TupleStruct(_) => todo!(),
+        TypeDeclarativeSignature::Record(_) => todo!(),
+        TypeDeclarativeSignature::Inductive(_) => todo!(),
+        TypeDeclarativeSignature::Structure(_) => todo!(),
+        TypeDeclarativeSignature::Foreign(_) => (),
+        TypeDeclarativeSignature::Union(_) => todo!(),
     }
     todo!()
 }
@@ -95,7 +98,7 @@ pub(crate) fn form_entity_variance_crate_dependencies(
         Ok(decl) => decl,
         Err(_) => return Err(DerivedVarianceError::DeclError.into()),
     };
-    let _signature = match decl.signature(db) {
+    let _signature = match decl.declarative_signature(db) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedVarianceError::SignatureError.into()),
     };

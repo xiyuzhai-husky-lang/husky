@@ -2,7 +2,6 @@
 mod db;
 mod engine;
 mod error;
-mod has_signature;
 mod parameter;
 mod region;
 mod signature;
@@ -12,7 +11,6 @@ mod tests;
 pub use self::db::*;
 pub use self::engine::*;
 pub use self::error::*;
-pub use self::has_signature::*;
 pub use self::parameter::*;
 pub use self::region::*;
 pub use self::signature::*;
@@ -23,37 +21,35 @@ use husky_entity_path::*;
 use husky_term_prelude::*;
 use husky_word::*;
 
-#[salsa::jar(db = SignatureDb)]
-pub struct SignatureJar(
-    signature_term_region,
+#[salsa::jar(db = DeclarativeSignatureDb)]
+pub struct DeclarativeSignatureJar(
+    declarative_term_region,
     // type
-    enum_ty_signature,
-    EnumTypeSignature,
-    unit_struct_ty_signature,
-    UnitStructTypeSignature,
-    tuple_struct_ty_signature,
-    TupleStructTypeSignature,
-    regular_struct_ty_signature,
-    RegularStructTypeSignature,
-    record_ty_signature,
-    RecordTypeSignature,
-    inductive_ty_signature,
-    InductiveTypeSignature,
-    structure_ty_signature,
-    StructureTypeSignature,
-    alien_ty_signature,
-    ExternTypeSignature,
-    union_ty_signature,
-    UnionTypeSignature,
+    enum_ty_declarative_signature,
+    EnumTypeDeclarativeSignature,
+    unit_struct_ty_declarative_signature,
+    UnitStructTypeDeclarativeSignature,
+    tuple_struct_ty_declarative_signature,
+    TupleStructTypeDeclarativeSignature,
+    regular_struct_ty_declarative_signature,
+    RegularStructTypeDeclarativeSignature,
+    record_ty_declarative_signature,
+    RecordTypeDeclarativeSignature,
+    inductive_ty_declarative_signature,
+    InductiveTypeDeclarativeSignature,
+    structure_ty_declarative_signature,
+    StructureTypeDeclarativeSignature,
+    alien_ty_declarative_signature,
+    ExternTypeDeclarativeSignature,
+    union_ty_declarative_signature,
+    UnionTypeDeclarativeSignature,
     // trait
-    trai_signature_from_decl,
-    TraitSignature,
+    trai_declarative_signature_from_decl,
+    TraitDeclarativeSignature,
     // form
     // form_signature,
-    value_signature,
-    ValueSignature,
     var_signature,
-    VarSignature,
+    ValDeclarativeSignature,
     fn_signature,
     FnSignature,
     gn_signature,
@@ -62,24 +58,24 @@ pub struct SignatureJar(
     TypeAliasSignature,
     // impl block
     // impl_block_signature_from_decl,
-    ty_impl_block_signature,
+    ty_impl_block_declarative_signature,
     TypeImplBlockSignature,
-    trai_for_ty_impl_block_signature,
-    TraitForTypeImplBlockSignature,
+    trai_for_ty_impl_block_declarative_signature,
+    TraitForTypeImplBlockDeclarativeSignature,
     // variant
-    UnitVariantSignature,
-    PropsVariantSignature,
-    TupleVariantSignature,
+    UnitVariantDeclarativeSignature,
+    PropsVariantDeclarativeSignature,
+    TupleVariantDeclarativeSignature,
     // associated items
-    // associated_item_signature_from_decl,
+    // associated_item_declarative_signature_from_decl,
     // type item
     ty_associated_fn_signature,
     TypeAssociatedFnSignature,
     ty_method_signature,
     TypeMethodSignature,
-    ty_associated_ty_signature_from_decl,
-    TypeAssociatedTypeSignature,
-    ty_associated_value_signature,
+    ty_associated_ty_declarative_signature_from_decl,
+    TypeAssociatedTypeDeclarativeSignature,
+    ty_associated_value_declarative_signature,
     TypeAssociatedValueSignature,
     ty_memo_signature,
     TypeMemoSignature,
@@ -88,20 +84,20 @@ pub struct SignatureJar(
     TraitAssociatedFormFnSignature,
     trai_method_signature,
     TraitMethodSignature,
-    trai_associated_ty_signature,
-    TraitAssociatedTypeSignature,
-    trai_associated_value_signature,
+    trai_associated_ty_declarative_signature,
+    TraitAssociatedTypeDeclarativeSignature,
+    trai_associated_value_declarative_signature,
     TraitAssociatedValueSignature,
     // type as trait item
     trai_for_ty_associated_form_fn_signature,
     TraitForTypeAssociatedFnSignature,
     trai_for_ty_method_signature,
     TraitForTypeMethodSignature,
-    trai_for_ty_associated_ty_signature,
-    TraitForTypeAssociatedTypeSignature,
-    trai_for_ty_associated_value_signature,
+    trai_for_ty_associated_ty_declarative_signature,
+    TraitForTypeAssociatedTypeDeclarativeSignature,
+    trai_for_ty_associated_value_declarative_signature,
     TraitForTypeAssociatedValueSignature,
     // decr
-    DeriveDecrSignature,
-    derive_decr_signature,
+    DeriveDecrDeclarativeSignature,
+    derive_decr_declarative_signature,
 );

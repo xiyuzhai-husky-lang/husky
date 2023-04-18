@@ -1,25 +1,25 @@
 use crate::*;
 
-#[salsa::interned(db = SignatureDb, jar = SignatureJar)]
-pub struct TraitSignature {
+#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
+pub struct TraitDeclarativeSignature {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterSignatures,
 }
 
-impl TraitSignature {}
+impl TraitDeclarativeSignature {}
 
-#[salsa::tracked(jar = SignatureJar)]
-pub fn trai_signature_from_decl(
-    db: &dyn SignatureDb,
+#[salsa::tracked(jar = DeclarativeSignatureJar)]
+pub fn trai_declarative_signature_from_decl(
+    db: &dyn DeclarativeSignatureDb,
     decl: TraitDecl,
-) -> SignatureResult<TraitSignature> {
+) -> DeclarativeSignatureResult<TraitDeclarativeSignature> {
     let expr_region = decl.expr_region(db);
-    let signature_term_region = signature_term_region(db, expr_region);
-    let raw_term_menu = db.raw_term_menu(expr_region.toolchain(db)).unwrap();
+    let declarative_term_region = declarative_term_region(db, expr_region);
+    let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
     let implicit_parameters = ImplicitParameterSignatures::from_decl(
         decl.implicit_parameters(db),
-        &signature_term_region,
-        raw_term_menu,
+        &declarative_term_region,
+        declarative_term_menu,
     );
-    Ok(TraitSignature::new(db, implicit_parameters))
+    Ok(TraitDeclarativeSignature::new(db, implicit_parameters))
 }

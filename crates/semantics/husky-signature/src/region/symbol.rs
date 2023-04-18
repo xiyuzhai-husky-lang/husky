@@ -3,7 +3,7 @@ use husky_expr::{PatternSymbolIdx, PatternSymbolOrderedMap, SymbolOrderedMap};
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = SignatureDb)]
+#[salsa::derive_debug_with_db(db = DeclarativeSignatureDb)]
 pub struct SymbolDeclarativeTermRegion {
     registry: DeclarativeTermSymbolRegistry,
     symbol_signatures: SymbolOrderedMap<SymbolSignature>,
@@ -36,7 +36,7 @@ impl SymbolDeclarativeTermRegion {
     #[inline(always)]
     pub(crate) fn add_new_implicit_parameter_symbol_signature(
         &mut self,
-        db: &dyn SignatureDb,
+        db: &dyn DeclarativeSignatureDb,
         idx: CurrentSymbolIdx,
         ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
     ) {
@@ -55,7 +55,7 @@ impl SymbolDeclarativeTermRegion {
     #[inline(always)]
     pub(crate) fn add_new_explicit_parameter_symbol_signature(
         &mut self,
-        db: &dyn SignatureDb,
+        db: &dyn DeclarativeSignatureDb,
         current_symbol: CurrentSymbolIdx,
         modifier: SymbolModifier,
         ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
@@ -78,7 +78,7 @@ impl SymbolDeclarativeTermRegion {
     #[inline(always)]
     fn add_new_current_symbol_signature(
         &mut self,
-        db: &dyn SignatureDb,
+        db: &dyn DeclarativeSignatureDb,
         idx: CurrentSymbolIdx,
         signature: SymbolSignature,
     ) {
@@ -108,7 +108,7 @@ impl SymbolDeclarativeTermRegion {
 
     pub(crate) fn init_self_ty_and_value(
         &mut self,
-        db: &dyn SignatureDb,
+        db: &dyn DeclarativeSignatureDb,
         region_path: RegionPath,
         symbol_region: &SymbolRegion,
     ) {
@@ -140,14 +140,18 @@ impl SymbolDeclarativeTermRegion {
             )
         }
     }
-    fn trai_self_ty_term(&mut self, db: &dyn SignatureDb) -> DeclarativeTerm {
+    fn trai_self_ty_term(&mut self, db: &dyn DeclarativeSignatureDb) -> DeclarativeTerm {
         // todo: general universe
         self.registry
             .new_symbol(db, Ok(DeclarativeTerm::TYPE))
             .into()
     }
 
-    fn ty_self_ty_term(&self, db: &dyn SignatureDb, ty_path: TypePath) -> DeclarativeTerm {
+    fn ty_self_ty_term(
+        &self,
+        db: &dyn DeclarativeSignatureDb,
+        ty_path: TypePath,
+    ) -> DeclarativeTerm {
         let mut self_ty: DeclarativeTerm = DeclarativeTermEntityPath::Type(ty_path.into()).into();
         for current_symbol_signature in self.symbol_signatures.current_symbol_map().iter().copied()
         {

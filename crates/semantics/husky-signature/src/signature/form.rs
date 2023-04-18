@@ -1,55 +1,59 @@
 mod r#fn;
 mod gn;
 mod type_alias;
-mod value;
-mod var;
+mod val;
 
 pub use self::gn::*;
 pub use self::r#fn::*;
 pub use self::type_alias::*;
-pub use self::value::*;
-pub use self::var::*;
+pub use self::val::*;
 
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = SignatureDb, jar = SignatureJar)]
+#[salsa::derive_debug_with_db(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 #[enum_class::from_variants]
-pub enum FormSignature {
+pub enum FormDeclarativeSignature {
     Fn(FnSignature),
-    Feature(VarSignature),
+    Val(ValDeclarativeSignature),
     Gn(GnSignature),
-    Value(ValueSignature),
 }
 
-impl HasSignature for FormPath {
-    type Signature = FormSignature;
+impl HasDeclarativeSignature for FormPath {
+    type DeclarativeSignature = FormDeclarativeSignature;
 
-    fn signature(self, db: &dyn SignatureDb) -> SignatureResult<Self::Signature> {
-        self.decl(db)?.signature(db)
+    fn declarative_signature(
+        self,
+        db: &dyn DeclarativeSignatureDb,
+    ) -> DeclarativeSignatureResult<Self::DeclarativeSignature> {
+        self.decl(db)?.declarative_signature(db)
     }
 }
 
-impl HasSignature for FormDecl {
-    type Signature = FormSignature;
+impl HasDeclarativeSignature for FormDecl {
+    type DeclarativeSignature = FormDeclarativeSignature;
 
-    fn signature(self, db: &dyn SignatureDb) -> SignatureResult<Self::Signature> {
+    fn declarative_signature(
+        self,
+        db: &dyn DeclarativeSignatureDb,
+    ) -> DeclarativeSignatureResult<Self::DeclarativeSignature> {
         match self {
-            FormDecl::Fn(decl) => decl.signature(db).map(Into::into),
-            FormDecl::Feature(decl) => decl.signature(db).map(Into::into),
-            FormDecl::Gn(decl) => decl.signature(db).map(Into::into),
-            FormDecl::Value(decl) => decl.signature(db).map(Into::into),
+            FormDecl::Fn(decl) => decl.declarative_signature(db).map(Into::into),
+            FormDecl::Val(decl) => decl.declarative_signature(db).map(Into::into),
+            FormDecl::Gn(decl) => decl.declarative_signature(db).map(Into::into),
         }
     }
 }
 
-impl FormSignature {
-    pub fn implicit_parameters(self, db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
+impl FormDeclarativeSignature {
+    pub fn implicit_parameters(
+        self,
+        db: &dyn DeclarativeSignatureDb,
+    ) -> &[ImplicitParameterSignature] {
         match self {
-            FormSignature::Fn(decl) => decl.implicit_parameters(db),
-            FormSignature::Feature(decl) => decl.implicit_parameters(db),
-            FormSignature::Gn(decl) => decl.implicit_parameters(db),
-            FormSignature::Value(decl) => decl.implicit_parameters(db),
+            FormDeclarativeSignature::Fn(decl) => decl.implicit_parameters(db),
+            FormDeclarativeSignature::Val(decl) => decl.implicit_parameters(db),
+            FormDeclarativeSignature::Gn(decl) => decl.implicit_parameters(db),
         }
     }
 }

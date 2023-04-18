@@ -9,7 +9,9 @@ use self::term::*;
 use crate::*;
 use husky_decr::Decr;
 use husky_entity_tree::TraitForTypeImplBlock;
-use husky_signature::{HasSignature, ImplicitParameterSignature, TypeSignature};
+use husky_signature::{
+    HasDeclarativeSignature, ImplicitParameterSignature, TypeDeclarativeSignature,
+};
 
 pub(crate) trait HasTemplate: Copy {
     type Template;

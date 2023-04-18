@@ -7,7 +7,7 @@ pub fn raw_term_raw_ty(
     _disambiguation: TypePathDisambiguation,
     raw_term: DeclarativeTerm,
     _toolchain: Toolchain,
-    raw_term_menu: DeclarativeTermMenu,
+    declarative_term_menu: DeclarativeTermMenu,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     match raw_term {
         DeclarativeTerm::Literal(_) => todo!(),
@@ -18,8 +18,10 @@ pub fn raw_term_raw_ty(
         DeclarativeTerm::Universe(_) => todo!(),
         DeclarativeTerm::Curry(_) => todo!(),
         DeclarativeTerm::Ritchie(raw_term) => Ok(match raw_term.ritchie_kind(db) {
-            TermRitchieKind::FnType => raw_term_menu.ty0().into(),
-            TermRitchieKind::FnTrait | TermRitchieKind::FnMutTrait => raw_term_menu.trai_ty(),
+            TermRitchieKind::FnType => declarative_term_menu.ty0().into(),
+            TermRitchieKind::FnTrait | TermRitchieKind::FnMutTrait => {
+                declarative_term_menu.trai_ty()
+            }
         }),
         DeclarativeTerm::Abstraction(_) => todo!(),
         DeclarativeTerm::ExplicitApplication(raw_term) => application_raw_term_raw_ty(db, raw_term),

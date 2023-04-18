@@ -11,10 +11,10 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Feature(
-                            FeatureDefn {
+                        FormDefn::Val(
+                            ValDefn {
                                 path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
-                                decl: FeatureDecl {
+                                decl: ValDecl {
                                     path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                                     ast_idx: 40,
                                     colon_token: Some(
@@ -300,8 +300,8 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Function(
-                            FunctionDefn {
+                        FormDefn::Fn(
+                            FnDefn {
                                 path: FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
                                 decl: FnDecl {
                                     path: FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
@@ -958,10 +958,10 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Feature(
-                            FeatureDefn {
+                        FormDefn::Val(
+                            ValDefn {
                                 path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
-                                decl: FeatureDecl {
+                                decl: ValDecl {
                                     path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                                     ast_idx: 42,
                                     colon_token: Some(
@@ -1268,8 +1268,8 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Function(
-                            FunctionDefn {
+                        FormDefn::Fn(
+                            FnDefn {
                                 path: FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
                                 decl: FnDecl {
                                     path: FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
@@ -2010,8 +2010,8 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Function(
-                            FunctionDefn {
+                        FormDefn::Fn(
+                            FnDefn {
                                 path: FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
                                 decl: FnDecl {
                                     path: FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
@@ -2879,10 +2879,10 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Feature(
-                            FeatureDefn {
+                        FormDefn::Val(
+                            ValDefn {
                                 path: FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
-                                decl: FeatureDecl {
+                                decl: ValDecl {
                                     path: FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                     ast_idx: 45,
                                     colon_token: Some(

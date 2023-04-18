@@ -19,45 +19,40 @@ use crate::*;
 #[enum_class::from_variants]
 pub enum FormDecl {
     Fn(FnDecl),
-    Feature(FeatureDecl),
+    Val(ValDecl),
     Gn(GnDecl),
-    Value(ValueDecl),
 }
 
 impl FormDecl {
     pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
         match self {
             FormDecl::Fn(decl) => decl.ast_idx(db),
-            FormDecl::Feature(decl) => decl.ast_idx(db),
+            FormDecl::Val(decl) => decl.ast_idx(db),
             FormDecl::Gn(decl) => decl.ast_idx(db),
-            FormDecl::Value(decl) => decl.ast_idx(db),
         }
     }
 
     pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDecl] {
         match self {
             FormDecl::Fn(decl) => decl.implicit_parameters(db),
-            FormDecl::Feature(_decl) => &[],
+            FormDecl::Val(_decl) => &[],
             FormDecl::Gn(decl) => decl.implicit_parameters(db),
-            FormDecl::Value(decl) => decl.implicit_parameters(db),
         }
     }
 
     pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
         match self {
             FormDecl::Fn(decl) => decl.expr_region(db),
-            FormDecl::Feature(decl) => decl.expr_region(db),
+            FormDecl::Val(decl) => decl.expr_region(db),
             FormDecl::Gn(decl) => decl.expr_region(db),
-            FormDecl::Value(decl) => decl.expr_region(db),
         }
     }
 
     pub fn path(self, db: &dyn DeclDb) -> FormPath {
         match self {
             FormDecl::Fn(decl) => decl.path(db),
-            FormDecl::Feature(decl) => decl.path(db),
+            FormDecl::Val(decl) => decl.path(db),
             FormDecl::Gn(decl) => decl.path(db),
-            FormDecl::Value(decl) => decl.path(db),
         }
     }
 }
