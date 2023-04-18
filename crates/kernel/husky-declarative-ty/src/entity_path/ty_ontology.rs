@@ -29,7 +29,7 @@ pub fn ty_constructor_path_raw_ty(
             Err(OriginalDeclarativeTypeError::InductiveTypeHasNoConstructor.into())
         }
         TypeDeclarativeSignature::Structure(_) => todo!(),
-        TypeDeclarativeSignature::Foreign(_) => todo!(),
+        TypeDeclarativeSignature::Extern(_) => todo!(),
         TypeDeclarativeSignature::Union(_) => todo!(),
     }
 }

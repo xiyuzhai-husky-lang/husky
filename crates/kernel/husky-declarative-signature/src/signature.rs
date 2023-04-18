@@ -39,7 +39,7 @@ pub enum Signature {
     Type(TypeDeclarativeSignature),
     Form(FormDeclarativeSignature),
     Trait(TraitDeclarativeSignature),
-    Impl(ImplBlockDeclarativeSignature),
+    ImplBlock(ImplBlockDeclarativeSignature),
     AssociatedItem(AssociatedItemDeclarativeSignature),
     Variant(VariantDeclarativeSignature),
     DeriveDecr(DeriveDecrDeclarativeSignature),

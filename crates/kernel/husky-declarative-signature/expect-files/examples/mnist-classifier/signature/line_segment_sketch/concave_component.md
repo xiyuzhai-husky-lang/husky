@@ -31,7 +31,7 @@
         ),
     ),
     Ok(
-        Signature::Impl(
+        Signature::ImplBlock(
             ImplBlockDeclarativeSignature::TypeImpl(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {

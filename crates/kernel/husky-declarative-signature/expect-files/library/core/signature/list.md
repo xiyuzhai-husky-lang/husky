@@ -1,7 +1,7 @@
 [
     Ok(
         Signature::Type(
-            TypeDeclarativeSignature::Foreign(
+            TypeDeclarativeSignature::Extern(
                 ExternTypeDeclarativeSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [
