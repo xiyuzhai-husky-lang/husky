@@ -1,4 +1,5 @@
 mod db;
+mod signature;
 
 pub use self::db::*;
 

@@ -16,7 +16,7 @@ pub(super) fn direct_regular_field_card(
         TypeDeclarativeSignature::Record(_) => todo!(),
         TypeDeclarativeSignature::Inductive(_) => todo!(),
         TypeDeclarativeSignature::Structure(_) => todo!(),
-        TypeDeclarativeSignature::Foreign(_) => todo!(),
+        TypeDeclarativeSignature::Extern(_) => todo!(),
         TypeDeclarativeSignature::Union(_) => todo!(),
     }
 }

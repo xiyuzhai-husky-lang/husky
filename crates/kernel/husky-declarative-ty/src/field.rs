@@ -26,7 +26,7 @@ pub fn ty_path_field_raw_ty(
         | TypeDeclarativeSignature::UnitStruct(_)
         | TypeDeclarativeSignature::TupleStruct(_)
         | TypeDeclarativeSignature::Inductive(_)
-        | TypeDeclarativeSignature::Foreign(_)
+        | TypeDeclarativeSignature::Extern(_)
         | TypeDeclarativeSignature::Union(_) => None,
     })
 }

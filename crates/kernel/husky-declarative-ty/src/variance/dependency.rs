@@ -73,7 +73,7 @@ pub(crate) fn raw_ty_entity_variance_crate_dependencies(
         TypeDeclarativeSignature::Record(_) => todo!(),
         TypeDeclarativeSignature::Inductive(_) => todo!(),
         TypeDeclarativeSignature::Structure(_) => todo!(),
-        TypeDeclarativeSignature::Foreign(_) => (),
+        TypeDeclarativeSignature::Extern(_) => (),
         TypeDeclarativeSignature::Union(_) => todo!(),
     }
     todo!()

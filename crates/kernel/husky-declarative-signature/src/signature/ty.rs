@@ -1,5 +1,5 @@
-mod alien_ty;
 mod enum_ty;
+mod extern_ty;
 mod inductive_ty;
 mod record_ty;
 mod regular_struct_ty;
@@ -8,15 +8,15 @@ mod tuple_struct_ty;
 mod union_ty;
 mod unit_struct_ty;
 
-pub use alien_ty::*;
-pub use enum_ty::*;
-pub use inductive_ty::*;
-pub use record_ty::*;
-pub use regular_struct_ty::*;
-pub use structure_ty::*;
-pub use tuple_struct_ty::*;
-pub use union_ty::*;
-pub use unit_struct_ty::*;
+pub use self::enum_ty::*;
+pub use self::extern_ty::*;
+pub use self::inductive_ty::*;
+pub use self::record_ty::*;
+pub use self::regular_struct_ty::*;
+pub use self::structure_ty::*;
+pub use self::tuple_struct_ty::*;
+pub use self::union_ty::*;
+pub use self::unit_struct_ty::*;
 
 use super::*;
 
@@ -31,7 +31,7 @@ pub enum TypeDeclarativeSignature {
     Record(RecordTypeDeclarativeSignature),
     Inductive(InductiveTypeDeclarativeSignature),
     Structure(StructureTypeDeclarativeSignature),
-    Foreign(ExternTypeDeclarativeSignature),
+    Extern(ExternTypeDeclarativeSignature),
     Union(UnionTypeDeclarativeSignature),
 }
 
@@ -48,7 +48,7 @@ impl TypeDeclarativeSignature {
             TypeDeclarativeSignature::Record(decl) => decl.implicit_parameters(db),
             TypeDeclarativeSignature::Inductive(decl) => decl.implicit_parameters(db),
             TypeDeclarativeSignature::Structure(decl) => decl.implicit_parameters(db),
-            TypeDeclarativeSignature::Foreign(decl) => decl.implicit_parameters(db),
+            TypeDeclarativeSignature::Extern(decl) => decl.implicit_parameters(db),
             TypeDeclarativeSignature::Union(decl) => decl.implicit_parameters(db),
         }
     }

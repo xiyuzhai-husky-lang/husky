@@ -1,7 +1,7 @@
 [
     Ok(
         Signature::Type(
-            TypeDeclarativeSignature::Foreign(
+            TypeDeclarativeSignature::Extern(
                 ExternTypeDeclarativeSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
@@ -12,7 +12,7 @@
     ),
     Ok(
         Signature::Type(
-            TypeDeclarativeSignature::Foreign(
+            TypeDeclarativeSignature::Extern(
                 ExternTypeDeclarativeSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
@@ -23,7 +23,7 @@
     ),
     Ok(
         Signature::Type(
-            TypeDeclarativeSignature::Foreign(
+            TypeDeclarativeSignature::Extern(
                 ExternTypeDeclarativeSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
@@ -34,7 +34,7 @@
     ),
     Ok(
         Signature::Type(
-            TypeDeclarativeSignature::Foreign(
+            TypeDeclarativeSignature::Extern(
                 ExternTypeDeclarativeSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
@@ -45,7 +45,7 @@
     ),
     Ok(
         Signature::Type(
-            TypeDeclarativeSignature::Foreign(
+            TypeDeclarativeSignature::Extern(
                 ExternTypeDeclarativeSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
@@ -56,7 +56,7 @@
     ),
     Ok(
         Signature::Type(
-            TypeDeclarativeSignature::Foreign(
+            TypeDeclarativeSignature::Extern(
                 ExternTypeDeclarativeSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
@@ -67,7 +67,7 @@
     ),
     Ok(
         Signature::Type(
-            TypeDeclarativeSignature::Foreign(
+            TypeDeclarativeSignature::Extern(
                 ExternTypeDeclarativeSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
@@ -78,7 +78,7 @@
     ),
     Ok(
         Signature::Type(
-            TypeDeclarativeSignature::Foreign(
+            TypeDeclarativeSignature::Extern(
                 ExternTypeDeclarativeSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
@@ -89,7 +89,7 @@
     ),
     Ok(
         Signature::Type(
-            TypeDeclarativeSignature::Foreign(
+            TypeDeclarativeSignature::Extern(
                 ExternTypeDeclarativeSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
@@ -100,7 +100,7 @@
     ),
     Ok(
         Signature::Type(
-            TypeDeclarativeSignature::Foreign(
+            TypeDeclarativeSignature::Extern(
                 ExternTypeDeclarativeSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
@@ -111,7 +111,7 @@
     ),
     Ok(
         Signature::Type(
-            TypeDeclarativeSignature::Foreign(
+            TypeDeclarativeSignature::Extern(
                 ExternTypeDeclarativeSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
@@ -122,7 +122,7 @@
     ),
     Ok(
         Signature::Type(
-            TypeDeclarativeSignature::Foreign(
+            TypeDeclarativeSignature::Extern(
                 ExternTypeDeclarativeSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
@@ -133,7 +133,7 @@
     ),
     Ok(
         Signature::Type(
-            TypeDeclarativeSignature::Foreign(
+            TypeDeclarativeSignature::Extern(
                 ExternTypeDeclarativeSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
@@ -144,7 +144,7 @@
     ),
     Ok(
         Signature::Type(
-            TypeDeclarativeSignature::Foreign(
+            TypeDeclarativeSignature::Extern(
                 ExternTypeDeclarativeSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
@@ -154,7 +154,7 @@
         ),
     ),
     Ok(
-        Signature::Impl(
+        Signature::ImplBlock(
             ImplBlockDeclarativeSignature::TypeImpl(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
@@ -195,7 +195,7 @@
         ),
     ),
     Ok(
-        Signature::Impl(
+        Signature::ImplBlock(
             ImplBlockDeclarativeSignature::TraitForTypeImpl(
                 TraitForTypeImplBlockDeclarativeSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
@@ -250,7 +250,7 @@
         ),
     ),
     Ok(
-        Signature::Impl(
+        Signature::ImplBlock(
             ImplBlockDeclarativeSignature::TypeImpl(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
@@ -291,7 +291,7 @@
         ),
     ),
     Ok(
-        Signature::Impl(
+        Signature::ImplBlock(
             ImplBlockDeclarativeSignature::TraitForTypeImpl(
                 TraitForTypeImplBlockDeclarativeSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
@@ -346,7 +346,7 @@
         ),
     ),
     Ok(
-        Signature::Impl(
+        Signature::ImplBlock(
             ImplBlockDeclarativeSignature::TypeImpl(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
@@ -387,7 +387,7 @@
         ),
     ),
     Ok(
-        Signature::Impl(
+        Signature::ImplBlock(
             ImplBlockDeclarativeSignature::TraitForTypeImpl(
                 TraitForTypeImplBlockDeclarativeSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
@@ -442,7 +442,7 @@
         ),
     ),
     Ok(
-        Signature::Impl(
+        Signature::ImplBlock(
             ImplBlockDeclarativeSignature::TypeImpl(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
@@ -483,7 +483,7 @@
         ),
     ),
     Ok(
-        Signature::Impl(
+        Signature::ImplBlock(
             ImplBlockDeclarativeSignature::TraitForTypeImpl(
                 TraitForTypeImplBlockDeclarativeSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
@@ -538,7 +538,7 @@
         ),
     ),
     Ok(
-        Signature::Impl(
+        Signature::ImplBlock(
             ImplBlockDeclarativeSignature::TypeImpl(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
@@ -579,7 +579,7 @@
         ),
     ),
     Ok(
-        Signature::Impl(
+        Signature::ImplBlock(
             ImplBlockDeclarativeSignature::TraitForTypeImpl(
                 TraitForTypeImplBlockDeclarativeSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
@@ -634,7 +634,7 @@
         ),
     ),
     Ok(
-        Signature::Impl(
+        Signature::ImplBlock(
             ImplBlockDeclarativeSignature::TypeImpl(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
@@ -675,7 +675,7 @@
         ),
     ),
     Ok(
-        Signature::Impl(
+        Signature::ImplBlock(
             ImplBlockDeclarativeSignature::TraitForTypeImpl(
                 TraitForTypeImplBlockDeclarativeSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
@@ -730,7 +730,7 @@
         ),
     ),
     Ok(
-        Signature::Impl(
+        Signature::ImplBlock(
             ImplBlockDeclarativeSignature::TypeImpl(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
@@ -771,7 +771,7 @@
         ),
     ),
     Ok(
-        Signature::Impl(
+        Signature::ImplBlock(
             ImplBlockDeclarativeSignature::TraitForTypeImpl(
                 TraitForTypeImplBlockDeclarativeSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
@@ -826,7 +826,7 @@
         ),
     ),
     Ok(
-        Signature::Impl(
+        Signature::ImplBlock(
             ImplBlockDeclarativeSignature::TypeImpl(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
@@ -867,7 +867,7 @@
         ),
     ),
     Ok(
-        Signature::Impl(
+        Signature::ImplBlock(
             ImplBlockDeclarativeSignature::TraitForTypeImpl(
                 TraitForTypeImplBlockDeclarativeSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
@@ -922,7 +922,7 @@
         ),
     ),
     Ok(
-        Signature::Impl(
+        Signature::ImplBlock(
             ImplBlockDeclarativeSignature::TypeImpl(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
@@ -963,7 +963,7 @@
         ),
     ),
     Ok(
-        Signature::Impl(
+        Signature::ImplBlock(
             ImplBlockDeclarativeSignature::TraitForTypeImpl(
                 TraitForTypeImplBlockDeclarativeSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
@@ -1018,7 +1018,7 @@
         ),
     ),
     Ok(
-        Signature::Impl(
+        Signature::ImplBlock(
             ImplBlockDeclarativeSignature::TypeImpl(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
@@ -1059,7 +1059,7 @@
         ),
     ),
     Ok(
-        Signature::Impl(
+        Signature::ImplBlock(
             ImplBlockDeclarativeSignature::TraitForTypeImpl(
                 TraitForTypeImplBlockDeclarativeSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
@@ -1114,7 +1114,7 @@
         ),
     ),
     Ok(
-        Signature::Impl(
+        Signature::ImplBlock(
             ImplBlockDeclarativeSignature::TypeImpl(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
@@ -1155,7 +1155,7 @@
         ),
     ),
     Ok(
-        Signature::Impl(
+        Signature::ImplBlock(
             ImplBlockDeclarativeSignature::TraitForTypeImpl(
                 TraitForTypeImplBlockDeclarativeSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
@@ -1210,7 +1210,7 @@
         ),
     ),
     Ok(
-        Signature::Impl(
+        Signature::ImplBlock(
             ImplBlockDeclarativeSignature::TypeImpl(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
@@ -1251,7 +1251,7 @@
         ),
     ),
     Ok(
-        Signature::Impl(
+        Signature::ImplBlock(
             ImplBlockDeclarativeSignature::TraitForTypeImpl(
                 TraitForTypeImplBlockDeclarativeSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
@@ -1306,7 +1306,7 @@
         ),
     ),
     Ok(
-        Signature::Impl(
+        Signature::ImplBlock(
             ImplBlockDeclarativeSignature::TypeImpl(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
@@ -1347,7 +1347,7 @@
         ),
     ),
     Ok(
-        Signature::Impl(
+        Signature::ImplBlock(
             ImplBlockDeclarativeSignature::TraitForTypeImpl(
                 TraitForTypeImplBlockDeclarativeSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
@@ -1402,7 +1402,7 @@
         ),
     ),
     Ok(
-        Signature::Impl(
+        Signature::ImplBlock(
             ImplBlockDeclarativeSignature::TypeImpl(
                 TypeImplBlockSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
@@ -1443,7 +1443,7 @@
         ),
     ),
     Ok(
-        Signature::Impl(
+        Signature::ImplBlock(
             ImplBlockDeclarativeSignature::TraitForTypeImpl(
                 TraitForTypeImplBlockDeclarativeSignature {
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
