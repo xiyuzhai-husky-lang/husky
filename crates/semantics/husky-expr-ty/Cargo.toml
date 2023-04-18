@@ -16,7 +16,7 @@ vec-like = { path = "../../abstraction/vec-like" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
 # infer
-husky-signature = { path = "../../semantics/husky-signature" }
+husky-declarative-signature = { path = "../../kernel/husky-declarative-signature" }
 # kernel
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 husky-ty-expectation = { path = "../../kernel/husky-ty-expectation" }

@@ -7,11 +7,11 @@ pub(crate) use self::trai_for_ty_impl::*;
 
 use self::term::*;
 use crate::*;
-use husky_decr::Decr;
-use husky_entity_tree::TraitForTypeImplBlock;
-use husky_signature::{
+use husky_declarative_signature::{
     HasDeclarativeSignature, ImplicitParameterSignature, TypeDeclarativeSignature,
 };
+use husky_decr::Decr;
+use husky_entity_tree::TraitForTypeImplBlock;
 
 pub(crate) trait HasTemplate: Copy {
     type Template;
