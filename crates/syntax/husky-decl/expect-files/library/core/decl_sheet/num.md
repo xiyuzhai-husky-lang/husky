@@ -1648,7 +1648,7 @@ Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TraitForTypeItem(
                             TraitForTypeItemDecl::Method(
-                                TraitForTypeMethodDecl {
+                                TraitForTypeMethodFnDecl {
                                     path: Some(
                                         TraitForTypeItemPath {
                                             parent_ty: TypePath(`core::num::i8`, `Extern`),
@@ -2711,7 +2711,7 @@ Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TraitForTypeItem(
                             TraitForTypeItemDecl::Method(
-                                TraitForTypeMethodDecl {
+                                TraitForTypeMethodFnDecl {
                                     path: Some(
                                         TraitForTypeItemPath {
                                             parent_ty: TypePath(`core::num::i16`, `Extern`),
@@ -3774,7 +3774,7 @@ Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TraitForTypeItem(
                             TraitForTypeItemDecl::Method(
-                                TraitForTypeMethodDecl {
+                                TraitForTypeMethodFnDecl {
                                     path: Some(
                                         TraitForTypeItemPath {
                                             parent_ty: TypePath(`core::num::i32`, `Extern`),
@@ -4839,7 +4839,7 @@ Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TraitForTypeItem(
                             TraitForTypeItemDecl::Method(
-                                TraitForTypeMethodDecl {
+                                TraitForTypeMethodFnDecl {
                                     path: Some(
                                         TraitForTypeItemPath {
                                             parent_ty: TypePath(`core::num::i64`, `Extern`),
@@ -5902,7 +5902,7 @@ Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TraitForTypeItem(
                             TraitForTypeItemDecl::Method(
-                                TraitForTypeMethodDecl {
+                                TraitForTypeMethodFnDecl {
                                     path: Some(
                                         TraitForTypeItemPath {
                                             parent_ty: TypePath(`core::num::i128`, `Extern`),
@@ -6965,7 +6965,7 @@ Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TraitForTypeItem(
                             TraitForTypeItemDecl::Method(
-                                TraitForTypeMethodDecl {
+                                TraitForTypeMethodFnDecl {
                                     path: Some(
                                         TraitForTypeItemPath {
                                             parent_ty: TypePath(`core::num::isize`, `Extern`),
@@ -8028,7 +8028,7 @@ Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TraitForTypeItem(
                             TraitForTypeItemDecl::Method(
-                                TraitForTypeMethodDecl {
+                                TraitForTypeMethodFnDecl {
                                     path: Some(
                                         TraitForTypeItemPath {
                                             parent_ty: TypePath(`core::num::u8`, `Extern`),
@@ -9091,7 +9091,7 @@ Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TraitForTypeItem(
                             TraitForTypeItemDecl::Method(
-                                TraitForTypeMethodDecl {
+                                TraitForTypeMethodFnDecl {
                                     path: Some(
                                         TraitForTypeItemPath {
                                             parent_ty: TypePath(`core::num::u16`, `Extern`),
@@ -10154,7 +10154,7 @@ Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TraitForTypeItem(
                             TraitForTypeItemDecl::Method(
-                                TraitForTypeMethodDecl {
+                                TraitForTypeMethodFnDecl {
                                     path: Some(
                                         TraitForTypeItemPath {
                                             parent_ty: TypePath(`core::num::u32`, `Extern`),
@@ -11217,7 +11217,7 @@ Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TraitForTypeItem(
                             TraitForTypeItemDecl::Method(
-                                TraitForTypeMethodDecl {
+                                TraitForTypeMethodFnDecl {
                                     path: Some(
                                         TraitForTypeItemPath {
                                             parent_ty: TypePath(`core::num::u64`, `Extern`),
@@ -12280,7 +12280,7 @@ Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TraitForTypeItem(
                             TraitForTypeItemDecl::Method(
-                                TraitForTypeMethodDecl {
+                                TraitForTypeMethodFnDecl {
                                     path: Some(
                                         TraitForTypeItemPath {
                                             parent_ty: TypePath(`core::num::u128`, `Extern`),
@@ -13343,7 +13343,7 @@ Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TraitForTypeItem(
                             TraitForTypeItemDecl::Method(
-                                TraitForTypeMethodDecl {
+                                TraitForTypeMethodFnDecl {
                                     path: Some(
                                         TraitForTypeItemPath {
                                             parent_ty: TypePath(`core::num::usize`, `Extern`),
@@ -14406,7 +14406,7 @@ Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TraitForTypeItem(
                             TraitForTypeItemDecl::Method(
-                                TraitForTypeMethodDecl {
+                                TraitForTypeMethodFnDecl {
                                     path: Some(
                                         TraitForTypeItemPath {
                                             parent_ty: TypePath(`core::num::f32`, `Extern`),
@@ -15471,7 +15471,7 @@ Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TraitForTypeItem(
                             TraitForTypeItemDecl::Method(
-                                TraitForTypeMethodDecl {
+                                TraitForTypeMethodFnDecl {
                                     path: Some(
                                         TraitForTypeItemPath {
                                             parent_ty: TypePath(`core::num::f64`, `Extern`),

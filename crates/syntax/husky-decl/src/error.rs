@@ -72,9 +72,9 @@ pub enum DerivedDeclError {
     #[error("derived {0}")]
     ExprError(#[from] DerivedExprError),
     #[error("unable to parse impl block decl for ty as trai method decl")]
-    UnableToParseImplDeclForTyAsTraitMethodDecl,
+    UnableToParseImplDeclForTyAsTraitMethodFnDecl,
     #[error("unable to parse impl block decl for ty method decl")]
-    UnableToParseImplDeclForTyMethodDecl,
+    UnableToParseImplDeclForTyMethodFnDecl,
     #[error("impl block error")]
     ImplErr,
     #[error("{0}")]

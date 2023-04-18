@@ -1926,7 +1926,7 @@ Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TraitForTypeItem(
                             TraitForTypeItemDefn::Method(
-                                TraitForTypeMethodDefn {
+                                TraitForTypeMethodFnDefn {
                                     path: Some(
                                         TraitForTypeItemPath {
                                             parent_ty: TypePath(`core::num::i8`, `Extern`),
@@ -1935,7 +1935,7 @@ Ok(
                                             item_kind: MethodFn,
                                         },
                                     ),
-                                    decl: TraitForTypeMethodDecl {
+                                    decl: TraitForTypeMethodFnDecl {
                                         path: Some(
                                             TraitForTypeItemPath {
                                                 parent_ty: TypePath(`core::num::i8`, `Extern`),
@@ -3592,7 +3592,7 @@ Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TraitForTypeItem(
                             TraitForTypeItemDefn::Method(
-                                TraitForTypeMethodDefn {
+                                TraitForTypeMethodFnDefn {
                                     path: Some(
                                         TraitForTypeItemPath {
                                             parent_ty: TypePath(`core::num::i16`, `Extern`),
@@ -3601,7 +3601,7 @@ Ok(
                                             item_kind: MethodFn,
                                         },
                                     ),
-                                    decl: TraitForTypeMethodDecl {
+                                    decl: TraitForTypeMethodFnDecl {
                                         path: Some(
                                             TraitForTypeItemPath {
                                                 parent_ty: TypePath(`core::num::i16`, `Extern`),
@@ -5258,7 +5258,7 @@ Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TraitForTypeItem(
                             TraitForTypeItemDefn::Method(
-                                TraitForTypeMethodDefn {
+                                TraitForTypeMethodFnDefn {
                                     path: Some(
                                         TraitForTypeItemPath {
                                             parent_ty: TypePath(`core::num::i32`, `Extern`),
@@ -5267,7 +5267,7 @@ Ok(
                                             item_kind: MethodFn,
                                         },
                                     ),
-                                    decl: TraitForTypeMethodDecl {
+                                    decl: TraitForTypeMethodFnDecl {
                                         path: Some(
                                             TraitForTypeItemPath {
                                                 parent_ty: TypePath(`core::num::i32`, `Extern`),
@@ -6926,7 +6926,7 @@ Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TraitForTypeItem(
                             TraitForTypeItemDefn::Method(
-                                TraitForTypeMethodDefn {
+                                TraitForTypeMethodFnDefn {
                                     path: Some(
                                         TraitForTypeItemPath {
                                             parent_ty: TypePath(`core::num::i64`, `Extern`),
@@ -6935,7 +6935,7 @@ Ok(
                                             item_kind: MethodFn,
                                         },
                                     ),
-                                    decl: TraitForTypeMethodDecl {
+                                    decl: TraitForTypeMethodFnDecl {
                                         path: Some(
                                             TraitForTypeItemPath {
                                                 parent_ty: TypePath(`core::num::i64`, `Extern`),
@@ -8592,7 +8592,7 @@ Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TraitForTypeItem(
                             TraitForTypeItemDefn::Method(
-                                TraitForTypeMethodDefn {
+                                TraitForTypeMethodFnDefn {
                                     path: Some(
                                         TraitForTypeItemPath {
                                             parent_ty: TypePath(`core::num::i128`, `Extern`),
@@ -8601,7 +8601,7 @@ Ok(
                                             item_kind: MethodFn,
                                         },
                                     ),
-                                    decl: TraitForTypeMethodDecl {
+                                    decl: TraitForTypeMethodFnDecl {
                                         path: Some(
                                             TraitForTypeItemPath {
                                                 parent_ty: TypePath(`core::num::i128`, `Extern`),
@@ -10258,7 +10258,7 @@ Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TraitForTypeItem(
                             TraitForTypeItemDefn::Method(
-                                TraitForTypeMethodDefn {
+                                TraitForTypeMethodFnDefn {
                                     path: Some(
                                         TraitForTypeItemPath {
                                             parent_ty: TypePath(`core::num::isize`, `Extern`),
@@ -10267,7 +10267,7 @@ Ok(
                                             item_kind: MethodFn,
                                         },
                                     ),
-                                    decl: TraitForTypeMethodDecl {
+                                    decl: TraitForTypeMethodFnDecl {
                                         path: Some(
                                             TraitForTypeItemPath {
                                                 parent_ty: TypePath(`core::num::isize`, `Extern`),
@@ -11924,7 +11924,7 @@ Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TraitForTypeItem(
                             TraitForTypeItemDefn::Method(
-                                TraitForTypeMethodDefn {
+                                TraitForTypeMethodFnDefn {
                                     path: Some(
                                         TraitForTypeItemPath {
                                             parent_ty: TypePath(`core::num::u8`, `Extern`),
@@ -11933,7 +11933,7 @@ Ok(
                                             item_kind: MethodFn,
                                         },
                                     ),
-                                    decl: TraitForTypeMethodDecl {
+                                    decl: TraitForTypeMethodFnDecl {
                                         path: Some(
                                             TraitForTypeItemPath {
                                                 parent_ty: TypePath(`core::num::u8`, `Extern`),
@@ -13590,7 +13590,7 @@ Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TraitForTypeItem(
                             TraitForTypeItemDefn::Method(
-                                TraitForTypeMethodDefn {
+                                TraitForTypeMethodFnDefn {
                                     path: Some(
                                         TraitForTypeItemPath {
                                             parent_ty: TypePath(`core::num::u16`, `Extern`),
@@ -13599,7 +13599,7 @@ Ok(
                                             item_kind: MethodFn,
                                         },
                                     ),
-                                    decl: TraitForTypeMethodDecl {
+                                    decl: TraitForTypeMethodFnDecl {
                                         path: Some(
                                             TraitForTypeItemPath {
                                                 parent_ty: TypePath(`core::num::u16`, `Extern`),
@@ -15256,7 +15256,7 @@ Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TraitForTypeItem(
                             TraitForTypeItemDefn::Method(
-                                TraitForTypeMethodDefn {
+                                TraitForTypeMethodFnDefn {
                                     path: Some(
                                         TraitForTypeItemPath {
                                             parent_ty: TypePath(`core::num::u32`, `Extern`),
@@ -15265,7 +15265,7 @@ Ok(
                                             item_kind: MethodFn,
                                         },
                                     ),
-                                    decl: TraitForTypeMethodDecl {
+                                    decl: TraitForTypeMethodFnDecl {
                                         path: Some(
                                             TraitForTypeItemPath {
                                                 parent_ty: TypePath(`core::num::u32`, `Extern`),
@@ -16922,7 +16922,7 @@ Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TraitForTypeItem(
                             TraitForTypeItemDefn::Method(
-                                TraitForTypeMethodDefn {
+                                TraitForTypeMethodFnDefn {
                                     path: Some(
                                         TraitForTypeItemPath {
                                             parent_ty: TypePath(`core::num::u64`, `Extern`),
@@ -16931,7 +16931,7 @@ Ok(
                                             item_kind: MethodFn,
                                         },
                                     ),
-                                    decl: TraitForTypeMethodDecl {
+                                    decl: TraitForTypeMethodFnDecl {
                                         path: Some(
                                             TraitForTypeItemPath {
                                                 parent_ty: TypePath(`core::num::u64`, `Extern`),
@@ -18588,7 +18588,7 @@ Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TraitForTypeItem(
                             TraitForTypeItemDefn::Method(
-                                TraitForTypeMethodDefn {
+                                TraitForTypeMethodFnDefn {
                                     path: Some(
                                         TraitForTypeItemPath {
                                             parent_ty: TypePath(`core::num::u128`, `Extern`),
@@ -18597,7 +18597,7 @@ Ok(
                                             item_kind: MethodFn,
                                         },
                                     ),
-                                    decl: TraitForTypeMethodDecl {
+                                    decl: TraitForTypeMethodFnDecl {
                                         path: Some(
                                             TraitForTypeItemPath {
                                                 parent_ty: TypePath(`core::num::u128`, `Extern`),
@@ -20254,7 +20254,7 @@ Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TraitForTypeItem(
                             TraitForTypeItemDefn::Method(
-                                TraitForTypeMethodDefn {
+                                TraitForTypeMethodFnDefn {
                                     path: Some(
                                         TraitForTypeItemPath {
                                             parent_ty: TypePath(`core::num::usize`, `Extern`),
@@ -20263,7 +20263,7 @@ Ok(
                                             item_kind: MethodFn,
                                         },
                                     ),
-                                    decl: TraitForTypeMethodDecl {
+                                    decl: TraitForTypeMethodFnDecl {
                                         path: Some(
                                             TraitForTypeItemPath {
                                                 parent_ty: TypePath(`core::num::usize`, `Extern`),
@@ -21920,7 +21920,7 @@ Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TraitForTypeItem(
                             TraitForTypeItemDefn::Method(
-                                TraitForTypeMethodDefn {
+                                TraitForTypeMethodFnDefn {
                                     path: Some(
                                         TraitForTypeItemPath {
                                             parent_ty: TypePath(`core::num::f32`, `Extern`),
@@ -21929,7 +21929,7 @@ Ok(
                                             item_kind: MethodFn,
                                         },
                                     ),
-                                    decl: TraitForTypeMethodDecl {
+                                    decl: TraitForTypeMethodFnDecl {
                                         path: Some(
                                             TraitForTypeItemPath {
                                                 parent_ty: TypePath(`core::num::f32`, `Extern`),
@@ -23588,7 +23588,7 @@ Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TraitForTypeItem(
                             TraitForTypeItemDefn::Method(
-                                TraitForTypeMethodDefn {
+                                TraitForTypeMethodFnDefn {
                                     path: Some(
                                         TraitForTypeItemPath {
                                             parent_ty: TypePath(`core::num::f64`, `Extern`),
@@ -23597,7 +23597,7 @@ Ok(
                                             item_kind: MethodFn,
                                         },
                                     ),
-                                    decl: TraitForTypeMethodDecl {
+                                    decl: TraitForTypeMethodFnDecl {
                                         path: Some(
                                             TraitForTypeItemPath {
                                                 parent_ty: TypePath(`core::num::f64`, `Extern`),

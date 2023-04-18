@@ -1,7 +1,7 @@
 use crate::*;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
-pub struct TraitMethodDecl {
+pub struct TraitMethodFnDecl {
     #[id]
     pub entity_path: EntityPath,
     pub ast_idx: AstIdx,
@@ -15,7 +15,7 @@ pub struct TraitMethodDecl {
     pub eol_colon: EolToken,
 }
 
-impl TraitMethodDecl {
+impl TraitMethodFnDecl {
     pub fn parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [RegularParameterDeclPattern] {
         self.parameter_decl_list(db).regular_parameters()
     }

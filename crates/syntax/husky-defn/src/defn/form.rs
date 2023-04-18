@@ -1,14 +1,12 @@
-mod feature;
-mod function;
-mod morphism;
+mod r#fn;
+mod gn;
 mod type_alias;
-mod value;
+mod val;
 
-pub use feature::*;
-pub use function::*;
-pub use morphism::*;
-pub use type_alias::*;
-pub use value::*;
+pub use self::gn::*;
+pub use self::r#fn::*;
+pub use self::type_alias::*;
+pub use self::val::*;
 
 use crate::*;
 
@@ -51,8 +49,8 @@ impl HasDefn for FormDecl {
 
     fn defn(self, db: &dyn DefnDb) -> Self::Defn {
         match self {
-            FormDecl::Fn(decl) => function_defn(db, decl).into(),
-            FormDecl::Val(decl) => feature_defn(db, decl).into(),
+            FormDecl::Fn(decl) => fn_defn(db, decl).into(),
+            FormDecl::Val(decl) => val_defn(db, decl).into(),
             FormDecl::Gn(_) => todo!(),
         }
     }

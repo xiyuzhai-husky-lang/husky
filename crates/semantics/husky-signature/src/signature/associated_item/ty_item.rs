@@ -1,14 +1,14 @@
 mod associated_fn;
 mod associated_ty;
-mod associated_value;
-mod memo;
-mod method;
+mod associated_val;
+mod memoized_field;
+mod method_fn;
 
 pub use associated_fn::*;
 pub use associated_ty::*;
-pub use associated_value::*;
-pub use memo::*;
-pub use method::*;
+pub use associated_val::*;
+pub use memoized_field::*;
+pub use method_fn::*;
 
 use crate::*;
 
@@ -16,7 +16,7 @@ use crate::*;
 #[salsa::derive_debug_with_db(db = DeclarativeSignatureDb)]
 #[enum_class::from_variants]
 pub enum TypeItemDeclarativeSignature {
-    AssociatedFn(TypeAssociatedFnSignature),
+    AssociatedFn(TypeAssociatedFnDeclarativeSignature),
     MethodFn(TypeMethodSignature),
     AssociatedType(TypeAssociatedTypeDeclarativeSignature),
     AssociatedValue(TypeAssociatedValueSignature),
@@ -75,13 +75,15 @@ pub(crate) fn ty_item_declarative_signature_from_decl(
     decl: TypeItemDecl,
 ) -> DeclarativeSignatureResult<TypeItemDeclarativeSignature> {
     match decl {
-        TypeItemDecl::AssociatedFn(decl) => ty_associated_fn_signature(db, decl).map(Into::into),
+        TypeItemDecl::AssociatedFn(decl) => {
+            ty_associated_fn_declarative_signature(db, decl).map(Into::into)
+        }
         TypeItemDecl::MethodFn(decl) => ty_method_signature(db, decl).map(Into::into),
         TypeItemDecl::AssociatedType(decl) => {
             ty_associated_ty_declarative_signature_from_decl(db, decl).map(Into::into)
         }
         TypeItemDecl::AssociatedValue(decl) => {
-            ty_associated_value_declarative_signature(db, decl).map(Into::into)
+            ty_associated_val_declarative_signature(db, decl).map(Into::into)
         }
         TypeItemDecl::Memo(decl) => ty_memo_signature(db, decl).map(Into::into),
     }

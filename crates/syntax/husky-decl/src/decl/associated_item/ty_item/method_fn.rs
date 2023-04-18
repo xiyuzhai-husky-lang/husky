@@ -48,7 +48,7 @@ impl<'a> DeclParseContext<'a> {
         let Ok(impl_block_decl) = associated_item.impl_block(self.db()).decl(
             self.db()
         ) else {
-            return Err(DerivedDeclError::UnableToParseImplDeclForTyMethodDecl.into())
+            return Err(DerivedDeclError::UnableToParseImplDeclForTyMethodFnDecl.into())
         };
         let mut parser = self.expr_parser(
             DeclRegionPath::AssociatedItem(associated_item.id(self.db())),

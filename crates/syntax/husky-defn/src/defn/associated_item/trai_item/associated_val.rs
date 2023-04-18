@@ -1,7 +1,7 @@
 use crate::*;
 
 #[salsa::tracked(db = DefnDb, jar = DefnJar)]
-pub struct TraitAssociatedValueDefn {
+pub struct TraitAssociatedValDefn {
     #[id]
     pub entity_path: EntityPath,
     pub expr_region: ExprRegion,
@@ -9,9 +9,9 @@ pub struct TraitAssociatedValueDefn {
 }
 
 #[salsa::tracked(jar = DefnJar)]
-pub(crate) fn trai_associated_value_defn(
+pub(crate) fn trai_associated_val_defn(
     _db: &dyn DefnDb,
     _decl: TraitAssociatedValueDecl,
-) -> TraitAssociatedValueDefn {
+) -> TraitAssociatedValDefn {
     todo!()
 }

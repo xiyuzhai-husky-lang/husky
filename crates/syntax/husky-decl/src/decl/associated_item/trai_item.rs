@@ -1,12 +1,12 @@
-mod assoc_ty;
-mod assoc_val;
-mod function;
-mod method;
+mod associated_fn;
+mod associated_ty;
+mod associated_val;
+mod method_fn;
 
-pub use assoc_ty::*;
-pub use assoc_val::*;
-pub use function::*;
-pub use method::*;
+pub use associated_fn::*;
+pub use associated_ty::*;
+pub use associated_val::*;
+pub use method_fn::*;
 
 use super::*;
 use husky_ast::*;
@@ -16,7 +16,7 @@ use husky_ast::*;
 #[enum_class::from_variants]
 pub enum TraitItemDecl {
     AssociatedFunction(TraitAssociatedFunctionDecl),
-    Method(TraitMethodDecl),
+    Method(TraitMethodFnDecl),
     AssociatedType(TraitAssociatedTypeDecl),
     Value(TraitAssociatedValueDecl),
 }

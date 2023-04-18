@@ -1,11 +1,11 @@
 mod associated_fn;
 mod associated_ty;
-mod associated_value;
+mod associated_val;
 mod method_fn;
 
 pub use associated_fn::*;
 pub use associated_ty::*;
-pub use associated_value::*;
+pub use associated_val::*;
 pub use method_fn::*;
 
 use crate::*;
@@ -15,10 +15,10 @@ use husky_entity_path::AssociatedItemPath;
 #[salsa::derive_debug_with_db(db = DefnDb)]
 #[enum_class::from_variants]
 pub enum TraitItemDefn {
-    Function(TraitAssociatedFunctionDefn),
-    Method(TraitMethodDefn),
+    Function(TraitAssociatedFnDefn),
+    Method(TraitMethodFnDefn),
     ExternType(TraitAssociatedTypeDefn),
-    Value(TraitAssociatedValueDefn),
+    Value(TraitAssociatedValDefn),
 }
 
 impl TraitItemDefn {
@@ -39,9 +39,7 @@ impl HasDefn for TraitItemDecl {
 
     fn defn(self, db: &dyn DefnDb) -> Self::Defn {
         match self {
-            TraitItemDecl::AssociatedFunction(decl) => {
-                trai_associated_function_defn(db, decl).into()
-            }
+            TraitItemDecl::AssociatedFunction(decl) => trai_associated_fn_defn(db, decl).into(),
             TraitItemDecl::Method(decl) => trai_method_defn(db, decl).into(),
             TraitItemDecl::AssociatedType(_decl) => todo!(),
             TraitItemDecl::Value(_decl) => todo!(),

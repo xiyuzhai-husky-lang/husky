@@ -25,12 +25,12 @@ pub fn ty_method_signature(
         }
     };
     let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
-    let implicit_parameters = ImplicitParameterSignatures::from_decl(
+    let implicit_parameters = ImplicitParameterDeclarativeSignatures::from_decl(
         decl.implicit_parameters(db),
         declarative_term_region,
         declarative_term_menu,
     );
-    let nonself_regular_parameters = ExplicitParameterSignatures::from_decl(
+    let nonself_regular_parameters = ExplicitParameterDeclarativeSignatures::from_decl(
         decl.regular_parameters(db),
         expr_region_data,
         declarative_term_region,
@@ -52,10 +52,10 @@ pub fn ty_method_signature(
 pub struct TypeMethodSignature {
     // todo: formal method, method that is not a function pointer
     #[return_ref]
-    pub implicit_parameters: ImplicitParameterSignatures,
+    pub implicit_parameters: ImplicitParameterDeclarativeSignatures,
     #[return_ref]
     pub self_parameter: ExplicitParameterSignature,
     #[return_ref]
-    pub nonself_regular_parameters: ExplicitParameterSignatures,
+    pub nonself_regular_parameters: ExplicitParameterDeclarativeSignatures,
     pub return_ty: DeclarativeTerm,
 }

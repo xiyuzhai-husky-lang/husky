@@ -26,7 +26,7 @@ pub(crate) fn ty_item_path_raw_ty(
 fn ty_associated_fn_path_raw_ty(
     db: &dyn DeclarativeTypeDb,
     variances: &[Variance],
-    signature: TypeAssociatedFnSignature,
+    signature: TypeAssociatedFnDeclarativeSignature,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     let param_raw_tys = signature
         .parameters(db)

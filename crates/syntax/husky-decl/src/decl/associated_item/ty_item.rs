@@ -1,20 +1,20 @@
 mod associated_fn;
 mod associated_ty;
-mod associated_value;
+mod associated_val;
 mod memo;
 mod method_fn;
 
 pub use associated_fn::*;
 pub use associated_ty::*;
-pub use associated_value::*;
-use husky_entity_taxonomy::TypeItemKind;
-use husky_word::{Ident, IdentPairMap};
+pub use associated_val::*;
 pub use memo::*;
 pub use method_fn::*;
-use vec_like::VecMapGetEntry;
 
 use crate::*;
 use husky_ast::*;
+use husky_entity_taxonomy::TypeItemKind;
+use husky_word::{Ident, IdentPairMap};
+use vec_like::VecMapGetEntry;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
@@ -23,7 +23,7 @@ pub enum TypeItemDecl {
     AssociatedFn(TypeAssociatedFnDecl),
     MethodFn(TypeMethodFnDecl),
     AssociatedType(TypeAssociatedTypeDecl),
-    AssociatedValue(TypeAssociatedValueDecl),
+    AssociatedValue(TypeAssociatedValDecl),
     Memo(TypeMemoDecl),
 }
 

@@ -16,9 +16,9 @@ use husky_ast::*;
 #[enum_class::from_variants]
 pub enum TraitForTypeItemDecl {
     AssociatedFunction(TraitForTypeAssociatedFunctionDecl),
-    Method(TraitForTypeMethodDecl),
+    Method(TraitForTypeMethodFnDecl),
     AssociatedType(TraitForTypeAssociatedTypeDecl),
-    AssociatedValue(TraitForTypeAssociatedValueDecl),
+    AssociatedValue(TraitForTypeAssociatedValDecl),
 }
 
 impl TraitForTypeItemDecl {
@@ -66,12 +66,12 @@ impl<'a> DeclParseContext<'a> {
         token_group_idx: TokenGroupIdx,
         associated_item: AssociatedItem,
         saved_stream_state: TokenIdx,
-    ) -> DeclResult<TraitForTypeMethodDecl> {
+    ) -> DeclResult<TraitForTypeMethodFnDecl> {
         let Ok(impl_decl) = associated_item.impl_block(self.db()).decl(
             self.db()
         ) else {
             return Err(
-                DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodDecl.into()
+                DerivedDeclError::UnableToParseImplDeclForTyAsTraitMethodFnDecl.into()
             )
         };
         let mut parser = self.expr_parser(
@@ -97,7 +97,7 @@ impl<'a> DeclParseContext<'a> {
             None
         };
         let eol_colon = ctx.parse_expected(OriginalDeclExprError::ExpectEolColon)?;
-        Ok(TraitForTypeMethodDecl::new(
+        Ok(TraitForTypeMethodFnDecl::new(
             self.db(),
             path,
             associated_item,

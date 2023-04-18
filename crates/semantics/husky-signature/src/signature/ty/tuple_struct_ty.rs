@@ -10,7 +10,7 @@ pub fn tuple_struct_ty_declarative_signature(
     let _declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
     Ok(TupleStructTypeDeclarativeSignature::new(
         db,
-        // ImplicitParameterSignatures::from_decl(decl.implicit_parameters(db), declarative_term_region),
+        // ImplicitParameterDeclarativeSignatures::from_decl(decl.implicit_parameters(db), declarative_term_region),
         todo!(),
         todo!(),
     ))
@@ -19,7 +19,7 @@ pub fn tuple_struct_ty_declarative_signature(
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct TupleStructTypeDeclarativeSignature {
     #[return_ref]
-    pub implicit_parameters: ImplicitParameterSignatures,
+    pub implicit_parameters: ImplicitParameterDeclarativeSignatures,
     #[return_ref]
     pub fields: Vec<TupleStructFieldSignature>,
 }

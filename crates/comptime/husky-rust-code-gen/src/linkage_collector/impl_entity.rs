@@ -80,9 +80,9 @@ impl<'a> LinkageCollector<'a> {
         //                 EntityDefnVariant::Method {
         //                     method_defn_kind, ..
         //                 } => match method_defn_kind {
-        //                     MethodDefnKind::TypeMethod { .. } => self.insert(defn.base_route),
-        //                     MethodDefnKind::TraitMethod { .. } => self.insert(defn.base_route),
-        //                     MethodDefnKind::TraitMethodImpl { .. } => self.insert(defn.base_route),
+        //                     MethodFnDefnKind::TypeMethod { .. } => self.insert(defn.base_route),
+        //                     MethodFnDefnKind::TraitMethod { .. } => self.insert(defn.base_route),
+        //                     MethodFnDefnKind::TraitMethodImpl { .. } => self.insert(defn.base_route),
         //                 },
         //                 _ => self.insert(member.base_route),
         //             }

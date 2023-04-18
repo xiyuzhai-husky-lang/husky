@@ -193,7 +193,7 @@ impl<'a> InferEngine<'a> {
         // todo!()
     }
 
-    fn visit_value(&mut self, defn: ValueDefn) {
+    fn visit_value(&mut self, defn: ValDefn) {
         let _decl = defn.decl(self.db);
         // todo!()
     }

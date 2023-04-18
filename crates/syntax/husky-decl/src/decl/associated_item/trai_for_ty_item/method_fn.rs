@@ -2,7 +2,7 @@ use crate::*;
 use husky_entity_tree::AssociatedItem;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
-pub struct TraitForTypeMethodDecl {
+pub struct TraitForTypeMethodFnDecl {
     #[id]
     pub path: Option<TraitForTypeItemPath>,
     pub associated_item: AssociatedItem,
@@ -17,7 +17,7 @@ pub struct TraitForTypeMethodDecl {
     pub eol_colon: EolToken,
 }
 
-impl TraitForTypeMethodDecl {
+impl TraitForTypeMethodFnDecl {
     pub fn self_parameter<'a>(self, db: &'a dyn DeclDb) -> Option<&'a SelfParameterDeclPattern> {
         self.explicit_parameter_decl_list(db)
             .self_parameter()

@@ -21,7 +21,7 @@ pub struct CUnionDefnHir {}
 
 pub enum CFormDefnHir {
     Function(CFunctionDefnHir),
-    Value(CValueDefnHir),
+    Value(CValDefnHir),
     Alias(CAliasDefnHir),
 }
 
@@ -29,7 +29,7 @@ pub enum CFormDefnHir {
 pub struct CFunctionDefnHir {}
 
 #[salsa::tracked(db = CHirDb, jar = CHirJar)]
-pub struct CValueDefnHir {}
+pub struct CValDefnHir {}
 
 #[salsa::tracked(db = CHirDb, jar = CHirJar)]
 pub struct CAliasDefnHir {}

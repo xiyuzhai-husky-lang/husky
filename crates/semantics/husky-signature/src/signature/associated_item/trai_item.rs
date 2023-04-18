@@ -1,12 +1,12 @@
+mod associated_fn;
 mod associated_ty;
-mod associated_value;
-mod function;
-mod method;
+mod associated_val;
+mod method_fn;
 
+pub use associated_fn::*;
 pub use associated_ty::*;
-pub use associated_value::*;
-pub use function::*;
-pub use method::*;
+pub use associated_val::*;
+pub use method_fn::*;
 
 use super::*;
 
@@ -14,7 +14,7 @@ use super::*;
 #[salsa::derive_debug_with_db(db = DeclarativeSignatureDb)]
 #[enum_class::from_variants]
 pub enum TraitItemDeclarativeSignature {
-    Function(TraitAssociatedFormFnSignature),
+    Function(TraitAssociatedFormFnDeclarativeSignature),
     Method(TraitMethodSignature),
     ExternType(TraitAssociatedTypeDeclarativeSignature),
     Value(TraitAssociatedValueSignature),
@@ -26,14 +26,14 @@ pub(crate) fn trai_associated_item_declarative_signature_from_decl(
 ) -> DeclarativeSignatureResult<TraitItemDeclarativeSignature> {
     match decl {
         TraitItemDecl::AssociatedFunction(decl) => {
-            trai_associated_form_fn_signature(db, decl).map(Into::into)
+            trai_associated_form_fn_declarative_signature(db, decl).map(Into::into)
         }
         TraitItemDecl::Method(decl) => trai_method_signature(db, decl).map(Into::into),
         TraitItemDecl::AssociatedType(decl) => {
             trai_associated_ty_declarative_signature(db, decl).map(Into::into)
         }
         TraitItemDecl::Value(decl) => {
-            trai_associated_value_declarative_signature(db, decl).map(Into::into)
+            trai_associated_val_declarative_signature(db, decl).map(Into::into)
         }
     }
 }
