@@ -16,6 +16,7 @@ pub use self::region::*;
 
 use self::engine::*;
 use either::*;
+use husky_declarative_signature::*;
 use husky_defn::*;
 use husky_entity_path::*;
 use husky_entity_taxonomy::*;
@@ -23,7 +24,6 @@ use husky_entity_tree::*;
 use husky_ethereal_term::*;
 use husky_expr::*;
 use husky_fluffy_term::*;
-use husky_signature::*;
 use husky_term_prelude::*;
 use salsa::DebugWithDb;
 use smallvec::*;

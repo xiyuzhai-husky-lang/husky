@@ -39,7 +39,7 @@ husky-semantic-token = { path = "../../ide/husky-semantic-token" }
 # infer
 husky-manifest = { path = "../../semantics/husky-manifest" }
 husky-token-info = { path = "../../semantics/husky-token-info" }
-husky-signature = { path = "../../semantics/husky-signature" }
+husky-declarative-signature = { path = "../../kernel/husky-declarative-signature" }
 husky-expr-ty = { path = "../../semantics/husky-expr-ty" }
 husky-corgi-config = { path = "../../semantics/husky-corgi-config" }
 # kernel

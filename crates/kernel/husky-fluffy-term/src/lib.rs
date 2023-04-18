@@ -33,11 +33,11 @@ pub(crate) use self::tests::*;
 
 use self::nested::*;
 use either::*;
+use husky_declarative_signature::*;
 use husky_entity_path::*;
 use husky_ethereal_term::*;
 use husky_expr::*;
 use husky_print_utils::p;
-use husky_signature::*;
 use husky_term_prelude::*;
 use salsa::DebugWithDb as _;
 use smallvec::*;

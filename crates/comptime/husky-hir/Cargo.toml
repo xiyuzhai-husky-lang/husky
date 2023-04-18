@@ -11,7 +11,7 @@ salsa = { path = "../../abstraction/salsa" }
 idx-arena = { path = "../../abstraction/idx-arena" }
 vec-like = { path = "../../abstraction/vec-like" }
 # infer
-husky-signature = { path = "../../semantics/husky-signature" }
+husky-declarative-signature = { path = "../../kernel/husky-declarative-signature" }
 # kernel
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }

@@ -1,10 +1,10 @@
 use crate::*;
 use husky_decl::DeclExprError;
+use husky_declarative_signature::SignatureError;
 use husky_declarative_ty::DeclarativeTypeError;
 use husky_decr::DecrError;
 use husky_entity_path::{EntityPath, EntityPathError};
 use husky_entity_tree::{EntityTreeBundleError, EntityTreeError};
-use husky_signature::SignatureError;
 use std::sync::Arc;
 use thiserror::Error;
 

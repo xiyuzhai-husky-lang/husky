@@ -1,4 +1,4 @@
-use husky_signature::TraitForTypeImplBlockDeclarativeSignature;
+use husky_declarative_signature::TraitForTypeImplBlockDeclarativeSignature;
 use smallvec::SmallVec;
 
 use super::*;

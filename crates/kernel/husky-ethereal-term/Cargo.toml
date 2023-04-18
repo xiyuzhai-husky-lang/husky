@@ -18,7 +18,7 @@ enum-class = { path = "../../abstraction/enum-class" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # infer
-husky-signature = { path = "../../semantics/husky-signature" }
+husky-declarative-signature = { path = "../../kernel/husky-declarative-signature" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
