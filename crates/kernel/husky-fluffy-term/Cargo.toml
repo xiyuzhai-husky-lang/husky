@@ -18,6 +18,7 @@ husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 husky-ty-expectation = { path = "../../kernel/husky-ty-expectation" }
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
+husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-scope = { path = "../../kernel/husky-scope" }
 # semantics

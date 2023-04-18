@@ -20,6 +20,7 @@ husky-token = { path = "../../lex/husky-token" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
+husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 husky-vfs = { path = "../../fs/husky-vfs" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }

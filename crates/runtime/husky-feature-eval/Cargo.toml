@@ -24,6 +24,7 @@ idx-arena = { path = "../../abstraction/idx-arena" }
 husky-text = { path = "../../lex/husky-text" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
+husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-vm = { path = "../../vm/husky-vm" }
 husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }

@@ -13,6 +13,7 @@ use husky_defn::DefnJar;
 use husky_diagnostics::DiagnosticsJar;
 use husky_entity_path::EntityPathJar;
 use husky_entity_tree::EntityTreeJar;
+use husky_ethereal_signature::EtherealSignatureJar;
 use husky_ethereal_term::EtherealTermJar;
 use husky_expr::ExprJar;
 use husky_expr_ty::ExprTypeJar;
@@ -51,6 +52,7 @@ use husky_word::WordJar;
     DeclarativeTermJar,
     DeclarativeTypeJar,
     EtherealTermJar,
+EtherealSignatureJar,
     // syntax
     ExprJar,
     DeclJar,
