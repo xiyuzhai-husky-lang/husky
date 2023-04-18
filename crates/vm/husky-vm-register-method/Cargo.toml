@@ -9,5 +9,6 @@ serde_json = { version = "1.0.48", features = ["preserve_order"] }
 husky-vm-interface = { path = "../../vm/husky-vm-interface" }
 husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
+husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 husky-vm-binding = { path = "../husky-vm-binding" }
 husky-any = { path = "../husky-any" }

@@ -14,6 +14,7 @@ vec-like = { path = "../../abstraction/vec-like" }
 husky-declarative-signature = { path = "../../kernel/husky-declarative-signature" }
 # kernel
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
+husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 husky-word = { path = "../../kernel/husky-word" }
