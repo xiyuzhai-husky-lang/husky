@@ -13,64 +13,75 @@ pub use method::*;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = SignatureDb)]
+#[salsa::derive_debug_with_db(db = DeclarativeSignatureDb)]
 #[enum_class::from_variants]
-pub enum TypeItemSignature {
+pub enum TypeItemDeclarativeSignature {
     AssociatedFn(TypeAssociatedFnSignature),
     MethodFn(TypeMethodSignature),
-    AssociatedType(TypeAssociatedTypeSignature),
+    AssociatedType(TypeAssociatedTypeDeclarativeSignature),
     AssociatedValue(TypeAssociatedValueSignature),
     Memo(TypeMemoSignature),
 }
 
-impl TypeItemSignature {
-    pub fn implicit_parameters(self, db: &dyn SignatureDb) -> &[ImplicitParameterSignature] {
+impl TypeItemDeclarativeSignature {
+    pub fn implicit_parameters(
+        self,
+        db: &dyn DeclarativeSignatureDb,
+    ) -> &[ImplicitParameterSignature] {
         match self {
-            TypeItemSignature::AssociatedFn(signature) => signature.implicit_parameters(db),
-            TypeItemSignature::MethodFn(_) => todo!(),
-            TypeItemSignature::AssociatedType(_) => todo!(),
-            TypeItemSignature::AssociatedValue(_) => todo!(),
-            TypeItemSignature::Memo(_) => todo!(),
+            TypeItemDeclarativeSignature::AssociatedFn(signature) => {
+                signature.implicit_parameters(db)
+            }
+            TypeItemDeclarativeSignature::MethodFn(_) => todo!(),
+            TypeItemDeclarativeSignature::AssociatedType(_) => todo!(),
+            TypeItemDeclarativeSignature::AssociatedValue(_) => todo!(),
+            TypeItemDeclarativeSignature::Memo(_) => todo!(),
         }
     }
 }
 
-impl HasSignature for TypeItemPath {
-    type Signature = TypeItemSignature;
+impl HasDeclarativeSignature for TypeItemPath {
+    type DeclarativeSignature = TypeItemDeclarativeSignature;
 
-    fn signature(self, db: &dyn SignatureDb) -> SignatureResult<TypeItemSignature> {
-        self.decl(db)?.signature(db)
+    fn declarative_signature(
+        self,
+        db: &dyn DeclarativeSignatureDb,
+    ) -> DeclarativeSignatureResult<TypeItemDeclarativeSignature> {
+        self.decl(db)?.declarative_signature(db)
     }
 }
 
-impl HasSignature for TypeItemDecl {
-    type Signature = TypeItemSignature;
+impl HasDeclarativeSignature for TypeItemDecl {
+    type DeclarativeSignature = TypeItemDeclarativeSignature;
 
-    fn signature(self, db: &dyn SignatureDb) -> SignatureResult<TypeItemSignature> {
-        ty_item_signature_from_decl(db, self)
+    fn declarative_signature(
+        self,
+        db: &dyn DeclarativeSignatureDb,
+    ) -> DeclarativeSignatureResult<TypeItemDeclarativeSignature> {
+        ty_item_declarative_signature_from_decl(db, self)
     }
 }
 
-pub(crate) fn ty_item_signature(
-    db: &dyn SignatureDb,
+pub(crate) fn ty_item_declarative_signature(
+    db: &dyn DeclarativeSignatureDb,
     path: TypeItemPath,
-) -> SignatureResult<TypeItemSignature> {
+) -> DeclarativeSignatureResult<TypeItemDeclarativeSignature> {
     let decl = path.decl(db)?;
-    ty_item_signature_from_decl(db, decl)
+    ty_item_declarative_signature_from_decl(db, decl)
 }
 
-pub(crate) fn ty_item_signature_from_decl(
-    db: &dyn SignatureDb,
+pub(crate) fn ty_item_declarative_signature_from_decl(
+    db: &dyn DeclarativeSignatureDb,
     decl: TypeItemDecl,
-) -> SignatureResult<TypeItemSignature> {
+) -> DeclarativeSignatureResult<TypeItemDeclarativeSignature> {
     match decl {
         TypeItemDecl::AssociatedFn(decl) => ty_associated_fn_signature(db, decl).map(Into::into),
         TypeItemDecl::MethodFn(decl) => ty_method_signature(db, decl).map(Into::into),
         TypeItemDecl::AssociatedType(decl) => {
-            ty_associated_ty_signature_from_decl(db, decl).map(Into::into)
+            ty_associated_ty_declarative_signature_from_decl(db, decl).map(Into::into)
         }
         TypeItemDecl::AssociatedValue(decl) => {
-            ty_associated_value_signature(db, decl).map(Into::into)
+            ty_associated_value_declarative_signature(db, decl).map(Into::into)
         }
         TypeItemDecl::Memo(decl) => ty_memo_signature(db, decl).map(Into::into),
     }

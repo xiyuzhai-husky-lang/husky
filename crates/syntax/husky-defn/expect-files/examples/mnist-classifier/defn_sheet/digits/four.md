@@ -11,10 +11,10 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Feature(
-                            FeatureDefn {
+                        FormDefn::Val(
+                            ValDefn {
                                 path: FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
-                                decl: FeatureDecl {
+                                decl: ValDecl {
                                     path: FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                                     ast_idx: 38,
                                     colon_token: Some(
@@ -321,8 +321,8 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Function(
-                            FunctionDefn {
+                        FormDefn::Fn(
+                            FnDefn {
                                 path: FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
                                 decl: FnDecl {
                                     path: FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
@@ -841,10 +841,10 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Feature(
-                            FeatureDefn {
+                        FormDefn::Val(
+                            ValDefn {
                                 path: FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
-                                decl: FeatureDecl {
+                                decl: ValDecl {
                                     path: FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                                     ast_idx: 40,
                                     colon_token: Some(
@@ -1130,10 +1130,10 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Feature(
-                            FeatureDefn {
+                        FormDefn::Val(
+                            ValDefn {
                                 path: FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
-                                decl: FeatureDecl {
+                                decl: ValDecl {
                                     path: FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                                     ast_idx: 41,
                                     colon_token: Some(
@@ -1419,10 +1419,10 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Feature(
-                            FeatureDefn {
+                        FormDefn::Val(
+                            ValDefn {
                                 path: FormPath(`mnist_classifier::digits::four::is_four`, `Val`),
-                                decl: FeatureDecl {
+                                decl: ValDecl {
                                     path: FormPath(`mnist_classifier::digits::four::is_four`, `Val`),
                                     ast_idx: 42,
                                     colon_token: Some(
@@ -3760,8 +3760,8 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Function(
-                            FunctionDefn {
+                        FormDefn::Fn(
+                            FnDefn {
                                 path: FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
                                 decl: FnDecl {
                                     path: FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
@@ -4411,8 +4411,8 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Function(
-                            FunctionDefn {
+                        FormDefn::Fn(
+                            FnDefn {
                                 path: FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
                                 decl: FnDecl {
                                     path: FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),

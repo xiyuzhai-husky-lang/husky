@@ -292,8 +292,8 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Function(
-                            FunctionDefn {
+                        FormDefn::Fn(
+                            FnDefn {
                                 path: FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
                                 decl: FnDecl {
                                     path: FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
@@ -969,8 +969,8 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Function(
-                            FunctionDefn {
+                        FormDefn::Fn(
+                            FnDefn {
                                 path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
                                 decl: FnDecl {
                                     path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
@@ -1622,8 +1622,8 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Function(
-                            FunctionDefn {
+                        FormDefn::Fn(
+                            FnDefn {
                                 path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
                                 decl: FnDecl {
                                     path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
@@ -2299,8 +2299,8 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Function(
-                            FunctionDefn {
+                        FormDefn::Fn(
+                            FnDefn {
                                 path: FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
                                 decl: FnDecl {
                                     path: FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
@@ -3317,8 +3317,8 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Function(
-                            FunctionDefn {
+                        FormDefn::Fn(
+                            FnDefn {
                                 path: FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
                                 decl: FnDecl {
                                     path: FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
@@ -4175,8 +4175,8 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Function(
-                            FunctionDefn {
+                        FormDefn::Fn(
+                            FnDefn {
                                 path: FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
                                 decl: FnDecl {
                                     path: FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
@@ -5528,8 +5528,8 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Function(
-                            FunctionDefn {
+                        FormDefn::Fn(
+                            FnDefn {
                                 path: FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
                                 decl: FnDecl {
                                     path: FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
@@ -6539,8 +6539,8 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Function(
-                            FunctionDefn {
+                        FormDefn::Fn(
+                            FnDefn {
                                 path: FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                 decl: FnDecl {
                                     path: FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),

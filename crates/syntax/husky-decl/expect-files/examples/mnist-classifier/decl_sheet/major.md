@@ -11,8 +11,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Feature(
-                            FeatureDecl {
+                        FormDecl::Val(
+                            ValDecl {
                                 path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
                                 ast_idx: 19,
                                 colon_token: Some(
@@ -157,8 +157,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Feature(
-                            FeatureDecl {
+                        FormDecl::Val(
+                            ValDecl {
                                 path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                 ast_idx: 20,
                                 colon_token: Some(
@@ -288,8 +288,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Feature(
-                            FeatureDecl {
+                        FormDecl::Val(
+                            ValDecl {
                                 path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                 ast_idx: 21,
                                 colon_token: Some(
@@ -412,8 +412,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Feature(
-                            FeatureDecl {
+                        FormDecl::Val(
+                            ValDecl {
                                 path: FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
                                 ast_idx: 22,
                                 colon_token: Some(
@@ -558,8 +558,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Feature(
-                            FeatureDecl {
+                        FormDecl::Val(
+                            ValDecl {
                                 path: FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                                 ast_idx: 23,
                                 colon_token: Some(
@@ -689,8 +689,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Feature(
-                            FeatureDecl {
+                        FormDecl::Val(
+                            ValDecl {
                                 path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                 ast_idx: 24,
                                 colon_token: Some(
@@ -820,8 +820,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Feature(
-                            FeatureDecl {
+                        FormDecl::Val(
+                            ValDecl {
                                 path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                 ast_idx: 25,
                                 colon_token: Some(

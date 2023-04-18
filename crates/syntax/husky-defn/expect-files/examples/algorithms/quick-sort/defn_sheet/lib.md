@@ -11,8 +11,8 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Function(
-                            FunctionDefn {
+                        FormDefn::Fn(
+                            FnDefn {
                                 path: FormPath(`quick_sort::quick_sort`, `Fn`),
                                 decl: FnDecl {
                                     path: FormPath(`quick_sort::quick_sort`, `Fn`),
@@ -814,8 +814,8 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Function(
-                            FunctionDefn {
+                        FormDefn::Fn(
+                            FnDefn {
                                 path: FormPath(`quick_sort::quick_sort_aux`, `Fn`),
                                 decl: FnDecl {
                                     path: FormPath(`quick_sort::quick_sort_aux`, `Fn`),
@@ -2073,8 +2073,8 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Function(
-                            FunctionDefn {
+                        FormDefn::Fn(
+                            FnDefn {
                                 path: FormPath(`quick_sort::partition`, `Fn`),
                                 decl: FnDecl {
                                     path: FormPath(`quick_sort::partition`, `Fn`),

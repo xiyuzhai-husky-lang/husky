@@ -11,8 +11,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Feature(
-                            FeatureDecl {
+                        FormDecl::Val(
+                            ValDecl {
                                 path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                 ast_idx: 62,
                                 colon_token: Some(
@@ -135,8 +135,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Feature(
-                            FeatureDecl {
+                        FormDecl::Val(
+                            ValDecl {
                                 path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ast_idx: 63,
                                 colon_token: Some(

@@ -9,44 +9,44 @@ use husky_print_utils::p;
 use salsa::DebugWithDb;
 
 pub(super) struct DeclarativeTermEngine<'a> {
-    db: &'a dyn SignatureDb,
+    db: &'a dyn DeclarativeSignatureDb,
     expr_region_data: &'a ExprRegionData,
-    raw_term_menu: &'a DeclarativeTermMenu,
+    declarative_term_menu: &'a DeclarativeTermMenu,
     raw_term_symbol_region: SymbolDeclarativeTermRegion,
-    expr_terms: ExprMap<SignatureDeclarativeTermResult<DeclarativeTerm>>,
+    expr_terms: ExprMap<DeclarativeTermResult2<DeclarativeTerm>>,
     /// todo: change this to ordered
     pattern_expr_ty_infos: PatternExprMap<PatternExprDeclarativeTypeInfo>,
     pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
 }
 
-#[salsa::tracked(jar = SignatureJar, return_ref)]
-pub(crate) fn signature_term_region(
-    db: &dyn SignatureDb,
+#[salsa::tracked(jar = DeclarativeSignatureJar, return_ref)]
+pub(crate) fn declarative_term_region(
+    db: &dyn DeclarativeSignatureDb,
     expr_region: ExprRegion,
-) -> SignatureRegion {
+) -> DeclarativeTermRegion {
     let expr_region_data = expr_region.data(db);
     let parent_expr_region = expr_region_data.parent();
     let parent_term_symbol_region =
-        parent_expr_region.map(|r| signature_term_region(db, r).term_symbol_region());
+        parent_expr_region.map(|r| declarative_term_region(db, r).term_symbol_region());
     let mut engine = DeclarativeTermEngine::new(db, expr_region, parent_term_symbol_region);
     engine.infer_all()
 }
 
 impl<'a> DeclarativeTermEngine<'a> {
     fn new(
-        db: &'a dyn SignatureDb,
+        db: &'a dyn DeclarativeSignatureDb,
         expr_region: ExprRegion,
         parent_term_symbol_region: Option<&'a SymbolDeclarativeTermRegion>,
     ) -> Self {
         let toolchain = expr_region.toolchain(db);
         // ad hoc
         let _entity_path_menu = db.entity_path_menu(toolchain);
-        let raw_term_menu = db.raw_term_menu(toolchain).unwrap();
+        let declarative_term_menu = db.declarative_term_menu(toolchain).unwrap();
         let expr_region_data = &expr_region.data(db);
         Self {
             db,
             expr_region_data,
-            raw_term_menu,
+            declarative_term_menu,
             raw_term_symbol_region: SymbolDeclarativeTermRegion::new(
                 parent_term_symbol_region,
                 expr_region_data.symbol_region(),
@@ -61,7 +61,7 @@ impl<'a> DeclarativeTermEngine<'a> {
         }
     }
 
-    fn infer_all(mut self) -> SignatureRegion {
+    fn infer_all(mut self) -> DeclarativeTermRegion {
         self.init_current_symbol_terms();
         self.raw_term_symbol_region.init_self_ty_and_value(
             self.db,
@@ -94,10 +94,10 @@ impl<'a> DeclarativeTermEngine<'a> {
                     };
                     let ty = match implicit_parameter_variant {
                         CurrentImplicitParameterSymbol::Lifetime { label_token } => {
-                            Ok(self.raw_term_menu.lifetime_ty().into())
+                            Ok(self.declarative_term_menu.lifetime_ty().into())
                         }
                         CurrentImplicitParameterSymbol::Type { ident_token } => {
-                            Ok(self.raw_term_menu.ty0().into())
+                            Ok(self.declarative_term_menu.ty0().into())
                         }
                         _ => todo!(),
                     };
@@ -184,11 +184,14 @@ impl<'a> DeclarativeTermEngine<'a> {
     }
 
     // infer the term for expr, assuming it hasn't been computed before
-    fn infer_new_expr_term(&mut self, expr_idx: ExprIdx) -> SignatureDeclarativeTermResult<DeclarativeTerm> {
+    fn infer_new_expr_term(
+        &mut self,
+        expr_idx: ExprIdx,
+    ) -> DeclarativeTermResult2<DeclarativeTerm> {
         let result = self.calc_expr_term(expr_idx);
         let result_export = match result {
             Ok(term) => Ok(term),
-            Err(_) => Err(DerivedSignatureDeclarativeTermError::DeclarativeTermAbortion.into()),
+            Err(_) => Err(DerivedDeclarativeTermError2::DeclarativeTermAbortion.into()),
         };
         self.save_expr_term(expr_idx, result);
         result_export
@@ -200,8 +203,8 @@ impl<'a> DeclarativeTermEngine<'a> {
         self.save_expr_term(expr_idx, result)
     }
 
-    pub(crate) fn finish(self) -> SignatureRegion {
-        SignatureRegion::new(
+    pub(crate) fn finish(self) -> DeclarativeTermRegion {
+        DeclarativeTermRegion::new(
             self.expr_region_data.path(),
             self.raw_term_symbol_region,
             self.expr_terms,
@@ -210,11 +213,15 @@ impl<'a> DeclarativeTermEngine<'a> {
         )
     }
 
-    fn save_expr_term(&mut self, expr_idx: ExprIdx, outcome: SignatureDeclarativeTermResult<DeclarativeTerm>) {
+    fn save_expr_term(
+        &mut self,
+        expr_idx: ExprIdx,
+        outcome: DeclarativeTermResult2<DeclarativeTerm>,
+    ) {
         self.expr_terms.insert_new(expr_idx, outcome)
     }
 
-    fn calc_expr_term(&mut self, expr_idx: ExprIdx) -> SignatureDeclarativeTermResult<DeclarativeTerm> {
+    fn calc_expr_term(&mut self, expr_idx: ExprIdx) -> DeclarativeTermResult2<DeclarativeTerm> {
         match self.expr_region_data.expr_arena()[expr_idx] {
             Expr::Literal(_) => todo!(),
             Expr::EntityPath {
@@ -234,7 +241,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                     EntityPath::AssociatedItem(_) => todo!(),
                     EntityPath::TypeVariant(_) => todo!(),
                 })),
-                None => Err(DerivedSignatureDeclarativeTermError::InvalidEntityPath.into()),
+                None => Err(DerivedDeclarativeTermError2::InvalidEntityPath.into()),
             },
             Expr::InheritedSymbol {
                 ident: _,
@@ -249,25 +256,25 @@ impl<'a> DeclarativeTermEngine<'a> {
                 .current_symbol_signature(current_symbol_idx)
                 .expect("not none")
                 .symbol()
-                .ok_or(OriginalSignatureDeclarativeTermError::InvalidSymbolForTerm)?
+                .ok_or(OriginalDeclarativeTermError2::InvalidSymbolForTerm)?
                 .into()),
             Expr::FrameVarDecl { .. } => unreachable!(),
             Expr::SelfType(_) => self
                 .raw_term_symbol_region
                 .self_ty_term()
-                .ok_or(DerivedSignatureDeclarativeTermError::SelfTypeNotAllowedInThisRegion.into()),
+                .ok_or(DerivedDeclarativeTermError2::SelfTypeNotAllowedInThisRegion.into()),
             Expr::SelfValue(_) => self
                 .raw_term_symbol_region
                 .self_ty_term()
-                .ok_or(DerivedSignatureDeclarativeTermError::SelfValueNotAllowedInThisRegion.into()),
+                .ok_or(DerivedDeclarativeTermError2::SelfValueNotAllowedInThisRegion.into()),
             Expr::Binary {
                 lopd, opr, ropd, ..
             } => {
                 let Ok(lopd) = self.infer_new_expr_term(lopd) else {
-                    return Err(DerivedSignatureDeclarativeTermError::CannotInferOperandDeclarativeTermInPrefix.into());
+                    return Err(DerivedDeclarativeTermError2::CannotInferOperandDeclarativeTermInPrefix.into());
                 };
                 let Ok(ropd) = self.infer_new_expr_term(ropd) else {
-                    return Err(DerivedSignatureDeclarativeTermError::CannotInferOperandDeclarativeTermInPrefix.into());
+                    return Err(DerivedDeclarativeTermError2::CannotInferOperandDeclarativeTermInPrefix.into());
                 };
                 match opr {
                     BinaryOpr::Closed(_) => todo!(),
@@ -299,20 +306,20 @@ impl<'a> DeclarativeTermEngine<'a> {
                 opd,
             } => {
                 let Ok(opd) = self.infer_new_expr_term(opd) else {
-                    return Err(DerivedSignatureDeclarativeTermError::CannotInferOperandDeclarativeTermInPrefix.into());
+                    return Err(DerivedDeclarativeTermError2::CannotInferOperandDeclarativeTermInPrefix.into());
                 };
                 let tmpl = match opr {
                     PrefixOpr::Minus => todo!(),
                     PrefixOpr::Not => todo!(),
-                    PrefixOpr::Tilde => {
-                        DeclarativeTerm::LeashOrBitNot(self.expr_region_data.path().toolchain(self.db))
-                    }
-                    PrefixOpr::Ref => self.raw_term_menu.ref_ty_path(),
+                    PrefixOpr::Tilde => DeclarativeTerm::LeashOrBitNot(
+                        self.expr_region_data.path().toolchain(self.db),
+                    ),
+                    PrefixOpr::Ref => self.declarative_term_menu.ref_ty_path(),
                     PrefixOpr::Vector => todo!(),
                     PrefixOpr::Slice => todo!(),
                     PrefixOpr::CyclicSlice => todo!(),
                     PrefixOpr::Array(_) => todo!(),
-                    PrefixOpr::Option => self.raw_term_menu.option_ty_path(),
+                    PrefixOpr::Option => self.declarative_term_menu.option_ty_path(),
                 };
                 Ok(DeclarativeTermExplicitApplication::new(self.db, tmpl, opd).into())
             }
@@ -337,7 +344,7 @@ impl<'a> DeclarativeTermEngine<'a> {
             } => {
                 let Ok(function) = self.infer_new_expr_term(function) else {
                     return Err(
-                        DerivedSignatureDeclarativeTermError::CannotInferArgumentDeclarativeTermInApplication.into()
+                        DerivedDeclarativeTermError2::CannotInferArgumentDeclarativeTermInApplication.into()
                     )
                 };
                 let implicit_arguments = match implicit_arguments {
@@ -354,7 +361,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                 let items = items
                     .into_iter()
                     .map(|item| self.infer_new_expr_term(item))
-                    .collect::<SignatureDeclarativeTermResult<_>>()?;
+                    .collect::<DeclarativeTermResult2<_>>()?;
                 Ok(DeclarativeTermExplicitApplicationOrRitchieCall::new(
                     self.db,
                     function,
@@ -366,10 +373,10 @@ impl<'a> DeclarativeTermEngine<'a> {
             }
             Expr::ExplicitApplication { function, argument } => {
                 let Ok(argument) = self.infer_new_expr_term(argument) else {
-                    Err(DerivedSignatureDeclarativeTermError::CannotInferArgumentDeclarativeTermInApplication)?
+                    Err(DerivedDeclarativeTermError2::CannotInferArgumentDeclarativeTermInApplication)?
                 };
                 let Ok( function) = self.infer_new_expr_term(function) else {
-                    Err(DerivedSignatureDeclarativeTermError::CannotInferFunctionDeclarativeTermInApplication)?
+                    Err(DerivedDeclarativeTermError2::CannotInferFunctionDeclarativeTermInApplication)?
                 };
                 Ok(DeclarativeTermExplicitApplication::new(self.db, function, argument).into())
             }
@@ -382,7 +389,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                 let items = items
                     .into_iter()
                     .map(|item| self.infer_new_expr_term(item))
-                    .collect::<SignatureDeclarativeTermResult<Vec<_>>>()?;
+                    .collect::<DeclarativeTermResult2<Vec<_>>>()?;
                 Ok(DeclarativeTermList::new(
                     self.db,
                     self.expr_region_data.path().toolchain(self.db),
@@ -391,7 +398,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                 .into())
             }
             Expr::BoxColonList { items, .. } => match items.len() {
-                0 => Ok(self.raw_term_menu.slice_ty_path()),
+                0 => Ok(self.declarative_term_menu.slice_ty_path()),
                 _ => todo!(),
             },
             Expr::Bracketed { item, .. } => self.infer_new_expr_term(item),
@@ -402,7 +409,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                 items: _indices,
                 rbox_token_idx: _,
             } => todo!(),
-            Expr::Err(_) => Err(DerivedSignatureDeclarativeTermError::ExprError.into()),
+            Expr::Err(_) => Err(DerivedDeclarativeTermError2::ExprError.into()),
             Expr::Unit {
                 lpar_token_idx,
                 rpar_token_idx,
@@ -414,7 +421,7 @@ impl<'a> DeclarativeTermEngine<'a> {
         self.raw_term_symbol_region.current_symbol_signature(symbol)
     }
 
-    pub(crate) fn raw_term_menu(&self) -> &DeclarativeTermMenu {
-        self.raw_term_menu
+    pub(crate) fn declarative_term_menu(&self) -> &DeclarativeTermMenu {
+        self.declarative_term_menu
     }
 }

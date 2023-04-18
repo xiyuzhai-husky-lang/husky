@@ -41,5 +41,5 @@ pub struct DeclarativeTermJar(
     DeclarativeTermAsTraitSubentity,
     DeclarativeTermTraitConstraint,
     DeclarativeTermList,
-    raw_term_menu,
+    declarative_term_menu,
 );

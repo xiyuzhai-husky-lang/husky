@@ -3,30 +3,50 @@ use husky_expr::ExprRegion;
 
 use crate::*;
 
-pub trait SignatureDb: salsa::DbWithJar<SignatureJar> + DecrDb + DeclarativeTermDb {
-    fn signature_term_region(&self, expr_region: ExprRegion) -> &SignatureRegion;
-    fn ty_signature_from_decl(&self, decl: TypeDecl) -> SignatureResult<TypeSignature>;
-    fn trai_signature(&self, decl: TraitDecl) -> SignatureResult<TraitSignature>;
-    fn ty_item_signature(&self, path: TypeItemPath) -> SignatureResult<TypeItemSignature>;
+pub trait DeclarativeSignatureDb:
+    salsa::DbWithJar<DeclarativeSignatureJar> + DecrDb + DeclarativeTermDb
+{
+    fn declarative_term_region(&self, expr_region: ExprRegion) -> &DeclarativeTermRegion;
+    fn ty_declarative_signature_from_decl(
+        &self,
+        decl: TypeDecl,
+    ) -> DeclarativeSignatureResult<TypeDeclarativeSignature>;
+    fn trai_declarative_signature(
+        &self,
+        decl: TraitDecl,
+    ) -> DeclarativeSignatureResult<TraitDeclarativeSignature>;
+    fn ty_item_declarative_signature(
+        &self,
+        path: TypeItemPath,
+    ) -> DeclarativeSignatureResult<TypeItemDeclarativeSignature>;
 }
 
-impl<Db> SignatureDb for Db
+impl<Db> DeclarativeSignatureDb for Db
 where
-    Db: salsa::DbWithJar<SignatureJar> + DecrDb + DeclarativeTermDb,
+    Db: salsa::DbWithJar<DeclarativeSignatureJar> + DecrDb + DeclarativeTermDb,
 {
-    fn signature_term_region(&self, expr_region: ExprRegion) -> &SignatureRegion {
-        signature_term_region(self, expr_region)
+    fn declarative_term_region(&self, expr_region: ExprRegion) -> &DeclarativeTermRegion {
+        declarative_term_region(self, expr_region)
     }
 
-    fn ty_signature_from_decl(&self, decl: TypeDecl) -> SignatureResult<TypeSignature> {
-        ty_signature_from_decl(self, decl)
+    fn ty_declarative_signature_from_decl(
+        &self,
+        decl: TypeDecl,
+    ) -> DeclarativeSignatureResult<TypeDeclarativeSignature> {
+        ty_declarative_signature_from_decl(self, decl)
     }
 
-    fn trai_signature(&self, decl: TraitDecl) -> SignatureResult<TraitSignature> {
-        trai_signature_from_decl(self, decl)
+    fn trai_declarative_signature(
+        &self,
+        decl: TraitDecl,
+    ) -> DeclarativeSignatureResult<TraitDeclarativeSignature> {
+        trai_declarative_signature_from_decl(self, decl)
     }
 
-    fn ty_item_signature(&self, path: TypeItemPath) -> SignatureResult<TypeItemSignature> {
-        ty_item_signature(self, path)
+    fn ty_item_declarative_signature(
+        &self,
+        path: TypeItemPath,
+    ) -> DeclarativeSignatureResult<TypeItemDeclarativeSignature> {
+        ty_item_declarative_signature(self, path)
     }
 }

@@ -93,7 +93,7 @@ fn method_card_aux(
             }
         },
         _ => {
-            let signature = ty_path.signature(engine.db())?;
+            let signature = ty_path.declarative_signature(engine.db())?;
             if let Some(card) = direct_method_card(engine, signature, arguments, ident)? {
                 return Ok(Some(card));
             }
@@ -105,7 +105,7 @@ fn method_card_aux(
 
 fn direct_method_card(
     engine: &mut impl FluffyTermEngine,
-    signature: TypeSignature,
+    signature: TypeDeclarativeSignature,
     arguments: SmallVec<[FluffyTerm; 2]>,
     ident: Ident,
 ) -> FluffyCardResult<Option<FluffyMethodCard>> {

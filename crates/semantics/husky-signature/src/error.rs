@@ -39,13 +39,19 @@ impl From<&ExprError> for SignatureError {
     }
 }
 
-impl From<&SignatureDeclarativeTermError> for SignatureError {
-    fn from(value: &SignatureDeclarativeTermError) -> Self {
+impl From<&DeclarativeTermError> for SignatureError {
+    fn from(value: &DeclarativeTermError) -> Self {
         SignatureError::DeclarativeTermError
     }
 }
 
-impl<DB: ?Sized + SignatureDb> salsa::DebugWithDb<DB> for SignatureError {
+impl From<&DeclarativeTermError2> for SignatureError {
+    fn from(value: &DeclarativeTermError2) -> Self {
+        SignatureError::DeclarativeTermError
+    }
+}
+
+impl<DB: ?Sized + DeclarativeSignatureDb> salsa::DebugWithDb<DB> for SignatureError {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -56,4 +62,4 @@ impl<DB: ?Sized + SignatureDb> salsa::DebugWithDb<DB> for SignatureError {
     }
 }
 
-pub type SignatureResult<T> = Result<T, SignatureError>;
+pub type DeclarativeSignatureResult<T> = Result<T, SignatureError>;

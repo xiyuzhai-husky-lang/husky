@@ -1,4 +1,4 @@
-use husky_signature::TraitForTypeImplBlockSignature;
+use husky_signature::TraitForTypeImplBlockDeclarativeSignature;
 use smallvec::SmallVec;
 
 use super::*;
@@ -56,7 +56,7 @@ pub(crate) trait HasTemplateParameters: Copy {
     fn template_parameters<'a>(self, db: &'a dyn EtherealTermDb) -> TermResult<TemplateParameters>;
 }
 
-impl HasTemplateParameters for TraitForTypeImplBlockSignature {
+impl HasTemplateParameters for TraitForTypeImplBlockDeclarativeSignature {
     fn template_parameters<'a>(self, db: &'a dyn EtherealTermDb) -> TermResult<TemplateParameters> {
         TemplateParameters::new(db, self.implicit_parameters(db))
     }
@@ -73,5 +73,5 @@ pub(crate) fn ty_path_template_parameters(
     db: &dyn EtherealTermDb,
     path: TypePath,
 ) -> TermResult<TemplateParameters> {
-    TemplateParameters::new(db, path.signature(db)?.implicit_parameters(db))
+    TemplateParameters::new(db, path.declarative_signature(db)?.implicit_parameters(db))
 }

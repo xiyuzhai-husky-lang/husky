@@ -1,25 +1,25 @@
 use super::*;
 
-#[salsa::tracked(jar = SignatureJar)]
-pub fn enum_ty_signature(
-    db: &dyn SignatureDb,
+#[salsa::tracked(jar = DeclarativeSignatureJar)]
+pub fn enum_ty_declarative_signature(
+    db: &dyn DeclarativeSignatureDb,
     decl: EnumTypeDecl,
-) -> SignatureResult<EnumTypeSignature> {
+) -> DeclarativeSignatureResult<EnumTypeDeclarativeSignature> {
     let expr_region = decl.expr_region(db);
-    let signature_term_region = signature_term_region(db, expr_region);
-    let raw_term_menu = db.raw_term_menu(expr_region.toolchain(db)).unwrap();
+    let declarative_term_region = declarative_term_region(db, expr_region);
+    let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
     let implicit_parameters = ImplicitParameterSignatures::from_decl(
         decl.implicit_parameters(db),
-        &signature_term_region,
-        raw_term_menu,
+        &declarative_term_region,
+        declarative_term_menu,
     );
-    Ok(EnumTypeSignature::new(db, implicit_parameters))
+    Ok(EnumTypeDeclarativeSignature::new(db, implicit_parameters))
 }
 
-#[salsa::interned(db = SignatureDb, jar = SignatureJar)]
-pub struct EnumTypeSignature {
+#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
+pub struct EnumTypeDeclarativeSignature {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterSignatures,
 }
 
-impl EnumTypeSignature {}
+impl EnumTypeDeclarativeSignature {}

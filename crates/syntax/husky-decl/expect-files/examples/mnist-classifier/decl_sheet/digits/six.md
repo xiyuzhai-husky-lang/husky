@@ -11,8 +11,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Feature(
-                            FeatureDecl {
+                        FormDecl::Val(
+                            ValDecl {
                                 path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                                 ast_idx: 50,
                                 colon_token: Some(
@@ -135,8 +135,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Feature(
-                            FeatureDecl {
+                        FormDecl::Val(
+                            ValDecl {
                                 path: FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                                 ast_idx: 51,
                                 colon_token: Some(
@@ -259,8 +259,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Feature(
-                            FeatureDecl {
+                        FormDecl::Val(
+                            ValDecl {
                                 path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ast_idx: 52,
                                 colon_token: Some(

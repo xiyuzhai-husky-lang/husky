@@ -1,22 +1,22 @@
 use crate::*;
 
-#[salsa::interned(db = SignatureDb, jar = SignatureJar)]
-pub struct TypeAssociatedTypeSignature {}
+#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
+pub struct TypeAssociatedTypeDeclarativeSignature {}
 
-pub(crate) fn ty_associated_ty_signature(
-    db: &dyn SignatureDb,
+pub(crate) fn ty_associated_ty_declarative_signature(
+    db: &dyn DeclarativeSignatureDb,
     decl: TypeAssociatedTypeDecl,
-) -> SignatureResult<TypeAssociatedTypeSignature> {
+) -> DeclarativeSignatureResult<TypeAssociatedTypeDeclarativeSignature> {
     todo!()
 }
 
-#[salsa::tracked(jar = SignatureJar)]
-pub(crate) fn ty_associated_ty_signature_from_decl(
-    db: &dyn SignatureDb,
+#[salsa::tracked(jar = DeclarativeSignatureJar)]
+pub(crate) fn ty_associated_ty_declarative_signature_from_decl(
+    db: &dyn DeclarativeSignatureDb,
     decl: TypeAssociatedTypeDecl,
-) -> SignatureResult<TypeAssociatedTypeSignature> {
+) -> DeclarativeSignatureResult<TypeAssociatedTypeDeclarativeSignature> {
     let expr_region = decl.expr_region(db);
-    let _signature_term_region = signature_term_region(db, expr_region);
-    let _raw_term_menu = db.raw_term_menu(expr_region.toolchain(db)).unwrap();
-    Ok(TypeAssociatedTypeSignature::new(db))
+    let _declarative_term_region = declarative_term_region(db, expr_region);
+    let _declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
+    Ok(TypeAssociatedTypeDeclarativeSignature::new(db))
 }

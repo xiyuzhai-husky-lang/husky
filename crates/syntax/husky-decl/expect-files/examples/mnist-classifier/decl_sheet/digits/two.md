@@ -11,8 +11,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Feature(
-                            FeatureDecl {
+                        FormDecl::Val(
+                            ValDecl {
                                 path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                                 ast_idx: 50,
                                 colon_token: Some(
@@ -825,8 +825,8 @@ Ok(
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Feature(
-                            FeatureDecl {
+                        FormDecl::Val(
+                            ValDecl {
                                 path: FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                                 ast_idx: 54,
                                 colon_token: Some(

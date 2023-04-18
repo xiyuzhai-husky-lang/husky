@@ -1,7 +1,7 @@
 use crate::*;
 
 #[salsa::tracked(db = DefnDb, jar = DefnJar)]
-pub struct FunctionDefn {
+pub struct FnDefn {
     #[id]
     pub path: FormPath,
     pub decl: FnDecl,
@@ -10,7 +10,7 @@ pub struct FunctionDefn {
 }
 
 #[salsa::tracked(jar = DefnJar)]
-pub(crate) fn function_defn(db: &dyn DefnDb, decl: FnDecl) -> FunctionDefn {
+pub(crate) fn function_defn(db: &dyn DefnDb, decl: FnDecl) -> FnDefn {
     let path = decl.path(db);
     let mut parser = expr_parser(
         db,
@@ -28,5 +28,5 @@ pub(crate) fn function_defn(db: &dyn DefnDb, decl: FnDecl) -> FunctionDefn {
         _ => unreachable!(),
     };
     let expr_region = parser.finish();
-    FunctionDefn::new(db, path, decl, expr_region, body)
+    FnDefn::new(db, path, decl, expr_region, body)
 }

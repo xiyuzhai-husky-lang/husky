@@ -11,10 +11,10 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Feature(
-                            FeatureDefn {
+                        FormDefn::Val(
+                            ValDefn {
                                 path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
-                                decl: FeatureDecl {
+                                decl: ValDecl {
                                     path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                                     ast_idx: 36,
                                     colon_token: Some(
@@ -300,10 +300,10 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Feature(
-                            FeatureDefn {
+                        FormDefn::Val(
+                            ValDefn {
                                 path: FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
-                                decl: FeatureDecl {
+                                decl: ValDecl {
                                     path: FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                                     ast_idx: 37,
                                     colon_token: Some(
@@ -589,10 +589,10 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Feature(
-                            FeatureDefn {
+                        FormDefn::Val(
+                            ValDefn {
                                 path: FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
-                                decl: FeatureDecl {
+                                decl: ValDecl {
                                     path: FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                                     ast_idx: 38,
                                     colon_token: Some(
@@ -2872,8 +2872,8 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Function(
-                            FunctionDefn {
+                        FormDefn::Fn(
+                            FnDefn {
                                 path: FormPath(`mnist_classifier::digits::nine::downmost`, `Fn`),
                                 decl: FnDecl {
                                     path: FormPath(`mnist_classifier::digits::nine::downmost`, `Fn`),
@@ -3523,8 +3523,8 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Function(
-                            FunctionDefn {
+                        FormDefn::Fn(
+                            FnDefn {
                                 path: FormPath(`mnist_classifier::digits::nine::big_cc`, `Fn`),
                                 decl: FnDecl {
                                     path: FormPath(`mnist_classifier::digits::nine::big_cc`, `Fn`),

@@ -34,7 +34,7 @@ use husky_word::WordJar;
     DecrJar,
     TermPreludeJar,
     DeclarativeTermJar,
-    SignatureJar
+    DeclarativeSignatureJar
 )]
 #[derive(Default)]
 pub(crate) struct DB {
@@ -43,7 +43,10 @@ pub(crate) struct DB {
 
 impl salsa::Database for DB {}
 
-fn module_signatures(db: &DB, module_path: ModulePath) -> Vec<SignatureResult<Signature>> {
+fn module_signatures(
+    db: &DB,
+    module_path: ModulePath,
+) -> Vec<DeclarativeSignatureResult<Signature>> {
     let Ok(decl_sheet) = db.decl_sheet(module_path) else {
         return vec![]
     };
@@ -66,7 +69,7 @@ fn module_signatures_works() {
 }
 
 #[test]
-fn menu_ty_signatures_works() {
+fn menu_ty_declarative_signatures_works() {
     let db = DB::default();
     let toolchain = db.dev_toolchain().unwrap();
     let entity_path_menu = db.entity_path_menu(toolchain);
@@ -86,8 +89,12 @@ fn menu_ty_signatures_works() {
     // Iterate over the type paths and assert that they are Ok
     for ty_path in ty_paths {
         let ty_decl = ty_path.decl(&db).unwrap();
-        let ty_signature = db.ty_signature_from_decl(ty_decl);
+        let ty_declarative_signature = db.ty_declarative_signature_from_decl(ty_decl);
 
-        assert!(ty_signature.is_ok(), "Failed for type path: {:?}", ty_path);
+        assert!(
+            ty_declarative_signature.is_ok(),
+            "Failed for type path: {:?}",
+            ty_path
+        );
     }
 }

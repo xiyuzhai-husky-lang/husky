@@ -1,4 +1,4 @@
 use crate::*;
 
-#[salsa::interned(db = SignatureDb, jar = SignatureJar)]
-pub struct UnitVariantSignature {}
+#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
+pub struct UnitVariantDeclarativeSignature {}

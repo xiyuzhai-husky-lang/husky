@@ -17,7 +17,7 @@ use husky_expr_ty::ExprTypeJar;
 use husky_fluffy_term::FluffyTermJar;
 use husky_manifest::ManifestJar;
 use husky_manifest_ast::ManifestAstJar;
-use husky_signature::SignatureJar;
+use husky_signature::DeclarativeSignatureJar;
 use husky_term_prelude::TermPreludeJar;
 use husky_token::TokenJar;
 use husky_toml_ast::TomlAstJar;
@@ -44,7 +44,7 @@ use husky_word::WordJar;
     ExprJar,
     TermPreludeJar,
     DeclarativeTermJar,
-    SignatureJar,
+    DeclarativeSignatureJar,
     DeclarativeTypeJar,
     EtherealTermJar,
     FluffyTermJar,

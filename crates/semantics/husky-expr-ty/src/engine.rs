@@ -26,7 +26,7 @@ pub(crate) struct ExprTypeEngine<'a> {
     term_menu: &'a TermMenu,
     token_sheet_data: &'a TokenSheetData,
     expr_region_data: &'a ExprRegionData,
-    signature_term_region: &'a SignatureRegion,
+    declarative_term_region: &'a DeclarativeTermRegion,
     fluffy_term_region: FluffyTermRegion,
     expr_ty_infos: ExprMap<ExprTypeInfo>,
     extra_expr_errors: Vec<(ExprIdx, ExprTypeError)>,
@@ -76,7 +76,7 @@ impl<'a> ExprTypeEngine<'a> {
         let parent_expr_region = expr_region_data.parent();
         let return_ty = parent_expr_region
             .map(|parent_expr_region| {
-                db.signature_term_region(parent_expr_region)
+                db.declarative_term_region(parent_expr_region)
                     .expr_term(parent_expr_region.data(db).return_ty()?)
                     .ok()
             })
@@ -86,7 +86,7 @@ impl<'a> ExprTypeEngine<'a> {
         // todo: improve this
         let self_ty = parent_expr_region
             .map(|parent_expr_region| {
-                db.signature_term_region(parent_expr_region)
+                db.declarative_term_region(parent_expr_region)
                     .expr_term(parent_expr_region.data(db).self_ty()?)
                     .ok()
             })
@@ -107,7 +107,7 @@ impl<'a> ExprTypeEngine<'a> {
                 .token_sheet_data(expr_region_data.path().module_path(db))
                 .unwrap(),
             expr_region_data,
-            signature_term_region: db.signature_term_region(expr_region),
+            declarative_term_region: db.declarative_term_region(expr_region),
             fluffy_term_region: FluffyTermRegion::new(
                 parent_expr_ty_region.map(|r| r.fluffy_term_region()),
             ),

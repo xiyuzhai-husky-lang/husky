@@ -11,10 +11,10 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Feature(
-                            FeatureDefn {
+                        FormDefn::Val(
+                            ValDefn {
                                 path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
-                                decl: FeatureDecl {
+                                decl: ValDecl {
                                     path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                                     ast_idx: 50,
                                     colon_token: Some(
@@ -342,8 +342,8 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Function(
-                            FunctionDefn {
+                        FormDefn::Fn(
+                            FnDefn {
                                 path: FormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Fn`),
                                 decl: FnDecl {
                                     path: FormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Fn`),
@@ -993,8 +993,8 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Function(
-                            FunctionDefn {
+                        FormDefn::Fn(
+                            FnDefn {
                                 path: FormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Fn`),
                                 decl: FnDecl {
                                     path: FormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Fn`),
@@ -1644,8 +1644,8 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Function(
-                            FunctionDefn {
+                        FormDefn::Fn(
+                            FnDefn {
                                 path: FormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Fn`),
                                 decl: FnDecl {
                                     path: FormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Fn`),
@@ -2295,10 +2295,10 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Feature(
-                            FeatureDefn {
+                        FormDefn::Val(
+                            ValDefn {
                                 path: FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
-                                decl: FeatureDecl {
+                                decl: ValDecl {
                                     path: FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                                     ast_idx: 54,
                                     colon_token: Some(

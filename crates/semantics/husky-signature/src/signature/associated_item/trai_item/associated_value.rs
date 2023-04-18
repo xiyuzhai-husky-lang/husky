@@ -1,15 +1,15 @@
 use crate::*;
 
-#[salsa::tracked(jar = SignatureJar)]
-pub(crate) fn trai_associated_value_signature(
-    db: &dyn SignatureDb,
+#[salsa::tracked(jar = DeclarativeSignatureJar)]
+pub(crate) fn trai_associated_value_declarative_signature(
+    db: &dyn DeclarativeSignatureDb,
     decl: TraitAssociatedValueDecl,
-) -> SignatureResult<TraitAssociatedValueSignature> {
+) -> DeclarativeSignatureResult<TraitAssociatedValueSignature> {
     let expr_region = decl.expr_region(db);
-    let _signature_term_region = signature_term_region(db, expr_region);
-    let _raw_term_menu = db.raw_term_menu(expr_region.toolchain(db)).unwrap();
+    let _declarative_term_region = declarative_term_region(db, expr_region);
+    let _declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
     Ok(TraitAssociatedValueSignature::new(db))
 }
 
-#[salsa::interned(db = SignatureDb, jar = SignatureJar)]
+#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct TraitAssociatedValueSignature {}

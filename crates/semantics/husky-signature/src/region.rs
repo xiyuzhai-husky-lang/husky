@@ -1,3 +1,4 @@
+// todo: move this to husky-declarative-term
 mod error;
 mod symbol;
 
@@ -18,19 +19,19 @@ use husky_expr::{
 ///
 /// contains terms, symbols and liasons
 #[derive(Debug, PartialEq, Eq)]
-pub struct SignatureRegion {
+pub struct DeclarativeTermRegion {
     path: RegionPath,
     term_symbol_region: SymbolDeclarativeTermRegion,
-    expr_terms: ExprMap<SignatureDeclarativeTermResult<DeclarativeTerm>>,
+    expr_terms: ExprMap<DeclarativeTermResult2<DeclarativeTerm>>,
     pattern_expr_ty_infos: PatternExprMap<PatternExprDeclarativeTypeInfo>,
     pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
 }
 
-impl SignatureRegion {
+impl DeclarativeTermRegion {
     pub(crate) fn new(
         path: RegionPath,
         term_symbol_region: SymbolDeclarativeTermRegion,
-        expr_terms: ExprMap<SignatureDeclarativeTermResult<DeclarativeTerm>>,
+        expr_terms: ExprMap<DeclarativeTermResult2<DeclarativeTerm>>,
         pattern_expr_ty_infos: PatternExprMap<PatternExprDeclarativeTypeInfo>,
         pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
     ) -> Self {
@@ -55,7 +56,7 @@ impl SignatureRegion {
             .current_symbol_signature(current_symbol_idx)
     }
 
-    pub fn expr_term(&self, expr: ExprIdx) -> SignatureDeclarativeTermResultBorrowed<DeclarativeTerm> {
+    pub fn expr_term(&self, expr: ExprIdx) -> DeclarativeTermResultBorrowed2<DeclarativeTerm> {
         self.expr_terms[expr].as_ref().copied()
     }
 

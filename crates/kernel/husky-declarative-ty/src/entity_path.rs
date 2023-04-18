@@ -35,7 +35,7 @@ pub fn entity_path_raw_ty(
     disambiguation: TypePathDisambiguation,
     path: EntityPath,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
-    let _raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
+    let _declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
     match path {
         EntityPath::Module(_) => todo!(),
         EntityPath::ModuleItem(path) => match path {
@@ -56,13 +56,16 @@ fn entity_path_raw_ty_works() {
     let db = DB::default();
     let toolchain = db.dev_toolchain().unwrap();
     let entity_path_menu = db.entity_path_menu(toolchain);
-    let raw_term_menu = db.raw_term_menu(toolchain).unwrap();
-    let invariant_ty0_to_trai_ty: DeclarativeTerm = raw_term_menu.invariant_ty0_to_trai_ty().into();
-    let _ex_co_lifetime_to_ex_co_ty0_to_ty0: DeclarativeTerm =
-        raw_term_menu.ex_co_lifetime_to_ex_co_ty0_to_ty0().into();
-    let _ex_co_lifetime_to_ex_inv_ty0_to_ty0: DeclarativeTerm =
-        raw_term_menu.ex_co_lifetime_to_ex_inv_ty0_to_ty0().into();
-    let trai_ty = raw_term_menu.trai_ty();
+    let declarative_term_menu = db.declarative_term_menu(toolchain).unwrap();
+    let invariant_ty0_to_trai_ty: DeclarativeTerm =
+        declarative_term_menu.invariant_ty0_to_trai_ty().into();
+    let _ex_co_lifetime_to_ex_co_ty0_to_ty0: DeclarativeTerm = declarative_term_menu
+        .ex_co_lifetime_to_ex_co_ty0_to_ty0()
+        .into();
+    let _ex_co_lifetime_to_ex_inv_ty0_to_ty0: DeclarativeTerm = declarative_term_menu
+        .ex_co_lifetime_to_ex_inv_ty0_to_ty0()
+        .into();
+    let trai_ty = declarative_term_menu.trai_ty();
     assert_eq_with_db!(
         db,
         entity_path_raw_ty(
@@ -70,7 +73,7 @@ fn entity_path_raw_ty_works() {
             TypePathDisambiguation::Ontology,
             entity_path_menu.bool_ty_path().into(),
         ),
-        Ok(raw_term_menu.ty0().into())
+        Ok(declarative_term_menu.ty0().into())
     );
     assert_eq_with_db!(
         db,
@@ -210,14 +213,14 @@ pub fn ty_ontology_path_raw_ty(
     db: &dyn DeclarativeTypeDb,
     path: TypePath,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
-    let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
+    let declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
     let decl = match path.decl(db) {
         Ok(decl) => decl,
         Err(_e) => {
             return Err(DerivedDeclarativeTypeError::TypeOntologyDeclError { path }.into());
         }
     };
-    let signature = match db.ty_signature_from_decl(decl) {
+    let signature = match db.ty_declarative_signature_from_decl(decl) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedDeclarativeTypeError::SignatureError.into()),
     };
@@ -229,7 +232,7 @@ pub fn ty_ontology_path_raw_ty(
         CurryKind::Explicit,
         variances,
         signature.implicit_parameters(db),
-        raw_term_menu.ty0(),
+        declarative_term_menu.ty0(),
     ))
 }
 
@@ -238,7 +241,7 @@ pub fn ty_variant_path_raw_ty(
     db: &dyn DeclarativeTypeDb,
     path: TypeVariantPath,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
-    let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
+    let declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
     let decl = match path.decl(db) {
         Ok(decl) => decl,
         Err(_e) => {
@@ -250,7 +253,7 @@ pub fn ty_variant_path_raw_ty(
         TypeVariantDecl::Unit(_) => Ok(path.ty_path(db).into()),
         TypeVariantDecl::Tuple(_) => todo!(),
     }
-    // let signature = match db.ty_signature_from_decl(decl) {
+    // let signature = match db.ty_declarative_signature_from_decl(decl) {
     //     Ok(signature) => signature,
     //     Err(_) => return Err(DerivedDeclarativeTypeError::SignatureError.into()),
     // };
@@ -262,7 +265,7 @@ pub fn ty_variant_path_raw_ty(
     //     CurryKind::Explicit,
     //     variances,
     //     signature.implicit_parameters(db),
-    //     raw_term_menu.ty0(),
+    //     declarative_term_menu.ty0(),
     // ))
 }
 
@@ -271,7 +274,7 @@ pub fn trai_path_raw_ty(
     db: &dyn DeclarativeTypeDb,
     path: TraitPath,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
-    let raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
+    let declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
     let decl = match path.decl(db) {
         Ok(decl) => decl,
         Err(_) => return Err(DerivedDeclarativeTypeError::TraitDeclError.into()),
@@ -279,7 +282,7 @@ pub fn trai_path_raw_ty(
     let Ok(variances) = trai_entity_variances(db, path) else {
         todo!()
     };
-    let signature = match db.trai_signature(decl) {
+    let signature = match db.trai_declarative_signature(decl) {
         Ok(signature) => signature,
         Err(_) => todo!(),
     };
@@ -288,6 +291,6 @@ pub fn trai_path_raw_ty(
         CurryKind::Explicit,
         variances,
         signature.implicit_parameters(db),
-        raw_term_menu.trai_ty(),
+        declarative_term_menu.trai_ty(),
     ))
 }

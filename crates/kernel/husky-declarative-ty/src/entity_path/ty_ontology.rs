@@ -5,12 +5,12 @@ pub fn ty_constructor_path_raw_ty(
     db: &dyn DeclarativeTypeDb,
     path: TypePath,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
-    let _raw_term_menu = db.raw_term_menu(path.toolchain(db)).unwrap();
+    let _declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
     let decl = match path.decl(db) {
         Ok(decl) => decl,
         Err(_) => return Err(DerivedDeclarativeTypeError::TypeConstructorDeclError.into()),
     };
-    let signature = match db.ty_signature_from_decl(decl) {
+    let signature = match db.ty_declarative_signature_from_decl(decl) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedDeclarativeTypeError::SignatureError.into()),
     };
@@ -18,19 +18,19 @@ pub fn ty_constructor_path_raw_ty(
         todo!()
     };
     match signature {
-        TypeSignature::Enum(_) => Err(todo!()),
-        TypeSignature::RegularStruct(signature) => Ok(regular_struct_ty_constructor_path_raw_ty(
-            db, path, variances, signature,
-        )),
-        TypeSignature::UnitStruct(_) => todo!(),
-        TypeSignature::TupleStruct(_) => todo!(),
-        TypeSignature::Record(_) => todo!(),
-        TypeSignature::Inductive(_) => {
+        TypeDeclarativeSignature::Enum(_) => Err(todo!()),
+        TypeDeclarativeSignature::RegularStruct(signature) => Ok(
+            regular_struct_ty_constructor_path_raw_ty(db, path, variances, signature),
+        ),
+        TypeDeclarativeSignature::UnitStruct(_) => todo!(),
+        TypeDeclarativeSignature::TupleStruct(_) => todo!(),
+        TypeDeclarativeSignature::Record(_) => todo!(),
+        TypeDeclarativeSignature::Inductive(_) => {
             Err(OriginalDeclarativeTypeError::InductiveTypeHasNoConstructor.into())
         }
-        TypeSignature::Structure(_) => todo!(),
-        TypeSignature::Foreign(_) => todo!(),
-        TypeSignature::Union(_) => todo!(),
+        TypeDeclarativeSignature::Structure(_) => todo!(),
+        TypeDeclarativeSignature::Foreign(_) => todo!(),
+        TypeDeclarativeSignature::Union(_) => todo!(),
     }
 }
 
@@ -38,7 +38,7 @@ fn regular_struct_ty_constructor_path_raw_ty(
     db: &dyn DeclarativeTypeDb,
     path: TypePath,
     variances: &[Variance],
-    signature: RegularStructTypeSignature,
+    signature: RegularStructTypeDeclarativeSignature,
 ) -> DeclarativeTerm {
     let implicit_parameters = &signature.implicit_parameters(db);
     let self_ty = construct_self_ty(db, path, implicit_parameters);

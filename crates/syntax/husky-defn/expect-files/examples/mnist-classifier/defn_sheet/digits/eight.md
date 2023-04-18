@@ -11,10 +11,10 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Feature(
-                            FeatureDefn {
+                        FormDefn::Val(
+                            ValDefn {
                                 path: FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
-                                decl: FeatureDecl {
+                                decl: ValDecl {
                                     path: FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                                     ast_idx: 18,
                                     colon_token: Some(
@@ -300,10 +300,10 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Feature(
-                            FeatureDefn {
+                        FormDefn::Val(
+                            ValDefn {
                                 path: FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
-                                decl: FeatureDecl {
+                                decl: ValDecl {
                                     path: FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                                     ast_idx: 19,
                                     colon_token: Some(
@@ -1346,8 +1346,8 @@ Ok(
                 ),
                 Ok(
                     Defn::Form(
-                        FormDefn::Function(
-                            FunctionDefn {
+                        FormDefn::Fn(
+                            FnDefn {
                                 path: FormPath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
                                 decl: FnDecl {
                                     path: FormPath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),

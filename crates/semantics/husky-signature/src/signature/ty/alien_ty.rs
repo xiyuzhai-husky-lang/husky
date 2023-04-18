@@ -1,27 +1,27 @@
 use super::*;
 
-#[salsa::tracked(jar = SignatureJar)]
-pub fn alien_ty_signature(
-    db: &dyn SignatureDb,
+#[salsa::tracked(jar = DeclarativeSignatureJar)]
+pub fn alien_ty_declarative_signature(
+    db: &dyn DeclarativeSignatureDb,
     decl: ExternTypeDecl,
-) -> SignatureResult<ExternTypeSignature> {
+) -> DeclarativeSignatureResult<ExternTypeDeclarativeSignature> {
     let expr_region = decl.expr_region(db);
-    let signature_term_region = signature_term_region(db, expr_region);
-    let raw_term_menu = db.raw_term_menu(expr_region.toolchain(db)).unwrap();
-    Ok(ExternTypeSignature::new(
+    let declarative_term_region = declarative_term_region(db, expr_region);
+    let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
+    Ok(ExternTypeDeclarativeSignature::new(
         db,
         ImplicitParameterSignatures::from_decl(
             decl.implicit_parameters(db),
-            &signature_term_region,
-            raw_term_menu,
+            &declarative_term_region,
+            declarative_term_menu,
         ),
     ))
 }
 
-#[salsa::interned(db = SignatureDb, jar = SignatureJar)]
-pub struct ExternTypeSignature {
+#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
+pub struct ExternTypeDeclarativeSignature {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterSignatures,
 }
 
-impl ExternTypeSignature {}
+impl ExternTypeDeclarativeSignature {}

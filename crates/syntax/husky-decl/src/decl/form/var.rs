@@ -3,7 +3,7 @@ use husky_print_utils::p;
 use super::*;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
-pub struct FeatureDecl {
+pub struct ValDecl {
     #[id]
     pub path: FormPath,
     pub ast_idx: AstIdx,
@@ -41,7 +41,7 @@ impl<'a> DeclParseContext<'a> {
         } else {
             Right(todo!("parse expr"))
         };
-        Ok(FeatureDecl::new(
+        Ok(ValDecl::new(
             self.db(),
             path,
             ast_idx,
