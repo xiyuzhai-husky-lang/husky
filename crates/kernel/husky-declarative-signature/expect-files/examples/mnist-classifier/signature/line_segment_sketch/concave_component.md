@@ -6,12 +6,12 @@
     ),
     Ok(
         Signature::Form(
-            FormDeclarativeSignature::Fn(
-                FnDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            FormDeclarativeSignatureTemplate::Fn(
+                FnDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
-                    parameters: ExplicitParameterDeclarativeSignatures {
+                    parameters: ExplicitParameterDeclarativeSignatureTemplates {
                         parameters: [
                             ExplicitParameterSignature {
                                 contract: Pure,
@@ -32,9 +32,9 @@
     ),
     Ok(
         Signature::ImplBlock(
-            ImplBlockDeclarativeSignature::TypeImpl(
+            ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                 TypeImplBlockSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                     ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
@@ -44,8 +44,8 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TypeItem(
-                TypeItemDeclarativeSignature::Memo(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::Memo(
                     TypeMemoSignature {
                         return_ty: DeclarativeTerm(`core::num::f32`),
                     },
@@ -55,8 +55,8 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TypeItem(
-                TypeItemDeclarativeSignature::Memo(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::Memo(
                     TypeMemoSignature {
                         return_ty: DeclarativeTerm(`core::num::f32`),
                     },
@@ -66,8 +66,8 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TypeItem(
-                TypeItemDeclarativeSignature::Memo(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::Memo(
                     TypeMemoSignature {
                         return_ty: DeclarativeTerm(`core::num::f32`),
                     },
@@ -77,8 +77,8 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TypeItem(
-                TypeItemDeclarativeSignature::Memo(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::Memo(
                     TypeMemoSignature {
                         return_ty: DeclarativeTerm(`core::num::f32`),
                     },
@@ -88,8 +88,8 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TypeItem(
-                TypeItemDeclarativeSignature::Memo(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::Memo(
                     TypeMemoSignature {
                         return_ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                     },
@@ -99,8 +99,8 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TypeItem(
-                TypeItemDeclarativeSignature::Memo(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::Memo(
                     TypeMemoSignature {
                         return_ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
                     },
@@ -110,10 +110,10 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TypeItem(
-                TypeItemDeclarativeSignature::MethodFn(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodSignature {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -128,7 +128,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatures {
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             parameters: [],
                         },
                         return_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
@@ -139,10 +139,10 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TypeItem(
-                TypeItemDeclarativeSignature::MethodFn(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodSignature {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -157,7 +157,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatures {
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             parameters: [],
                         },
                         return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
@@ -168,10 +168,10 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TypeItem(
-                TypeItemDeclarativeSignature::MethodFn(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodSignature {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -186,7 +186,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatures {
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             parameters: [],
                         },
                         return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
@@ -197,10 +197,10 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TypeItem(
-                TypeItemDeclarativeSignature::MethodFn(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodSignature {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -215,7 +215,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatures {
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             parameters: [],
                         },
                         return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
@@ -226,10 +226,10 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TypeItem(
-                TypeItemDeclarativeSignature::MethodFn(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodSignature {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -244,7 +244,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatures {
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             parameters: [],
                         },
                         return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
@@ -255,10 +255,10 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TypeItem(
-                TypeItemDeclarativeSignature::MethodFn(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodSignature {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -273,7 +273,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatures {
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             parameters: [],
                         },
                         return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),

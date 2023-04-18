@@ -1,9 +1,9 @@
 [
     Ok(
         Signature::Form(
-            FormDeclarativeSignature::Fn(
-                FnDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            FormDeclarativeSignatureTemplate::Fn(
+                FnDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [
                             ImplicitParameterSignature {
                                 annotated_variance: None,
@@ -16,7 +16,7 @@
                             },
                         ],
                     },
-                    parameters: ExplicitParameterDeclarativeSignatures {
+                    parameters: ExplicitParameterDeclarativeSignatureTemplates {
                         parameters: [
                             ExplicitParameterSignature {
                                 contract: Move,
@@ -37,9 +37,9 @@
     ),
     Ok(
         Signature::Form(
-            FormDeclarativeSignature::Fn(
-                FnDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            FormDeclarativeSignatureTemplate::Fn(
+                FnDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [
                             ImplicitParameterSignature {
                                 annotated_variance: None,
@@ -52,7 +52,7 @@
                             },
                         ],
                     },
-                    parameters: ExplicitParameterDeclarativeSignatures {
+                    parameters: ExplicitParameterDeclarativeSignatureTemplates {
                         parameters: [
                             ExplicitParameterSignature {
                                 contract: Move,
@@ -97,9 +97,9 @@
     ),
     Ok(
         Signature::Form(
-            FormDeclarativeSignature::Fn(
-                FnDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            FormDeclarativeSignatureTemplate::Fn(
+                FnDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [
                             ImplicitParameterSignature {
                                 annotated_variance: None,
@@ -112,7 +112,7 @@
                             },
                         ],
                     },
-                    parameters: ExplicitParameterDeclarativeSignatures {
+                    parameters: ExplicitParameterDeclarativeSignatureTemplates {
                         parameters: [
                             ExplicitParameterSignature {
                                 contract: Move,

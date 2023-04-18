@@ -57,7 +57,7 @@ pub(crate) fn ty_entity_variance_reprs(
         Ok(decl) => decl,
         Err(_) => return Err(DerivedVarianceError::DeclError.into()),
     };
-    let signature = match db.ty_declarative_signature_from_decl(decl) {
+    let signature = match db.ty_declarative_signature_template_from_decl(decl) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedVarianceError::SignatureError.into()),
     };
@@ -75,15 +75,15 @@ pub(crate) fn ty_entity_variance_reprs(
     if reprs.len() > 0 {
         // ad hoc: todo
         // match signature {
-        //      TypeDeclarativeSignature::Enum(_) => todo!(),
-        //      TypeDeclarativeSignature::RegularStruct(_) => todo!(),
-        //      TypeDeclarativeSignature::UnitStruct(_) => todo!(),
-        //      TypeDeclarativeSignature::TupleStruct(_) => todo!(),
-        //      TypeDeclarativeSignature::Record(_) => todo!(),
-        //      TypeDeclarativeSignature::Inductive(_) => todo!(),
-        //      TypeDeclarativeSignature::Structure(_) => todo!(),
-        //      TypeDeclarativeSignature::Foreign(_) => (),
-        //      TypeDeclarativeSignature::Union(_) => todo!(),
+        //      TypeDeclarativeSignatureTemplate::Enum(_) => todo!(),
+        //      TypeDeclarativeSignatureTemplate::RegularStruct(_) => todo!(),
+        //      TypeDeclarativeSignatureTemplate::UnitStruct(_) => todo!(),
+        //      TypeDeclarativeSignatureTemplate::TupleStruct(_) => todo!(),
+        //      TypeDeclarativeSignatureTemplate::Record(_) => todo!(),
+        //      TypeDeclarativeSignatureTemplate::Inductive(_) => todo!(),
+        //      TypeDeclarativeSignatureTemplate::Structure(_) => todo!(),
+        //      TypeDeclarativeSignatureTemplate::Foreign(_) => (),
+        //      TypeDeclarativeSignatureTemplate::Union(_) => todo!(),
         // }
     }
     for (_repr, implicit_parameter) in std::iter::zip(reprs.iter(), implicit_parameters.iter()) {

@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::tracked(jar = DeclarativeSignatureJar)]
+#[salsa::tracked(jar = DeclarativeSignatureTemplateJar)]
 pub(crate) fn trai_method_signature(
     db: &dyn DeclarativeSignatureDb,
     decl: TraitMethodFnDecl,
@@ -11,7 +11,7 @@ pub(crate) fn trai_method_signature(
     Ok(TraitMethodSignature::new(db, todo!()))
 }
 
-#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
+#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureTemplateJar)]
 pub struct TraitMethodSignature {
     pub return_ty: DeclarativeTerm,
 }

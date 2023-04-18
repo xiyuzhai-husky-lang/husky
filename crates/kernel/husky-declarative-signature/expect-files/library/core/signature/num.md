@@ -1,9 +1,9 @@
 [
     Ok(
         Signature::Type(
-            TypeDeclarativeSignature::Extern(
-                ExternTypeDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            TypeDeclarativeSignatureTemplate::Extern(
+                ExternTypeDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                 },
@@ -12,9 +12,9 @@
     ),
     Ok(
         Signature::Type(
-            TypeDeclarativeSignature::Extern(
-                ExternTypeDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            TypeDeclarativeSignatureTemplate::Extern(
+                ExternTypeDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                 },
@@ -23,9 +23,9 @@
     ),
     Ok(
         Signature::Type(
-            TypeDeclarativeSignature::Extern(
-                ExternTypeDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            TypeDeclarativeSignatureTemplate::Extern(
+                ExternTypeDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                 },
@@ -34,9 +34,9 @@
     ),
     Ok(
         Signature::Type(
-            TypeDeclarativeSignature::Extern(
-                ExternTypeDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            TypeDeclarativeSignatureTemplate::Extern(
+                ExternTypeDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                 },
@@ -45,9 +45,9 @@
     ),
     Ok(
         Signature::Type(
-            TypeDeclarativeSignature::Extern(
-                ExternTypeDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            TypeDeclarativeSignatureTemplate::Extern(
+                ExternTypeDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                 },
@@ -56,9 +56,9 @@
     ),
     Ok(
         Signature::Type(
-            TypeDeclarativeSignature::Extern(
-                ExternTypeDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            TypeDeclarativeSignatureTemplate::Extern(
+                ExternTypeDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                 },
@@ -67,9 +67,9 @@
     ),
     Ok(
         Signature::Type(
-            TypeDeclarativeSignature::Extern(
-                ExternTypeDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            TypeDeclarativeSignatureTemplate::Extern(
+                ExternTypeDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                 },
@@ -78,9 +78,9 @@
     ),
     Ok(
         Signature::Type(
-            TypeDeclarativeSignature::Extern(
-                ExternTypeDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            TypeDeclarativeSignatureTemplate::Extern(
+                ExternTypeDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                 },
@@ -89,9 +89,9 @@
     ),
     Ok(
         Signature::Type(
-            TypeDeclarativeSignature::Extern(
-                ExternTypeDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            TypeDeclarativeSignatureTemplate::Extern(
+                ExternTypeDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                 },
@@ -100,9 +100,9 @@
     ),
     Ok(
         Signature::Type(
-            TypeDeclarativeSignature::Extern(
-                ExternTypeDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            TypeDeclarativeSignatureTemplate::Extern(
+                ExternTypeDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                 },
@@ -111,9 +111,9 @@
     ),
     Ok(
         Signature::Type(
-            TypeDeclarativeSignature::Extern(
-                ExternTypeDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            TypeDeclarativeSignatureTemplate::Extern(
+                ExternTypeDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                 },
@@ -122,9 +122,9 @@
     ),
     Ok(
         Signature::Type(
-            TypeDeclarativeSignature::Extern(
-                ExternTypeDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            TypeDeclarativeSignatureTemplate::Extern(
+                ExternTypeDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                 },
@@ -133,9 +133,9 @@
     ),
     Ok(
         Signature::Type(
-            TypeDeclarativeSignature::Extern(
-                ExternTypeDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            TypeDeclarativeSignatureTemplate::Extern(
+                ExternTypeDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                 },
@@ -144,9 +144,9 @@
     ),
     Ok(
         Signature::Type(
-            TypeDeclarativeSignature::Extern(
-                ExternTypeDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            TypeDeclarativeSignatureTemplate::Extern(
+                ExternTypeDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                 },
@@ -155,9 +155,9 @@
     ),
     Ok(
         Signature::ImplBlock(
-            ImplBlockDeclarativeSignature::TypeImpl(
+            ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                 TypeImplBlockSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                     ty: DeclarativeTerm(`core::num::i8`),
@@ -167,10 +167,10 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TypeItem(
-                TypeItemDeclarativeSignature::MethodFn(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodSignature {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -185,7 +185,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatures {
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             parameters: [],
                         },
                         return_ty: DeclarativeTerm(`core::num::i8`),
@@ -196,9 +196,9 @@
     ),
     Ok(
         Signature::ImplBlock(
-            ImplBlockDeclarativeSignature::TraitForTypeImpl(
-                TraitForTypeImplBlockDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
+                TraitForTypeImplBlockDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                     trai: DeclarativeTerm(`core::ops::Add core::num::i8`),
@@ -209,10 +209,10 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TraitForTypeItem(
-                TraitForTypeItemDeclarativeSignature::MethodFn(
-                    TraitForTypeMethodFnDeclarativeSignature {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
+                TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
+                    TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -227,7 +227,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatures {
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             parameters: [
                                 ExplicitParameterSignature {
                                     contract: Pure,
@@ -251,9 +251,9 @@
     ),
     Ok(
         Signature::ImplBlock(
-            ImplBlockDeclarativeSignature::TypeImpl(
+            ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                 TypeImplBlockSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                     ty: DeclarativeTerm(`core::num::i16`),
@@ -263,10 +263,10 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TypeItem(
-                TypeItemDeclarativeSignature::MethodFn(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodSignature {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -281,7 +281,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatures {
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             parameters: [],
                         },
                         return_ty: DeclarativeTerm(`core::num::i16`),
@@ -292,9 +292,9 @@
     ),
     Ok(
         Signature::ImplBlock(
-            ImplBlockDeclarativeSignature::TraitForTypeImpl(
-                TraitForTypeImplBlockDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
+                TraitForTypeImplBlockDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                     trai: DeclarativeTerm(`core::ops::Add core::num::i32`),
@@ -305,10 +305,10 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TraitForTypeItem(
-                TraitForTypeItemDeclarativeSignature::MethodFn(
-                    TraitForTypeMethodFnDeclarativeSignature {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
+                TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
+                    TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -323,7 +323,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatures {
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             parameters: [
                                 ExplicitParameterSignature {
                                     contract: Pure,
@@ -347,9 +347,9 @@
     ),
     Ok(
         Signature::ImplBlock(
-            ImplBlockDeclarativeSignature::TypeImpl(
+            ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                 TypeImplBlockSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                     ty: DeclarativeTerm(`core::num::i32`),
@@ -359,10 +359,10 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TypeItem(
-                TypeItemDeclarativeSignature::MethodFn(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodSignature {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -377,7 +377,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatures {
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             parameters: [],
                         },
                         return_ty: DeclarativeTerm(`core::num::i32`),
@@ -388,9 +388,9 @@
     ),
     Ok(
         Signature::ImplBlock(
-            ImplBlockDeclarativeSignature::TraitForTypeImpl(
-                TraitForTypeImplBlockDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
+                TraitForTypeImplBlockDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                     trai: DeclarativeTerm(`core::ops::Add core::num::i32`),
@@ -401,10 +401,10 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TraitForTypeItem(
-                TraitForTypeItemDeclarativeSignature::MethodFn(
-                    TraitForTypeMethodFnDeclarativeSignature {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
+                TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
+                    TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -419,7 +419,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatures {
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             parameters: [
                                 ExplicitParameterSignature {
                                     contract: Pure,
@@ -443,9 +443,9 @@
     ),
     Ok(
         Signature::ImplBlock(
-            ImplBlockDeclarativeSignature::TypeImpl(
+            ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                 TypeImplBlockSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                     ty: DeclarativeTerm(`core::num::i64`),
@@ -455,10 +455,10 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TypeItem(
-                TypeItemDeclarativeSignature::MethodFn(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodSignature {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -473,7 +473,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatures {
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             parameters: [],
                         },
                         return_ty: DeclarativeTerm(`core::num::i64`),
@@ -484,9 +484,9 @@
     ),
     Ok(
         Signature::ImplBlock(
-            ImplBlockDeclarativeSignature::TraitForTypeImpl(
-                TraitForTypeImplBlockDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
+                TraitForTypeImplBlockDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                     trai: DeclarativeTerm(`core::ops::Add core::num::i64`),
@@ -497,10 +497,10 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TraitForTypeItem(
-                TraitForTypeItemDeclarativeSignature::MethodFn(
-                    TraitForTypeMethodFnDeclarativeSignature {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
+                TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
+                    TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -515,7 +515,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatures {
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             parameters: [
                                 ExplicitParameterSignature {
                                     contract: Pure,
@@ -539,9 +539,9 @@
     ),
     Ok(
         Signature::ImplBlock(
-            ImplBlockDeclarativeSignature::TypeImpl(
+            ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                 TypeImplBlockSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                     ty: DeclarativeTerm(`core::num::i128`),
@@ -551,10 +551,10 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TypeItem(
-                TypeItemDeclarativeSignature::MethodFn(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodSignature {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -569,7 +569,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatures {
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             parameters: [],
                         },
                         return_ty: DeclarativeTerm(`core::num::i128`),
@@ -580,9 +580,9 @@
     ),
     Ok(
         Signature::ImplBlock(
-            ImplBlockDeclarativeSignature::TraitForTypeImpl(
-                TraitForTypeImplBlockDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
+                TraitForTypeImplBlockDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                     trai: DeclarativeTerm(`core::ops::Add core::num::i128`),
@@ -593,10 +593,10 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TraitForTypeItem(
-                TraitForTypeItemDeclarativeSignature::MethodFn(
-                    TraitForTypeMethodFnDeclarativeSignature {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
+                TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
+                    TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -611,7 +611,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatures {
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             parameters: [
                                 ExplicitParameterSignature {
                                     contract: Pure,
@@ -635,9 +635,9 @@
     ),
     Ok(
         Signature::ImplBlock(
-            ImplBlockDeclarativeSignature::TypeImpl(
+            ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                 TypeImplBlockSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                     ty: DeclarativeTerm(`core::num::isize`),
@@ -647,10 +647,10 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TypeItem(
-                TypeItemDeclarativeSignature::MethodFn(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodSignature {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -665,7 +665,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatures {
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             parameters: [],
                         },
                         return_ty: DeclarativeTerm(`core::num::isize`),
@@ -676,9 +676,9 @@
     ),
     Ok(
         Signature::ImplBlock(
-            ImplBlockDeclarativeSignature::TraitForTypeImpl(
-                TraitForTypeImplBlockDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
+                TraitForTypeImplBlockDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                     trai: DeclarativeTerm(`core::ops::Add core::num::isize`),
@@ -689,10 +689,10 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TraitForTypeItem(
-                TraitForTypeItemDeclarativeSignature::MethodFn(
-                    TraitForTypeMethodFnDeclarativeSignature {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
+                TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
+                    TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -707,7 +707,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatures {
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             parameters: [
                                 ExplicitParameterSignature {
                                     contract: Pure,
@@ -731,9 +731,9 @@
     ),
     Ok(
         Signature::ImplBlock(
-            ImplBlockDeclarativeSignature::TypeImpl(
+            ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                 TypeImplBlockSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                     ty: DeclarativeTerm(`core::num::u8`),
@@ -743,10 +743,10 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TypeItem(
-                TypeItemDeclarativeSignature::MethodFn(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodSignature {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -761,7 +761,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatures {
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             parameters: [],
                         },
                         return_ty: DeclarativeTerm(`core::num::u8`),
@@ -772,9 +772,9 @@
     ),
     Ok(
         Signature::ImplBlock(
-            ImplBlockDeclarativeSignature::TraitForTypeImpl(
-                TraitForTypeImplBlockDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
+                TraitForTypeImplBlockDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                     trai: DeclarativeTerm(`core::ops::Add core::num::u8`),
@@ -785,10 +785,10 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TraitForTypeItem(
-                TraitForTypeItemDeclarativeSignature::MethodFn(
-                    TraitForTypeMethodFnDeclarativeSignature {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
+                TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
+                    TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -803,7 +803,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatures {
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             parameters: [
                                 ExplicitParameterSignature {
                                     contract: Pure,
@@ -827,9 +827,9 @@
     ),
     Ok(
         Signature::ImplBlock(
-            ImplBlockDeclarativeSignature::TypeImpl(
+            ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                 TypeImplBlockSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                     ty: DeclarativeTerm(`core::num::u16`),
@@ -839,10 +839,10 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TypeItem(
-                TypeItemDeclarativeSignature::MethodFn(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodSignature {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -857,7 +857,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatures {
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             parameters: [],
                         },
                         return_ty: DeclarativeTerm(`core::num::u16`),
@@ -868,9 +868,9 @@
     ),
     Ok(
         Signature::ImplBlock(
-            ImplBlockDeclarativeSignature::TraitForTypeImpl(
-                TraitForTypeImplBlockDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
+                TraitForTypeImplBlockDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                     trai: DeclarativeTerm(`core::ops::Add core::num::u16`),
@@ -881,10 +881,10 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TraitForTypeItem(
-                TraitForTypeItemDeclarativeSignature::MethodFn(
-                    TraitForTypeMethodFnDeclarativeSignature {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
+                TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
+                    TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -899,7 +899,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatures {
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             parameters: [
                                 ExplicitParameterSignature {
                                     contract: Pure,
@@ -923,9 +923,9 @@
     ),
     Ok(
         Signature::ImplBlock(
-            ImplBlockDeclarativeSignature::TypeImpl(
+            ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                 TypeImplBlockSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                     ty: DeclarativeTerm(`core::num::u32`),
@@ -935,10 +935,10 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TypeItem(
-                TypeItemDeclarativeSignature::MethodFn(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodSignature {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -953,7 +953,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatures {
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             parameters: [],
                         },
                         return_ty: DeclarativeTerm(`core::num::u32`),
@@ -964,9 +964,9 @@
     ),
     Ok(
         Signature::ImplBlock(
-            ImplBlockDeclarativeSignature::TraitForTypeImpl(
-                TraitForTypeImplBlockDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
+                TraitForTypeImplBlockDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                     trai: DeclarativeTerm(`core::ops::Add core::num::u32`),
@@ -977,10 +977,10 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TraitForTypeItem(
-                TraitForTypeItemDeclarativeSignature::MethodFn(
-                    TraitForTypeMethodFnDeclarativeSignature {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
+                TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
+                    TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -995,7 +995,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatures {
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             parameters: [
                                 ExplicitParameterSignature {
                                     contract: Pure,
@@ -1019,9 +1019,9 @@
     ),
     Ok(
         Signature::ImplBlock(
-            ImplBlockDeclarativeSignature::TypeImpl(
+            ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                 TypeImplBlockSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                     ty: DeclarativeTerm(`core::num::u64`),
@@ -1031,10 +1031,10 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TypeItem(
-                TypeItemDeclarativeSignature::MethodFn(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodSignature {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -1049,7 +1049,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatures {
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             parameters: [],
                         },
                         return_ty: DeclarativeTerm(`core::num::u64`),
@@ -1060,9 +1060,9 @@
     ),
     Ok(
         Signature::ImplBlock(
-            ImplBlockDeclarativeSignature::TraitForTypeImpl(
-                TraitForTypeImplBlockDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
+                TraitForTypeImplBlockDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                     trai: DeclarativeTerm(`core::ops::Add core::num::u64`),
@@ -1073,10 +1073,10 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TraitForTypeItem(
-                TraitForTypeItemDeclarativeSignature::MethodFn(
-                    TraitForTypeMethodFnDeclarativeSignature {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
+                TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
+                    TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -1091,7 +1091,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatures {
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             parameters: [
                                 ExplicitParameterSignature {
                                     contract: Pure,
@@ -1115,9 +1115,9 @@
     ),
     Ok(
         Signature::ImplBlock(
-            ImplBlockDeclarativeSignature::TypeImpl(
+            ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                 TypeImplBlockSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                     ty: DeclarativeTerm(`core::num::u128`),
@@ -1127,10 +1127,10 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TypeItem(
-                TypeItemDeclarativeSignature::MethodFn(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodSignature {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -1145,7 +1145,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatures {
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             parameters: [],
                         },
                         return_ty: DeclarativeTerm(`core::num::u128`),
@@ -1156,9 +1156,9 @@
     ),
     Ok(
         Signature::ImplBlock(
-            ImplBlockDeclarativeSignature::TraitForTypeImpl(
-                TraitForTypeImplBlockDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
+                TraitForTypeImplBlockDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                     trai: DeclarativeTerm(`core::ops::Add core::num::u128`),
@@ -1169,10 +1169,10 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TraitForTypeItem(
-                TraitForTypeItemDeclarativeSignature::MethodFn(
-                    TraitForTypeMethodFnDeclarativeSignature {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
+                TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
+                    TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -1187,7 +1187,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatures {
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             parameters: [
                                 ExplicitParameterSignature {
                                     contract: Pure,
@@ -1211,9 +1211,9 @@
     ),
     Ok(
         Signature::ImplBlock(
-            ImplBlockDeclarativeSignature::TypeImpl(
+            ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                 TypeImplBlockSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                     ty: DeclarativeTerm(`core::num::usize`),
@@ -1223,10 +1223,10 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TypeItem(
-                TypeItemDeclarativeSignature::MethodFn(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodSignature {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -1241,7 +1241,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatures {
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             parameters: [],
                         },
                         return_ty: DeclarativeTerm(`core::num::usize`),
@@ -1252,9 +1252,9 @@
     ),
     Ok(
         Signature::ImplBlock(
-            ImplBlockDeclarativeSignature::TraitForTypeImpl(
-                TraitForTypeImplBlockDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
+                TraitForTypeImplBlockDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                     trai: DeclarativeTerm(`core::ops::Add core::num::usize`),
@@ -1265,10 +1265,10 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TraitForTypeItem(
-                TraitForTypeItemDeclarativeSignature::MethodFn(
-                    TraitForTypeMethodFnDeclarativeSignature {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
+                TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
+                    TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -1283,7 +1283,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatures {
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             parameters: [
                                 ExplicitParameterSignature {
                                     contract: Pure,
@@ -1307,9 +1307,9 @@
     ),
     Ok(
         Signature::ImplBlock(
-            ImplBlockDeclarativeSignature::TypeImpl(
+            ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                 TypeImplBlockSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                     ty: DeclarativeTerm(`core::num::f32`),
@@ -1319,10 +1319,10 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TypeItem(
-                TypeItemDeclarativeSignature::MethodFn(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodSignature {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -1337,7 +1337,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatures {
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             parameters: [],
                         },
                         return_ty: DeclarativeTerm(`core::num::f32`),
@@ -1348,9 +1348,9 @@
     ),
     Ok(
         Signature::ImplBlock(
-            ImplBlockDeclarativeSignature::TraitForTypeImpl(
-                TraitForTypeImplBlockDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
+                TraitForTypeImplBlockDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                     trai: DeclarativeTerm(`core::ops::Add core::num::f32`),
@@ -1361,10 +1361,10 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TraitForTypeItem(
-                TraitForTypeItemDeclarativeSignature::MethodFn(
-                    TraitForTypeMethodFnDeclarativeSignature {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
+                TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
+                    TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -1379,7 +1379,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatures {
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             parameters: [
                                 ExplicitParameterSignature {
                                     contract: Pure,
@@ -1403,9 +1403,9 @@
     ),
     Ok(
         Signature::ImplBlock(
-            ImplBlockDeclarativeSignature::TypeImpl(
+            ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                 TypeImplBlockSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                     ty: DeclarativeTerm(`core::num::f64`),
@@ -1415,10 +1415,10 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TypeItem(
-                TypeItemDeclarativeSignature::MethodFn(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodSignature {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -1433,7 +1433,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatures {
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             parameters: [],
                         },
                         return_ty: DeclarativeTerm(`core::num::f64`),
@@ -1444,9 +1444,9 @@
     ),
     Ok(
         Signature::ImplBlock(
-            ImplBlockDeclarativeSignature::TraitForTypeImpl(
-                TraitForTypeImplBlockDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
+                TraitForTypeImplBlockDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                     trai: DeclarativeTerm(`core::ops::Add core::num::f64`),
@@ -1457,10 +1457,10 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TraitForTypeItem(
-                TraitForTypeItemDeclarativeSignature::MethodFn(
-                    TraitForTypeMethodFnDeclarativeSignature {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
+                TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
+                    TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -1475,7 +1475,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatures {
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             parameters: [
                                 ExplicitParameterSignature {
                                     contract: Pure,

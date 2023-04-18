@@ -1,8 +1,8 @@
 [
     Ok(
         Signature::Form(
-            FormDeclarativeSignature::Val(
-                ValDeclarativeSignature {
+            FormDeclarativeSignatureTemplate::Val(
+                ValDeclarativeSignatureTemplate {
                     return_ty: DeclarativeTerm(`mnist_classifier::fermi::FermiMatchResult`),
                 },
             ),
@@ -10,8 +10,8 @@
     ),
     Ok(
         Signature::Form(
-            FormDeclarativeSignature::Val(
-                ValDeclarativeSignature {
+            FormDeclarativeSignatureTemplate::Val(
+                ValDeclarativeSignatureTemplate {
                     return_ty: DeclarativeTerm(`core::option::Option mnist::MnistLabel`),
                 },
             ),
@@ -19,12 +19,12 @@
     ),
     Ok(
         Signature::Form(
-            FormDeclarativeSignature::Fn(
-                FnDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            FormDeclarativeSignatureTemplate::Fn(
+                FnDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
-                    parameters: ExplicitParameterDeclarativeSignatures {
+                    parameters: ExplicitParameterDeclarativeSignatureTemplates {
                         parameters: [
                             ExplicitParameterSignature {
                                 contract: Pure,

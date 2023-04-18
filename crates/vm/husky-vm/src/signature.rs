@@ -10,7 +10,7 @@ pub enum TySignature {
 }
 
 // #[derive(Debug, PartialEq, Eq, Clone)]
-// pub struct VMMembValDeclarativeSignature {
+// pub struct VMMembValDeclarativeSignatureTemplate {
 //     pub ident: Ident,
 //     pub contract: MembVarContract,
 // }

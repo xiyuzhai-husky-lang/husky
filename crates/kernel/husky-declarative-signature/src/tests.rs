@@ -34,7 +34,7 @@ use husky_word::WordJar;
     DecrJar,
     TermPreludeJar,
     DeclarativeTermJar,
-    DeclarativeSignatureJar
+    DeclarativeSignatureTemplateJar
 )]
 #[derive(Default)]
 pub(crate) struct DB {
@@ -69,7 +69,7 @@ fn module_signatures_works() {
 }
 
 #[test]
-fn menu_ty_declarative_signatures_works() {
+fn menu_ty_declarative_signature_templates_works() {
     let db = DB::default();
     let toolchain = db.dev_toolchain().unwrap();
     let entity_path_menu = db.entity_path_menu(toolchain);
@@ -89,10 +89,11 @@ fn menu_ty_declarative_signatures_works() {
     // Iterate over the type paths and assert that they are Ok
     for ty_path in ty_paths {
         let ty_decl = ty_path.decl(&db).unwrap();
-        let ty_declarative_signature = db.ty_declarative_signature_from_decl(ty_decl);
+        let ty_declarative_signature_template =
+            db.ty_declarative_signature_template_from_decl(ty_decl);
 
         assert!(
-            ty_declarative_signature.is_ok(),
+            ty_declarative_signature_template.is_ok(),
             "Failed for type path: {:?}",
             ty_path
         );

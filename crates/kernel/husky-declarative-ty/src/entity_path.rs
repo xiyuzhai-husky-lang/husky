@@ -220,7 +220,7 @@ pub fn ty_ontology_path_raw_ty(
             return Err(DerivedDeclarativeTypeError::TypeOntologyDeclError { path }.into());
         }
     };
-    let signature = match db.ty_declarative_signature_from_decl(decl) {
+    let signature = match db.ty_declarative_signature_template_from_decl(decl) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedDeclarativeTypeError::SignatureError.into()),
     };
@@ -253,7 +253,7 @@ pub fn ty_variant_path_raw_ty(
         TypeVariantDecl::Unit(_) => Ok(path.ty_path(db).into()),
         TypeVariantDecl::Tuple(_) => todo!(),
     }
-    // let signature = match db.ty_declarative_signature_from_decl(decl) {
+    // let signature = match db.ty_declarative_signature_template_from_decl(decl) {
     //     Ok(signature) => signature,
     //     Err(_) => return Err(DerivedDeclarativeTypeError::SignatureError.into()),
     // };

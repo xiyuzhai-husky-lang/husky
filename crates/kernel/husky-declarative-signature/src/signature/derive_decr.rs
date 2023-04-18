@@ -1,27 +1,27 @@
 use super::*;
 use husky_decr::DeriveDecr;
 
-#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
-pub struct DeriveDecrDeclarativeSignature {
+#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureTemplateJar)]
+pub struct DeriveDecrDeclarativeSignatureTemplate {
     pub traits: Vec<DeclarativeTerm>,
 }
 
-impl HasDeclarativeSignature for DeriveDecr {
-    type DeclarativeSignature = DeriveDecrDeclarativeSignature;
+impl HasDeclarativeSignatureTemplate for DeriveDecr {
+    type DeclarativeSignatureTemplate = DeriveDecrDeclarativeSignatureTemplate;
 
     fn declarative_signature(
         self,
         db: &dyn DeclarativeSignatureDb,
-    ) -> DeclarativeSignatureResult<Self::DeclarativeSignature> {
+    ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
         derive_decr_declarative_signature(db, self)
     }
 }
 
-#[salsa::tracked(jar = DeclarativeSignatureJar)]
+#[salsa::tracked(jar = DeclarativeSignatureTemplateJar)]
 pub fn derive_decr_declarative_signature(
     db: &dyn DeclarativeSignatureDb,
     decr: DeriveDecr,
-) -> DeclarativeSignatureResult<DeriveDecrDeclarativeSignature> {
+) -> DeclarativeSignatureResult<DeriveDecrDeclarativeSignatureTemplate> {
     let expr_region = decr.expr_region(db);
     let declarative_term_region = declarative_term_region(db, expr_region);
     let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
@@ -31,5 +31,5 @@ pub fn derive_decr_declarative_signature(
         .copied()
         .map(|trai_expr| declarative_term_region.expr_term(trai_expr.expr()))
         .collect::<DeclarativeTermResultBorrowed2<Vec<_>>>()?;
-    Ok(DeriveDecrDeclarativeSignature::new(db, traits))
+    Ok(DeriveDecrDeclarativeSignatureTemplate::new(db, traits))
 }

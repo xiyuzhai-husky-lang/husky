@@ -1,9 +1,9 @@
 [
     Ok(
         Signature::Type(
-            TypeDeclarativeSignature::RegularStruct(
-                RegularStructTypeDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            TypeDeclarativeSignatureTemplate::RegularStruct(
+                RegularStructTypeDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                     fields: [
@@ -22,12 +22,12 @@
     ),
     Ok(
         Signature::Form(
-            FormDeclarativeSignature::Fn(
-                FnDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            FormDeclarativeSignatureTemplate::Fn(
+                FnDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
-                    parameters: ExplicitParameterDeclarativeSignatures {
+                    parameters: ExplicitParameterDeclarativeSignatureTemplates {
                         parameters: [
                             ExplicitParameterSignature {
                                 contract: Pure,
@@ -58,9 +58,9 @@
     ),
     Ok(
         Signature::ImplBlock(
-            ImplBlockDeclarativeSignature::TypeImpl(
+            ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                 TypeImplBlockSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                     ty: DeclarativeTerm(`mnist_classifier::fermi::FermiMatchResult`),
@@ -70,8 +70,8 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TypeItem(
-                TypeItemDeclarativeSignature::Memo(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::Memo(
                     TypeMemoSignature {
                         return_ty: DeclarativeTerm(`core::num::f32`),
                     },
@@ -81,8 +81,8 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TypeItem(
-                TypeItemDeclarativeSignature::Memo(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::Memo(
                     TypeMemoSignature {
                         return_ty: DeclarativeTerm(`core::num::f32`),
                     },
@@ -92,8 +92,8 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TypeItem(
-                TypeItemDeclarativeSignature::Memo(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::Memo(
                     TypeMemoSignature {
                         return_ty: DeclarativeTerm(`core::num::f32`),
                     },

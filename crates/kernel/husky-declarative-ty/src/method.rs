@@ -10,7 +10,7 @@ pub fn ty_path_ty_method_raw_ty(
         Ok(decl) => decl,
         Err(_) => return Err(DerivedDeclarativeTypeError::TypePathMethodFnDeclError.into()),
     };
-    let _signature = match db.ty_declarative_signature_from_decl(decl) {
+    let _signature = match db.ty_declarative_signature_template_from_decl(decl) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedDeclarativeTypeError::SignatureError.into()),
     };

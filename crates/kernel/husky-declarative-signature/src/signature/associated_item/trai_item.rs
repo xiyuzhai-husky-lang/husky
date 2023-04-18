@@ -13,24 +13,24 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclarativeSignatureDb)]
 #[enum_class::from_variants]
-pub enum TraitItemDeclarativeSignature {
-    Function(TraitAssociatedFormFnDeclarativeSignature),
+pub enum TraitItemDeclarativeSignatureTemplate {
+    Function(TraitAssociatedFormFnDeclarativeSignatureTemplate),
     Method(TraitMethodSignature),
-    ExternType(TraitAssociatedTypeDeclarativeSignature),
+    ExternType(TraitAssociatedTypeDeclarativeSignatureTemplate),
     Value(TraitAssociatedValueSignature),
 }
 
 pub(crate) fn trai_associated_item_declarative_signature_from_decl(
     db: &dyn DeclarativeSignatureDb,
     decl: TraitItemDecl,
-) -> DeclarativeSignatureResult<TraitItemDeclarativeSignature> {
+) -> DeclarativeSignatureResult<TraitItemDeclarativeSignatureTemplate> {
     match decl {
         TraitItemDecl::AssociatedFunction(decl) => {
             trai_associated_form_fn_declarative_signature(db, decl).map(Into::into)
         }
         TraitItemDecl::Method(decl) => trai_method_signature(db, decl).map(Into::into),
         TraitItemDecl::AssociatedType(decl) => {
-            trai_associated_ty_declarative_signature(db, decl).map(Into::into)
+            trai_associated_ty_declarative_signature_template(db, decl).map(Into::into)
         }
         TraitItemDecl::Value(decl) => {
             trai_associated_val_declarative_signature(db, decl).map(Into::into)
@@ -38,16 +38,16 @@ pub(crate) fn trai_associated_item_declarative_signature_from_decl(
     }
 }
 
-impl TraitItemDeclarativeSignature {
+impl TraitItemDeclarativeSignatureTemplate {
     pub fn implicit_parameters(
         self,
         _db: &dyn DeclarativeSignatureDb,
     ) -> &[ImplicitParameterSignature] {
         match self {
-            TraitItemDeclarativeSignature::Function(_) => todo!(),
-            TraitItemDeclarativeSignature::Method(_) => todo!(),
-            TraitItemDeclarativeSignature::ExternType(_) => todo!(),
-            TraitItemDeclarativeSignature::Value(_) => todo!(),
+            TraitItemDeclarativeSignatureTemplate::Function(_) => todo!(),
+            TraitItemDeclarativeSignatureTemplate::Method(_) => todo!(),
+            TraitItemDeclarativeSignatureTemplate::ExternType(_) => todo!(),
+            TraitItemDeclarativeSignatureTemplate::Value(_) => todo!(),
         }
     }
 }

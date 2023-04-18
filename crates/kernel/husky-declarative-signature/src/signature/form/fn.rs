@@ -1,40 +1,40 @@
 use crate::*;
 
-#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
-pub struct FnDeclarativeSignature {
+#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureTemplateJar)]
+pub struct FnDeclarativeSignatureTemplate {
     #[return_ref]
-    pub implicit_parameters: ImplicitParameterDeclarativeSignatures,
+    pub implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates,
     #[return_ref]
-    pub parameters: ExplicitParameterDeclarativeSignatures,
+    pub parameters: ExplicitParameterDeclarativeSignatureTemplates,
     pub return_ty: DeclarativeTerm,
 }
 
-impl HasDeclarativeSignature for FnDecl {
-    type DeclarativeSignature = FnDeclarativeSignature;
+impl HasDeclarativeSignatureTemplate for FnDecl {
+    type DeclarativeSignatureTemplate = FnDeclarativeSignatureTemplate;
 
     fn declarative_signature(
         self,
         db: &dyn DeclarativeSignatureDb,
-    ) -> DeclarativeSignatureResult<Self::DeclarativeSignature> {
+    ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
         fn_declarative_signature(db, self)
     }
 }
 
-#[salsa::tracked(jar = DeclarativeSignatureJar)]
+#[salsa::tracked(jar = DeclarativeSignatureTemplateJar)]
 pub fn fn_declarative_signature(
     db: &dyn DeclarativeSignatureDb,
     decl: FnDecl,
-) -> DeclarativeSignatureResult<FnDeclarativeSignature> {
+) -> DeclarativeSignatureResult<FnDeclarativeSignatureTemplate> {
     let expr_region = decl.expr_region(db);
     let expr_region_data = expr_region.data(db);
     let declarative_term_region = declarative_term_region(db, expr_region);
     let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
-    let implicit_parameters = ImplicitParameterDeclarativeSignatures::from_decl(
+    let implicit_parameters = ImplicitParameterDeclarativeSignatureTemplates::from_decl(
         decl.implicit_parameters(db),
         declarative_term_region,
         declarative_term_menu,
     );
-    let parameters = ExplicitParameterDeclarativeSignatures::from_decl(
+    let parameters = ExplicitParameterDeclarativeSignatureTemplates::from_decl(
         decl.parameters(db),
         expr_region_data,
         declarative_term_region,
@@ -43,7 +43,7 @@ pub fn fn_declarative_signature(
         Some(return_ty) => declarative_term_region.expr_term(return_ty.expr())?,
         None => declarative_term_menu.unit(),
     };
-    Ok(FnDeclarativeSignature::new(
+    Ok(FnDeclarativeSignatureTemplate::new(
         db,
         implicit_parameters,
         parameters,
@@ -51,4 +51,4 @@ pub fn fn_declarative_signature(
     ))
 }
 
-impl FnDeclarativeSignature {}
+impl FnDeclarativeSignatureTemplate {}

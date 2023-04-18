@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::tracked(jar = DeclarativeSignatureJar)]
+#[salsa::tracked(jar = DeclarativeSignatureTemplateJar)]
 pub fn type_alias_signature(
     db: &dyn DeclarativeSignatureDb,
     decl: TypeAliasDecl,
@@ -11,5 +11,5 @@ pub fn type_alias_signature(
     TypeAliasSignature::new(db)
 }
 
-#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
+#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureTemplateJar)]
 pub struct TypeAliasSignature {}

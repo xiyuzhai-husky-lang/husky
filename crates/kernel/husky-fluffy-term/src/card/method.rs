@@ -105,7 +105,7 @@ fn method_card_aux(
 
 fn direct_method_card(
     engine: &mut impl FluffyTermEngine,
-    signature: TypeDeclarativeSignature,
+    signature: TypeDeclarativeSignatureTemplate,
     arguments: SmallVec<[FluffyTerm; 2]>,
     ident: Ident,
 ) -> FluffyCardResult<Option<FluffyMethodCard>> {
