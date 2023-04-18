@@ -1,7 +1,7 @@
 use crate::*;
 
 #[salsa::tracked(db = DefnDb, jar = DefnJar)]
-pub struct TraitForTypeAssociatedFunctionDefn {
+pub struct TraitForTypeAssociatedFnDefn {
     #[id]
     pub path: Option<TraitForTypeItemPath>,
     pub expr_region: ExprRegion,
@@ -9,9 +9,9 @@ pub struct TraitForTypeAssociatedFunctionDefn {
 }
 
 #[salsa::tracked(jar = DefnJar)]
-pub(crate) fn trai_for_ty_associated_function_defn(
+pub(crate) fn trai_for_ty_associated_fn_defn(
     _db: &dyn DefnDb,
     _decl: TraitForTypeAssociatedFunctionDecl,
-) -> TraitForTypeAssociatedFunctionDefn {
+) -> TraitForTypeAssociatedFnDefn {
     todo!()
 }

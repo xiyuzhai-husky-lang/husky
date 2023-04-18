@@ -1,21 +1,21 @@
 use crate::*;
 
 #[salsa::tracked(db = DefnDb, jar = DefnJar)]
-pub struct ValDefn {
+pub struct FnDefn {
     #[id]
     pub path: FormPath,
-    pub decl: ValDecl,
+    pub decl: FnDecl,
     pub expr_region: ExprRegion,
     pub body: Option<ExprIdx>,
 }
 
 #[salsa::tracked(jar = DefnJar)]
-pub(crate) fn feature_defn(db: &dyn DefnDb, decl: ValDecl) -> ValDefn {
+pub(crate) fn fn_defn(db: &dyn DefnDb, decl: FnDecl) -> FnDefn {
     let path = decl.path(db);
     let mut parser = expr_parser(
         db,
         DefnRegionPath::Entity(path.into()),
-        None,
+        Some(decl.expr_region(db)),
         AllowSelfType::False,
         AllowSelfValue::False,
     );
@@ -28,5 +28,5 @@ pub(crate) fn feature_defn(db: &dyn DefnDb, decl: ValDecl) -> ValDefn {
         _ => unreachable!(),
     };
     let expr_region = parser.finish();
-    ValDefn::new(db, path, decl, expr_region, body)
+    FnDefn::new(db, path, decl, expr_region, body)
 }

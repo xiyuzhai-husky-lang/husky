@@ -1,9 +1,9 @@
 use crate::*;
 
 #[salsa::tracked(jar = DeclarativeSignatureJar)]
-pub(crate) fn trai_for_ty_associated_value_declarative_signature(
+pub(crate) fn trai_for_ty_associated_val_declarative_signature(
     db: &dyn DeclarativeSignatureDb,
-    decl: TraitForTypeAssociatedValueDecl,
+    decl: TraitForTypeAssociatedValDecl,
 ) -> DeclarativeSignatureResult<TraitForTypeAssociatedValueSignature> {
     let expr_region = decl.expr_region(db);
     let _declarative_term_region = declarative_term_region(db, expr_region);

@@ -73,11 +73,11 @@ impl ImplicitParameterSignature {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct ImplicitParameterSignatures {
+pub struct ImplicitParameterDeclarativeSignatures {
     data: Vec<ImplicitParameterSignature>,
 }
 
-impl ImplicitParameterSignatures {
+impl ImplicitParameterDeclarativeSignatures {
     pub(crate) fn from_decl(
         implicit_parameters: &[ImplicitParameterDecl],
         declarative_term_region: &DeclarativeTermRegion,
@@ -102,7 +102,7 @@ impl ImplicitParameterSignatures {
     }
 }
 
-impl std::ops::Deref for ImplicitParameterSignatures {
+impl std::ops::Deref for ImplicitParameterDeclarativeSignatures {
     type Target = [ImplicitParameterSignature];
 
     fn deref(&self) -> &Self::Target {
@@ -139,11 +139,11 @@ impl ExplicitParameterSignature {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct ExplicitParameterSignatures {
+pub struct ExplicitParameterDeclarativeSignatures {
     parameters: Vec<ExplicitParameterSignature>,
 }
 
-impl std::ops::Deref for ExplicitParameterSignatures {
+impl std::ops::Deref for ExplicitParameterDeclarativeSignatures {
     type Target = [ExplicitParameterSignature];
 
     fn deref(&self) -> &Self::Target {
@@ -151,7 +151,7 @@ impl std::ops::Deref for ExplicitParameterSignatures {
     }
 }
 
-impl ExplicitParameterSignatures {
+impl ExplicitParameterDeclarativeSignatures {
     pub(crate) fn from_decl(
         parameters: &[RegularParameterDeclPattern],
         expr_region_data: &ExprRegionData,

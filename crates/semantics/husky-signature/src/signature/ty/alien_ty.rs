@@ -10,7 +10,7 @@ pub fn alien_ty_declarative_signature(
     let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
     Ok(ExternTypeDeclarativeSignature::new(
         db,
-        ImplicitParameterSignatures::from_decl(
+        ImplicitParameterDeclarativeSignatures::from_decl(
             decl.implicit_parameters(db),
             &declarative_term_region,
             declarative_term_menu,
@@ -21,7 +21,7 @@ pub fn alien_ty_declarative_signature(
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct ExternTypeDeclarativeSignature {
     #[return_ref]
-    pub implicit_parameters: ImplicitParameterSignatures,
+    pub implicit_parameters: ImplicitParameterDeclarativeSignatures,
 }
 
 impl ExternTypeDeclarativeSignature {}

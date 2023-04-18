@@ -107,7 +107,7 @@ pub trait ResolveLinkage {
         //                     } else {
         //                         todo!()
         //                         // ,
-        //                         // MethodDefnKind::TraitMethod {
+        //                         // MethodFnDefnKind::TraitMethod {
         //                         //     trai,
         //                         //     ref opt_default_source,
         //                         // } => opt_default_source.as_ref().map(|source| match source {
@@ -116,7 +116,7 @@ pub trait ResolveLinkage {
         //                         //     CallFormSource::Lazy { stmts } => todo!(),
         //                         //     CallFormSource::Static(linkage_source) => *linkage_source,
         //                         // }),
-        //                         // MethodDefnKind::TraitMethodImpl { trai, opt_source } => {
+        //                         // MethodFnDefnKind::TraitMethodImpl { trai, opt_source } => {
         //                         //     if let Some(source) = opt_source {
         //                         //         return match source {
         //                         //             CallFormSource::Func { ref stmts } => todo!(),
@@ -138,7 +138,7 @@ pub trait ResolveLinkage {
         //                         //             match member.variant {
         //                         //                 EntityDefnVariant::Method {
         //                         //                     method_variant:
-        //                         //                         MethodDefnKind::TraitMethod {
+        //                         //                         MethodFnDefnKind::TraitMethod {
         //                         //                             trai,
         //                         //                             ref opt_default_source,
         //                         //                         },

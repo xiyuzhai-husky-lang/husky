@@ -1,13 +1,13 @@
 mod associated_fn;
 mod associated_ty;
-mod associated_value;
-mod memo;
+mod associated_val;
+mod memoized_field;
 mod method_fn;
 
 pub use associated_fn::*;
 pub use associated_ty::*;
-pub use associated_value::*;
-pub use memo::*;
+pub use associated_val::*;
+pub use memoized_field::*;
 pub use method_fn::*;
 
 use crate::*;
@@ -20,7 +20,7 @@ pub enum TypeItemDefn {
     Function(TypeAssociatedFnDefn),
     Method(TypeMethodFnDefn),
     ExternType(TypeAssociatedTypeDefn),
-    Value(TypeAssociatedValueDefn),
+    Value(TypeAssociatedValDefn),
     Memo(TypeMemoDefn),
 }
 

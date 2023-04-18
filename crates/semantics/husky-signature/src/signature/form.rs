@@ -14,7 +14,7 @@ use crate::*;
 #[salsa::derive_debug_with_db(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 #[enum_class::from_variants]
 pub enum FormDeclarativeSignature {
-    Fn(FnSignature),
+    Fn(FnDeclarativeSignature),
     Val(ValDeclarativeSignature),
     Gn(GnSignature),
 }

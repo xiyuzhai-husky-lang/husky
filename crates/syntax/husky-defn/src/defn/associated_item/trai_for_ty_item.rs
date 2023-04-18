@@ -1,11 +1,11 @@
 mod associated_fn;
 mod associated_ty;
-mod associated_value;
+mod associated_val;
 mod method_fn;
 
 pub use associated_fn::*;
 pub use associated_ty::*;
-pub use associated_value::*;
+pub use associated_val::*;
 pub use method_fn::*;
 
 use crate::*;
@@ -14,10 +14,10 @@ use crate::*;
 #[salsa::derive_debug_with_db(db = DefnDb)]
 #[enum_class::from_variants]
 pub enum TraitForTypeItemDefn {
-    Function(TraitForTypeAssociatedFunctionDefn),
-    Method(TraitForTypeMethodDefn),
+    Function(TraitForTypeAssociatedFnDefn),
+    Method(TraitForTypeMethodFnDefn),
     ExternType(TraitForTypeAssociatedTypeDefn),
-    Value(TraitForTypeAssociatedValueDefn),
+    Value(TraitForTypeAssociatedValDefn),
 }
 
 impl TraitForTypeItemDefn {
@@ -54,7 +54,7 @@ impl HasDefn for TraitForTypeItemDecl {
                 trai_for_ty_associated_ty_defn(db, decl).into()
             }
             TraitForTypeItemDecl::AssociatedValue(decl) => {
-                trai_for_ty_associated_value_defn(db, decl).into()
+                trai_for_ty_associated_val_defn(db, decl).into()
             }
         }
     }

@@ -1,10 +1,10 @@
 use crate::*;
 
 #[salsa::tracked(db = DefnDb, jar = DefnJar)]
-pub struct TraitForTypeMethodDefn {
+pub struct TraitForTypeMethodFnDefn {
     #[id]
     pub path: Option<TraitForTypeItemPath>,
-    pub decl: TraitForTypeMethodDecl,
+    pub decl: TraitForTypeMethodFnDecl,
     pub expr_region: ExprRegion,
     pub body: Option<ExprIdx>,
 }
@@ -12,8 +12,8 @@ pub struct TraitForTypeMethodDefn {
 #[salsa::tracked(jar = DefnJar)]
 pub(crate) fn trai_for_ty_method_defn(
     db: &dyn DefnDb,
-    decl: TraitForTypeMethodDecl,
-) -> TraitForTypeMethodDefn {
+    decl: TraitForTypeMethodFnDecl,
+) -> TraitForTypeMethodFnDefn {
     let path = decl.path(db);
     let mut parser = expr_parser(
         db,
@@ -31,5 +31,5 @@ pub(crate) fn trai_for_ty_method_defn(
         _ => unreachable!(),
     };
     let expr_region = parser.finish();
-    TraitForTypeMethodDefn::new(db, path, decl, expr_region, body)
+    TraitForTypeMethodFnDefn::new(db, path, decl, expr_region, body)
 }

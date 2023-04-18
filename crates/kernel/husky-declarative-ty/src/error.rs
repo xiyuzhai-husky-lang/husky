@@ -48,9 +48,9 @@ pub enum DerivedDeclarativeTypeError {
     #[error("type path application field declaration error")]
     TypePathApplicationFieldDeclError,
     #[error("type path method declaration error")]
-    TypePathMethodDeclError,
+    TypePathMethodFnDeclError,
     #[error("type path application method declaration error")]
-    TypePathApplicationMethodDeclError,
+    TypePathApplicationMethodFnDeclError,
     #[error("TypeItemNotFound")]
     TypeItemNotFound,
 }

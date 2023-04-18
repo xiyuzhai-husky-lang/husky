@@ -18,6 +18,6 @@ pub struct CHirJar(
     CFunctionDeclHir,
     CValueDeclHir,
     CFunctionDefnHir,
-    CValueDefnHir,
+    CValDefnHir,
     CAliasDefnHir,
 );

@@ -6,11 +6,7 @@ use husky_ethereal_term::EtherealTerm;
 use super::*;
 
 impl<'a> RustCodeGenerator<'a> {
-    pub(super) fn gen_feature_defn(
-        &mut self,
-        feature_route: EtherealTerm,
-        defn_repr: &DefinitionRepr,
-    ) {
+    pub(super) fn gen_val_defn(&mut self, feature_route: EtherealTerm, defn_repr: &DefinitionRepr) {
         match defn_repr {
             DefinitionRepr::LazyExpr { .. } => (),
             DefinitionRepr::LazyBlock { .. } => (),

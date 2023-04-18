@@ -10,7 +10,7 @@ pub fn regular_struct_ty_declarative_signature(
     let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
     Ok(RegularStructTypeDeclarativeSignature::new(
         db,
-        ImplicitParameterSignatures::from_decl(
+        ImplicitParameterDeclarativeSignatures::from_decl(
             decl.implicit_parameters(db),
             declarative_term_region,
             declarative_term_menu,
@@ -38,7 +38,7 @@ pub fn regular_struct_ty_declarative_signature(
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct RegularStructTypeDeclarativeSignature {
     #[return_ref]
-    pub implicit_parameters: ImplicitParameterSignatures,
+    pub implicit_parameters: ImplicitParameterDeclarativeSignatures,
     #[return_ref]
     pub fields: Vec<RegularStructFieldSignature>,
 }

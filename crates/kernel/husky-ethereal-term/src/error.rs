@@ -41,8 +41,8 @@ pub enum TermError {
         parameter_ty: EtherealTerm,
         argument_ty: Either<EtherealTerm, PreludeTypePath>,
     },
-    #[error("TypePathApplicationMethodDeclError")]
-    TypePathApplicationMethodDeclError,
+    #[error("TypePathApplicationMethodFnDeclError")]
+    TypePathApplicationMethodFnDeclError,
     #[error("SignatureError")]
     SignatureError(#[from] SignatureError),
     #[error("EntityTreeBundleError")]

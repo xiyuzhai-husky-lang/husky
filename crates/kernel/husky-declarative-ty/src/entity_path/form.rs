@@ -25,7 +25,7 @@ pub fn form_path_raw_ty(
 pub(crate) fn form_fn_entity_raw_ty(
     db: &dyn DeclarativeTypeDb,
     variances: &[Variance],
-    signature: FnSignature,
+    signature: FnDeclarativeSignature,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     let param_raw_tys = signature
         .parameters(db)

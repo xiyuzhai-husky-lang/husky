@@ -10,7 +10,7 @@ impl<'a> RustCodeGenerator<'a> {
                     self.write(";\n");
                 }
                 EntityDefnVariant::Feature { ref defn_repr } => {
-                    self.gen_feature_defn(entity.base_route, defn_repr)
+                    self.gen_val_defn(entity.base_route, defn_repr)
                 }
                 EntityDefnVariant::Func {
                     ref parameters,
