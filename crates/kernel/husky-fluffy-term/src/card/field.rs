@@ -113,7 +113,7 @@ fn field_card_aux(
 
 fn direct_field_card(
     engine: &mut impl FluffyTermEngine,
-    signature: TypeDeclarativeSignature,
+    signature: TypeDeclarativeSignatureTemplate,
     arguments: SmallVec<[FluffyTerm; 2]>,
     ident: Ident,
 ) -> FluffyCardResult<Option<FluffyFieldCard>> {

@@ -6,9 +6,9 @@
     ),
     Ok(
         Signature::ImplBlock(
-            ImplBlockDeclarativeSignature::TypeImpl(
+            ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                 TypeImplBlockSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                     ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`),

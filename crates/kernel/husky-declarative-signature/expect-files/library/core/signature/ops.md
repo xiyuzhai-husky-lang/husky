@@ -1,8 +1,8 @@
 [
     Ok(
         Signature::Trait(
-            TraitDeclarativeSignature {
-                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            TraitDeclarativeSignatureTemplate {
+                implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                     data: [
                         ImplicitParameterSignature {
                             annotated_variance: None,
@@ -20,8 +20,8 @@
     ),
     Ok(
         Signature::Trait(
-            TraitDeclarativeSignature {
-                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            TraitDeclarativeSignatureTemplate {
+                implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                     data: [
                         ImplicitParameterSignature {
                             annotated_variance: None,
@@ -39,8 +39,8 @@
     ),
     Ok(
         Signature::Trait(
-            TraitDeclarativeSignature {
-                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            TraitDeclarativeSignatureTemplate {
+                implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                     data: [
                         ImplicitParameterSignature {
                             annotated_variance: None,
@@ -58,8 +58,8 @@
     ),
     Ok(
         Signature::Trait(
-            TraitDeclarativeSignature {
-                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            TraitDeclarativeSignatureTemplate {
+                implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                     data: [
                         ImplicitParameterSignature {
                             annotated_variance: None,
@@ -77,8 +77,8 @@
     ),
     Ok(
         Signature::Trait(
-            TraitDeclarativeSignature {
-                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            TraitDeclarativeSignatureTemplate {
+                implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                     data: [
                         ImplicitParameterSignature {
                             annotated_variance: None,
@@ -96,8 +96,8 @@
     ),
     Ok(
         Signature::Trait(
-            TraitDeclarativeSignature {
-                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            TraitDeclarativeSignatureTemplate {
+                implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                     data: [
                         ImplicitParameterSignature {
                             annotated_variance: None,
@@ -115,8 +115,8 @@
     ),
     Ok(
         Signature::Trait(
-            TraitDeclarativeSignature {
-                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            TraitDeclarativeSignatureTemplate {
+                implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                     data: [
                         ImplicitParameterSignature {
                             annotated_variance: None,
@@ -134,8 +134,8 @@
     ),
     Ok(
         Signature::Trait(
-            TraitDeclarativeSignature {
-                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            TraitDeclarativeSignatureTemplate {
+                implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                     data: [
                         ImplicitParameterSignature {
                             annotated_variance: None,
@@ -153,8 +153,8 @@
     ),
     Ok(
         Signature::Trait(
-            TraitDeclarativeSignature {
-                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            TraitDeclarativeSignatureTemplate {
+                implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                     data: [
                         ImplicitParameterSignature {
                             annotated_variance: None,
@@ -172,8 +172,8 @@
     ),
     Ok(
         Signature::Trait(
-            TraitDeclarativeSignature {
-                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            TraitDeclarativeSignatureTemplate {
+                implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                     data: [
                         ImplicitParameterSignature {
                             annotated_variance: None,
@@ -191,8 +191,8 @@
     ),
     Ok(
         Signature::Trait(
-            TraitDeclarativeSignature {
-                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            TraitDeclarativeSignatureTemplate {
+                implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                     data: [
                         ImplicitParameterSignature {
                             annotated_variance: None,
@@ -210,8 +210,8 @@
     ),
     Ok(
         Signature::Trait(
-            TraitDeclarativeSignature {
-                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            TraitDeclarativeSignatureTemplate {
+                implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                     data: [
                         ImplicitParameterSignature {
                             annotated_variance: None,
@@ -229,8 +229,8 @@
     ),
     Ok(
         Signature::Trait(
-            TraitDeclarativeSignature {
-                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            TraitDeclarativeSignatureTemplate {
+                implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                     data: [],
                 },
             },
@@ -238,8 +238,8 @@
     ),
     Ok(
         Signature::Trait(
-            TraitDeclarativeSignature {
-                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            TraitDeclarativeSignatureTemplate {
+                implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                     data: [],
                 },
             },
@@ -247,8 +247,8 @@
     ),
     Ok(
         Signature::Trait(
-            TraitDeclarativeSignature {
-                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            TraitDeclarativeSignatureTemplate {
+                implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                     data: [
                         ImplicitParameterSignature {
                             annotated_variance: None,

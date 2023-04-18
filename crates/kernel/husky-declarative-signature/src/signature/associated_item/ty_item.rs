@@ -15,49 +15,49 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclarativeSignatureDb)]
 #[enum_class::from_variants]
-pub enum TypeItemDeclarativeSignature {
-    AssociatedFn(TypeAssociatedFnDeclarativeSignature),
+pub enum TypeItemDeclarativeSignatureTemplate {
+    AssociatedFn(TypeAssociatedFnDeclarativeSignatureTemplate),
     MethodFn(TypeMethodSignature),
-    AssociatedType(TypeAssociatedTypeDeclarativeSignature),
+    AssociatedType(TypeAssociatedTypeDeclarativeSignatureTemplate),
     AssociatedValue(TypeAssociatedValueSignature),
     Memo(TypeMemoSignature),
 }
 
-impl TypeItemDeclarativeSignature {
+impl TypeItemDeclarativeSignatureTemplate {
     pub fn implicit_parameters(
         self,
         db: &dyn DeclarativeSignatureDb,
     ) -> &[ImplicitParameterSignature] {
         match self {
-            TypeItemDeclarativeSignature::AssociatedFn(signature) => {
+            TypeItemDeclarativeSignatureTemplate::AssociatedFn(signature) => {
                 signature.implicit_parameters(db)
             }
-            TypeItemDeclarativeSignature::MethodFn(_) => todo!(),
-            TypeItemDeclarativeSignature::AssociatedType(_) => todo!(),
-            TypeItemDeclarativeSignature::AssociatedValue(_) => todo!(),
-            TypeItemDeclarativeSignature::Memo(_) => todo!(),
+            TypeItemDeclarativeSignatureTemplate::MethodFn(_) => todo!(),
+            TypeItemDeclarativeSignatureTemplate::AssociatedType(_) => todo!(),
+            TypeItemDeclarativeSignatureTemplate::AssociatedValue(_) => todo!(),
+            TypeItemDeclarativeSignatureTemplate::Memo(_) => todo!(),
         }
     }
 }
 
-impl HasDeclarativeSignature for TypeItemPath {
-    type DeclarativeSignature = TypeItemDeclarativeSignature;
+impl HasDeclarativeSignatureTemplate for TypeItemPath {
+    type DeclarativeSignatureTemplate = TypeItemDeclarativeSignatureTemplate;
 
     fn declarative_signature(
         self,
         db: &dyn DeclarativeSignatureDb,
-    ) -> DeclarativeSignatureResult<TypeItemDeclarativeSignature> {
+    ) -> DeclarativeSignatureResult<TypeItemDeclarativeSignatureTemplate> {
         self.decl(db)?.declarative_signature(db)
     }
 }
 
-impl HasDeclarativeSignature for TypeItemDecl {
-    type DeclarativeSignature = TypeItemDeclarativeSignature;
+impl HasDeclarativeSignatureTemplate for TypeItemDecl {
+    type DeclarativeSignatureTemplate = TypeItemDeclarativeSignatureTemplate;
 
     fn declarative_signature(
         self,
         db: &dyn DeclarativeSignatureDb,
-    ) -> DeclarativeSignatureResult<TypeItemDeclarativeSignature> {
+    ) -> DeclarativeSignatureResult<TypeItemDeclarativeSignatureTemplate> {
         ty_item_declarative_signature_from_decl(db, self)
     }
 }
@@ -65,7 +65,7 @@ impl HasDeclarativeSignature for TypeItemDecl {
 pub(crate) fn ty_item_declarative_signature(
     db: &dyn DeclarativeSignatureDb,
     path: TypeItemPath,
-) -> DeclarativeSignatureResult<TypeItemDeclarativeSignature> {
+) -> DeclarativeSignatureResult<TypeItemDeclarativeSignatureTemplate> {
     let decl = path.decl(db)?;
     ty_item_declarative_signature_from_decl(db, decl)
 }
@@ -73,14 +73,14 @@ pub(crate) fn ty_item_declarative_signature(
 pub(crate) fn ty_item_declarative_signature_from_decl(
     db: &dyn DeclarativeSignatureDb,
     decl: TypeItemDecl,
-) -> DeclarativeSignatureResult<TypeItemDeclarativeSignature> {
+) -> DeclarativeSignatureResult<TypeItemDeclarativeSignatureTemplate> {
     match decl {
         TypeItemDecl::AssociatedFn(decl) => {
             ty_associated_fn_declarative_signature(db, decl).map(Into::into)
         }
         TypeItemDecl::MethodFn(decl) => ty_method_signature(db, decl).map(Into::into),
         TypeItemDecl::AssociatedType(decl) => {
-            ty_associated_ty_declarative_signature_from_decl(db, decl).map(Into::into)
+            ty_associated_ty_declarative_signature_template_from_decl(db, decl).map(Into::into)
         }
         TypeItemDecl::AssociatedValue(decl) => {
             ty_associated_val_declarative_signature(db, decl).map(Into::into)

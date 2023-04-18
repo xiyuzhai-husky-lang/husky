@@ -2,36 +2,36 @@ use husky_entity_tree::TypeImplBlock;
 
 use super::*;
 
-#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
+#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureTemplateJar)]
 pub struct TypeImplBlockSignature {
     #[return_ref]
-    pub implicit_parameters: ImplicitParameterDeclarativeSignatures,
+    pub implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates,
     pub ty: DeclarativeTerm,
 }
 
-impl HasDeclarativeSignature for TypeImplBlock {
-    type DeclarativeSignature = TypeImplBlockSignature;
+impl HasDeclarativeSignatureTemplate for TypeImplBlock {
+    type DeclarativeSignatureTemplate = TypeImplBlockSignature;
 
     fn declarative_signature(
         self,
         db: &dyn DeclarativeSignatureDb,
-    ) -> DeclarativeSignatureResult<Self::DeclarativeSignature> {
+    ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
         self.decl(db)?.declarative_signature(db)
     }
 }
 
-impl HasDeclarativeSignature for TypeImplBlockDecl {
-    type DeclarativeSignature = TypeImplBlockSignature;
+impl HasDeclarativeSignatureTemplate for TypeImplBlockDecl {
+    type DeclarativeSignatureTemplate = TypeImplBlockSignature;
 
     fn declarative_signature(
         self,
         db: &dyn DeclarativeSignatureDb,
-    ) -> DeclarativeSignatureResult<Self::DeclarativeSignature> {
+    ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
         ty_impl_block_declarative_signature(db, self)
     }
 }
 
-#[salsa::tracked(jar = DeclarativeSignatureJar)]
+#[salsa::tracked(jar = DeclarativeSignatureTemplateJar)]
 pub(crate) fn ty_impl_block_declarative_signature(
     db: &dyn DeclarativeSignatureDb,
     decl: TypeImplBlockDecl,
@@ -39,7 +39,7 @@ pub(crate) fn ty_impl_block_declarative_signature(
     let expr_region = decl.expr_region(db);
     let declarative_term_region = declarative_term_region(db, expr_region);
     let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
-    let implicit_parameters = ImplicitParameterDeclarativeSignatures::from_decl(
+    let implicit_parameters = ImplicitParameterDeclarativeSignatureTemplates::from_decl(
         decl.implicit_parameters(db),
         &declarative_term_region,
         declarative_term_menu,

@@ -21,7 +21,7 @@ pub(crate) fn signature_from_decl(
     decl: Decl,
 ) -> DeclarativeSignatureResult<Signature> {
     match decl {
-        Decl::Type(decl) => ty_declarative_signature_from_decl(db, decl).map(Into::into),
+        Decl::Type(decl) => ty_declarative_signature_template_from_decl(db, decl).map(Into::into),
         Decl::Form(decl) => decl.declarative_signature(db).map(Into::into),
         Decl::Trait(decl) => trai_declarative_signature_from_decl(db, decl).map(Into::into),
         Decl::Impl(decl) => decl.declarative_signature(db).map(Into::into),
@@ -33,23 +33,23 @@ pub(crate) fn signature_from_decl(
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
+#[salsa::derive_debug_with_db(db = DeclarativeSignatureDb, jar = DeclarativeSignatureTemplateJar)]
 #[enum_class::from_variants]
 pub enum Signature {
-    Type(TypeDeclarativeSignature),
-    Form(FormDeclarativeSignature),
-    Trait(TraitDeclarativeSignature),
-    ImplBlock(ImplBlockDeclarativeSignature),
-    AssociatedItem(AssociatedItemDeclarativeSignature),
-    Variant(VariantDeclarativeSignature),
-    DeriveDecr(DeriveDecrDeclarativeSignature),
+    Type(TypeDeclarativeSignatureTemplate),
+    Form(FormDeclarativeSignatureTemplate),
+    Trait(TraitDeclarativeSignatureTemplate),
+    ImplBlock(ImplBlockDeclarativeSignatureTemplate),
+    AssociatedItem(AssociatedItemDeclarativeSignatureTemplate),
+    Variant(VariantDeclarativeSignatureTemplate),
+    DeriveDecr(DeriveDecrDeclarativeSignatureTemplate),
 }
 
-pub trait HasDeclarativeSignature: Copy {
-    type DeclarativeSignature;
+pub trait HasDeclarativeSignatureTemplate: Copy {
+    type DeclarativeSignatureTemplate;
 
     fn declarative_signature(
         self,
         db: &dyn DeclarativeSignatureDb,
-    ) -> DeclarativeSignatureResult<Self::DeclarativeSignature>;
+    ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate>;
 }

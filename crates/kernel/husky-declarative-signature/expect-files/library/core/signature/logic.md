@@ -1,9 +1,9 @@
 [
     Ok(
         Signature::Type(
-            TypeDeclarativeSignature::Extern(
-                ExternTypeDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            TypeDeclarativeSignatureTemplate::Extern(
+                ExternTypeDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                 },
@@ -12,9 +12,9 @@
     ),
     Ok(
         Signature::Type(
-            TypeDeclarativeSignature::Structure(
-                StructureTypeDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            TypeDeclarativeSignatureTemplate::Structure(
+                StructureTypeDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [
                             ImplicitParameterSignature {
                                 annotated_variance: None,
@@ -42,9 +42,9 @@
     ),
     Ok(
         Signature::Type(
-            TypeDeclarativeSignature::Inductive(
-                InductiveTypeDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            TypeDeclarativeSignatureTemplate::Inductive(
+                InductiveTypeDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [
                             ImplicitParameterSignature {
                                 annotated_variance: None,

@@ -9,18 +9,18 @@ pub use ty_item::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
+#[salsa::derive_debug_with_db(db = DeclarativeSignatureDb, jar = DeclarativeSignatureTemplateJar)]
 #[enum_class::from_variants]
-pub enum AssociatedItemDeclarativeSignature {
-    TypeItem(TypeItemDeclarativeSignature),
-    TraitItem(TraitItemDeclarativeSignature),
-    TraitForTypeItem(TraitForTypeItemDeclarativeSignature),
+pub enum AssociatedItemDeclarativeSignatureTemplate {
+    TypeItem(TypeItemDeclarativeSignatureTemplate),
+    TraitItem(TraitItemDeclarativeSignatureTemplate),
+    TraitForTypeItem(TraitForTypeItemDeclarativeSignatureTemplate),
 }
 
 pub(crate) fn associated_item_declarative_signature_from_decl(
     db: &dyn DeclarativeSignatureDb,
     decl: AssociatedItemDecl,
-) -> DeclarativeSignatureResult<AssociatedItemDeclarativeSignature> {
+) -> DeclarativeSignatureResult<AssociatedItemDeclarativeSignatureTemplate> {
     match decl {
         AssociatedItemDecl::TypeItem(decl) => {
             ty_item_declarative_signature_from_decl(db, decl).map(|s| s.into())
@@ -30,19 +30,23 @@ pub(crate) fn associated_item_declarative_signature_from_decl(
         }
         AssociatedItemDecl::TraitForTypeItem(decl) => {
             trai_for_ty_associated_item_declarative_signature_from_decl(db, decl).map(|s| s.into())
-        } // TypeDecl::Enum(decl) => enum_ty_declarative_signature(db, decl).into(),
+        } // TypeDecl::Enum(decl) => enum_ty_declarative_signature_template(db, decl).into(),
     }
 }
 
-impl AssociatedItemDeclarativeSignature {
+impl AssociatedItemDeclarativeSignatureTemplate {
     pub fn implicit_parameters(
         self,
         db: &dyn DeclarativeSignatureDb,
     ) -> &[ImplicitParameterSignature] {
         match self {
-            AssociatedItemDeclarativeSignature::TypeItem(decl) => decl.implicit_parameters(db),
-            AssociatedItemDeclarativeSignature::TraitItem(decl) => decl.implicit_parameters(db),
-            AssociatedItemDeclarativeSignature::TraitForTypeItem(_) => todo!(),
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(decl) => {
+                decl.implicit_parameters(db)
+            }
+            AssociatedItemDeclarativeSignatureTemplate::TraitItem(decl) => {
+                decl.implicit_parameters(db)
+            }
+            AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(_) => todo!(),
         }
     }
 }

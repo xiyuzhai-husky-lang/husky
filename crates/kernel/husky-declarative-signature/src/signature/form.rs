@@ -11,32 +11,32 @@ pub use self::val::*;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
+#[salsa::derive_debug_with_db(db = DeclarativeSignatureDb, jar = DeclarativeSignatureTemplateJar)]
 #[enum_class::from_variants]
-pub enum FormDeclarativeSignature {
-    Fn(FnDeclarativeSignature),
-    Val(ValDeclarativeSignature),
+pub enum FormDeclarativeSignatureTemplate {
+    Fn(FnDeclarativeSignatureTemplate),
+    Val(ValDeclarativeSignatureTemplate),
     Gn(GnSignature),
 }
 
-impl HasDeclarativeSignature for FormPath {
-    type DeclarativeSignature = FormDeclarativeSignature;
+impl HasDeclarativeSignatureTemplate for FormPath {
+    type DeclarativeSignatureTemplate = FormDeclarativeSignatureTemplate;
 
     fn declarative_signature(
         self,
         db: &dyn DeclarativeSignatureDb,
-    ) -> DeclarativeSignatureResult<Self::DeclarativeSignature> {
+    ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
         self.decl(db)?.declarative_signature(db)
     }
 }
 
-impl HasDeclarativeSignature for FormDecl {
-    type DeclarativeSignature = FormDeclarativeSignature;
+impl HasDeclarativeSignatureTemplate for FormDecl {
+    type DeclarativeSignatureTemplate = FormDeclarativeSignatureTemplate;
 
     fn declarative_signature(
         self,
         db: &dyn DeclarativeSignatureDb,
-    ) -> DeclarativeSignatureResult<Self::DeclarativeSignature> {
+    ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
         match self {
             FormDecl::Fn(decl) => decl.declarative_signature(db).map(Into::into),
             FormDecl::Val(decl) => decl.declarative_signature(db).map(Into::into),
@@ -45,15 +45,15 @@ impl HasDeclarativeSignature for FormDecl {
     }
 }
 
-impl FormDeclarativeSignature {
+impl FormDeclarativeSignatureTemplate {
     pub fn implicit_parameters(
         self,
         db: &dyn DeclarativeSignatureDb,
     ) -> &[ImplicitParameterSignature] {
         match self {
-            FormDeclarativeSignature::Fn(decl) => decl.implicit_parameters(db),
-            FormDeclarativeSignature::Val(decl) => decl.implicit_parameters(db),
-            FormDeclarativeSignature::Gn(decl) => decl.implicit_parameters(db),
+            FormDeclarativeSignatureTemplate::Fn(decl) => decl.implicit_parameters(db),
+            FormDeclarativeSignatureTemplate::Val(decl) => decl.implicit_parameters(db),
+            FormDeclarativeSignatureTemplate::Gn(decl) => decl.implicit_parameters(db),
         }
     }
 }

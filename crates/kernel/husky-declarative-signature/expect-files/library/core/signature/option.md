@@ -1,9 +1,9 @@
 [
     Ok(
         Signature::Type(
-            TypeDeclarativeSignature::Enum(
-                EnumTypeDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            TypeDeclarativeSignatureTemplate::Enum(
+                EnumTypeDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [
                             ImplicitParameterSignature {
                                 annotated_variance: None,

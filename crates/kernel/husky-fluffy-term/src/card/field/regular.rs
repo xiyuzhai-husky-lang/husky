@@ -2,28 +2,28 @@ use super::*;
 
 pub(super) fn direct_regular_field_card(
     engine: &mut impl FluffyTermEngine,
-    signature: TypeDeclarativeSignature,
+    signature: TypeDeclarativeSignatureTemplate,
     arguments: &[FluffyTerm],
     ident: Ident,
 ) -> Result<Option<FluffyFieldCard>, FluffyCardError> {
     match signature {
-        TypeDeclarativeSignature::Enum(_) => todo!(),
-        TypeDeclarativeSignature::RegularStruct(signature) => {
+        TypeDeclarativeSignatureTemplate::Enum(_) => todo!(),
+        TypeDeclarativeSignatureTemplate::RegularStruct(signature) => {
             regular_struct_direct_regular_field_card(engine, signature, arguments, ident)
         }
-        TypeDeclarativeSignature::UnitStruct(_) => todo!(),
-        TypeDeclarativeSignature::TupleStruct(_) => todo!(),
-        TypeDeclarativeSignature::Record(_) => todo!(),
-        TypeDeclarativeSignature::Inductive(_) => todo!(),
-        TypeDeclarativeSignature::Structure(_) => todo!(),
-        TypeDeclarativeSignature::Extern(_) => todo!(),
-        TypeDeclarativeSignature::Union(_) => todo!(),
+        TypeDeclarativeSignatureTemplate::UnitStruct(_) => todo!(),
+        TypeDeclarativeSignatureTemplate::TupleStruct(_) => todo!(),
+        TypeDeclarativeSignatureTemplate::Record(_) => todo!(),
+        TypeDeclarativeSignatureTemplate::Inductive(_) => todo!(),
+        TypeDeclarativeSignatureTemplate::Structure(_) => todo!(),
+        TypeDeclarativeSignatureTemplate::Extern(_) => todo!(),
+        TypeDeclarativeSignatureTemplate::Union(_) => todo!(),
     }
 }
 
 fn regular_struct_direct_regular_field_card(
     engine: &mut impl FluffyTermEngine,
-    signature: RegularStructTypeDeclarativeSignature,
+    signature: RegularStructTypeDeclarativeSignatureTemplate,
     arguments: &[FluffyTerm],
     ident: Ident,
 ) -> FluffyCardResult<Option<FluffyFieldCard>> {

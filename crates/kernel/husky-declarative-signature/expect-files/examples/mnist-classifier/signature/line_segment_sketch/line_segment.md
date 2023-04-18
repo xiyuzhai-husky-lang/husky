@@ -1,9 +1,9 @@
 [
     Ok(
         Signature::Type(
-            TypeDeclarativeSignature::RegularStruct(
-                RegularStructTypeDeclarativeSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+            TypeDeclarativeSignatureTemplate::RegularStruct(
+                RegularStructTypeDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                     fields: [
@@ -22,9 +22,9 @@
     ),
     Ok(
         Signature::ImplBlock(
-            ImplBlockDeclarativeSignature::TypeImpl(
+            ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                 TypeImplBlockSignature {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
                     ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
@@ -34,10 +34,10 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TypeItem(
-                TypeItemDeclarativeSignature::MethodFn(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodSignature {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -52,7 +52,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatures {
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             parameters: [],
                         },
                         return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
@@ -63,10 +63,10 @@
     ),
     Ok(
         Signature::AssociatedItem(
-            AssociatedItemDeclarativeSignature::TypeItem(
-                TypeItemDeclarativeSignature::MethodFn(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodSignature {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -81,7 +81,7 @@
                                 ),
                             ),
                         },
-                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatures {
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                             parameters: [
                                 ExplicitParameterSignature {
                                     contract: Pure,

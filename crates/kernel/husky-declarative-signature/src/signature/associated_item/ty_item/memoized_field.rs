@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::tracked(jar = DeclarativeSignatureJar)]
+#[salsa::tracked(jar = DeclarativeSignatureTemplateJar)]
 pub(crate) fn ty_memo_signature(
     db: &dyn DeclarativeSignatureDb,
     decl: TypeMemoDecl,
@@ -16,7 +16,7 @@ pub(crate) fn ty_memo_signature(
     Ok(TypeMemoSignature::new(db, memo_ty))
 }
 
-#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
+#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureTemplateJar)]
 pub struct TypeMemoSignature {
     pub return_ty: DeclarativeTerm,
 }
