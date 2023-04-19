@@ -22,6 +22,9 @@ pub(crate) fn entity_tree_diagnostic_sheet(
                 EntityTreeError::Derived(_) => (),
             }
         }
+        for _ in entity_tree_sheet.all_ill_formed_impl_blocks() {
+            todo!()
+        }
     }
     // todo
     EntityTreeDiagnosticSheet::new(db, diagnostics)

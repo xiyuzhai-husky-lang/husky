@@ -51,6 +51,8 @@ impl<'a> TokenStream<'a> {
     }
 
     pub fn state(&self) -> TokenIdx {
+        // todo: consider boundary
+        // i.e. self.next_relative == self.tokens.len()
         TokenIdx(self.base + self.next_relative)
     }
 

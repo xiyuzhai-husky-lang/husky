@@ -103,6 +103,19 @@ impl EntityTreeSheet {
                 ImplBlock::IllFormed(_) => None,
             })
     }
+
+    pub fn all_ill_formed_impl_blocks<'a>(
+        &'a self,
+    ) -> impl Iterator<Item = IllFormedImplBlock> + 'a {
+        self.impl_blocks
+            .iter()
+            .copied()
+            .filter_map(|impl_block| match impl_block {
+                ImplBlock::Type(_) => None,
+                ImplBlock::TraitForType(_) => None,
+                ImplBlock::IllFormed(impl_block) => Some(impl_block),
+            })
+    }
 }
 
 pub(crate) fn entity_tree_sheet(

@@ -62,6 +62,9 @@ impl ImplBlock {
         let (expr, path) = match parser.parse_major_path_expr() {
             Ok((expr, path)) => (expr, path),
             Err(e) => {
+                if module_path.ident(db).data(db) == "list" {
+                    todo!()
+                }
                 return IllFormedImplBlock::new(
                     db,
                     registry,
@@ -204,7 +207,12 @@ fn ignore_implicit_parameters<'a>(token_stream: &mut TokenStream<'a>) -> ImplRes
     while let Some(token) = token_stream.next() {
         match token {
             Token::Punctuation(Punctuation::LA_OR_LT) => layer += 1,
-            Token::Punctuation(Punctuation::RA_OR_GT) => layer -= 1,
+            Token::Punctuation(Punctuation::RA_OR_GT) => {
+                layer -= 1;
+                if layer == 0 {
+                    break;
+                }
+            }
             Token::Error(e) => return Err(e.clone().into()),
             _ => (),
         }
@@ -237,7 +245,7 @@ pub(crate) fn ty_impl_blocks(
     let entity_tree_crate_bundle = db.entity_tree_bundle(crate_path)?;
     Ok(entity_tree_crate_bundle
         .all_ty_impl_blocks()
-        .filter_map(|impl_block| (impl_block.ty(db) == ty).then_some(impl_block))
+        .filter_map(|impl_block| (impl_block.ty_path(db) == ty).then_some(impl_block))
         .collect())
 }
 
@@ -264,12 +272,22 @@ pub(crate) fn ty_items(
 ) -> EntityTreeBundleResult<IdentPairMap<AssociatedItem>> {
     let crate_path = path.module_path(db).crate_path(db);
     let entity_tree_crate_bundle = db.entity_tree_bundle(crate_path)?;
+    p!(path.debug(db));
+    {
+        if path.ident(db).data(db) == "List" {
+            p!(entity_tree_crate_bundle
+                .all_ill_formed_impl_blocks()
+                .collect::<Vec<_>>()
+                .debug(db));
+            todo!();
+        }
+    }
     Ok(entity_tree_crate_bundle
         .all_ty_impl_blocks()
         .filter_map(|impl_block| {
             // ad hoc
             // todo: guard against two methods with the same ident
-            (impl_block.ty(db) == path).then(|| {
+            (impl_block.ty_path(db) == path).then(|| {
                 ty_impl_block_items(db, impl_block)
                     .iter()
                     .map(|(ident, associated_item)| (*ident, *associated_item))

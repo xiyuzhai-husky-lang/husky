@@ -64,7 +64,7 @@ impl AssociatedItem {
             AssociatedItemKind::TraitItem(_) => todo!(),
             AssociatedItemKind::TypeItem(ty_item_kind) => match impl_block {
                 ImplBlock::Type(impl_block) => {
-                    Some(TypeItemPath::new(db, impl_block.ty(db), ident, ty_item_kind).into())
+                    Some(TypeItemPath::new(db, impl_block.ty_path(db), ident, ty_item_kind).into())
                 }
                 ImplBlock::TraitForType(_) => unreachable!(),
                 ImplBlock::IllFormed(_) => None,
