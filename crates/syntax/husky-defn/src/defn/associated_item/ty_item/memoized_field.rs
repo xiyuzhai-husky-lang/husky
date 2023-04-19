@@ -1,16 +1,16 @@
 use crate::*;
 
 #[salsa::tracked(db = DefnDb, jar = DefnJar)]
-pub struct TypeMemoDefn {
+pub struct TypeMemoizedFieldDefn {
     #[id]
     pub path: Option<TypeItemPath>,
-    pub decl: TypeMemoDecl,
+    pub decl: TypeMemoizedFieldDecl,
     pub expr_region: ExprRegion,
     pub body: Option<ExprIdx>,
 }
 
 #[salsa::tracked(jar = DefnJar)]
-pub(crate) fn ty_memo_defn(db: &dyn DefnDb, decl: TypeMemoDecl) -> TypeMemoDefn {
+pub(crate) fn ty_memo_defn(db: &dyn DefnDb, decl: TypeMemoizedFieldDecl) -> TypeMemoizedFieldDefn {
     let path = decl.path(db);
     let mut parser = expr_parser(
         db,
@@ -29,5 +29,5 @@ pub(crate) fn ty_memo_defn(db: &dyn DefnDb, decl: TypeMemoDecl) -> TypeMemoDefn 
         _ => unreachable!(),
     };
     let expr_region = parser.finish();
-    TypeMemoDefn::new(db, path, decl, expr_region, body)
+    TypeMemoizedFieldDefn::new(db, path, decl, expr_region, body)
 }

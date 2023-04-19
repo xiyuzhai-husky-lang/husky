@@ -46,9 +46,9 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
                 TypeDefn::Extern(_Defn) => (),
                 TypeDefn::Union(_Defn) => (),
             },
-            Defn::Form(_Defn) => (),
+            Defn::Fugitive(_Defn) => (),
             Defn::Trait(_Defn) => (),
-            Defn::Impl(_Defn) => (),
+            Defn::ImplBlock(_Defn) => (),
             Defn::AssociatedItem(_Defn) => (),
             Defn::Variant(_Defn) => (),
         }

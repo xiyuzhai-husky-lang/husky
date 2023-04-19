@@ -10,8 +10,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Fn(
+                    Defn::Fugitive(
+                        FugitiveDefn::Fn(
                             FnDefn {
                                 path: FugitivePath(`quick_sort::quick_sort`, `Fn`),
                                 decl: FnDecl {
@@ -813,8 +813,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Fn(
+                    Defn::Fugitive(
+                        FugitiveDefn::Fn(
                             FnDefn {
                                 path: FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
                                 decl: FnDecl {
@@ -2072,8 +2072,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Fn(
+                    Defn::Fugitive(
+                        FugitiveDefn::Fn(
                             FnDefn {
                                 path: FugitivePath(`quick_sort::partition`, `Fn`),
                                 decl: FnDecl {

@@ -10,8 +10,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Fn(
+                    Defn::Fugitive(
+                        FugitiveDefn::Fn(
                             FnDefn {
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
                                 decl: FnDecl {

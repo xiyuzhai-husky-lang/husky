@@ -2961,7 +2961,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Decl::Impl(
+                    Decl::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 204,
@@ -3104,8 +3104,8 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Memo(
-                                TypeMemoDecl {
+                            TypeItemDecl::MemoizedField(
+                                TypeMemoizedFieldDecl {
                                     path: Some(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -3381,8 +3381,8 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Memo(
-                                TypeMemoDecl {
+                            TypeItemDecl::MemoizedField(
+                                TypeMemoizedFieldDecl {
                                     path: Some(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -3658,8 +3658,8 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Memo(
-                                TypeMemoDecl {
+                            TypeItemDecl::MemoizedField(
+                                TypeMemoizedFieldDecl {
                                     path: Some(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -3935,8 +3935,8 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Memo(
-                                TypeMemoDecl {
+                            TypeItemDecl::MemoizedField(
+                                TypeMemoizedFieldDecl {
                                     path: Some(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),

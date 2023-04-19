@@ -253,7 +253,7 @@
     Ok(
         Signature::ImplBlock(
             ImplBlockDeclarativeSignatureTemplate::TypeImpl(
-                TypeImplBlockSignature {
+                TypeImplBlockDeclarativeSignatureTemplate {
                     implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
@@ -346,7 +346,7 @@
     Ok(
         Signature::ImplBlock(
             ImplBlockDeclarativeSignatureTemplate::TypeImpl(
-                TypeImplBlockSignature {
+                TypeImplBlockDeclarativeSignatureTemplate {
                     implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
@@ -359,7 +359,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MemoizedField(
-                    TypeMemoizedFieldDeclarativeSignature {
+                    TypeMemoizedFieldDeclarativeSignatureTemplate {
                         return_ty: DeclarativeTerm(`[] mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                     },
                 ),
@@ -370,7 +370,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MemoizedField(
-                    TypeMemoizedFieldDeclarativeSignature {
+                    TypeMemoizedFieldDeclarativeSignatureTemplate {
                         return_ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                     },
                 ),

@@ -291,8 +291,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Fn(
+                    Defn::Fugitive(
+                        FugitiveDefn::Fn(
                             FnDefn {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
                                 decl: FnDecl {
@@ -968,8 +968,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Fn(
+                    Defn::Fugitive(
+                        FugitiveDefn::Fn(
                             FnDefn {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
                                 decl: FnDecl {
@@ -1621,8 +1621,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Fn(
+                    Defn::Fugitive(
+                        FugitiveDefn::Fn(
                             FnDefn {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
                                 decl: FnDecl {
@@ -2298,8 +2298,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Fn(
+                    Defn::Fugitive(
+                        FugitiveDefn::Fn(
                             FnDefn {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
                                 decl: FnDecl {
@@ -3316,8 +3316,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Fn(
+                    Defn::Fugitive(
+                        FugitiveDefn::Fn(
                             FnDefn {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
                                 decl: FnDecl {
@@ -4174,8 +4174,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Fn(
+                    Defn::Fugitive(
+                        FugitiveDefn::Fn(
                             FnDefn {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
                                 decl: FnDecl {
@@ -5527,8 +5527,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Fn(
+                    Defn::Fugitive(
+                        FugitiveDefn::Fn(
                             FnDefn {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
                                 decl: FnDecl {
@@ -6538,8 +6538,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Fn(
+                    Defn::Fugitive(
+                        FugitiveDefn::Fn(
                             FnDefn {
                                 path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                 decl: FnDecl {
@@ -12144,7 +12144,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Impl(
+                    Defn::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 204,
@@ -12287,8 +12287,8 @@ Ok(
                 Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
-                            TypeItemDefn::Memo(
-                                TypeMemoDefn {
+                            TypeItemDefn::MemoizedField(
+                                TypeMemoizedFieldDefn {
                                     path: Some(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -12296,7 +12296,7 @@ Ok(
                                             item_kind: MemoizedField,
                                         },
                                     ),
-                                    decl: TypeMemoDecl {
+                                    decl: TypeMemoizedFieldDecl {
                                         path: Some(
                                             TypeItemPath {
                                                 parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -12895,8 +12895,8 @@ Ok(
                 Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
-                            TypeItemDefn::Memo(
-                                TypeMemoDefn {
+                            TypeItemDefn::MemoizedField(
+                                TypeMemoizedFieldDefn {
                                     path: Some(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -12904,7 +12904,7 @@ Ok(
                                             item_kind: MemoizedField,
                                         },
                                     ),
-                                    decl: TypeMemoDecl {
+                                    decl: TypeMemoizedFieldDecl {
                                         path: Some(
                                             TypeItemPath {
                                                 parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -14619,8 +14619,8 @@ Ok(
                 Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
-                            TypeItemDefn::Memo(
-                                TypeMemoDefn {
+                            TypeItemDefn::MemoizedField(
+                                TypeMemoizedFieldDefn {
                                     path: Some(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -14628,7 +14628,7 @@ Ok(
                                             item_kind: MemoizedField,
                                         },
                                     ),
-                                    decl: TypeMemoDecl {
+                                    decl: TypeMemoizedFieldDecl {
                                         path: Some(
                                             TypeItemPath {
                                                 parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -15243,8 +15243,8 @@ Ok(
                 Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
-                            TypeItemDefn::Memo(
-                                TypeMemoDefn {
+                            TypeItemDefn::MemoizedField(
+                                TypeMemoizedFieldDefn {
                                     path: Some(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -15252,7 +15252,7 @@ Ok(
                                             item_kind: MemoizedField,
                                         },
                                     ),
-                                    decl: TypeMemoDecl {
+                                    decl: TypeMemoizedFieldDecl {
                                         path: Some(
                                             TypeItemPath {
                                                 parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -16902,7 +16902,7 @@ Ok(
                 Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
-                            TypeItemDefn::Method(
+                            TypeItemDefn::MethodFn(
                                 TypeMethodFnDefn {
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId::Type(

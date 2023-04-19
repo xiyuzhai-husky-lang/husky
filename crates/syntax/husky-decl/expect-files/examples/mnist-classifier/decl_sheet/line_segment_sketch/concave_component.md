@@ -475,7 +475,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Decl::Impl(
+                    Decl::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 75,
@@ -618,8 +618,8 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Memo(
-                                TypeMemoDecl {
+                            TypeItemDecl::MemoizedField(
+                                TypeMemoizedFieldDecl {
                                     path: Some(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -895,8 +895,8 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Memo(
-                                TypeMemoDecl {
+                            TypeItemDecl::MemoizedField(
+                                TypeMemoizedFieldDecl {
                                     path: Some(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -1172,8 +1172,8 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Memo(
-                                TypeMemoDecl {
+                            TypeItemDecl::MemoizedField(
+                                TypeMemoizedFieldDecl {
                                     path: Some(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -1449,8 +1449,8 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Memo(
-                                TypeMemoDecl {
+                            TypeItemDecl::MemoizedField(
+                                TypeMemoizedFieldDecl {
                                     path: Some(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -1726,8 +1726,8 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Memo(
-                                TypeMemoDecl {
+                            TypeItemDecl::MemoizedField(
+                                TypeMemoizedFieldDecl {
                                     path: Some(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -2003,8 +2003,8 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Memo(
-                                TypeMemoDecl {
+                            TypeItemDecl::MemoizedField(
+                                TypeMemoizedFieldDecl {
                                     path: Some(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),

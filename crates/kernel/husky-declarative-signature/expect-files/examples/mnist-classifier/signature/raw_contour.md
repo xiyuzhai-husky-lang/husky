@@ -383,7 +383,7 @@
     Ok(
         Signature::ImplBlock(
             ImplBlockDeclarativeSignatureTemplate::TypeImpl(
-                TypeImplBlockSignature {
+                TypeImplBlockDeclarativeSignatureTemplate {
                     implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
@@ -396,7 +396,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MemoizedField(
-                    TypeMemoizedFieldDeclarativeSignature {
+                    TypeMemoizedFieldDeclarativeSignatureTemplate {
                         return_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
                     },
                 ),
@@ -407,7 +407,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MemoizedField(
-                    TypeMemoizedFieldDeclarativeSignature {
+                    TypeMemoizedFieldDeclarativeSignatureTemplate {
                         return_ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                     },
                 ),
@@ -418,7 +418,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MemoizedField(
-                    TypeMemoizedFieldDeclarativeSignature {
+                    TypeMemoizedFieldDeclarativeSignatureTemplate {
                         return_ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
                     },
                 ),
@@ -429,7 +429,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MemoizedField(
-                    TypeMemoizedFieldDeclarativeSignature {
+                    TypeMemoizedFieldDeclarativeSignatureTemplate {
                         return_ty: DeclarativeTerm(`core::num::f32`),
                     },
                 ),

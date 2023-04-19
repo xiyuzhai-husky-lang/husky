@@ -1006,7 +1006,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Decl::Impl(
+                    Decl::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 32,
@@ -1439,7 +1439,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Decl::Impl(
+                    Decl::ImplBlock(
                         ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
                                 ast_idx: 33,
@@ -1647,7 +1647,7 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TraitForTypeItem(
-                            TraitForTypeItemDecl::Method(
+                            TraitForTypeItemDecl::MethodFn(
                                 TraitForTypeMethodFnDecl {
                                     path: Some(
                                         TraitForTypeItemPath {
@@ -2069,7 +2069,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Decl::Impl(
+                    Decl::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 37,
@@ -2502,7 +2502,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Decl::Impl(
+                    Decl::ImplBlock(
                         ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
                                 ast_idx: 38,
@@ -2710,7 +2710,7 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TraitForTypeItem(
-                            TraitForTypeItemDecl::Method(
+                            TraitForTypeItemDecl::MethodFn(
                                 TraitForTypeMethodFnDecl {
                                     path: Some(
                                         TraitForTypeItemPath {
@@ -3132,7 +3132,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Decl::Impl(
+                    Decl::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 42,
@@ -3565,7 +3565,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Decl::Impl(
+                    Decl::ImplBlock(
                         ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
                                 ast_idx: 43,
@@ -3773,7 +3773,7 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TraitForTypeItem(
-                            TraitForTypeItemDecl::Method(
+                            TraitForTypeItemDecl::MethodFn(
                                 TraitForTypeMethodFnDecl {
                                     path: Some(
                                         TraitForTypeItemPath {
@@ -4197,7 +4197,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Decl::Impl(
+                    Decl::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 47,
@@ -4630,7 +4630,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Decl::Impl(
+                    Decl::ImplBlock(
                         ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
                                 ast_idx: 48,
@@ -4838,7 +4838,7 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TraitForTypeItem(
-                            TraitForTypeItemDecl::Method(
+                            TraitForTypeItemDecl::MethodFn(
                                 TraitForTypeMethodFnDecl {
                                     path: Some(
                                         TraitForTypeItemPath {
@@ -5260,7 +5260,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Decl::Impl(
+                    Decl::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 52,
@@ -5693,7 +5693,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Decl::Impl(
+                    Decl::ImplBlock(
                         ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
                                 ast_idx: 53,
@@ -5901,7 +5901,7 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TraitForTypeItem(
-                            TraitForTypeItemDecl::Method(
+                            TraitForTypeItemDecl::MethodFn(
                                 TraitForTypeMethodFnDecl {
                                     path: Some(
                                         TraitForTypeItemPath {
@@ -6323,7 +6323,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Decl::Impl(
+                    Decl::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 57,
@@ -6756,7 +6756,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Decl::Impl(
+                    Decl::ImplBlock(
                         ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
                                 ast_idx: 58,
@@ -6964,7 +6964,7 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TraitForTypeItem(
-                            TraitForTypeItemDecl::Method(
+                            TraitForTypeItemDecl::MethodFn(
                                 TraitForTypeMethodFnDecl {
                                     path: Some(
                                         TraitForTypeItemPath {
@@ -7386,7 +7386,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Decl::Impl(
+                    Decl::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 62,
@@ -7819,7 +7819,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Decl::Impl(
+                    Decl::ImplBlock(
                         ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
                                 ast_idx: 63,
@@ -8027,7 +8027,7 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TraitForTypeItem(
-                            TraitForTypeItemDecl::Method(
+                            TraitForTypeItemDecl::MethodFn(
                                 TraitForTypeMethodFnDecl {
                                     path: Some(
                                         TraitForTypeItemPath {
@@ -8449,7 +8449,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Decl::Impl(
+                    Decl::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 67,
@@ -8882,7 +8882,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Decl::Impl(
+                    Decl::ImplBlock(
                         ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
                                 ast_idx: 68,
@@ -9090,7 +9090,7 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TraitForTypeItem(
-                            TraitForTypeItemDecl::Method(
+                            TraitForTypeItemDecl::MethodFn(
                                 TraitForTypeMethodFnDecl {
                                     path: Some(
                                         TraitForTypeItemPath {
@@ -9512,7 +9512,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Decl::Impl(
+                    Decl::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 72,
@@ -9945,7 +9945,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Decl::Impl(
+                    Decl::ImplBlock(
                         ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
                                 ast_idx: 73,
@@ -10153,7 +10153,7 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TraitForTypeItem(
-                            TraitForTypeItemDecl::Method(
+                            TraitForTypeItemDecl::MethodFn(
                                 TraitForTypeMethodFnDecl {
                                     path: Some(
                                         TraitForTypeItemPath {
@@ -10575,7 +10575,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Decl::Impl(
+                    Decl::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 77,
@@ -11008,7 +11008,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Decl::Impl(
+                    Decl::ImplBlock(
                         ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
                                 ast_idx: 78,
@@ -11216,7 +11216,7 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TraitForTypeItem(
-                            TraitForTypeItemDecl::Method(
+                            TraitForTypeItemDecl::MethodFn(
                                 TraitForTypeMethodFnDecl {
                                     path: Some(
                                         TraitForTypeItemPath {
@@ -11638,7 +11638,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Decl::Impl(
+                    Decl::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 82,
@@ -12071,7 +12071,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Decl::Impl(
+                    Decl::ImplBlock(
                         ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
                                 ast_idx: 83,
@@ -12279,7 +12279,7 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TraitForTypeItem(
-                            TraitForTypeItemDecl::Method(
+                            TraitForTypeItemDecl::MethodFn(
                                 TraitForTypeMethodFnDecl {
                                     path: Some(
                                         TraitForTypeItemPath {
@@ -12701,7 +12701,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Decl::Impl(
+                    Decl::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 87,
@@ -13134,7 +13134,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Decl::Impl(
+                    Decl::ImplBlock(
                         ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
                                 ast_idx: 88,
@@ -13342,7 +13342,7 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TraitForTypeItem(
-                            TraitForTypeItemDecl::Method(
+                            TraitForTypeItemDecl::MethodFn(
                                 TraitForTypeMethodFnDecl {
                                     path: Some(
                                         TraitForTypeItemPath {
@@ -13764,7 +13764,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Decl::Impl(
+                    Decl::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 92,
@@ -14197,7 +14197,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Decl::Impl(
+                    Decl::ImplBlock(
                         ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
                                 ast_idx: 93,
@@ -14405,7 +14405,7 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TraitForTypeItem(
-                            TraitForTypeItemDecl::Method(
+                            TraitForTypeItemDecl::MethodFn(
                                 TraitForTypeMethodFnDecl {
                                     path: Some(
                                         TraitForTypeItemPath {
@@ -14829,7 +14829,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Decl::Impl(
+                    Decl::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 97,
@@ -15262,7 +15262,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Decl::Impl(
+                    Decl::ImplBlock(
                         ImplBlockDecl::TraitForType(
                             TraitForTypeImplBlockDecl {
                                 ast_idx: 98,
@@ -15470,7 +15470,7 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TraitForTypeItem(
-                            TraitForTypeItemDecl::Method(
+                            TraitForTypeItemDecl::MethodFn(
                                 TraitForTypeMethodFnDecl {
                                     path: Some(
                                         TraitForTypeItemPath {

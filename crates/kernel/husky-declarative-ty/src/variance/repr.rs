@@ -161,7 +161,7 @@ pub(crate) fn ty_item_entity_variance_reprs(
     db: &dyn DeclarativeTypeDb,
     path: TypeItemPath,
 ) -> VarianceResult<Vec<VarianceRepr>> {
-    let signature = match db.ty_item_declarative_signature(path) {
+    let signature = match path.declarative_signature_template(db) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedVarianceError::SignatureError.into()),
     };

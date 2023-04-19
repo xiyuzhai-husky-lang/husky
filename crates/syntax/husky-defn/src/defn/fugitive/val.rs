@@ -9,6 +9,14 @@ pub struct ValDefn {
     pub body: Option<ExprIdx>,
 }
 
+impl HasDefn for ValDecl {
+    type Defn = ValDefn;
+
+    fn defn(self, db: &dyn DefnDb) -> Self::Defn {
+        val_defn(db, self)
+    }
+}
+
 #[salsa::tracked(jar = DefnJar)]
 pub(crate) fn val_defn(db: &dyn DefnDb, decl: ValDecl) -> ValDefn {
     let path = decl.path(db);

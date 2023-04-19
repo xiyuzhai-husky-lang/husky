@@ -246,8 +246,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Fn(
+                    Defn::Fugitive(
+                        FugitiveDefn::Fn(
                             FnDefn {
                                 path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                 decl: FnDecl {
@@ -1675,7 +1675,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Impl(
+                    Defn::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 23,
@@ -1818,8 +1818,8 @@ Ok(
                 Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
-                            TypeItemDefn::Memo(
-                                TypeMemoDefn {
+                            TypeItemDefn::MemoizedField(
+                                TypeMemoizedFieldDefn {
                                     path: Some(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -1827,7 +1827,7 @@ Ok(
                                             item_kind: MemoizedField,
                                         },
                                     ),
-                                    decl: TypeMemoDecl {
+                                    decl: TypeMemoizedFieldDecl {
                                         path: Some(
                                             TypeItemPath {
                                                 parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -2680,8 +2680,8 @@ Ok(
                 Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
-                            TypeItemDefn::Memo(
-                                TypeMemoDefn {
+                            TypeItemDefn::MemoizedField(
+                                TypeMemoizedFieldDefn {
                                     path: Some(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -2689,7 +2689,7 @@ Ok(
                                             item_kind: MemoizedField,
                                         },
                                     ),
-                                    decl: TypeMemoDecl {
+                                    decl: TypeMemoizedFieldDecl {
                                         path: Some(
                                             TypeItemPath {
                                                 parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -3542,8 +3542,8 @@ Ok(
                 Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
-                            TypeItemDefn::Memo(
-                                TypeMemoDefn {
+                            TypeItemDefn::MemoizedField(
+                                TypeMemoizedFieldDefn {
                                     path: Some(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -3551,7 +3551,7 @@ Ok(
                                             item_kind: MemoizedField,
                                         },
                                     ),
-                                    decl: TypeMemoDecl {
+                                    decl: TypeMemoizedFieldDecl {
                                         path: Some(
                                             TypeItemPath {
                                                 parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),

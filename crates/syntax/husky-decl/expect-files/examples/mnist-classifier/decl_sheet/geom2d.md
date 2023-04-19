@@ -1108,7 +1108,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Decl::Impl(
+                    Decl::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 79,
@@ -3002,7 +3002,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Decl::Impl(
+                    Decl::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 82,
@@ -6097,7 +6097,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Decl::Impl(
+                    Decl::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 86,
@@ -8177,7 +8177,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Decl::Impl(
+                    Decl::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 88,

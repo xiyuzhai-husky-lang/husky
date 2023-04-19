@@ -237,8 +237,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Fn(
+                    Defn::Fugitive(
+                        FugitiveDefn::Fn(
                             FnDefn {
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                                 decl: FnDecl {
@@ -1696,8 +1696,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Fn(
+                    Defn::Fugitive(
+                        FugitiveDefn::Fn(
                             FnDefn {
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                                 decl: FnDecl {
@@ -3155,8 +3155,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Fn(
+                    Defn::Fugitive(
+                        FugitiveDefn::Fn(
                             FnDefn {
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
                                 decl: FnDecl {
@@ -6198,8 +6198,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Fn(
+                    Defn::Fugitive(
+                        FugitiveDefn::Fn(
                             FnDefn {
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
                                 decl: FnDecl {
@@ -9647,8 +9647,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Fn(
+                    Defn::Fugitive(
+                        FugitiveDefn::Fn(
                             FnDefn {
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
                                 decl: FnDecl {
@@ -14351,7 +14351,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Impl(
+                    Defn::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 170,
@@ -14494,7 +14494,7 @@ Ok(
                 Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
-                            TypeItemDefn::Function(
+                            TypeItemDefn::AssociatedFn(
                                 TypeAssociatedFnDefn {
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId::Type(
@@ -15623,7 +15623,7 @@ Ok(
                 Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
-                            TypeItemDefn::Method(
+                            TypeItemDefn::MethodFn(
                                 TypeMethodFnDefn {
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId::Type(
@@ -16223,7 +16223,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Impl(
+                    Defn::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 172,
@@ -16366,8 +16366,8 @@ Ok(
                 Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
-                            TypeItemDefn::Memo(
-                                TypeMemoDefn {
+                            TypeItemDefn::MemoizedField(
+                                TypeMemoizedFieldDefn {
                                     path: Some(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -16375,7 +16375,7 @@ Ok(
                                             item_kind: MemoizedField,
                                         },
                                     ),
-                                    decl: TypeMemoDecl {
+                                    decl: TypeMemoizedFieldDecl {
                                         path: Some(
                                             TypeItemPath {
                                                 parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -16964,8 +16964,8 @@ Ok(
                 Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
-                            TypeItemDefn::Memo(
-                                TypeMemoDefn {
+                            TypeItemDefn::MemoizedField(
+                                TypeMemoizedFieldDefn {
                                     path: Some(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -16973,7 +16973,7 @@ Ok(
                                             item_kind: MemoizedField,
                                         },
                                     ),
-                                    decl: TypeMemoDecl {
+                                    decl: TypeMemoizedFieldDecl {
                                         path: Some(
                                             TypeItemPath {
                                                 parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -18712,7 +18712,7 @@ Ok(
                 Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
-                            TypeItemDefn::Function(
+                            TypeItemDefn::AssociatedFn(
                                 TypeAssociatedFnDefn {
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId::Type(

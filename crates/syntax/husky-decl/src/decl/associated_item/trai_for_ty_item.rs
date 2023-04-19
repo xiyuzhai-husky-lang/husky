@@ -1,12 +1,14 @@
-mod assoc_ty;
-mod assoc_val;
-mod function;
+mod associated_fn;
+mod associated_ty;
+mod associated_val;
+mod memoized_field;
 mod method_fn;
 
-pub use assoc_ty::*;
-pub use assoc_val::*;
-pub use function::*;
-pub use method_fn::*;
+pub use self::associated_fn::*;
+pub use self::associated_ty::*;
+pub use self::associated_val::*;
+pub use self::memoized_field::*;
+pub use self::method_fn::*;
 
 use super::*;
 use husky_ast::*;
@@ -15,46 +17,46 @@ use husky_ast::*;
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
 pub enum TraitForTypeItemDecl {
-    AssociatedFunction(TraitForTypeAssociatedFunctionDecl),
-    Method(TraitForTypeMethodFnDecl),
+    AssociatedFn(TraitForTypeAssociatedFnDecl),
+    MethodFn(TraitForTypeMethodFnDecl),
     AssociatedType(TraitForTypeAssociatedTypeDecl),
-    AssociatedValue(TraitForTypeAssociatedValDecl),
+    AssociatedVal(TraitForTypeAssociatedValDecl),
 }
 
 impl TraitForTypeItemDecl {
     pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
         match self {
-            TraitForTypeItemDecl::AssociatedFunction(decl) => decl.ast_idx(db),
-            TraitForTypeItemDecl::Method(decl) => decl.ast_idx(db),
+            TraitForTypeItemDecl::AssociatedFn(decl) => decl.ast_idx(db),
+            TraitForTypeItemDecl::MethodFn(decl) => decl.ast_idx(db),
             TraitForTypeItemDecl::AssociatedType(decl) => decl.ast_idx(db),
-            TraitForTypeItemDecl::AssociatedValue(decl) => decl.ast_idx(db),
+            TraitForTypeItemDecl::AssociatedVal(decl) => decl.ast_idx(db),
         }
     }
 
     pub fn implicit_parameters<'a>(self, _db: &'a dyn DeclDb) -> &'a [ImplicitParameterDecl] {
         match self {
-            TraitForTypeItemDecl::AssociatedFunction(_) => todo!(),
-            TraitForTypeItemDecl::Method(_) => todo!(),
+            TraitForTypeItemDecl::AssociatedFn(_) => todo!(),
+            TraitForTypeItemDecl::MethodFn(_) => todo!(),
             TraitForTypeItemDecl::AssociatedType(_) => todo!(),
-            TraitForTypeItemDecl::AssociatedValue(_) => todo!(),
+            TraitForTypeItemDecl::AssociatedVal(_) => todo!(),
         }
     }
 
     pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
         match self {
-            TraitForTypeItemDecl::AssociatedFunction(decl) => decl.expr_region(db),
-            TraitForTypeItemDecl::Method(decl) => decl.expr_region(db),
+            TraitForTypeItemDecl::AssociatedFn(decl) => decl.expr_region(db),
+            TraitForTypeItemDecl::MethodFn(decl) => decl.expr_region(db),
             TraitForTypeItemDecl::AssociatedType(decl) => decl.expr_region(db),
-            TraitForTypeItemDecl::AssociatedValue(decl) => decl.expr_region(db),
+            TraitForTypeItemDecl::AssociatedVal(decl) => decl.expr_region(db),
         }
     }
 
     pub fn path(self, db: &dyn DeclDb) -> Option<TraitForTypeItemPath> {
         match self {
-            TraitForTypeItemDecl::AssociatedFunction(_) => todo!(),
-            TraitForTypeItemDecl::Method(decl) => decl.path(db),
+            TraitForTypeItemDecl::AssociatedFn(_) => todo!(),
+            TraitForTypeItemDecl::MethodFn(decl) => decl.path(db),
             TraitForTypeItemDecl::AssociatedType(_) => todo!(),
-            TraitForTypeItemDecl::AssociatedValue(_) => todo!(),
+            TraitForTypeItemDecl::AssociatedVal(_) => todo!(),
         }
     }
 }

@@ -197,7 +197,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Impl(
+                    Defn::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 17,
@@ -340,7 +340,7 @@ Ok(
                 Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
-                            TypeItemDefn::Method(
+                            TypeItemDefn::MethodFn(
                                 TypeMethodFnDefn {
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId::Type(
@@ -945,7 +945,7 @@ Ok(
                 Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
-                            TypeItemDefn::Method(
+                            TypeItemDefn::MethodFn(
                                 TypeMethodFnDefn {
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId::Type(

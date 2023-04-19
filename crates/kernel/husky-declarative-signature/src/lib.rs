@@ -45,7 +45,7 @@ pub struct DeclarativeSignatureJar(
     union_ty_declarative_signature_template,
     UnionTypeDeclarativeSignatureTemplate,
     // trait
-    trai_declarative_signature_template_from_decl,
+    trai_declarative_signature_template,
     TraitDeclarativeSignatureTemplate,
     // form
     // form_signature,
@@ -56,11 +56,11 @@ pub struct DeclarativeSignatureJar(
     gn_signature,
     GnDeclarativeSignatureTemplate,
     type_alias_signature,
-    TypeAliasSignature,
+    TypeAliasDeclarativeSignatureTemplate,
     // impl block
     // impl_block_signature_from_decl,
     ty_impl_block_declarative_signature,
-    TypeImplBlockSignature,
+    TypeImplBlockDeclarativeSignatureTemplate,
     trai_for_ty_impl_block_declarative_signature,
     TraitForTypeImplBlockDeclarativeSignatureTemplate,
     // variant
@@ -81,17 +81,17 @@ pub struct DeclarativeSignatureJar(
     ty_associated_val_declarative_signature_template,
     TypeAssociatedValDeclarativeSignatureTemplate,
     ty_memo_signature,
-    TypeMemoizedFieldDeclarativeSignature,
+    TypeMemoizedFieldDeclarativeSignatureTemplate,
     ty_method_declarative_signature_templates_map,
     // trait item
     trai_associated_form_fn_declarative_signature,
     TraitAssociatedFnDeclarativeSignatureTemplate,
     trai_method_fn_signature,
-    TraitMethodFnSignature,
+    TraitMethodFnSignatureTempalte,
     trai_associated_ty_declarative_signature_template,
     TraitAssociatedTypeDeclarativeSignatureTemplate,
     trai_associated_val_declarative_signature,
-    TraitAssociatedValueSignature,
+    TraitAssociatedValDeclarativeSignatureTemplate,
     // type as trait item
     trai_for_ty_associated_fn_declarative_signature_template,
     TraitForTypeAssociatedFnDeclarativeSignatureTemplate,

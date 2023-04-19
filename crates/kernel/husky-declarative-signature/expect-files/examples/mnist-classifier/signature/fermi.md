@@ -59,7 +59,7 @@
     Ok(
         Signature::ImplBlock(
             ImplBlockDeclarativeSignatureTemplate::TypeImpl(
-                TypeImplBlockSignature {
+                TypeImplBlockDeclarativeSignatureTemplate {
                     implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
                     },
@@ -72,7 +72,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MemoizedField(
-                    TypeMemoizedFieldDeclarativeSignature {
+                    TypeMemoizedFieldDeclarativeSignatureTemplate {
                         return_ty: DeclarativeTerm(`core::num::f32`),
                     },
                 ),
@@ -83,7 +83,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MemoizedField(
-                    TypeMemoizedFieldDeclarativeSignature {
+                    TypeMemoizedFieldDeclarativeSignatureTemplate {
                         return_ty: DeclarativeTerm(`core::num::f32`),
                     },
                 ),
@@ -94,7 +94,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MemoizedField(
-                    TypeMemoizedFieldDeclarativeSignature {
+                    TypeMemoizedFieldDeclarativeSignatureTemplate {
                         return_ty: DeclarativeTerm(`core::num::f32`),
                     },
                 ),

@@ -9,7 +9,7 @@ pub struct TraitDeclarativeSignatureTemplate {
 impl TraitDeclarativeSignatureTemplate {}
 
 #[salsa::tracked(jar = DeclarativeSignatureJar)]
-pub fn trai_declarative_signature_template_from_decl(
+pub fn trai_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     decl: TraitDecl,
 ) -> DeclarativeSignatureResult<TraitDeclarativeSignatureTemplate> {
@@ -25,4 +25,15 @@ pub fn trai_declarative_signature_template_from_decl(
         db,
         implicit_parameters,
     ))
+}
+
+impl HasDeclarativeSignatureTemplate for TraitDecl {
+    type DeclarativeSignatureTemplate = TraitDeclarativeSignatureTemplate;
+
+    fn declarative_signature_template(
+        self,
+        db: &dyn DeclarativeSignatureDb,
+    ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
+        trai_declarative_signature_template(db, self)
+    }
 }

@@ -10,8 +10,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Val(
+                    Defn::Fugitive(
+                        FugitiveDefn::Val(
                             ValDefn {
                                 path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                                 decl: ValDecl {

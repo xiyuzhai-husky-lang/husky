@@ -17,9 +17,9 @@ use super::*;
 #[enum_class::from_variants]
 pub enum TraitItemDeclarativeSignatureTemplate {
     AssociatedFn(TraitAssociatedFnDeclarativeSignatureTemplate),
-    MethodFn(TraitMethodFnSignature),
+    MethodFn(TraitMethodFnSignatureTempalte),
     AssociatedType(TraitAssociatedTypeDeclarativeSignatureTemplate),
-    Val(TraitAssociatedValueSignature),
+    AssociatedVal(TraitAssociatedValDeclarativeSignatureTemplate),
 }
 
 pub(crate) fn trai_associated_item_declarative_signature_from_decl(
@@ -27,14 +27,14 @@ pub(crate) fn trai_associated_item_declarative_signature_from_decl(
     decl: TraitItemDecl,
 ) -> DeclarativeSignatureResult<TraitItemDeclarativeSignatureTemplate> {
     match decl {
-        TraitItemDecl::AssociatedFunction(decl) => {
+        TraitItemDecl::AssociatedFn(decl) => {
             trai_associated_form_fn_declarative_signature(db, decl).map(Into::into)
         }
-        TraitItemDecl::Method(decl) => trai_method_fn_signature(db, decl).map(Into::into),
+        TraitItemDecl::MethodFn(decl) => trai_method_fn_signature(db, decl).map(Into::into),
         TraitItemDecl::AssociatedType(decl) => {
             trai_associated_ty_declarative_signature_template(db, decl).map(Into::into)
         }
-        TraitItemDecl::Value(decl) => {
+        TraitItemDecl::AssociatedVal(decl) => {
             trai_associated_val_declarative_signature(db, decl).map(Into::into)
         }
     }
@@ -49,7 +49,7 @@ impl TraitItemDeclarativeSignatureTemplate {
             TraitItemDeclarativeSignatureTemplate::AssociatedFn(_) => todo!(),
             TraitItemDeclarativeSignatureTemplate::MethodFn(_) => todo!(),
             TraitItemDeclarativeSignatureTemplate::AssociatedType(_) => todo!(),
-            TraitItemDeclarativeSignatureTemplate::Val(_) => todo!(),
+            TraitItemDeclarativeSignatureTemplate::AssociatedVal(_) => todo!(),
         }
     }
 }

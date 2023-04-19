@@ -1,14 +1,14 @@
 mod associated_fn;
 mod associated_ty;
 mod associated_val;
-mod memo;
+mod memoized_field;
 mod method_fn;
 
-pub use associated_fn::*;
-pub use associated_ty::*;
-pub use associated_val::*;
-pub use memo::*;
-pub use method_fn::*;
+pub use self::associated_fn::*;
+pub use self::associated_ty::*;
+pub use self::associated_val::*;
+pub use self::memoized_field::*;
+pub use self::method_fn::*;
 
 use crate::*;
 use husky_ast::*;
@@ -23,8 +23,8 @@ pub enum TypeItemDecl {
     AssociatedFn(TypeAssociatedFnDecl),
     MethodFn(TypeMethodFnDecl),
     AssociatedType(TypeAssociatedTypeDecl),
-    AssociatedValue(TypeAssociatedValDecl),
-    Memo(TypeMemoDecl),
+    AssociatedVal(TypeAssociatedValDecl),
+    MemoizedField(TypeMemoizedFieldDecl),
 }
 
 impl HasDecl for TypeItemPath {
@@ -69,8 +69,8 @@ impl TypeItemDecl {
             TypeItemDecl::AssociatedFn(decl) => decl.ast_idx(db),
             TypeItemDecl::MethodFn(decl) => decl.ast_idx(db),
             TypeItemDecl::AssociatedType(decl) => decl.ast_idx(db),
-            TypeItemDecl::AssociatedValue(decl) => decl.ast_idx(db),
-            TypeItemDecl::Memo(decl) => decl.ast_idx(db),
+            TypeItemDecl::AssociatedVal(decl) => decl.ast_idx(db),
+            TypeItemDecl::MemoizedField(decl) => decl.ast_idx(db),
         }
     }
 
@@ -79,8 +79,8 @@ impl TypeItemDecl {
             TypeItemDecl::AssociatedFn(_) => todo!(),
             TypeItemDecl::MethodFn(_) => todo!(),
             TypeItemDecl::AssociatedType(_) => todo!(),
-            TypeItemDecl::AssociatedValue(_) => todo!(),
-            TypeItemDecl::Memo(_) => todo!(),
+            TypeItemDecl::AssociatedVal(_) => todo!(),
+            TypeItemDecl::MemoizedField(_) => todo!(),
         }
     }
 
@@ -89,8 +89,8 @@ impl TypeItemDecl {
             TypeItemDecl::AssociatedFn(decl) => decl.expr_region(db),
             TypeItemDecl::MethodFn(decl) => decl.expr_region(db),
             TypeItemDecl::AssociatedType(decl) => decl.expr_region(db),
-            TypeItemDecl::AssociatedValue(decl) => decl.expr_region(db),
-            TypeItemDecl::Memo(decl) => decl.expr_region(db),
+            TypeItemDecl::AssociatedVal(decl) => decl.expr_region(db),
+            TypeItemDecl::MemoizedField(decl) => decl.expr_region(db),
         }
     }
 
@@ -100,8 +100,8 @@ impl TypeItemDecl {
             TypeItemDecl::MethodFn(decl) => decl.path(db),
             // decl.path(db),
             TypeItemDecl::AssociatedType(_) => todo!(),
-            TypeItemDecl::AssociatedValue(_) => todo!(),
-            TypeItemDecl::Memo(decl) => decl.path(db),
+            TypeItemDecl::AssociatedVal(_) => todo!(),
+            TypeItemDecl::MemoizedField(decl) => decl.path(db),
         }
     }
 }

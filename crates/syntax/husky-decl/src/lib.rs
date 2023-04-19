@@ -68,14 +68,14 @@ pub struct DeclJar(
     TypeMethodFnDecl,
     TypeAssociatedTypeDecl,
     TypeAssociatedValDecl,
-    TypeMemoDecl,
+    TypeMemoizedFieldDecl,
     // trait item
-    TraitAssociatedFunctionDecl,
+    TraitAssociatedFnDecl,
     TraitMethodFnDecl,
     TraitAssociatedTypeDecl,
-    TraitAssociatedValueDecl,
+    TraitAssociatedValDecl,
     // type as trait item
-    TraitForTypeAssociatedFunctionDecl,
+    TraitForTypeAssociatedFnDecl,
     TraitForTypeMethodFnDecl,
     TraitForTypeAssociatedTypeDecl,
     TraitForTypeAssociatedValDecl,

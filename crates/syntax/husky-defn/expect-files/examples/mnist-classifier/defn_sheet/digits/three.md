@@ -10,8 +10,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Val(
+                    Defn::Fugitive(
+                        FugitiveDefn::Val(
                             ValDefn {
                                 path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                                 decl: ValDecl {
@@ -341,8 +341,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Val(
+                    Defn::Fugitive(
+                        FugitiveDefn::Val(
                             ValDefn {
                                 path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                                 decl: ValDecl {
@@ -1933,8 +1933,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Fn(
+                    Defn::Fugitive(
+                        FugitiveDefn::Fn(
                             FnDefn {
                                 path: FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
                                 decl: FnDecl {
@@ -2613,8 +2613,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Fn(
+                    Defn::Fugitive(
+                        FugitiveDefn::Fn(
                             FnDefn {
                                 path: FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
                                 decl: FnDecl {
@@ -3293,8 +3293,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Fn(
+                    Defn::Fugitive(
+                        FugitiveDefn::Fn(
                             FnDefn {
                                 path: FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
                                 decl: FnDecl {

@@ -24,7 +24,7 @@ pub enum TypeItemDeclarativeSignatureTemplate {
     MethodFn(TypeMethodFnDeclarativeSignatureTemplate),
     AssociatedType(TypeAssociatedTypeDeclarativeSignatureTemplate),
     AssociatedVal(TypeAssociatedValDeclarativeSignatureTemplate),
-    MemoizedField(TypeMemoizedFieldDeclarativeSignature),
+    MemoizedField(TypeMemoizedFieldDeclarativeSignatureTemplate),
 }
 
 impl TypeItemDeclarativeSignatureTemplate {
@@ -36,7 +36,9 @@ impl TypeItemDeclarativeSignatureTemplate {
             TypeItemDeclarativeSignatureTemplate::AssociatedFn(signature) => {
                 signature.implicit_parameters(db)
             }
-            TypeItemDeclarativeSignatureTemplate::MethodFn(_) => todo!(),
+            TypeItemDeclarativeSignatureTemplate::MethodFn(signature) => {
+                signature.implicit_parameters(db)
+            }
             TypeItemDeclarativeSignatureTemplate::AssociatedType(_) => todo!(),
             TypeItemDeclarativeSignatureTemplate::AssociatedVal(_) => todo!(),
             TypeItemDeclarativeSignatureTemplate::MemoizedField(_) => todo!(),
@@ -88,10 +90,10 @@ pub(crate) fn ty_item_declarative_signature_from_decl(
         TypeItemDecl::AssociatedType(decl) => {
             ty_associated_ty_declarative_signature_template_from_decl(db, decl).map(Into::into)
         }
-        TypeItemDecl::AssociatedValue(decl) => {
+        TypeItemDecl::AssociatedVal(decl) => {
             ty_associated_val_declarative_signature_template(db, decl).map(Into::into)
         }
-        TypeItemDecl::Memo(decl) => ty_memo_signature(db, decl).map(Into::into),
+        TypeItemDecl::MemoizedField(decl) => ty_memo_signature(db, decl).map(Into::into),
     }
 }
 

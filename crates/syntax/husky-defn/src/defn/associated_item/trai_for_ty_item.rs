@@ -3,10 +3,10 @@ mod associated_ty;
 mod associated_val;
 mod method_fn;
 
-pub use associated_fn::*;
-pub use associated_ty::*;
-pub use associated_val::*;
-pub use method_fn::*;
+pub use self::associated_fn::*;
+pub use self::associated_ty::*;
+pub use self::associated_val::*;
+pub use self::method_fn::*;
 
 use crate::*;
 
@@ -14,19 +14,19 @@ use crate::*;
 #[salsa::derive_debug_with_db(db = DefnDb)]
 #[enum_class::from_variants]
 pub enum TraitForTypeItemDefn {
-    Function(TraitForTypeAssociatedFnDefn),
-    Method(TraitForTypeMethodFnDefn),
-    ExternType(TraitForTypeAssociatedTypeDefn),
-    Value(TraitForTypeAssociatedValDefn),
+    AssociatedFn(TraitForTypeAssociatedFnDefn),
+    MethodFn(TraitForTypeMethodFnDefn),
+    AssociatedType(TraitForTypeAssociatedTypeDefn),
+    AssociatedVal(TraitForTypeAssociatedValDefn),
 }
 
 impl TraitForTypeItemDefn {
     pub fn decl(self, db: &dyn DefnDb) -> TraitForTypeItemDecl {
         match self {
-            TraitForTypeItemDefn::Function(defn) => defn.decl(db).into(),
-            TraitForTypeItemDefn::Method(defn) => defn.decl(db).into(),
-            TraitForTypeItemDefn::ExternType(defn) => defn.decl(db).into(),
-            TraitForTypeItemDefn::Value(defn) => defn.decl(db).into(),
+            TraitForTypeItemDefn::AssociatedFn(defn) => defn.decl(db).into(),
+            TraitForTypeItemDefn::MethodFn(defn) => defn.decl(db).into(),
+            TraitForTypeItemDefn::AssociatedType(defn) => defn.decl(db).into(),
+            TraitForTypeItemDefn::AssociatedVal(defn) => defn.decl(db).into(),
         }
     }
 
@@ -35,10 +35,10 @@ impl TraitForTypeItemDefn {
     }
     pub fn expr_region(self, db: &dyn DefnDb) -> ExprRegion {
         match self {
-            TraitForTypeItemDefn::Function(defn) => defn.expr_region(db),
-            TraitForTypeItemDefn::Method(defn) => defn.expr_region(db),
-            TraitForTypeItemDefn::ExternType(defn) => defn.expr_region(db),
-            TraitForTypeItemDefn::Value(defn) => defn.expr_region(db),
+            TraitForTypeItemDefn::AssociatedFn(defn) => defn.expr_region(db),
+            TraitForTypeItemDefn::MethodFn(defn) => defn.expr_region(db),
+            TraitForTypeItemDefn::AssociatedType(defn) => defn.expr_region(db),
+            TraitForTypeItemDefn::AssociatedVal(defn) => defn.expr_region(db),
         }
     }
 }
@@ -48,12 +48,12 @@ impl HasDefn for TraitForTypeItemDecl {
 
     fn defn(self, db: &dyn DefnDb) -> Self::Defn {
         match self {
-            TraitForTypeItemDecl::AssociatedFunction(_) => todo!(),
-            TraitForTypeItemDecl::Method(decl) => trai_for_ty_method_defn(db, decl).into(),
+            TraitForTypeItemDecl::AssociatedFn(_) => todo!(),
+            TraitForTypeItemDecl::MethodFn(decl) => trai_for_ty_method_defn(db, decl).into(),
             TraitForTypeItemDecl::AssociatedType(decl) => {
                 trai_for_ty_associated_ty_defn(db, decl).into()
             }
-            TraitForTypeItemDecl::AssociatedValue(decl) => {
+            TraitForTypeItemDecl::AssociatedVal(decl) => {
                 trai_for_ty_associated_val_defn(db, decl).into()
             }
         }

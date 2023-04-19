@@ -238,8 +238,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Fn(
+                    Defn::Fugitive(
+                        FugitiveDefn::Fn(
                             FnDefn {
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                 decl: FnDecl {
@@ -1944,7 +1944,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Impl(
+                    Defn::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 75,
@@ -2087,8 +2087,8 @@ Ok(
                 Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
-                            TypeItemDefn::Memo(
-                                TypeMemoDefn {
+                            TypeItemDefn::MemoizedField(
+                                TypeMemoizedFieldDefn {
                                     path: Some(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -2096,7 +2096,7 @@ Ok(
                                             item_kind: MemoizedField,
                                         },
                                     ),
-                                    decl: TypeMemoDecl {
+                                    decl: TypeMemoizedFieldDecl {
                                         path: Some(
                                             TypeItemPath {
                                                 parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -2631,8 +2631,8 @@ Ok(
                 Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
-                            TypeItemDefn::Memo(
-                                TypeMemoDefn {
+                            TypeItemDefn::MemoizedField(
+                                TypeMemoizedFieldDefn {
                                     path: Some(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -2640,7 +2640,7 @@ Ok(
                                             item_kind: MemoizedField,
                                         },
                                     ),
-                                    decl: TypeMemoDecl {
+                                    decl: TypeMemoizedFieldDecl {
                                         path: Some(
                                             TypeItemPath {
                                                 parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -3234,8 +3234,8 @@ Ok(
                 Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
-                            TypeItemDefn::Memo(
-                                TypeMemoDefn {
+                            TypeItemDefn::MemoizedField(
+                                TypeMemoizedFieldDefn {
                                     path: Some(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -3243,7 +3243,7 @@ Ok(
                                             item_kind: MemoizedField,
                                         },
                                     ),
-                                    decl: TypeMemoDecl {
+                                    decl: TypeMemoizedFieldDecl {
                                         path: Some(
                                             TypeItemPath {
                                                 parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -4672,8 +4672,8 @@ Ok(
                 Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
-                            TypeItemDefn::Memo(
-                                TypeMemoDefn {
+                            TypeItemDefn::MemoizedField(
+                                TypeMemoizedFieldDefn {
                                     path: Some(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -4681,7 +4681,7 @@ Ok(
                                             item_kind: MemoizedField,
                                         },
                                     ),
-                                    decl: TypeMemoDecl {
+                                    decl: TypeMemoizedFieldDecl {
                                         path: Some(
                                             TypeItemPath {
                                                 parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -5845,8 +5845,8 @@ Ok(
                 Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
-                            TypeItemDefn::Memo(
-                                TypeMemoDefn {
+                            TypeItemDefn::MemoizedField(
+                                TypeMemoizedFieldDefn {
                                     path: Some(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -5854,7 +5854,7 @@ Ok(
                                             item_kind: MemoizedField,
                                         },
                                     ),
-                                    decl: TypeMemoDecl {
+                                    decl: TypeMemoizedFieldDecl {
                                         path: Some(
                                             TypeItemPath {
                                                 parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -7629,8 +7629,8 @@ Ok(
                 Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
-                            TypeItemDefn::Memo(
-                                TypeMemoDefn {
+                            TypeItemDefn::MemoizedField(
+                                TypeMemoizedFieldDefn {
                                     path: Some(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -7638,7 +7638,7 @@ Ok(
                                             item_kind: MemoizedField,
                                         },
                                     ),
-                                    decl: TypeMemoDecl {
+                                    decl: TypeMemoizedFieldDecl {
                                         path: Some(
                                             TypeItemPath {
                                                 parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -8224,7 +8224,7 @@ Ok(
                 Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
-                            TypeItemDefn::Method(
+                            TypeItemDefn::MethodFn(
                                 TypeMethodFnDefn {
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId::Type(
@@ -8959,7 +8959,7 @@ Ok(
                 Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
-                            TypeItemDefn::Method(
+                            TypeItemDefn::MethodFn(
                                 TypeMethodFnDefn {
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId::Type(
@@ -9581,7 +9581,7 @@ Ok(
                 Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
-                            TypeItemDefn::Method(
+                            TypeItemDefn::MethodFn(
                                 TypeMethodFnDefn {
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId::Type(
@@ -10203,7 +10203,7 @@ Ok(
                 Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
-                            TypeItemDefn::Method(
+                            TypeItemDefn::MethodFn(
                                 TypeMethodFnDefn {
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId::Type(
@@ -10801,7 +10801,7 @@ Ok(
                 Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
-                            TypeItemDefn::Method(
+                            TypeItemDefn::MethodFn(
                                 TypeMethodFnDefn {
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId::Type(
@@ -11411,7 +11411,7 @@ Ok(
                 Ok(
                     Defn::AssociatedItem(
                         AssociatedItemDefn::TypeItem(
-                            TypeItemDefn::Method(
+                            TypeItemDefn::MethodFn(
                                 TypeMethodFnDefn {
                                     id: AssociatedItemId {
                                         impl_block_id: ImplBlockId::Type(

@@ -10,8 +10,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Val(
+                    Defn::Fugitive(
+                        FugitiveDefn::Val(
                             ValDefn {
                                 path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
                                 decl: ValDecl {
@@ -320,8 +320,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Fn(
+                    Defn::Fugitive(
+                        FugitiveDefn::Fn(
                             FnDefn {
                                 path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
                                 decl: FnDecl {
@@ -840,8 +840,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Val(
+                    Defn::Fugitive(
+                        FugitiveDefn::Val(
                             ValDefn {
                                 path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                                 decl: ValDecl {
@@ -1129,8 +1129,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Val(
+                    Defn::Fugitive(
+                        FugitiveDefn::Val(
                             ValDefn {
                                 path: FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                                 decl: ValDecl {
@@ -1418,8 +1418,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Val(
+                    Defn::Fugitive(
+                        FugitiveDefn::Val(
                             ValDefn {
                                 path: FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
                                 decl: ValDecl {
@@ -3759,8 +3759,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Fn(
+                    Defn::Fugitive(
+                        FugitiveDefn::Fn(
                             FnDefn {
                                 path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
                                 decl: FnDecl {
@@ -4410,8 +4410,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Fn(
+                    Defn::Fugitive(
+                        FugitiveDefn::Fn(
                             FnDefn {
                                 path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
                                 decl: FnDecl {

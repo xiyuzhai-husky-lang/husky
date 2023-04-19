@@ -282,7 +282,7 @@ pub fn trai_path_declarative_ty(
     let Ok(variances) = trai_entity_variances(db, path) else {
         todo!()
     };
-    let signature = match db.trai_declarative_signature(decl) {
+    let signature = match decl.declarative_signature_template(db) {
         Ok(signature) => signature,
         Err(_) => todo!(),
     };

@@ -3,7 +3,7 @@ use husky_entity_tree::AssociatedItem;
 use crate::*;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
-pub struct TypeMemoDecl {
+pub struct TypeMemoizedFieldDecl {
     #[id]
     pub path: Option<TypeItemPath>,
     pub associated_item: AssociatedItem,
@@ -22,7 +22,7 @@ impl<'a> DeclParseContext<'a> {
         token_group_idx: TokenGroupIdx,
         associated_item: AssociatedItem,
         saved_stream_state: TokenIdx,
-    ) -> DeclResult<TypeMemoDecl> {
+    ) -> DeclResult<TypeMemoizedFieldDecl> {
         let Ok(impl_decl) = associated_item.impl_block(self.db()).decl(
             self.db()
         ) else { todo!() };
@@ -51,7 +51,7 @@ impl<'a> DeclParseContext<'a> {
         } else {
             Right(todo!("parse expr"))
         };
-        Ok(TypeMemoDecl::new(
+        Ok(TypeMemoizedFieldDecl::new(
             self.db(),
             path,
             associated_item,

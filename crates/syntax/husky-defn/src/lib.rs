@@ -71,7 +71,7 @@ pub struct DefnJar(
     ty_associated_ty_defn,
     TypeAssociatedValDefn,
     ty_associated_val_defn,
-    TypeMemoDefn,
+    TypeMemoizedFieldDefn,
     ty_memo_defn,
     // trait item
     TraitAssociatedFnDefn,

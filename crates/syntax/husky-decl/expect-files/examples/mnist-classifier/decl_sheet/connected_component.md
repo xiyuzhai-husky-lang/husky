@@ -1315,7 +1315,7 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Decl::Impl(
+                    Decl::ImplBlock(
                         ImplBlockDecl::Type(
                             TypeImplBlockDecl {
                                 ast_idx: 124,
@@ -1458,8 +1458,8 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Memo(
-                                TypeMemoDecl {
+                            TypeItemDecl::MemoizedField(
+                                TypeMemoizedFieldDecl {
                                     path: Some(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -1750,8 +1750,8 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Memo(
-                                TypeMemoDecl {
+                            TypeItemDecl::MemoizedField(
+                                TypeMemoizedFieldDecl {
                                     path: Some(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -2027,8 +2027,8 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Memo(
-                                TypeMemoDecl {
+                            TypeItemDecl::MemoizedField(
+                                TypeMemoizedFieldDecl {
                                     path: Some(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -2304,8 +2304,8 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Memo(
-                                TypeMemoDecl {
+                            TypeItemDecl::MemoizedField(
+                                TypeMemoizedFieldDecl {
                                     path: Some(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -2581,8 +2581,8 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Memo(
-                                TypeMemoDecl {
+                            TypeItemDecl::MemoizedField(
+                                TypeMemoizedFieldDecl {
                                     path: Some(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -2858,8 +2858,8 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Memo(
-                                TypeMemoDecl {
+                            TypeItemDecl::MemoizedField(
+                                TypeMemoizedFieldDecl {
                                     path: Some(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -3135,8 +3135,8 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Memo(
-                                TypeMemoDecl {
+                            TypeItemDecl::MemoizedField(
+                                TypeMemoizedFieldDecl {
                                     path: Some(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -3412,8 +3412,8 @@ Ok(
                 Ok(
                     Decl::AssociatedItem(
                         AssociatedItemDecl::TypeItem(
-                            TypeItemDecl::Memo(
-                                TypeMemoDecl {
+                            TypeItemDecl::MemoizedField(
+                                TypeMemoizedFieldDecl {
                                     path: Some(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),

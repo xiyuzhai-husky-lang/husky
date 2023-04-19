@@ -10,8 +10,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Val(
+                    Defn::Fugitive(
+                        FugitiveDefn::Val(
                             ValDefn {
                                 path: FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                                 decl: ValDecl {
@@ -299,8 +299,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Fn(
+                    Defn::Fugitive(
+                        FugitiveDefn::Fn(
                             FnDefn {
                                 path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
                                 decl: FnDecl {
@@ -888,8 +888,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Val(
+                    Defn::Fugitive(
+                        FugitiveDefn::Val(
                             ValDefn {
                                 path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 decl: ValDecl {

@@ -10,8 +10,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Val(
+                    Defn::Fugitive(
+                        FugitiveDefn::Val(
                             ValDefn {
                                 path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                                 decl: ValDecl {
@@ -299,8 +299,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Fn(
+                    Defn::Fugitive(
+                        FugitiveDefn::Fn(
                             FnDefn {
                                 path: FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
                                 decl: FnDecl {
@@ -957,8 +957,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Val(
+                    Defn::Fugitive(
+                        FugitiveDefn::Val(
                             ValDefn {
                                 path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                                 decl: ValDecl {
@@ -1267,8 +1267,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Fn(
+                    Defn::Fugitive(
+                        FugitiveDefn::Fn(
                             FnDefn {
                                 path: FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
                                 decl: FnDecl {
@@ -2009,8 +2009,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Fn(
+                    Defn::Fugitive(
+                        FugitiveDefn::Fn(
                             FnDefn {
                                 path: FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
                                 decl: FnDecl {
@@ -2878,8 +2878,8 @@ Ok(
                     ),
                 ),
                 Ok(
-                    Defn::Form(
-                        FormDefn::Val(
+                    Defn::Fugitive(
+                        FugitiveDefn::Val(
                             ValDefn {
                                 path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                 decl: ValDecl {

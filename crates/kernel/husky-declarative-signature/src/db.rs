@@ -15,10 +15,6 @@ pub trait DeclarativeSignatureDb:
         &self,
         decl: TraitDecl,
     ) -> DeclarativeSignatureResult<TraitDeclarativeSignatureTemplate>;
-    fn ty_item_declarative_signature(
-        &self,
-        path: TypeItemPath,
-    ) -> DeclarativeSignatureResult<TypeItemDeclarativeSignatureTemplate>;
 }
 
 impl<Db> DeclarativeSignatureDb for Db
@@ -40,13 +36,6 @@ where
         &self,
         decl: TraitDecl,
     ) -> DeclarativeSignatureResult<TraitDeclarativeSignatureTemplate> {
-        trai_declarative_signature_template_from_decl(self, decl)
-    }
-
-    fn ty_item_declarative_signature(
-        &self,
-        path: TypeItemPath,
-    ) -> DeclarativeSignatureResult<TypeItemDeclarativeSignatureTemplate> {
-        ty_item_declarative_signature(self, path)
+        trai_declarative_signature_template(self, decl)
     }
 }
