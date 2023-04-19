@@ -3,14 +3,14 @@ use husky_entity_tree::TypeImplBlock;
 use super::*;
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
-pub struct TypeImplBlockSignature {
+pub struct TypeImplBlockDeclarativeSignatureTemplate {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates,
     pub ty: DeclarativeTerm,
 }
 
 impl HasDeclarativeSignatureTemplate for TypeImplBlock {
-    type DeclarativeSignatureTemplate = TypeImplBlockSignature;
+    type DeclarativeSignatureTemplate = TypeImplBlockDeclarativeSignatureTemplate;
 
     fn declarative_signature_template(
         self,
@@ -21,7 +21,7 @@ impl HasDeclarativeSignatureTemplate for TypeImplBlock {
 }
 
 impl HasDeclarativeSignatureTemplate for TypeImplBlockDecl {
-    type DeclarativeSignatureTemplate = TypeImplBlockSignature;
+    type DeclarativeSignatureTemplate = TypeImplBlockDeclarativeSignatureTemplate;
 
     fn declarative_signature_template(
         self,
@@ -35,7 +35,7 @@ impl HasDeclarativeSignatureTemplate for TypeImplBlockDecl {
 pub(crate) fn ty_impl_block_declarative_signature(
     db: &dyn DeclarativeSignatureDb,
     decl: TypeImplBlockDecl,
-) -> DeclarativeSignatureResult<TypeImplBlockSignature> {
+) -> DeclarativeSignatureResult<TypeImplBlockDeclarativeSignatureTemplate> {
     let expr_region = decl.expr_region(db);
     let declarative_term_region = declarative_term_region(db, expr_region);
     let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
@@ -49,5 +49,9 @@ pub(crate) fn ty_impl_block_declarative_signature(
         Ok(ty) => ty,
         Err(_) => todo!(),
     };
-    Ok(TypeImplBlockSignature::new(db, implicit_parameters, ty))
+    Ok(TypeImplBlockDeclarativeSignatureTemplate::new(
+        db,
+        implicit_parameters,
+        ty,
+    ))
 }

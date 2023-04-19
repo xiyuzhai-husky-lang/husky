@@ -17,7 +17,7 @@ pub enum FugitiveDeclarativeSignatureTemplate {
     Fn(FnDeclarativeSignatureTemplate),
     Val(ValDeclarativeSignatureTemplate),
     Gn(GnDeclarativeSignatureTemplate),
-    TypeAlias(TypeAliasSignature),
+    TypeAlias(TypeAliasDeclarativeSignatureTemplate),
 }
 
 impl HasDeclarativeSignatureTemplate for FugitivePath {

@@ -5,12 +5,12 @@ mod trai;
 mod ty;
 mod ty_variant;
 
-pub use associated_item::*;
-pub use form::*;
-pub use impl_block::*;
-pub use trai::*;
-pub use ty::*;
-pub use ty_variant::*;
+pub use self::associated_item::*;
+pub use self::form::*;
+pub use self::impl_block::*;
+pub use self::trai::*;
+pub use self::ty::*;
+pub use self::ty_variant::*;
 
 use crate::*;
 use parsec::{parse_separated_list, HasStreamState};
@@ -22,9 +22,9 @@ pub enum Decl {
     Type(TypeDecl),
     Form(FugitiveDecl),
     Trait(TraitDecl),
-    Impl(ImplBlockDecl),
+    ImplBlock(ImplBlockDecl),
     AssociatedItem(AssociatedItemDecl),
-    Variant(TypeVariantDecl),
+    TypeVariant(TypeVariantDecl),
 }
 
 impl Decl {
@@ -33,9 +33,9 @@ impl Decl {
             Decl::Type(decl) => decl.ast_idx(db),
             Decl::Form(decl) => decl.ast_idx(db),
             Decl::Trait(decl) => decl.ast_idx(db),
-            Decl::Impl(decl) => decl.ast_idx(db),
+            Decl::ImplBlock(decl) => decl.ast_idx(db),
             Decl::AssociatedItem(decl) => decl.ast_idx(db),
-            Decl::Variant(decl) => decl.ast_idx(db),
+            Decl::TypeVariant(decl) => decl.ast_idx(db),
         }
     }
 
@@ -44,9 +44,9 @@ impl Decl {
             Decl::Type(decl) => decl.implicit_parameters(db),
             Decl::Form(decl) => decl.implicit_parameters(db),
             Decl::Trait(decl) => decl.implicit_parameters(db),
-            Decl::Impl(decl) => decl.implicit_parameters(db),
+            Decl::ImplBlock(decl) => decl.implicit_parameters(db),
             Decl::AssociatedItem(decl) => decl.implicit_parameters(db),
-            Decl::Variant(_decl) => &[],
+            Decl::TypeVariant(_decl) => &[],
         }
     }
 
@@ -55,9 +55,9 @@ impl Decl {
             Decl::Type(decl) => decl.expr_region(db).into(),
             Decl::Form(decl) => decl.expr_region(db).into(),
             Decl::Trait(decl) => decl.expr_region(db).into(),
-            Decl::Impl(decl) => decl.expr_region(db).into(),
+            Decl::ImplBlock(decl) => decl.expr_region(db).into(),
             Decl::AssociatedItem(decl) => decl.expr_region(db).into(),
-            Decl::Variant(_decl) => todo!(),
+            Decl::TypeVariant(_decl) => todo!(),
         }
     }
 
@@ -66,9 +66,9 @@ impl Decl {
             Decl::Type(decl) => Some(decl.path(db).into()),
             Decl::Form(decl) => Some(decl.path(db).into()),
             Decl::Trait(decl) => Some(decl.path(db).into()),
-            Decl::Impl(_decl) => None,
+            Decl::ImplBlock(_decl) => None,
             Decl::AssociatedItem(decl) => decl.path(db).map(|path| path.into()),
-            Decl::Variant(_decl) => todo!(),
+            Decl::TypeVariant(_decl) => todo!(),
         }
     }
 }

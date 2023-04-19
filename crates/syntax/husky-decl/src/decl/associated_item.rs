@@ -2,13 +2,13 @@ mod trai_for_ty_item;
 mod trai_item;
 mod ty_item;
 
-use husky_entity_taxonomy::{AssociatedItemKind, EntityKind, TraitItemKind, TypeItemKind};
-use husky_word::Ident;
-pub use trai_for_ty_item::*;
-pub use trai_item::*;
-pub use ty_item::*;
+pub use self::trai_for_ty_item::*;
+pub use self::trai_item::*;
+pub use self::ty_item::*;
 
 use super::*;
+use husky_entity_taxonomy::{AssociatedItemKind, EntityKind, TraitItemKind, TypeItemKind};
+use husky_word::Ident;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]

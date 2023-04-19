@@ -5,13 +5,13 @@ pub struct TraitAssociatedValDefn {
     #[id]
     pub entity_path: EntityPath,
     pub expr_region: ExprRegion,
-    pub decl: TraitAssociatedValueDecl,
+    pub decl: TraitAssociatedValDecl,
 }
 
 #[salsa::tracked(jar = DefnJar)]
 pub(crate) fn trai_associated_val_defn(
     _db: &dyn DefnDb,
-    _decl: TraitAssociatedValueDecl,
+    _decl: TraitAssociatedValDecl,
 ) -> TraitAssociatedValDefn {
     todo!()
 }

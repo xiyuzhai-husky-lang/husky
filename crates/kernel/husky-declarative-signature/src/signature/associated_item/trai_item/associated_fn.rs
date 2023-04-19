@@ -3,7 +3,7 @@ use crate::*;
 #[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub(crate) fn trai_associated_form_fn_declarative_signature(
     db: &dyn DeclarativeSignatureDb,
-    decl: TraitAssociatedFunctionDecl,
+    decl: TraitAssociatedFnDecl,
 ) -> DeclarativeSignatureResult<TraitAssociatedFnDeclarativeSignatureTemplate> {
     let expr_region = decl.expr_region(db);
     let _declarative_term_region = declarative_term_region(db, expr_region);

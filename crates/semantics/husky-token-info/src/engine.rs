@@ -106,10 +106,10 @@ impl<'a> InferEngine<'a> {
         match defn {
             Defn::Type(defn) => self.visit_ty(defn),
             Defn::Trait(defn) => self.visit_trai(defn),
-            Defn::Form(defn) => self.visit_form(defn),
+            Defn::Fugitive(defn) => self.visit_form(defn),
             Defn::AssociatedItem(defn) => self.visit_associated_item(defn),
             Defn::Variant(_) => todo!(),
-            Defn::Impl(_) => (),
+            Defn::ImplBlock(_) => (),
         }
     }
 
@@ -176,11 +176,11 @@ impl<'a> InferEngine<'a> {
         //todo!()
     }
 
-    fn visit_form(&mut self, defn: FormDefn) {
+    fn visit_form(&mut self, defn: FugitiveDefn) {
         match defn {
-            FormDefn::Fn(defn) => self.visit_function(defn),
-            FormDefn::Val(defn) => self.visit_feature(defn),
-            FormDefn::Gn(defn) => self.visit_morphism(defn),
+            FugitiveDefn::Fn(defn) => self.visit_function(defn),
+            FugitiveDefn::Val(defn) => self.visit_feature(defn),
+            FugitiveDefn::Gn(defn) => self.visit_morphism(defn),
         }
     }
 

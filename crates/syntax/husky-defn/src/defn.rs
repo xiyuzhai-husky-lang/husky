@@ -1,12 +1,12 @@
 mod associated_item;
-mod form;
+mod fugitive;
 mod impl_block;
 mod trai;
 mod ty;
 mod variant;
 
 pub use associated_item::*;
-pub use form::*;
+pub use fugitive::*;
 pub use trai::*;
 pub use ty::*;
 pub use variant::*;
@@ -20,9 +20,9 @@ use husky_ast::AstIdx;
 pub enum Defn {
     Type(TypeDefn),
     Trait(TraitDefn),
-    Form(FormDefn),
+    Fugitive(FugitiveDefn),
     Variant(VariantDefn),
-    Impl(ImplBlockDecl),
+    ImplBlock(ImplBlockDecl),
     AssociatedItem(AssociatedItemDefn),
 }
 
@@ -31,9 +31,9 @@ impl Defn {
         match self {
             Defn::Type(defn) => defn.decl(db).into(),
             Defn::Trait(defn) => defn.decl(db).into(),
-            Defn::Form(defn) => defn.decl(db).into(),
+            Defn::Fugitive(defn) => defn.decl(db).into(),
             Defn::Variant(defn) => defn.decl(db).into(),
-            Defn::Impl(decl) => decl.into(),
+            Defn::ImplBlock(decl) => decl.into(),
             Defn::AssociatedItem(defn) => defn.decl(db).into(),
         }
     }
@@ -49,10 +49,10 @@ impl Defn {
     pub fn expr_region(self, db: &dyn DefnDb) -> Option<ExprRegion> {
         match self {
             Defn::Type(_) | Defn::Trait(_) => None,
-            Defn::Form(defn) => Some(defn.expr_region(db)),
+            Defn::Fugitive(defn) => Some(defn.expr_region(db)),
             Defn::AssociatedItem(defn) => defn.expr_region(db),
             Defn::Variant(_defn) => None,
-            Defn::Impl(_) => None,
+            Defn::ImplBlock(_) => None,
         }
     }
 }
@@ -62,10 +62,10 @@ impl Defn {
         match self {
             Defn::Type(defn) => Some(defn.path(db).into()),
             Defn::Trait(defn) => Some(defn.path(db).into()),
-            Defn::Form(defn) => Some(defn.path(db).into()),
+            Defn::Fugitive(defn) => Some(defn.path(db).into()),
             Defn::AssociatedItem(defn) => defn.path(db).map(|path| path.into()),
             Defn::Variant(defn) => Some(defn.path(db).into()),
-            Defn::Impl(_) => None,
+            Defn::ImplBlock(_) => None,
         }
     }
 }
@@ -84,9 +84,9 @@ impl HasDefn for Decl {
             Decl::Type(decl) => decl.defn(db).into(),
             Decl::Form(decl) => decl.defn(db).into(),
             Decl::Trait(decl) => decl.defn(db).into(),
-            Decl::Impl(decl) => decl.defn(db).into(),
+            Decl::ImplBlock(decl) => decl.defn(db).into(),
             Decl::AssociatedItem(decl) => decl.defn(db).into(),
-            Decl::Variant(_) => todo!(),
+            Decl::TypeVariant(_) => todo!(),
         }
     }
 }
