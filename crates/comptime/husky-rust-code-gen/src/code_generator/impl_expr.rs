@@ -134,8 +134,8 @@ impl<'a> RustCodeGenerator<'a> {
                 }
                 EagerOpnVariant::MethodCall { .. } => {
                     todo!()
-                    // let call_form_decl = self.db.entity_call_form_decl(*method_route).unwrap();
-                    // match call_form_decl.output.contract() {
+                    // let call_fugitive_decl = self.db.entity_call_fugitive_decl(*method_route).unwrap();
+                    // match call_fugitive_decl.output.contract() {
                     //     OutputModifier::Transfer => {
                     //         self.gen_expr(indent, &opds[0]);
                     //         self.write(".");
@@ -293,7 +293,7 @@ impl<'a> RustCodeGenerator<'a> {
     //     indent: Indent,
     //     ty: EntityRoutePtr,
     //     opds: &Vec<Arc<EagerExpr>>,
-    //     type_call: &CallFormDecl,
+    //     type_call: &CallFugitiveDecl,
     // ) {
     //     self.gen_entity_route(ty, EntityRouteRole::Caller);
     //     self.write("::");
@@ -317,7 +317,7 @@ impl<'a> RustCodeGenerator<'a> {
     //     indent: Indent,
     //     ty: EntityRoutePtr,
     //     opds: &Vec<Arc<EagerExpr>>,
-    //     type_call: &CallFormDecl,
+    //     type_call: &CallFugitiveDecl,
     // ) {
     //     self.write("{\n");
     //     self.indent(indent + 8);

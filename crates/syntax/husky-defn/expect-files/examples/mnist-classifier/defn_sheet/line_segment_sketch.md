@@ -232,7 +232,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                         ),
                     ),
                 ),
@@ -240,9 +240,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Fn(
                             FnDefn {
-                                path: FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                                 decl: FnDecl {
-                                    path: FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                    path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                                     ast_idx: 173,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -251,7 +251,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                                                         ),
                                                     ),
                                                 ),
@@ -532,7 +532,7 @@ Ok(
                                                         DeclRegionPath::Entity(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Form(
-                                                                    FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                                                                 ),
                                                             ),
                                                         ),
@@ -741,7 +741,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                                        FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -1691,7 +1691,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                         ),
                     ),
                 ),
@@ -1699,9 +1699,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Fn(
                             FnDefn {
-                                path: FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                                 decl: FnDecl {
-                                    path: FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                    path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                                     ast_idx: 174,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -1710,7 +1710,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                                                         ),
                                                     ),
                                                 ),
@@ -1991,7 +1991,7 @@ Ok(
                                                         DeclRegionPath::Entity(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Form(
-                                                                    FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                                                                 ),
                                                             ),
                                                         ),
@@ -2200,7 +2200,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                                        FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -3150,7 +3150,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
                         ),
                     ),
                 ),
@@ -3158,9 +3158,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Fn(
                             FnDefn {
-                                path: FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
                                 decl: FnDecl {
-                                    path: FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                                    path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
                                     ast_idx: 175,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -3169,7 +3169,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
                                                         ),
                                                     ),
                                                 ),
@@ -3536,7 +3536,7 @@ Ok(
                                                         DeclRegionPath::Entity(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Form(
-                                                                    FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
                                                                 ),
                                                             ),
                                                         ),
@@ -3814,7 +3814,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                                                        FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -4233,7 +4233,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                                                             ),
                                                         ),
                                                     ),
@@ -4281,7 +4281,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                                                             ),
                                                         ),
                                                     ),
@@ -4668,7 +4668,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                                                             ),
                                                         ),
                                                     ),
@@ -4716,7 +4716,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                                                             ),
                                                         ),
                                                     ),
@@ -5087,7 +5087,7 @@ Ok(
                                                     ident: `go_right`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                                                         ),
                                                     ),
                                                 },
@@ -5098,7 +5098,7 @@ Ok(
                                                     ident: `go_left`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                                                         ),
                                                     ),
                                                 },
@@ -5109,7 +5109,7 @@ Ok(
                                                     ident: `go_right`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                                                         ),
                                                     ),
                                                 },
@@ -5120,7 +5120,7 @@ Ok(
                                                     ident: `go_left`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                                                         ),
                                                     ),
                                                 },
@@ -6193,7 +6193,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
                         ),
                     ),
                 ),
@@ -6201,9 +6201,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Fn(
                             FnDefn {
-                                path: FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
                                 decl: FnDecl {
-                                    path: FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                                    path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
                                     ast_idx: 176,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -6212,7 +6212,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
                                                         ),
                                                     ),
                                                 ),
@@ -6658,7 +6658,7 @@ Ok(
                                                         DeclRegionPath::Entity(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Form(
-                                                                    FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
                                                                 ),
                                                             ),
                                                         ),
@@ -6998,7 +6998,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                                                        FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -7439,7 +7439,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                                                             ),
                                                         ),
                                                     ),
@@ -7487,7 +7487,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                                                             ),
                                                         ),
                                                     ),
@@ -7807,7 +7807,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                                                             ),
                                                         ),
                                                     ),
@@ -7855,7 +7855,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                                                             ),
                                                         ),
                                                     ),
@@ -8388,7 +8388,7 @@ Ok(
                                                     ident: `go_right`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                                                         ),
                                                     ),
                                                 },
@@ -8399,7 +8399,7 @@ Ok(
                                                     ident: `go_left`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                                                         ),
                                                     ),
                                                 },
@@ -8410,7 +8410,7 @@ Ok(
                                                     ident: `go_right`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                                                         ),
                                                     ),
                                                 },
@@ -8421,7 +8421,7 @@ Ok(
                                                     ident: `go_left`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                                                         ),
                                                     ),
                                                 },
@@ -9642,7 +9642,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                            FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
                         ),
                     ),
                 ),
@@ -9650,9 +9650,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Fn(
                             FnDefn {
-                                path: FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
                                 decl: FnDecl {
-                                    path: FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                                    path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
                                     ast_idx: 177,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -9661,7 +9661,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
                                                         ),
                                                     ),
                                                 ),
@@ -9964,7 +9964,7 @@ Ok(
                                                         DeclRegionPath::Entity(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Form(
-                                                                    FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
                                                                 ),
                                                             ),
                                                         ),
@@ -10195,7 +10195,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                                                        FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -10330,7 +10330,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
                                                             ),
                                                         ),
                                                     ),
@@ -10986,7 +10986,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
                                                             ),
                                                         ),
                                                     ),
@@ -12492,7 +12492,7 @@ Ok(
                                                     ident: `extend_end`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
                                                         ),
                                                     ),
                                                 },
@@ -12579,7 +12579,7 @@ Ok(
                                                     ident: `extend_start`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
                                                         ),
                                                     ),
                                                 },
@@ -16372,7 +16372,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                             ident: `concave_components`,
-                                            item_kind: Memo,
+                                            item_kind: MemoizedField,
                                         },
                                     ),
                                     decl: TypeMemoDecl {
@@ -16380,7 +16380,7 @@ Ok(
                                             TypeItemPath {
                                                 parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                 ident: `concave_components`,
-                                                item_kind: Memo,
+                                                item_kind: MemoizedField,
                                             },
                                         ),
                                         associated_item: AssociatedItem {
@@ -16399,7 +16399,7 @@ Ok(
                                                     TypeItemPath {
                                                         parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                         ident: `concave_components`,
-                                                        item_kind: Memo,
+                                                        item_kind: MemoizedField,
                                                     },
                                                 ),
                                             ),
@@ -16429,7 +16429,7 @@ Ok(
                                             ast_idx: 21,
                                             ident: `concave_components`,
                                             associated_item_kind: TypeItem(
-                                                Memo,
+                                                MemoizedField,
                                             ),
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier::line_segment_sketch`,
@@ -16851,7 +16851,7 @@ Ok(
                                                         path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Form(
-                                                                    FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                                                 ),
                                                             ),
                                                         ),
@@ -16891,7 +16891,7 @@ Ok(
                                                         ident: `find_concave_components`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                                             ),
                                                         ),
                                                     },
@@ -16970,7 +16970,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                             ident: `bounding_box`,
-                                            item_kind: Memo,
+                                            item_kind: MemoizedField,
                                         },
                                     ),
                                     decl: TypeMemoDecl {
@@ -16978,7 +16978,7 @@ Ok(
                                             TypeItemPath {
                                                 parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                 ident: `bounding_box`,
-                                                item_kind: Memo,
+                                                item_kind: MemoizedField,
                                             },
                                         ),
                                         associated_item: AssociatedItem {
@@ -16997,7 +16997,7 @@ Ok(
                                                     TypeItemPath {
                                                         parent_ty: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                         ident: `bounding_box`,
-                                                        item_kind: Memo,
+                                                        item_kind: MemoizedField,
                                                     },
                                                 ),
                                             ),
@@ -17027,7 +17027,7 @@ Ok(
                                             ast_idx: 22,
                                             ident: `bounding_box`,
                                             associated_item_kind: TypeItem(
-                                                Memo,
+                                                MemoizedField,
                                             ),
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier::line_segment_sketch`,
@@ -19455,7 +19455,7 @@ Ok(
                                                         path: Some(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Form(
-                                                                    FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                                                                    FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
                                                                 ),
                                                             ),
                                                         ),
@@ -19553,7 +19553,7 @@ Ok(
                                                         ident: `find_line_segments`,
                                                         entity_path: EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
                                                             ),
                                                         ),
                                                     },

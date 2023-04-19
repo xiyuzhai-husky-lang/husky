@@ -5,7 +5,7 @@ mod value;
 mod var;
 
 pub use gn::*;
-use husky_entity_taxonomy::{EntityKind, FormKind};
+use husky_entity_taxonomy::{EntityKind, FugitiveKind};
 pub use r#fn::*;
 pub use var::*;
 
@@ -17,62 +17,62 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
-pub enum FormDecl {
+pub enum FugitiveDecl {
     Fn(FnDecl),
     Val(ValDecl),
     Gn(GnDecl),
 }
 
-impl FormDecl {
+impl FugitiveDecl {
     pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
         match self {
-            FormDecl::Fn(decl) => decl.ast_idx(db),
-            FormDecl::Val(decl) => decl.ast_idx(db),
-            FormDecl::Gn(decl) => decl.ast_idx(db),
+            FugitiveDecl::Fn(decl) => decl.ast_idx(db),
+            FugitiveDecl::Val(decl) => decl.ast_idx(db),
+            FugitiveDecl::Gn(decl) => decl.ast_idx(db),
         }
     }
 
     pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDecl] {
         match self {
-            FormDecl::Fn(decl) => decl.implicit_parameters(db),
-            FormDecl::Val(_decl) => &[],
-            FormDecl::Gn(decl) => decl.implicit_parameters(db),
+            FugitiveDecl::Fn(decl) => decl.implicit_parameters(db),
+            FugitiveDecl::Val(_decl) => &[],
+            FugitiveDecl::Gn(decl) => decl.implicit_parameters(db),
         }
     }
 
     pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
         match self {
-            FormDecl::Fn(decl) => decl.expr_region(db),
-            FormDecl::Val(decl) => decl.expr_region(db),
-            FormDecl::Gn(decl) => decl.expr_region(db),
+            FugitiveDecl::Fn(decl) => decl.expr_region(db),
+            FugitiveDecl::Val(decl) => decl.expr_region(db),
+            FugitiveDecl::Gn(decl) => decl.expr_region(db),
         }
     }
 
-    pub fn path(self, db: &dyn DeclDb) -> FormPath {
+    pub fn path(self, db: &dyn DeclDb) -> FugitivePath {
         match self {
-            FormDecl::Fn(decl) => decl.path(db),
-            FormDecl::Val(decl) => decl.path(db),
-            FormDecl::Gn(decl) => decl.path(db),
+            FugitiveDecl::Fn(decl) => decl.path(db),
+            FugitiveDecl::Val(decl) => decl.path(db),
+            FugitiveDecl::Gn(decl) => decl.path(db),
         }
     }
 }
 
-impl HasDecl for FormPath {
-    type Decl = FormDecl;
+impl HasDecl for FugitivePath {
+    type Decl = FugitiveDecl;
 
     fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
-        form_decl(db, self).as_ref().copied()
+        fugitive_decl(db, self).as_ref().copied()
     }
 }
 
 #[salsa::tracked(jar = DeclJar, return_ref)]
-pub(crate) fn form_decl(db: &dyn DeclDb, path: FormPath) -> DeclResult<FormDecl> {
+pub(crate) fn fugitive_decl(db: &dyn DeclDb, path: FugitivePath) -> DeclResult<FugitiveDecl> {
     let parser = DeclParseContext::new(db, path.module_path(db))?;
-    parser.parse_form_decl(path)
+    parser.parse_fugitive_decl(path)
 }
 
 impl<'a> DeclParseContext<'a> {
-    fn parse_form_decl(&self, path: FormPath) -> DeclResult<FormDecl> {
+    fn parse_fugitive_decl(&self, path: FugitivePath) -> DeclResult<FugitiveDecl> {
         let ast_idx: AstIdx = self.resolve_module_item_ast_idx(path);
         match self.ast_sheet()[ast_idx] {
             Ast::Defn {
@@ -80,7 +80,7 @@ impl<'a> DeclParseContext<'a> {
                 entity_kind,
                 saved_stream_state,
                 ..
-            } => self.parse_form_decl_aux(
+            } => self.parse_fugitive_decl_aux(
                 ast_idx,
                 path,
                 entity_kind,
@@ -91,24 +91,27 @@ impl<'a> DeclParseContext<'a> {
         }
     }
 
-    fn parse_form_decl_aux(
+    fn parse_fugitive_decl_aux(
         &self,
         ast_idx: AstIdx,
-        path: FormPath,
+        path: FugitivePath,
         _entity_kind: EntityKind,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenIdx,
-    ) -> Result<FormDecl, DeclError> {
+    ) -> Result<FugitiveDecl, DeclError> {
         match path.form_kind(self.db()) {
-            FormKind::Val => {
+            FugitiveKind::Val => {
                 self.parse_feature_decl(ast_idx, token_group_idx, saved_stream_state, path)
             }
-            FormKind::Fn => self.parse_fn_decl(ast_idx, token_group_idx, saved_stream_state, path),
-            FormKind::Value => todo!(),
-            FormKind::TypeAlias => {
+            FugitiveKind::Fn => {
+                self.parse_fn_decl(ast_idx, token_group_idx, saved_stream_state, path)
+            }
+            FugitiveKind::Type => {
                 todo!()
             }
-            FormKind::Gn => self.parse_gn_decl(ast_idx, token_group_idx, saved_stream_state, path),
+            FugitiveKind::Gn => {
+                self.parse_gn_decl(ast_idx, token_group_idx, saved_stream_state, path)
+            }
         }
     }
 }

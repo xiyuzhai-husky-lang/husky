@@ -120,7 +120,7 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
             OriginalExprTypeError::FinalDestination => {
                 format!("Type Error: final destination")
             }
-            OriginalExprTypeError::FormPathTypeError => {
+            OriginalExprTypeError::FugitivePathTypeError => {
                 format!("Type Error: form path error")
             }
             OriginalExprTypeError::AmbiguousTypePath => {

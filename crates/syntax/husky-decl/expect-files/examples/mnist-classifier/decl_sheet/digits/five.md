@@ -5,15 +5,15 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                         ),
                     ),
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Val(
+                        FugitiveDecl::Val(
                             ValDecl {
-                                path: FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
+                                path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                                 ast_idx: 2,
                                 colon_token: Some(
                                     ColonToken(
@@ -48,7 +48,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
+                                                        FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                                                     ),
                                                 ),
                                             ),

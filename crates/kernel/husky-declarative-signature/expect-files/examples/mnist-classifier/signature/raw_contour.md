@@ -33,7 +33,7 @@
     ),
     Ok(
         Signature::Form(
-            FormDeclarativeSignatureTemplate::Fn(
+            FugitiveDeclarativeSignatureTemplate::Fn(
                 FnDeclarativeSignatureTemplate {
                     implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
@@ -73,7 +73,7 @@
     ),
     Ok(
         Signature::Form(
-            FormDeclarativeSignatureTemplate::Fn(
+            FugitiveDeclarativeSignatureTemplate::Fn(
                 FnDeclarativeSignatureTemplate {
                     implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
@@ -113,7 +113,7 @@
     ),
     Ok(
         Signature::Form(
-            FormDeclarativeSignatureTemplate::Fn(
+            FugitiveDeclarativeSignatureTemplate::Fn(
                 FnDeclarativeSignatureTemplate {
                     implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
@@ -153,7 +153,7 @@
     ),
     Ok(
         Signature::Form(
-            FormDeclarativeSignatureTemplate::Fn(
+            FugitiveDeclarativeSignatureTemplate::Fn(
                 FnDeclarativeSignatureTemplate {
                     implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
@@ -205,7 +205,7 @@
     ),
     Ok(
         Signature::Form(
-            FormDeclarativeSignatureTemplate::Fn(
+            FugitiveDeclarativeSignatureTemplate::Fn(
                 FnDeclarativeSignatureTemplate {
                     implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
@@ -245,7 +245,7 @@
     ),
     Ok(
         Signature::Form(
-            FormDeclarativeSignatureTemplate::Fn(
+            FugitiveDeclarativeSignatureTemplate::Fn(
                 FnDeclarativeSignatureTemplate {
                     implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
@@ -330,7 +330,7 @@
     ),
     Ok(
         Signature::Form(
-            FormDeclarativeSignatureTemplate::Fn(
+            FugitiveDeclarativeSignatureTemplate::Fn(
                 FnDeclarativeSignatureTemplate {
                     implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
@@ -356,7 +356,7 @@
     ),
     Ok(
         Signature::Form(
-            FormDeclarativeSignatureTemplate::Fn(
+            FugitiveDeclarativeSignatureTemplate::Fn(
                 FnDeclarativeSignatureTemplate {
                     implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],

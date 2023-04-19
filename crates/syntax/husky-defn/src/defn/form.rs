@@ -20,7 +20,7 @@ pub enum FormDefn {
 }
 
 impl FormDefn {
-    pub fn decl(self, db: &dyn DefnDb) -> FormDecl {
+    pub fn decl(self, db: &dyn DefnDb) -> FugitiveDecl {
         match self {
             FormDefn::Fn(defn) => defn.decl(db).into(),
             FormDefn::Val(defn) => defn.decl(db).into(),
@@ -28,7 +28,7 @@ impl FormDefn {
         }
     }
 
-    pub fn path(self, db: &dyn DefnDb) -> FormPath {
+    pub fn path(self, db: &dyn DefnDb) -> FugitivePath {
         match self {
             FormDefn::Fn(defn) => defn.path(db),
             FormDefn::Val(defn) => defn.path(db),
@@ -44,14 +44,14 @@ impl FormDefn {
     }
 }
 
-impl HasDefn for FormDecl {
+impl HasDefn for FugitiveDecl {
     type Defn = FormDefn;
 
     fn defn(self, db: &dyn DefnDb) -> Self::Defn {
         match self {
-            FormDecl::Fn(decl) => fn_defn(db, decl).into(),
-            FormDecl::Val(decl) => val_defn(db, decl).into(),
-            FormDecl::Gn(_) => todo!(),
+            FugitiveDecl::Fn(decl) => fn_defn(db, decl).into(),
+            FugitiveDecl::Val(decl) => val_defn(db, decl).into(),
+            FugitiveDecl::Gn(_) => todo!(),
         }
     }
 }

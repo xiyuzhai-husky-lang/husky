@@ -230,15 +230,15 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                         ),
                     ),
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Fn(
+                        FugitiveDecl::Fn(
                             FnDecl {
-                                path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                 ast_idx: 76,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -247,7 +247,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                        FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -624,7 +624,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ident: `norm`,
-                                            item_kind: Memo,
+                                            item_kind: MemoizedField,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -643,7 +643,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ident: `norm`,
-                                                    item_kind: Memo,
+                                                    item_kind: MemoizedField,
                                                 },
                                             ),
                                         ),
@@ -673,7 +673,7 @@ Ok(
                                         ast_idx: 39,
                                         ident: `norm`,
                                         associated_item_kind: TypeItem(
-                                            Memo,
+                                            MemoizedField,
                                         ),
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier::line_segment_sketch::concave_component`,
@@ -901,7 +901,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ident: `rel_norm`,
-                                            item_kind: Memo,
+                                            item_kind: MemoizedField,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -920,7 +920,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ident: `rel_norm`,
-                                                    item_kind: Memo,
+                                                    item_kind: MemoizedField,
                                                 },
                                             ),
                                         ),
@@ -950,7 +950,7 @@ Ok(
                                         ast_idx: 40,
                                         ident: `rel_norm`,
                                         associated_item_kind: TypeItem(
-                                            Memo,
+                                            MemoizedField,
                                         ),
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier::line_segment_sketch::concave_component`,
@@ -1178,7 +1178,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ident: `hausdorff_norm`,
-                                            item_kind: Memo,
+                                            item_kind: MemoizedField,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -1197,7 +1197,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ident: `hausdorff_norm`,
-                                                    item_kind: Memo,
+                                                    item_kind: MemoizedField,
                                                 },
                                             ),
                                         ),
@@ -1227,7 +1227,7 @@ Ok(
                                         ast_idx: 41,
                                         ident: `hausdorff_norm`,
                                         associated_item_kind: TypeItem(
-                                            Memo,
+                                            MemoizedField,
                                         ),
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier::line_segment_sketch::concave_component`,
@@ -1455,7 +1455,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ident: `angle_change`,
-                                            item_kind: Memo,
+                                            item_kind: MemoizedField,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -1474,7 +1474,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ident: `angle_change`,
-                                                    item_kind: Memo,
+                                                    item_kind: MemoizedField,
                                                 },
                                             ),
                                         ),
@@ -1504,7 +1504,7 @@ Ok(
                                         ast_idx: 42,
                                         ident: `angle_change`,
                                         associated_item_kind: TypeItem(
-                                            Memo,
+                                            MemoizedField,
                                         ),
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier::line_segment_sketch::concave_component`,
@@ -1732,7 +1732,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ident: `bounding_box`,
-                                            item_kind: Memo,
+                                            item_kind: MemoizedField,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -1751,7 +1751,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ident: `bounding_box`,
-                                                    item_kind: Memo,
+                                                    item_kind: MemoizedField,
                                                 },
                                             ),
                                         ),
@@ -1781,7 +1781,7 @@ Ok(
                                         ast_idx: 43,
                                         ident: `bounding_box`,
                                         associated_item_kind: TypeItem(
-                                            Memo,
+                                            MemoizedField,
                                         ),
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier::line_segment_sketch::concave_component`,
@@ -2009,7 +2009,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ident: `relative_bounding_box`,
-                                            item_kind: Memo,
+                                            item_kind: MemoizedField,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -2028,7 +2028,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                     ident: `relative_bounding_box`,
-                                                    item_kind: Memo,
+                                                    item_kind: MemoizedField,
                                                 },
                                             ),
                                         ),
@@ -2058,7 +2058,7 @@ Ok(
                                         ast_idx: 44,
                                         ident: `relative_bounding_box`,
                                         associated_item_kind: TypeItem(
-                                            Memo,
+                                            MemoizedField,
                                         ),
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier::line_segment_sketch::concave_component`,

@@ -18,7 +18,7 @@ use salsa::assert_eq_with_db;
 use utils::*;
 
 #[inline(always)]
-pub fn raw_term_entity_path_raw_ty(
+pub fn raw_term_entity_path_declarative_ty(
     _db: &dyn DeclarativeTypeDb,
     path: DeclarativeTermEntityPath,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
@@ -30,7 +30,7 @@ pub fn raw_term_entity_path_raw_ty(
 }
 
 #[inline(always)]
-pub fn entity_path_raw_ty(
+pub fn entity_path_declarative_ty(
     db: &dyn DeclarativeTypeDb,
     disambiguation: TypePathDisambiguation,
     path: EntityPath,
@@ -40,11 +40,11 @@ pub fn entity_path_raw_ty(
         EntityPath::Module(_) => todo!(),
         EntityPath::ModuleItem(path) => match path {
             ModuleItemPath::Type(path) => match disambiguation {
-                TypePathDisambiguation::Ontology => ty_ontology_path_raw_ty(db, path),
-                TypePathDisambiguation::Constructor => ty_constructor_path_raw_ty(db, path),
+                TypePathDisambiguation::Ontology => ty_ontology_path_declarative_ty(db, path),
+                TypePathDisambiguation::Constructor => ty_constructor_path_declarative_ty(db, path),
             },
-            ModuleItemPath::Trait(path) => trai_path_raw_ty(db, path),
-            ModuleItemPath::Form(path) => form_path_raw_ty(db, path),
+            ModuleItemPath::Trait(path) => trai_path_declarative_ty(db, path),
+            ModuleItemPath::Form(path) => form_path_declarative_ty(db, path),
         },
         EntityPath::AssociatedItem(_) => todo!(),
         EntityPath::TypeVariant(_) => todo!(),
@@ -52,7 +52,7 @@ pub fn entity_path_raw_ty(
 }
 
 #[test]
-fn entity_path_raw_ty_works() {
+fn entity_path_declarative_ty_works() {
     let db = DB::default();
     let toolchain = db.dev_toolchain().unwrap();
     let entity_path_menu = db.entity_path_menu(toolchain);
@@ -68,7 +68,7 @@ fn entity_path_raw_ty_works() {
     let trai_ty = declarative_term_menu.trai_ty();
     assert_eq_with_db!(
         db,
-        entity_path_raw_ty(
+        entity_path_declarative_ty(
             &db,
             TypePathDisambiguation::Ontology,
             entity_path_menu.bool_ty_path().into(),
@@ -77,7 +77,7 @@ fn entity_path_raw_ty_works() {
     );
     assert_eq_with_db!(
         db,
-        entity_path_raw_ty(
+        entity_path_declarative_ty(
             &db,
             TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_add().into(),
@@ -86,7 +86,7 @@ fn entity_path_raw_ty_works() {
     );
     assert_eq_with_db!(
         db,
-        entity_path_raw_ty(
+        entity_path_declarative_ty(
             &db,
             TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_add_assign().into(),
@@ -95,7 +95,7 @@ fn entity_path_raw_ty_works() {
     );
     assert_eq_with_db!(
         db,
-        entity_path_raw_ty(
+        entity_path_declarative_ty(
             &db,
             TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_bit_and().into(),
@@ -104,7 +104,7 @@ fn entity_path_raw_ty_works() {
     );
     assert_eq_with_db!(
         db,
-        entity_path_raw_ty(
+        entity_path_declarative_ty(
             &db,
             TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_bit_and_assign().into(),
@@ -113,7 +113,7 @@ fn entity_path_raw_ty_works() {
     );
     assert_eq_with_db!(
         db,
-        entity_path_raw_ty(
+        entity_path_declarative_ty(
             &db,
             TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_bit_or().into(),
@@ -122,7 +122,7 @@ fn entity_path_raw_ty_works() {
     );
     assert_eq_with_db!(
         db,
-        entity_path_raw_ty(
+        entity_path_declarative_ty(
             &db,
             TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_bit_or_assign().into(),
@@ -131,7 +131,7 @@ fn entity_path_raw_ty_works() {
     );
     assert_eq_with_db!(
         db,
-        entity_path_raw_ty(
+        entity_path_declarative_ty(
             &db,
             TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_bit_xor().into(),
@@ -140,7 +140,7 @@ fn entity_path_raw_ty_works() {
     );
     assert_eq_with_db!(
         db,
-        entity_path_raw_ty(
+        entity_path_declarative_ty(
             &db,
             TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_bit_xor_assign().into(),
@@ -149,7 +149,7 @@ fn entity_path_raw_ty_works() {
     );
     assert_eq_with_db!(
         db,
-        entity_path_raw_ty(
+        entity_path_declarative_ty(
             &db,
             TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_div().into(),
@@ -158,7 +158,7 @@ fn entity_path_raw_ty_works() {
     );
     assert_eq_with_db!(
         db,
-        entity_path_raw_ty(
+        entity_path_declarative_ty(
             &db,
             TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_div_assign().into(),
@@ -167,7 +167,7 @@ fn entity_path_raw_ty_works() {
     );
     assert_eq_with_db!(
         db,
-        entity_path_raw_ty(
+        entity_path_declarative_ty(
             &db,
             TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_mul().into(),
@@ -176,7 +176,7 @@ fn entity_path_raw_ty_works() {
     );
     assert_eq_with_db!(
         db,
-        entity_path_raw_ty(
+        entity_path_declarative_ty(
             &db,
             TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_mul_assign().into(),
@@ -185,7 +185,7 @@ fn entity_path_raw_ty_works() {
     );
     assert_eq_with_db!(
         db,
-        entity_path_raw_ty(
+        entity_path_declarative_ty(
             &db,
             TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_neg().into(),
@@ -194,7 +194,7 @@ fn entity_path_raw_ty_works() {
     );
     assert_eq_with_db!(
         db,
-        entity_path_raw_ty(
+        entity_path_declarative_ty(
             &db,
             TypePathDisambiguation::Ontology,
             entity_path_menu.core_ops_not().into(),
@@ -203,13 +203,13 @@ fn entity_path_raw_ty_works() {
     );
     // assert_eq_with_db!(
     //     db,
-    //     entity_path_raw_ty(&db, entity_path_menu.ref_raw_ty_path().into()),
+    //     entity_path_declarative_ty(&db, entity_path_menu.ref_declarative_ty_path().into()),
     //     Ok(covariant_lifetime_to_covariant_ty0_to_ty0)
     // );
 }
 
 #[salsa::tracked(jar = DeclarativeTypeJar)]
-pub fn ty_ontology_path_raw_ty(
+pub fn ty_ontology_path_declarative_ty(
     db: &dyn DeclarativeTypeDb,
     path: TypePath,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
@@ -237,7 +237,7 @@ pub fn ty_ontology_path_raw_ty(
 }
 
 #[salsa::tracked(jar = DeclarativeTypeJar)]
-pub fn ty_variant_path_raw_ty(
+pub fn ty_variant_path_declarative_ty(
     db: &dyn DeclarativeTypeDb,
     path: TypeVariantPath,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
@@ -270,7 +270,7 @@ pub fn ty_variant_path_raw_ty(
 }
 
 #[salsa::tracked(jar = DeclarativeTypeJar)]
-pub fn trai_path_raw_ty(
+pub fn trai_path_declarative_ty(
     db: &dyn DeclarativeTypeDb,
     path: TraitPath,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {

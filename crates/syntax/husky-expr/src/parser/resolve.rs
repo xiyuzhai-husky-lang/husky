@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_taxonomy::{EntityKind, FormKind, ModuleItemKind};
+use husky_entity_taxonomy::{EntityKind, FugitiveKind, ModuleItemKind};
 use husky_print_utils::p;
 use husky_token::Punctuation;
 use salsa::DebugWithDb;
@@ -79,14 +79,14 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                                         module_item_kind,
                                         connection,
                                     } => match module_item_kind {
-                                        ModuleItemKind::Form(FormKind::Value) => {
+                                        ModuleItemKind::Fugitive(FugitiveKind::Val) => {
                                             ResolvedToken::BinaryOpr(
                                                 token_idx,
                                                 BinaryComparisonOpr::Less.into(),
                                             )
                                         }
                                         ModuleItemKind::Type(_)
-                                        | ModuleItemKind::Form(_)
+                                        | ModuleItemKind::Fugitive(_)
                                         | ModuleItemKind::Trait => {
                                             ResolvedToken::Bra(token_idx, Bracket::Angle)
                                         }

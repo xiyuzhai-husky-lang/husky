@@ -5,15 +5,15 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                         ),
                     ),
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Val(
+                        FugitiveDecl::Val(
                             ValDecl {
-                                path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                                path: FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                                 ast_idx: 36,
                                 colon_token: Some(
                                     ColonToken(
@@ -48,7 +48,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                                                        FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                                                     ),
                                                 ),
                                             ),
@@ -129,15 +129,15 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                         ),
                     ),
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Val(
+                        FugitiveDecl::Val(
                             ValDecl {
-                                path: FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
+                                path: FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                                 ast_idx: 37,
                                 colon_token: Some(
                                     ColonToken(
@@ -172,7 +172,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
+                                                        FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                                                     ),
                                                 ),
                                             ),
@@ -253,15 +253,15 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                         ),
                     ),
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Val(
+                        FugitiveDecl::Val(
                             ValDecl {
-                                path: FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                                path: FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                                 ast_idx: 38,
                                 colon_token: Some(
                                     ColonToken(
@@ -296,7 +296,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                                                        FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                                                     ),
                                                 ),
                                             ),
@@ -384,15 +384,15 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::nine::downmost`, `Fn`),
+                            FugitivePath(`mnist_classifier::digits::nine::downmost`, `Fn`),
                         ),
                     ),
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Fn(
+                        FugitiveDecl::Fn(
                             FnDecl {
-                                path: FormPath(`mnist_classifier::digits::nine::downmost`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::digits::nine::downmost`, `Fn`),
                                 ast_idx: 39,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -401,7 +401,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::nine::downmost`, `Fn`),
+                                                        FugitivePath(`mnist_classifier::digits::nine::downmost`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -614,15 +614,15 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::nine::big_cc`, `Fn`),
+                            FugitivePath(`mnist_classifier::digits::nine::big_cc`, `Fn`),
                         ),
                     ),
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Fn(
+                        FugitiveDecl::Fn(
                             FnDecl {
-                                path: FormPath(`mnist_classifier::digits::nine::big_cc`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::digits::nine::big_cc`, `Fn`),
                                 ast_idx: 40,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -631,7 +631,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::nine::big_cc`, `Fn`),
+                                                        FugitivePath(`mnist_classifier::digits::nine::big_cc`, `Fn`),
                                                     ),
                                                 ),
                                             ),

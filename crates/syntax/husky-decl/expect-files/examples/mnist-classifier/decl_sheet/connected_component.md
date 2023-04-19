@@ -444,15 +444,15 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
+                            FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
                         ),
                     ),
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Fn(
+                        FugitiveDecl::Fn(
                             FnDecl {
-                                path: FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
                                 ast_idx: 122,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -461,7 +461,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
+                                                        FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -792,15 +792,15 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
+                            FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
                         ),
                     ),
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Fn(
+                        FugitiveDecl::Fn(
                             FnDecl {
-                                path: FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
                                 ast_idx: 125,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -809,7 +809,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
+                                                        FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -1088,15 +1088,15 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                         ),
                     ),
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Fn(
+                        FugitiveDecl::Fn(
                             FnDecl {
-                                path: FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                                 ast_idx: 126,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -1105,7 +1105,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                        FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -1464,7 +1464,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             ident: `raw_contours`,
-                                            item_kind: Memo,
+                                            item_kind: MemoizedField,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -1483,7 +1483,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     ident: `raw_contours`,
-                                                    item_kind: Memo,
+                                                    item_kind: MemoizedField,
                                                 },
                                             ),
                                         ),
@@ -1513,7 +1513,7 @@ Ok(
                                         ast_idx: 67,
                                         ident: `raw_contours`,
                                         associated_item_kind: TypeItem(
-                                            Memo,
+                                            MemoizedField,
                                         ),
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier::connected_component`,
@@ -1756,7 +1756,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             ident: `eff_holes`,
-                                            item_kind: Memo,
+                                            item_kind: MemoizedField,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -1775,7 +1775,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     ident: `eff_holes`,
-                                                    item_kind: Memo,
+                                                    item_kind: MemoizedField,
                                                 },
                                             ),
                                         ),
@@ -1805,7 +1805,7 @@ Ok(
                                         ast_idx: 68,
                                         ident: `eff_holes`,
                                         associated_item_kind: TypeItem(
-                                            Memo,
+                                            MemoizedField,
                                         ),
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier::connected_component`,
@@ -2033,7 +2033,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             ident: `max_hole_ilen`,
-                                            item_kind: Memo,
+                                            item_kind: MemoizedField,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -2052,7 +2052,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     ident: `max_hole_ilen`,
-                                                    item_kind: Memo,
+                                                    item_kind: MemoizedField,
                                                 },
                                             ),
                                         ),
@@ -2082,7 +2082,7 @@ Ok(
                                         ast_idx: 69,
                                         ident: `max_hole_ilen`,
                                         associated_item_kind: TypeItem(
-                                            Memo,
+                                            MemoizedField,
                                         ),
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier::connected_component`,
@@ -2310,7 +2310,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             ident: `max_row_span`,
-                                            item_kind: Memo,
+                                            item_kind: MemoizedField,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -2329,7 +2329,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     ident: `max_row_span`,
-                                                    item_kind: Memo,
+                                                    item_kind: MemoizedField,
                                                 },
                                             ),
                                         ),
@@ -2359,7 +2359,7 @@ Ok(
                                         ast_idx: 70,
                                         ident: `max_row_span`,
                                         associated_item_kind: TypeItem(
-                                            Memo,
+                                            MemoizedField,
                                         ),
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier::connected_component`,
@@ -2587,7 +2587,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             ident: `row_span_sum`,
-                                            item_kind: Memo,
+                                            item_kind: MemoizedField,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -2606,7 +2606,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     ident: `row_span_sum`,
-                                                    item_kind: Memo,
+                                                    item_kind: MemoizedField,
                                                 },
                                             ),
                                         ),
@@ -2636,7 +2636,7 @@ Ok(
                                         ast_idx: 71,
                                         ident: `row_span_sum`,
                                         associated_item_kind: TypeItem(
-                                            Memo,
+                                            MemoizedField,
                                         ),
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier::connected_component`,
@@ -2864,7 +2864,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             ident: `distribution`,
-                                            item_kind: Memo,
+                                            item_kind: MemoizedField,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -2883,7 +2883,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     ident: `distribution`,
-                                                    item_kind: Memo,
+                                                    item_kind: MemoizedField,
                                                 },
                                             ),
                                         ),
@@ -2913,7 +2913,7 @@ Ok(
                                         ast_idx: 72,
                                         ident: `distribution`,
                                         associated_item_kind: TypeItem(
-                                            Memo,
+                                            MemoizedField,
                                         ),
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier::connected_component`,
@@ -3141,7 +3141,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             ident: `upper_mass`,
-                                            item_kind: Memo,
+                                            item_kind: MemoizedField,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -3160,7 +3160,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     ident: `upper_mass`,
-                                                    item_kind: Memo,
+                                                    item_kind: MemoizedField,
                                                 },
                                             ),
                                         ),
@@ -3190,7 +3190,7 @@ Ok(
                                         ast_idx: 73,
                                         ident: `upper_mass`,
                                         associated_item_kind: TypeItem(
-                                            Memo,
+                                            MemoizedField,
                                         ),
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier::connected_component`,
@@ -3418,7 +3418,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                             ident: `lower_mass`,
-                                            item_kind: Memo,
+                                            item_kind: MemoizedField,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -3437,7 +3437,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     ident: `lower_mass`,
-                                                    item_kind: Memo,
+                                                    item_kind: MemoizedField,
                                                 },
                                             ),
                                         ),
@@ -3467,7 +3467,7 @@ Ok(
                                         ast_idx: 74,
                                         ident: `lower_mass`,
                                         associated_item_kind: TypeItem(
-                                            Memo,
+                                            MemoizedField,
                                         ),
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier::connected_component`,

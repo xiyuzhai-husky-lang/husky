@@ -5,7 +5,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
                         ),
                     ),
                 ),
@@ -13,9 +13,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Val(
                             ValDefn {
-                                path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                                path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
                                 decl: ValDecl {
-                                    path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                                    path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
                                     ast_idx: 50,
                                     colon_token: Some(
                                         ColonToken(
@@ -50,7 +50,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                                                            FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
                                                         ),
                                                     ),
                                                 ),
@@ -130,7 +130,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                                                        FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
                                                     ),
                                                 ),
                                             ),
@@ -142,7 +142,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                                             ),
                                                         ),
                                                     ),
@@ -152,7 +152,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `Fn`),
                                                             ),
                                                         ),
                                                     ),
@@ -162,7 +162,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `Fn`),
                                                             ),
                                                         ),
                                                     ),
@@ -172,7 +172,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `Fn`),
                                                             ),
                                                         ),
                                                     ),
@@ -182,7 +182,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                                                FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -232,7 +232,7 @@ Ok(
                                                     ident: `fermi_match`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                                         ),
                                                     ),
                                                 },
@@ -243,7 +243,7 @@ Ok(
                                                     ident: `major_concave_components`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                                            FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -254,7 +254,7 @@ Ok(
                                                     ident: `left_cc_pattern`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `Fn`),
                                                         ),
                                                     ),
                                                 },
@@ -265,7 +265,7 @@ Ok(
                                                     ident: `right_cc_pattern`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `Fn`),
                                                         ),
                                                     ),
                                                 },
@@ -276,7 +276,7 @@ Ok(
                                                     ident: `down_cc_pattern`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `Fn`),
                                                         ),
                                                     ),
                                                 },
@@ -336,7 +336,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Fn`),
+                            FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `Fn`),
                         ),
                     ),
                 ),
@@ -344,9 +344,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Fn(
                             FnDefn {
-                                path: FormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `Fn`),
                                 decl: FnDecl {
-                                    path: FormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Fn`),
+                                    path: FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `Fn`),
                                     ast_idx: 51,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -355,7 +355,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `Fn`),
                                                         ),
                                                     ),
                                                 ),
@@ -570,7 +570,7 @@ Ok(
                                                         DeclRegionPath::Entity(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Form(
-                                                                    FormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Fn`),
+                                                                    FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `Fn`),
                                                                 ),
                                                             ),
                                                         ),
@@ -731,7 +731,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Fn`),
+                                                        FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -987,7 +987,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Fn`),
+                            FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `Fn`),
                         ),
                     ),
                 ),
@@ -995,9 +995,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Fn(
                             FnDefn {
-                                path: FormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `Fn`),
                                 decl: FnDecl {
-                                    path: FormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Fn`),
+                                    path: FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `Fn`),
                                     ast_idx: 52,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -1006,7 +1006,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `Fn`),
                                                         ),
                                                     ),
                                                 ),
@@ -1221,7 +1221,7 @@ Ok(
                                                         DeclRegionPath::Entity(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Form(
-                                                                    FormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Fn`),
+                                                                    FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `Fn`),
                                                                 ),
                                                             ),
                                                         ),
@@ -1382,7 +1382,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Fn`),
+                                                        FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -1638,7 +1638,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Fn`),
+                            FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `Fn`),
                         ),
                     ),
                 ),
@@ -1646,9 +1646,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Fn(
                             FnDefn {
-                                path: FormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `Fn`),
                                 decl: FnDecl {
-                                    path: FormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Fn`),
+                                    path: FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `Fn`),
                                     ast_idx: 53,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -1657,7 +1657,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `Fn`),
                                                         ),
                                                     ),
                                                 ),
@@ -1872,7 +1872,7 @@ Ok(
                                                         DeclRegionPath::Entity(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Form(
-                                                                    FormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Fn`),
+                                                                    FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `Fn`),
                                                                 ),
                                                             ),
                                                         ),
@@ -2033,7 +2033,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Fn`),
+                                                        FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -2289,7 +2289,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
                         ),
                     ),
                 ),
@@ -2297,9 +2297,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Val(
                             ValDefn {
-                                path: FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
+                                path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
                                 decl: ValDecl {
-                                    path: FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
+                                    path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
                                     ast_idx: 54,
                                     colon_token: Some(
                                         ColonToken(
@@ -2334,7 +2334,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
+                                                            FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
                                                         ),
                                                     ),
                                                 ),
@@ -2421,7 +2421,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
+                                                        FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
                                                     ),
                                                 ),
                                             ),
@@ -2433,7 +2433,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                                FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -2457,7 +2457,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                                                FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -2481,7 +2481,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                                                                FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -2505,7 +2505,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                                FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -2529,7 +2529,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                                                                FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -2553,7 +2553,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                                FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -2577,7 +2577,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                                                FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -2609,7 +2609,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                                FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -2684,7 +2684,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                                                                FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -2723,7 +2723,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                                                                FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -2762,7 +2762,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                                                                FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -2826,7 +2826,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                                FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -2836,7 +2836,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                                FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -3693,7 +3693,7 @@ Ok(
                                                     ident: `is_zero`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -3704,7 +3704,7 @@ Ok(
                                                     ident: `is_three`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                                            FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -3715,7 +3715,7 @@ Ok(
                                                     ident: `is_seven`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                                                            FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -3726,7 +3726,7 @@ Ok(
                                                     ident: `is_one`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -3737,7 +3737,7 @@ Ok(
                                                     ident: `is_nine`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                                                            FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -3748,7 +3748,7 @@ Ok(
                                                     ident: `is_six`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -3759,7 +3759,7 @@ Ok(
                                                     ident: `major_concave_components`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                                            FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -3770,7 +3770,7 @@ Ok(
                                                     ident: `major_connected_component`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -3781,7 +3781,7 @@ Ok(
                                                     ident: `two_match`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                                                            FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -3792,7 +3792,7 @@ Ok(
                                                     ident: `two_match`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                                                            FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -3803,7 +3803,7 @@ Ok(
                                                     ident: `two_match`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
+                                                            FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -3814,7 +3814,7 @@ Ok(
                                                     ident: `major_connected_component`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -3825,7 +3825,7 @@ Ok(
                                                     ident: `major_connected_component`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                         ),
                                                     ),
                                                 },

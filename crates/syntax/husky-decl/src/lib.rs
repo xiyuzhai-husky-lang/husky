@@ -44,7 +44,7 @@ pub struct DeclJar(
     trai_decl,
     TraitDecl,
     // form
-    form_decl,
+    fugitive_decl,
     ValueDecl,
     ValDecl,
     FnDecl,

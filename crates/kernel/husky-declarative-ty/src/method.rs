@@ -1,7 +1,7 @@
 use crate::*;
 
 #[salsa::tracked(jar = DeclarativeTypeJar)]
-pub fn ty_path_ty_method_raw_ty(
+pub fn ty_path_ty_method_declarative_ty(
     db: &dyn DeclarativeTypeDb,
     path: TypePath,
     _ident: Ident,

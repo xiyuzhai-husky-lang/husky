@@ -61,7 +61,7 @@ impl<'a> TraceLineGenerator<'a> {
         //     }
         //     self.render_ident_token(parameter.ident().as_str(), None, None);
         //     self.render_special_token(": ", None, None);
-        //     self.gen_route_token(text.ranged(parameter.raw_ty_range()), None, None);
+        //     self.gen_route_token(text.ranged(parameter.declarative_ty_range()), None, None);
         //     if i < parameters.len() - 1 {
         //         self.render_special_token(", ", None, None);
         //     }

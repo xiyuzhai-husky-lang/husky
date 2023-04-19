@@ -2,7 +2,7 @@ use crate::*;
 use husky_decl::HasDecl;
 
 #[salsa::tracked(jar = DeclarativeTypeJar,  )]
-pub fn ty_path_field_raw_ty(
+pub fn ty_path_field_declarative_ty(
     db: &dyn DeclarativeTypeDb,
     path: TypePath,
     ident: Ident,

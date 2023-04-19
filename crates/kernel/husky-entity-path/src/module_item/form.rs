@@ -2,14 +2,14 @@ use super::*;
 use std::fmt::Debug;
 
 #[salsa::interned(jar = EntityPathJar, override_debug)]
-pub struct FormPath {
+pub struct FugitivePath {
     pub module_path: ModulePath,
     pub ident: Ident,
     pub connection: ModuleItemConnection,
-    pub form_kind: FormKind,
+    pub form_kind: FugitiveKind,
 }
 
-impl FormPath {
+impl FugitivePath {
     pub fn show_aux(
         self,
         f: &mut std::fmt::Formatter<'_>,
@@ -29,7 +29,7 @@ impl FormPath {
     }
 }
 
-impl<Db: EntityPathDb + ?Sized> salsa::DebugWithDb<Db> for FormPath {
+impl<Db: EntityPathDb + ?Sized> salsa::DebugWithDb<Db> for FugitivePath {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -37,7 +37,7 @@ impl<Db: EntityPathDb + ?Sized> salsa::DebugWithDb<Db> for FormPath {
         _level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
         let db = <Db as DbWithJar<EntityPathJar>>::as_jar_db(db);
-        f.write_str("FormPath(`")?;
+        f.write_str("FugitivePath(`")?;
         self.show_aux(f, db)?;
         f.write_str("`, `")?;
         self.form_kind(db).fmt(f)?;
@@ -45,7 +45,7 @@ impl<Db: EntityPathDb + ?Sized> salsa::DebugWithDb<Db> for FormPath {
     }
 }
 
-impl<Db> salsa::DisplayWithDb<Db> for FormPath
+impl<Db> salsa::DisplayWithDb<Db> for FugitivePath
 where
     Db: EntityPathDb + ?Sized,
 {

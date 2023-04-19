@@ -57,7 +57,7 @@ pub enum OriginalExprTypeError {
     #[error("final destination")]
     FinalDestination,
     #[error("form path type error")]
-    FormPathTypeError,
+    FugitivePathTypeError,
     #[error("ambiguous type path")]
     AmbiguousTypePath,
     #[error("ritchie call wrong number of arguments")]
@@ -145,7 +145,7 @@ pub enum DerivedExprTypeError {
     #[error("cannot disambiguate list expression")]
     AmbiguateListExpr,
     #[error("form path type error {0}")]
-    FormPathTypeError(TermError),
+    FugitivePathTypeError(TermError),
     #[error("ambiguous type path")]
     AmbiguousTypePath,
     #[error("explicit application function type not inferred")]

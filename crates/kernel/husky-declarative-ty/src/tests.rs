@@ -47,7 +47,7 @@ pub(crate) struct DB {
 
 impl salsa::Database for DB {}
 
-fn entity_raw_tys(
+fn entity_declarative_tys(
     db: &DB,
     module_path: ModulePath,
 ) -> Vec<(EntityPath, DeclarativeTypeResult<DeclarativeTerm>)> {
@@ -59,13 +59,13 @@ fn entity_raw_tys(
         .map(|path| {
             (
                 path.into(),
-                entity_path_raw_ty(db, TypePathDisambiguation::Ontology, path.into()),
+                entity_path_declarative_ty(db, TypePathDisambiguation::Ontology, path.into()),
             )
         })
         .collect()
 }
 
 #[test]
-fn entity_raw_tys_works() {
-    DB::default().ast_expect_test_debug_with_db("entity_raw_tys", entity_raw_tys)
+fn entity_declarative_tys_works() {
+    DB::default().ast_expect_test_debug_with_db("entity_declarative_tys", entity_declarative_tys)
 }

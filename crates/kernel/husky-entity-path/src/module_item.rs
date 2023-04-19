@@ -17,7 +17,7 @@ use utils::*;
 pub enum ModuleItemPath {
     Type(TypePath),
     Trait(TraitPath),
-    Form(FormPath),
+    Form(FugitivePath),
 }
 
 impl ModuleItemPath {
@@ -58,15 +58,15 @@ impl ModuleItemPath {
                 connection: path.connection(db).kind(),
             },
             ModuleItemPath::Form(path) => EntityKind::ModuleItem {
-                module_item_kind: ModuleItemKind::Form(path.form_kind(db)),
+                module_item_kind: ModuleItemKind::Fugitive(path.form_kind(db)),
                 connection: path.connection(db).kind(),
             },
         }
     }
 }
 
-impl From<FormPath> for ModuleItemPath {
-    fn from(v: FormPath) -> Self {
+impl From<FugitivePath> for ModuleItemPath {
+    fn from(v: FugitivePath) -> Self {
         Self::Form(v)
     }
 }

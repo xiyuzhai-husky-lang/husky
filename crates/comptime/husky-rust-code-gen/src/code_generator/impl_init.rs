@@ -67,14 +67,14 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         //         route: "{entity_path}",
         //     }},"#,
         //             ));
-        //             let call_form_decl = self.db.entity_call_form_decl(entity_path).unwrap();
+        //             let call_fugitive_decl = self.db.entity_call_fugitive_decl(entity_path).unwrap();
         //             msg_once!("keyword_parameters");
         //             self.gen_transfer_linkage(
         //                 self.db.needs_eval_context(entity_path),
         //                 None,
         //                 |this| this.gen_entity_route(entity_path, EntityRouteRole::Caller),
         //                 |this| this.gen_entity_route(entity_path, EntityRouteRole::StaticCallRoute),
-        //                 &call_form_decl,
+        //                 &call_fugitive_decl,
         //             );
         //             self.write(
         //                 r#"
@@ -89,14 +89,14 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         //         route: "{entity_path}",
         //     }},"#,
         //             ));
-        //             let call_form_decl = self.db.entity_call_form_decl(entity_path).unwrap();
+        //             let call_fugitive_decl = self.db.entity_call_fugitive_decl(entity_path).unwrap();
         //             msg_once!("keyword_parameters");
         //             self.gen_transfer_linkage(
         //                 self.db.needs_eval_context(entity_path),
         //                 None,
         //                 |this| this.gen_entity_route(entity_path, EntityRouteRole::Caller),
         //                 |this| this.gen_entity_route(entity_path, EntityRouteRole::StaticCallRoute),
-        //                 &call_form_decl,
+        //                 &call_fugitive_decl,
         //             );
         //             self.write(
         //                 r#"
@@ -135,8 +135,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         //                 r#"
         //     __StaticLinkageKey::Routine {{ route: "{entity_path}" }},"#,
         //             ));
-        //             let call_form_decl = self.db.entity_call_form_decl(entity_path).unwrap();
-        //             let this_liason = call_form_decl.this_liason();
+        //             let call_fugitive_decl = self.db.entity_call_fugitive_decl(entity_path).unwrap();
+        //             let this_liason = call_fugitive_decl.this_liason();
         //             match this_liason {
         //                 ParameterModifier::MemberAccess => {
         //                     self.write(&format!(
@@ -149,7 +149,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         //                         self.db.mangled_intrinsic_ty_vtable(parent);
         //                     let mangled_return_ty_vtable = self
         //                         .db
-        //                         .mangled_intrinsic_ty_vtable(call_form_decl.output.ty());
+        //                         .mangled_intrinsic_ty_vtable(call_fugitive_decl.output.ty());
         //                     self.write(&format!(
         //                         ", __registration__::{mangled_intrinsic_ty_vtable}, __registration__::{mangled_return_ty_vtable}, {method_name})"
         //                     ))
@@ -180,7 +180,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         //                                 EntityRouteRole::StaticCallRoute,
         //                             )
         //                         },
-        //                         &call_form_decl,
+        //                         &call_fugitive_decl,
         //                     )
         //                 }
         //             }

@@ -2,7 +2,7 @@ use super::*;
 
 pub enum CDeclHir {
     Type(CTypeDeclHir),
-    Form(CFormDeclHir),
+    Form(CFugitiveDeclHir),
 }
 
 pub enum CTypeDeclHir {
@@ -20,7 +20,7 @@ pub struct CEnumDeclHir {}
 #[salsa::tracked(db = CHirDb, jar = CHirJar)]
 pub struct CUnionDeclHir {}
 
-pub enum CFormDeclHir {
+pub enum CFugitiveDeclHir {
     Function(CFunctionDeclHir),
     Value(CValueDeclHir),
 }

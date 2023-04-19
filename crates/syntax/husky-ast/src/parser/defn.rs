@@ -1,6 +1,6 @@
 use husky_entity_path::*;
 use husky_entity_taxonomy::{
-    AssociatedItemKind, FormKind, ModuleItemConnectionKind, ModuleItemKind, TraitItemKind,
+    AssociatedItemKind, FugitiveKind, ModuleItemConnectionKind, ModuleItemKind, TraitItemKind,
     TypeItemKind, TypeKind,
 };
 use husky_opn_syntax::{BinaryOpr, Bracket};
@@ -67,8 +67,8 @@ impl<'a> AstParser<'a> {
                             },
                         }
                     }
-                    ModuleItemKind::Form(form_kind) => DefnBlock::Form {
-                        path: FormPath::new(
+                    ModuleItemKind::Fugitive(form_kind) => DefnBlock::Form {
+                        path: FugitivePath::new(
                             self.db,
                             self.module_path,
                             ident,

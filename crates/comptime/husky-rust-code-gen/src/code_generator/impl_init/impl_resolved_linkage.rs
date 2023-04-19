@@ -7,7 +7,7 @@ impl<'a> RustCodeGenerator<'a> {
     //     opt_this: Option<(ParameterModifier, EntityRoutePtr)>,
     //     gen_caller: impl FnOnce(&mut Self),
     //     gen_call_route: impl FnOnce(&mut Self),
-    //     decl: &CallFormDecl,
+    //     decl: &CallFugitiveDecl,
     // ) {
     //     let argidx_base = opt_this.map(|_| 1).unwrap_or(0);
     //     self.write(&format!(
@@ -191,7 +191,7 @@ impl<'a> RustCodeGenerator<'a> {
     //     )
     // }
 
-    // fn gen_variadics_downcast(&mut self, decl: &CallFormDecl) {
+    // fn gen_variadics_downcast(&mut self, decl: &CallFugitiveDecl) {
     //     match decl.variadic_parameters {
     //         VariadicParametersDecl::None => (),
     //         VariadicParametersDecl::RepeatSingle {
@@ -283,7 +283,7 @@ impl<'a> RustCodeGenerator<'a> {
     //     }
     // }
 
-    // fn gen_call_ty(&mut self, needs_eval_context: bool, decl: &CallFormDecl) {
+    // fn gen_call_ty(&mut self, needs_eval_context: bool, decl: &CallFugitiveDecl) {
     //     self.write("fn(");
     //     if let Some(this_ty) = decl.opt_this_ty() {
     //         match decl.opt_this_liason.unwrap() {

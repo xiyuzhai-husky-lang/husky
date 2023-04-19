@@ -5,7 +5,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
                         ),
                     ),
                 ),
@@ -13,9 +13,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Val(
                             ValDefn {
-                                path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                                path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
                                 decl: ValDecl {
-                                    path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                                    path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
                                     ast_idx: 50,
                                     colon_token: Some(
                                         ColonToken(
@@ -50,7 +50,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                                                            FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
                                                         ),
                                                     ),
                                                 ),
@@ -130,7 +130,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                                                        FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
                                                     ),
                                                 ),
                                             ),
@@ -142,7 +142,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                                             ),
                                                         ),
                                                     ),
@@ -152,7 +152,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::six::upmost`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::digits::six::upmost`, `Fn`),
                                                             ),
                                                         ),
                                                     ),
@@ -162,7 +162,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                                                FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -212,7 +212,7 @@ Ok(
                                                     ident: `fermi_match`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                                         ),
                                                     ),
                                                 },
@@ -223,7 +223,7 @@ Ok(
                                                     ident: `major_concave_components`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                                            FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -234,7 +234,7 @@ Ok(
                                                     ident: `upmost`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::six::upmost`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::digits::six::upmost`, `Fn`),
                                                         ),
                                                     ),
                                                 },
@@ -294,7 +294,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                         ),
                     ),
                 ),
@@ -302,9 +302,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Val(
                             ValDefn {
-                                path: FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                                path: FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                                 decl: ValDecl {
-                                    path: FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                                    path: FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                                     ast_idx: 51,
                                     colon_token: Some(
                                         ColonToken(
@@ -339,7 +339,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                                                            FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                                                         ),
                                                     ),
                                                 ),
@@ -419,7 +419,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                                                        FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                                                     ),
                                                 ),
                                             ),
@@ -431,7 +431,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                                             ),
                                                         ),
                                                     ),
@@ -441,7 +441,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::six::upmost`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::digits::six::upmost`, `Fn`),
                                                             ),
                                                         ),
                                                     ),
@@ -451,7 +451,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::six::bottom1`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::digits::six::bottom1`, `Fn`),
                                                             ),
                                                         ),
                                                     ),
@@ -461,7 +461,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                                                FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -511,7 +511,7 @@ Ok(
                                                     ident: `fermi_match`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                                         ),
                                                     ),
                                                 },
@@ -522,7 +522,7 @@ Ok(
                                                     ident: `major_concave_components`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                                            FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -533,7 +533,7 @@ Ok(
                                                     ident: `upmost`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::six::upmost`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::digits::six::upmost`, `Fn`),
                                                         ),
                                                     ),
                                                 },
@@ -544,7 +544,7 @@ Ok(
                                                     ident: `bottom1`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::six::bottom1`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::digits::six::bottom1`, `Fn`),
                                                         ),
                                                     ),
                                                 },
@@ -604,7 +604,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                     ),
                 ),
@@ -612,9 +612,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Val(
                             ValDefn {
-                                path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 decl: ValDecl {
-                                    path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                                     ast_idx: 52,
                                     colon_token: Some(
                                         ColonToken(
@@ -649,7 +649,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                                                         ),
                                                     ),
                                                 ),
@@ -736,7 +736,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                        FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                                                     ),
                                                 ),
                                             ),
@@ -748,7 +748,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                                FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -772,7 +772,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                                                                FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -835,7 +835,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                                FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -857,7 +857,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                                FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -867,7 +867,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                                FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -974,7 +974,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                                                                FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -984,7 +984,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                                                                FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -1065,7 +1065,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                                                                FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -1202,7 +1202,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                                                                FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -1224,7 +1224,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                                                                FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -1317,20 +1317,26 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                                                                FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                                             ),
                                                         ),
                                                     ),
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnterminatedList {
-                                                            bra_token_idx: TokenIdx(
-                                                                162,
-                                                            ),
-                                                        },
+                                                Expr::Literal(
+                                                    TokenIdx(
+                                                        163,
                                                     ),
                                                 ),
+                                                Expr::Binary {
+                                                    lopd: 52,
+                                                    opr: Comparison(
+                                                        Less,
+                                                    ),
+                                                    opr_token_idx: TokenIdx(
+                                                        162,
+                                                    ),
+                                                    ropd: 53,
+                                                },
                                                 Expr::Err(
                                                     ExprError::Original(
                                                         OriginalExprError::UnrecognizedIdent {
@@ -1368,13 +1374,13 @@ Ok(
                                                     },
                                                 },
                                                 Expr::ExplicitApplicationOrRitchieCall {
-                                                    function: 54,
+                                                    function: 55,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
                                                         165,
                                                     ),
                                                     items: ArenaIdxRange(
-                                                        55..58,
+                                                        56..59,
                                                     ),
                                                     commas: [
                                                         TokenIdx(
@@ -1389,7 +1395,7 @@ Ok(
                                                     ),
                                                 },
                                                 Expr::Suffix {
-                                                    opd: 58,
+                                                    opd: 59,
                                                     opr: UnveilOrComposeWithOption,
                                                     opr_token_idx: TokenIdx(
                                                         174,
@@ -1411,13 +1417,13 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                                                                FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                                             ),
                                                         ),
                                                     ),
                                                 },
                                                 Expr::Field {
-                                                    owner: 61,
+                                                    owner: 62,
                                                     dot_token_idx: TokenIdx(
                                                         182,
                                                     ),
@@ -1439,7 +1445,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 63,
+                                                    self_argument: 64,
                                                     dot_token_idx: TokenIdx(
                                                         188,
                                                     ),
@@ -1454,14 +1460,14 @@ Ok(
                                                         190,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        64..64,
+                                                        65..65,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         191,
                                                     ),
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 62,
+                                                    self_argument: 63,
                                                     dot_token_idx: TokenIdx(
                                                         184,
                                                     ),
@@ -1476,7 +1482,7 @@ Ok(
                                                         186,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        64..65,
+                                                        65..66,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         192,
@@ -1497,7 +1503,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                                FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -1538,7 +1544,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                                                                FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -1554,7 +1560,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 67,
+                                                    self_argument: 68,
                                                     dot_token_idx: TokenIdx(
                                                         208,
                                                     ),
@@ -1569,20 +1575,20 @@ Ok(
                                                         210,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        68..69,
+                                                        69..70,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         212,
                                                     ),
                                                 },
                                                 Expr::ExplicitApplicationOrRitchieCall {
-                                                    function: 66,
+                                                    function: 67,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
                                                         194,
                                                     ),
                                                     items: ArenaIdxRange(
-                                                        69..75,
+                                                        70..76,
                                                     ),
                                                     commas: [
                                                         TokenIdx(
@@ -1609,7 +1615,7 @@ Ok(
                                                     ),
                                                 },
                                                 Expr::Suffix {
-                                                    opd: 75,
+                                                    opd: 76,
                                                     opr: UnveilOrComposeWithOption,
                                                     opr_token_idx: TokenIdx(
                                                         215,
@@ -1626,7 +1632,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Field {
-                                                    owner: 77,
+                                                    owner: 78,
                                                     dot_token_idx: TokenIdx(
                                                         218,
                                                     ),
@@ -1643,14 +1649,14 @@ Ok(
                                                     ),
                                                 ),
                                                 Expr::Binary {
-                                                    lopd: 78,
+                                                    lopd: 79,
                                                     opr: Comparison(
                                                         Less,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         220,
                                                     ),
-                                                    ropd: 79,
+                                                    ropd: 80,
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 23,
@@ -1689,7 +1695,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                                                                FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -1711,7 +1717,7 @@ Ok(
                                                     ),
                                                 ),
                                                 Expr::Field {
-                                                    owner: 84,
+                                                    owner: 85,
                                                     dot_token_idx: TokenIdx(
                                                         238,
                                                     ),
@@ -1723,13 +1729,13 @@ Ok(
                                                     },
                                                 },
                                                 Expr::ExplicitApplicationOrRitchieCall {
-                                                    function: 83,
+                                                    function: 84,
                                                     implicit_arguments: None,
                                                     lpar_token_idx: TokenIdx(
                                                         230,
                                                     ),
                                                     items: ArenaIdxRange(
-                                                        85..88,
+                                                        86..89,
                                                     ),
                                                     commas: [
                                                         TokenIdx(
@@ -1744,7 +1750,7 @@ Ok(
                                                     ),
                                                 },
                                                 Expr::Suffix {
-                                                    opd: 88,
+                                                    opd: 89,
                                                     opr: UnveilOrComposeWithOption,
                                                     opr_token_idx: TokenIdx(
                                                         241,
@@ -1755,13 +1761,13 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                                                                FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
                                                             ),
                                                         ),
                                                     ),
                                                 },
                                                 Expr::Field {
-                                                    owner: 90,
+                                                    owner: 91,
                                                     dot_token_idx: TokenIdx(
                                                         244,
                                                     ),
@@ -1778,27 +1784,27 @@ Ok(
                                                     ),
                                                 ),
                                                 Expr::Binary {
-                                                    lopd: 91,
+                                                    lopd: 92,
                                                     opr: Comparison(
                                                         Greater,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         246,
                                                     ),
-                                                    ropd: 92,
+                                                    ropd: 93,
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 30,
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                                                                FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
                                                             ),
                                                         ),
                                                     ),
                                                 },
                                                 Expr::Field {
-                                                    owner: 94,
+                                                    owner: 95,
                                                     dot_token_idx: TokenIdx(
                                                         251,
                                                     ),
@@ -1815,14 +1821,14 @@ Ok(
                                                     ),
                                                 ),
                                                 Expr::Binary {
-                                                    lopd: 95,
+                                                    lopd: 96,
                                                     opr: Comparison(
                                                         Less,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         253,
                                                     ),
-                                                    ropd: 96,
+                                                    ropd: 97,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `eff_holes`,
@@ -1835,7 +1841,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Field {
-                                                    owner: 98,
+                                                    owner: 99,
                                                     dot_token_idx: TokenIdx(
                                                         257,
                                                     ),
@@ -1852,19 +1858,19 @@ Ok(
                                                     ),
                                                 ),
                                                 Expr::IndexOrCompositionWithList {
-                                                    owner: 99,
+                                                    owner: 100,
                                                     lbox_token_idx: TokenIdx(
                                                         259,
                                                     ),
                                                     items: ArenaIdxRange(
-                                                        100..101,
+                                                        101..102,
                                                     ),
                                                     rbox_token_idx: TokenIdx(
                                                         261,
                                                     ),
                                                 },
                                                 Expr::Field {
-                                                    owner: 101,
+                                                    owner: 102,
                                                     dot_token_idx: TokenIdx(
                                                         262,
                                                     ),
@@ -1876,7 +1882,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 102,
+                                                    self_argument: 103,
                                                     dot_token_idx: TokenIdx(
                                                         264,
                                                     ),
@@ -1891,7 +1897,7 @@ Ok(
                                                         266,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        103..103,
+                                                        104..104,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         267,
@@ -1903,14 +1909,14 @@ Ok(
                                                     ),
                                                 ),
                                                 Expr::Binary {
-                                                    lopd: 103,
+                                                    lopd: 104,
                                                     opr: Comparison(
                                                         Less,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         268,
                                                     ),
-                                                    ropd: 104,
+                                                    ropd: 105,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `eff_holes`,
@@ -1923,7 +1929,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Field {
-                                                    owner: 106,
+                                                    owner: 107,
                                                     dot_token_idx: TokenIdx(
                                                         272,
                                                     ),
@@ -1940,19 +1946,19 @@ Ok(
                                                     ),
                                                 ),
                                                 Expr::IndexOrCompositionWithList {
-                                                    owner: 107,
+                                                    owner: 108,
                                                     lbox_token_idx: TokenIdx(
                                                         274,
                                                     ),
                                                     items: ArenaIdxRange(
-                                                        108..109,
+                                                        109..110,
                                                     ),
                                                     rbox_token_idx: TokenIdx(
                                                         276,
                                                     ),
                                                 },
                                                 Expr::Be {
-                                                    src: 109,
+                                                    src: 110,
                                                     be_token_idx: TokenIdx(
                                                         277,
                                                     ),
@@ -1976,7 +1982,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::Field {
-                                                    owner: 111,
+                                                    owner: 112,
                                                     dot_token_idx: TokenIdx(
                                                         282,
                                                     ),
@@ -1993,19 +1999,19 @@ Ok(
                                                     ),
                                                 ),
                                                 Expr::IndexOrCompositionWithList {
-                                                    owner: 112,
+                                                    owner: 113,
                                                     lbox_token_idx: TokenIdx(
                                                         284,
                                                     ),
                                                     items: ArenaIdxRange(
-                                                        113..114,
+                                                        114..115,
                                                     ),
                                                     rbox_token_idx: TokenIdx(
                                                         286,
                                                     ),
                                                 },
                                                 Expr::Field {
-                                                    owner: 114,
+                                                    owner: 115,
                                                     dot_token_idx: TokenIdx(
                                                         287,
                                                     ),
@@ -2017,7 +2023,7 @@ Ok(
                                                     },
                                                 },
                                                 Expr::MethodCall {
-                                                    self_argument: 115,
+                                                    self_argument: 116,
                                                     dot_token_idx: TokenIdx(
                                                         289,
                                                     ),
@@ -2032,7 +2038,7 @@ Ok(
                                                         291,
                                                     ),
                                                     nonself_arguments: ArenaIdxRange(
-                                                        116..116,
+                                                        117..117,
                                                     ),
                                                     rpar_token_idx: TokenIdx(
                                                         292,
@@ -2044,14 +2050,14 @@ Ok(
                                                     ),
                                                 ),
                                                 Expr::Binary {
-                                                    lopd: 116,
+                                                    lopd: 117,
                                                     opr: Comparison(
                                                         Less,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         293,
                                                     ),
-                                                    ropd: 117,
+                                                    ropd: 118,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `lower_excess`,
@@ -2069,14 +2075,14 @@ Ok(
                                                     ),
                                                 ),
                                                 Expr::Binary {
-                                                    lopd: 119,
+                                                    lopd: 120,
                                                     opr: Comparison(
                                                         Greater,
                                                     ),
                                                     opr_token_idx: TokenIdx(
                                                         297,
                                                     ),
-                                                    ropd: 120,
+                                                    ropd: 121,
                                                 },
                                                 Expr::EntityPath {
                                                     entity_path_expr: 32,
@@ -2105,7 +2111,7 @@ Ok(
                                                     ident: `is_one`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -2116,7 +2122,7 @@ Ok(
                                                     ident: `six_match`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                                                            FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -2127,7 +2133,7 @@ Ok(
                                                     ident: `major_connected_component`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -2138,7 +2144,7 @@ Ok(
                                                     ident: `major_connected_component`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -2149,7 +2155,7 @@ Ok(
                                                     ident: `major_connected_component`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -2195,7 +2201,7 @@ Ok(
                                                     ident: `six_match`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                                                            FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -2206,7 +2212,7 @@ Ok(
                                                     ident: `six_match_refined1`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                                                            FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -2217,7 +2223,7 @@ Ok(
                                                     ident: `six_match_refined1`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                                                            FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -2228,7 +2234,7 @@ Ok(
                                                     ident: `six_match_refined1`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                                                            FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -2239,7 +2245,7 @@ Ok(
                                                     ident: `six_match_refined1`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                                                            FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -2250,7 +2256,7 @@ Ok(
                                                     ident: `ignored_connected_components_row_span_sum_sum`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                                                            FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -2331,7 +2337,7 @@ Ok(
                                                     ident: `major_line_segment_sketch`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                                                            FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -2377,7 +2383,7 @@ Ok(
                                                     ident: `ignored_connected_components_row_span_sum_sum`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                                                            FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -2388,7 +2394,7 @@ Ok(
                                                     ident: `major_connected_component`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -2504,7 +2510,7 @@ Ok(
                                                     ident: `six_match`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                                                            FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -2515,7 +2521,7 @@ Ok(
                                                     ident: `six_match`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                                                            FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -2526,7 +2532,7 @@ Ok(
                                                     ident: `six_match`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                                                            FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -2586,17 +2592,17 @@ Ok(
                                                         ),
                                                     },
                                                     condition: Ok(
-                                                        53,
+                                                        54,
                                                     ),
-                                                },
-                                                Stmt::Eval {
-                                                    expr_idx: 59,
                                                 },
                                                 Stmt::Eval {
                                                     expr_idx: 60,
                                                 },
                                                 Stmt::Eval {
-                                                    expr_idx: 81,
+                                                    expr_idx: 61,
+                                                },
+                                                Stmt::Eval {
+                                                    expr_idx: 82,
                                                 },
                                                 Stmt::Eval {
                                                     expr_idx: 28,
@@ -2810,11 +2816,11 @@ Ok(
                                                         ),
                                                     ),
                                                     initial_value: Ok(
-                                                        65,
+                                                        66,
                                                     ),
                                                 },
                                                 Stmt::Eval {
-                                                    expr_idx: 76,
+                                                    expr_idx: 77,
                                                 },
                                                 Stmt::IfElse {
                                                     if_branch: IfBranch {
@@ -2824,7 +2830,7 @@ Ok(
                                                             ),
                                                         },
                                                         condition: Ok(
-                                                            80,
+                                                            81,
                                                         ),
                                                         eol_colon: Ok(
                                                             Colon(
@@ -2845,7 +2851,7 @@ Ok(
                                                     else_branch: None,
                                                 },
                                                 Stmt::Eval {
-                                                    expr_idx: 82,
+                                                    expr_idx: 83,
                                                 },
                                                 Stmt::Require {
                                                     require_token: RequireToken {
@@ -2854,7 +2860,7 @@ Ok(
                                                         ),
                                                     },
                                                     condition: Ok(
-                                                        97,
+                                                        98,
                                                     ),
                                                 },
                                                 Stmt::Require {
@@ -2864,7 +2870,7 @@ Ok(
                                                         ),
                                                     },
                                                     condition: Ok(
-                                                        118,
+                                                        119,
                                                     ),
                                                 },
                                                 Stmt::Require {
@@ -3003,7 +3009,7 @@ Ok(
                                                     else_branch: None,
                                                 },
                                                 Stmt::Eval {
-                                                    expr_idx: 89,
+                                                    expr_idx: 90,
                                                 },
                                                 Stmt::IfElse {
                                                     if_branch: IfBranch {
@@ -3013,7 +3019,7 @@ Ok(
                                                             ),
                                                         },
                                                         condition: Ok(
-                                                            93,
+                                                            94,
                                                         ),
                                                         eol_colon: Ok(
                                                             Colon(
@@ -3040,7 +3046,7 @@ Ok(
                                                         ),
                                                     },
                                                     condition: Ok(
-                                                        105,
+                                                        106,
                                                     ),
                                                 },
                                                 Stmt::IfElse {
@@ -3051,7 +3057,7 @@ Ok(
                                                             ),
                                                         },
                                                         condition: Ok(
-                                                            110,
+                                                            111,
                                                         ),
                                                         eol_colon: Ok(
                                                             Colon(
@@ -3078,11 +3084,11 @@ Ok(
                                                         ),
                                                     },
                                                     condition: Ok(
-                                                        121,
+                                                        122,
                                                     ),
                                                 },
                                                 Stmt::Eval {
-                                                    expr_idx: 122,
+                                                    expr_idx: 123,
                                                 },
                                             ],
                                         },
@@ -3655,13 +3661,13 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: BlockExpr,
-                                                expr: 123,
+                                                expr: 124,
                                             },
                                         ],
                                     },
                                 },
                                 body: Some(
-                                    123,
+                                    124,
                                 ),
                             },
                         ),
@@ -3672,7 +3678,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::six::upmost`, `Fn`),
+                            FugitivePath(`mnist_classifier::digits::six::upmost`, `Fn`),
                         ),
                     ),
                 ),
@@ -3680,9 +3686,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Fn(
                             FnDefn {
-                                path: FormPath(`mnist_classifier::digits::six::upmost`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::digits::six::upmost`, `Fn`),
                                 decl: FnDecl {
-                                    path: FormPath(`mnist_classifier::digits::six::upmost`, `Fn`),
+                                    path: FugitivePath(`mnist_classifier::digits::six::upmost`, `Fn`),
                                     ast_idx: 53,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -3691,7 +3697,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::six::upmost`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::digits::six::upmost`, `Fn`),
                                                         ),
                                                     ),
                                                 ),
@@ -3906,7 +3912,7 @@ Ok(
                                                         DeclRegionPath::Entity(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Form(
-                                                                    FormPath(`mnist_classifier::digits::six::upmost`, `Fn`),
+                                                                    FugitivePath(`mnist_classifier::digits::six::upmost`, `Fn`),
                                                                 ),
                                                             ),
                                                         ),
@@ -4067,7 +4073,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::six::upmost`, `Fn`),
+                                                        FugitivePath(`mnist_classifier::digits::six::upmost`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -4323,7 +4329,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::six::bottom1`, `Fn`),
+                            FugitivePath(`mnist_classifier::digits::six::bottom1`, `Fn`),
                         ),
                     ),
                 ),
@@ -4331,9 +4337,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Fn(
                             FnDefn {
-                                path: FormPath(`mnist_classifier::digits::six::bottom1`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `Fn`),
                                 decl: FnDecl {
-                                    path: FormPath(`mnist_classifier::digits::six::bottom1`, `Fn`),
+                                    path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `Fn`),
                                     ast_idx: 54,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -4342,7 +4348,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::six::bottom1`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::digits::six::bottom1`, `Fn`),
                                                         ),
                                                     ),
                                                 ),
@@ -4557,7 +4563,7 @@ Ok(
                                                         DeclRegionPath::Entity(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Form(
-                                                                    FormPath(`mnist_classifier::digits::six::bottom1`, `Fn`),
+                                                                    FugitivePath(`mnist_classifier::digits::six::bottom1`, `Fn`),
                                                                 ),
                                                             ),
                                                         ),
@@ -4718,7 +4724,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::six::bottom1`, `Fn`),
+                                                        FugitivePath(`mnist_classifier::digits::six::bottom1`, `Fn`),
                                                     ),
                                                 ),
                                             ),

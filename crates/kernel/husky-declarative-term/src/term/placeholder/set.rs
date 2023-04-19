@@ -78,7 +78,7 @@ impl DeclarativeTerm {
             DeclarativeTerm::ExplicitApplication(raw_term) => {
                 raw_term_application_variables(db, raw_term)
             }
-            DeclarativeTerm::ExplicitApplicationOrRitchieCall(_raw_ty) => todo!(),
+            DeclarativeTerm::ExplicitApplicationOrRitchieCall(_declarative_ty) => todo!(),
             DeclarativeTerm::Subentity(_) => todo!(),
             DeclarativeTerm::AsTraitSubentity(_) => todo!(),
             DeclarativeTerm::TraitConstraint(_) => todo!(),
