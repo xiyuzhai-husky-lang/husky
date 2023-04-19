@@ -1,18 +1,15 @@
 mod r#fn;
 mod gn;
-mod type_alias;
-mod value;
-mod var;
+mod ti;
+mod val;
 
-pub use gn::*;
-use husky_entity_taxonomy::{EntityKind, FugitiveKind};
-pub use r#fn::*;
-pub use var::*;
-
-pub use type_alias::*;
-pub use value::*;
+pub use self::gn::*;
+pub use self::r#fn::*;
+pub use self::ti::*;
+pub use self::val::*;
 
 use crate::*;
+use husky_entity_taxonomy::{EntityKind, FugitiveKind};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]

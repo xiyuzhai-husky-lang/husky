@@ -1,6 +1,6 @@
 mod substitution;
 
-pub use substitution::*;
+pub use self::substitution::*;
 
 use crate::*;
 

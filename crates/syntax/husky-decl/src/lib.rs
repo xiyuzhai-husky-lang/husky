@@ -8,11 +8,11 @@ mod sheet;
 #[cfg(test)]
 mod tests;
 
-pub use db::*;
-pub use decl::*;
-pub use error::*;
-pub use parameter::*;
-pub use sheet::*;
+pub use self::db::*;
+pub use self::decl::*;
+pub use self::error::*;
+pub use self::parameter::*;
+pub use self::sheet::*;
 
 use derive_getters::Getters;
 use either::*;
@@ -45,7 +45,6 @@ pub struct DeclJar(
     TraitDecl,
     // form
     fugitive_decl,
-    ValueDecl,
     ValDecl,
     FnDecl,
     GnDecl,

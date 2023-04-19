@@ -1,25 +1,25 @@
-mod enum_ty;
-mod extern_ty;
-mod inductive_ty;
-mod record_ty;
-mod regular_struct_ty;
-mod structure_ty;
-mod tuple_struct_ty;
-mod union_ty;
-mod unit_struct_ty;
+mod r#enum;
+mod r#extern;
+mod inductive;
+mod record;
+mod regular_struct;
+mod structure;
+mod tuple_struct;
+mod union;
+mod unit_struct;
 
-pub use enum_ty::*;
-pub use extern_ty::*;
-use husky_entity_taxonomy::{EntityKind, TypeKind};
-pub use inductive_ty::*;
-pub use record_ty::*;
-pub use regular_struct_ty::*;
-pub use structure_ty::*;
-pub use tuple_struct_ty::*;
-pub use union_ty::*;
-pub use unit_struct_ty::*;
+pub use self::inductive::*;
+pub use self::r#enum::*;
+pub use self::r#extern::*;
+pub use self::record::*;
+pub use self::regular_struct::*;
+pub use self::structure::*;
+pub use self::tuple_struct::*;
+pub use self::union::*;
+pub use self::unit_struct::*;
 
 use super::*;
+use husky_entity_taxonomy::{EntityKind, TypeKind};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
