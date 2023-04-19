@@ -54,6 +54,15 @@ impl EntityTreeCrateBundle {
             .flatten()
     }
 
+    pub fn all_ill_formed_impl_blocks<'a>(
+        &'a self,
+    ) -> impl Iterator<Item = IllFormedImplBlock> + 'a {
+        self.sheets
+            .iter()
+            .map(|sheet| sheet.all_ill_formed_impl_blocks())
+            .flatten()
+    }
+
     pub fn all_trai_for_ty_impl_blocks<'a>(
         &'a self,
     ) -> impl Iterator<Item = TraitForTypeImplBlock> + 'a {

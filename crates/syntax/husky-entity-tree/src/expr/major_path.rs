@@ -91,7 +91,7 @@ impl<'a, 'b> MajorPathExprParser<'a, 'b> {
         let Some(entity_symbol) = self
             .module_symbol_context
             .resolve_ident(ident_token.token_idx(),ident_token.ident()) else {
-                return Err(OriginalMajorPathExprError::UnrecognizedIdent(ident_token).into())
+                Err(OriginalMajorPathExprError::UnrecognizedIdent(ident_token))?
             };
         let path = match entity_symbol {
             EntitySymbol::CrateRoot { .. } => todo!(),

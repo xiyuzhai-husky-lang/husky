@@ -40,7 +40,7 @@ impl TypeImplBlock {
         self.id(db).module_path
     }
 
-    pub fn ty(self, db: &dyn EntityTreeDb) -> TypePath {
+    pub fn ty_path(self, db: &dyn EntityTreeDb) -> TypePath {
         self.id(db).ty_path
     }
 }
