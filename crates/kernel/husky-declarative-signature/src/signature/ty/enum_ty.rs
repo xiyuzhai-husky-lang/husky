@@ -4,13 +4,13 @@ use super::*;
 #[salsa::derive_debug_with_db(db = DeclarativeSignatureDb)]
 pub struct EnumTypeDeclarativeSignature {}
 
-#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureTemplateJar)]
+#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct EnumTypeDeclarativeSignatureTemplate {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates,
 }
 
-#[salsa::tracked(jar = DeclarativeSignatureTemplateJar)]
+#[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub fn enum_ty_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     decl: EnumTypeDecl,

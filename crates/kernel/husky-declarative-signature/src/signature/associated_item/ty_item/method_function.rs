@@ -1,7 +1,7 @@
 use crate::*;
 use husky_entity_tree::{ImplBlock, ImplBlockId};
 
-#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureTemplateJar)]
+#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct TypeMethodFunctionDeclarativeSignatureTemplate {
     // todo: formal method, method that is not a function pointer
     #[return_ref]
@@ -13,7 +13,7 @@ pub struct TypeMethodFunctionDeclarativeSignatureTemplate {
     pub return_ty: DeclarativeTerm,
 }
 
-#[salsa::tracked(jar = DeclarativeSignatureTemplateJar)]
+#[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub fn ty_method_function_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     decl: TypeMethodFnDecl,

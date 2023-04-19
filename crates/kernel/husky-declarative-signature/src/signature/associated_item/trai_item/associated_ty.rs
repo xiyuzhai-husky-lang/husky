@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::tracked(jar = DeclarativeSignatureTemplateJar)]
+#[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub(crate) fn trai_associated_ty_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     decl: TraitAssociatedTypeDecl,
@@ -11,5 +11,5 @@ pub(crate) fn trai_associated_ty_declarative_signature_template(
     Ok(TraitAssociatedTypeDeclarativeSignatureTemplate::new(db))
 }
 
-#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureTemplateJar)]
+#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct TraitAssociatedTypeDeclarativeSignatureTemplate {}

@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureTemplateJar)]
+#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct ValDeclarativeSignatureTemplate {
     pub return_ty: DeclarativeTerm,
 }
@@ -26,7 +26,7 @@ impl ValDeclarativeSignatureTemplate {
     }
 }
 
-#[salsa::tracked(jar = DeclarativeSignatureTemplateJar)]
+#[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub fn var_signature(
     db: &dyn DeclarativeSignatureDb,
     decl: ValDecl,

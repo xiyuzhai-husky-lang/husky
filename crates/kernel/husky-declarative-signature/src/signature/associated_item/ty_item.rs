@@ -23,8 +23,8 @@ pub enum TypeItemDeclarativeSignatureTemplate {
     AssociatedFn(TypeAssociatedFnDeclarativeSignatureTemplate),
     MethodFn(TypeMethodFnDeclarativeSignatureTemplate),
     AssociatedType(TypeAssociatedTypeDeclarativeSignatureTemplate),
-    AssociatedValue(TypeAssociatedValDeclarativeSignatureTemplate),
-    Memo(TypeMemoizedFieldDeclarativeSignature),
+    AssociatedVal(TypeAssociatedValDeclarativeSignatureTemplate),
+    MemoizedField(TypeMemoizedFieldDeclarativeSignature),
 }
 
 impl TypeItemDeclarativeSignatureTemplate {
@@ -38,8 +38,8 @@ impl TypeItemDeclarativeSignatureTemplate {
             }
             TypeItemDeclarativeSignatureTemplate::MethodFn(_) => todo!(),
             TypeItemDeclarativeSignatureTemplate::AssociatedType(_) => todo!(),
-            TypeItemDeclarativeSignatureTemplate::AssociatedValue(_) => todo!(),
-            TypeItemDeclarativeSignatureTemplate::Memo(_) => todo!(),
+            TypeItemDeclarativeSignatureTemplate::AssociatedVal(_) => todo!(),
+            TypeItemDeclarativeSignatureTemplate::MemoizedField(_) => todo!(),
         }
     }
 }
@@ -123,15 +123,14 @@ impl HasTypeMethodDeclarativeSignatures for TypePath {
         self,
         db: &'a dyn DeclarativeSignatureDb,
     ) -> &'a IdentPairMap<SmallVec<[TypeMethodDeclarativeSignatureTemplate; 2]>> {
-        todo!()
+        ty_method_declarative_signature_templates_map(db, self)
     }
 }
 
-impl HasTypeMethodDeclarativeSignatures for TypeItemPath {
-    fn ty_method_declarative_signature_templates_map<'a>(
-        self,
-        db: &'a dyn DeclarativeSignatureDb,
-    ) -> &'a IdentPairMap<SmallVec<[TypeMethodDeclarativeSignatureTemplate; 2]>> {
-        todo!()
-    }
+#[salsa::tracked(jar = DeclarativeSignatureJar, return_ref)]
+pub(crate) fn ty_method_declarative_signature_templates_map(
+    db: &dyn DeclarativeSignatureDb,
+    ty_path: TypePath,
+) -> IdentPairMap<SmallVec<[TypeMethodDeclarativeSignatureTemplate; 2]>> {
+    todo!()
 }

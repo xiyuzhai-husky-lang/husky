@@ -9,7 +9,7 @@ pub use ty_item::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = DeclarativeSignatureDb, jar = DeclarativeSignatureTemplateJar)]
+#[salsa::derive_debug_with_db(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 #[enum_class::from_variants]
 pub enum AssociatedItemDeclarativeSignatureTemplate {
     TypeItem(TypeItemDeclarativeSignatureTemplate),

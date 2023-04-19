@@ -34,7 +34,7 @@ use husky_word::WordJar;
     DecrJar,
     TermPreludeJar,
     DeclarativeTermJar,
-    DeclarativeSignatureTemplateJar
+    DeclarativeSignatureJar
 )]
 #[derive(Default)]
 pub(crate) struct DB {

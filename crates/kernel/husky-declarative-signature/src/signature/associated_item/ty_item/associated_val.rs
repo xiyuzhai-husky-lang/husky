@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::tracked(jar = DeclarativeSignatureTemplateJar)]
+#[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub(crate) fn ty_associated_val_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     decl: TypeAssociatedValDecl,
@@ -11,5 +11,5 @@ pub(crate) fn ty_associated_val_declarative_signature_template(
     Ok(TypeAssociatedValDeclarativeSignatureTemplate::new(db))
 }
 
-#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureTemplateJar)]
+#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct TypeAssociatedValDeclarativeSignatureTemplate {}

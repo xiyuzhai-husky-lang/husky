@@ -4,7 +4,7 @@ use super::*;
 #[salsa::derive_debug_with_db(db = DeclarativeSignatureDb)]
 pub struct ExternTypeDeclarativeSignature {}
 
-#[salsa::tracked(jar = DeclarativeSignatureTemplateJar)]
+#[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub fn alien_ty_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     decl: ExternTypeDecl,
@@ -22,7 +22,7 @@ pub fn alien_ty_declarative_signature_template(
     ))
 }
 
-#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureTemplateJar)]
+#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct ExternTypeDeclarativeSignatureTemplate {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates,

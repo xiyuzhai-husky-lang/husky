@@ -1,12 +1,12 @@
 mod associated_fn;
 mod associated_ty;
 mod associated_val;
-mod method;
+mod method_fn;
 
 pub use self::associated_fn::*;
 pub use self::associated_ty::*;
 pub use self::associated_val::*;
-pub use self::method::*;
+pub use self::method_fn::*;
 
 use super::*;
 
@@ -17,7 +17,7 @@ pub enum TraitForTypeItemDeclarativeSignatureTemplate {
     AssociatedFn(TraitForTypeAssociatedFnDeclarativeSignatureTemplate),
     MethodFn(TraitForTypeMethodFnDeclarativeSignatureTemplateTemplate),
     AssociatedType(TraitForTypeAssociatedTypeDeclarativeSignatureTemplate),
-    AssociatedValue(TraitForTypeAssociatedValDeclarativeSignatureTemplate),
+    AssociatedVal(TraitForTypeAssociatedValDeclarativeSignatureTemplate),
 }
 
 pub(crate) fn trai_for_ty_associated_item_declarative_signature_from_decl(
@@ -49,7 +49,7 @@ impl TraitForTypeItemDeclarativeSignatureTemplate {
             TraitForTypeItemDeclarativeSignatureTemplate::AssociatedFn(_) => todo!(),
             TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(_) => todo!(),
             TraitForTypeItemDeclarativeSignatureTemplate::AssociatedType(_) => todo!(),
-            TraitForTypeItemDeclarativeSignatureTemplate::AssociatedValue(_) => todo!(),
+            TraitForTypeItemDeclarativeSignatureTemplate::AssociatedVal(_) => todo!(),
         }
     }
 }

@@ -5,7 +5,7 @@ use husky_ast::AstJar;
 use husky_corgi_config::CorgiConfigJar;
 use husky_corgi_config_ast::CorgiConfigAstJar;
 use husky_decl::DeclJar;
-use husky_declarative_signature::DeclarativeSignatureTemplateJar;
+use husky_declarative_signature::DeclarativeSignatureJar;
 use husky_declarative_term::DeclarativeTermJar;
 use husky_declarative_ty::DeclarativeTypeJar;
 use husky_decr::DecrJar;
@@ -45,7 +45,7 @@ use husky_word::WordJar;
     ExprJar,
     TermPreludeJar,
     DeclarativeTermJar,
-    DeclarativeSignatureTemplateJar,
+    DeclarativeSignatureJar,
     DeclarativeTypeJar,
     EtherealTermJar,
     EtherealSignatureJar,

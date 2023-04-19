@@ -1,7 +1,7 @@
 use super::*;
 use husky_entity_tree::TraitForTypeImplBlock;
 
-#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureTemplateJar)]
+#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct TraitForTypeImplBlockDeclarativeSignatureTemplate {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates,
@@ -31,7 +31,7 @@ impl HasDeclarativeSignatureTemplate for TraitForTypeImplBlockDecl {
     }
 }
 
-#[salsa::tracked(jar = DeclarativeSignatureTemplateJar)]
+#[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub(crate) fn trai_for_ty_impl_block_declarative_signature(
     db: &dyn DeclarativeSignatureDb,
     decl: TraitForTypeImplBlockDecl,
