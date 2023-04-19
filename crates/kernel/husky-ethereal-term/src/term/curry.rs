@@ -31,17 +31,6 @@ impl EtherealTermCurry {
         term_curry_from_raw_unchecked(db, raw_term_curry)
     }
 
-    pub(super) fn check(self, db: &dyn EtherealTermDb) -> TermResult<()> {
-        match self.parameter_ty(db).declarative_ty(db)? {
-            Left(DeclarativeTerm::Category(_)) => (),
-            _ => todo!(),
-        };
-        match self.return_ty(db).declarative_ty(db)? {
-            Left(DeclarativeTerm::Category(_)) => Ok(()),
-            _ => todo!(),
-        }
-    }
-
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,
