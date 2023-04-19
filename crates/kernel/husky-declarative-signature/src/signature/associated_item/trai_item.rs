@@ -17,9 +17,20 @@ use super::*;
 #[enum_class::from_variants]
 pub enum TraitItemDeclarativeSignatureTemplate {
     AssociatedFn(TraitAssociatedFnDeclarativeSignatureTemplate),
-    MethodFn(TraitMethodFnSignatureTempalte),
+    MethodFn(TraitMethodFnDeclarativeSignatureTemplate),
     AssociatedType(TraitAssociatedTypeDeclarativeSignatureTemplate),
     AssociatedVal(TraitAssociatedValDeclarativeSignatureTemplate),
+}
+
+#[derive(Debug, PartialEq, Eq, Hash)]
+#[salsa::derive_debug_with_db(db = DeclarativeSignatureDb)]
+#[enum_class::from_variants]
+pub enum TraitItemDeclarativeSignatureTemplates {
+    AssociatedFn(SmallVecImpl<TraitAssociatedFnDeclarativeSignatureTemplate>),
+    MethodFn(SmallVecImpl<TraitMethodFnDeclarativeSignatureTemplate>),
+    AssociatedType(SmallVecImpl<TraitAssociatedTypeDeclarativeSignatureTemplate>),
+    AssociatedVal(SmallVecImpl<TraitAssociatedValDeclarativeSignatureTemplate>),
+    // MemoizedField(SmallVecImpl<TraitMemoizedFieldDeclarativeSignatureTemplate>),
 }
 
 pub(crate) fn trai_associated_item_declarative_signature_from_decl(
