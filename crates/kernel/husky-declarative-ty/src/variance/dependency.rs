@@ -98,7 +98,7 @@ pub(crate) fn form_entity_variance_crate_dependencies(
         Ok(decl) => decl,
         Err(_) => return Err(DerivedVarianceError::DeclError.into()),
     };
-    let _signature = match decl.declarative_signature(db) {
+    let _signature = match decl.declarative_signature_template(db) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedVarianceError::SignatureError.into()),
     };

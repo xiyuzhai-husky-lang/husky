@@ -72,7 +72,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::Memo(
-                    TypeMemoSignature {
+                    TypeMemoizedFieldDeclarativeSignature {
                         return_ty: DeclarativeTerm(`core::num::f32`),
                     },
                 ),
@@ -83,7 +83,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::Memo(
-                    TypeMemoSignature {
+                    TypeMemoizedFieldDeclarativeSignature {
                         return_ty: DeclarativeTerm(`core::num::f32`),
                     },
                 ),
@@ -94,7 +94,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::Memo(
-                    TypeMemoSignature {
+                    TypeMemoizedFieldDeclarativeSignature {
                         return_ty: DeclarativeTerm(`core::num::f32`),
                     },
                 ),

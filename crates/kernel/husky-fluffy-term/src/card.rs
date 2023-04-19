@@ -8,4 +8,5 @@ pub use self::error::*;
 pub use self::indirection::*;
 
 use crate::*;
+use husky_ethereal_signature::*;
 use husky_scope::*;

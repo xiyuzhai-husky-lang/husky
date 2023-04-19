@@ -20,6 +20,7 @@ use husky_declarative_term::*;
 use husky_entity_path::*;
 use husky_term_prelude::*;
 use husky_word::*;
+use smallvec::*;
 
 #[salsa::jar(db = DeclarativeSignatureDb)]
 pub struct DeclarativeSignatureTemplateJar(
@@ -69,16 +70,18 @@ pub struct DeclarativeSignatureTemplateJar(
     // associated items
     // associated_item_declarative_signature_from_decl,
     // type item
-    ty_associated_fn_declarative_signature,
+    ty_associated_fn_declarative_signature_template,
     TypeAssociatedFnDeclarativeSignatureTemplate,
-    ty_method_signature,
-    TypeMethodSignature,
+    ty_method_fn_declarative_signature,
+    TypeMethodFnDeclarativeSignatureTemplate,
+    ty_method_function_declarative_signature_template,
+    TypeMethodFunctionDeclarativeSignatureTemplate,
     ty_associated_ty_declarative_signature_template_from_decl,
     TypeAssociatedTypeDeclarativeSignatureTemplate,
-    ty_associated_val_declarative_signature,
-    TypeAssociatedValueSignature,
+    ty_associated_val_declarative_signature_template,
+    TypeAssociatedValDeclarativeSignatureTemplate,
     ty_memo_signature,
-    TypeMemoSignature,
+    TypeMemoizedFieldDeclarativeSignature,
     // trait item
     trai_associated_form_fn_declarative_signature,
     TraitAssociatedFormFnDeclarativeSignatureTemplate,
@@ -89,14 +92,14 @@ pub struct DeclarativeSignatureTemplateJar(
     trai_associated_val_declarative_signature,
     TraitAssociatedValueSignature,
     // type as trait item
-    trai_for_ty_associated_fn_declarative_signature,
+    trai_for_ty_associated_fn_declarative_signature_template,
     TraitForTypeAssociatedFnDeclarativeSignatureTemplate,
     trai_for_ty_method_fn_signature,
-    TraitForTypeMethodFnDeclarativeSignatureTemplate,
+    TraitForTypeMethodFnDeclarativeSignatureTemplateTemplate,
     trai_for_ty_associated_ty_declarative_signature_template,
     TraitForTypeAssociatedTypeDeclarativeSignatureTemplate,
-    trai_for_ty_associated_val_declarative_signature,
-    TraitForTypeAssociatedValueSignature,
+    trai_for_ty_associated_val_declarative_signature_template,
+    TraitForTypeAssociatedValDeclarativeSignatureTemplate,
     // decr
     DeriveDecrDeclarativeSignatureTemplate,
     derive_decr_declarative_signature,

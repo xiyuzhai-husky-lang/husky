@@ -1,7 +1,7 @@
 use crate::*;
 
 #[salsa::tracked(jar = DeclarativeSignatureTemplateJar)]
-pub(crate) fn trai_for_ty_associated_fn_declarative_signature(
+pub(crate) fn trai_for_ty_associated_fn_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     decl: TraitForTypeAssociatedFunctionDecl,
 ) -> DeclarativeSignatureResult<TraitForTypeAssociatedFnDeclarativeSignatureTemplate> {

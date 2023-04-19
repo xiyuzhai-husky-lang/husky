@@ -6,7 +6,7 @@ pub(crate) fn ty_item_path_raw_ty(
     path: TypeItemPath,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     let signature = path
-        .declarative_signature(db)
+        .declarative_signature_template(db)
         .map_err(|_| DerivedDeclarativeTypeError::SignatureError)?;
     let Ok(variances) = ty_item_entity_variances(db, path) else {
         todo!()

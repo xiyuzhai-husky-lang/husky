@@ -137,7 +137,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::Memo(
-                    TypeMemoSignature {
+                    TypeMemoizedFieldDeclarativeSignature {
                         return_ty: DeclarativeTerm(`[] mnist_classifier::raw_contour::RawContour`),
                     },
                 ),
@@ -148,7 +148,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::Memo(
-                    TypeMemoSignature {
+                    TypeMemoizedFieldDeclarativeSignature {
                         return_ty: DeclarativeTerm(`mnist_classifier::connected_component::EffHoles`),
                     },
                 ),
@@ -159,7 +159,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::Memo(
-                    TypeMemoSignature {
+                    TypeMemoizedFieldDeclarativeSignature {
                         return_ty: DeclarativeTerm(`core::num::f32`),
                     },
                 ),
@@ -170,7 +170,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::Memo(
-                    TypeMemoSignature {
+                    TypeMemoizedFieldDeclarativeSignature {
                         return_ty: DeclarativeTerm(`core::num::f32`),
                     },
                 ),
@@ -181,7 +181,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::Memo(
-                    TypeMemoSignature {
+                    TypeMemoizedFieldDeclarativeSignature {
                         return_ty: DeclarativeTerm(`core::num::f32`),
                     },
                 ),
@@ -192,7 +192,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::Memo(
-                    TypeMemoSignature {
+                    TypeMemoizedFieldDeclarativeSignature {
                         return_ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponentDistribution`),
                     },
                 ),
@@ -203,7 +203,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::Memo(
-                    TypeMemoSignature {
+                    TypeMemoizedFieldDeclarativeSignature {
                         return_ty: DeclarativeTerm(`core::num::f32`),
                     },
                 ),
@@ -214,7 +214,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::Memo(
-                    TypeMemoSignature {
+                    TypeMemoizedFieldDeclarativeSignature {
                         return_ty: DeclarativeTerm(`core::num::f32`),
                     },
                 ),
@@ -225,7 +225,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TypeMethodSignature {
+                    TypeMethodFnDeclarativeSignatureTemplate {
                         implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
@@ -267,7 +267,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TypeMethodSignature {
+                    TypeMethodFnDeclarativeSignatureTemplate {
                         implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },

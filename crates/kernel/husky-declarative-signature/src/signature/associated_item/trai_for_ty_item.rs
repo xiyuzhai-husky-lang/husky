@@ -15,9 +15,9 @@ use super::*;
 #[enum_class::from_variants]
 pub enum TraitForTypeItemDeclarativeSignatureTemplate {
     AssociatedFn(TraitForTypeAssociatedFnDeclarativeSignatureTemplate),
-    MethodFn(TraitForTypeMethodFnDeclarativeSignatureTemplate),
+    MethodFn(TraitForTypeMethodFnDeclarativeSignatureTemplateTemplate),
     AssociatedType(TraitForTypeAssociatedTypeDeclarativeSignatureTemplate),
-    AssociatedValue(TraitForTypeAssociatedValueSignature),
+    AssociatedValue(TraitForTypeAssociatedValDeclarativeSignatureTemplate),
 }
 
 pub(crate) fn trai_for_ty_associated_item_declarative_signature_from_decl(
@@ -26,7 +26,7 @@ pub(crate) fn trai_for_ty_associated_item_declarative_signature_from_decl(
 ) -> DeclarativeSignatureResult<TraitForTypeItemDeclarativeSignatureTemplate> {
     match decl {
         TraitForTypeItemDecl::AssociatedFunction(decl) => {
-            trai_for_ty_associated_fn_declarative_signature(db, decl).map(Into::into)
+            trai_for_ty_associated_fn_declarative_signature_template(db, decl).map(Into::into)
         }
         TraitForTypeItemDecl::Method(decl) => {
             trai_for_ty_method_fn_signature(db, decl).map(Into::into)
@@ -35,7 +35,7 @@ pub(crate) fn trai_for_ty_associated_item_declarative_signature_from_decl(
             trai_for_ty_associated_ty_declarative_signature_template(db, decl).map(Into::into)
         }
         TraitForTypeItemDecl::AssociatedValue(decl) => {
-            trai_for_ty_associated_val_declarative_signature(db, decl).map(Into::into)
+            trai_for_ty_associated_val_declarative_signature_template(db, decl).map(Into::into)
         }
     }
 }

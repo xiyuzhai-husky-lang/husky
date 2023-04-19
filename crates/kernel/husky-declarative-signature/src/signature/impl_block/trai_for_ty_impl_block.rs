@@ -12,18 +12,18 @@ pub struct TraitForTypeImplBlockDeclarativeSignatureTemplate {
 impl HasDeclarativeSignatureTemplate for TraitForTypeImplBlock {
     type DeclarativeSignatureTemplate = TraitForTypeImplBlockDeclarativeSignatureTemplate;
 
-    fn declarative_signature(
+    fn declarative_signature_template(
         self,
         db: &dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
-        self.decl(db)?.declarative_signature(db)
+        self.decl(db)?.declarative_signature_template(db)
     }
 }
 
 impl HasDeclarativeSignatureTemplate for TraitForTypeImplBlockDecl {
     type DeclarativeSignatureTemplate = TraitForTypeImplBlockDeclarativeSignatureTemplate;
 
-    fn declarative_signature(
+    fn declarative_signature_template(
         self,
         db: &dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
