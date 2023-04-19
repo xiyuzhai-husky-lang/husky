@@ -17,7 +17,7 @@ pub enum VariantDeclarativeSignatureTemplate {
     Tuple(TupleVariantDeclarativeSignatureTemplate),
 }
 
-pub(crate) fn variant_signature_from_decl(
+pub(crate) fn variant_signature_template_from_decl(
     _db: &dyn DeclarativeSignatureDb,
     decl: TypeVariantDecl,
 ) -> DeclarativeSignatureResult<VariantDeclarativeSignatureTemplate> {

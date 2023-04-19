@@ -1,7 +1,7 @@
 use super::*;
 use husky_decr::DeriveDecr;
 
-#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureTemplateJar)]
+#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct DeriveDecrDeclarativeSignatureTemplate {
     pub traits: Vec<DeclarativeTerm>,
 }
@@ -17,7 +17,7 @@ impl HasDeclarativeSignatureTemplate for DeriveDecr {
     }
 }
 
-#[salsa::tracked(jar = DeclarativeSignatureTemplateJar)]
+#[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub fn derive_decr_declarative_signature(
     db: &dyn DeclarativeSignatureDb,
     decr: DeriveDecr,

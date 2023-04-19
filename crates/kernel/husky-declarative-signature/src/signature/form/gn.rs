@@ -1,13 +1,13 @@
 use crate::*;
 
-#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureTemplateJar)]
-pub struct GnSignature {
+#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
+pub struct GnDeclarativeSignatureTemplate {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates,
 }
 
 impl HasDeclarativeSignatureTemplate for GnDecl {
-    type DeclarativeSignatureTemplate = GnSignature;
+    type DeclarativeSignatureTemplate = GnDeclarativeSignatureTemplate;
 
     fn declarative_signature_template(
         self,
@@ -17,11 +17,11 @@ impl HasDeclarativeSignatureTemplate for GnDecl {
     }
 }
 
-#[salsa::tracked(jar = DeclarativeSignatureTemplateJar)]
+#[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub fn gn_signature(
     db: &dyn DeclarativeSignatureDb,
     decl: GnDecl,
-) -> DeclarativeSignatureResult<GnSignature> {
+) -> DeclarativeSignatureResult<GnDeclarativeSignatureTemplate> {
     let expr_region = decl.expr_region(db);
     let declarative_term_region = declarative_term_region(db, expr_region);
     let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
@@ -30,7 +30,7 @@ pub fn gn_signature(
         &declarative_term_region,
         declarative_term_menu,
     );
-    Ok(GnSignature::new(db, implicit_parameters))
+    Ok(GnDeclarativeSignatureTemplate::new(db, implicit_parameters))
 }
 
-impl GnSignature {}
+impl GnDeclarativeSignatureTemplate {}

@@ -2,7 +2,7 @@ use husky_entity_tree::ImplBlock;
 
 use crate::*;
 
-#[salsa::tracked(jar = DeclarativeSignatureTemplateJar)]
+#[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub(crate) fn trai_for_ty_method_fn_signature(
     db: &dyn DeclarativeSignatureDb,
     decl: TraitForTypeMethodFnDecl,
@@ -50,7 +50,7 @@ pub(crate) fn trai_for_ty_method_fn_signature(
     )
 }
 
-#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureTemplateJar)]
+#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct TraitForTypeMethodFnDeclarativeSignatureTemplateTemplate {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates,

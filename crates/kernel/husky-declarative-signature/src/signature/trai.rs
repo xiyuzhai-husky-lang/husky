@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureTemplateJar)]
+#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct TraitDeclarativeSignatureTemplate {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates,
@@ -8,8 +8,8 @@ pub struct TraitDeclarativeSignatureTemplate {
 
 impl TraitDeclarativeSignatureTemplate {}
 
-#[salsa::tracked(jar = DeclarativeSignatureTemplateJar)]
-pub fn trai_declarative_signature_from_decl(
+#[salsa::tracked(jar = DeclarativeSignatureJar)]
+pub fn trai_declarative_signature_template_from_decl(
     db: &dyn DeclarativeSignatureDb,
     decl: TraitDecl,
 ) -> DeclarativeSignatureResult<TraitDeclarativeSignatureTemplate> {

@@ -1,4 +1,4 @@
 use crate::*;
 
-#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureTemplateJar)]
+#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct PropsVariantDeclarativeSignatureTemplate {}

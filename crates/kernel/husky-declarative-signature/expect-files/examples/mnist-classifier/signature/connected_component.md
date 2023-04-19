@@ -136,7 +136,7 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                TypeItemDeclarativeSignatureTemplate::Memo(
+                TypeItemDeclarativeSignatureTemplate::MemoizedField(
                     TypeMemoizedFieldDeclarativeSignature {
                         return_ty: DeclarativeTerm(`[] mnist_classifier::raw_contour::RawContour`),
                     },
@@ -147,7 +147,7 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                TypeItemDeclarativeSignatureTemplate::Memo(
+                TypeItemDeclarativeSignatureTemplate::MemoizedField(
                     TypeMemoizedFieldDeclarativeSignature {
                         return_ty: DeclarativeTerm(`mnist_classifier::connected_component::EffHoles`),
                     },
@@ -158,7 +158,7 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                TypeItemDeclarativeSignatureTemplate::Memo(
+                TypeItemDeclarativeSignatureTemplate::MemoizedField(
                     TypeMemoizedFieldDeclarativeSignature {
                         return_ty: DeclarativeTerm(`core::num::f32`),
                     },
@@ -169,7 +169,7 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                TypeItemDeclarativeSignatureTemplate::Memo(
+                TypeItemDeclarativeSignatureTemplate::MemoizedField(
                     TypeMemoizedFieldDeclarativeSignature {
                         return_ty: DeclarativeTerm(`core::num::f32`),
                     },
@@ -180,7 +180,7 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                TypeItemDeclarativeSignatureTemplate::Memo(
+                TypeItemDeclarativeSignatureTemplate::MemoizedField(
                     TypeMemoizedFieldDeclarativeSignature {
                         return_ty: DeclarativeTerm(`core::num::f32`),
                     },
@@ -191,7 +191,7 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                TypeItemDeclarativeSignatureTemplate::Memo(
+                TypeItemDeclarativeSignatureTemplate::MemoizedField(
                     TypeMemoizedFieldDeclarativeSignature {
                         return_ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponentDistribution`),
                     },
@@ -202,7 +202,7 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                TypeItemDeclarativeSignatureTemplate::Memo(
+                TypeItemDeclarativeSignatureTemplate::MemoizedField(
                     TypeMemoizedFieldDeclarativeSignature {
                         return_ty: DeclarativeTerm(`core::num::f32`),
                     },
@@ -213,7 +213,7 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                TypeItemDeclarativeSignatureTemplate::Memo(
+                TypeItemDeclarativeSignatureTemplate::MemoizedField(
                     TypeMemoizedFieldDeclarativeSignature {
                         return_ty: DeclarativeTerm(`core::num::f32`),
                     },

@@ -2,7 +2,7 @@ use husky_entity_tree::TypeImplBlock;
 
 use super::*;
 
-#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureTemplateJar)]
+#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct TypeImplBlockSignature {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates,
@@ -31,7 +31,7 @@ impl HasDeclarativeSignatureTemplate for TypeImplBlockDecl {
     }
 }
 
-#[salsa::tracked(jar = DeclarativeSignatureTemplateJar)]
+#[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub(crate) fn ty_impl_block_declarative_signature(
     db: &dyn DeclarativeSignatureDb,
     decl: TypeImplBlockDecl,

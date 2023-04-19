@@ -358,7 +358,7 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                TypeItemDeclarativeSignatureTemplate::Memo(
+                TypeItemDeclarativeSignatureTemplate::MemoizedField(
                     TypeMemoizedFieldDeclarativeSignature {
                         return_ty: DeclarativeTerm(`[] mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                     },
@@ -369,7 +369,7 @@
     Ok(
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                TypeItemDeclarativeSignatureTemplate::Memo(
+                TypeItemDeclarativeSignatureTemplate::MemoizedField(
                     TypeMemoizedFieldDeclarativeSignature {
                         return_ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                     },

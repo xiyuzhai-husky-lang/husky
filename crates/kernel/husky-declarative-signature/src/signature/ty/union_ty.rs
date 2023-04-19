@@ -4,7 +4,7 @@ use super::*;
 #[salsa::derive_debug_with_db(db = DeclarativeSignatureDb)]
 pub struct UnionTypeDeclarativeSignature {}
 
-#[salsa::tracked(jar = DeclarativeSignatureTemplateJar)]
+#[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub fn union_ty_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     decl: UnionTypeDecl,
@@ -23,7 +23,7 @@ pub fn union_ty_declarative_signature_template(
     ))
 }
 
-#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureTemplateJar)]
+#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct UnionTypeDeclarativeSignatureTemplate {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates,

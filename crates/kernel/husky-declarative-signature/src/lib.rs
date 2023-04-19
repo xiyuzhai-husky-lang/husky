@@ -23,7 +23,7 @@ use husky_word::*;
 use smallvec::*;
 
 #[salsa::jar(db = DeclarativeSignatureDb)]
-pub struct DeclarativeSignatureTemplateJar(
+pub struct DeclarativeSignatureJar(
     declarative_term_region,
     // type
     enum_ty_declarative_signature_template,
@@ -45,7 +45,7 @@ pub struct DeclarativeSignatureTemplateJar(
     union_ty_declarative_signature_template,
     UnionTypeDeclarativeSignatureTemplate,
     // trait
-    trai_declarative_signature_from_decl,
+    trai_declarative_signature_template_from_decl,
     TraitDeclarativeSignatureTemplate,
     // form
     // form_signature,
@@ -54,7 +54,7 @@ pub struct DeclarativeSignatureTemplateJar(
     fn_declarative_signature,
     FnDeclarativeSignatureTemplate,
     gn_signature,
-    GnSignature,
+    GnDeclarativeSignatureTemplate,
     type_alias_signature,
     TypeAliasSignature,
     // impl block
@@ -82,11 +82,12 @@ pub struct DeclarativeSignatureTemplateJar(
     TypeAssociatedValDeclarativeSignatureTemplate,
     ty_memo_signature,
     TypeMemoizedFieldDeclarativeSignature,
+    ty_method_declarative_signature_templates_map,
     // trait item
     trai_associated_form_fn_declarative_signature,
-    TraitAssociatedFormFnDeclarativeSignatureTemplate,
-    trai_method_signature,
-    TraitMethodSignature,
+    TraitAssociatedFnDeclarativeSignatureTemplate,
+    trai_method_fn_signature,
+    TraitMethodFnSignature,
     trai_associated_ty_declarative_signature_template,
     TraitAssociatedTypeDeclarativeSignatureTemplate,
     trai_associated_val_declarative_signature,

@@ -18,8 +18,8 @@ pub(crate) fn ty_item_path_raw_ty(
         }
         TypeItemDeclarativeSignatureTemplate::MethodFn(_) => todo!(),
         TypeItemDeclarativeSignatureTemplate::AssociatedType(_) => todo!(),
-        TypeItemDeclarativeSignatureTemplate::AssociatedValue(_) => todo!(),
-        TypeItemDeclarativeSignatureTemplate::Memo(_) => todo!(),
+        TypeItemDeclarativeSignatureTemplate::AssociatedVal(_) => todo!(),
+        TypeItemDeclarativeSignatureTemplate::MemoizedField(_) => todo!(),
     }
 }
 

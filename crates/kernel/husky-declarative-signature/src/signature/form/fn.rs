@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureTemplateJar)]
+#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct FnDeclarativeSignatureTemplate {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates,
@@ -20,7 +20,7 @@ impl HasDeclarativeSignatureTemplate for FnDecl {
     }
 }
 
-#[salsa::tracked(jar = DeclarativeSignatureTemplateJar)]
+#[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub fn fn_declarative_signature(
     db: &dyn DeclarativeSignatureDb,
     decl: FnDecl,
