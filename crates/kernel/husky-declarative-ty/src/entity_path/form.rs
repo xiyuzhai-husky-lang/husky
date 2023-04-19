@@ -5,7 +5,7 @@ pub fn form_path_raw_ty(
     db: &dyn DeclarativeTypeDb,
     path: FormPath,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
-    let signature = match path.declarative_signature(db) {
+    let signature = match path.declarative_signature_template(db) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedDeclarativeTypeError::SignatureError.into()),
     };

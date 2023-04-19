@@ -12,16 +12,16 @@ pub struct TypeAssociatedFnDeclarativeSignatureTemplate {
 impl HasDeclarativeSignatureTemplate for TypeAssociatedFnDecl {
     type DeclarativeSignatureTemplate = TypeAssociatedFnDeclarativeSignatureTemplate;
 
-    fn declarative_signature(
+    fn declarative_signature_template(
         self,
         db: &dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<TypeAssociatedFnDeclarativeSignatureTemplate> {
-        ty_associated_fn_declarative_signature(db, self)
+        ty_associated_fn_declarative_signature_template(db, self)
     }
 }
 
 #[salsa::tracked(jar = DeclarativeSignatureTemplateJar)]
-pub(crate) fn ty_associated_fn_declarative_signature(
+pub(crate) fn ty_associated_fn_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     decl: TypeAssociatedFnDecl,
 ) -> DeclarativeSignatureResult<TypeAssociatedFnDeclarativeSignatureTemplate> {

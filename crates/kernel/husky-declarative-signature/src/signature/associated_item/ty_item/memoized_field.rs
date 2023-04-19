@@ -4,7 +4,7 @@ use crate::*;
 pub(crate) fn ty_memo_signature(
     db: &dyn DeclarativeSignatureDb,
     decl: TypeMemoDecl,
-) -> DeclarativeSignatureResult<TypeMemoSignature> {
+) -> DeclarativeSignatureResult<TypeMemoizedFieldDeclarativeSignature> {
     let _im = decl.associated_item(db).impl_block(db);
     let expr_region = decl.expr_region(db);
     let declarative_term_region = declarative_term_region(db, expr_region);
@@ -13,10 +13,10 @@ pub(crate) fn ty_memo_signature(
         Some(memo_ty) => declarative_term_region.expr_term(memo_ty.expr())?,
         None => declarative_term_menu.unit(),
     };
-    Ok(TypeMemoSignature::new(db, memo_ty))
+    Ok(TypeMemoizedFieldDeclarativeSignature::new(db, memo_ty))
 }
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureTemplateJar)]
-pub struct TypeMemoSignature {
+pub struct TypeMemoizedFieldDeclarativeSignature {
     pub return_ty: DeclarativeTerm,
 }

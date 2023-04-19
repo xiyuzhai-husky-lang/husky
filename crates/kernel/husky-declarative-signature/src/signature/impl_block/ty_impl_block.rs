@@ -12,18 +12,18 @@ pub struct TypeImplBlockSignature {
 impl HasDeclarativeSignatureTemplate for TypeImplBlock {
     type DeclarativeSignatureTemplate = TypeImplBlockSignature;
 
-    fn declarative_signature(
+    fn declarative_signature_template(
         self,
         db: &dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
-        self.decl(db)?.declarative_signature(db)
+        self.decl(db)?.declarative_signature_template(db)
     }
 }
 
 impl HasDeclarativeSignatureTemplate for TypeImplBlockDecl {
     type DeclarativeSignatureTemplate = TypeImplBlockSignature;
 
-    fn declarative_signature(
+    fn declarative_signature_template(
         self,
         db: &dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {

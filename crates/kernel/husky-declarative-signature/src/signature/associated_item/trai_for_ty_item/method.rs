@@ -6,7 +6,7 @@ use crate::*;
 pub(crate) fn trai_for_ty_method_fn_signature(
     db: &dyn DeclarativeSignatureDb,
     decl: TraitForTypeMethodFnDecl,
-) -> DeclarativeSignatureResult<TraitForTypeMethodFnDeclarativeSignatureTemplate> {
+) -> DeclarativeSignatureResult<TraitForTypeMethodFnDeclarativeSignatureTemplateTemplate> {
     let self_parameter = {
         let impl_block = decl.associated_item(db).impl_block(db);
         let contract = match decl.self_parameter(db) {
@@ -16,7 +16,7 @@ pub(crate) fn trai_for_ty_method_fn_signature(
         match impl_block {
             ImplBlock::TraitForType(impl_block) => ExplicitParameterSignature::new(
                 contract,
-                impl_block.declarative_signature(db)?.ty(db),
+                impl_block.declarative_signature_template(db)?.ty(db),
             ),
             ImplBlock::Type(_) | ImplBlock::IllFormed(_) => unreachable!(),
         }
@@ -39,17 +39,19 @@ pub(crate) fn trai_for_ty_method_fn_signature(
         Some(return_ty) => declarative_term_region.expr_term(return_ty.expr())?,
         None => declarative_term_menu.unit(),
     };
-    Ok(TraitForTypeMethodFnDeclarativeSignatureTemplate::new(
-        db,
-        implicit_parameters,
-        self_parameter,
-        nonself_regular_parameters,
-        return_ty,
-    ))
+    Ok(
+        TraitForTypeMethodFnDeclarativeSignatureTemplateTemplate::new(
+            db,
+            implicit_parameters,
+            self_parameter,
+            nonself_regular_parameters,
+            return_ty,
+        ),
+    )
 }
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureTemplateJar)]
-pub struct TraitForTypeMethodFnDeclarativeSignatureTemplate {
+pub struct TraitForTypeMethodFnDeclarativeSignatureTemplateTemplate {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates,
     #[return_ref]

@@ -73,5 +73,9 @@ pub(crate) fn ty_path_template_parameters(
     db: &dyn EtherealTermDb,
     path: TypePath,
 ) -> TermResult<TemplateParameters> {
-    TemplateParameters::new(db, path.declarative_signature(db)?.implicit_parameters(db))
+    TemplateParameters::new(
+        db,
+        path.declarative_signature_template(db)?
+            .implicit_parameters(db),
+    )
 }

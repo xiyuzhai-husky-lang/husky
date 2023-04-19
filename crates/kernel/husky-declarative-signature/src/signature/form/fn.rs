@@ -12,7 +12,7 @@ pub struct FnDeclarativeSignatureTemplate {
 impl HasDeclarativeSignatureTemplate for FnDecl {
     type DeclarativeSignatureTemplate = FnDeclarativeSignatureTemplate;
 
-    fn declarative_signature(
+    fn declarative_signature_template(
         self,
         db: &dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {

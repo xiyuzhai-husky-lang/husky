@@ -9,7 +9,7 @@ pub struct GnSignature {
 impl HasDeclarativeSignatureTemplate for GnDecl {
     type DeclarativeSignatureTemplate = GnSignature;
 
-    fn declarative_signature(
+    fn declarative_signature_template(
         self,
         db: &dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {

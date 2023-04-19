@@ -9,10 +9,11 @@ use husky_word::Ident;
 
 pub(super) fn direct_ty_method_card(
     engine: &mut impl FluffyTermEngine,
-    signature: TypeDeclarativeSignatureTemplate,
+    ty_path: TypePath,
     arguments: &[FluffyTerm],
     ident: Ident,
 ) -> FluffyCardResult<Option<FluffyMethodCard>> {
+    let templates = ty_path.ty_method_ethereal_signature_templates(engine.db(), ident);
     todo!()
     // match self.data(engine) {
     //     FluffyTermData::Literal(_) => todo!(),

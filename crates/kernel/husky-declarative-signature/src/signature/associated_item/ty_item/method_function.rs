@@ -1,9 +1,20 @@
+use crate::*;
 use husky_entity_tree::{ImplBlock, ImplBlockId};
 
-use crate::*;
+#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureTemplateJar)]
+pub struct TypeMethodFunctionDeclarativeSignatureTemplate {
+    // todo: formal method, method that is not a function pointer
+    #[return_ref]
+    pub implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates,
+    #[return_ref]
+    pub self_parameter: ExplicitParameterSignature,
+    #[return_ref]
+    pub nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates,
+    pub return_ty: DeclarativeTerm,
+}
 
 #[salsa::tracked(jar = DeclarativeSignatureTemplateJar)]
-pub fn ty_method_fn_declarative_signature(
+pub fn ty_method_function_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     decl: TypeMethodFnDecl,
 ) -> DeclarativeSignatureResult<TypeMethodFnDeclarativeSignatureTemplate> {
@@ -46,16 +57,4 @@ pub fn ty_method_fn_declarative_signature(
         nonself_regular_parameters,
         return_ty,
     ))
-}
-
-#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureTemplateJar)]
-pub struct TypeMethodFnDeclarativeSignatureTemplate {
-    // todo: formal method, method that is not a function pointer
-    #[return_ref]
-    pub implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates,
-    #[return_ref]
-    pub self_parameter: ExplicitParameterSignature,
-    #[return_ref]
-    pub nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates,
-    pub return_ty: DeclarativeTerm,
 }

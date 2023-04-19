@@ -22,25 +22,25 @@ pub enum FormDeclarativeSignatureTemplate {
 impl HasDeclarativeSignatureTemplate for FormPath {
     type DeclarativeSignatureTemplate = FormDeclarativeSignatureTemplate;
 
-    fn declarative_signature(
+    fn declarative_signature_template(
         self,
         db: &dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
-        self.decl(db)?.declarative_signature(db)
+        self.decl(db)?.declarative_signature_template(db)
     }
 }
 
 impl HasDeclarativeSignatureTemplate for FormDecl {
     type DeclarativeSignatureTemplate = FormDeclarativeSignatureTemplate;
 
-    fn declarative_signature(
+    fn declarative_signature_template(
         self,
         db: &dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
         match self {
-            FormDecl::Fn(decl) => decl.declarative_signature(db).map(Into::into),
-            FormDecl::Val(decl) => decl.declarative_signature(db).map(Into::into),
-            FormDecl::Gn(decl) => decl.declarative_signature(db).map(Into::into),
+            FormDecl::Fn(decl) => decl.declarative_signature_template(db).map(Into::into),
+            FormDecl::Val(decl) => decl.declarative_signature_template(db).map(Into::into),
+            FormDecl::Gn(decl) => decl.declarative_signature_template(db).map(Into::into),
         }
     }
 }

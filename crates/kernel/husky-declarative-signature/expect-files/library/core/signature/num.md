@@ -169,7 +169,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TypeMethodSignature {
+                    TypeMethodFnDeclarativeSignatureTemplate {
                         implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
@@ -211,7 +211,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                 TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                    TraitForTypeMethodFnDeclarativeSignatureTemplateTemplate {
                         implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
@@ -265,7 +265,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TypeMethodSignature {
+                    TypeMethodFnDeclarativeSignatureTemplate {
                         implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
@@ -307,7 +307,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                 TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                    TraitForTypeMethodFnDeclarativeSignatureTemplateTemplate {
                         implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
@@ -361,7 +361,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TypeMethodSignature {
+                    TypeMethodFnDeclarativeSignatureTemplate {
                         implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
@@ -403,7 +403,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                 TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                    TraitForTypeMethodFnDeclarativeSignatureTemplateTemplate {
                         implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
@@ -457,7 +457,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TypeMethodSignature {
+                    TypeMethodFnDeclarativeSignatureTemplate {
                         implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
@@ -499,7 +499,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                 TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                    TraitForTypeMethodFnDeclarativeSignatureTemplateTemplate {
                         implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
@@ -553,7 +553,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TypeMethodSignature {
+                    TypeMethodFnDeclarativeSignatureTemplate {
                         implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
@@ -595,7 +595,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                 TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                    TraitForTypeMethodFnDeclarativeSignatureTemplateTemplate {
                         implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
@@ -649,7 +649,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TypeMethodSignature {
+                    TypeMethodFnDeclarativeSignatureTemplate {
                         implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
@@ -691,7 +691,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                 TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                    TraitForTypeMethodFnDeclarativeSignatureTemplateTemplate {
                         implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
@@ -745,7 +745,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TypeMethodSignature {
+                    TypeMethodFnDeclarativeSignatureTemplate {
                         implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
@@ -787,7 +787,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                 TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                    TraitForTypeMethodFnDeclarativeSignatureTemplateTemplate {
                         implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
@@ -841,7 +841,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TypeMethodSignature {
+                    TypeMethodFnDeclarativeSignatureTemplate {
                         implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
@@ -883,7 +883,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                 TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                    TraitForTypeMethodFnDeclarativeSignatureTemplateTemplate {
                         implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
@@ -937,7 +937,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TypeMethodSignature {
+                    TypeMethodFnDeclarativeSignatureTemplate {
                         implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
@@ -979,7 +979,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                 TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                    TraitForTypeMethodFnDeclarativeSignatureTemplateTemplate {
                         implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
@@ -1033,7 +1033,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TypeMethodSignature {
+                    TypeMethodFnDeclarativeSignatureTemplate {
                         implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
@@ -1075,7 +1075,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                 TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                    TraitForTypeMethodFnDeclarativeSignatureTemplateTemplate {
                         implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
@@ -1129,7 +1129,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TypeMethodSignature {
+                    TypeMethodFnDeclarativeSignatureTemplate {
                         implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
@@ -1171,7 +1171,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                 TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                    TraitForTypeMethodFnDeclarativeSignatureTemplateTemplate {
                         implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
@@ -1225,7 +1225,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TypeMethodSignature {
+                    TypeMethodFnDeclarativeSignatureTemplate {
                         implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
@@ -1267,7 +1267,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                 TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                    TraitForTypeMethodFnDeclarativeSignatureTemplateTemplate {
                         implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
@@ -1321,7 +1321,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TypeMethodSignature {
+                    TypeMethodFnDeclarativeSignatureTemplate {
                         implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
@@ -1363,7 +1363,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                 TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                    TraitForTypeMethodFnDeclarativeSignatureTemplateTemplate {
                         implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
@@ -1417,7 +1417,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TypeMethodSignature {
+                    TypeMethodFnDeclarativeSignatureTemplate {
                         implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
@@ -1459,7 +1459,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                 TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TraitForTypeMethodFnDeclarativeSignatureTemplate {
+                    TraitForTypeMethodFnDeclarativeSignatureTemplateTemplate {
                         implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },

@@ -101,7 +101,7 @@ fn field_card_aux(
             }
         },
         _ => {
-            let signature = ty_path.declarative_signature(engine.db())?;
+            let signature = ty_path.declarative_signature_template(engine.db())?;
             if let Some(card) = direct_field_card(engine, signature, arguments, ident)? {
                 return Ok(Some(card));
             }

@@ -9,7 +9,7 @@ pub struct DeriveDecrDeclarativeSignatureTemplate {
 impl HasDeclarativeSignatureTemplate for DeriveDecr {
     type DeclarativeSignatureTemplate = DeriveDecrDeclarativeSignatureTemplate;
 
-    fn declarative_signature(
+    fn declarative_signature_template(
         self,
         db: &dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {

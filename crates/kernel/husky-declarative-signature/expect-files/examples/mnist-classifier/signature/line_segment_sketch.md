@@ -318,7 +318,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
-                    TypeMethodSignature {
+                    TypeMethodFnDeclarativeSignatureTemplate {
                         implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                             data: [],
                         },
@@ -359,7 +359,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::Memo(
-                    TypeMemoSignature {
+                    TypeMemoizedFieldDeclarativeSignature {
                         return_ty: DeclarativeTerm(`[] mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                     },
                 ),
@@ -370,7 +370,7 @@
         Signature::AssociatedItem(
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::Memo(
-                    TypeMemoSignature {
+                    TypeMemoizedFieldDeclarativeSignature {
                         return_ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                     },
                 ),

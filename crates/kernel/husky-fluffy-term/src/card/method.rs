@@ -93,8 +93,10 @@ fn method_card_aux(
             }
         },
         _ => {
-            let signature = ty_path.declarative_signature(engine.db())?;
-            if let Some(card) = direct_method_card(engine, signature, arguments, ident)? {
+            let signature = ty_path.declarative_signature_template(engine.db())?;
+            if let Some(card) =
+                direct_method_card(engine, ty_path, arguments, ident, available_traits)?
+            {
                 return Ok(Some(card));
             }
             // todo: consider `Deref` `DerefMut` `Carrier`
@@ -105,14 +107,17 @@ fn method_card_aux(
 
 fn direct_method_card(
     engine: &mut impl FluffyTermEngine,
-    signature: TypeDeclarativeSignatureTemplate,
+    ty_path: TypePath,
     arguments: SmallVec<[FluffyTerm; 2]>,
     ident: Ident,
+    available_traits: &[TraitPath],
 ) -> FluffyCardResult<Option<FluffyMethodCard>> {
-    if let Some(card) = direct_ty_method_card(engine, signature, &arguments, ident)? {
+    if let Some(card) = direct_ty_method_card(engine, ty_path, &arguments, ident)? {
         return Ok(Some(card));
     }
-    if let Some(card) = direct_trai_for_ty_method_card(engine, signature, &arguments, ident)? {
+    if let Some(card) =
+        direct_trai_for_ty_method_card(engine, ty_path, &arguments, ident, available_traits)?
+    {
         return Ok(Some(card));
     }
     Ok(None)

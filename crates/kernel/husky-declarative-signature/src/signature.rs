@@ -22,9 +22,9 @@ pub(crate) fn signature_from_decl(
 ) -> DeclarativeSignatureResult<Signature> {
     match decl {
         Decl::Type(decl) => ty_declarative_signature_template_from_decl(db, decl).map(Into::into),
-        Decl::Form(decl) => decl.declarative_signature(db).map(Into::into),
+        Decl::Form(decl) => decl.declarative_signature_template(db).map(Into::into),
         Decl::Trait(decl) => trai_declarative_signature_from_decl(db, decl).map(Into::into),
-        Decl::Impl(decl) => decl.declarative_signature(db).map(Into::into),
+        Decl::Impl(decl) => decl.declarative_signature_template(db).map(Into::into),
         Decl::AssociatedItem(decl) => {
             associated_item_declarative_signature_from_decl(db, decl).map(Into::into)
         }
@@ -48,7 +48,7 @@ pub enum Signature {
 pub trait HasDeclarativeSignatureTemplate: Copy {
     type DeclarativeSignatureTemplate;
 
-    fn declarative_signature(
+    fn declarative_signature_template(
         self,
         db: &dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate>;

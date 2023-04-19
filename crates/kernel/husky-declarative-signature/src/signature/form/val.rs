@@ -8,7 +8,7 @@ pub struct ValDeclarativeSignatureTemplate {
 impl HasDeclarativeSignatureTemplate for ValDecl {
     type DeclarativeSignatureTemplate = ValDeclarativeSignatureTemplate;
 
-    fn declarative_signature(
+    fn declarative_signature_template(
         self,
         db: &dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
