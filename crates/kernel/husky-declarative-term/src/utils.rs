@@ -23,7 +23,7 @@ impl DeclarativeTerm {
             DeclarativeTerm::Curry(_) => todo!(),
             DeclarativeTerm::Ritchie(_) => todo!(),
             DeclarativeTerm::Abstraction(_) => todo!(),
-            DeclarativeTerm::ExplicitApplication(_) => todo!(),
+            DeclarativeTerm::ExplicitApplication(term) => term.function(db).family(db),
             DeclarativeTerm::ExplicitApplicationOrRitchieCall(_) => todo!(),
             DeclarativeTerm::Subentity(_) => todo!(),
             DeclarativeTerm::AsTraitSubentity(_) => todo!(),

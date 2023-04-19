@@ -11,7 +11,7 @@
                                 ),
                                 symbol: DeclarativeTermSymbol(
                                     Id {
-                                        value: 3,
+                                        value: 4,
                                     },
                                 ),
                                 traits: [],
@@ -45,7 +45,7 @@
                                 ),
                                 symbol: DeclarativeTermSymbol(
                                     Id {
-                                        value: 3,
+                                        value: 4,
                                     },
                                 ),
                                 traits: [],

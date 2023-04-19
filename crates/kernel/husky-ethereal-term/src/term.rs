@@ -238,8 +238,8 @@ pub(crate) fn term_from_raw_term_explicit_application_or_ritchie_call_unchecked(
 ) -> TermResult<EtherealTerm> {
     let function =
         EtherealTerm::from_raw_unchecked(db, raw_term.function(db), term_ty_expectation)?;
-    match function.declarative_ty(db)? {
-        Left(declarative_ty) => match declarative_ty {
+    match function.raw_ty(db)? {
+        RawType::Declarative(declarative_ty) => match declarative_ty {
             DeclarativeTerm::Literal(_) => todo!(),
             DeclarativeTerm::Symbol(_) => todo!(),
             DeclarativeTerm::Hole(_) => todo!(),
@@ -270,7 +270,8 @@ pub(crate) fn term_from_raw_term_explicit_application_or_ritchie_call_unchecked(
             DeclarativeTerm::LeashOrBitNot(_) => todo!(),
             DeclarativeTerm::List(_) => todo!(),
         },
-        Right(_) => todo!(),
+        RawType::Ethereal(_) => todo!(),
+        RawType::Prelude(_) => todo!(),
     }
 }
 
