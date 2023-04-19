@@ -7,6 +7,9 @@ mod method_function;
 
 use std::ops::Deref;
 
+use husky_print_utils::p;
+use salsa::DebugWithDb;
+
 pub use self::associated_fn::*;
 pub use self::associated_ty::*;
 pub use self::associated_val::*;
@@ -112,16 +115,19 @@ pub trait HasTypeMethodDeclarativeSignatures: Copy {
     fn ty_method_declarative_signature_templates_map<'a>(
         self,
         db: &'a dyn DeclarativeSignatureDb,
-    ) -> &'a IdentPairMap<SmallVec<[TypeMethodDeclarativeSignatureTemplate; 2]>>;
+    ) -> DeclarativeSignatureResult<
+        &'a IdentPairMap<SmallVec<[TypeMethodDeclarativeSignatureTemplate; 2]>>,
+    >;
 
     fn ty_method_declarative_signature_templates<'a>(
         self,
         db: &'a dyn DeclarativeSignatureDb,
         ident: Ident,
-    ) -> Option<&'a [TypeMethodDeclarativeSignatureTemplate]> {
-        self.ty_method_declarative_signature_templates_map(db)
+    ) -> DeclarativeSignatureResult<Option<&'a [TypeMethodDeclarativeSignatureTemplate]>> {
+        Ok(self
+            .ty_method_declarative_signature_templates_map(db)?
             .get_entry(ident)
-            .map(|v| v.1.as_ref())
+            .map(|v| v.1.as_ref()))
     }
 }
 
@@ -135,8 +141,12 @@ impl HasTypeMethodDeclarativeSignatures for TypePath {
     fn ty_method_declarative_signature_templates_map<'a>(
         self,
         db: &'a dyn DeclarativeSignatureDb,
-    ) -> &'a IdentPairMap<SmallVec<[TypeMethodDeclarativeSignatureTemplate; 2]>> {
+    ) -> DeclarativeSignatureResult<
+        &'a IdentPairMap<SmallVec<[TypeMethodDeclarativeSignatureTemplate; 2]>>,
+    > {
         ty_method_declarative_signature_templates_map(db, self)
+            .as_ref()
+            .map_err(|e| *e)
     }
 }
 
@@ -144,6 +154,9 @@ impl HasTypeMethodDeclarativeSignatures for TypePath {
 pub(crate) fn ty_method_declarative_signature_templates_map(
     db: &dyn DeclarativeSignatureDb,
     ty_path: TypePath,
-) -> IdentPairMap<SmallVec<[TypeMethodDeclarativeSignatureTemplate; 2]>> {
+) -> DeclarativeSignatureResult<IdentPairMap<SmallVec<[TypeMethodDeclarativeSignatureTemplate; 2]>>>
+{
+    let item_decls_map = ty_path.item_decls_map(db);
+    p!(ty_path.debug(db), item_decls_map.debug(db));
     todo!()
 }

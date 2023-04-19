@@ -10,7 +10,7 @@ pub use self::associated_val::*;
 pub use self::memoized_field::*;
 pub use self::method_fn::*;
 
-use crate::*;
+use super::*;
 use husky_ast::*;
 use husky_entity_taxonomy::TypeItemKind;
 use husky_word::{Ident, IdentPairMap};
@@ -27,38 +27,66 @@ pub enum TypeItemDecl {
     MemoizedField(TypeMemoizedFieldDecl),
 }
 
+#[derive(Debug, PartialEq, Eq, Hash)]
+#[salsa::derive_debug_with_db(db = DeclDb)]
+#[enum_class::from_variants]
+pub enum TypeItemDecls {
+    AssociatedFn(SmallVecImpl<TypeAssociatedFnDecl>),
+    MethodFn(SmallVecImpl<TypeMethodFnDecl>),
+    AssociatedType(SmallVecImpl<TypeAssociatedTypeDecl>),
+    AssociatedVal(SmallVecImpl<TypeAssociatedValDecl>),
+    MemoizedField(SmallVecImpl<TypeMemoizedFieldDecl>),
+}
+
 impl HasDecl for TypeItemPath {
     type Decl = TypeItemDecl;
 
     fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
+        todo!("deprecated")
+        // self.parent_ty(db)
+        //     .item_decls(db)
+        //     .map_err(|_| todo!())?
+        //     .get_entry(self.ident(db))
+        //     .ok_or(&DeclError::Original(OriginalDeclError::NoSuchItem))?
+        //     .1
+        //     .map_err(|_| todo!())
+    }
+}
+
+impl HasItemDecls for TypeItemPath {
+    type ItemDecls = TypeItemDecls;
+
+    fn item_decls<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, &'a Self::ItemDecls> {
         self.parent_ty(db)
-            .item_decls(db)
+            .item_decls_map(db)
             .map_err(|_| todo!())?
             .get_entry(self.ident(db))
             .ok_or(&DeclError::Original(OriginalDeclError::NoSuchItem))?
             .1
+            .as_ref()
             .map_err(|_| todo!())
     }
 }
 
 #[salsa::tracked(jar = DeclJar, return_ref)]
-pub(crate) fn ty_item_decls<'a>(
+pub(crate) fn ty_item_decls_map<'a>(
     db: &'a dyn DeclDb,
     path: TypePath,
-) -> EntityTreeBundleResult<IdentPairMap<Result<TypeItemDecl, ()>>> {
+) -> EntityTreeBundleResult<IdentPairMap<Result<TypeItemDecls, ()>>> {
     Ok(path
         .items(db)?
         .iter()
         .copied()
-        .map(|(ident, ty_item)| -> (Ident, Result<TypeItemDecl, ()>) {
-            (
-                ident,
-                match associated_item_decl(db, ty_item) {
-                    Ok(AssociatedItemDecl::TypeItem(decl)) => Ok(*decl),
-                    Ok(_) => unreachable!(), // todo: reduce this
-                    Err(_) => Err(()),
-                },
-            )
+        .map(|(ident, ty_item)| -> (Ident, Result<TypeItemDecls, ()>) {
+            todo!()
+            // (
+            //     ident,
+            //     match associated_item_decl(db, ty_item) {
+            //         Ok(AssociatedItemDecl::TypeItem(decl)) => Ok(*decl),
+            //         Ok(_) => unreachable!(), // todo: reduce this
+            //         Err(_) => Err(()),
+            //     },
+            // )
         })
         .collect())
 }
@@ -145,15 +173,15 @@ impl<'a> DeclParseContext<'a> {
     }
 }
 
-impl HasItemDecls for TypePath {
-    type ItemDecl = TypeItemDecl;
+impl HasItemDeclsMap for TypePath {
+    type ItemDecls = TypeItemDecls;
 
-    fn item_decls<'a>(
+    fn item_decls_map<'a>(
         self,
         db: &'a dyn DeclDb,
-    ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, Result<TypeItemDecl, ()>)]> {
-        match ty_item_decls(db, self) {
-            Ok(ty_item_decls) => Ok(ty_item_decls),
+    ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, Result<Self::ItemDecls, ()>)]> {
+        match ty_item_decls_map(db, self) {
+            Ok(ty_item_decls_map) => Ok(ty_item_decls_map),
             Err(e) => Err(e),
         }
     }
