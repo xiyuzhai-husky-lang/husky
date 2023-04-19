@@ -5,12 +5,12 @@ mod menu3;
 mod menu4;
 mod menu5;
 
-pub use menu0::*;
-pub use menu1::*;
-pub use menu2::*;
-pub use menu3::*;
-pub use menu4::*;
-pub use menu5::*;
+pub use self::menu0::*;
+pub use self::menu1::*;
+pub use self::menu2::*;
+pub use self::menu3::*;
+pub use self::menu4::*;
+pub use self::menu5::*;
 
 use crate::*;
 

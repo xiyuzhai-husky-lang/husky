@@ -5,11 +5,11 @@ mod trai;
 mod ty;
 mod variant;
 
-pub use associated_item::*;
-pub use fugitive::*;
-pub use trai::*;
-pub use ty::*;
-pub use variant::*;
+pub use self::associated_item::*;
+pub use self::fugitive::*;
+pub use self::trai::*;
+pub use self::ty::*;
+pub use self::variant::*;
 
 use crate::*;
 use husky_ast::AstIdx;

@@ -1,8 +1,8 @@
 mod lifetime;
 mod variable;
 
-pub use lifetime::*;
-pub use variable::*;
+pub use self::lifetime::*;
+pub use self::variable::*;
 
 pub enum SymbolIdx {
     Variable(VariableIdx),

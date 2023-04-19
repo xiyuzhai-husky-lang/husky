@@ -7,12 +7,12 @@ mod sheet;
 #[cfg(test)]
 mod tests;
 
-pub use db::*;
-pub use defn::*;
-pub use error::*;
-pub use sheet::*;
+pub use self::db::*;
+pub use self::defn::*;
+pub use self::error::*;
+pub use self::sheet::*;
 
-use collector::*;
+use self::collector::*;
 use husky_ast::*;
 use husky_decl::*;
 use husky_entity_path::*;

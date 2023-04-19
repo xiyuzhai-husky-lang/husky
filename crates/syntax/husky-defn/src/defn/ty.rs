@@ -1,22 +1,22 @@
-mod alien_ty;
-mod enum_ty;
-mod inductive_ty;
-mod props_struct_ty;
-mod record_ty;
-mod structure_ty;
-mod tuple_struct_ty;
-mod union_ty;
-mod unit_struct_ty;
+mod r#enum;
+mod r#extern;
+mod inductive;
+mod props_struct;
+mod record;
+mod structure;
+mod tuple_struct;
+mod union;
+mod unit_struct;
 
-pub use alien_ty::*;
-pub use enum_ty::*;
-pub use inductive_ty::*;
-pub use props_struct_ty::*;
-pub use record_ty::*;
-pub use structure_ty::*;
-pub use tuple_struct_ty::*;
-pub use union_ty::*;
-pub use unit_struct_ty::*;
+pub use self::inductive::*;
+pub use self::props_struct::*;
+pub use self::r#enum::*;
+pub use self::r#extern::*;
+pub use self::record::*;
+pub use self::structure::*;
+pub use self::tuple_struct::*;
+pub use self::union::*;
+pub use self::unit_struct::*;
 
 use crate::*;
 
