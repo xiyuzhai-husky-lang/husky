@@ -32,7 +32,7 @@ pub(crate) fn entity_variance_crate_dependencies(
         EntityPath::Module(_) => todo!(),
         EntityPath::ModuleItem(path) => match path {
             ModuleItemPath::Type(path) => {
-                raw_ty_entity_variance_crate_dependencies(db, path, id.idx)
+                declarative_ty_entity_variance_crate_dependencies(db, path, id.idx)
                     .as_ref()
                     .map(|t| t.as_ref())
             }
@@ -51,7 +51,7 @@ pub(crate) fn entity_variance_crate_dependencies(
 }
 
 #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
-pub(crate) fn raw_ty_entity_variance_crate_dependencies(
+pub(crate) fn declarative_ty_entity_variance_crate_dependencies(
     db: &dyn DeclarativeTypeDb,
     path: TypePath,
     _idx: u8,
@@ -91,7 +91,7 @@ pub(crate) fn trai_entity_variance_crate_dependencies(
 #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
 pub(crate) fn form_entity_variance_crate_dependencies(
     db: &dyn DeclarativeTypeDb,
-    path: FormPath,
+    path: FugitivePath,
     _idx: u8,
 ) -> VarianceResult<VecSet<VarianceId>> {
     let decl = match path.decl(db) {

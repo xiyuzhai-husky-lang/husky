@@ -521,7 +521,7 @@ Ok(
                     },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Memo,
+                            MemoizedField,
                         ),
                     },
                     ident_token: IdentToken {
@@ -560,7 +560,7 @@ Ok(
                     },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Memo,
+                            MemoizedField,
                         ),
                     },
                     ident_token: IdentToken {
@@ -599,7 +599,7 @@ Ok(
                     },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Memo,
+                            MemoizedField,
                         ),
                     },
                     ident_token: IdentToken {
@@ -638,7 +638,7 @@ Ok(
                     },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Memo,
+                            MemoizedField,
                         ),
                     },
                     ident_token: IdentToken {
@@ -677,7 +677,7 @@ Ok(
                     },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Memo,
+                            MemoizedField,
                         ),
                     },
                     ident_token: IdentToken {
@@ -716,7 +716,7 @@ Ok(
                     },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Memo,
+                            MemoizedField,
                         ),
                     },
                     ident_token: IdentToken {
@@ -755,7 +755,7 @@ Ok(
                     },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Memo,
+                            MemoizedField,
                         ),
                     },
                     ident_token: IdentToken {
@@ -794,7 +794,7 @@ Ok(
                     },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Memo,
+                            MemoizedField,
                         ),
                     },
                     ident_token: IdentToken {
@@ -1337,7 +1337,7 @@ Ok(
                         variant: Protected,
                     },
                     entity_kind: ModuleItem {
-                        module_item_kind: Form(
+                        module_item_kind: Fugitive(
                             Fn,
                         ),
                         connection: Connected,
@@ -1353,7 +1353,7 @@ Ok(
                         46,
                     ),
                     block: Form {
-                        path: FormPath(
+                        path: FugitivePath(
                             Id {
                                 value: 7,
                             },
@@ -1433,7 +1433,7 @@ Ok(
                         variant: Protected,
                     },
                     entity_kind: ModuleItem {
-                        module_item_kind: Form(
+                        module_item_kind: Fugitive(
                             Fn,
                         ),
                         connection: Connected,
@@ -1449,7 +1449,7 @@ Ok(
                         561,
                     ),
                     block: Form {
-                        path: FormPath(
+                        path: FugitivePath(
                             Id {
                                 value: 8,
                             },
@@ -1478,7 +1478,7 @@ Ok(
                         },
                     },
                     entity_kind: ModuleItem {
-                        module_item_kind: Form(
+                        module_item_kind: Fugitive(
                             Fn,
                         ),
                         connection: Connected,
@@ -1494,7 +1494,7 @@ Ok(
                         647,
                     ),
                     block: Form {
-                        path: FormPath(
+                        path: FugitivePath(
                             Id {
                                 value: 9,
                             },

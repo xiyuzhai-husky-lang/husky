@@ -7,7 +7,7 @@ use super::*;
 #[salsa::derive_debug_with_db(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
 #[enum_class::from_variants]
 pub enum DeclarativeTermEntityPath {
-    Form(FormPath),
+    Form(FugitivePath),
     Trait(TraitPath),
     Type(TypePath),
 }
@@ -20,8 +20,8 @@ impl DeclarativeTermEntityPath {
         }
     }
 }
-impl From<FormPath> for DeclarativeTerm {
-    fn from(value: FormPath) -> Self {
+impl From<FugitivePath> for DeclarativeTerm {
+    fn from(value: FugitivePath) -> Self {
         DeclarativeTerm::EntityPath(value.into())
     }
 }

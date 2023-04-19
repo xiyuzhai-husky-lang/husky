@@ -5,7 +5,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                         ),
                     ),
                 ),
@@ -13,9 +13,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Val(
                             ValDefn {
-                                path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                                path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                                 decl: ValDecl {
-                                    path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                                    path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                                     ast_idx: 28,
                                     colon_token: Some(
                                         ColonToken(
@@ -50,7 +50,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                                                            FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                                                         ),
                                                     ),
                                                 ),
@@ -130,7 +130,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                                                        FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                                                     ),
                                                 ),
                                             ),
@@ -142,7 +142,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                                             ),
                                                         ),
                                                     ),
@@ -152,7 +152,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::three::downarc`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
                                                             ),
                                                         ),
                                                     ),
@@ -162,7 +162,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::three::uparc`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
                                                             ),
                                                         ),
                                                     ),
@@ -172,7 +172,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::three::back`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
                                                             ),
                                                         ),
                                                     ),
@@ -182,7 +182,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                                                FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -232,7 +232,7 @@ Ok(
                                                     ident: `fermi_match`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                                         ),
                                                     ),
                                                 },
@@ -243,7 +243,7 @@ Ok(
                                                     ident: `major_concave_components`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                                            FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -254,7 +254,7 @@ Ok(
                                                     ident: `downarc`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::three::downarc`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
                                                         ),
                                                     ),
                                                 },
@@ -265,7 +265,7 @@ Ok(
                                                     ident: `uparc`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::three::uparc`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
                                                         ),
                                                     ),
                                                 },
@@ -276,7 +276,7 @@ Ok(
                                                     ident: `back`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::three::back`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
                                                         ),
                                                     ),
                                                 },
@@ -336,7 +336,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                         ),
                     ),
                 ),
@@ -344,9 +344,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Val(
                             ValDefn {
-                                path: FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                                 decl: ValDecl {
-                                    path: FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                    path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                                     ast_idx: 29,
                                     colon_token: Some(
                                         ColonToken(
@@ -381,7 +381,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                                            FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                                                         ),
                                                     ),
                                                 ),
@@ -468,7 +468,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                                        FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                                                     ),
                                                 ),
                                             ),
@@ -480,7 +480,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                                                FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -527,7 +527,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                                                FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -574,7 +574,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                                                                FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -613,7 +613,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                                                                FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -652,7 +652,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                                                                FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -1033,7 +1033,7 @@ Ok(
                                                     path: Some(
                                                         EntityPath::ModuleItem(
                                                             ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                                                                FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                                                             ),
                                                         ),
                                                     ),
@@ -1136,7 +1136,7 @@ Ok(
                                                     ident: `major_concave_components`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                                            FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -1147,7 +1147,7 @@ Ok(
                                                     ident: `major_concave_components`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                                            FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -1158,7 +1158,7 @@ Ok(
                                                     ident: `three_fermi_match`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                                                            FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -1169,7 +1169,7 @@ Ok(
                                                     ident: `three_fermi_match`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                                                            FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -1180,7 +1180,7 @@ Ok(
                                                     ident: `three_fermi_match`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                                                            FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -1191,7 +1191,7 @@ Ok(
                                                     ident: `three_fermi_match`,
                                                     entity_path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                                                            FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                                                         ),
                                                     ),
                                                 },
@@ -1928,7 +1928,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::three::uparc`, `Fn`),
+                            FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
                         ),
                     ),
                 ),
@@ -1936,9 +1936,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Fn(
                             FnDefn {
-                                path: FormPath(`mnist_classifier::digits::three::uparc`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
                                 decl: FnDecl {
-                                    path: FormPath(`mnist_classifier::digits::three::uparc`, `Fn`),
+                                    path: FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
                                     ast_idx: 30,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -1947,7 +1947,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::three::uparc`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
                                                         ),
                                                     ),
                                                 ),
@@ -2162,7 +2162,7 @@ Ok(
                                                         DeclRegionPath::Entity(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Form(
-                                                                    FormPath(`mnist_classifier::digits::three::uparc`, `Fn`),
+                                                                    FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
                                                                 ),
                                                             ),
                                                         ),
@@ -2323,7 +2323,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::three::uparc`, `Fn`),
+                                                        FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -2608,7 +2608,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::three::downarc`, `Fn`),
+                            FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
                         ),
                     ),
                 ),
@@ -2616,9 +2616,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Fn(
                             FnDefn {
-                                path: FormPath(`mnist_classifier::digits::three::downarc`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
                                 decl: FnDecl {
-                                    path: FormPath(`mnist_classifier::digits::three::downarc`, `Fn`),
+                                    path: FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
                                     ast_idx: 31,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -2627,7 +2627,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::three::downarc`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
                                                         ),
                                                     ),
                                                 ),
@@ -2842,7 +2842,7 @@ Ok(
                                                         DeclRegionPath::Entity(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Form(
-                                                                    FormPath(`mnist_classifier::digits::three::downarc`, `Fn`),
+                                                                    FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
                                                                 ),
                                                             ),
                                                         ),
@@ -3003,7 +3003,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::three::downarc`, `Fn`),
+                                                        FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -3288,7 +3288,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::three::back`, `Fn`),
+                            FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
                         ),
                     ),
                 ),
@@ -3296,9 +3296,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Fn(
                             FnDefn {
-                                path: FormPath(`mnist_classifier::digits::three::back`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
                                 decl: FnDecl {
-                                    path: FormPath(`mnist_classifier::digits::three::back`, `Fn`),
+                                    path: FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
                                     ast_idx: 32,
                                     expr_region: ExprRegion {
                                         data: ExprRegionData {
@@ -3307,7 +3307,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::three::back`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
                                                         ),
                                                     ),
                                                 ),
@@ -3522,7 +3522,7 @@ Ok(
                                                         DeclRegionPath::Entity(
                                                             EntityPath::ModuleItem(
                                                                 ModuleItemPath::Form(
-                                                                    FormPath(`mnist_classifier::digits::three::back`, `Fn`),
+                                                                    FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
                                                                 ),
                                                             ),
                                                         ),
@@ -3683,7 +3683,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::three::back`, `Fn`),
+                                                        FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
                                                     ),
                                                 ),
                                             ),

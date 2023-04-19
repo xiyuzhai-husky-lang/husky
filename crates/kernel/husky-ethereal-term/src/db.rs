@@ -15,7 +15,7 @@ pub trait EtherealTermDb: DbWithJar<EtherealTermJar> + DeclarativeTypeDb + DecrD
     //     disambiguation: TypePathDisambiguation,
     // ) -> TermResult<EtherealTerm>;
     // fn trai_path_ty(&self, trai_path: TraitPath) -> TermResult<EtherealTerm>;
-    // fn form_path_ty(&self, form_path: FormPath) -> TermResult<EtherealTerm>;
+    // fn form_path_ty(&self, form_path: FugitivePath) -> TermResult<EtherealTerm>;
     // fn ty_method_card(&self, ty: EtherealTerm, ident: Ident) -> TermResult<Option<TypeMethodFnCard>>;
     // fn field_ty(&self, ty: EtherealTerm, ident: Ident) -> TermResult<Option<EtherealTerm>>;
 }
@@ -40,7 +40,7 @@ where
     //     trai_path_ty_unchecked(self, trai_path)?.checked(self)
     // }
 
-    // fn form_path_ty(&self, form_path: FormPath) -> TermResult<EtherealTerm> {
+    // fn form_path_ty(&self, form_path: FugitivePath) -> TermResult<EtherealTerm> {
     //     form_path_ty_unchecked(self, form_path)?.checked(self)
     // }
 

@@ -5,15 +5,15 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`quick_sort::quick_sort`, `Fn`),
+                            FugitivePath(`quick_sort::quick_sort`, `Fn`),
                         ),
                     ),
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Fn(
+                        FugitiveDecl::Fn(
                             FnDecl {
-                                path: FormPath(`quick_sort::quick_sort`, `Fn`),
+                                path: FugitivePath(`quick_sort::quick_sort`, `Fn`),
                                 ast_idx: 30,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -22,7 +22,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`quick_sort::quick_sort`, `Fn`),
+                                                        FugitivePath(`quick_sort::quick_sort`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -298,15 +298,15 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`quick_sort::quick_sort_aux`, `Fn`),
+                            FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
                         ),
                     ),
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Fn(
+                        FugitiveDecl::Fn(
                             FnDecl {
-                                path: FormPath(`quick_sort::quick_sort_aux`, `Fn`),
+                                path: FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
                                 ast_idx: 31,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -315,7 +315,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`quick_sort::quick_sort_aux`, `Fn`),
+                                                        FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -750,15 +750,15 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`quick_sort::partition`, `Fn`),
+                            FugitivePath(`quick_sort::partition`, `Fn`),
                         ),
                     ),
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Fn(
+                        FugitiveDecl::Fn(
                             FnDecl {
-                                path: FormPath(`quick_sort::partition`, `Fn`),
+                                path: FugitivePath(`quick_sort::partition`, `Fn`),
                                 ast_idx: 32,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -767,7 +767,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`quick_sort::partition`, `Fn`),
+                                                        FugitivePath(`quick_sort::partition`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -1238,7 +1238,7 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
+                            FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
                         ),
                     ),
                 ),
@@ -1258,7 +1258,7 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
+                            FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
                         ),
                     ),
                 ),

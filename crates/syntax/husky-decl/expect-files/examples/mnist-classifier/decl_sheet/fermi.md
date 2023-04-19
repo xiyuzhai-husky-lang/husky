@@ -238,15 +238,15 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                         ),
                     ),
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Fn(
+                        FugitiveDecl::Fn(
                             FnDecl {
-                                path: FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                 ast_idx: 24,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -255,7 +255,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                        FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -789,7 +789,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                             ident: `norm`,
-                                            item_kind: Memo,
+                                            item_kind: MemoizedField,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -808,7 +808,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                                     ident: `norm`,
-                                                    item_kind: Memo,
+                                                    item_kind: MemoizedField,
                                                 },
                                             ),
                                         ),
@@ -838,7 +838,7 @@ Ok(
                                         ast_idx: 12,
                                         ident: `norm`,
                                         associated_item_kind: TypeItem(
-                                            Memo,
+                                            MemoizedField,
                                         ),
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier::fermi`,
@@ -1066,7 +1066,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                             ident: `rel_norm`,
-                                            item_kind: Memo,
+                                            item_kind: MemoizedField,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -1085,7 +1085,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                                     ident: `rel_norm`,
-                                                    item_kind: Memo,
+                                                    item_kind: MemoizedField,
                                                 },
                                             ),
                                         ),
@@ -1115,7 +1115,7 @@ Ok(
                                         ast_idx: 13,
                                         ident: `rel_norm`,
                                         associated_item_kind: TypeItem(
-                                            Memo,
+                                            MemoizedField,
                                         ),
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier::fermi`,
@@ -1343,7 +1343,7 @@ Ok(
                                         TypeItemPath {
                                             parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                             ident: `angle_change_norm`,
-                                            item_kind: Memo,
+                                            item_kind: MemoizedField,
                                         },
                                     ),
                                     associated_item: AssociatedItem {
@@ -1362,7 +1362,7 @@ Ok(
                                                 TypeItemPath {
                                                     parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                                     ident: `angle_change_norm`,
-                                                    item_kind: Memo,
+                                                    item_kind: MemoizedField,
                                                 },
                                             ),
                                         ),
@@ -1392,7 +1392,7 @@ Ok(
                                         ast_idx: 14,
                                         ident: `angle_change_norm`,
                                         associated_item_kind: TypeItem(
-                                            Memo,
+                                            MemoizedField,
                                         ),
                                         visibility: Scope::PubUnder(
                                             `mnist_classifier::fermi`,

@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::tracked(jar = DeclarativeTypeJar)]
-pub fn ty_constructor_path_raw_ty(
+pub fn ty_constructor_path_declarative_ty(
     db: &dyn DeclarativeTypeDb,
     path: TypePath,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
@@ -20,7 +20,7 @@ pub fn ty_constructor_path_raw_ty(
     match signature {
         TypeDeclarativeSignatureTemplate::Enum(_) => Err(todo!()),
         TypeDeclarativeSignatureTemplate::RegularStruct(signature) => Ok(
-            regular_struct_ty_constructor_path_raw_ty(db, path, variances, signature),
+            regular_struct_ty_constructor_path_declarative_ty(db, path, variances, signature),
         ),
         TypeDeclarativeSignatureTemplate::UnitStruct(_) => todo!(),
         TypeDeclarativeSignatureTemplate::TupleStruct(_) => todo!(),
@@ -34,7 +34,7 @@ pub fn ty_constructor_path_raw_ty(
     }
 }
 
-fn regular_struct_ty_constructor_path_raw_ty(
+fn regular_struct_ty_constructor_path_declarative_ty(
     db: &dyn DeclarativeTypeDb,
     path: TypePath,
     variances: &[Variance],

@@ -442,7 +442,7 @@ Ok(
                         variant: Protected,
                     },
                     entity_kind: ModuleItem {
-                        module_item_kind: Form(
+                        module_item_kind: Fugitive(
                             Val,
                         ),
                         connection: Connected,
@@ -458,7 +458,7 @@ Ok(
                         6,
                     ),
                     block: Form {
-                        path: FormPath(
+                        path: FugitivePath(
                             Id {
                                 value: 26,
                             },
@@ -487,7 +487,7 @@ Ok(
                         },
                     },
                     entity_kind: ModuleItem {
-                        module_item_kind: Form(
+                        module_item_kind: Fugitive(
                             Val,
                         ),
                         connection: Connected,
@@ -503,7 +503,7 @@ Ok(
                         25,
                     ),
                     block: Form {
-                        path: FormPath(
+                        path: FugitivePath(
                             Id {
                                 value: 27,
                             },
@@ -532,7 +532,7 @@ Ok(
                         variant: Protected,
                     },
                     entity_kind: ModuleItem {
-                        module_item_kind: Form(
+                        module_item_kind: Fugitive(
                             Fn,
                         ),
                         connection: Connected,
@@ -548,7 +548,7 @@ Ok(
                         503,
                     ),
                     block: Form {
-                        path: FormPath(
+                        path: FugitivePath(
                             Id {
                                 value: 28,
                             },
@@ -577,7 +577,7 @@ Ok(
                         variant: Protected,
                     },
                     entity_kind: ModuleItem {
-                        module_item_kind: Form(
+                        module_item_kind: Fugitive(
                             Fn,
                         ),
                         connection: Connected,
@@ -593,7 +593,7 @@ Ok(
                         532,
                     ),
                     block: Form {
-                        path: FormPath(
+                        path: FugitivePath(
                             Id {
                                 value: 29,
                             },
@@ -622,7 +622,7 @@ Ok(
                         variant: Protected,
                     },
                     entity_kind: ModuleItem {
-                        module_item_kind: Form(
+                        module_item_kind: Fugitive(
                             Fn,
                         ),
                         connection: Connected,
@@ -638,7 +638,7 @@ Ok(
                         566,
                     ),
                     block: Form {
-                        path: FormPath(
+                        path: FugitivePath(
                             Id {
                                 value: 30,
                             },

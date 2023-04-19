@@ -32,11 +32,11 @@ impl EtherealTermCurry {
     }
 
     pub(super) fn check(self, db: &dyn EtherealTermDb) -> TermResult<()> {
-        match self.parameter_ty(db).raw_ty(db)? {
+        match self.parameter_ty(db).declarative_ty(db)? {
             Left(DeclarativeTerm::Category(_)) => (),
             _ => todo!(),
         };
-        match self.return_ty(db).raw_ty(db)? {
+        match self.return_ty(db).declarative_ty(db)? {
             Left(DeclarativeTerm::Category(_)) => Ok(()),
             _ => todo!(),
         }
@@ -82,8 +82,12 @@ pub(crate) fn term_curry_from_raw_unchecked(
     db: &dyn EtherealTermDb,
     raw_term_curry: DeclarativeTermCurry,
 ) -> TermResult<EtherealTermCurry> {
-    let t = |raw_ty| {
-        EtherealTerm::from_raw_unchecked(db, raw_ty, TermTypeExpectation::FinalDestinationEqsSort)
+    let t = |declarative_ty| {
+        EtherealTerm::from_raw_unchecked(
+            db,
+            declarative_ty,
+            TermTypeExpectation::FinalDestinationEqsSort,
+        )
     };
     Ok(EtherealTermCurry::new(
         db,

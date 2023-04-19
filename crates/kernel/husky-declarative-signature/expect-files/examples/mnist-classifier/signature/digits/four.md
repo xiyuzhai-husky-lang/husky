@@ -1,7 +1,7 @@
 [
     Ok(
         Signature::Form(
-            FormDeclarativeSignatureTemplate::Val(
+            FugitiveDeclarativeSignatureTemplate::Val(
                 ValDeclarativeSignatureTemplate {
                     return_ty: DeclarativeTerm(`mnist_classifier::fermi::FermiMatchResult`),
                 },
@@ -10,7 +10,7 @@
     ),
     Ok(
         Signature::Form(
-            FormDeclarativeSignatureTemplate::Fn(
+            FugitiveDeclarativeSignatureTemplate::Fn(
                 FnDeclarativeSignatureTemplate {
                     implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
@@ -36,7 +36,7 @@
     ),
     Ok(
         Signature::Form(
-            FormDeclarativeSignatureTemplate::Val(
+            FugitiveDeclarativeSignatureTemplate::Val(
                 ValDeclarativeSignatureTemplate {
                     return_ty: DeclarativeTerm(`mnist_classifier::fermi::FermiMatchResult`),
                 },
@@ -45,7 +45,7 @@
     ),
     Ok(
         Signature::Form(
-            FormDeclarativeSignatureTemplate::Val(
+            FugitiveDeclarativeSignatureTemplate::Val(
                 ValDeclarativeSignatureTemplate {
                     return_ty: DeclarativeTerm(`mnist_classifier::fermi::FermiMatchResult`),
                 },
@@ -54,7 +54,7 @@
     ),
     Ok(
         Signature::Form(
-            FormDeclarativeSignatureTemplate::Val(
+            FugitiveDeclarativeSignatureTemplate::Val(
                 ValDeclarativeSignatureTemplate {
                     return_ty: DeclarativeTerm(`core::option::Option mnist::MnistLabel`),
                 },
@@ -63,7 +63,7 @@
     ),
     Ok(
         Signature::Form(
-            FormDeclarativeSignatureTemplate::Fn(
+            FugitiveDeclarativeSignatureTemplate::Fn(
                 FnDeclarativeSignatureTemplate {
                     implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],
@@ -89,7 +89,7 @@
     ),
     Ok(
         Signature::Form(
-            FormDeclarativeSignatureTemplate::Fn(
+            FugitiveDeclarativeSignatureTemplate::Fn(
                 FnDeclarativeSignatureTemplate {
                     implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
                         data: [],

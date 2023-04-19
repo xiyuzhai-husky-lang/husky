@@ -5,7 +5,7 @@ use super::*;
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct ValDecl {
     #[id]
-    pub path: FormPath,
+    pub path: FugitivePath,
     pub ast_idx: AstIdx,
     pub colon_token: Option<ColonToken>,
     pub var_ty: Option<FormTypeExpr>,
@@ -20,8 +20,8 @@ impl<'a> DeclParseContext<'a> {
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenIdx,
-        path: FormPath,
-    ) -> Result<FormDecl, DeclError> {
+        path: FugitivePath,
+    ) -> Result<FugitiveDecl, DeclError> {
         let mut parser = self.expr_parser(
             DeclRegionPath::Entity(path.into()),
             None,

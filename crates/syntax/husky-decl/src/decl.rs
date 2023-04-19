@@ -20,7 +20,7 @@ use parsec::{parse_separated_list, HasStreamState};
 #[enum_class::from_variants]
 pub enum Decl {
     Type(TypeDecl),
-    Form(FormDecl),
+    Form(FugitiveDecl),
     Trait(TraitDecl),
     Impl(ImplBlockDecl),
     AssociatedItem(AssociatedItemDecl),

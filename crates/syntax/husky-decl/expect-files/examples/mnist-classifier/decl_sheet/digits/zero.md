@@ -5,15 +5,15 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                         ),
                     ),
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Val(
+                        FugitiveDecl::Val(
                             ValDecl {
-                                path: FormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
+                                path: FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                                 ast_idx: 26,
                                 colon_token: Some(
                                     ColonToken(
@@ -48,7 +48,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
+                                                        FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                                                     ),
                                                 ),
                                             ),
@@ -129,15 +129,15 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
+                            FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
                         ),
                     ),
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Fn(
+                        FugitiveDecl::Fn(
                             FnDecl {
-                                path: FormPath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
                                 ast_idx: 27,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -146,7 +146,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
+                                                        FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -359,15 +359,15 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                         ),
                     ),
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Val(
+                        FugitiveDecl::Val(
                             ValDecl {
-                                path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ast_idx: 28,
                                 colon_token: Some(
                                     ColonToken(
@@ -402,7 +402,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                        FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                                     ),
                                                 ),
                                             ),

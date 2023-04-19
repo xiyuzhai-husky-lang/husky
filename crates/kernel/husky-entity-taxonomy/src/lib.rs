@@ -11,12 +11,11 @@ pub enum TypeKind {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
-pub enum FormKind {
-    Val,
+pub enum FugitiveKind {
     Fn,
     Gn,
-    Value,
-    TypeAlias,
+    Type,
+    Val,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -36,7 +35,7 @@ pub enum EntityKind {
 #[enum_class::from_variants]
 pub enum ModuleItemKind {
     Type(TypeKind),
-    Form(FormKind),
+    Fugitive(FugitiveKind),
     Trait,
 }
 
@@ -51,8 +50,8 @@ pub enum AssociatedItemKind {
 pub enum TypeItemKind {
     MethodFn,
     AssociatedFn,
-    AssociatedVar,
-    Memo,
+    AssociatedVal,
+    MemoizedField,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

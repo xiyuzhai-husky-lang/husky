@@ -2,7 +2,7 @@ use super::*;
 use husky_vfs::Toolchain;
 
 #[inline(always)]
-pub fn raw_term_raw_ty(
+pub fn raw_term_declarative_ty(
     db: &dyn DeclarativeTypeDb,
     _disambiguation: TypePathDisambiguation,
     raw_term: DeclarativeTerm,
@@ -13,7 +13,7 @@ pub fn raw_term_raw_ty(
         DeclarativeTerm::Literal(_) => todo!(),
         DeclarativeTerm::Symbol(_) => todo!(),
         DeclarativeTerm::Hole(_) => todo!(),
-        DeclarativeTerm::EntityPath(path) => raw_term_entity_path_raw_ty(db, path),
+        DeclarativeTerm::EntityPath(path) => raw_term_entity_path_declarative_ty(db, path),
         DeclarativeTerm::Category(cat) => cat.ty().map(Into::into).map_err(|_e| todo!()),
         DeclarativeTerm::Universe(_) => todo!(),
         DeclarativeTerm::Curry(_) => todo!(),
@@ -24,8 +24,10 @@ pub fn raw_term_raw_ty(
             }
         }),
         DeclarativeTerm::Abstraction(_) => todo!(),
-        DeclarativeTerm::ExplicitApplication(raw_term) => application_raw_term_raw_ty(db, raw_term),
-        DeclarativeTerm::ExplicitApplicationOrRitchieCall(_raw_ty) => todo!(),
+        DeclarativeTerm::ExplicitApplication(raw_term) => {
+            application_raw_term_declarative_ty(db, raw_term)
+        }
+        DeclarativeTerm::ExplicitApplicationOrRitchieCall(_declarative_ty) => todo!(),
         DeclarativeTerm::Subentity(_) => todo!(),
         DeclarativeTerm::AsTraitSubentity(_) => todo!(),
         DeclarativeTerm::TraitConstraint(_) => todo!(),
@@ -35,7 +37,7 @@ pub fn raw_term_raw_ty(
 }
 
 #[salsa::tracked(jar = DeclarativeTypeJar)]
-pub(crate) fn application_raw_term_raw_ty(
+pub(crate) fn application_raw_term_declarative_ty(
     _db: &dyn DeclarativeTypeDb,
     _raw_term: DeclarativeTermExplicitApplication,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {

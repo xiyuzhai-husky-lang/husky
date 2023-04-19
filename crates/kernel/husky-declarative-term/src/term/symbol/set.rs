@@ -61,7 +61,7 @@ fn calc_raw_term_symbols(
         DeclarativeTerm::ExplicitApplication(raw_term) => {
             raw_term_application_symbols(db, raw_term)
         }
-        DeclarativeTerm::ExplicitApplicationOrRitchieCall(_raw_ty) => todo!(),
+        DeclarativeTerm::ExplicitApplicationOrRitchieCall(_declarative_ty) => todo!(),
         DeclarativeTerm::Subentity(_) => todo!(),
         DeclarativeTerm::AsTraitSubentity(_) => todo!(),
         DeclarativeTerm::TraitConstraint(_) => todo!(),
@@ -86,9 +86,11 @@ pub(crate) fn raw_term_ritchie_symbols(
     raw_term: DeclarativeTermRitchie,
 ) -> Option<DeclarativeTermSymbols> {
     let mut symbols: Option<DeclarativeTermSymbols> = None;
-    for parameter_raw_ty in raw_term.parameter_tys(db) {
-        symbols =
-            DeclarativeTermSymbols::merge(symbols, calc_raw_term_symbols(db, parameter_raw_ty.ty()))
+    for parameter_declarative_ty in raw_term.parameter_tys(db) {
+        symbols = DeclarativeTermSymbols::merge(
+            symbols,
+            calc_raw_term_symbols(db, parameter_declarative_ty.ty()),
+        )
     }
     DeclarativeTermSymbols::merge(symbols, calc_raw_term_symbols(db, raw_term.return_ty(db)))
 }

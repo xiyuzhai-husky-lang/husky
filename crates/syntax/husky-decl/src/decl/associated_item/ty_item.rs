@@ -132,7 +132,7 @@ impl<'a> DeclParseContext<'a> {
                     saved_stream_state,
                 )?
                 .into(),
-            TypeItemKind::Memo => self
+            TypeItemKind::MemoizedField => self
                 .parse_ty_memo_decl(
                     ast_idx,
                     token_group_idx,
@@ -140,7 +140,7 @@ impl<'a> DeclParseContext<'a> {
                     saved_stream_state,
                 )?
                 .into(),
-            TypeItemKind::AssociatedVar => todo!(),
+            TypeItemKind::AssociatedVal => todo!(),
         }))
     }
 }

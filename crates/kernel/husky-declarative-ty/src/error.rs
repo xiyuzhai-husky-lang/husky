@@ -42,7 +42,7 @@ pub enum DerivedDeclarativeTypeError {
     #[error("trait declaration error")]
     TraitDeclError,
     #[error("form declaration error")]
-    FormDeclError,
+    FugitiveDeclError,
     #[error("type path field declaration error")]
     TypePathFieldDeclError,
     #[error("type path application field declaration error")]

@@ -5,15 +5,15 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                         ),
                     ),
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Val(
+                        FugitiveDecl::Val(
                             ValDecl {
-                                path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                                path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                                 ast_idx: 28,
                                 colon_token: Some(
                                     ColonToken(
@@ -48,7 +48,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                                                        FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                                                     ),
                                                 ),
                                             ),
@@ -129,15 +129,15 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                         ),
                     ),
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Val(
+                        FugitiveDecl::Val(
                             ValDecl {
-                                path: FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                                 ast_idx: 29,
                                 colon_token: Some(
                                     ColonToken(
@@ -172,7 +172,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                                        FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                                                     ),
                                                 ),
                                             ),
@@ -260,15 +260,15 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::three::uparc`, `Fn`),
+                            FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
                         ),
                     ),
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Fn(
+                        FugitiveDecl::Fn(
                             FnDecl {
-                                path: FormPath(`mnist_classifier::digits::three::uparc`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
                                 ast_idx: 30,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -277,7 +277,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::three::uparc`, `Fn`),
+                                                        FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -490,15 +490,15 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::three::downarc`, `Fn`),
+                            FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
                         ),
                     ),
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Fn(
+                        FugitiveDecl::Fn(
                             FnDecl {
-                                path: FormPath(`mnist_classifier::digits::three::downarc`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
                                 ast_idx: 31,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -507,7 +507,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::three::downarc`, `Fn`),
+                                                        FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -720,15 +720,15 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::three::back`, `Fn`),
+                            FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
                         ),
                     ),
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Fn(
+                        FugitiveDecl::Fn(
                             FnDecl {
-                                path: FormPath(`mnist_classifier::digits::three::back`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
                                 ast_idx: 32,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -737,7 +737,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::three::back`, `Fn`),
+                                                        FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
                                                     ),
                                                 ),
                                             ),

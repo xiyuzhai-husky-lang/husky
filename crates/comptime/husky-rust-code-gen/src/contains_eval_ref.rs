@@ -54,32 +54,32 @@ pub(super) fn entity_route_variant_contains_eval_ref(
     //     }
     //     EntityKind::Trait => todo!(),
     //     EntityKind::Member(_) => {
-    //         let call_form_decl = db.entity_call_form_decl(base_route).unwrap();
+    //         let call_fugitive_decl = db.entity_call_fugitive_decl(base_route).unwrap();
     //         if db.entity_route_contains_eval_ref(base_route.parent()) {
     //             return true;
     //         }
-    //         for parameter in call_form_decl.primary_parameters.iter() {
+    //         for parameter in call_fugitive_decl.primary_parameters.iter() {
     //             if db.entity_route_contains_eval_ref(parameter.ty()) {
     //                 return true;
     //             }
     //         }
-    //         if db.entity_route_contains_eval_ref(call_form_decl.output.ty()) {
+    //         if db.entity_route_contains_eval_ref(call_fugitive_decl.output.ty()) {
     //             return true;
     //         }
     //     }
     //     EntityKind::Function { .. } => {
-    //         let call_form_decl = db.entity_call_form_decl(base_route).unwrap();
-    //         for parameter in call_form_decl.primary_parameters.iter() {
+    //         let call_fugitive_decl = db.entity_call_fugitive_decl(base_route).unwrap();
+    //         for parameter in call_fugitive_decl.primary_parameters.iter() {
     //             if parameter_contains_eval_ref(db, parameter) {
     //                 return true;
     //             }
     //         }
-    //         for parameter in call_form_decl.keyword_parameters.iter() {
+    //         for parameter in call_fugitive_decl.keyword_parameters.iter() {
     //             if parameter_contains_eval_ref(db, parameter) {
     //                 return true;
     //             }
     //         }
-    //         if db.entity_route_contains_eval_ref(call_form_decl.output.ty()) {
+    //         if db.entity_route_contains_eval_ref(call_fugitive_decl.output.ty()) {
     //             return true;
     //         }
     //     }

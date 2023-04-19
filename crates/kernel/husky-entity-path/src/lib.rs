@@ -32,7 +32,7 @@ pub struct EntityPathJar(
     TypePath,
     prelude_ty_path,
     TraitPath,
-    FormPath,
+    FugitivePath,
     TypeItemPath,
     TraitItemPath,
     TraitForTypeItemPath,
@@ -141,8 +141,8 @@ impl From<AssociatedItemPath> for EntityPath {
     }
 }
 
-impl From<FormPath> for EntityPath {
-    fn from(v: FormPath) -> Self {
+impl From<FugitivePath> for EntityPath {
+    fn from(v: FugitivePath) -> Self {
         Self::ModuleItem(v.into())
     }
 }

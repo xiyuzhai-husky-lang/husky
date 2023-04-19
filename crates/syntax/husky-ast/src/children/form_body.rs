@@ -20,7 +20,7 @@ impl NormalAstChildren for FormBody {
     ) -> AstResult<EntityKind> {
         let module_item_kind = match entity_keyword_group {
             EntityKindKeywordGroup::Mod(_) => Err(OriginalAstError::UnexpectedModInsideForm)?,
-            EntityKindKeywordGroup::Fn(_) => FormKind::Fn.into(),
+            EntityKindKeywordGroup::Fn(_) => FugitiveKind::Fn.into(),
             EntityKindKeywordGroup::ConstFn(_, _) => todo!(),
             EntityKindKeywordGroup::StaticFn(_, _) => todo!(),
             EntityKindKeywordGroup::StaticConstFn(_, _, _) => todo!(),
@@ -30,7 +30,7 @@ impl NormalAstChildren for FormBody {
             EntityKindKeywordGroup::Type(_) => todo!(),
             EntityKindKeywordGroup::Trait(_) => todo!(),
             EntityKindKeywordGroup::Visual(_) => todo!(),
-            EntityKindKeywordGroup::Val(_) => FormKind::Val.into(),
+            EntityKindKeywordGroup::Val(_) => FugitiveKind::Val.into(),
             EntityKindKeywordGroup::Memo(_) => {
                 Err(OriginalAstError::UnexpectedMemoFieldInsideForm)?
             }

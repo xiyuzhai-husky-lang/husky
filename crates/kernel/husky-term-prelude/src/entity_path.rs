@@ -8,7 +8,7 @@ use super::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db(db = TermPreludeDb, jar = EtherealTermJar)]
 pub enum TermEntityPath {
-    Form(FormPath),
+    Form(FugitivePath),
     Trait(TraitPath),
     TypeOntology(TypePath),
     TypeConstructor(TypePath),
@@ -42,8 +42,8 @@ impl TermEntityPath {
     }
 }
 
-impl From<FormPath> for TermEntityPath {
-    fn from(value: FormPath) -> Self {
+impl From<FugitivePath> for TermEntityPath {
+    fn from(value: FugitivePath) -> Self {
         TermEntityPath::Form(value)
     }
 }

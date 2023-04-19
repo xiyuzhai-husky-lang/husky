@@ -5,7 +5,7 @@ Ok(
                 DefnRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                         ),
                     ),
                 ),
@@ -13,9 +13,9 @@ Ok(
                     Defn::Form(
                         FormDefn::Val(
                             ValDefn {
-                                path: FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
+                                path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                                 decl: ValDecl {
-                                    path: FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
+                                    path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                                     ast_idx: 2,
                                     colon_token: Some(
                                         ColonToken(
@@ -50,7 +50,7 @@ Ok(
                                                 DeclRegionPath::Entity(
                                                     EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
+                                                            FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                                                         ),
                                                     ),
                                                 ),
@@ -137,7 +137,7 @@ Ok(
                                             DefnRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
+                                                        FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                                                     ),
                                                 ),
                                             ),

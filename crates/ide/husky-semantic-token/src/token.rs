@@ -63,11 +63,10 @@ impl SemanticToken {
                     connection: _,
                 } => match module_item_kind {
                     ModuleItemKind::Type(_) => ext::SemanticTokenType::TYPE,
-                    ModuleItemKind::Form(form_kind) => match form_kind {
-                        FormKind::Val => ext::SemanticTokenType::VARIABLE,
-                        FormKind::Fn | FormKind::Gn => ext::SemanticTokenType::FUNCTION,
-                        FormKind::Value => todo!(),
-                        FormKind::TypeAlias => todo!(),
+                    ModuleItemKind::Fugitive(form_kind) => match form_kind {
+                        FugitiveKind::Val => ext::SemanticTokenType::VARIABLE,
+                        FugitiveKind::Fn | FugitiveKind::Gn => ext::SemanticTokenType::FUNCTION,
+                        FugitiveKind::Type => todo!(),
                     },
                     ModuleItemKind::Trait => ext::SemanticTokenType::TYPE,
                 },
@@ -77,8 +76,8 @@ impl SemanticToken {
                     AssociatedItemKind::TypeItem(ty_item_kind) => match ty_item_kind {
                         TypeItemKind::MethodFn => ext::SemanticTokenType::METHOD,
                         TypeItemKind::AssociatedFn => ext::SemanticTokenType::FUNCTION,
-                        TypeItemKind::Memo => ext::SemanticTokenType::PROPERTY,
-                        TypeItemKind::AssociatedVar => ext::SemanticTokenType::VARIABLE,
+                        TypeItemKind::MemoizedField => ext::SemanticTokenType::PROPERTY,
+                        TypeItemKind::AssociatedVal => ext::SemanticTokenType::VARIABLE,
                     },
                     AssociatedItemKind::TraitItem(_) => todo!(),
                     AssociatedItemKind::TraitForTypeItem(trai_for_ty_kind) => {

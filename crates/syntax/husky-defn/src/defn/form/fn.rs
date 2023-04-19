@@ -3,7 +3,7 @@ use crate::*;
 #[salsa::tracked(db = DefnDb, jar = DefnJar)]
 pub struct FnDefn {
     #[id]
-    pub path: FormPath,
+    pub path: FugitivePath,
     pub decl: FnDecl,
     pub expr_region: ExprRegion,
     pub body: Option<ExprIdx>,

@@ -1,9 +1,9 @@
 use super::*;
 
 #[salsa::tracked(jar = DeclarativeTypeJar)]
-pub fn form_path_raw_ty(
+pub fn form_path_declarative_ty(
     db: &dyn DeclarativeTypeDb,
-    path: FormPath,
+    path: FugitivePath,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     let signature = match path.declarative_signature_template(db) {
         Ok(signature) => signature,
@@ -14,38 +14,44 @@ pub fn form_path_raw_ty(
     };
     let declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
     match signature {
-        FormDeclarativeSignatureTemplate::Fn(signature) => {
-            form_fn_entity_raw_ty(db, variances, signature)
+        FugitiveDeclarativeSignatureTemplate::Fn(signature) => {
+            form_fn_entity_declarative_ty(db, variances, signature)
         }
-        FormDeclarativeSignatureTemplate::Val(signature) => {
-            feature_entity_raw_ty(db, signature, declarative_term_menu)
+        FugitiveDeclarativeSignatureTemplate::Val(signature) => {
+            feature_entity_declarative_ty(db, signature, declarative_term_menu)
         }
-        FormDeclarativeSignatureTemplate::Gn(_) => todo!(),
+        FugitiveDeclarativeSignatureTemplate::Gn(_) => todo!(),
+        FugitiveDeclarativeSignatureTemplate::TypeAlias(_) => todo!(),
     }
 }
 
-pub(crate) fn form_fn_entity_raw_ty(
+pub(crate) fn form_fn_entity_declarative_ty(
     db: &dyn DeclarativeTypeDb,
     variances: &[Variance],
     signature: FnDeclarativeSignatureTemplate,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
-    let param_raw_tys = signature
+    let param_declarative_tys = signature
         .parameters(db)
         .iter()
         .copied()
         .map(ExplicitParameterSignature::into_ritchie_parameter_contracted_ty)
         .collect();
-    let return_raw_ty = signature.return_ty(db);
+    let return_declarative_ty = signature.return_ty(db);
     Ok(curry_from_implicit_parameters(
         db,
         CurryKind::Implicit,
         variances,
         signature.implicit_parameters(db),
-        DeclarativeTermRitchie::new(db, TermRitchieKind::FnType, param_raw_tys, return_raw_ty),
+        DeclarativeTermRitchie::new(
+            db,
+            TermRitchieKind::FnType,
+            param_declarative_tys,
+            return_declarative_ty,
+        ),
     ))
 }
 
-pub(crate) fn feature_entity_raw_ty(
+pub(crate) fn feature_entity_declarative_ty(
     db: &dyn DeclarativeTypeDb,
     signature: ValDeclarativeSignatureTemplate,
     _declarative_term_menu: &DeclarativeTermMenu,

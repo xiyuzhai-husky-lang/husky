@@ -82,7 +82,7 @@ pub(crate) fn trai_entity_variances(
 #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
 pub(crate) fn form_entity_variances(
     db: &dyn DeclarativeTypeDb,
-    path: FormPath,
+    path: FugitivePath,
 ) -> VarianceResult<Vec<Variance>> {
     calc_entity_variances(db, path)
 }

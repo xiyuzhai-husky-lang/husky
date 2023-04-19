@@ -22,7 +22,7 @@ use parsec::*;
 #[enum_class::from_variants]
 pub enum DefnBlock {
     Form {
-        path: FormPath,
+        path: FugitivePath,
         body: Option<FormBody>,
     },
     Submodule {

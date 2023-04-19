@@ -129,7 +129,7 @@ pub(crate) fn trai_entity_variance_reprs(
 #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
 pub(crate) fn form_entity_variance_reprs(
     db: &dyn DeclarativeTypeDb,
-    path: FormPath,
+    path: FugitivePath,
 ) -> VarianceResult<Vec<VarianceRepr>> {
     let decl = match path.decl(db) {
         Ok(decl) => decl,

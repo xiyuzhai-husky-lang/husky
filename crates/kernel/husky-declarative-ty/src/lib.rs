@@ -5,7 +5,7 @@ mod db;
 mod entity_path;
 mod error;
 mod field;
-mod has_raw_ty;
+mod has_declarative_ty;
 mod method;
 mod term;
 #[cfg(test)]
@@ -16,7 +16,7 @@ pub use self::db::*;
 pub use self::entity_path::*;
 pub use self::error::*;
 pub use self::field::*;
-pub use self::has_raw_ty::*;
+pub use self::has_declarative_ty::*;
 pub use self::method::*;
 pub use self::term::*;
 
@@ -34,14 +34,14 @@ use map_collect::*;
 
 #[salsa::jar(db = DeclarativeTypeDb)]
 pub struct DeclarativeTypeJar(
-    ty_ontology_path_raw_ty,
-    ty_constructor_path_raw_ty,
-    trai_path_raw_ty,
-    form_path_raw_ty,
-    ty_item_path_raw_ty,
+    ty_ontology_path_declarative_ty,
+    ty_constructor_path_declarative_ty,
+    trai_path_declarative_ty,
+    form_path_declarative_ty,
+    ty_item_path_declarative_ty,
     ty_entity_variances,
     ty_entity_variance_reprs,
-    raw_ty_entity_variance_crate_dependencies,
+    declarative_ty_entity_variance_crate_dependencies,
     trai_entity_variances,
     trai_entity_variance_reprs,
     trai_entity_variance_crate_dependencies,
@@ -52,8 +52,8 @@ pub struct DeclarativeTypeJar(
     ty_item_entity_variance_reprs,
     application_expansion_salsa,
     EtherealApplicationArguments,
-    ty_path_ty_method_raw_ty,
-    ty_path_field_raw_ty,
-    application_raw_term_raw_ty,
-    ty_variant_path_raw_ty,
+    ty_path_ty_method_declarative_ty,
+    ty_path_field_declarative_ty,
+    application_raw_term_declarative_ty,
+    ty_variant_path_declarative_ty,
 );

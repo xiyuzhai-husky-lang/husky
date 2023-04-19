@@ -44,11 +44,11 @@ impl EtherealTermApplication {
         function: EtherealTerm,
         argument: EtherealTerm,
     ) -> TermResult<EtherealTerm> {
-        let function_raw_ty = match function.raw_ty(db)? {
-            Left(DeclarativeTerm::Curry(function_raw_ty)) => function_raw_ty,
+        let function_declarative_ty = match function.declarative_ty(db)? {
+            Left(DeclarativeTerm::Curry(function_declarative_ty)) => function_declarative_ty,
             _ => return Err(todo!()),
         };
-        let parameter_ty = function_raw_ty.parameter_ty(db);
+        let parameter_ty = function_declarative_ty.parameter_ty(db);
         let argument_expectation =
             parameter_ty_raw_term_to_argument_ty_expectation(db, parameter_ty);
         let argument_ty_total_number_of_curry_parameters =
@@ -87,8 +87,8 @@ impl EtherealTermApplication {
         term_uncheck_from_raw_term_application(db, raw_term_application, term_ty_expectation)
     }
 
-    pub(crate) fn raw_ty(self, db: &dyn EtherealTermDb) -> TermResult<DeclarativeTerm> {
-        term_application_raw_ty(db, self)
+    pub(crate) fn declarative_ty(self, db: &dyn EtherealTermDb) -> TermResult<DeclarativeTerm> {
+        term_application_declarative_ty(db, self)
     }
 
     pub(crate) fn show_with_db_fmt(
@@ -107,7 +107,7 @@ impl EtherealTermApplication {
 pub(crate) fn term_uncheck_from_raw_term_application(
     db: &dyn EtherealTermDb,
     raw_term_application: DeclarativeTermExplicitApplication,
-    raw_ty_expectation: TermTypeExpectation,
+    declarative_ty_expectation: TermTypeExpectation,
 ) -> TermResult<EtherealTerm> {
     // todo: implicit arguments
     term_uncheck_from_raw_term_application_aux(
@@ -115,10 +115,10 @@ pub(crate) fn term_uncheck_from_raw_term_application(
         EtherealTerm::from_raw_unchecked(
             db,
             raw_term_application.function(db),
-            raw_ty_expectation,
+            declarative_ty_expectation,
         )?,
         raw_term_application.argument(db),
-        raw_ty_expectation,
+        declarative_ty_expectation,
     )
 }
 
@@ -127,14 +127,14 @@ pub(crate) fn term_uncheck_from_raw_term_application_aux(
     db: &dyn EtherealTermDb,
     function: EtherealTerm,
     argument: DeclarativeTerm,
-    raw_ty_expectation: TermTypeExpectation,
+    declarative_ty_expectation: TermTypeExpectation,
 ) -> TermResult<EtherealTerm> {
     // todo: implicit arguments
-    let function_raw_ty = match function.raw_ty(db)? {
-        Left(DeclarativeTerm::Curry(function_raw_ty)) => function_raw_ty,
+    let function_declarative_ty = match function.declarative_ty(db)? {
+        Left(DeclarativeTerm::Curry(function_declarative_ty)) => function_declarative_ty,
         _ => return Err(todo!()),
     };
-    let parameter_ty = function_raw_ty.parameter_ty(db);
+    let parameter_ty = function_declarative_ty.parameter_ty(db);
     let argument_expectation = parameter_ty_raw_term_to_argument_ty_expectation(db, parameter_ty);
     let argument = EtherealTerm::from_raw_unchecked(db, argument, argument_expectation)?;
     let argument_ty_total_number_of_curry_parameters =
@@ -183,26 +183,26 @@ pub(crate) fn parameter_ty_raw_term_application_to_argument_ty_expectation(
 }
 
 #[salsa::tracked(jar = EtherealTermJar)]
-pub(crate) fn term_application_raw_ty(
+pub(crate) fn term_application_declarative_ty(
     db: &dyn EtherealTermDb,
     term_application: EtherealTermApplication,
 ) -> TermResult<DeclarativeTerm> {
     let function = term_application.function(db);
     let argument = term_application.argument(db);
-    let function_raw_ty = match function.raw_ty(db)? {
-        Left(DeclarativeTerm::Curry(function_raw_ty)) => function_raw_ty,
+    let function_declarative_ty = match function.declarative_ty(db)? {
+        Left(DeclarativeTerm::Curry(function_declarative_ty)) => function_declarative_ty,
         _ => return Err(todo!()),
     };
-    Ok(match function_raw_ty.parameter_variable(db) {
+    Ok(match function_declarative_ty.parameter_variable(db) {
         Some(_) => todo!(),
-        None => function_raw_ty.return_ty(db),
+        None => function_declarative_ty.return_ty(db),
     })
 }
 
 impl EtherealTerm {
     fn ty_total_number_of_curry_parameters(self, db: &dyn EtherealTermDb) -> TermResult<u8> {
-        Ok(match self.raw_ty(db)? {
-            Left(raw_ty) => raw_ty.total_number_of_curry_parameters(db),
+        Ok(match self.declarative_ty(db)? {
+            Left(declarative_ty) => declarative_ty.total_number_of_curry_parameters(db),
             Right(_) => 0,
         })
     }

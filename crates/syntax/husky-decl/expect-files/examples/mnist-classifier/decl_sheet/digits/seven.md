@@ -5,15 +5,15 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                         ),
                     ),
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Val(
+                        FugitiveDecl::Val(
                             ValDecl {
-                                path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                                path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                                 ast_idx: 40,
                                 colon_token: Some(
                                     ColonToken(
@@ -48,7 +48,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                                                        FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                                                     ),
                                                 ),
                                             ),
@@ -129,15 +129,15 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
+                            FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
                         ),
                     ),
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Fn(
+                        FugitiveDecl::Fn(
                             FnDecl {
-                                path: FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
                                 ast_idx: 41,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -146,7 +146,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
+                                                        FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -359,15 +359,15 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                         ),
                     ),
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Val(
+                        FugitiveDecl::Val(
                             ValDecl {
-                                path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                                path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                                 ast_idx: 42,
                                 colon_token: Some(
                                     ColonToken(
@@ -402,7 +402,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                                                        FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                                                     ),
                                                 ),
                                             ),
@@ -483,15 +483,15 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
+                            FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
                         ),
                     ),
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Fn(
+                        FugitiveDecl::Fn(
                             FnDecl {
-                                path: FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
                                 ast_idx: 43,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -500,7 +500,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
+                                                        FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -713,15 +713,15 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
+                            FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
                         ),
                     ),
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Fn(
+                        FugitiveDecl::Fn(
                             FnDecl {
-                                path: FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
+                                path: FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
                                 ast_idx: 44,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -730,7 +730,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
+                                                        FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
                                                     ),
                                                 ),
                                             ),
@@ -943,15 +943,15 @@ Ok(
                 DeclRegionPath::Entity(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                         ),
                     ),
                 ),
                 Ok(
                     Decl::Form(
-                        FormDecl::Val(
+                        FugitiveDecl::Val(
                             ValDecl {
-                                path: FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                                path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                 ast_idx: 45,
                                 colon_token: Some(
                                     ColonToken(
@@ -986,7 +986,7 @@ Ok(
                                             DeclRegionPath::Entity(
                                                 EntityPath::ModuleItem(
                                                     ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                                                        FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                                     ),
                                                 ),
                                             ),
