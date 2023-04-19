@@ -15,6 +15,8 @@ pub use self::ty_variant::*;
 use crate::*;
 use parsec::{parse_separated_list, HasStreamState};
 
+type SmallVecImpl<T> = smallvec::SmallVec<[T; 2]>;
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
@@ -78,6 +80,7 @@ pub trait HasDecl: Copy {
 
     fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl>;
 }
+ 
 
 impl HasDecl for EntityPath {
     type Decl = Decl;

@@ -105,13 +105,19 @@ impl<'a> DeclParseContext<'a> {
     }
 }
 
-pub trait HasItemDecls {
-    type ItemDecl;
+pub trait HasItemDeclsMap {
+    type ItemDecls;
 
-    fn item_decls<'a>(
+    fn item_decls_map<'a>(
         self,
         db: &'a dyn DeclDb,
-    ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, Result<TypeItemDecl, ()>)]>;
+    ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, Result<Self::ItemDecls, ()>)]>;
+}
+
+pub trait HasItemDecls {
+    type ItemDecls;
+
+    fn item_decls<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, &'a Self::ItemDecls>;
 }
 
 impl HasDecl for AssociatedItem {
