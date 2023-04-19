@@ -27,6 +27,17 @@ pub enum TypeItemDeclarativeSignatureTemplate {
     MemoizedField(TypeMemoizedFieldDeclarativeSignatureTemplate),
 }
 
+#[derive(Debug, PartialEq, Eq, Hash)]
+#[salsa::derive_debug_with_db(db = DeclarativeSignatureDb)]
+#[enum_class::from_variants]
+pub enum TypeItemDeclarativeSignatureTemplates {
+    AssociatedFn(SmallVecImpl<TypeAssociatedFnDeclarativeSignatureTemplate>),
+    MethodFn(SmallVecImpl<TypeMethodFnDeclarativeSignatureTemplate>),
+    AssociatedType(SmallVecImpl<TypeAssociatedTypeDeclarativeSignatureTemplate>),
+    AssociatedVal(SmallVecImpl<TypeAssociatedValDeclarativeSignatureTemplate>),
+    MemoizedField(SmallVecImpl<TypeMemoizedFieldDeclarativeSignatureTemplate>),
+}
+
 impl TypeItemDeclarativeSignatureTemplate {
     pub fn implicit_parameters(
         self,
