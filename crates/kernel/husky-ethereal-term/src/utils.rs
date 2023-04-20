@@ -6,7 +6,7 @@ impl EtherealTerm {
         match self {
             EtherealTerm::Literal(_) => None,
             EtherealTerm::Symbol(term) => term.toolchain(db),
-            EtherealTerm::Placeholder(term) => term.toolchain(db),
+            EtherealTerm::Variable(term) => term.toolchain(db),
             EtherealTerm::EntityPath(path) => Some(path.toolchain(db)),
             EtherealTerm::Category(_) => todo!(),
             EtherealTerm::Universe(_) => None,
@@ -45,7 +45,7 @@ impl EtherealTermSymbol {
     }
 }
 
-impl EtherealTermPlaceholder {
+impl EtherealTermVariable {
     fn toolchain(self, db: &dyn EtherealTermDb) -> Option<Toolchain> {
         self.ty(db).toolchain(db)
     }

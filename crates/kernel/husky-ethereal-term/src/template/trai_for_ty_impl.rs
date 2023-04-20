@@ -30,8 +30,7 @@ impl TraitForTypeImplTemplate {
         match decr {
             Decr::Derive(derive_decr) => {
                 for trai in derive_decr.declarative_signature_template(db)?.traits(db) {
-                    let trai =
-                        EtherealTerm::from_raw_unchecked(db, trai, TermTypeExpectation::Any)?;
+                    let trai = EtherealTerm::from_declarative(db, trai, TermTypeExpectation::Any)?;
                     cards.push(TraitForTypeImplTemplate {
                         template_parameters,
                         trai_path: trai
@@ -77,8 +76,8 @@ pub(crate) fn trai_for_type_impl_template_from_impl_block(
     let signature = impl_block.declarative_signature_template(db)?;
     let template_parameters = signature.template_parameters(db)?;
     let template_parameters_data = template_parameters.data(db);
-    let trai = EtherealTerm::from_raw_unchecked(db, signature.trai(db), TermTypeExpectation::Any)?;
-    let ty = EtherealTerm::ty_from_raw_unchecked(db, signature.ty(db))?;
+    let trai = EtherealTerm::from_declarative(db, signature.trai(db), TermTypeExpectation::Any)?;
+    let ty = EtherealTerm::ty_from_declarative(db, signature.ty(db))?;
     Ok(TraitForTypeImplTemplate {
         template_parameters,
         trai_path: trai.leading_trai_path(db).expect("should be valid trait"),

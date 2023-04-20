@@ -1,23 +1,23 @@
 use super::*;
 
 #[salsa::interned(db = EtherealTermDb, jar = EtherealTermJar, constructor = new_inner)]
-pub struct EtherealTermPlaceholder {
+pub struct EtherealTermVariable {
     pub ty: EtherealTerm,
     /// this is the index for all symbols with the same type
     /// so that we have better cache hits
     pub idx: u8,
 }
 
-impl EtherealTermPlaceholder {
+impl EtherealTermVariable {
     #[inline(always)]
-    pub(crate) fn from_raw_unchecked(
+    pub(crate) fn from_declarative(
         db: &dyn EtherealTermDb,
-        raw_term_variable: DeclarativeTermPlaceholder,
+        variable: DeclarativeTermVariable,
     ) -> TermResult<Self> {
-        let ty = raw_term_variable.ty(db)?;
+        let ty = variable.ty(db)?;
         let ty =
-            EtherealTerm::from_raw_unchecked(db, ty, TermTypeExpectation::FinalDestinationEqsSort)?;
-        Ok(Self::new_inner(db, ty, raw_term_variable.idx(db)))
+            EtherealTerm::from_declarative(db, ty, TermTypeExpectation::FinalDestinationEqsSort)?;
+        Ok(Self::new_inner(db, ty, variable.idx(db)))
     }
 
     pub(crate) fn show_with_db_fmt(

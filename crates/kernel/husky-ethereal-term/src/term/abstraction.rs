@@ -2,7 +2,7 @@ use super::*;
 
 #[salsa::interned(db = EtherealTermDb, jar = EtherealTermJar)]
 pub struct EtherealTermAbstraction {
-    x: EtherealTermPlaceholder,
+    x: EtherealTermVariable,
     m: EtherealTerm,
 }
 
@@ -15,7 +15,7 @@ fn term_abstraction_size_works() {
 }
 
 impl EtherealTermAbstraction {
-    pub(crate) fn from_raw_unchecked(
+    pub(crate) fn from_declarative(
         db: &dyn EtherealTermDb,
         precise_term: DeclarativeTermAbstraction,
         term_ty_expectation: TermTypeExpectation,

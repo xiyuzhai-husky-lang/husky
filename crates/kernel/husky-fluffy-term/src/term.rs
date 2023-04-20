@@ -17,7 +17,7 @@ use crate::*;
 pub enum FluffyTerm {
     Literal(TermLiteral),
     Symbol(EtherealTermSymbol),
-    Hole(EtherealTermPlaceholder),
+    Hole(EtherealTermVariable),
     EntityPath(TermEntityPath),
     Category(TermCategory),
     Universe(TermUniverse),

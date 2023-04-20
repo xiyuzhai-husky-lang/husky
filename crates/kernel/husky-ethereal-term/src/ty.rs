@@ -89,7 +89,7 @@ impl HasType for AssociatedItemPath {
 
 impl HasType for TypeItemPath {
     fn ty(self, db: &dyn EtherealTermDb) -> TermResult<EtherealTerm> {
-        EtherealTerm::ty_from_raw_unchecked(db, self.declarative_ty(db)?)
+        EtherealTerm::ty_from_declarative(db, self.declarative_ty(db)?)
     }
 }
 
@@ -131,7 +131,7 @@ impl EtherealTerm {
         db: &dyn EtherealTermDb,
     ) -> TermResult<Either<EtherealTerm, PreludeTypePath>> {
         Ok(match self.raw_ty(db)? {
-            RawType::Declarative(declarative_ty) => Left(EtherealTerm::from_raw_unchecked(
+            RawType::Declarative(declarative_ty) => Left(EtherealTerm::from_declarative(
                 db,
                 declarative_ty,
                 TermTypeExpectation::FinalDestinationEqsSort,
@@ -144,8 +144,8 @@ impl EtherealTerm {
     pub fn raw_ty(self, db: &dyn EtherealTermDb) -> TermResult<RawType> {
         Ok(match self {
             EtherealTerm::Literal(literal) => RawType::Prelude(literal.ty()),
-            EtherealTerm::Symbol(symbol) => todo!(),
-            EtherealTerm::Placeholder(_) => todo!(),
+            EtherealTerm::Symbol(symbol) => RawType::Ethereal(symbol.ty(db)),
+            EtherealTerm::Variable(variable) => RawType::Ethereal(variable.ty(db)),
             EtherealTerm::EntityPath(path) => match path {
                 TermEntityPath::Form(_) => todo!(),
                 TermEntityPath::Trait(path) => {

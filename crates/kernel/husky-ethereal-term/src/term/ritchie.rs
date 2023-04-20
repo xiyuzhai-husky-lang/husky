@@ -37,7 +37,8 @@ impl EtherealTermRitchie {
         ))
     }
 
-    //// this constructor guarantees that the result is reduced, not necessarily valid
+    /// this constructor guarantees that the result is reduced, not necessarily valid;
+    ///
     /// returns EtherealTerm instead of EtherealTermApplication because it might reduce to a non application term
     pub(crate) fn new_unchecked(
         db: &dyn EtherealTermDb,
@@ -55,7 +56,8 @@ impl EtherealTermRitchie {
             return_ty.reduce(db),
         )
     }
-    //// this constructor guarantees that the result is reduced, not necessarily valid
+    /// this constructor guarantees that the result is reduced, not necessarily valid
+    ///
     /// returns EtherealTerm instead of EtherealTermApplication because it might reduce to a non application term
     fn new_unchecked2<E>(
         db: &dyn EtherealTermDb,
@@ -82,11 +84,11 @@ impl EtherealTermRitchie {
     }
 
     #[inline(always)]
-    pub(crate) fn from_raw_unchecked(
+    pub(crate) fn from_declarative(
         db: &dyn EtherealTermDb,
         raw_term_ritchie: DeclarativeTermRitchie,
     ) -> TermResult<Self> {
-        term_ritchie_from_raw_unchecked(db, raw_term_ritchie)
+        term_ritchie_from_declarative(db, raw_term_ritchie)
     }
 
     pub(crate) fn show_with_db_fmt(
@@ -112,12 +114,12 @@ impl EtherealTermRitchie {
 }
 
 #[salsa::tracked(jar = EtherealTermJar)]
-pub(crate) fn term_ritchie_from_raw_unchecked(
+pub(crate) fn term_ritchie_from_declarative(
     db: &dyn EtherealTermDb,
     raw_term_ritchie: DeclarativeTermRitchie,
 ) -> TermResult<EtherealTermRitchie> {
     let t = |raw_term| {
-        EtherealTerm::from_raw_unchecked(db, raw_term, TermTypeExpectation::FinalDestinationEqsSort)
+        EtherealTerm::from_declarative(db, raw_term, TermTypeExpectation::FinalDestinationEqsSort)
     };
     EtherealTermRitchie::new_unchecked2(
         db,

@@ -38,7 +38,7 @@ pub enum DeclarativeTerm {
     Literal(DeclarativeTermLiteral),
     Symbol(DeclarativeTermSymbol),
     /// variables are derived from symbols
-    Hole(DeclarativeTermPlaceholder),
+    Hole(DeclarativeTermVariable),
     EntityPath(DeclarativeTermEntityPath),
     Category(TermCategory),
     Universe(TermUniverse),

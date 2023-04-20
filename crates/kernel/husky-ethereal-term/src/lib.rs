@@ -47,18 +47,21 @@ pub struct EtherealTermJar(
     EtherealTermSymbol,
     // - symbols
     EtherealTermSymbols,
+    // curry
     term_curry_symbols,
+    total_number_of_curry_parameters,
+    // ritchie
     term_ritchie_symbols,
     term_application_symbols,
     // hole
-    EtherealTermPlaceholder,
+    EtherealTermVariable,
     // curry
     EtherealTermCurry,
-    term_curry_from_raw_unchecked,
+    term_curry_from_declarative,
     // total_number_of_curry_parameters,
     // ritchie
     EtherealTermRitchie,
-    term_ritchie_from_raw_unchecked,
+    term_ritchie_from_declarative,
     // abstraction
     EtherealTermAbstraction,
     // application

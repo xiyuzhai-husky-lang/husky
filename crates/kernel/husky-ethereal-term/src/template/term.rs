@@ -31,9 +31,9 @@ impl EtherealTerm {
             return self;
         }
         match self {
-            EtherealTerm::Literal(_)
-            | EtherealTerm::Placeholder(_)
-            | EtherealTerm::EntityPath(_) => unreachable!(),
+            EtherealTerm::Literal(_) | EtherealTerm::Variable(_) | EtherealTerm::EntityPath(_) => {
+                unreachable!()
+            }
             EtherealTerm::Symbol(_) => todo!(),
             EtherealTerm::Category(_) => todo!(),
             EtherealTerm::Universe(_) => todo!(),

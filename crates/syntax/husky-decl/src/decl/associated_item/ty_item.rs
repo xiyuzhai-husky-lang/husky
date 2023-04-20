@@ -73,22 +73,49 @@ pub(crate) fn ty_item_decls_map<'a>(
     db: &'a dyn DeclDb,
     path: TypePath,
 ) -> EntityTreeBundleResult<IdentPairMap<Result<TypeItemDecls, ()>>> {
-    Ok(path
-        .items(db)?
-        .iter()
-        .copied()
-        .map(|(ident, ty_item)| -> (Ident, Result<TypeItemDecls, ()>) {
-            todo!()
-            // (
-            //     ident,
-            //     match associated_item_decl(db, ty_item) {
-            //         Ok(AssociatedItemDecl::TypeItem(decl)) => Ok(*decl),
-            //         Ok(_) => unreachable!(), // todo: reduce this
-            //         Err(_) => Err(()),
-            //     },
-            // )
-        })
-        .collect())
+    let mut map = IdentPairMap::default();
+    for (ident, ty_item) in path.items(db)?.iter().copied() {
+        let ty_item_kind = match ty_item.associated_item_kind(db) {
+            AssociatedItemKind::TypeItem(ty_item_kind) => ty_item_kind,
+            _ => unreachable!(),
+        };
+        let result = map.get_mut_or_insert_with(ident, || {
+            Ok(match ty_item_kind {
+                TypeItemKind::MethodFn => TypeItemDecls::MethodFn(Default::default()),
+                TypeItemKind::AssociatedFn => TypeItemDecls::AssociatedFn(Default::default()),
+                TypeItemKind::AssociatedVal => TypeItemDecls::AssociatedVal(Default::default()),
+                TypeItemKind::AssociatedType => TypeItemDecls::AssociatedType(Default::default()),
+                TypeItemKind::MemoizedField => TypeItemDecls::MemoizedField(Default::default()),
+            })
+        });
+        let Ok(decl) = ty_item.decl(db) else {
+            *result = Err(());
+            continue
+        };
+        let AssociatedItemDecl::TypeItem(decl) = decl else {
+            unreachable!()
+        };
+        match result {
+            Ok(decls) => match (decls, decl) {
+                (TypeItemDecls::AssociatedFn(decls), TypeItemDecl::AssociatedFn(decl)) => {
+                    decls.push(decl)
+                }
+                (TypeItemDecls::MethodFn(decls), TypeItemDecl::MethodFn(decl)) => decls.push(decl),
+                (TypeItemDecls::AssociatedType(decls), TypeItemDecl::AssociatedType(decl)) => {
+                    decls.push(decl)
+                }
+                (TypeItemDecls::AssociatedVal(decls), TypeItemDecl::AssociatedVal(decl)) => {
+                    decls.push(decl)
+                }
+                (TypeItemDecls::MemoizedField(decls), TypeItemDecl::MemoizedField(decl)) => {
+                    decls.push(decl)
+                }
+                _ => *result = Err(()), // error because of inconsistent type item kind
+            },
+            Err(_) => continue,
+        }
+    }
+    Ok(map)
 }
 
 impl TypeItemDecl {
@@ -169,6 +196,7 @@ impl<'a> DeclParseContext<'a> {
                 )?
                 .into(),
             TypeItemKind::AssociatedVal => todo!(),
+            TypeItemKind::AssociatedType => todo!(),
         }))
     }
 }

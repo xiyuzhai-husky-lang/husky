@@ -56,7 +56,7 @@ impl DeclarativeTermSymbol {
     }
 }
 
-impl DeclarativeTermPlaceholder {
+impl DeclarativeTermVariable {
     pub(crate) fn ty_family(self, db: &dyn DeclarativeTermDb) -> DeclarativeTermFamily {
         self.ty(db)
             .ok()

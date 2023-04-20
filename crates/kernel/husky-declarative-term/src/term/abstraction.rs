@@ -2,7 +2,7 @@ use crate::*;
 
 #[salsa::interned(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
 pub struct DeclarativeTermAbstraction {
-    pub x: DeclarativeTermPlaceholder,
+    pub x: DeclarativeTermVariable,
     pub m: DeclarativeTerm,
 }
 

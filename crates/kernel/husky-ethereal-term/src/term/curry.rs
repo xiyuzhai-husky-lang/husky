@@ -1,4 +1,6 @@
-pub use context::*;
+mod utils;
+
+pub(crate) use self::utils::*;
 
 use super::*;
 
@@ -8,7 +10,7 @@ pub struct EtherealTermCurry {
     pub curry_kind: CurryKind,
     pub variance: Variance,
     /// a
-    pub parameter_variable: Option<EtherealTermPlaceholder>,
+    pub parameter_variable: Option<EtherealTermVariable>,
     /// X
     pub parameter_ty: EtherealTerm,
     /// Y
@@ -24,11 +26,11 @@ fn term_curry_size_works() {
 }
 
 impl EtherealTermCurry {
-    pub(crate) fn from_raw_unchecked(
+    pub(crate) fn from_declarative(
         db: &dyn EtherealTermDb,
         raw_term_curry: DeclarativeTermCurry,
     ) -> TermResult<Self> {
-        term_curry_from_raw_unchecked(db, raw_term_curry)
+        term_curry_from_declarative(db, raw_term_curry)
     }
 
     pub(crate) fn show_with_db_fmt(
@@ -67,12 +69,12 @@ impl EtherealTermCurry {
 }
 
 #[salsa::tracked(jar = EtherealTermJar)]
-pub(crate) fn term_curry_from_raw_unchecked(
+pub(crate) fn term_curry_from_declarative(
     db: &dyn EtherealTermDb,
     raw_term_curry: DeclarativeTermCurry,
 ) -> TermResult<EtherealTermCurry> {
     let t = |declarative_ty| {
-        EtherealTerm::from_raw_unchecked(
+        EtherealTerm::from_declarative(
             db,
             declarative_ty,
             TermTypeExpectation::FinalDestinationEqsSort,
@@ -83,7 +85,7 @@ pub(crate) fn term_curry_from_raw_unchecked(
         raw_term_curry.curry_kind(db),
         raw_term_curry.variance(db),
         match raw_term_curry.parameter_variable(db) {
-            Some(parameter_variable) => Some(EtherealTermPlaceholder::from_raw_unchecked(
+            Some(parameter_variable) => Some(EtherealTermVariable::from_declarative(
                 db,
                 parameter_variable,
             )?),

@@ -128,7 +128,7 @@ impl<T, V> ArenaMap<Idx<T>, V> {
     }
 
     fn from_idx(idx: usize) -> Idx<T> {
-        Idx::from_raw_unchecked((idx as u32).into())
+        Idx::from_declarative((idx as u32).into())
     }
 }
 

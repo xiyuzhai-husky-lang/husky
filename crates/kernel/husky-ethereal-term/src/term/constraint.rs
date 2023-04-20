@@ -15,7 +15,7 @@ fn term_trait_constraint_size_works() {
 }
 
 impl EtherealTermTraitConstraint {
-    pub(crate) fn from_raw_unchecked(
+    pub(crate) fn from_declarative(
         db: &dyn EtherealTermDb,
         valid_term: DeclarativeTermTraitConstraint,
         term_ty_expectation: TermTypeExpectation,

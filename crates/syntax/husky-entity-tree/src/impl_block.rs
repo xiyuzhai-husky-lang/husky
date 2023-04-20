@@ -272,16 +272,6 @@ pub(crate) fn ty_items(
 ) -> EntityTreeBundleResult<IdentPairMap<AssociatedItem>> {
     let crate_path = path.module_path(db).crate_path(db);
     let entity_tree_crate_bundle = db.entity_tree_bundle(crate_path)?;
-    p!(path.debug(db));
-    {
-        if path.ident(db).data(db) == "List" {
-            p!(entity_tree_crate_bundle
-                .all_ill_formed_impl_blocks()
-                .collect::<Vec<_>>()
-                .debug(db));
-            todo!();
-        }
-    }
     Ok(entity_tree_crate_bundle
         .all_ty_impl_blocks()
         .filter_map(|impl_block| {

@@ -78,6 +78,7 @@ impl SemanticToken {
                         TypeItemKind::AssociatedFn => ext::SemanticTokenType::FUNCTION,
                         TypeItemKind::MemoizedField => ext::SemanticTokenType::PROPERTY,
                         TypeItemKind::AssociatedVal => ext::SemanticTokenType::VARIABLE,
+                        TypeItemKind::AssociatedType => ext::SemanticTokenType::TYPE,
                     },
                     AssociatedItemKind::TraitItem(_) => todo!(),
                     AssociatedItemKind::TraitForTypeItem(trai_for_ty_kind) => {
