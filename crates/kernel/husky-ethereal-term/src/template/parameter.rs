@@ -14,7 +14,7 @@ pub(crate) struct TemplateParameters {
 pub(crate) struct TemplateParameter {
     symbol: EtherealTermSymbol,
     /// variable turned from the symbol
-    variable: EtherealTermPlaceholder,
+    variable: EtherealTermVariable,
 }
 
 impl TemplateParameter {
@@ -22,7 +22,7 @@ impl TemplateParameter {
         self.symbol
     }
 
-    pub(crate) fn variable(&self) -> EtherealTermPlaceholder {
+    pub(crate) fn variable(&self) -> EtherealTermVariable {
         self.variable
     }
 }
@@ -39,7 +39,7 @@ impl TemplateParameters {
                 .rev()
                 .map(|implicit_parameter| {
                     Ok(TemplateParameter {
-                        symbol: EtherealTermSymbol::from_raw_unchecked(
+                        symbol: EtherealTermSymbol::from_declarative(
                             db,
                             implicit_parameter.symbol(),
                         )?,

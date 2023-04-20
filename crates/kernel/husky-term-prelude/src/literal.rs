@@ -69,7 +69,7 @@ fn term_literal_size_works() {
 
 impl TermLiteral {
     #[inline(always)]
-    pub(crate) fn from_raw_unchecked(_db: &dyn TermPreludeDb, _valid_term: TermLiteral) -> Self {
+    pub(crate) fn from_declarative(_db: &dyn TermPreludeDb, _valid_term: TermLiteral) -> Self {
         todo!()
     }
 

@@ -2,7 +2,7 @@
 pub struct EntityUid(u64);
 
 impl EntityUid {
-    pub unsafe fn from_raw_unchecked(raw: u64) -> EntityUid {
+    pub unsafe fn from_declarative(raw: u64) -> EntityUid {
         Self(raw)
     }
 

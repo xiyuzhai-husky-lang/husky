@@ -2,23 +2,23 @@ use super::*;
 use vec_like::VecSet;
 
 /// unlike DeclarativeTermSymbols
-/// Some(DeclarativeTermPlaceholders { unaccounted_variables: Default::default() })
+/// Some(DeclarativeTermVariables { unaccounted_variables: Default::default() })
 /// means different from None
 ///
 /// the former implies that variables exists, but all accounted
 #[salsa::tracked(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
-pub struct DeclarativeTermPlaceholders {
+pub struct DeclarativeTermVariables {
     /// unaccounted means the variable is not declared within this term
     #[return_ref]
-    pub unaccounted_variables: VecSet<DeclarativeTermPlaceholder>,
+    pub unaccounted_variables: VecSet<DeclarativeTermVariable>,
 }
 
-impl DeclarativeTermPlaceholders {
+impl DeclarativeTermVariables {
     #[inline(always)]
     pub(crate) fn contains(
         self,
         db: &dyn DeclarativeTermDb,
-        variable: DeclarativeTermPlaceholder,
+        variable: DeclarativeTermVariable,
     ) -> bool {
         self.unaccounted_variables(db).has(variable)
     }
@@ -38,7 +38,7 @@ impl DeclarativeTermPlaceholders {
     #[inline(always)]
     fn remove(
         variables: impl Into<Option<Self>>,
-        _variable: impl Into<Option<DeclarativeTermPlaceholder>>,
+        _variable: impl Into<Option<DeclarativeTermVariable>>,
     ) -> Option<Self> {
         let _variables = variables.into()?;
         todo!()
@@ -48,20 +48,17 @@ impl DeclarativeTerm {
     pub fn contains_variable(
         self,
         db: &dyn DeclarativeTermDb,
-        variable: DeclarativeTermPlaceholder,
+        variable: DeclarativeTermVariable,
     ) -> bool {
         self.variables(db)
             .map(|raw_term_variables| raw_term_variables.contains(db, variable))
             .unwrap_or_default()
     }
 
-    pub(crate) fn variables(
-        self,
-        db: &dyn DeclarativeTermDb,
-    ) -> Option<DeclarativeTermPlaceholders> {
+    pub(crate) fn variables(self, db: &dyn DeclarativeTermDb) -> Option<DeclarativeTermVariables> {
         match self {
             DeclarativeTerm::Literal(_) => todo!(),
-            DeclarativeTerm::Hole(variable) => Some(DeclarativeTermPlaceholders::new(
+            DeclarativeTerm::Hole(variable) => Some(DeclarativeTermVariables::new(
                 db,
                 VecSet::new_one_elem_set(variable),
             )),
@@ -92,12 +89,12 @@ impl DeclarativeTerm {
 pub(crate) fn raw_term_curry_placeholders(
     db: &dyn DeclarativeTermDb,
     term: DeclarativeTermCurry,
-) -> Option<DeclarativeTermPlaceholders> {
+) -> Option<DeclarativeTermVariables> {
     let parameter_ty_variables = term.parameter_ty(db).variables(db);
     let return_ty_variables = term.return_ty(db).variables(db);
-    DeclarativeTermPlaceholders::merge(
+    DeclarativeTermVariables::merge(
         parameter_ty_variables,
-        DeclarativeTermPlaceholders::remove(return_ty_variables, term.parameter_variable(db)),
+        DeclarativeTermVariables::remove(return_ty_variables, term.parameter_variable(db)),
     )
 }
 
@@ -105,20 +102,20 @@ pub(crate) fn raw_term_curry_placeholders(
 pub(crate) fn raw_term_ritchie_variables(
     db: &dyn DeclarativeTermDb,
     term: DeclarativeTermRitchie,
-) -> Option<DeclarativeTermPlaceholders> {
-    let mut variables: Option<DeclarativeTermPlaceholders> = None;
+) -> Option<DeclarativeTermVariables> {
+    let mut variables: Option<DeclarativeTermVariables> = None;
     for parameter_ty in term.parameter_tys(db) {
-        variables = DeclarativeTermPlaceholders::merge(variables, parameter_ty.ty().variables(db))
+        variables = DeclarativeTermVariables::merge(variables, parameter_ty.ty().variables(db))
     }
-    DeclarativeTermPlaceholders::merge(variables, term.return_ty(db).variables(db))
+    DeclarativeTermVariables::merge(variables, term.return_ty(db).variables(db))
 }
 
 #[salsa::tracked(jar = DeclarativeTermJar)]
 pub(crate) fn raw_term_application_variables(
     db: &dyn DeclarativeTermDb,
     term: DeclarativeTermExplicitApplication,
-) -> Option<DeclarativeTermPlaceholders> {
-    DeclarativeTermPlaceholders::merge(
+) -> Option<DeclarativeTermVariables> {
+    DeclarativeTermVariables::merge(
         term.function(db).variables(db),
         term.argument(db).variables(db),
     )

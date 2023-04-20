@@ -3,10 +3,10 @@ mod application;
 mod as_trai_subentity;
 mod constraint;
 mod curry;
-mod placeholder;
 mod ritchie;
 mod subentity;
 mod symbol;
+mod variable;
 
 use std::fmt::{Debug, Display};
 
@@ -15,10 +15,10 @@ pub use self::application::*;
 pub use self::as_trai_subentity::*;
 pub use self::constraint::*;
 pub use self::curry::*;
-pub use self::placeholder::*;
 pub use self::ritchie::*;
 pub use self::subentity::*;
 pub use self::symbol::*;
+pub use self::variable::*;
 
 use crate::*;
 use husky_declarative_term::DeclarativeTerm;
@@ -36,7 +36,7 @@ pub enum EtherealTerm {
     /// literal: 1,1.0, true, false; variable, entityPath
     Literal(TermLiteral),
     Symbol(EtherealTermSymbol),
-    Placeholder(EtherealTermPlaceholder),
+    Variable(EtherealTermVariable),
     EntityPath(TermEntityPath),
     Category(TermCategory),
     Universe(TermUniverse),
@@ -75,21 +75,21 @@ impl EtherealTerm {
         raw_term: DeclarativeTerm,
         term_ty_expectation: TermTypeExpectation,
     ) -> TermResult<Self> {
-        Self::from_raw_unchecked(db, raw_term, term_ty_expectation)
+        Self::from_declarative(db, raw_term, term_ty_expectation)
     }
 
     pub fn ty_from_raw(db: &dyn EtherealTermDb, raw_term: DeclarativeTerm) -> TermResult<Self> {
         Self::from_raw(db, raw_term, TermTypeExpectation::FinalDestinationEqsSort)
     }
 
-    pub fn ty_from_raw_unchecked(
+    pub fn ty_from_declarative(
         db: &dyn EtherealTermDb,
         raw_term: DeclarativeTerm,
     ) -> TermResult<Self> {
-        Self::from_raw_unchecked(db, raw_term, TermTypeExpectation::FinalDestinationEqsSort)
+        Self::from_declarative(db, raw_term, TermTypeExpectation::FinalDestinationEqsSort)
     }
 
-    pub(crate) fn from_raw_unchecked(
+    pub(crate) fn from_declarative(
         db: &dyn EtherealTermDb,
         raw_term: DeclarativeTerm,
         term_ty_expectation: TermTypeExpectation,
@@ -100,10 +100,10 @@ impl EtherealTerm {
                     DeclarativeTermLiteral::Resolved(literal) => literal.into(),
                     DeclarativeTermLiteral::Unresolved(_) => todo!(),
                 }
-                //  TermLiteral::from_raw_unchecked(db, raw_term, ty_expectation)?.into()
+                //  TermLiteral::from_declarative(db, raw_term, ty_expectation)?.into()
             }
             DeclarativeTerm::Symbol(raw_term) => {
-                EtherealTermSymbol::from_raw_unchecked(db, raw_term)?.into()
+                EtherealTermSymbol::from_declarative(db, raw_term)?.into()
             }
             DeclarativeTerm::Hole(_) => todo!(),
             DeclarativeTerm::EntityPath(raw_term) => match raw_term {
@@ -129,18 +129,17 @@ impl EtherealTerm {
             DeclarativeTerm::Category(raw_term) => raw_term.into(),
             DeclarativeTerm::Universe(raw_term) => raw_term.into(),
             DeclarativeTerm::Curry(raw_term) => {
-                EtherealTermCurry::from_raw_unchecked(db, raw_term)?.into()
+                EtherealTermCurry::from_declarative(db, raw_term)?.into()
             }
             DeclarativeTerm::Ritchie(raw_term) => {
-                EtherealTermRitchie::from_raw_unchecked(db, raw_term)?.into()
+                EtherealTermRitchie::from_declarative(db, raw_term)?.into()
             }
             DeclarativeTerm::Abstraction(raw_term) => {
-                EtherealTermAbstraction::from_raw_unchecked(db, raw_term, term_ty_expectation)?
-                    .into()
+                EtherealTermAbstraction::from_declarative(db, raw_term, term_ty_expectation)?.into()
             }
             DeclarativeTerm::ExplicitApplication(raw_term) => {
                 // todo: implicit arguments
-                EtherealTermApplication::from_raw_unchecked(db, raw_term, term_ty_expectation)?
+                EtherealTermApplication::from_declarative(db, raw_term, term_ty_expectation)?
             }
             DeclarativeTerm::ExplicitApplicationOrRitchieCall(raw_term) => {
                 term_from_raw_term_explicit_application_or_ritchie_call_unchecked(
@@ -150,14 +149,14 @@ impl EtherealTerm {
                 )?
             }
             DeclarativeTerm::Subentity(raw_term) => {
-                EtherealTermSubentity::from_raw_unchecked(db, raw_term, term_ty_expectation)?
+                EtherealTermSubentity::from_declarative(db, raw_term, term_ty_expectation)?
             }
             DeclarativeTerm::AsTraitSubentity(raw_term) => {
-                EtherealTermAsTraitSubentity::from_raw_unchecked(db, raw_term, term_ty_expectation)?
+                EtherealTermAsTraitSubentity::from_declarative(db, raw_term, term_ty_expectation)?
                     .into()
             }
             DeclarativeTerm::TraitConstraint(raw_term) => {
-                EtherealTermTraitConstraint::from_raw_unchecked(db, raw_term, term_ty_expectation)?
+                EtherealTermTraitConstraint::from_declarative(db, raw_term, term_ty_expectation)?
                     .into()
             }
             DeclarativeTerm::LeashOrBitNot(toolchain) => match term_ty_expectation {
@@ -188,7 +187,7 @@ impl EtherealTerm {
         match self {
             EtherealTerm::Literal(_)
             | EtherealTerm::Symbol(_)
-            | EtherealTerm::Placeholder(_)
+            | EtherealTerm::Variable(_)
             | EtherealTerm::EntityPath(
                 TermEntityPath::Trait(_)
                 | TermEntityPath::TypeOntology(_)
@@ -236,8 +235,7 @@ pub(crate) fn term_from_raw_term_explicit_application_or_ritchie_call_unchecked(
     raw_term: DeclarativeTermExplicitApplicationOrRitchieCall,
     term_ty_expectation: TermTypeExpectation,
 ) -> TermResult<EtherealTerm> {
-    let function =
-        EtherealTerm::from_raw_unchecked(db, raw_term.function(db), term_ty_expectation)?;
+    let function = EtherealTerm::from_declarative(db, raw_term.function(db), term_ty_expectation)?;
     match function.raw_ty(db)? {
         RawType::Declarative(declarative_ty) => match declarative_ty {
             DeclarativeTerm::Literal(_) => todo!(),
@@ -365,7 +363,7 @@ impl EtherealTerm {
         match self {
             EtherealTerm::Literal(term) => term.show_with_db_fmt(f, db),
             EtherealTerm::Symbol(term) => term.show_with_db_fmt(f, db, ctx),
-            EtherealTerm::Placeholder(term) => term.show_with_db_fmt(f, db, ctx),
+            EtherealTerm::Variable(term) => term.show_with_db_fmt(f, db, ctx),
             EtherealTerm::EntityPath(term) => term.show_with_db_fmt(f, db),
             EtherealTerm::Category(term) => f.write_str(&term.to_string()),
             EtherealTerm::Universe(term) => f.write_str(&term.to_string()),

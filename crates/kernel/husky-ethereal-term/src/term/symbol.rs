@@ -29,16 +29,16 @@ impl EtherealTermSymbol {
         db: &dyn EtherealTermDb,
         raw_term_symbol: DeclarativeTermSymbol,
     ) -> TermResult<Self> {
-        Self::from_raw_unchecked(db, raw_term_symbol)
+        Self::from_declarative(db, raw_term_symbol)
     }
 
     #[inline(always)]
-    pub(crate) fn from_raw_unchecked(
+    pub(crate) fn from_declarative(
         db: &dyn EtherealTermDb,
         raw_term_symbol: DeclarativeTermSymbol,
     ) -> TermResult<Self> {
         let ty = raw_term_symbol.ty(db)?;
-        let ty = EtherealTerm::ty_from_raw_unchecked(db, ty)?;
+        let ty = EtherealTerm::ty_from_declarative(db, ty)?;
         Ok(Self::new_inner(db, ty, raw_term_symbol.idx(db)))
     }
 

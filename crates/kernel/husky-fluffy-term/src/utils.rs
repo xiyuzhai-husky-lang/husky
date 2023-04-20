@@ -53,7 +53,7 @@ fn curry_destination(db: &dyn EtherealTermDb, term: EtherealTerm) -> EtherealTer
     match term {
         EtherealTerm::Literal(_) => todo!(),
         EtherealTerm::Symbol(_) => todo!(),
-        EtherealTerm::Placeholder(_) => todo!(),
+        EtherealTerm::Variable(_) => todo!(),
         EtherealTerm::EntityPath(path) => match path {
             TermEntityPath::Form(_) => todo!(),
             TermEntityPath::Trait(_)

@@ -13,7 +13,7 @@ pub struct FeatureItd {
 }
 
 impl FeatureItd {
-    pub unsafe fn from_raw_unchecked(raw: usize) -> Self {
+    pub unsafe fn from_declarative(raw: usize) -> Self {
         Self {
             id: FeatureId::new(raw),
         }

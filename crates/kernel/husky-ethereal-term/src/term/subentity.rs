@@ -17,15 +17,11 @@ fn term_subentity_size_works() {
 
 impl EtherealTermSubentity {
     #[inline(always)]
-    pub(crate) fn from_raw_unchecked(
+    pub(crate) fn from_declarative(
         db: &dyn EtherealTermDb,
         valid_term: DeclarativeTermSubentity,
         term_ty_expectation: TermTypeExpectation,
     ) -> TermResult<EtherealTerm> {
-        todo!()
-    }
-
-    pub(super) fn check(self, db: &dyn EtherealTermDb) -> TermResult<()> {
         todo!()
     }
 

@@ -84,7 +84,7 @@ impl<T> fmt::Debug for Idx<T> {
 
 impl<T> Idx<T> {
     /// Creates a new index from a [`RawIdx`].
-    pub(crate) fn from_raw_unchecked(raw: RawIdx) -> Self {
+    pub(crate) fn from_declarative(raw: RawIdx) -> Self {
         Idx {
             raw,
             _ty: PhantomData,
@@ -165,7 +165,7 @@ impl<T> Iterator for IdxRange<T> {
     fn next(&mut self) -> Option<Self::Item> {
         self.range
             .next()
-            .map(|raw| Idx::from_raw_unchecked(raw.into()))
+            .map(|raw| Idx::from_declarative(raw.into()))
     }
 }
 
@@ -173,7 +173,7 @@ impl<T> DoubleEndedIterator for IdxRange<T> {
     fn next_back(&mut self) -> Option<Self::Item> {
         self.range
             .next_back()
-            .map(|raw| Idx::from_raw_unchecked(raw.into()))
+            .map(|raw| Idx::from_declarative(raw.into()))
     }
 }
 
@@ -322,7 +322,7 @@ impl<T> Arena<T> {
         self.data
             .iter()
             .enumerate()
-            .map(|(idx, value)| (Idx::from_raw_unchecked(RawIdx(idx as u32)), value))
+            .map(|(idx, value)| (Idx::from_declarative(RawIdx(idx as u32)), value))
     }
 
     /// Returns an iterator over the arena’s mutable elements.
@@ -345,7 +345,7 @@ impl<T> Arena<T> {
         self.data
             .iter_mut()
             .enumerate()
-            .map(|(idx, value)| (Idx::from_raw_unchecked(RawIdx(idx as u32)), value))
+            .map(|(idx, value)| (Idx::from_declarative(RawIdx(idx as u32)), value))
     }
 
     /// Returns an iterator over the arena’s values.
@@ -394,7 +394,7 @@ impl<T> Arena<T> {
     ///
     /// This method should remain private to make creating invalid `Idx`s harder.
     fn next_idx(&self) -> Idx<T> {
-        Idx::from_raw_unchecked(RawIdx(self.data.len() as u32))
+        Idx::from_declarative(RawIdx(self.data.len() as u32))
     }
 }
 

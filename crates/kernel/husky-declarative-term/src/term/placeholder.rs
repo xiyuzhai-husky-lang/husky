@@ -9,14 +9,14 @@ use thiserror::Error;
 
 /// variables are derived from symbols
 #[salsa::interned(db = DeclarativeTermDb, jar = DeclarativeTermJar, constructor = new)]
-pub struct DeclarativeTermPlaceholder {
+pub struct DeclarativeTermVariable {
     pub ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
     /// this is the index for all symbols with the same type
     /// so that we have better cache hits
     pub idx: u8,
 }
 
-impl DeclarativeTermPlaceholder {
+impl DeclarativeTermVariable {
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,

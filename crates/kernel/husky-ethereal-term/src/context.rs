@@ -30,7 +30,7 @@ impl TermShowContext {
     pub(crate) fn fmt_variable(
         &mut self,
         db: &dyn EtherealTermDb,
-        variable: EtherealTermPlaceholder,
+        variable: EtherealTermVariable,
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
         todo!()
@@ -51,7 +51,7 @@ impl TermShowContext {
     pub(crate) fn fmt_with_variable(
         &mut self,
         db: &dyn EtherealTermDb,
-        variable: EtherealTermPlaceholder,
+        variable: EtherealTermVariable,
         f: impl FnOnce(&mut Self) -> std::fmt::Result,
     ) -> std::fmt::Result {
         todo!()

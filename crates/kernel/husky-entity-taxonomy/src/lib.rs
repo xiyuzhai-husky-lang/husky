@@ -51,6 +51,7 @@ pub enum TypeItemKind {
     MethodFn,
     AssociatedFn,
     AssociatedVal,
+    AssociatedType,
     MemoizedField,
 }
 

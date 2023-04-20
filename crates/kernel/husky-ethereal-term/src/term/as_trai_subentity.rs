@@ -17,7 +17,7 @@ fn term_as_trai_subentity_size_works() {
 }
 
 impl EtherealTermAsTraitSubentity {
-    pub(crate) fn from_raw_unchecked(
+    pub(crate) fn from_declarative(
         db: &dyn EtherealTermDb,
         valid_term: DeclarativeTermAsTraitSubentity,
         term_ty_expectation: TermTypeExpectation,

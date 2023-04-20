@@ -1,12 +1,12 @@
 use super::*;
 
 pub struct DeclarativeTermSubstitution {
-    src: DeclarativeTermPlaceholder,
+    src: DeclarativeTermVariable,
     dst: DeclarativeTerm,
 }
 
 impl DeclarativeTermSubstitution {
-    pub fn src(&self) -> DeclarativeTermPlaceholder {
+    pub fn src(&self) -> DeclarativeTermVariable {
         self.src
     }
 

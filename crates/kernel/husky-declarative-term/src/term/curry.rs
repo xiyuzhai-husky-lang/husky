@@ -8,7 +8,7 @@ pub struct DeclarativeTermCurry {
     pub curry_kind: CurryKind,
     pub variance: Variance,
     /// a
-    pub parameter_variable: Option<DeclarativeTermPlaceholder>,
+    pub parameter_variable: Option<DeclarativeTermVariable>,
     /// X
     pub parameter_ty: DeclarativeTerm,
     /// Y
