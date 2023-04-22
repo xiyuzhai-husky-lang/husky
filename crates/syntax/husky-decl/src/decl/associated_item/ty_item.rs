@@ -33,6 +33,7 @@ pub enum TypeItemDecl {
 pub enum TypeItemDecls {
     AssociatedFn(SmallVecImpl<TypeAssociatedFnDecl>),
     MethodFn(SmallVecImpl<TypeMethodFnDecl>),
+    MethodFunction(/* adhoc */),
     AssociatedType(SmallVecImpl<TypeAssociatedTypeDecl>),
     AssociatedVal(SmallVecImpl<TypeAssociatedValDecl>),
     MemoizedField(SmallVecImpl<TypeMemoizedFieldDecl>),

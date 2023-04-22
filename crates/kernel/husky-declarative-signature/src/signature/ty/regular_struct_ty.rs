@@ -28,7 +28,7 @@ pub fn regular_struct_ty_declarative_signature_template(
                     ty: match declarative_term_region.expr_term(field.ty()) {
                         Ok(ty) => ty,
                         Err(_) => {
-                            return Err(SignatureError::FieldTypeDeclarativeTermError(
+                            return Err(DeclarativeSignatureError::FieldTypeDeclarativeTermError(
                                 i.try_into().unwrap(),
                             ))
                         }

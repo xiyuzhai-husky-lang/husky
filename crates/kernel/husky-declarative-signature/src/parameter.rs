@@ -167,9 +167,11 @@ impl ExplicitParameterDeclarativeSignatureTemplates {
                     let ty = match signature_region.expr_term(ty) {
                         Ok(ty) => ty,
                         Err(_) => {
-                            return Err(SignatureError::ParameterTypeDeclarativeTermError(
-                                i.try_into().unwrap(),
-                            ))
+                            return Err(
+                                DeclarativeSignatureError::ParameterTypeDeclarativeTermError(
+                                    i.try_into().unwrap(),
+                                ),
+                            )
                         }
                     };
                     Ok(ExplicitParameterSignature::new(
@@ -177,7 +179,7 @@ impl ExplicitParameterDeclarativeSignatureTemplates {
                         ty,
                     ))
                 })
-                .collect::<Result<Vec<ExplicitParameterSignature>, SignatureError>>()?,
+                .collect::<Result<Vec<ExplicitParameterSignature>, DeclarativeSignatureError>>()?,
         })
     }
 }

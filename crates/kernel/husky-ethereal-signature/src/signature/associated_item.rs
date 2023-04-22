@@ -7,3 +7,5 @@ pub use self::trai_item::*;
 pub use self::ty_item::*;
 
 use super::*;
+
+type SmallVecImpl<T> = SmallVec<[T; 2]>;

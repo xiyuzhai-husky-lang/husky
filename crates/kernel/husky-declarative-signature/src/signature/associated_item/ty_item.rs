@@ -111,41 +111,53 @@ pub(crate) fn ty_item_declarative_signature_from_decl(
     }
 }
 
-pub trait HasTypeMethodDeclarativeSignatures: Copy {
+pub trait HasTypeMethodDeclarativeSignatureTemplates: Copy {
     fn ty_method_declarative_signature_templates_map<'a>(
         self,
         db: &'a dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<
-        &'a IdentPairMap<SmallVec<[TypeMethodDeclarativeSignatureTemplate; 2]>>,
+        &'a [(
+            Ident,
+            DeclarativeSignatureResult<TypeMethodDeclarativeSignatureTemplates>,
+        )],
     >;
 
     fn ty_method_declarative_signature_templates<'a>(
         self,
         db: &'a dyn DeclarativeSignatureDb,
         ident: Ident,
-    ) -> DeclarativeSignatureResult<Option<&'a [TypeMethodDeclarativeSignatureTemplate]>> {
-        Ok(self
+    ) -> DeclarativeSignatureResult<Option<&'a TypeMethodDeclarativeSignatureTemplates>> {
+        use vec_like::VecMapGetEntry;
+        match self
             .ty_method_declarative_signature_templates_map(db)?
             .get_entry(ident)
-            .map(|v| v.1.as_ref()))
+        {
+            Some((_, Ok(templates))) => Ok(Some(templates)),
+            Some((_, Err(e))) => Err(*e),
+            None => Ok(None),
+        }
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum TypeMethodDeclarativeSignatureTemplate {
-    Fn(TypeMethodFnDeclarativeSignatureTemplate),
-    Function(TypeMethodFunctionDeclarativeSignatureTemplate),
+#[derive(Debug, PartialEq, Eq)]
+pub enum TypeMethodDeclarativeSignatureTemplates {
+    MethodFn(SmallVecImpl<TypeMethodFnDeclarativeSignatureTemplate>),
+    MethodFunction(SmallVecImpl<TypeMethodFunctionDeclarativeSignatureTemplate>),
 }
 
-impl HasTypeMethodDeclarativeSignatures for TypePath {
+impl HasTypeMethodDeclarativeSignatureTemplates for TypePath {
     fn ty_method_declarative_signature_templates_map<'a>(
         self,
         db: &'a dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<
-        &'a IdentPairMap<SmallVec<[TypeMethodDeclarativeSignatureTemplate; 2]>>,
+        &'a [(
+            Ident,
+            DeclarativeSignatureResult<TypeMethodDeclarativeSignatureTemplates>,
+        )],
     > {
         ty_method_declarative_signature_templates_map(db, self)
             .as_ref()
+            .map(|v| v as &[_])
             .map_err(|e| *e)
     }
 }
@@ -154,9 +166,25 @@ impl HasTypeMethodDeclarativeSignatures for TypePath {
 pub(crate) fn ty_method_declarative_signature_templates_map(
     db: &dyn DeclarativeSignatureDb,
     ty_path: TypePath,
-) -> DeclarativeSignatureResult<IdentPairMap<SmallVec<[TypeMethodDeclarativeSignatureTemplate; 2]>>>
-{
-    let item_decls_map = ty_path.item_decls_map(db);
-    p!(ty_path.debug(db), item_decls_map.debug(db));
-    todo!()
+) -> DeclarativeSignatureResult<
+    IdentPairMap<DeclarativeSignatureResult<TypeMethodDeclarativeSignatureTemplates>>,
+> {
+    let item_decls_map = ty_path.item_decls_map(db)?;
+    Ok(item_decls_map
+        .iter()
+        .filter_map(|(ident, decls)| match decls {
+            Ok(TypeItemDecls::MethodFn(decls)) => Some((
+                *ident,
+                decls
+                    .iter()
+                    .copied()
+                    .map(|decl| decl.declarative_signature_template(db))
+                    .collect::<DeclarativeSignatureResult<SmallVecImpl<_>>>()
+                    .map(TypeMethodDeclarativeSignatureTemplates::MethodFn),
+            )),
+            Ok(TypeItemDecls::MethodFunction()) => todo!(),
+            Ok(_) => None,
+            Err(_) => Some((*ident, Err(DeclarativeSignatureError::DeclError))),
+        })
+        .collect())
 }

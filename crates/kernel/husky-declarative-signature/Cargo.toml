@@ -10,6 +10,7 @@ smallvec = "1.10.0"
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
 enum-class = { path = "../../abstraction/enum-class" }
+vec-like = { path = "../../abstraction/vec-like" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
