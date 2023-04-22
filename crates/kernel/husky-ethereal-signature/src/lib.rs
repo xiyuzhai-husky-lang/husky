@@ -1,8 +1,10 @@
 #![feature(trait_upcasting)]
 mod db;
+mod error;
 mod signature;
 
 pub use self::db::*;
+pub use self::error::*;
 pub use self::signature::*;
 
 use husky_entity_path::*;

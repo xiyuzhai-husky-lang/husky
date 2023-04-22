@@ -1,6 +1,6 @@
 use crate::*;
 use husky_decl::DeclExprError;
-use husky_declarative_signature::SignatureError;
+use husky_declarative_signature::DeclarativeSignatureError;
 use husky_declarative_ty::DeclarativeTypeError;
 use husky_decr::DecrError;
 use husky_entity_path::{EntityPath, EntityPathError};
@@ -44,7 +44,7 @@ pub enum TermError {
     #[error("TypePathApplicationMethodFnDeclError")]
     TypePathApplicationMethodFnDeclError,
     #[error("SignatureError")]
-    SignatureError(#[from] SignatureError),
+    SignatureError(#[from] DeclarativeSignatureError),
     #[error("EntityTreeBundleError")]
     EntityTreeBundleError,
     #[error("ForDeriveArgument")]

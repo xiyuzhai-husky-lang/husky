@@ -8,6 +8,7 @@ edition = "2021"
 smallvec = "1.10.0"
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
+vec-like = { path = "../../abstraction/vec-like" }
 # kernel
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-word = { path = "../../kernel/husky-word" }

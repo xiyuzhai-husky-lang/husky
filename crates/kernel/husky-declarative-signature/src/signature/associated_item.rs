@@ -8,6 +8,8 @@ pub use ty_item::*;
 
 use super::*;
 
+type SmallVecImpl<T> = SmallVec<[T; 2]>;
+
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 #[enum_class::from_variants]

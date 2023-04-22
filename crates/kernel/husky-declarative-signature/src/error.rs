@@ -1,10 +1,11 @@
+use husky_entity_tree::EntityTreeBundleError;
 use husky_expr::ExprError;
 use thiserror::Error;
 
 use crate::*;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
-pub enum SignatureError {
+pub enum DeclarativeSignatureError {
     #[error("todo")]
     DeclarativeTermError,
     #[error("todo")]
@@ -22,36 +23,42 @@ pub enum SignatureError {
     ExprError,
 }
 
-impl From<&DeclError> for SignatureError {
+impl From<&DeclError> for DeclarativeSignatureError {
     fn from(_: &DeclError) -> Self {
-        SignatureError::DeclError
+        DeclarativeSignatureError::DeclError
     }
 }
 
-impl From<&DeclExprError> for SignatureError {
+impl From<&DeclExprError> for DeclarativeSignatureError {
     fn from(_: &DeclExprError) -> Self {
-        SignatureError::DeclExprError
+        DeclarativeSignatureError::DeclExprError
     }
 }
-impl From<&ExprError> for SignatureError {
+impl From<&ExprError> for DeclarativeSignatureError {
     fn from(_: &ExprError) -> Self {
-        SignatureError::ExprError
+        DeclarativeSignatureError::ExprError
     }
 }
 
-impl From<&DeclarativeTermError> for SignatureError {
+impl From<&DeclarativeTermError> for DeclarativeSignatureError {
     fn from(value: &DeclarativeTermError) -> Self {
-        SignatureError::DeclarativeTermError
+        DeclarativeSignatureError::DeclarativeTermError
     }
 }
 
-impl From<&DeclarativeTermError2> for SignatureError {
+impl From<&DeclarativeTermError2> for DeclarativeSignatureError {
     fn from(value: &DeclarativeTermError2) -> Self {
-        SignatureError::DeclarativeTermError
+        DeclarativeSignatureError::DeclarativeTermError
     }
 }
 
-impl<DB: ?Sized + DeclarativeSignatureDb> salsa::DebugWithDb<DB> for SignatureError {
+impl From<&EntityTreeBundleError> for DeclarativeSignatureError {
+    fn from(value: &EntityTreeBundleError) -> Self {
+        todo!()
+    }
+}
+
+impl<DB: ?Sized + DeclarativeSignatureDb> salsa::DebugWithDb<DB> for DeclarativeSignatureError {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
@@ -62,4 +69,4 @@ impl<DB: ?Sized + DeclarativeSignatureDb> salsa::DebugWithDb<DB> for SignatureEr
     }
 }
 
-pub type DeclarativeSignatureResult<T> = Result<T, SignatureError>;
+pub type DeclarativeSignatureResult<T> = Result<T, DeclarativeSignatureError>;

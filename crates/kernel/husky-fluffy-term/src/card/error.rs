@@ -17,8 +17,8 @@ impl From<TermError> for FluffyCardError {
     }
 }
 
-impl From<SignatureError> for FluffyCardError {
-    fn from(value: SignatureError) -> Self {
+impl From<DeclarativeSignatureError> for FluffyCardError {
+    fn from(value: DeclarativeSignatureError) -> Self {
         todo!()
     }
 }
