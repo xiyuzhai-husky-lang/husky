@@ -1,3 +1,5 @@
+use husky_ethereal_signature::HasTypeMethodEtherealSignatures;
+
 use super::*;
 
 pub(super) fn ethereal_ty_field_disambiguation(
@@ -56,5 +58,8 @@ fn ethereal_ty_field_disambiguation_aux<'a>(
     ident: Ident,
     mut indirections: SmallVec<[FluffyFieldIndirection; 2]>,
 ) -> FluffyTermResult<Option<FluffyFieldDisambiguation>> {
+    let Some(templates) = ty_path.ty_method_ethereal_signature_templates(db, ident)? else {
+        return Ok(None)
+    };
     todo!()
 }
