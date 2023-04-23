@@ -25,15 +25,15 @@ pub trait HasTypeMethodEtherealSignatures: Copy {
         self,
         db: &'a dyn EtherealSignatureDb,
         ident: Ident,
-    ) -> EtherealSignatureResult<Option<&'a TypeMethodEtherealSignatureTemplates>> {
+    ) -> EtherealSignatureMaybeResult<&'a TypeMethodEtherealSignatureTemplates> {
         use vec_like::VecMapGetEntry;
         match self
             .ty_method_ethereal_signature_templates_map(db)?
             .get_entry(ident)
         {
-            Some((_, Ok(templates))) => Ok(Some(templates)),
-            Some((_, Err(e))) => Err(*e),
-            None => Ok(None),
+            Some((_, Ok(templates))) => JustOk(templates),
+            Some((_, Err(e))) => JustErr(*e),
+            None => Nothing,
         }
     }
 }

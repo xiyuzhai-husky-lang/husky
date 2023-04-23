@@ -6,20 +6,16 @@ pub(super) fn ethereal_ty_field_disambiguation(
     db: &dyn FluffyTermDb,
     ty_term: EtherealTerm,
     ident: Ident,
-) -> FluffyTermResult<Option<&FluffyFieldDisambiguation>> {
+) -> FluffyTermMaybeResult<&FluffyFieldDisambiguation> {
     // divide into cases for memoization
-    let disambiguation = match ty_term {
+    match ty_term {
         EtherealTerm::EntityPath(TermEntityPath::TypeOntology(ty_path)) => {
-            ethereal_ty_ontology_path_ty_field_disambiguation(db, ty_path, ident)
+            ethereal_ty_ontology_path_ty_field_disambiguation(db, ty_path, ident).just_ok_as_ref()
         }
         EtherealTerm::Application(ty_term) => {
-            ethereal_term_application_ty_field_disambiguation(db, ty_term, ident)
+            ethereal_term_application_ty_field_disambiguation(db, ty_term, ident).just_ok_as_ref()
         }
-        _ => return Ok(None),
-    };
-    match disambiguation {
-        Ok(disambiguation) => Ok(disambiguation.as_ref()),
-        Err(e) => Err(*e),
+        _ => Nothing,
     }
 }
 
@@ -28,7 +24,7 @@ pub(crate) fn ethereal_ty_ontology_path_ty_field_disambiguation(
     db: &dyn FluffyTermDb,
     ty_path: TypePath,
     ident: Ident,
-) -> FluffyTermResult<Option<FluffyFieldDisambiguation>> {
+) -> FluffyTermMaybeResult<FluffyFieldDisambiguation> {
     ethereal_ty_field_disambiguation_aux(db, ty_path, &[], ident, smallvec![])
 }
 
@@ -37,7 +33,7 @@ pub(crate) fn ethereal_term_application_ty_field_disambiguation(
     db: &dyn FluffyTermDb,
     ty_term: EtherealTermApplication,
     ident: Ident,
-) -> FluffyTermResult<Option<FluffyFieldDisambiguation>> {
+) -> FluffyTermMaybeResult<FluffyFieldDisambiguation> {
     let application_expansion = ty_term.application_expansion(db);
     match application_expansion.function() {
         TermFunctionReduced::TypeOntology(ty_path) => ethereal_ty_field_disambiguation_aux(
@@ -47,7 +43,7 @@ pub(crate) fn ethereal_term_application_ty_field_disambiguation(
             ident,
             smallvec![],
         ),
-        TermFunctionReduced::Trait(_) | TermFunctionReduced::Other(_) => Ok(None),
+        TermFunctionReduced::Trait(_) | TermFunctionReduced::Other(_) => Nothing,
     }
 }
 
@@ -57,9 +53,7 @@ fn ethereal_ty_field_disambiguation_aux<'a>(
     arguments: &'a [EtherealTerm],
     ident: Ident,
     mut indirections: SmallVec<[FluffyFieldIndirection; 2]>,
-) -> FluffyTermResult<Option<FluffyFieldDisambiguation>> {
-    let Some(templates) = ty_path.ty_method_ethereal_signature_templates(db, ident)? else {
-        return Ok(None)
-    };
+) -> FluffyTermMaybeResult<FluffyFieldDisambiguation> {
+    let templates = ty_path.ty_method_ethereal_signature_templates(db, ident)?;
     todo!()
 }

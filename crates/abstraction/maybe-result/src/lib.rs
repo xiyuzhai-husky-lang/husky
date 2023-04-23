@@ -1,5 +1,7 @@
 #![feature(try_trait_v2)]
 
+use std::convert::Infallible;
+
 pub use MaybeResult::*;
 
 /// composition of option and result
@@ -10,10 +12,7 @@ pub enum MaybeResult<T, E> {
     Nothing,
 }
 
-pub enum MaybeResultResidual<E> {
-    JustErr(E),
-    Nothing,
-}
+type MaybeResultResidual<E> = MaybeResult<Infallible, E>;
 
 impl<T, E> std::ops::Try for MaybeResult<T, E> {
     type Output = T;
@@ -39,8 +38,21 @@ where
 {
     fn from_residual(residual: MaybeResultResidual<E1>) -> Self {
         match residual {
-            MaybeResultResidual::JustErr(e) => JustErr(e.into()),
-            MaybeResultResidual::Nothing => Nothing,
+            JustOk(_) => unreachable!(),
+            JustErr(e) => JustErr(e.into()),
+            Nothing => Nothing,
+        }
+    }
+}
+
+impl<T, E1, E2> std::ops::FromResidual<Result<Infallible, E1>> for MaybeResult<T, E2>
+where
+    E2: From<E1>,
+{
+    fn from_residual(residual: Result<Infallible, E1>) -> Self {
+        match residual {
+            Ok(_) => unreachable!(),
+            Err(_) => todo!(),
         }
     }
 }
@@ -68,4 +80,36 @@ fn maybe_result_works() {
         }(),
         Nothing
     );
+}
+
+impl<T, E> MaybeResult<T, E> {
+    /// convert into `Result<Option<T>, E>`
+    ///
+    /// ```
+    /// use maybe_result::*;
+    /// let a: MaybeResult<i32, ()> = JustOk(1);
+    /// assert_eq!(a.into_result(), Ok(Some(1)));
+    /// let b: MaybeResult<i32, ()> = JustErr(());
+    /// assert_eq!(b.into_result(), Err(()));
+    /// let c: MaybeResult<i32, ()> = Nothing;
+    /// assert_eq!(c.into_result(), Ok(None));
+    /// ```
+    pub fn into_result(self) -> Result<Option<T>, E> {
+        match self {
+            JustOk(t) => Ok(Some(t)),
+            JustErr(e) => Err(e),
+            Nothing => Ok(None),
+        }
+    }
+
+    pub fn just_ok_as_ref(&self) -> MaybeResult<&T, E>
+    where
+        E: Copy,
+    {
+        match self {
+            JustOk(t) => JustOk(t),
+            JustErr(e) => JustErr(*e),
+            Nothing => Nothing,
+        }
+    }
 }

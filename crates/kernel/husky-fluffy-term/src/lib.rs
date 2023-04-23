@@ -41,6 +41,7 @@ use husky_print_utils::p;
 use husky_term_prelude::*;
 use salsa::DebugWithDb as _;
 use smallvec::*;
+use maybe_result::*;
 
 #[salsa::jar(db = FluffyTermDb)]
 pub struct FluffyTermJar(

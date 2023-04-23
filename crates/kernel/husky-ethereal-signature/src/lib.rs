@@ -10,6 +10,7 @@ pub use self::signature::*;
 use husky_entity_path::*;
 use husky_ethereal_term::*;
 use husky_word::*;
+use maybe_result::*;
 use smallvec::*;
 
 #[salsa::jar(db = EtherealSignatureDb)]
