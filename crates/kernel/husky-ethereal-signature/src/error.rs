@@ -1,3 +1,4 @@
+use crate::*;
 use husky_declarative_signature::DeclarativeSignatureError;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -10,3 +11,4 @@ impl From<DeclarativeSignatureError> for EtherealSignatureError {
 }
 
 pub type EtherealSignatureResult<T> = Result<T, EtherealSignatureError>;
+pub type EtherealSignatureMaybeResult<T> = MaybeResult<T, EtherealSignatureError>;

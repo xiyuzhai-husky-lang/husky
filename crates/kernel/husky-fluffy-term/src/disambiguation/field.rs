@@ -23,7 +23,7 @@ impl FluffyTerm {
         engine: &mut impl FluffyTermEngine,
         ident: Ident,
         available_traits: &[TraitPath],
-    ) -> FluffyTermResult<Option<FluffyFieldDisambiguation>> {
+    ) -> FluffyTermMaybeResult<FluffyFieldDisambiguation> {
         self.field_disambiguation_aux(engine, ident, available_traits, smallvec![])
     }
 
@@ -33,7 +33,7 @@ impl FluffyTerm {
         ident: Ident,
         available_traits: &[TraitPath],
         indirections: SmallVec<[FluffyFieldIndirection; 2]>,
-    ) -> FluffyTermResult<Option<FluffyFieldDisambiguation>> {
+    ) -> FluffyTermMaybeResult<FluffyFieldDisambiguation> {
         match self.nested() {
             NestedFluffyTerm::Ethereal(term) => todo!(),
             NestedFluffyTerm::Solid(term) => {

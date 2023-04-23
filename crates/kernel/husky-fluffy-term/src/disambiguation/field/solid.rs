@@ -7,7 +7,7 @@ impl SolidTerm {
         ident: Ident,
         available_traits: &[TraitPath],
         mut indirections: SmallVec<[FluffyFieldIndirection; 2]>,
-    ) -> FluffyTermResult<Option<FluffyFieldDisambiguation>> {
+    ) -> FluffyTermMaybeResult<FluffyFieldDisambiguation> {
         match self.data(engine) {
             SolidTermData::TypeOntology {
                 path,
@@ -22,14 +22,8 @@ impl SolidTerm {
                 base_ty_term,
             } => match base_ty_term {
                 Some(base_ty_term) => {
-                    let db = engine.db();
-                    let Some(disambiguation) = ethereal_ty_field_disambiguation(
-                        db,
-                        *base_ty_term,
-                        ident
-                    )? else {
-                        return Ok(None)
-                    };
+                    let disambiguation =
+                        ethereal_ty_field_disambiguation(engine.db(), *base_ty_term, ident)?;
                     indirections.push(FluffyFieldIndirection::Place(*place));
                     indirections.extend(disambiguation.indirections.iter().copied());
                     todo!()
@@ -48,7 +42,7 @@ impl SolidTerm {
                 }
                 None => todo!(),
             },
-            SolidTermData::Curry { .. } | SolidTermData::Ritchie { .. } => Ok(None),
+            SolidTermData::Curry { .. } | SolidTermData::Ritchie { .. } => Nothing,
         }
     }
 }

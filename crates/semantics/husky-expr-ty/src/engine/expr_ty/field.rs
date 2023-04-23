@@ -15,7 +15,7 @@ impl<'a> ExprTypeEngine<'a> {
             ident_token.ident(),
             /* ad hoc: traits */
             &[]
-        )? else {
+        ).into_result()? else {
             todo!()
         };
         Ok((disambiguation.into(), todo!()))

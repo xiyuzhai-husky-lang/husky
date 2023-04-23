@@ -9,6 +9,7 @@ smallvec = "1.10.0"
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
 vec-like = { path = "../../abstraction/vec-like" }
+maybe-result = { path = "../../abstraction/maybe-result" }
 # kernel
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-word = { path = "../../kernel/husky-word" }
