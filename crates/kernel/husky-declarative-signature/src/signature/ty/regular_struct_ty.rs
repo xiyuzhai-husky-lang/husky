@@ -47,7 +47,11 @@ pub struct RegularStructTypeDeclarativeSignatureTemplate {
     pub fields: Vec<RegularStructFieldSignature>,
 }
 
-impl RegularStructTypeDeclarativeSignatureTemplate {}
+impl RegularStructTypeDeclarativeSignatureTemplate {
+    pub fn field_signature<FT: Copy>(self) -> RegularFieldSignature<FT> {
+        todo!()
+    }
+}
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclarativeSignatureDb, jar= DeclarativeSignatureJar)]

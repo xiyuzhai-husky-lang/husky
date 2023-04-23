@@ -17,7 +17,7 @@ impl<'a> ExprTypeEngine<'a> {
                 .expr_ty_info_variant(expr_idx)
                 .map_err(|_| DerivedExprTermError::AmbiguousTilde)?
             {
-                ExprTypeInfoVariant::TildeDisambiguation(disambiguation) => match disambiguation {
+                ExprDisambiguation::Tilde(disambiguation) => match disambiguation {
                     TildeDisambiguation::BitNot => todo!(),
                     TildeDisambiguation::Leash => {
                         Ok(FluffyTerm::new_leashed(self, expr_idx, opd_term)?)

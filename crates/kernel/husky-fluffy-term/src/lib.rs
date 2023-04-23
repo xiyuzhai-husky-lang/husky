@@ -1,9 +1,10 @@
 #![feature(anonymous_lifetime_in_impl_trait)]
 #![feature(trait_upcasting)]
-mod card;
 mod data;
 mod db;
+mod disambiguation;
 mod engine;
+mod error;
 mod expectation;
 mod nested;
 mod progress;
@@ -13,20 +14,19 @@ mod substitution;
 mod term;
 #[cfg(test)]
 mod tests;
-mod ty_info;
 mod utils;
 
-pub use self::card::*;
 pub use self::data::*;
 pub use self::db::*;
+pub use self::disambiguation::*;
 pub use self::engine::*;
+pub use self::error::*;
 pub use self::expectation::*;
 pub use self::progress::*;
 pub use self::region::*;
 pub use self::resolve::*;
 pub use self::substitution::*;
 pub use self::term::*;
-pub use self::ty_info::*;
 
 #[cfg(test)]
 pub(crate) use self::tests::*;
@@ -43,4 +43,9 @@ use salsa::DebugWithDb as _;
 use smallvec::*;
 
 #[salsa::jar(db = FluffyTermDb)]
-pub struct FluffyTermJar(term_ritchie_fluffy_data, term_application_fluffy_data);
+pub struct FluffyTermJar(
+    term_ritchie_fluffy_data,
+    term_application_fluffy_data,
+    ethereal_ty_ontology_path_ty_field_disambiguation,
+    ethereal_term_application_ty_field_disambiguation,
+);

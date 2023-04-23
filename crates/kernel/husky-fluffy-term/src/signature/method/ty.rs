@@ -13,8 +13,13 @@ pub(super) fn direct_ty_method_card(
     arguments: &[FluffyTerm],
     ident: Ident,
 ) -> FluffyCardResult<Option<FluffyMethodCard>> {
-    let templates = ty_path.ty_method_ethereal_signature_templates(engine.db(), ident);
-    todo!()
+    let Some(templates) = ty_path.ty_method_ethereal_signature_templates(engine.db(), ident)? else {
+        return Ok(None)
+    };
+    match templates {
+        TypeMethodEtherealSignatureTemplates::MethodFn(_) => todo!(),
+        TypeMethodEtherealSignatureTemplates::MethodFunction(_) => todo!(),
+    }
     // match self.data(engine) {
     //     FluffyTermData::Literal(_) => todo!(),
     //     FluffyTermData::TypeOntology { .. } => todo!(),

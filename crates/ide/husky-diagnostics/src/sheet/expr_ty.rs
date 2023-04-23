@@ -158,9 +158,6 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
             OriginalExprTypeError::TodoMemo => {
                 format!("Type Error: TodoMemo")
             }
-            OriginalExprTypeError::Type(_) => {
-                format!("Type Error: Type")
-            }
         }
     }
 

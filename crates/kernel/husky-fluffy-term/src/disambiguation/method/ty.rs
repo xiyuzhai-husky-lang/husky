@@ -21,7 +21,7 @@ impl FluffyTerm {
         self,
         engine: &mut impl FluffyTermEngine,
         ident: Ident,
-    ) -> FluffyTypeResult<Option<(FluffyTypeMethodDisambiguation, FluffyTypeResult<FluffyTerm>)>>
+    ) -> FluffyTermResult<Option<(FluffyTypeMethodDisambiguation, FluffyTermResult<FluffyTerm>)>>
     {
         let mut indirections = smallvec![];
         let Some((ty_path, ty_result)) = self.ty_method_ty_aux(engine,ident,&mut indirections)? else {
@@ -41,7 +41,7 @@ impl FluffyTerm {
         engine: &mut impl FluffyTermEngine,
         ident: Ident,
         indirections: &mut SmallVec<[FluffyMethodIndirection; 2]>,
-    ) -> FluffyTypeResult<Option<(TypePath, FluffyTypeResult<FluffyTerm>)>> {
+    ) -> FluffyTermResult<Option<(TypePath, FluffyTermResult<FluffyTerm>)>> {
         match self.data(engine) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
