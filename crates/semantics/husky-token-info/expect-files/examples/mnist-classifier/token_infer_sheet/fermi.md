@@ -89,7 +89,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                 ident: `norm`,
-                                item_kind: Memo,
+                                item_kind: MemoizedField,
                             },
                         ),
                     ),
@@ -97,7 +97,7 @@ Ok(
                 Some(
                     AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Memo,
+                            MemoizedField,
                         ),
                     },
                 ),
@@ -192,7 +192,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                 ident: `rel_norm`,
-                                item_kind: Memo,
+                                item_kind: MemoizedField,
                             },
                         ),
                     ),
@@ -200,7 +200,7 @@ Ok(
                 Some(
                     AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Memo,
+                            MemoizedField,
                         ),
                     },
                 ),
@@ -295,7 +295,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                 ident: `angle_change_norm`,
-                                item_kind: Memo,
+                                item_kind: MemoizedField,
                             },
                         ),
                     ),
@@ -303,7 +303,7 @@ Ok(
                 Some(
                     AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Memo,
+                            MemoizedField,
                         ),
                     },
                 ),
@@ -400,13 +400,13 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                         ),
                     ),
                 ),
                 Some(
                     ModuleItem {
-                        module_item_kind: Form(
+                        module_item_kind: Fugitive(
                             Fn,
                         ),
                         connection: Connected,

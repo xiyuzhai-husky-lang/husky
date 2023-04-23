@@ -11,25 +11,100 @@
         ),
         expr_ty_infos: [],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [],
-        current_symbol_tys: [
-            LocalTerm::Resolved(
-                Term(`TypeOntology(core::basic::Lifetime)`),
-            ),
-            LocalTerm::Resolved(
-                Term(`Type`),
-            ),
-        ],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 0,
-                },
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
                 data: [],
-                first_unresolved_term: 0,
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [
+                    Some(
+                        SymbolType(
+                            Solid(
+                                SolidTerm(
+                                    0,
+                                ),
+                            ),
+                        ),
+                    ),
+                    Some(
+                        SymbolType(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [
+                    Some(
+                        Symbol(
+                            EtherealTermSymbol(
+                                Id {
+                                    value: 3,
+                                },
+                            ),
+                        ),
+                    ),
+                    Some(
+                        Symbol(
+                            EtherealTermSymbol(
+                                Id {
+                                    value: 1,
+                                },
+                            ),
+                        ),
+                    ),
+                ],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [
+                            PlaceTypeOntology {
+                                place: Const,
+                                path: TypePath(
+                                    Id {
+                                        value: 66,
+                                    },
+                                ),
+                                refined_path: Right(
+                                    Lifetime,
+                                ),
+                                arguments: [],
+                                base_ty_term: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 66,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [],
                 },
@@ -51,25 +126,100 @@
         ),
         expr_ty_infos: [],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [],
-        current_symbol_tys: [
-            LocalTerm::Resolved(
-                Term(`TypeOntology(core::basic::Lifetime)`),
-            ),
-            LocalTerm::Resolved(
-                Term(`Type`),
-            ),
-        ],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 0,
-                },
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
                 data: [],
-                first_unresolved_term: 0,
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [
+                    Some(
+                        SymbolType(
+                            Solid(
+                                SolidTerm(
+                                    0,
+                                ),
+                            ),
+                        ),
+                    ),
+                    Some(
+                        SymbolType(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [
+                    Some(
+                        Symbol(
+                            EtherealTermSymbol(
+                                Id {
+                                    value: 3,
+                                },
+                            ),
+                        ),
+                    ),
+                    Some(
+                        Symbol(
+                            EtherealTermSymbol(
+                                Id {
+                                    value: 1,
+                                },
+                            ),
+                        ),
+                    ),
+                ],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [
+                            PlaceTypeOntology {
+                                place: Const,
+                                path: TypePath(
+                                    Id {
+                                        value: 66,
+                                    },
+                                ),
+                                refined_path: Right(
+                                    Lifetime,
+                                ),
+                                arguments: [],
+                                base_ty_term: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 66,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [],
                 },
@@ -91,22 +241,58 @@
         ),
         expr_ty_infos: [],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [],
-        current_symbol_tys: [
-            LocalTerm::Resolved(
-                Term(`Type`),
-            ),
-        ],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 0,
-                },
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
                 data: [],
-                first_unresolved_term: 0,
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [
+                    Some(
+                        SymbolType(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [
+                    Some(
+                        Symbol(
+                            EtherealTermSymbol(
+                                Id {
+                                    value: 1,
+                                },
+                            ),
+                        ),
+                    ),
+                ],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [],
                 },

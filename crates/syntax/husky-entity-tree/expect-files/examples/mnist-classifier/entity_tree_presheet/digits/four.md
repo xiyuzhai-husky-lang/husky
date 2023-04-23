@@ -5,15 +5,15 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `left_components`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::four`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
+                                FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
                             ast_idx: 38,
@@ -28,15 +28,15 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `left_coordinate_max`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::four`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
+                                FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
                             ast_idx: 39,
@@ -51,15 +51,15 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `components_max_downwards`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::four`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+                                FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
                             ast_idx: 40,
@@ -74,15 +74,15 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `components_max_heights`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::four`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
+                                FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
                             ast_idx: 41,
@@ -97,15 +97,15 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `is_four`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::four`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::four::is_four`, `Val`),
+                                FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
                             ast_idx: 42,
@@ -120,15 +120,15 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `displacement_downwards`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::four`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
+                                FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
                             ast_idx: 43,
@@ -143,15 +143,15 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `cc_box_heights`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::four`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
+                                FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
                             ),
                             ast_idx: 44,
@@ -171,7 +171,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 37,
                     use_expr_idx: 1,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::four`,
                     ),
                     variant: UseExprRuleVariant::Parent {

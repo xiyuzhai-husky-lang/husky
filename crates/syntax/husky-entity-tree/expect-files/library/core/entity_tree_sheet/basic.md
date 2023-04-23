@@ -5,13 +5,13 @@ Ok(
             [
                 EntitySymbolEntry {
                     ident: `bool`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`core::basic::bool`, `Extern`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 0,
                             ident_token: IdentToken {
                                 ident: `bool`,
@@ -24,13 +24,13 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `never`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`core::basic::never`, `Extern`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 1,
                             ident_token: IdentToken {
                                 ident: `never`,
@@ -43,13 +43,13 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `unit`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`core::basic::unit`, `Extern`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 2,
                             ident_token: IdentToken {
                                 ident: `unit`,
@@ -62,13 +62,13 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `Trait`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`core::basic::Trait`, `Structure`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 3,
                             ident_token: IdentToken {
                                 ident: `Trait`,
@@ -81,13 +81,13 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `Module`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`core::basic::Module`, `Structure`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 4,
                             ident_token: IdentToken {
                                 ident: `Module`,

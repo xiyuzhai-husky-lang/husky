@@ -22,11 +22,13 @@ impl FluffyTerm {
         engine: &mut impl FluffyTermEngine,
         ident: Ident,
         available_traits: &[TraitPath],
-    ) -> FluffyTermResult<(FluffyMethodDisambiguation, FluffyTermResult<FluffyTerm>)> {
+    ) -> FluffyTermMaybeResult<FluffyMethodDisambiguation> {
         // let Some(card) = self.method_card(engine, ident, available_traits)? else {
         //     Err(OriginalFluffyTermError::NoSuchMethod)?
         // };
-        todo!()
+        // todo!()
+        // ad hoc
+        Nothing
     }
 }
 

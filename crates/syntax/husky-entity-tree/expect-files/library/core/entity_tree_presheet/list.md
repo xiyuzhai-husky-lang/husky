@@ -5,13 +5,13 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `List`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`core::list::List`, `Extern`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 1,
                             ident_token: IdentToken {
                                 ident: `List`,

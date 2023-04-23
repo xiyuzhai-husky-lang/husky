@@ -23,7 +23,7 @@ Ok(
                     original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::raw_contour`,
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
                             ast_idx: 12,
@@ -169,13 +169,13 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
+                            FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
                         ),
                     ),
                 ),
                 Some(
                     ModuleItem {
-                        module_item_kind: Form(
+                        module_item_kind: Fugitive(
                             Fn,
                         ),
                         connection: Connected,
@@ -297,7 +297,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                 ident: `raw_contours`,
-                                item_kind: Memo,
+                                item_kind: MemoizedField,
                             },
                         ),
                     ),
@@ -305,7 +305,7 @@ Ok(
                 Some(
                     AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Memo,
+                            MemoizedField,
                         ),
                     },
                 ),
@@ -329,7 +329,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                         ),
                     ),
                 ),
@@ -346,7 +346,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                 ident: `eff_holes`,
-                                item_kind: Memo,
+                                item_kind: MemoizedField,
                             },
                         ),
                     ),
@@ -354,7 +354,7 @@ Ok(
                 Some(
                     AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Memo,
+                            MemoizedField,
                         ),
                     },
                 ),
@@ -430,7 +430,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
+                            FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
                         ),
                     ),
                 ),
@@ -462,7 +462,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
+                            FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
                         ),
                     ),
                 ),
@@ -494,7 +494,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
+                            FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
                         ),
                     ),
                 ),
@@ -530,7 +530,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                 ident: `max_hole_ilen`,
-                                item_kind: Memo,
+                                item_kind: MemoizedField,
                             },
                         ),
                     ),
@@ -538,7 +538,7 @@ Ok(
                 Some(
                     AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Memo,
+                            MemoizedField,
                         ),
                     },
                 ),
@@ -692,7 +692,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                 ident: `max_row_span`,
-                                item_kind: Memo,
+                                item_kind: MemoizedField,
                             },
                         ),
                     ),
@@ -700,7 +700,7 @@ Ok(
                 Some(
                     AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Memo,
+                            MemoizedField,
                         ),
                     },
                 ),
@@ -804,7 +804,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                 ident: `row_span_sum`,
-                                item_kind: Memo,
+                                item_kind: MemoizedField,
                             },
                         ),
                     ),
@@ -812,7 +812,7 @@ Ok(
                 Some(
                     AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Memo,
+                            MemoizedField,
                         ),
                     },
                 ),
@@ -905,7 +905,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                 ident: `distribution`,
-                                item_kind: Memo,
+                                item_kind: MemoizedField,
                             },
                         ),
                     ),
@@ -913,7 +913,7 @@ Ok(
                 Some(
                     AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Memo,
+                            MemoizedField,
                         ),
                     },
                 ),
@@ -1233,7 +1233,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                 ident: `upper_mass`,
-                                item_kind: Memo,
+                                item_kind: MemoizedField,
                             },
                         ),
                     ),
@@ -1241,7 +1241,7 @@ Ok(
                 Some(
                     AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Memo,
+                            MemoizedField,
                         ),
                     },
                 ),
@@ -1283,7 +1283,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                 ident: `lower_mass`,
-                                item_kind: Memo,
+                                item_kind: MemoizedField,
                             },
                         ),
                     ),
@@ -1291,7 +1291,7 @@ Ok(
                 Some(
                     AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Memo,
+                            MemoizedField,
                         ),
                     },
                 ),
@@ -1695,13 +1695,13 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
+                            FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
                         ),
                     ),
                 ),
                 Some(
                     ModuleItem {
-                        module_item_kind: Form(
+                        module_item_kind: Fugitive(
                             Fn,
                         ),
                         connection: Connected,
@@ -1956,13 +1956,13 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                         ),
                     ),
                 ),
                 Some(
                     ModuleItem {
-                        module_item_kind: Form(
+                        module_item_kind: Fugitive(
                             Fn,
                         ),
                         connection: Connected,
@@ -2148,7 +2148,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
+                            FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
                         ),
                     ),
                 ),
@@ -2275,7 +2275,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
+                            FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
                         ),
                     ),
                 ),
@@ -2432,7 +2432,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
+                            FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
                         ),
                     ),
                 ),

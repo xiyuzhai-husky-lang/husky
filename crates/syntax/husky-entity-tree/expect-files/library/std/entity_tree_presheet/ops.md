@@ -5,7 +5,7 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `Add`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `std::ops`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
@@ -13,7 +13,7 @@ Ok(
                             path: ModuleItemPath::Trait(
                                 TraitPath(`std::ops::Add`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `std::ops`,
                             ),
                             ast_idx: 3,

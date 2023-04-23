@@ -23,7 +23,7 @@ Ok(
                     original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::geom2d`,
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
                             ast_idx: 13,
@@ -61,7 +61,7 @@ Ok(
                     original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::connected_component`,
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
                             ast_idx: 11,
@@ -99,7 +99,7 @@ Ok(
                     original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::line_segment_sketch`,
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
                             ast_idx: 14,
@@ -199,7 +199,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                 ident: `line_segment_sketch`,
-                                item_kind: Memo,
+                                item_kind: MemoizedField,
                             },
                         ),
                     ),
@@ -207,7 +207,7 @@ Ok(
                 Some(
                     AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Memo,
+                            MemoizedField,
                         ),
                     },
                 ),
@@ -263,7 +263,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                 ident: `bounding_box`,
-                                item_kind: Memo,
+                                item_kind: MemoizedField,
                             },
                         ),
                     ),
@@ -271,7 +271,7 @@ Ok(
                 Some(
                     AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Memo,
+                            MemoizedField,
                         ),
                     },
                 ),
@@ -607,7 +607,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                 ident: `relative_bounding_box`,
-                                item_kind: Memo,
+                                item_kind: MemoizedField,
                             },
                         ),
                     ),
@@ -615,7 +615,7 @@ Ok(
                 Some(
                     AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Memo,
+                            MemoizedField,
                         ),
                     },
                 ),
@@ -658,7 +658,7 @@ Ok(
                             TypeItemPath {
                                 parent_ty: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                 ident: `contour_len`,
-                                item_kind: Memo,
+                                item_kind: MemoizedField,
                             },
                         ),
                     ),
@@ -666,7 +666,7 @@ Ok(
                 Some(
                     AssociatedItem {
                         associated_item_kind: TypeItem(
-                            Memo,
+                            MemoizedField,
                         ),
                     },
                 ),
@@ -1129,13 +1129,13 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
+                            FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
                         ),
                     ),
                 ),
                 Some(
                     ModuleItem {
-                        module_item_kind: Form(
+                        module_item_kind: Fugitive(
                             Fn,
                         ),
                         connection: Connected,
@@ -1221,13 +1221,13 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
+                            FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
                         ),
                     ),
                 ),
                 Some(
                     ModuleItem {
-                        module_item_kind: Form(
+                        module_item_kind: Fugitive(
                             Fn,
                         ),
                         connection: Connected,
@@ -1309,13 +1309,13 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
+                            FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
                         ),
                     ),
                 ),
                 Some(
                     ModuleItem {
-                        module_item_kind: Form(
+                        module_item_kind: Fugitive(
                             Fn,
                         ),
                         connection: Connected,
@@ -1401,13 +1401,13 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
+                            FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
                         ),
                     ),
                 ),
                 Some(
                     ModuleItem {
-                        module_item_kind: Form(
+                        module_item_kind: Fugitive(
                             Fn,
                         ),
                         connection: Connected,
@@ -1498,7 +1498,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
+                            FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
                         ),
                     ),
                 ),
@@ -1534,7 +1534,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
+                            FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
                         ),
                     ),
                 ),
@@ -1671,13 +1671,13 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
+                            FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
                         ),
                     ),
                 ),
                 Some(
                     ModuleItem {
-                        module_item_kind: Form(
+                        module_item_kind: Fugitive(
                             Fn,
                         ),
                         connection: Connected,
@@ -1835,13 +1835,13 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
+                            FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
                         ),
                     ),
                 ),
                 Some(
                     ModuleItem {
-                        module_item_kind: Form(
+                        module_item_kind: Fugitive(
                             Fn,
                         ),
                         connection: Connected,
@@ -1951,7 +1951,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
+                            FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
                         ),
                     ),
                 ),
@@ -1987,7 +1987,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
+                            FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
                         ),
                     ),
                 ),
@@ -2247,13 +2247,13 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
+                            FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
                         ),
                     ),
                 ),
                 Some(
                     ModuleItem {
-                        module_item_kind: Form(
+                        module_item_kind: Fugitive(
                             Fn,
                         ),
                         connection: Connected,
@@ -2434,13 +2434,13 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                         ),
                     ),
                 ),
                 Some(
                     ModuleItem {
-                        module_item_kind: Form(
+                        module_item_kind: Fugitive(
                             Fn,
                         ),
                         connection: Connected,
@@ -2886,7 +2886,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
+                            FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
                         ),
                     ),
                 ),
@@ -3100,7 +3100,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
+                            FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
                         ),
                     ),
                 ),
@@ -3152,7 +3152,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
+                            FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
                         ),
                     ),
                 ),
@@ -3302,7 +3302,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
+                            FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
                         ),
                     ),
                 ),

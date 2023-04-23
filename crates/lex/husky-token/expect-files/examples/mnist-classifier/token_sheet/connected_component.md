@@ -463,7 +463,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Pattern(
+                Keyword::Modifier(
                     Mut,
                 ),
             ),
@@ -516,7 +516,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Pattern(
+                Keyword::Modifier(
                     Mut,
                 ),
             ),
@@ -770,7 +770,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Pattern(
+                Keyword::Modifier(
                     Mut,
                 ),
             ),
@@ -1007,7 +1007,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Pattern(
+                Keyword::Modifier(
                     Mut,
                 ),
             ),
@@ -1188,7 +1188,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Pattern(
+                Keyword::Modifier(
                     Mut,
                 ),
             ),
@@ -1348,7 +1348,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Pattern(
+                Keyword::Modifier(
                     Mut,
                 ),
             ),
@@ -1439,7 +1439,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Pattern(
+                Keyword::Modifier(
                     Mut,
                 ),
             ),
@@ -1605,7 +1605,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Pattern(
+                Keyword::Modifier(
                     Mut,
                 ),
             ),
@@ -1737,7 +1737,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Pattern(
+                Keyword::Modifier(
                     Mut,
                 ),
             ),
@@ -2077,7 +2077,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Pattern(
+                Keyword::Modifier(
                     Mut,
                 ),
             ),
@@ -2118,7 +2118,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Pattern(
+                Keyword::Modifier(
                     Mut,
                 ),
             ),
@@ -2380,7 +2380,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Pattern(
+                Keyword::Modifier(
                     Mut,
                 ),
             ),
@@ -2421,7 +2421,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Pattern(
+                Keyword::Modifier(
                     Mut,
                 ),
             ),
@@ -2710,7 +2710,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Pattern(
+                Keyword::Modifier(
                     Mut,
                 ),
             ),
@@ -2821,7 +2821,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Pattern(
+                Keyword::Modifier(
                     Mut,
                 ),
             ),
@@ -3142,7 +3142,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Pattern(
+                Keyword::Modifier(
                     Mut,
                 ),
             ),
@@ -3196,7 +3196,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Pattern(
+                Keyword::Modifier(
                     Mut,
                 ),
             ),
@@ -3363,7 +3363,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Pattern(
+                Keyword::Modifier(
                     Mut,
                 ),
             ),
@@ -3467,7 +3467,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Pattern(
+                Keyword::Modifier(
                     Mut,
                 ),
             ),
@@ -3521,7 +3521,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Pattern(
+                Keyword::Modifier(
                     Mut,
                 ),
             ),

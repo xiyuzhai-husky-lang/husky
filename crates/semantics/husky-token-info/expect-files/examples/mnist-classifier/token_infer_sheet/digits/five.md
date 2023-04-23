@@ -25,13 +25,13 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                         ),
                     ),
                 ),
                 Some(
                     ModuleItem {
-                        module_item_kind: Form(
+                        module_item_kind: Fugitive(
                             Val,
                         ),
                         connection: Connected,

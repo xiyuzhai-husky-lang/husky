@@ -23,7 +23,22 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Type Error: NoSuchField",
                 severity: Error,
+                range: [16:20, 16:38),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [25:38, 25:63),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
                 range: [27:17, 27:39),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [29:25, 29:50),
             },
             Diagnostic {
                 message: "Type Error: NoSuchField",

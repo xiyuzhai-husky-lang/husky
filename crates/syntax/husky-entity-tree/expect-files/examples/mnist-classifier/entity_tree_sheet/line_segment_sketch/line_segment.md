@@ -5,13 +5,13 @@ Ok(
             [
                 EntitySymbolEntry {
                     ident: `LineSegment`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 16,
                             ident_token: IdentToken {
                                 ident: `LineSegment`,
@@ -24,7 +24,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `Point2d`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::line_segment`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -34,7 +34,7 @@ Ok(
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 78,
                                     ident_token: IdentToken {
                                         ident: `Point2d`,
@@ -49,7 +49,7 @@ Ok(
                                     TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::line_segment`,
                             ),
                             ast_idx: 15,
@@ -59,7 +59,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `RelativePoint2d`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::line_segment`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -69,7 +69,7 @@ Ok(
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 80,
                                     ident_token: IdentToken {
                                         ident: `RelativePoint2d`,
@@ -84,7 +84,7 @@ Ok(
                                     TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::line_segment`,
                             ),
                             ast_idx: 15,
@@ -94,7 +94,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `Vector2d`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::line_segment`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -104,7 +104,7 @@ Ok(
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 81,
                                     ident_token: IdentToken {
                                         ident: `Vector2d`,
@@ -119,7 +119,7 @@ Ok(
                                     TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::line_segment`,
                             ),
                             ast_idx: 15,
@@ -129,7 +129,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `ClosedRange`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::line_segment`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -139,7 +139,7 @@ Ok(
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 83,
                                     ident_token: IdentToken {
                                         ident: `ClosedRange`,
@@ -154,7 +154,7 @@ Ok(
                                     TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::line_segment`,
                             ),
                             ast_idx: 15,
@@ -164,7 +164,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `BoundingBox`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::line_segment`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -174,7 +174,7 @@ Ok(
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 85,
                                     ident_token: IdentToken {
                                         ident: `BoundingBox`,
@@ -189,7 +189,7 @@ Ok(
                                     TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::line_segment`,
                             ),
                             ast_idx: 15,
@@ -199,7 +199,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `RelativeBoundingBox`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::line_segment`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -209,7 +209,7 @@ Ok(
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 87,
                                     ident_token: IdentToken {
                                         ident: `RelativeBoundingBox`,
@@ -224,7 +224,7 @@ Ok(
                                     TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::line_segment`,
                             ),
                             ast_idx: 15,
@@ -264,7 +264,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 15,
                     use_expr_idx: 2,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::line_segment`,
                     ),
                     variant: UseExprRuleVariant::Parent {
@@ -289,7 +289,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 15,
                     use_expr_idx: 1,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::line_segment`,
                     ),
                     variant: UseExprRuleVariant::Parent {
@@ -314,7 +314,7 @@ Ok(
                         original_symbol: EntitySymbol::Submodule(
                             SubmoduleSymbol {
                                 path: `mnist_classifier::geom2d`,
-                                visibility: Visibility::PubUnder(
+                                visibility: Scope::PubUnder(
                                     `mnist_classifier`,
                                 ),
                                 ast_idx: 13,
@@ -339,7 +339,7 @@ Ok(
                     },
                     ast_idx: 15,
                     use_expr_idx: 0,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::line_segment`,
                     ),
                     progress: 6,

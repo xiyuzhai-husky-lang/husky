@@ -5,15 +5,15 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `is_five`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
+                                FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
                             ast_idx: 2,
@@ -33,7 +33,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 1,
                     use_expr_idx: 1,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::five`,
                     ),
                     variant: UseExprRuleVariant::Parent {

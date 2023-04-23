@@ -61,6 +61,10 @@ impl<'a> ExprTypeEngine<'a> {
                 refined_path: Right(PreludeTypePath::Num(PreludeNumTypePath::Int(_))),
                 ..
             }
+            | FluffyTermData::PlaceTypeOntology {
+                refined_path: Right(PreludeTypePath::Num(PreludeNumTypePath::Int(_))),
+                ..
+            }
             | FluffyTermData::Hole(HoleKind::UnspecifiedIntegerType, _) => Ok(()),
             FluffyTermData::TypeOntology { .. } => todo!(),
             FluffyTermData::Curry { .. } => todo!(),

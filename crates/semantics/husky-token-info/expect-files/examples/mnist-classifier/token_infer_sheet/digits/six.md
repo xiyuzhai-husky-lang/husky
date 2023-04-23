@@ -21,13 +21,13 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
                         ),
                     ),
                 ),
                 Some(
                     ModuleItem {
-                        module_item_kind: Form(
+                        module_item_kind: Fugitive(
                             Val,
                         ),
                         connection: Connected,
@@ -51,7 +51,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                         ),
                     ),
                 ),
@@ -62,7 +62,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                         ),
                     ),
                 ),
@@ -74,7 +74,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::six::upmost`, `Fn`),
+                            FugitivePath(`mnist_classifier::digits::six::upmost`, `Fn`),
                         ),
                     ),
                 ),
@@ -87,13 +87,13 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                         ),
                     ),
                 ),
                 Some(
                     ModuleItem {
-                        module_item_kind: Form(
+                        module_item_kind: Fugitive(
                             Val,
                         ),
                         connection: Connected,
@@ -117,7 +117,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                         ),
                     ),
                 ),
@@ -128,7 +128,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                         ),
                     ),
                 ),
@@ -140,7 +140,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::six::upmost`, `Fn`),
+                            FugitivePath(`mnist_classifier::digits::six::upmost`, `Fn`),
                         ),
                     ),
                 ),
@@ -151,7 +151,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::six::bottom1`, `Fn`),
+                            FugitivePath(`mnist_classifier::digits::six::bottom1`, `Fn`),
                         ),
                     ),
                 ),
@@ -168,13 +168,13 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                         ),
                     ),
                 ),
                 Some(
                     ModuleItem {
-                        module_item_kind: Form(
+                        module_item_kind: Fugitive(
                             Val,
                         ),
                         connection: Connected,
@@ -200,7 +200,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                         ),
                     ),
                 ),
@@ -227,7 +227,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
                         ),
                     ),
                 ),
@@ -267,7 +267,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                     ),
                 ),
@@ -288,7 +288,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                     ),
                 ),
@@ -301,7 +301,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                     ),
                 ),
@@ -362,7 +362,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
                         ),
                     ),
                 ),
@@ -375,7 +375,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                         ),
                     ),
                 ),
@@ -398,7 +398,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                         ),
                     ),
                 ),
@@ -482,7 +482,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                         ),
                     ),
                 ),
@@ -495,7 +495,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                         ),
                     ),
                 ),
@@ -538,7 +538,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                            FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                         ),
                     ),
                 ),
@@ -617,7 +617,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                            FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                         ),
                     ),
                 ),
@@ -679,7 +679,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                            FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                         ),
                     ),
                 ),
@@ -698,7 +698,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                     ),
                 ),
@@ -800,7 +800,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
                         ),
                     ),
                 ),
@@ -815,7 +815,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
                         ),
                     ),
                 ),
@@ -831,7 +831,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
                         ),
                     ),
                 ),
@@ -942,13 +942,13 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::six::upmost`, `Fn`),
+                            FugitivePath(`mnist_classifier::digits::six::upmost`, `Fn`),
                         ),
                     ),
                 ),
                 Some(
                     ModuleItem {
-                        module_item_kind: Form(
+                        module_item_kind: Fugitive(
                             Fn,
                         ),
                         connection: Connected,
@@ -1035,13 +1035,13 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::six::bottom1`, `Fn`),
+                            FugitivePath(`mnist_classifier::digits::six::bottom1`, `Fn`),
                         ),
                     ),
                 ),
                 Some(
                     ModuleItem {
-                        module_item_kind: Form(
+                        module_item_kind: Fugitive(
                             Fn,
                         ),
                         connection: Connected,

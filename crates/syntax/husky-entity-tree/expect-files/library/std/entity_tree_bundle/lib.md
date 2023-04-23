@@ -7,13 +7,13 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `prelude`,
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `std`,
                             ),
                             symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
                                     path: `std::prelude`,
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `std`,
                                     ),
                                     ast_idx: 0,
@@ -28,13 +28,13 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `logic`,
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `std`,
                             ),
                             symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
                                     path: `std::logic`,
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `std`,
                                     ),
                                     ast_idx: 1,
@@ -49,13 +49,13 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `ops`,
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `std`,
                             ),
                             symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
                                     path: `std::ops`,
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `std`,
                                     ),
                                     ast_idx: 2,
@@ -104,7 +104,7 @@ Ok(
                         UseExprRule {
                             ast_idx: 0,
                             use_expr_idx: 2,
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             variant: UseExprRuleVariant::Parent {
                                 parent_name_token: NameToken::Ident(
                                     IdentToken {
@@ -145,7 +145,7 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `Add`,
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `std::ops`,
                             ),
                             symbol: EntitySymbol::ModuleItem(
@@ -153,7 +153,7 @@ Ok(
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`std::ops::Add`),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `std::ops`,
                                     ),
                                     ast_idx: 3,

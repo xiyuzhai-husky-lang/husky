@@ -16,6 +16,7 @@ enum-class = { path = "../../abstraction/enum-class" }
 with-db = { path = "../../abstraction/with-db" }
 idx-arena = { path = "../../abstraction/idx-arena" }
 vec-like = { path = "../../abstraction/vec-like" }
+original-error = { path = "../../abstraction/original-error" }
 parsec = { path = "../../abstraction/parsec" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }

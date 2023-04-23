@@ -21,13 +21,13 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                         ),
                     ),
                 ),
                 Some(
                     ModuleItem {
-                        module_item_kind: Form(
+                        module_item_kind: Fugitive(
                             Val,
                         ),
                         connection: Connected,
@@ -51,7 +51,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                         ),
                     ),
                 ),
@@ -62,7 +62,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                         ),
                     ),
                 ),
@@ -74,7 +74,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::three::downarc`, `Fn`),
+                            FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
                         ),
                     ),
                 ),
@@ -85,7 +85,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::three::uparc`, `Fn`),
+                            FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
                         ),
                     ),
                 ),
@@ -96,7 +96,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::three::back`, `Fn`),
+                            FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
                         ),
                     ),
                 ),
@@ -113,13 +113,13 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                         ),
                     ),
                 ),
                 Some(
                     ModuleItem {
-                        module_item_kind: Form(
+                        module_item_kind: Fugitive(
                             Val,
                         ),
                         connection: Connected,
@@ -145,7 +145,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                         ),
                     ),
                 ),
@@ -162,7 +162,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                         ),
                     ),
                 ),
@@ -187,7 +187,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                         ),
                     ),
                 ),
@@ -211,7 +211,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                         ),
                     ),
                 ),
@@ -235,7 +235,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                         ),
                     ),
                 ),
@@ -418,7 +418,7 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                            FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                         ),
                     ),
                 ),
@@ -468,13 +468,13 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::three::uparc`, `Fn`),
+                            FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
                         ),
                     ),
                 ),
                 Some(
                     ModuleItem {
-                        module_item_kind: Form(
+                        module_item_kind: Fugitive(
                             Fn,
                         ),
                         connection: Connected,
@@ -566,13 +566,13 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::three::downarc`, `Fn`),
+                            FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
                         ),
                     ),
                 ),
                 Some(
                     ModuleItem {
-                        module_item_kind: Form(
+                        module_item_kind: Fugitive(
                             Fn,
                         ),
                         connection: Connected,
@@ -664,13 +664,13 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::digits::three::back`, `Fn`),
+                            FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
                         ),
                     ),
                 ),
                 Some(
                     ModuleItem {
-                        module_item_kind: Form(
+                        module_item_kind: Fugitive(
                             Fn,
                         ),
                         connection: Connected,

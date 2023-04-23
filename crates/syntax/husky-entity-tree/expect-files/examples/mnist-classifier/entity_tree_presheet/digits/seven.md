@@ -5,15 +5,15 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `simple_seven_match`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::seven`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                                FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
                             ast_idx: 40,
@@ -28,15 +28,15 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `simple_leftdown_pattern`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::seven`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
+                                FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
                             ast_idx: 41,
@@ -51,15 +51,15 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `special_seven_match`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::seven`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                                FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
                             ast_idx: 42,
@@ -74,15 +74,15 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `leftupcc_pattern`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::seven`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
+                                FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
                             ast_idx: 43,
@@ -97,15 +97,15 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `leftdowncc_pattern`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::seven`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
+                                FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
                             ast_idx: 44,
@@ -120,15 +120,15 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `is_seven`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                                FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
                             ast_idx: 45,
@@ -148,7 +148,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 39,
                     use_expr_idx: 1,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::seven`,
                     ),
                     variant: UseExprRuleVariant::Parent {

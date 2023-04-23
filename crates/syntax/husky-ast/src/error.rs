@@ -4,7 +4,7 @@ use husky_scope_expr::{
 use husky_token::{
     IdentToken, Punctuation, TokenError, TokenGroupIdx, TokenIdx, TokenIdxRange, TokenParseContext,
 };
-use parsec::OriginalError;
+use original_error::OriginalError;
 use thiserror::Error;
 
 use crate::{AstDb, AstIdx};

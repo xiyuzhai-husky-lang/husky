@@ -16,18 +16,36 @@
         ),
         expr_ty_infos: [],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [],
-        current_symbol_tys: [],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 0,
-                },
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
                 data: [],
-                first_unresolved_term: 0,
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [],
                 },
@@ -35,7 +53,7 @@
             },
         },
         return_ty: Some(
-            Term(`TypeOntology(core::num::i8)`),
+            EtherealTerm(`TypeOntology(core::num::i8)`),
         ),
         self_ty: None,
     },
@@ -57,20 +75,84 @@
         ),
         expr_ty_infos: [],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [
-            Term(`TypeOntology(core::num::i8)`),
-        ],
-        current_symbol_tys: [],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 0,
-                },
-                data: [],
-                first_unresolved_term: 0,
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [
+                    Some(
+                        SymbolType(
+                            Solid(
+                                SolidTerm(
+                                    0,
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [
+                    None,
+                ],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [
+                            PlaceTypeOntology {
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            0,
+                                        ),
+                                    ),
+                                },
+                                path: TypePath(
+                                    Id {
+                                        value: 12,
+                                    },
+                                ),
+                                refined_path: Left(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 12,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [],
+                                base_ty_term: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 12,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [],
                 },
@@ -78,7 +160,7 @@
             },
         },
         return_ty: Some(
-            Term(`TypeOntology(core::num::i8)`),
+            EtherealTerm(`TypeOntology(core::num::i8)`),
         ),
         self_ty: None,
     },
@@ -99,18 +181,36 @@
         ),
         expr_ty_infos: [],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [],
-        current_symbol_tys: [],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 0,
-                },
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
                 data: [],
-                first_unresolved_term: 0,
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [],
                 },
@@ -118,7 +218,7 @@
             },
         },
         return_ty: Some(
-            Term(`TypeOntology(core::num::i16)`),
+            EtherealTerm(`TypeOntology(core::num::i16)`),
         ),
         self_ty: None,
     },
@@ -140,20 +240,84 @@
         ),
         expr_ty_infos: [],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [
-            Term(`TypeOntology(core::num::i32)`),
-        ],
-        current_symbol_tys: [],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 0,
-                },
-                data: [],
-                first_unresolved_term: 0,
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [
+                    Some(
+                        SymbolType(
+                            Solid(
+                                SolidTerm(
+                                    0,
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [
+                    None,
+                ],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [
+                            PlaceTypeOntology {
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            0,
+                                        ),
+                                    ),
+                                },
+                                path: TypePath(
+                                    Id {
+                                        value: 14,
+                                    },
+                                ),
+                                refined_path: Left(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 14,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [],
+                                base_ty_term: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 14,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [],
                 },
@@ -161,7 +325,7 @@
             },
         },
         return_ty: Some(
-            Term(`TypeOntology(core::num::i16)`),
+            EtherealTerm(`TypeOntology(core::num::i16)`),
         ),
         self_ty: None,
     },
@@ -182,18 +346,36 @@
         ),
         expr_ty_infos: [],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [],
-        current_symbol_tys: [],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 0,
-                },
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
                 data: [],
-                first_unresolved_term: 0,
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [],
                 },
@@ -201,7 +383,7 @@
             },
         },
         return_ty: Some(
-            Term(`TypeOntology(core::num::i32)`),
+            EtherealTerm(`TypeOntology(core::num::i32)`),
         ),
         self_ty: None,
     },
@@ -223,20 +405,84 @@
         ),
         expr_ty_infos: [],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [
-            Term(`TypeOntology(core::num::i32)`),
-        ],
-        current_symbol_tys: [],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 0,
-                },
-                data: [],
-                first_unresolved_term: 0,
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [
+                    Some(
+                        SymbolType(
+                            Solid(
+                                SolidTerm(
+                                    0,
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [
+                    None,
+                ],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [
+                            PlaceTypeOntology {
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            0,
+                                        ),
+                                    ),
+                                },
+                                path: TypePath(
+                                    Id {
+                                        value: 14,
+                                    },
+                                ),
+                                refined_path: Left(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 14,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [],
+                                base_ty_term: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 14,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [],
                 },
@@ -244,7 +490,7 @@
             },
         },
         return_ty: Some(
-            Term(`TypeOntology(core::num::i32)`),
+            EtherealTerm(`TypeOntology(core::num::i32)`),
         ),
         self_ty: None,
     },
@@ -265,18 +511,36 @@
         ),
         expr_ty_infos: [],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [],
-        current_symbol_tys: [],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 0,
-                },
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
                 data: [],
-                first_unresolved_term: 0,
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [],
                 },
@@ -284,7 +548,7 @@
             },
         },
         return_ty: Some(
-            Term(`TypeOntology(core::num::i64)`),
+            EtherealTerm(`TypeOntology(core::num::i64)`),
         ),
         self_ty: None,
     },
@@ -306,20 +570,84 @@
         ),
         expr_ty_infos: [],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [
-            Term(`TypeOntology(core::num::i64)`),
-        ],
-        current_symbol_tys: [],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 0,
-                },
-                data: [],
-                first_unresolved_term: 0,
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [
+                    Some(
+                        SymbolType(
+                            Solid(
+                                SolidTerm(
+                                    0,
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [
+                    None,
+                ],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [
+                            PlaceTypeOntology {
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            0,
+                                        ),
+                                    ),
+                                },
+                                path: TypePath(
+                                    Id {
+                                        value: 15,
+                                    },
+                                ),
+                                refined_path: Left(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 15,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [],
+                                base_ty_term: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 15,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [],
                 },
@@ -327,7 +655,7 @@
             },
         },
         return_ty: Some(
-            Term(`TypeOntology(core::num::i64)`),
+            EtherealTerm(`TypeOntology(core::num::i64)`),
         ),
         self_ty: None,
     },
@@ -348,18 +676,36 @@
         ),
         expr_ty_infos: [],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [],
-        current_symbol_tys: [],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 0,
-                },
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
                 data: [],
-                first_unresolved_term: 0,
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [],
                 },
@@ -367,7 +713,7 @@
             },
         },
         return_ty: Some(
-            Term(`TypeOntology(core::num::i128)`),
+            EtherealTerm(`TypeOntology(core::num::i128)`),
         ),
         self_ty: None,
     },
@@ -389,20 +735,84 @@
         ),
         expr_ty_infos: [],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [
-            Term(`TypeOntology(core::num::i128)`),
-        ],
-        current_symbol_tys: [],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 0,
-                },
-                data: [],
-                first_unresolved_term: 0,
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [
+                    Some(
+                        SymbolType(
+                            Solid(
+                                SolidTerm(
+                                    0,
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [
+                    None,
+                ],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [
+                            PlaceTypeOntology {
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            0,
+                                        ),
+                                    ),
+                                },
+                                path: TypePath(
+                                    Id {
+                                        value: 16,
+                                    },
+                                ),
+                                refined_path: Left(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 16,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [],
+                                base_ty_term: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 16,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [],
                 },
@@ -410,7 +820,7 @@
             },
         },
         return_ty: Some(
-            Term(`TypeOntology(core::num::i128)`),
+            EtherealTerm(`TypeOntology(core::num::i128)`),
         ),
         self_ty: None,
     },
@@ -431,18 +841,36 @@
         ),
         expr_ty_infos: [],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [],
-        current_symbol_tys: [],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 0,
-                },
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
                 data: [],
-                first_unresolved_term: 0,
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [],
                 },
@@ -450,7 +878,7 @@
             },
         },
         return_ty: Some(
-            Term(`TypeOntology(core::num::isize)`),
+            EtherealTerm(`TypeOntology(core::num::isize)`),
         ),
         self_ty: None,
     },
@@ -472,20 +900,84 @@
         ),
         expr_ty_infos: [],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [
-            Term(`TypeOntology(core::num::isize)`),
-        ],
-        current_symbol_tys: [],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 0,
-                },
-                data: [],
-                first_unresolved_term: 0,
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [
+                    Some(
+                        SymbolType(
+                            Solid(
+                                SolidTerm(
+                                    0,
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [
+                    None,
+                ],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [
+                            PlaceTypeOntology {
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            0,
+                                        ),
+                                    ),
+                                },
+                                path: TypePath(
+                                    Id {
+                                        value: 17,
+                                    },
+                                ),
+                                refined_path: Left(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 17,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [],
+                                base_ty_term: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 17,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [],
                 },
@@ -493,7 +985,7 @@
             },
         },
         return_ty: Some(
-            Term(`TypeOntology(core::num::isize)`),
+            EtherealTerm(`TypeOntology(core::num::isize)`),
         ),
         self_ty: None,
     },
@@ -514,18 +1006,36 @@
         ),
         expr_ty_infos: [],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [],
-        current_symbol_tys: [],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 0,
-                },
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
                 data: [],
-                first_unresolved_term: 0,
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [],
                 },
@@ -533,7 +1043,7 @@
             },
         },
         return_ty: Some(
-            Term(`TypeOntology(core::num::u8)`),
+            EtherealTerm(`TypeOntology(core::num::u8)`),
         ),
         self_ty: None,
     },
@@ -555,20 +1065,84 @@
         ),
         expr_ty_infos: [],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [
-            Term(`TypeOntology(core::num::u8)`),
-        ],
-        current_symbol_tys: [],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 0,
-                },
-                data: [],
-                first_unresolved_term: 0,
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [
+                    Some(
+                        SymbolType(
+                            Solid(
+                                SolidTerm(
+                                    0,
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [
+                    None,
+                ],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [
+                            PlaceTypeOntology {
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            0,
+                                        ),
+                                    ),
+                                },
+                                path: TypePath(
+                                    Id {
+                                        value: 18,
+                                    },
+                                ),
+                                refined_path: Left(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 18,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [],
+                                base_ty_term: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 18,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [],
                 },
@@ -576,7 +1150,7 @@
             },
         },
         return_ty: Some(
-            Term(`TypeOntology(core::num::u8)`),
+            EtherealTerm(`TypeOntology(core::num::u8)`),
         ),
         self_ty: None,
     },
@@ -597,18 +1171,36 @@
         ),
         expr_ty_infos: [],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [],
-        current_symbol_tys: [],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 0,
-                },
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
                 data: [],
-                first_unresolved_term: 0,
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [],
                 },
@@ -616,7 +1208,7 @@
             },
         },
         return_ty: Some(
-            Term(`TypeOntology(core::num::u16)`),
+            EtherealTerm(`TypeOntology(core::num::u16)`),
         ),
         self_ty: None,
     },
@@ -638,20 +1230,84 @@
         ),
         expr_ty_infos: [],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [
-            Term(`TypeOntology(core::num::u16)`),
-        ],
-        current_symbol_tys: [],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 0,
-                },
-                data: [],
-                first_unresolved_term: 0,
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [
+                    Some(
+                        SymbolType(
+                            Solid(
+                                SolidTerm(
+                                    0,
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [
+                    None,
+                ],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [
+                            PlaceTypeOntology {
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            0,
+                                        ),
+                                    ),
+                                },
+                                path: TypePath(
+                                    Id {
+                                        value: 19,
+                                    },
+                                ),
+                                refined_path: Left(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 19,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [],
+                                base_ty_term: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 19,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [],
                 },
@@ -659,7 +1315,7 @@
             },
         },
         return_ty: Some(
-            Term(`TypeOntology(core::num::u16)`),
+            EtherealTerm(`TypeOntology(core::num::u16)`),
         ),
         self_ty: None,
     },
@@ -680,18 +1336,36 @@
         ),
         expr_ty_infos: [],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [],
-        current_symbol_tys: [],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 0,
-                },
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
                 data: [],
-                first_unresolved_term: 0,
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [],
                 },
@@ -699,7 +1373,7 @@
             },
         },
         return_ty: Some(
-            Term(`TypeOntology(core::num::u32)`),
+            EtherealTerm(`TypeOntology(core::num::u32)`),
         ),
         self_ty: None,
     },
@@ -721,20 +1395,84 @@
         ),
         expr_ty_infos: [],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [
-            Term(`TypeOntology(core::num::u32)`),
-        ],
-        current_symbol_tys: [],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 0,
-                },
-                data: [],
-                first_unresolved_term: 0,
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [
+                    Some(
+                        SymbolType(
+                            Solid(
+                                SolidTerm(
+                                    0,
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [
+                    None,
+                ],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [
+                            PlaceTypeOntology {
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            0,
+                                        ),
+                                    ),
+                                },
+                                path: TypePath(
+                                    Id {
+                                        value: 20,
+                                    },
+                                ),
+                                refined_path: Left(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 20,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [],
+                                base_ty_term: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 20,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [],
                 },
@@ -742,7 +1480,7 @@
             },
         },
         return_ty: Some(
-            Term(`TypeOntology(core::num::u32)`),
+            EtherealTerm(`TypeOntology(core::num::u32)`),
         ),
         self_ty: None,
     },
@@ -763,18 +1501,36 @@
         ),
         expr_ty_infos: [],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [],
-        current_symbol_tys: [],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 0,
-                },
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
                 data: [],
-                first_unresolved_term: 0,
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [],
                 },
@@ -782,7 +1538,7 @@
             },
         },
         return_ty: Some(
-            Term(`TypeOntology(core::num::u64)`),
+            EtherealTerm(`TypeOntology(core::num::u64)`),
         ),
         self_ty: None,
     },
@@ -804,20 +1560,84 @@
         ),
         expr_ty_infos: [],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [
-            Term(`TypeOntology(core::num::u64)`),
-        ],
-        current_symbol_tys: [],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 0,
-                },
-                data: [],
-                first_unresolved_term: 0,
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [
+                    Some(
+                        SymbolType(
+                            Solid(
+                                SolidTerm(
+                                    0,
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [
+                    None,
+                ],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [
+                            PlaceTypeOntology {
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            0,
+                                        ),
+                                    ),
+                                },
+                                path: TypePath(
+                                    Id {
+                                        value: 21,
+                                    },
+                                ),
+                                refined_path: Left(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 21,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [],
+                                base_ty_term: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 21,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [],
                 },
@@ -825,7 +1645,7 @@
             },
         },
         return_ty: Some(
-            Term(`TypeOntology(core::num::u64)`),
+            EtherealTerm(`TypeOntology(core::num::u64)`),
         ),
         self_ty: None,
     },
@@ -846,18 +1666,36 @@
         ),
         expr_ty_infos: [],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [],
-        current_symbol_tys: [],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 0,
-                },
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
                 data: [],
-                first_unresolved_term: 0,
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [],
                 },
@@ -865,7 +1703,7 @@
             },
         },
         return_ty: Some(
-            Term(`TypeOntology(core::num::u128)`),
+            EtherealTerm(`TypeOntology(core::num::u128)`),
         ),
         self_ty: None,
     },
@@ -887,20 +1725,84 @@
         ),
         expr_ty_infos: [],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [
-            Term(`TypeOntology(core::num::u128)`),
-        ],
-        current_symbol_tys: [],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 0,
-                },
-                data: [],
-                first_unresolved_term: 0,
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [
+                    Some(
+                        SymbolType(
+                            Solid(
+                                SolidTerm(
+                                    0,
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [
+                    None,
+                ],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [
+                            PlaceTypeOntology {
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            0,
+                                        ),
+                                    ),
+                                },
+                                path: TypePath(
+                                    Id {
+                                        value: 22,
+                                    },
+                                ),
+                                refined_path: Left(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 22,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [],
+                                base_ty_term: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 22,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [],
                 },
@@ -908,7 +1810,7 @@
             },
         },
         return_ty: Some(
-            Term(`TypeOntology(core::num::u128)`),
+            EtherealTerm(`TypeOntology(core::num::u128)`),
         ),
         self_ty: None,
     },
@@ -929,18 +1831,36 @@
         ),
         expr_ty_infos: [],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [],
-        current_symbol_tys: [],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 0,
-                },
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
                 data: [],
-                first_unresolved_term: 0,
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [],
                 },
@@ -948,7 +1868,7 @@
             },
         },
         return_ty: Some(
-            Term(`TypeOntology(core::num::usize)`),
+            EtherealTerm(`TypeOntology(core::num::usize)`),
         ),
         self_ty: None,
     },
@@ -970,20 +1890,84 @@
         ),
         expr_ty_infos: [],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [
-            Term(`TypeOntology(core::num::usize)`),
-        ],
-        current_symbol_tys: [],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 0,
-                },
-                data: [],
-                first_unresolved_term: 0,
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [
+                    Some(
+                        SymbolType(
+                            Solid(
+                                SolidTerm(
+                                    0,
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [
+                    None,
+                ],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [
+                            PlaceTypeOntology {
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            0,
+                                        ),
+                                    ),
+                                },
+                                path: TypePath(
+                                    Id {
+                                        value: 23,
+                                    },
+                                ),
+                                refined_path: Left(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 23,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [],
+                                base_ty_term: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 23,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [],
                 },
@@ -991,7 +1975,7 @@
             },
         },
         return_ty: Some(
-            Term(`TypeOntology(core::num::usize)`),
+            EtherealTerm(`TypeOntology(core::num::usize)`),
         ),
         self_ty: None,
     },
@@ -1012,18 +1996,36 @@
         ),
         expr_ty_infos: [],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [],
-        current_symbol_tys: [],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 0,
-                },
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
                 data: [],
-                first_unresolved_term: 0,
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [],
                 },
@@ -1031,7 +2033,7 @@
             },
         },
         return_ty: Some(
-            Term(`TypeOntology(core::num::f32)`),
+            EtherealTerm(`TypeOntology(core::num::f32)`),
         ),
         self_ty: None,
     },
@@ -1053,20 +2055,84 @@
         ),
         expr_ty_infos: [],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [
-            Term(`TypeOntology(core::num::f32)`),
-        ],
-        current_symbol_tys: [],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 0,
-                },
-                data: [],
-                first_unresolved_term: 0,
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [
+                    Some(
+                        SymbolType(
+                            Solid(
+                                SolidTerm(
+                                    0,
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [
+                    None,
+                ],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [
+                            PlaceTypeOntology {
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            0,
+                                        ),
+                                    ),
+                                },
+                                path: TypePath(
+                                    Id {
+                                        value: 24,
+                                    },
+                                ),
+                                refined_path: Left(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 24,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [],
+                                base_ty_term: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 24,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [],
                 },
@@ -1074,7 +2140,7 @@
             },
         },
         return_ty: Some(
-            Term(`TypeOntology(core::num::f32)`),
+            EtherealTerm(`TypeOntology(core::num::f32)`),
         ),
         self_ty: None,
     },
@@ -1095,18 +2161,36 @@
         ),
         expr_ty_infos: [],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [],
-        current_symbol_tys: [],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 0,
-                },
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
                 data: [],
-                first_unresolved_term: 0,
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [],
                 },
@@ -1114,7 +2198,7 @@
             },
         },
         return_ty: Some(
-            Term(`TypeOntology(core::num::f64)`),
+            EtherealTerm(`TypeOntology(core::num::f64)`),
         ),
         self_ty: None,
     },
@@ -1136,20 +2220,84 @@
         ),
         expr_ty_infos: [],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [
-            Term(`TypeOntology(core::num::f64)`),
-        ],
-        current_symbol_tys: [],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 0,
-                },
-                data: [],
-                first_unresolved_term: 0,
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [
+                    Some(
+                        SymbolType(
+                            Solid(
+                                SolidTerm(
+                                    0,
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [
+                    None,
+                ],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [
+                            PlaceTypeOntology {
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            0,
+                                        ),
+                                    ),
+                                },
+                                path: TypePath(
+                                    Id {
+                                        value: 25,
+                                    },
+                                ),
+                                refined_path: Left(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 25,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [],
+                                base_ty_term: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 25,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [],
                 },
@@ -1157,7 +2305,7 @@
             },
         },
         return_ty: Some(
-            Term(`TypeOntology(core::num::f64)`),
+            EtherealTerm(`TypeOntology(core::num::f64)`),
         ),
         self_ty: None,
     },

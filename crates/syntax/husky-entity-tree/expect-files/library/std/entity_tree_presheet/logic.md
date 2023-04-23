@@ -9,7 +9,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 0,
                     use_expr_idx: 2,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Ident(
                             IdentToken {

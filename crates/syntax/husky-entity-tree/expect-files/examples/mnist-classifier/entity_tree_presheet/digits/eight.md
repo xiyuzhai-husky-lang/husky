@@ -5,15 +5,15 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `upper_mouth_match`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
+                                FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 18,
@@ -28,15 +28,15 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `is_eight`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                                FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
                             ast_idx: 19,
@@ -51,15 +51,15 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `big_mouth`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
+                                FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 20,
@@ -79,7 +79,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 17,
                     use_expr_idx: 1,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     variant: UseExprRuleVariant::Parent {

@@ -5,7 +5,7 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `ConvexComponent`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convex_component`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
@@ -13,7 +13,7 @@ Ok(
                             path: ModuleItemPath::Type(
                                 TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
                             ast_idx: 3,
@@ -33,7 +33,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 2,
                     use_expr_idx: 2,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convex_component`,
                     ),
                     variant: UseExprRuleVariant::Parent {

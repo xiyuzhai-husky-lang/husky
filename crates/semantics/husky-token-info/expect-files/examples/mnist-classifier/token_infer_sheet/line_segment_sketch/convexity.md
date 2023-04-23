@@ -23,7 +23,7 @@ Ok(
                     original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::line_segment_sketch`,
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
                             ast_idx: 14,
@@ -61,7 +61,7 @@ Ok(
                     original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::raw_contour`,
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
                             ast_idx: 12,
@@ -99,7 +99,7 @@ Ok(
                     original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::geom2d`,
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
                             ast_idx: 13,
@@ -121,13 +121,13 @@ Ok(
                 Some(
                     EntityPath::ModuleItem(
                         ModuleItemPath::Form(
-                            FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
+                            FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
                         ),
                     ),
                 ),
                 Some(
                     ModuleItem {
-                        module_item_kind: Form(
+                        module_item_kind: Fugitive(
                             Fn,
                         ),
                         connection: Connected,

@@ -26,6 +26,26 @@ DiagnosticSheet {
                 range: [35:29, 35:52),
             },
             Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [37:17, 37:43),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [40:31, 40:57),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [48:13, 48:40),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [49:18, 49:44),
+            },
+            Diagnostic {
                 message: "type path mismatch: expect core::basic::unit, but got mnist::MnistLabel instead",
                 severity: Error,
                 range: [43:9, 43:26),

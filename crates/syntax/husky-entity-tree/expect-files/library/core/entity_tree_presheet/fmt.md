@@ -5,13 +5,13 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `Debug`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Trait(
                                 TraitPath(`core::fmt::Debug`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 0,
                             ident_token: IdentToken {
                                 ident: `Debug`,

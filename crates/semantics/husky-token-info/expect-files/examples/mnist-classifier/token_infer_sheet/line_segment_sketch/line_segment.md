@@ -23,7 +23,7 @@ Ok(
                     original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::geom2d`,
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
                             ast_idx: 13,

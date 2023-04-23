@@ -5,15 +5,15 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `one_fermi_match`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::one`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                                FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::one`,
                             ),
                             ast_idx: 62,
@@ -28,13 +28,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `is_one`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 63,
                             ident_token: IdentToken {
                                 ident: `is_one`,
@@ -47,15 +47,15 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `upmost`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::one`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::one::upmost`, `Fn`),
+                                FugitivePath(`mnist_classifier::digits::one::upmost`, `Fn`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::one`,
                             ),
                             ast_idx: 64,
@@ -70,15 +70,15 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `downmost`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::one`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::one::downmost`, `Fn`),
+                                FugitivePath(`mnist_classifier::digits::one::downmost`, `Fn`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::one`,
                             ),
                             ast_idx: 65,
@@ -93,15 +93,15 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `hat`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::one`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::one::hat`, `Fn`),
+                                FugitivePath(`mnist_classifier::digits::one::hat`, `Fn`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::one`,
                             ),
                             ast_idx: 66,
@@ -121,7 +121,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 61,
                     use_expr_idx: 1,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::one`,
                     ),
                     variant: UseExprRuleVariant::Parent {

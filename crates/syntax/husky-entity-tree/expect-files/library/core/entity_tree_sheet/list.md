@@ -5,13 +5,13 @@ Ok(
             [
                 EntitySymbolEntry {
                     ident: `List`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`core::list::List`, `Extern`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 1,
                             ident_token: IdentToken {
                                 ident: `List`,
@@ -25,33 +25,26 @@ Ok(
             ],
         ),
         impl_blocks: [
-            ImplBlock::IllFormed(
-                IllFormedImplBlock {
-                    id: IllFormedImplBlockId {
-                        module: `core::list`,
+            ImplBlock::Type(
+                TypeImplBlock {
+                    id: TypeImplBlockId {
+                        module_path: `core::list`,
+                        ty_path: TypePath(`core::list::List`, `Extern`),
                         disambiguator: 0,
                     },
+                    ast_idx: 2,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             8,
                         ),
                     },
-                    ast_idx: 2,
+                    ty_expr: 42,
                     body: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 0..1,
                             ),
                         },
-                    ),
-                    ill_form: ImplBlockIllForm::MajorPath(
-                        MajorPathExprError::Original(
-                            OriginalMajorPathExprError::ExpectIdent(
-                                TokenIdx(
-                                    15,
-                                ),
-                            ),
-                        ),
                     ),
                 },
             ),

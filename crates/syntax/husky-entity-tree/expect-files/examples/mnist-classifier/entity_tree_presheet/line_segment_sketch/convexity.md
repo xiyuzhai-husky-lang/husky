@@ -5,13 +5,13 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `is_convex`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
+                                FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 22,
                             ident_token: IdentToken {
                                 ident: `is_convex`,
@@ -29,7 +29,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 19,
                     use_expr_idx: 2,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     variant: UseExprRuleVariant::Parent {
@@ -50,7 +50,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 20,
                     use_expr_idx: 5,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     variant: UseExprRuleVariant::Parent {
@@ -71,7 +71,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 21,
                     use_expr_idx: 8,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     variant: UseExprRuleVariant::Parent {

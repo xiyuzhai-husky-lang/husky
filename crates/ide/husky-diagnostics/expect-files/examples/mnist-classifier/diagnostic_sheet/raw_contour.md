@@ -38,12 +38,12 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Type Error: no method named `last_bits` for type `LocalTerm::Resolved(Term(`TypeOntology(core::raw_bits::r32)`))`",
+                message: "Type Error: no method named `last_bits` for type `FluffyTerm::EntityPath(TermEntityPath::TypeOntology(TypePath(`core::raw_bits::r32`, `Extern`)))`",
                 severity: Error,
                 range: [101:74, 101:83),
             },
             Diagnostic {
-                message: "Type Error: no method named `ilen` for type `LocalTerm::Resolved(Term(`TypeOntology(core::list::List) TypeOntology(mnist_classifier::geom2d::Point2d)`))`",
+                message: "Type Error: no method named `ilen` for type `FluffyTerm::Solid(SolidTerm(0))`",
                 severity: Error,
                 range: [161:20, 161:24),
             },
@@ -58,27 +58,27 @@ DiagnosticSheet {
                 range: [163:14, 163:25),
             },
             Diagnostic {
-                message: "Type Error: no method named `lastx` for type `LocalTerm::Resolved(Term(`TypeOntology(core::list::List) TypeOntology(mnist_classifier::geom2d::Point2d)`))`",
+                message: "Type Error: no method named `lastx` for type `FluffyTerm::Solid(SolidTerm(0))`",
                 severity: Error,
                 range: [218:33, 218:38),
             },
             Diagnostic {
-                message: "Type Error: no method named `push` for type `LocalTerm::Resolved(Term(`TypeOntology(core::list::List) TypeOntology(mnist_classifier::geom2d::Point2d)`))`",
+                message: "Type Error: no method named `push` for type `FluffyTerm::Solid(SolidTerm(0))`",
                 severity: Error,
                 range: [219:33, 219:37),
             },
             Diagnostic {
-                message: "Type Error: no method named `lastx` for type `LocalTerm::Resolved(Term(`TypeOntology(core::list::List) TypeOntology(mnist_classifier::geom2d::Point2d)`))`",
+                message: "Type Error: no method named `lastx` for type `FluffyTerm::Solid(SolidTerm(0))`",
                 severity: Error,
                 range: [225:33, 225:38),
             },
             Diagnostic {
-                message: "Type Error: no method named `lastx` for type `LocalTerm::Resolved(Term(`TypeOntology(core::list::List) TypeOntology(mnist_classifier::geom2d::Point2d)`))`",
+                message: "Type Error: no method named `lastx` for type `FluffyTerm::Solid(SolidTerm(0))`",
                 severity: Error,
                 range: [232:33, 232:38),
             },
             Diagnostic {
-                message: "Type Error: no method named `push` for type `LocalTerm::Resolved(Term(`TypeOntology(core::list::List) TypeOntology(mnist_classifier::geom2d::Point2d)`))`",
+                message: "Type Error: no method named `push` for type `FluffyTerm::Solid(SolidTerm(0))`",
                 severity: Error,
                 range: [236:33, 236:37),
             },
@@ -88,12 +88,12 @@ DiagnosticSheet {
                 range: [261:21, 261:37),
             },
             Diagnostic {
-                message: "Type Error: no method named `popx` for type `LocalTerm::Resolved(Term(`TypeOntology(core::list::List) TypeOntology(mnist_classifier::geom2d::Point2d)`))`",
+                message: "Type Error: no method named `popx` for type `FluffyTerm::Solid(SolidTerm(0))`",
                 severity: Error,
                 range: [263:25, 263:29),
             },
             Diagnostic {
-                message: "OriginalLocalTermExpectationError::Todo",
+                message: "OriginalFluffyTermExpectationError::Todo",
                 severity: Error,
                 range: [170:22, 170:24),
             },

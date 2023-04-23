@@ -1,4 +1,5 @@
 use super::*;
+use original_error::OriginalError;
 
 #[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = ExprDb)]

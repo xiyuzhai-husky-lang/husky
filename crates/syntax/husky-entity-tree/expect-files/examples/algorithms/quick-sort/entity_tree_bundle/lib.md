@@ -7,13 +7,13 @@ Ok(
                     [
                         EntitySymbolEntry {
                             ident: `quick_sort`,
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`quick_sort::quick_sort`, `Fn`),
+                                        FugitivePath(`quick_sort::quick_sort`, `Fn`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 30,
                                     ident_token: IdentToken {
                                         ident: `quick_sort`,
@@ -26,15 +26,15 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `quick_sort_aux`,
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `quick_sort`,
                             ),
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`quick_sort::quick_sort_aux`, `Fn`),
+                                        FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `quick_sort`,
                                     ),
                                     ast_idx: 31,
@@ -49,15 +49,15 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `partition`,
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `quick_sort`,
                             ),
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`quick_sort::partition`, `Fn`),
+                                        FugitivePath(`quick_sort::partition`, `Fn`),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `quick_sort`,
                                     ),
                                     ast_idx: 32,
@@ -72,15 +72,15 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `quick_sort_works_for_integers`,
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `quick_sort`,
                             ),
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
+                                        FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `quick_sort`,
                                     ),
                                     ast_idx: 34,
@@ -95,15 +95,15 @@ Ok(
                         },
                         EntitySymbolEntry {
                             ident: `quick_sort_works_for_strs`,
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `quick_sort`,
                             ),
                             symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
+                                        FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `quick_sort`,
                                     ),
                                     ast_idx: 36,

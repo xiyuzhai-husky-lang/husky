@@ -5,13 +5,13 @@ Ok(
             [
                 EntitySymbolEntry {
                     ident: `is_convex`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
+                                FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 22,
                             ident_token: IdentToken {
                                 ident: `is_convex`,
@@ -24,7 +24,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `concave_component`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -32,7 +32,7 @@ Ok(
                             original_symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
                                     path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
                                     ast_idx: 159,
@@ -47,7 +47,7 @@ Ok(
                             path: EntityPath::Module(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             ast_idx: 19,
@@ -57,7 +57,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `convex_component`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -65,7 +65,7 @@ Ok(
                             original_symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
                                     path: `mnist_classifier::line_segment_sketch::convex_component`,
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
                                     ast_idx: 160,
@@ -80,7 +80,7 @@ Ok(
                             path: EntityPath::Module(
                                 `mnist_classifier::line_segment_sketch::convex_component`,
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             ast_idx: 19,
@@ -90,7 +90,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `convexity`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -98,7 +98,7 @@ Ok(
                             original_symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
                                     path: `mnist_classifier::line_segment_sketch::convexity`,
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
                                     ast_idx: 161,
@@ -113,7 +113,7 @@ Ok(
                             path: EntityPath::Module(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             ast_idx: 19,
@@ -123,7 +123,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `line_segment`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -131,7 +131,7 @@ Ok(
                             original_symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
                                     path: `mnist_classifier::line_segment_sketch::line_segment`,
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
                                     ast_idx: 162,
@@ -146,7 +146,7 @@ Ok(
                             path: EntityPath::Module(
                                 `mnist_classifier::line_segment_sketch::line_segment`,
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             ast_idx: 19,
@@ -156,7 +156,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `LineSegmentStroke`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -166,7 +166,7 @@ Ok(
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 169,
                                     ident_token: IdentToken {
                                         ident: `LineSegmentStroke`,
@@ -181,7 +181,7 @@ Ok(
                                     TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             ast_idx: 19,
@@ -191,7 +191,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `LineSegmentSketch`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -201,7 +201,7 @@ Ok(
                                     path: ModuleItemPath::Type(
                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 171,
                                     ident_token: IdentToken {
                                         ident: `LineSegmentSketch`,
@@ -216,7 +216,7 @@ Ok(
                                     TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             ast_idx: 19,
@@ -226,7 +226,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `go_right`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -234,9 +234,9 @@ Ok(
                             original_symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                        FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
                                     ast_idx: 173,
@@ -250,10 +250,10 @@ Ok(
                             ),
                             path: EntityPath::ModuleItem(
                                 ModuleItemPath::Form(
-                                    FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
+                                    FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             ast_idx: 19,
@@ -263,7 +263,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `go_left`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -271,9 +271,9 @@ Ok(
                             original_symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                        FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
                                     ast_idx: 174,
@@ -287,10 +287,10 @@ Ok(
                             ),
                             path: EntityPath::ModuleItem(
                                 ModuleItemPath::Form(
-                                    FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
+                                    FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             ast_idx: 19,
@@ -300,7 +300,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `extend_end`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -308,9 +308,9 @@ Ok(
                             original_symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                                        FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
                                     ast_idx: 175,
@@ -324,10 +324,10 @@ Ok(
                             ),
                             path: EntityPath::ModuleItem(
                                 ModuleItemPath::Form(
-                                    FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
+                                    FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             ast_idx: 19,
@@ -337,7 +337,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `extend_start`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -345,9 +345,9 @@ Ok(
                             original_symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                                        FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
                                     ast_idx: 176,
@@ -361,10 +361,10 @@ Ok(
                             ),
                             path: EntityPath::ModuleItem(
                                 ModuleItemPath::Form(
-                                    FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
+                                    FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             ast_idx: 19,
@@ -374,7 +374,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `find_line_segments`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -382,9 +382,9 @@ Ok(
                             original_symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                                        FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
                                     ast_idx: 177,
@@ -398,10 +398,10 @@ Ok(
                             ),
                             path: EntityPath::ModuleItem(
                                 ModuleItemPath::Form(
-                                    FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
+                                    FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             ast_idx: 19,
@@ -411,7 +411,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `ConcaveComponent`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -423,7 +423,7 @@ Ok(
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             ast_idx: 74,
                                             ident_token: IdentToken {
                                                 ident: `ConcaveComponent`,
@@ -438,7 +438,7 @@ Ok(
                                             TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                         ),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 163,
                                     use_expr_idx: 0,
                                 },
@@ -448,7 +448,7 @@ Ok(
                                     TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             ast_idx: 19,
@@ -458,7 +458,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `find_concave_components`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -468,9 +468,9 @@ Ok(
                                     original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
                                             path: ModuleItemPath::Form(
-                                                FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             ast_idx: 76,
                                             ident_token: IdentToken {
                                                 ident: `find_concave_components`,
@@ -482,20 +482,20 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                         ),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 163,
                                     use_expr_idx: 0,
                                 },
                             ),
                             path: EntityPath::ModuleItem(
                                 ModuleItemPath::Form(
-                                    FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             ast_idx: 19,
@@ -505,7 +505,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `LineSegment`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -517,7 +517,7 @@ Ok(
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             ast_idx: 16,
                                             ident_token: IdentToken {
                                                 ident: `LineSegment`,
@@ -532,7 +532,7 @@ Ok(
                                             TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                         ),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 165,
                                     use_expr_idx: 4,
                                 },
@@ -542,7 +542,7 @@ Ok(
                                     TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             ast_idx: 19,
@@ -552,7 +552,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `RawContour`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -564,7 +564,7 @@ Ok(
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             ast_idx: 203,
                                             ident_token: IdentToken {
                                                 ident: `RawContour`,
@@ -579,7 +579,7 @@ Ok(
                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                         ),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
                                     ast_idx: 167,
@@ -591,7 +591,7 @@ Ok(
                                     TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             ast_idx: 19,
@@ -601,7 +601,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `Point2d`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -613,7 +613,7 @@ Ok(
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             ast_idx: 78,
                                             ident_token: IdentToken {
                                                 ident: `Point2d`,
@@ -628,7 +628,7 @@ Ok(
                                             TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                         ),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
                                     ast_idx: 166,
@@ -640,7 +640,7 @@ Ok(
                                     TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             ast_idx: 19,
@@ -650,7 +650,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `RelativePoint2d`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -662,7 +662,7 @@ Ok(
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             ast_idx: 80,
                                             ident_token: IdentToken {
                                                 ident: `RelativePoint2d`,
@@ -677,7 +677,7 @@ Ok(
                                             TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                         ),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
                                     ast_idx: 166,
@@ -689,7 +689,7 @@ Ok(
                                     TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             ast_idx: 19,
@@ -699,7 +699,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `Vector2d`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -711,7 +711,7 @@ Ok(
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             ast_idx: 81,
                                             ident_token: IdentToken {
                                                 ident: `Vector2d`,
@@ -726,7 +726,7 @@ Ok(
                                             TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                         ),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
                                     ast_idx: 166,
@@ -738,7 +738,7 @@ Ok(
                                     TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             ast_idx: 19,
@@ -748,7 +748,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `ClosedRange`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -760,7 +760,7 @@ Ok(
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             ast_idx: 83,
                                             ident_token: IdentToken {
                                                 ident: `ClosedRange`,
@@ -775,7 +775,7 @@ Ok(
                                             TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                         ),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
                                     ast_idx: 166,
@@ -787,7 +787,7 @@ Ok(
                                     TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             ast_idx: 19,
@@ -797,7 +797,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `BoundingBox`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -809,7 +809,7 @@ Ok(
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             ast_idx: 85,
                                             ident_token: IdentToken {
                                                 ident: `BoundingBox`,
@@ -824,7 +824,7 @@ Ok(
                                             TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                         ),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
                                     ast_idx: 166,
@@ -836,7 +836,7 @@ Ok(
                                     TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             ast_idx: 19,
@@ -846,7 +846,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `RelativeBoundingBox`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -858,7 +858,7 @@ Ok(
                                             path: ModuleItemPath::Type(
                                                 TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             ast_idx: 87,
                                             ident_token: IdentToken {
                                                 ident: `RelativeBoundingBox`,
@@ -873,7 +873,7 @@ Ok(
                                             TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                         ),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
                                     ast_idx: 166,
@@ -885,7 +885,7 @@ Ok(
                                     TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             ast_idx: 19,
@@ -895,7 +895,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `find_raw_contours`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -903,9 +903,9 @@ Ok(
                             original_symbol: EntitySymbol::ModuleItem(
                                 ModuleItemSymbol {
                                     path: ModuleItemPath::Form(
-                                        FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                        FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 214,
                                     ident_token: IdentToken {
                                         ident: `find_raw_contours`,
@@ -917,10 +917,10 @@ Ok(
                             ),
                             path: EntityPath::ModuleItem(
                                 ModuleItemPath::Form(
-                                    FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             ast_idx: 20,
@@ -936,7 +936,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 19,
                     use_expr_idx: 2,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     variant: UseExprRuleVariant::Parent {
@@ -961,7 +961,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 20,
                     use_expr_idx: 5,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     variant: UseExprRuleVariant::Parent {
@@ -986,7 +986,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 21,
                     use_expr_idx: 8,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     variant: UseExprRuleVariant::Parent {
@@ -1011,7 +1011,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 19,
                     use_expr_idx: 1,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     variant: UseExprRuleVariant::Parent {
@@ -1036,7 +1036,7 @@ Ok(
                         original_symbol: EntitySymbol::Submodule(
                             SubmoduleSymbol {
                                 path: `mnist_classifier::line_segment_sketch`,
-                                visibility: Visibility::PubUnder(
+                                visibility: Scope::PubUnder(
                                     `mnist_classifier`,
                                 ),
                                 ast_idx: 14,
@@ -1053,7 +1053,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 20,
                     use_expr_idx: 4,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     variant: UseExprRuleVariant::Parent {
@@ -1078,7 +1078,7 @@ Ok(
                         original_symbol: EntitySymbol::Submodule(
                             SubmoduleSymbol {
                                 path: `mnist_classifier::raw_contour`,
-                                visibility: Visibility::PubUnder(
+                                visibility: Scope::PubUnder(
                                     `mnist_classifier`,
                                 ),
                                 ast_idx: 12,
@@ -1095,7 +1095,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 21,
                     use_expr_idx: 7,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     variant: UseExprRuleVariant::Parent {
@@ -1120,7 +1120,7 @@ Ok(
                         original_symbol: EntitySymbol::Submodule(
                             SubmoduleSymbol {
                                 path: `mnist_classifier::geom2d`,
-                                visibility: Visibility::PubUnder(
+                                visibility: Scope::PubUnder(
                                     `mnist_classifier`,
                                 ),
                                 ast_idx: 13,
@@ -1145,7 +1145,7 @@ Ok(
                     },
                     ast_idx: 19,
                     use_expr_idx: 0,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     progress: 21,
@@ -1157,7 +1157,7 @@ Ok(
                     },
                     ast_idx: 20,
                     use_expr_idx: 3,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     progress: 44,
@@ -1169,7 +1169,7 @@ Ok(
                     },
                     ast_idx: 21,
                     use_expr_idx: 6,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     progress: 6,

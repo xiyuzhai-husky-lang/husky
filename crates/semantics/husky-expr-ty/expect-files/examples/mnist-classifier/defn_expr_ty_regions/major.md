@@ -4,17 +4,17 @@
             DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                        FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
                     ),
                 ),
             ),
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                ty_result: Err(
+                variant_and_ty_result: Err(
                     Derived(
                         TypeError(
-                            RawTypeError(
+                            DeclarativeTypeError(
                                 Derived(
                                     SignatureError,
                                 ),
@@ -23,28 +23,25 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Err(
+                variant_and_ty_result: Err(
                     Derived(
                         ExprError,
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Err(
+                variant_and_ty_result: Err(
                     Derived(
                         ApplicationOrRitchieCallFunctionTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
+                variant_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -55,22 +52,39 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [],
-        current_symbol_tys: [],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 0,
-                },
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
                 data: [],
-                first_unresolved_term: 0,
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [],
                 },
@@ -85,19 +99,19 @@
             DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                     ),
                 ),
             ),
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                ty_result: Ok(
+                variant_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
-                            Unresolved(
-                                UnresolvedTermIdx(
+                            Hollow(
+                                HollowTerm(
                                     0,
                                 ),
                             ),
@@ -107,17 +121,14 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: Expected(
-                    Unresolved,
-                ),
             },
             ExprTypeInfo {
-                ty_result: Ok(
+                variant_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
-                            Unresolved(
-                                UnresolvedTermIdx(
+                            Hollow(
+                                HollowTerm(
                                     1,
                                 ),
                             ),
@@ -127,15 +138,12 @@
                 expectation_rule_idx: Some(
                     1,
                 ),
-                resolve_progress: Expected(
-                    Unresolved,
-                ),
             },
             ExprTypeInfo {
-                ty_result: Err(
+                variant_and_ty_result: Err(
                     Derived(
                         TypeError(
-                            RawTypeError(
+                            DeclarativeTypeError(
                                 Derived(
                                     SignatureError,
                                 ),
@@ -144,22 +152,20 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Err(
+                variant_and_ty_result: Err(
                     Derived(
                         MethodOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Err(
+                variant_and_ty_result: Err(
                     Derived(
                         TypeError(
-                            RawTypeError(
+                            DeclarativeTypeError(
                                 Derived(
                                     SignatureError,
                                 ),
@@ -168,10 +174,9 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
+                variant_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -182,33 +187,25 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Err(
+                variant_and_ty_result: Err(
                     Derived(
                         ApplicationOrRitchieCallFunctionTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                FieldOwnerTypeNotInferred,
-                            ),
-                        ),
+                variant_and_ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
+                variant_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -219,10 +216,9 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
+                variant_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -233,21 +229,18 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
+                variant_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
-                            Resolved(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 31,
-                                            },
-                                        ),
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 31,
+                                        },
                                     ),
                                 ),
                             ),
@@ -257,18 +250,9 @@
                 expectation_rule_idx: Some(
                     2,
                 ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            ImplicitlyConvertible(
-                                None,
-                            ),
-                        ),
-                    ),
-                ),
             },
             ExprTypeInfo {
-                ty_result: Ok(
+                variant_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -279,10 +263,9 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
+                variant_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -293,21 +276,18 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
+                variant_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
-                            Resolved(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 33,
-                                            },
-                                        ),
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 33,
+                                        },
                                     ),
                                 ),
                             ),
@@ -317,18 +297,9 @@
                 expectation_rule_idx: Some(
                     3,
                 ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            ImplicitlyConvertible(
-                                None,
-                            ),
-                        ),
-                    ),
-                ),
             },
             ExprTypeInfo {
-                ty_result: Ok(
+                variant_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -339,10 +310,9 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
+                variant_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -353,21 +323,18 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
+                variant_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
-                            Resolved(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 33,
-                                            },
-                                        ),
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 33,
+                                        },
                                     ),
                                 ),
                             ),
@@ -377,21 +344,12 @@
                 expectation_rule_idx: Some(
                     4,
                 ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            ImplicitlyConvertible(
-                                None,
-                            ),
-                        ),
-                    ),
-                ),
             },
             ExprTypeInfo {
-                ty_result: Err(
+                variant_and_ty_result: Err(
                     Derived(
                         TypeError(
-                            RawTypeError(
+                            DeclarativeTypeError(
                                 Derived(
                                     SignatureError,
                                 ),
@@ -400,10 +358,9 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
+                variant_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -414,30 +371,26 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Err(
+                variant_and_ty_result: Err(
                     Derived(
                         ApplicationOrRitchieCallFunctionTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
+                variant_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
-                            Resolved(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 32,
-                                            },
-                                        ),
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 32,
+                                        },
                                     ),
                                 ),
                             ),
@@ -447,156 +400,121 @@
                 expectation_rule_idx: Some(
                     5,
                 ),
-                resolve_progress: Expected(
-                    Unresolved,
-                ),
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [],
-        current_symbol_tys: [],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 4,
-                },
-                data: [
-                    UnresolvedTermEntry {
-                        src_expr_idx: 0,
-                        unresolved_term: ImplicitSymbol(
-                            ImplicitSymbol {
-                                idx: ImplicitSymbolIdx(
-                                    0,
-                                ),
-                                src_expr_idx: 0,
-                                variant: UnspecifiedIntegerType,
-                            },
-                        ),
-                        implicit_symbol_dependencies: VecSet {
-                            data: [],
-                        },
-                        resolve_progress: Ok(
-                            Unresolved(
-                                UnresolvedTermIdx(
-                                    0,
-                                ),
-                            ),
-                        ),
-                    },
-                    UnresolvedTermEntry {
-                        src_expr_idx: 1,
-                        unresolved_term: ImplicitSymbol(
-                            ImplicitSymbol {
-                                idx: ImplicitSymbolIdx(
-                                    1,
-                                ),
-                                src_expr_idx: 1,
-                                variant: UnspecifiedFloatType,
-                            },
-                        ),
-                        implicit_symbol_dependencies: VecSet {
-                            data: [],
-                        },
-                        resolve_progress: Ok(
-                            Unresolved(
-                                UnresolvedTermIdx(
-                                    1,
-                                ),
-                            ),
-                        ),
-                    },
-                    UnresolvedTermEntry {
-                        src_expr_idx: 15,
-                        unresolved_term: ImplicitSymbol(
-                            ImplicitSymbol {
-                                idx: ImplicitSymbolIdx(
-                                    2,
-                                ),
-                                src_expr_idx: 15,
-                                variant: ExprEvalLifetime,
-                            },
-                        ),
-                        implicit_symbol_dependencies: VecSet {
-                            data: [],
-                        },
-                        resolve_progress: Ok(
-                            Unresolved(
-                                UnresolvedTermIdx(
-                                    2,
-                                ),
-                            ),
-                        ),
-                    },
-                    UnresolvedTermEntry {
-                        src_expr_idx: 18,
-                        unresolved_term: ImplicitSymbol(
-                            ImplicitSymbol {
-                                idx: ImplicitSymbolIdx(
-                                    3,
-                                ),
-                                src_expr_idx: 18,
-                                variant: ExprEvalLifetime,
-                            },
-                        ),
-                        implicit_symbol_dependencies: VecSet {
-                            data: [],
-                        },
-                        resolve_progress: Ok(
-                            Unresolved(
-                                UnresolvedTermIdx(
-                                    3,
-                                ),
-                            ),
-                        ),
-                    },
-                ],
-                first_unresolved_term: 0,
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [
+                    None,
+                    None,
+                    None,
+                    None,
+                ],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [
+                    None,
+                    None,
+                    None,
+                    None,
+                ],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [
+                        HollowTermEntry {
+                            data: Hole {
+                                hole_source: Expr(
+                                    0,
+                                ),
+                                hole_kind: UnspecifiedIntegerType,
+                                fill: None,
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Hole {
+                                hole_source: Expr(
+                                    1,
+                                ),
+                                hole_kind: UnspecifiedFloatType,
+                                fill: None,
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                    ],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [
-                        LocalTermExpectationRule {
-                            src_expr_idx: 0,
-                            expectee: Unresolved(
-                                UnresolvedTermIdx(
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 0,
+                                kind: Expr,
+                            },
+                            expectee: Hollow(
+                                HollowTerm(
                                     0,
                                 ),
                             ),
-                            expectation: AnyOriginal(
+                            data: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             resolve_progress: Unresolved,
                         },
-                        LocalTermExpectationRule {
-                            src_expr_idx: 1,
-                            expectee: Unresolved(
-                                UnresolvedTermIdx(
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 1,
+                                kind: Expr,
+                            },
+                            expectee: Hollow(
+                                HollowTerm(
                                     1,
                                 ),
                             ),
-                            expectation: AnyOriginal(
+                            data: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             resolve_progress: Unresolved,
                         },
-                        LocalTermExpectationRule {
-                            src_expr_idx: 12,
-                            expectee: Resolved(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 31,
-                                            },
-                                        ),
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 12,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 31,
+                                        },
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible(
+                            data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    destination: Resolved(
-                                        EntityPath(
+                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        contract: Pure,
+                                        ty: EntityPath(
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
@@ -605,34 +523,36 @@
                                                 ),
                                             ),
                                         ),
-                                    ),
+                                    },
                                 },
                             ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
-                                        None,
+                                        Trivial,
                                     ),
                                 ),
                             ),
                         },
-                        LocalTermExpectationRule {
-                            src_expr_idx: 15,
-                            expectee: Resolved(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 33,
-                                            },
-                                        ),
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 15,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 33,
+                                        },
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible(
+                            data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    destination: Resolved(
-                                        EntityPath(
+                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        contract: Pure,
+                                        ty: EntityPath(
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
@@ -641,34 +561,36 @@
                                                 ),
                                             ),
                                         ),
-                                    ),
+                                    },
                                 },
                             ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
-                                        None,
+                                        Trivial,
                                     ),
                                 ),
                             ),
                         },
-                        LocalTermExpectationRule {
-                            src_expr_idx: 18,
-                            expectee: Resolved(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 33,
-                                            },
-                                        ),
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 18,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 33,
+                                        },
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible(
+                            data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    destination: Resolved(
-                                        EntityPath(
+                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        contract: Pure,
+                                        ty: EntityPath(
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
@@ -677,31 +599,32 @@
                                                 ),
                                             ),
                                         ),
-                                    ),
+                                    },
                                 },
                             ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
-                                        None,
+                                        Trivial,
                                     ),
                                 ),
                             ),
                         },
-                        LocalTermExpectationRule {
-                            src_expr_idx: 22,
-                            expectee: Resolved(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 32,
-                                            },
-                                        ),
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 22,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 32,
+                                        },
                                     ),
                                 ),
                             ),
-                            expectation: AnyDerived(
+                            data: AnyDerived(
                                 ExpectAnyDerived,
                             ),
                             resolve_progress: Unresolved,
@@ -719,19 +642,19 @@
             DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                        FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                     ),
                 ),
             ),
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                ty_result: Ok(
+                variant_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
-                            Unresolved(
-                                UnresolvedTermIdx(
+                            Hollow(
+                                HollowTerm(
                                     0,
                                 ),
                             ),
@@ -741,15 +664,12 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: Expected(
-                    Unresolved,
-                ),
             },
             ExprTypeInfo {
-                ty_result: Err(
+                variant_and_ty_result: Err(
                     Derived(
                         TypeError(
-                            RawTypeError(
+                            DeclarativeTypeError(
                                 Derived(
                                     SignatureError,
                                 ),
@@ -758,22 +678,20 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Err(
+                variant_and_ty_result: Err(
                     Derived(
                         MethodOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Err(
+                variant_and_ty_result: Err(
                     Derived(
                         TypeError(
-                            RawTypeError(
+                            DeclarativeTypeError(
                                 Derived(
                                     SignatureError,
                                 ),
@@ -782,10 +700,9 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
+                variant_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -796,19 +713,17 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Err(
+                variant_and_ty_result: Err(
                     Derived(
                         ApplicationOrRitchieCallFunctionTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
+                variant_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -819,35 +734,26 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                FieldOwnerTypeNotInferred,
-                            ),
-                        ),
+                variant_and_ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
+                variant_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
-                            Resolved(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 33,
-                                            },
-                                        ),
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 33,
+                                        },
                                     ),
                                 ),
                             ),
@@ -857,18 +763,23 @@
                 expectation_rule_idx: Some(
                     1,
                 ),
-                resolve_progress: Expected(
-                    Resolved(
-                        Ok(
-                            ImplicitlyConvertible(
-                                None,
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Err(
+                    Derived(
+                        TypeError(
+                            DeclarativeTypeError(
+                                Derived(
+                                    SignatureError,
+                                ),
                             ),
                         ),
                     ),
                 ),
+                expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                ty_result: Ok(
+                variant_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -879,10 +790,17 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
+                variant_and_ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -893,21 +811,18 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
+                variant_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
-                            Resolved(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 32,
-                                            },
-                                        ),
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 32,
+                                        },
                                     ),
                                 ),
                             ),
@@ -917,100 +832,92 @@
                 expectation_rule_idx: Some(
                     2,
                 ),
-                resolve_progress: Expected(
-                    Unresolved,
-                ),
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [],
-        current_symbol_tys: [],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 2,
-                },
-                data: [
-                    UnresolvedTermEntry {
-                        src_expr_idx: 0,
-                        unresolved_term: ImplicitSymbol(
-                            ImplicitSymbol {
-                                idx: ImplicitSymbolIdx(
-                                    0,
-                                ),
-                                src_expr_idx: 0,
-                                variant: UnspecifiedFloatType,
-                            },
-                        ),
-                        implicit_symbol_dependencies: VecSet {
-                            data: [],
-                        },
-                        resolve_progress: Ok(
-                            Unresolved(
-                                UnresolvedTermIdx(
-                                    0,
-                                ),
-                            ),
-                        ),
-                    },
-                    UnresolvedTermEntry {
-                        src_expr_idx: 10,
-                        unresolved_term: ImplicitSymbol(
-                            ImplicitSymbol {
-                                idx: ImplicitSymbolIdx(
-                                    1,
-                                ),
-                                src_expr_idx: 10,
-                                variant: ExprEvalLifetime,
-                            },
-                        ),
-                        implicit_symbol_dependencies: VecSet {
-                            data: [],
-                        },
-                        resolve_progress: Ok(
-                            Unresolved(
-                                UnresolvedTermIdx(
-                                    1,
-                                ),
-                            ),
-                        ),
-                    },
-                ],
-                first_unresolved_term: 0,
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [
+                    None,
+                    None,
+                ],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [
+                    None,
+                    None,
+                ],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [
+                        HollowTermEntry {
+                            data: Hole {
+                                hole_source: Expr(
+                                    0,
+                                ),
+                                hole_kind: UnspecifiedFloatType,
+                                fill: None,
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                    ],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [
-                        LocalTermExpectationRule {
-                            src_expr_idx: 0,
-                            expectee: Unresolved(
-                                UnresolvedTermIdx(
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 0,
+                                kind: Expr,
+                            },
+                            expectee: Hollow(
+                                HollowTerm(
                                     0,
                                 ),
                             ),
-                            expectation: AnyOriginal(
+                            data: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             resolve_progress: Unresolved,
                         },
-                        LocalTermExpectationRule {
-                            src_expr_idx: 10,
-                            expectee: Resolved(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 33,
-                                            },
-                                        ),
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 10,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 33,
+                                        },
                                     ),
                                 ),
                             ),
-                            expectation: ImplicitlyConvertible(
+                            data: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    destination: Resolved(
-                                        EntityPath(
+                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
+                                        contract: Pure,
+                                        ty: EntityPath(
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
@@ -1019,31 +926,32 @@
                                                 ),
                                             ),
                                         ),
-                                    ),
+                                    },
                                 },
                             ),
                             resolve_progress: Resolved(
                                 Ok(
                                     ImplicitlyConvertible(
-                                        None,
+                                        Trivial,
                                     ),
                                 ),
                             ),
                         },
-                        LocalTermExpectationRule {
-                            src_expr_idx: 15,
-                            expectee: Resolved(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 32,
-                                            },
-                                        ),
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 15,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 32,
+                                        },
                                     ),
                                 ),
                             ),
-                            expectation: AnyDerived(
+                            data: AnyDerived(
                                 ExpectAnyDerived,
                             ),
                             resolve_progress: Unresolved,
@@ -1061,17 +969,17 @@
             DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
+                        FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
                     ),
                 ),
             ),
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                ty_result: Err(
+                variant_and_ty_result: Err(
                     Derived(
                         TypeError(
-                            RawTypeError(
+                            DeclarativeTypeError(
                                 Derived(
                                     SignatureError,
                                 ),
@@ -1080,24 +988,17 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                FieldOwnerTypeNotInferred,
-                            ),
-                        ),
+                variant_and_ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
+                variant_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -1108,22 +1009,39 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [],
-        current_symbol_tys: [],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 0,
-                },
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
                 data: [],
-                first_unresolved_term: 0,
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [],
                 },
@@ -1138,17 +1056,17 @@
             DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                        FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
                     ),
                 ),
             ),
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                ty_result: Err(
+                variant_and_ty_result: Err(
                     Derived(
                         TypeError(
-                            RawTypeError(
+                            DeclarativeTypeError(
                                 Derived(
                                     SignatureError,
                                 ),
@@ -1157,29 +1075,22 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                FieldOwnerTypeNotInferred,
-                            ),
-                        ),
+                variant_and_ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
+                variant_and_ty_result: Ok(
                     (
                         Trivial,
                         Ok(
-                            Unresolved(
-                                UnresolvedTermIdx(
+                            Hollow(
+                                HollowTerm(
                                     0,
                                 ),
                             ),
@@ -1189,21 +1100,17 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: Expected(
-                    Unresolved,
-                ),
             },
             ExprTypeInfo {
-                ty_result: Err(
+                variant_and_ty_result: Err(
                     Derived(
                         ApplicationOrRitchieCallFunctionTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
+                variant_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -1214,55 +1121,63 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [],
-        current_symbol_tys: [],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 1,
-                },
-                data: [
-                    UnresolvedTermEntry {
-                        src_expr_idx: 2,
-                        unresolved_term: ImplicitSymbol(
-                            ImplicitSymbol {
-                                idx: ImplicitSymbolIdx(
-                                    0,
-                                ),
-                                src_expr_idx: 2,
-                                variant: UnspecifiedIntegerType,
-                            },
-                        ),
-                        implicit_symbol_dependencies: VecSet {
-                            data: [],
-                        },
-                        resolve_progress: Ok(
-                            Unresolved(
-                                UnresolvedTermIdx(
-                                    0,
-                                ),
-                            ),
-                        ),
-                    },
-                ],
-                first_unresolved_term: 0,
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [
+                        HollowTermEntry {
+                            data: Hole {
+                                hole_source: Expr(
+                                    2,
+                                ),
+                                hole_kind: UnspecifiedIntegerType,
+                                fill: None,
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                    ],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [
-                        LocalTermExpectationRule {
-                            src_expr_idx: 2,
-                            expectee: Unresolved(
-                                UnresolvedTermIdx(
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 2,
+                                kind: Expr,
+                            },
+                            expectee: Hollow(
+                                HollowTerm(
                                     0,
                                 ),
                             ),
-                            expectation: AnyDerived(
+                            data: AnyDerived(
                                 ExpectAnyDerived,
                             ),
                             resolve_progress: Unresolved,
@@ -1280,26 +1195,24 @@
             DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                        FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                     ),
                 ),
             ),
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                ty_result: Ok(
+                variant_and_ty_result: Ok(
                     (
                         TypePath(
                             Constructor,
                         ),
                         Ok(
-                            Resolved(
-                                Application(
-                                    TermApplication(
-                                        Id {
-                                            value: 5,
-                                        },
-                                    ),
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 6,
+                                    },
                                 ),
                             ),
                         ),
@@ -1308,26 +1221,17 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: Expected(
-                    Unresolved,
-                ),
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Original(
-                                NoSuchField,
-                            ),
-                        ),
+                variant_and_ty_result: Err(
+                    Original(
+                        NoSuchField,
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
+                variant_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -1338,36 +1242,54 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [],
-        current_symbol_tys: [],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 0,
-                },
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
                 data: [],
-                first_unresolved_term: 0,
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [
-                        LocalTermExpectationRule {
-                            src_expr_idx: 0,
-                            expectee: Resolved(
-                                Application(
-                                    TermApplication(
-                                        Id {
-                                            value: 5,
-                                        },
-                                    ),
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 0,
+                                kind: Expr,
+                            },
+                            expectee: Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 6,
+                                    },
                                 ),
                             ),
-                            expectation: AnyOriginal(
+                            data: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             resolve_progress: Unresolved,
@@ -1385,26 +1307,24 @@
             DefnRegionPath::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Form(
-                        FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                     ),
                 ),
             ),
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                ty_result: Ok(
+                variant_and_ty_result: Ok(
                     (
                         TypePath(
                             Constructor,
                         ),
                         Ok(
-                            Resolved(
-                                Application(
-                                    TermApplication(
-                                        Id {
-                                            value: 12,
-                                        },
-                                    ),
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 13,
+                                    },
                                 ),
                             ),
                         ),
@@ -1413,26 +1333,17 @@
                 expectation_rule_idx: Some(
                     0,
                 ),
-                resolve_progress: Expected(
-                    Unresolved,
-                ),
             },
             ExprTypeInfo {
-                ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Original(
-                                NoSuchField,
-                            ),
-                        ),
+                variant_and_ty_result: Err(
+                    Original(
+                        NoSuchField,
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
             ExprTypeInfo {
-                ty_result: Ok(
+                variant_and_ty_result: Ok(
                     (
                         Trivial,
                         Err(
@@ -1443,36 +1354,54 @@
                     ),
                 ),
                 expectation_rule_idx: None,
-                resolve_progress: Unresolved,
             },
         ],
         extra_expr_errors: [],
-        expr_local_terms: [],
-        inherited_symbol_tys: [],
-        current_symbol_tys: [],
-        local_term_region: LocalTermRegion {
-            unresolved_terms: UnresolvedTerms {
-                implicit_symbol_registry: ImplicitSymbolRegistry {
-                    next: 0,
-                },
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
                 data: [],
-                first_unresolved_term: 0,
             },
-            expectations: LocalTermExpectations {
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [],
+                    },
+                },
+            },
+            expectations: Expectations {
                 arena: Arena {
                     data: [
-                        LocalTermExpectationRule {
-                            src_expr_idx: 0,
-                            expectee: Resolved(
-                                Application(
-                                    TermApplication(
-                                        Id {
-                                            value: 12,
-                                        },
-                                    ),
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 0,
+                                kind: Expr,
+                            },
+                            expectee: Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 13,
+                                    },
                                 ),
                             ),
-                            expectation: AnyOriginal(
+                            data: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
                             resolve_progress: Unresolved,

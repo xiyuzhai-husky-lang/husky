@@ -5,13 +5,13 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `ConcaveComponent`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 74,
                             ident_token: IdentToken {
                                 ident: `ConcaveComponent`,
@@ -24,13 +24,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `find_concave_components`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 76,
                             ident_token: IdentToken {
                                 ident: `find_concave_components`,
@@ -48,7 +48,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 69,
                     use_expr_idx: 2,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     variant: UseExprRuleVariant::Parent {
@@ -69,7 +69,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 70,
                     use_expr_idx: 6,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     variant: UseExprRuleVariant::Parent {
@@ -90,7 +90,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 71,
                     use_expr_idx: 10,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     variant: UseExprRuleVariant::Parent {
@@ -111,7 +111,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 72,
                     use_expr_idx: 13,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     variant: UseExprRuleVariant::Parent {
@@ -132,7 +132,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 73,
                     use_expr_idx: 15,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch::concave_component`,
                     ),
                     variant: UseExprRuleVariant::Parent {

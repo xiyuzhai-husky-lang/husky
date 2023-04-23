@@ -5,11 +5,11 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `basic`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `core::basic`,
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 0,
                             ident_token: IdentToken {
                                 ident: `basic`,
@@ -22,11 +22,11 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `default`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `core::default`,
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 1,
                             ident_token: IdentToken {
                                 ident: `default`,
@@ -39,11 +39,11 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `logic`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `core::logic`,
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 2,
                             ident_token: IdentToken {
                                 ident: `logic`,
@@ -56,11 +56,11 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `mem`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `core::mem`,
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 3,
                             ident_token: IdentToken {
                                 ident: `mem`,
@@ -73,11 +73,11 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `num`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `core::num`,
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 4,
                             ident_token: IdentToken {
                                 ident: `num`,
@@ -90,11 +90,11 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `ops`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `core::ops`,
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 5,
                             ident_token: IdentToken {
                                 ident: `ops`,
@@ -107,11 +107,11 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `prelude`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `core::prelude`,
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 6,
                             ident_token: IdentToken {
                                 ident: `prelude`,
@@ -124,11 +124,11 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `raw_bits`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `core::raw_bits`,
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 7,
                             ident_token: IdentToken {
                                 ident: `raw_bits`,
@@ -141,11 +141,11 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `fmt`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `core::fmt`,
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 8,
                             ident_token: IdentToken {
                                 ident: `fmt`,
@@ -158,11 +158,11 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `clone`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `core::clone`,
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 9,
                             ident_token: IdentToken {
                                 ident: `clone`,
@@ -175,11 +175,11 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `marker`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `core::marker`,
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 10,
                             ident_token: IdentToken {
                                 ident: `marker`,
@@ -192,11 +192,11 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `list`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `core::list`,
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 11,
                             ident_token: IdentToken {
                                 ident: `list`,
@@ -209,11 +209,11 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `cmp`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `core::cmp`,
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 12,
                             ident_token: IdentToken {
                                 ident: `cmp`,
@@ -226,11 +226,11 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `str`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `core::str`,
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 13,
                             ident_token: IdentToken {
                                 ident: `str`,
@@ -243,11 +243,11 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `option`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `core::option`,
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 14,
                             ident_token: IdentToken {
                                 ident: `option`,

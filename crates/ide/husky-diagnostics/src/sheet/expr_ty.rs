@@ -142,15 +142,14 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
                 format!("Type Error: NoSuchField")
             }
             OriginalExprTypeError::NoMethodForType {
-                self_expr_ty_unravelled,
+                self_expr_ty,
                 ident_token,
             } => {
-                todo!()
-                // format!(
-                //     "Type Error: no method named `{}` for type `{:?}`",
-                //     ident_token.ident().data(ctx.db()),
-                //     self_expr_ty_unravelled.debug(ctx.db()) // ad hoc
-                // )
+                format!(
+                    "Type Error: no method named `{}` for type `{:?}`",
+                    ident_token.ident().data(ctx.db()),
+                    self_expr_ty.debug(ctx.db()) // ad hoc
+                )
             }
             OriginalExprTypeError::TodoIndexOrComposeWithList => {
                 format!("Type Error: TodoIndexOrComposeWithList")

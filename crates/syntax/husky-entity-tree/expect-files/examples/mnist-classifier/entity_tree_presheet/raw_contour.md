@@ -5,13 +5,13 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `RawContour`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 203,
                             ident_token: IdentToken {
                                 ident: `RawContour`,
@@ -24,7 +24,7 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `Direction`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
@@ -32,7 +32,7 @@ Ok(
                             path: ModuleItemPath::Type(
                                 TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             ast_idx: 205,
@@ -47,15 +47,15 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `get_pixel_pair`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
+                                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             ast_idx: 206,
@@ -70,15 +70,15 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `get_pixel_to_the_left`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
+                                FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             ast_idx: 207,
@@ -93,15 +93,15 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `get_pixel_to_the_right`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
+                                FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             ast_idx: 208,
@@ -116,15 +116,15 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `get_inward_direction`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
+                                FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             ast_idx: 209,
@@ -139,15 +139,15 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `get_angle_change`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
+                                FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             ast_idx: 210,
@@ -162,15 +162,15 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `get_outward_direction`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
+                                FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             ast_idx: 211,
@@ -185,7 +185,7 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `StreakCache`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
@@ -193,7 +193,7 @@ Ok(
                             path: ModuleItemPath::Type(
                                 TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             ast_idx: 212,
@@ -208,15 +208,15 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `get_concave_middle_point`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
+                                FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
                             ),
                             ast_idx: 213,
@@ -231,13 +231,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `find_raw_contours`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 214,
                             ident_token: IdentToken {
                                 ident: `find_raw_contours`,
@@ -255,7 +255,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 199,
                     use_expr_idx: 2,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     variant: UseExprRuleVariant::Parent {
@@ -276,7 +276,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 200,
                     use_expr_idx: 5,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     variant: UseExprRuleVariant::Parent {
@@ -297,7 +297,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 201,
                     use_expr_idx: 8,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     variant: UseExprRuleVariant::Parent {
@@ -318,7 +318,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 202,
                     use_expr_idx: 10,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
                     ),
                     variant: UseExprRuleVariant::Parent {

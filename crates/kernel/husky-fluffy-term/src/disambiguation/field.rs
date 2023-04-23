@@ -35,7 +35,8 @@ impl FluffyTerm {
         indirections: SmallVec<[FluffyFieldIndirection; 2]>,
     ) -> FluffyTermMaybeResult<FluffyFieldDisambiguation> {
         match self.nested() {
-            NestedFluffyTerm::Ethereal(term) => todo!(),
+            NestedFluffyTerm::Ethereal(term) => Nothing, // ad hoc
+            // todo!(),
             NestedFluffyTerm::Solid(term) => {
                 term.field_disambiguation_aux(engine, ident, available_traits, indirections)
             }

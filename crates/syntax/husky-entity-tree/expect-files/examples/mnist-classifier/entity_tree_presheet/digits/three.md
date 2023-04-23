@@ -5,15 +5,15 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `three_fermi_match`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::three`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                                FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::three`,
                             ),
                             ast_idx: 28,
@@ -28,15 +28,15 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `is_three`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
                             ast_idx: 29,
@@ -51,15 +51,15 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `uparc`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::three`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::three::uparc`, `Fn`),
+                                FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::three`,
                             ),
                             ast_idx: 30,
@@ -74,15 +74,15 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `downarc`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::three`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::three::downarc`, `Fn`),
+                                FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::three`,
                             ),
                             ast_idx: 31,
@@ -97,15 +97,15 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `back`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::three`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::three::back`, `Fn`),
+                                FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::three`,
                             ),
                             ast_idx: 32,
@@ -125,7 +125,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 27,
                     use_expr_idx: 1,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::three`,
                     ),
                     variant: UseExprRuleVariant::Parent {

@@ -9,8 +9,49 @@ impl<'a> ExprTypeEngine<'a> {
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         match opr {
             PrefixOpr::Minus => {
-                let opd_ty = self.infer_new_expr_ty(opd, ExpectAnyOriginal);
-                todo!()
+                let opd_ty = self
+                    .infer_new_expr_ty(opd, ExpectAnyOriginal)
+                    .ok_or(DerivedExprTypeError::PrefixOperandTypeNotInferred)?;
+                match opd_ty.data(self) {
+                    FluffyTermData::Literal(_) => todo!(),
+                    FluffyTermData::TypeOntology {
+                        path,
+                        refined_path,
+                        arguments,
+                        ty_ethereal_term,
+                    } => todo!(),
+                    FluffyTermData::PlaceTypeOntology {
+                        place,
+                        path,
+                        refined_path,
+                        arguments,
+                        base_ty_ethereal_term,
+                    } => todo!(),
+                    FluffyTermData::Curry {
+                        curry_kind,
+                        variance,
+                        parameter_variable,
+                        parameter_ty,
+                        return_ty,
+                    } => todo!(),
+                    FluffyTermData::Hole(hole_kind, _) => match hole_kind {
+                        HoleKind::UnspecifiedIntegerType | HoleKind::UnspecifiedFloatType => {
+                            Ok((ExprDisambiguation::Trivial, Ok(opd_ty)))
+                        }
+                        HoleKind::ImplicitType => todo!(),
+                    },
+                    FluffyTermData::Category(_) => todo!(),
+                    FluffyTermData::Ritchie {
+                        ritchie_kind,
+                        parameter_contracted_tys,
+                        return_ty,
+                    } => todo!(),
+                    FluffyTermData::PlaceHole {
+                        place,
+                        hole_kind,
+                        hole,
+                    } => todo!(),
+                }
                 // match opd_ty {
                 //     Some(opd_ty) => match opd_ty {
                 //         FluffyTerm::EtherealTerm(_) => todo!(),

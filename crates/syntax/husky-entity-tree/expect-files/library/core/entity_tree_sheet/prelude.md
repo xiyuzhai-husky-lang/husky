@@ -5,7 +5,7 @@ Ok(
             [
                 EntitySymbolEntry {
                     ident: `bool`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::ModuleItem(
@@ -13,7 +13,7 @@ Ok(
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::basic::bool`, `Extern`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 0,
                                     ident_token: IdentToken {
                                         ident: `bool`,
@@ -28,7 +28,7 @@ Ok(
                                     TypePath(`core::basic::bool`, `Extern`),
                                 ),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 0,
                             use_expr_idx: 0,
                         },
@@ -36,7 +36,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `never`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::ModuleItem(
@@ -44,7 +44,7 @@ Ok(
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::basic::never`, `Extern`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 1,
                                     ident_token: IdentToken {
                                         ident: `never`,
@@ -59,7 +59,7 @@ Ok(
                                     TypePath(`core::basic::never`, `Extern`),
                                 ),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 0,
                             use_expr_idx: 0,
                         },
@@ -67,7 +67,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `unit`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::ModuleItem(
@@ -75,7 +75,7 @@ Ok(
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::basic::unit`, `Extern`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 2,
                                     ident_token: IdentToken {
                                         ident: `unit`,
@@ -90,7 +90,7 @@ Ok(
                                     TypePath(`core::basic::unit`, `Extern`),
                                 ),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 0,
                             use_expr_idx: 0,
                         },
@@ -98,7 +98,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `Trait`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::ModuleItem(
@@ -106,7 +106,7 @@ Ok(
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::basic::Trait`, `Structure`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 3,
                                     ident_token: IdentToken {
                                         ident: `Trait`,
@@ -121,7 +121,7 @@ Ok(
                                     TypePath(`core::basic::Trait`, `Structure`),
                                 ),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 0,
                             use_expr_idx: 0,
                         },
@@ -129,7 +129,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `Module`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::ModuleItem(
@@ -137,7 +137,7 @@ Ok(
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::basic::Module`, `Structure`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 4,
                                     ident_token: IdentToken {
                                         ident: `Module`,
@@ -152,7 +152,7 @@ Ok(
                                     TypePath(`core::basic::Module`, `Structure`),
                                 ),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 0,
                             use_expr_idx: 0,
                         },
@@ -160,7 +160,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `i8`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::ModuleItem(
@@ -168,7 +168,7 @@ Ok(
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::i8`, `Extern`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 31,
                                     ident_token: IdentToken {
                                         ident: `i8`,
@@ -183,7 +183,7 @@ Ok(
                                     TypePath(`core::num::i8`, `Extern`),
                                 ),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 1,
                             use_expr_idx: 3,
                         },
@@ -191,7 +191,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `i16`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::ModuleItem(
@@ -199,7 +199,7 @@ Ok(
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::i16`, `Extern`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 36,
                                     ident_token: IdentToken {
                                         ident: `i16`,
@@ -214,7 +214,7 @@ Ok(
                                     TypePath(`core::num::i16`, `Extern`),
                                 ),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 1,
                             use_expr_idx: 3,
                         },
@@ -222,7 +222,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `i32`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::ModuleItem(
@@ -230,7 +230,7 @@ Ok(
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::i32`, `Extern`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 41,
                                     ident_token: IdentToken {
                                         ident: `i32`,
@@ -245,7 +245,7 @@ Ok(
                                     TypePath(`core::num::i32`, `Extern`),
                                 ),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 1,
                             use_expr_idx: 3,
                         },
@@ -253,7 +253,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `i64`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::ModuleItem(
@@ -261,7 +261,7 @@ Ok(
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::i64`, `Extern`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 46,
                                     ident_token: IdentToken {
                                         ident: `i64`,
@@ -276,7 +276,7 @@ Ok(
                                     TypePath(`core::num::i64`, `Extern`),
                                 ),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 1,
                             use_expr_idx: 3,
                         },
@@ -284,7 +284,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `i128`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::ModuleItem(
@@ -292,7 +292,7 @@ Ok(
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::i128`, `Extern`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 51,
                                     ident_token: IdentToken {
                                         ident: `i128`,
@@ -307,7 +307,7 @@ Ok(
                                     TypePath(`core::num::i128`, `Extern`),
                                 ),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 1,
                             use_expr_idx: 3,
                         },
@@ -315,7 +315,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `isize`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::ModuleItem(
@@ -323,7 +323,7 @@ Ok(
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::isize`, `Extern`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 56,
                                     ident_token: IdentToken {
                                         ident: `isize`,
@@ -338,7 +338,7 @@ Ok(
                                     TypePath(`core::num::isize`, `Extern`),
                                 ),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 1,
                             use_expr_idx: 3,
                         },
@@ -346,7 +346,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `u8`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::ModuleItem(
@@ -354,7 +354,7 @@ Ok(
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::u8`, `Extern`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 61,
                                     ident_token: IdentToken {
                                         ident: `u8`,
@@ -369,7 +369,7 @@ Ok(
                                     TypePath(`core::num::u8`, `Extern`),
                                 ),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 1,
                             use_expr_idx: 3,
                         },
@@ -377,7 +377,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `u16`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::ModuleItem(
@@ -385,7 +385,7 @@ Ok(
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::u16`, `Extern`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 66,
                                     ident_token: IdentToken {
                                         ident: `u16`,
@@ -400,7 +400,7 @@ Ok(
                                     TypePath(`core::num::u16`, `Extern`),
                                 ),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 1,
                             use_expr_idx: 3,
                         },
@@ -408,7 +408,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `u32`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::ModuleItem(
@@ -416,7 +416,7 @@ Ok(
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::u32`, `Extern`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 71,
                                     ident_token: IdentToken {
                                         ident: `u32`,
@@ -431,7 +431,7 @@ Ok(
                                     TypePath(`core::num::u32`, `Extern`),
                                 ),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 1,
                             use_expr_idx: 3,
                         },
@@ -439,7 +439,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `u64`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::ModuleItem(
@@ -447,7 +447,7 @@ Ok(
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::u64`, `Extern`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 76,
                                     ident_token: IdentToken {
                                         ident: `u64`,
@@ -462,7 +462,7 @@ Ok(
                                     TypePath(`core::num::u64`, `Extern`),
                                 ),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 1,
                             use_expr_idx: 3,
                         },
@@ -470,7 +470,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `u128`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::ModuleItem(
@@ -478,7 +478,7 @@ Ok(
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::u128`, `Extern`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 81,
                                     ident_token: IdentToken {
                                         ident: `u128`,
@@ -493,7 +493,7 @@ Ok(
                                     TypePath(`core::num::u128`, `Extern`),
                                 ),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 1,
                             use_expr_idx: 3,
                         },
@@ -501,7 +501,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `usize`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::ModuleItem(
@@ -509,7 +509,7 @@ Ok(
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::usize`, `Extern`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 86,
                                     ident_token: IdentToken {
                                         ident: `usize`,
@@ -524,7 +524,7 @@ Ok(
                                     TypePath(`core::num::usize`, `Extern`),
                                 ),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 1,
                             use_expr_idx: 3,
                         },
@@ -532,7 +532,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `f32`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::ModuleItem(
@@ -540,7 +540,7 @@ Ok(
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::f32`, `Extern`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 91,
                                     ident_token: IdentToken {
                                         ident: `f32`,
@@ -555,7 +555,7 @@ Ok(
                                     TypePath(`core::num::f32`, `Extern`),
                                 ),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 1,
                             use_expr_idx: 3,
                         },
@@ -563,7 +563,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `f64`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::ModuleItem(
@@ -571,7 +571,7 @@ Ok(
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::num::f64`, `Extern`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 96,
                                     ident_token: IdentToken {
                                         ident: `f64`,
@@ -586,7 +586,7 @@ Ok(
                                     TypePath(`core::num::f64`, `Extern`),
                                 ),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 1,
                             use_expr_idx: 3,
                         },
@@ -594,7 +594,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `r32`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::ModuleItem(
@@ -602,7 +602,7 @@ Ok(
                                     path: ModuleItemPath::Type(
                                         TypePath(`core::raw_bits::r32`, `Extern`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 2,
                                     ident_token: IdentToken {
                                         ident: `r32`,
@@ -617,7 +617,7 @@ Ok(
                                     TypePath(`core::raw_bits::r32`, `Extern`),
                                 ),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 2,
                             use_expr_idx: 6,
                         },
@@ -625,7 +625,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `Debug`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::ModuleItem(
@@ -633,7 +633,7 @@ Ok(
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::fmt::Debug`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 0,
                                     ident_token: IdentToken {
                                         ident: `Debug`,
@@ -648,7 +648,7 @@ Ok(
                                     TraitPath(`core::fmt::Debug`),
                                 ),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 3,
                             use_expr_idx: 9,
                         },
@@ -656,7 +656,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `Copy`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::ModuleItem(
@@ -664,7 +664,7 @@ Ok(
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::marker::Copy`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 0,
                                     ident_token: IdentToken {
                                         ident: `Copy`,
@@ -679,7 +679,7 @@ Ok(
                                     TraitPath(`core::marker::Copy`),
                                 ),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 4,
                             use_expr_idx: 12,
                         },
@@ -687,7 +687,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `Sized`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::ModuleItem(
@@ -695,7 +695,7 @@ Ok(
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::marker::Sized`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 1,
                                     ident_token: IdentToken {
                                         ident: `Sized`,
@@ -710,7 +710,7 @@ Ok(
                                     TraitPath(`core::marker::Sized`),
                                 ),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 4,
                             use_expr_idx: 12,
                         },
@@ -718,7 +718,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `Clone`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::ModuleItem(
@@ -726,7 +726,7 @@ Ok(
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::clone::Clone`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 1,
                                     ident_token: IdentToken {
                                         ident: `Clone`,
@@ -741,7 +741,7 @@ Ok(
                                     TraitPath(`core::clone::Clone`),
                                 ),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 5,
                             use_expr_idx: 15,
                         },
@@ -749,7 +749,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `PartialEq`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::ModuleItem(
@@ -757,7 +757,7 @@ Ok(
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::cmp::PartialEq`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 0,
                                     ident_token: IdentToken {
                                         ident: `PartialEq`,
@@ -772,7 +772,7 @@ Ok(
                                     TraitPath(`core::cmp::PartialEq`),
                                 ),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 6,
                             use_expr_idx: 18,
                         },
@@ -780,7 +780,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `Eq`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::ModuleItem(
@@ -788,7 +788,7 @@ Ok(
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::cmp::Eq`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 1,
                                     ident_token: IdentToken {
                                         ident: `Eq`,
@@ -803,7 +803,7 @@ Ok(
                                     TraitPath(`core::cmp::Eq`),
                                 ),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 6,
                             use_expr_idx: 18,
                         },
@@ -811,7 +811,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `PartialOrd`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::ModuleItem(
@@ -819,7 +819,7 @@ Ok(
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::cmp::PartialOrd`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 2,
                                     ident_token: IdentToken {
                                         ident: `PartialOrd`,
@@ -834,7 +834,7 @@ Ok(
                                     TraitPath(`core::cmp::PartialOrd`),
                                 ),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 6,
                             use_expr_idx: 18,
                         },
@@ -842,7 +842,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `Ord`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::Use(
                         UseSymbol {
                             original_symbol: EntitySymbol::ModuleItem(
@@ -850,7 +850,7 @@ Ok(
                                     path: ModuleItemPath::Trait(
                                         TraitPath(`core::cmp::Ord`),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 3,
                                     ident_token: IdentToken {
                                         ident: `Ord`,
@@ -865,7 +865,7 @@ Ok(
                                     TraitPath(`core::cmp::Ord`),
                                 ),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 6,
                             use_expr_idx: 18,
                         },
@@ -879,7 +879,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 0,
                     use_expr_idx: 2,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Crate(
                             CrateToken {
@@ -902,7 +902,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 1,
                     use_expr_idx: 5,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Crate(
                             CrateToken {
@@ -925,7 +925,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 2,
                     use_expr_idx: 8,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Crate(
                             CrateToken {
@@ -948,7 +948,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 3,
                     use_expr_idx: 11,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Crate(
                             CrateToken {
@@ -971,7 +971,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 4,
                     use_expr_idx: 14,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Crate(
                             CrateToken {
@@ -994,7 +994,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 5,
                     use_expr_idx: 17,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Crate(
                             CrateToken {
@@ -1017,7 +1017,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 6,
                     use_expr_idx: 20,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Crate(
                             CrateToken {
@@ -1040,7 +1040,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 0,
                     use_expr_idx: 1,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Ident(
                             IdentToken {
@@ -1063,7 +1063,7 @@ Ok(
                         original_symbol: EntitySymbol::Submodule(
                             SubmoduleSymbol {
                                 path: `core::basic`,
-                                visibility: Visibility::Pub,
+                                visibility: Scope::Pub,
                                 ast_idx: 0,
                                 ident_token: IdentToken {
                                     ident: `basic`,
@@ -1078,7 +1078,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 1,
                     use_expr_idx: 4,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Ident(
                             IdentToken {
@@ -1101,7 +1101,7 @@ Ok(
                         original_symbol: EntitySymbol::Submodule(
                             SubmoduleSymbol {
                                 path: `core::num`,
-                                visibility: Visibility::Pub,
+                                visibility: Scope::Pub,
                                 ast_idx: 4,
                                 ident_token: IdentToken {
                                     ident: `num`,
@@ -1116,7 +1116,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 2,
                     use_expr_idx: 7,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Ident(
                             IdentToken {
@@ -1139,7 +1139,7 @@ Ok(
                         original_symbol: EntitySymbol::Submodule(
                             SubmoduleSymbol {
                                 path: `core::raw_bits`,
-                                visibility: Visibility::Pub,
+                                visibility: Scope::Pub,
                                 ast_idx: 7,
                                 ident_token: IdentToken {
                                     ident: `raw_bits`,
@@ -1154,7 +1154,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 3,
                     use_expr_idx: 10,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Ident(
                             IdentToken {
@@ -1177,7 +1177,7 @@ Ok(
                         original_symbol: EntitySymbol::Submodule(
                             SubmoduleSymbol {
                                 path: `core::fmt`,
-                                visibility: Visibility::Pub,
+                                visibility: Scope::Pub,
                                 ast_idx: 8,
                                 ident_token: IdentToken {
                                     ident: `fmt`,
@@ -1192,7 +1192,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 4,
                     use_expr_idx: 13,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Ident(
                             IdentToken {
@@ -1215,7 +1215,7 @@ Ok(
                         original_symbol: EntitySymbol::Submodule(
                             SubmoduleSymbol {
                                 path: `core::marker`,
-                                visibility: Visibility::Pub,
+                                visibility: Scope::Pub,
                                 ast_idx: 10,
                                 ident_token: IdentToken {
                                     ident: `marker`,
@@ -1230,7 +1230,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 5,
                     use_expr_idx: 16,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Ident(
                             IdentToken {
@@ -1253,7 +1253,7 @@ Ok(
                         original_symbol: EntitySymbol::Submodule(
                             SubmoduleSymbol {
                                 path: `core::clone`,
-                                visibility: Visibility::Pub,
+                                visibility: Scope::Pub,
                                 ast_idx: 9,
                                 ident_token: IdentToken {
                                     ident: `clone`,
@@ -1268,7 +1268,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 6,
                     use_expr_idx: 19,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Ident(
                             IdentToken {
@@ -1291,7 +1291,7 @@ Ok(
                         original_symbol: EntitySymbol::Submodule(
                             SubmoduleSymbol {
                                 path: `core::cmp`,
-                                visibility: Visibility::Pub,
+                                visibility: Scope::Pub,
                                 ast_idx: 12,
                                 ident_token: IdentToken {
                                     ident: `cmp`,
@@ -1314,7 +1314,7 @@ Ok(
                     },
                     ast_idx: 0,
                     use_expr_idx: 0,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     progress: 5,
                 },
                 UseAllRule {
@@ -1324,7 +1324,7 @@ Ok(
                     },
                     ast_idx: 1,
                     use_expr_idx: 3,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     progress: 15,
                 },
                 UseAllRule {
@@ -1334,7 +1334,7 @@ Ok(
                     },
                     ast_idx: 2,
                     use_expr_idx: 6,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     progress: 1,
                 },
                 UseAllRule {
@@ -1344,7 +1344,7 @@ Ok(
                     },
                     ast_idx: 3,
                     use_expr_idx: 9,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     progress: 1,
                 },
                 UseAllRule {
@@ -1354,7 +1354,7 @@ Ok(
                     },
                     ast_idx: 4,
                     use_expr_idx: 12,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     progress: 2,
                 },
                 UseAllRule {
@@ -1364,7 +1364,7 @@ Ok(
                     },
                     ast_idx: 5,
                     use_expr_idx: 15,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     progress: 1,
                 },
                 UseAllRule {
@@ -1374,7 +1374,7 @@ Ok(
                     },
                     ast_idx: 6,
                     use_expr_idx: 18,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     progress: 4,
                 },
             ],

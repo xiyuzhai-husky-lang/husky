@@ -8,16 +8,9 @@ pub use list::*;
 pub use rollback::*;
 pub use seq::*;
 
+use original_error::OriginalError;
 #[cfg(test)]
 use tests::*;
-
-pub trait OriginalError: Sized {
-    type Error: From<Self>;
-}
-
-impl OriginalError for () {
-    type Error = Self;
-}
 
 pub trait HasStreamState {
     type State;

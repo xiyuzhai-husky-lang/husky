@@ -38,6 +38,7 @@ impl Diagnose for OriginalDeclError {
             OriginalDeclError::ExpectLCurlOrLParOrSemicolon(_) => todo!(),
             OriginalDeclError::NoSuchItem => todo!(),
             OriginalDeclError::Expr(e) => e.message(ctx),
+            OriginalDeclError::Deprecated => "deprecated".to_string(),
         }
     }
 
@@ -50,6 +51,7 @@ impl Diagnose for OriginalDeclError {
             OriginalDeclError::ExpectLCurlOrLParOrSemicolon(_) => todo!(),
             OriginalDeclError::NoSuchItem => todo!(),
             OriginalDeclError::Expr(e) => e.range(ctx),
+            OriginalDeclError::Deprecated => todo!(),
         }
     }
 }

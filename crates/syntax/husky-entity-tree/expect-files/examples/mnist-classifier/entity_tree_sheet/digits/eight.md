@@ -5,15 +5,15 @@ Ok(
             [
                 EntitySymbolEntry {
                     ident: `upper_mouth_match`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
+                                FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 18,
@@ -28,15 +28,15 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `is_eight`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits`,
                     ),
                     symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                                FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
                             ast_idx: 19,
@@ -51,15 +51,15 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `big_mouth`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
+                                FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 20,
@@ -74,7 +74,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `zero`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -82,7 +82,7 @@ Ok(
                             original_symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
                                     path: `mnist_classifier::digits::zero`,
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 0,
@@ -97,7 +97,7 @@ Ok(
                             path: EntityPath::Module(
                                 `mnist_classifier::digits::zero`,
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -107,7 +107,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `one`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -115,7 +115,7 @@ Ok(
                             original_symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
                                     path: `mnist_classifier::digits::one`,
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 1,
@@ -130,7 +130,7 @@ Ok(
                             path: EntityPath::Module(
                                 `mnist_classifier::digits::one`,
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -140,7 +140,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `six`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -148,7 +148,7 @@ Ok(
                             original_symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
                                     path: `mnist_classifier::digits::six`,
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 2,
@@ -163,7 +163,7 @@ Ok(
                             path: EntityPath::Module(
                                 `mnist_classifier::digits::six`,
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -173,7 +173,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `three`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -181,7 +181,7 @@ Ok(
                             original_symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
                                     path: `mnist_classifier::digits::three`,
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 3,
@@ -196,7 +196,7 @@ Ok(
                             path: EntityPath::Module(
                                 `mnist_classifier::digits::three`,
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -206,7 +206,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `four`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -214,7 +214,7 @@ Ok(
                             original_symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
                                     path: `mnist_classifier::digits::four`,
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 4,
@@ -229,7 +229,7 @@ Ok(
                             path: EntityPath::Module(
                                 `mnist_classifier::digits::four`,
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -239,7 +239,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `five`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -247,7 +247,7 @@ Ok(
                             original_symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
                                     path: `mnist_classifier::digits::five`,
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 5,
@@ -262,7 +262,7 @@ Ok(
                             path: EntityPath::Module(
                                 `mnist_classifier::digits::five`,
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -272,7 +272,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `seven`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -280,7 +280,7 @@ Ok(
                             original_symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
                                     path: `mnist_classifier::digits::seven`,
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 6,
@@ -295,7 +295,7 @@ Ok(
                             path: EntityPath::Module(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -305,7 +305,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `eight`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -313,7 +313,7 @@ Ok(
                             original_symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
                                     path: `mnist_classifier::digits::eight`,
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 7,
@@ -328,7 +328,7 @@ Ok(
                             path: EntityPath::Module(
                                 `mnist_classifier::digits::eight`,
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -338,7 +338,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `nine`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -346,7 +346,7 @@ Ok(
                             original_symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
                                     path: `mnist_classifier::digits::nine`,
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 8,
@@ -361,7 +361,7 @@ Ok(
                             path: EntityPath::Module(
                                 `mnist_classifier::digits::nine`,
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -371,7 +371,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `two`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -379,7 +379,7 @@ Ok(
                             original_symbol: EntitySymbol::Submodule(
                                 SubmoduleSymbol {
                                     path: `mnist_classifier::digits::two`,
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 9,
@@ -394,7 +394,7 @@ Ok(
                             path: EntityPath::Module(
                                 `mnist_classifier::digits::two`,
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -404,7 +404,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `is_one`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -414,9 +414,9 @@ Ok(
                                     original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
                                             path: ModuleItemPath::Form(
-                                                FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             ),
-                                            visibility: Visibility::Pub,
+                                            visibility: Scope::Pub,
                                             ast_idx: 63,
                                             ident_token: IdentToken {
                                                 ident: `is_one`,
@@ -428,20 +428,20 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                                         ),
                                     ),
-                                    visibility: Visibility::Pub,
+                                    visibility: Scope::Pub,
                                     ast_idx: 10,
                                     use_expr_idx: 0,
                                 },
                             ),
                             path: EntityPath::ModuleItem(
                                 ModuleItemPath::Form(
-                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -451,7 +451,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `connected_component`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -461,7 +461,7 @@ Ok(
                                     original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
                                             path: `mnist_classifier::connected_component`,
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 11,
@@ -476,7 +476,7 @@ Ok(
                                     path: EntityPath::Module(
                                         `mnist_classifier::connected_component`,
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
@@ -486,7 +486,7 @@ Ok(
                             path: EntityPath::Module(
                                 `mnist_classifier::connected_component`,
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -496,7 +496,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `raw_contour`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -506,7 +506,7 @@ Ok(
                                     original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
                                             path: `mnist_classifier::raw_contour`,
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 12,
@@ -521,7 +521,7 @@ Ok(
                                     path: EntityPath::Module(
                                         `mnist_classifier::raw_contour`,
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
@@ -531,7 +531,7 @@ Ok(
                             path: EntityPath::Module(
                                 `mnist_classifier::raw_contour`,
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -541,7 +541,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `geom2d`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -551,7 +551,7 @@ Ok(
                                     original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
                                             path: `mnist_classifier::geom2d`,
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 13,
@@ -566,7 +566,7 @@ Ok(
                                     path: EntityPath::Module(
                                         `mnist_classifier::geom2d`,
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
@@ -576,7 +576,7 @@ Ok(
                             path: EntityPath::Module(
                                 `mnist_classifier::geom2d`,
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -586,7 +586,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `line_segment_sketch`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -596,7 +596,7 @@ Ok(
                                     original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
                                             path: `mnist_classifier::line_segment_sketch`,
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 14,
@@ -611,7 +611,7 @@ Ok(
                                     path: EntityPath::Module(
                                         `mnist_classifier::line_segment_sketch`,
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
@@ -621,7 +621,7 @@ Ok(
                             path: EntityPath::Module(
                                 `mnist_classifier::line_segment_sketch`,
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -631,7 +631,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `fermi`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -641,7 +641,7 @@ Ok(
                                     original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
                                             path: `mnist_classifier::fermi`,
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 15,
@@ -656,7 +656,7 @@ Ok(
                                     path: EntityPath::Module(
                                         `mnist_classifier::fermi`,
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
@@ -666,7 +666,7 @@ Ok(
                             path: EntityPath::Module(
                                 `mnist_classifier::fermi`,
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -676,7 +676,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `digits`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -686,7 +686,7 @@ Ok(
                                     original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
                                             path: `mnist_classifier::digits`,
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 16,
@@ -701,7 +701,7 @@ Ok(
                                     path: EntityPath::Module(
                                         `mnist_classifier::digits`,
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
@@ -711,7 +711,7 @@ Ok(
                             path: EntityPath::Module(
                                 `mnist_classifier::digits`,
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -721,7 +721,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `major`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -731,7 +731,7 @@ Ok(
                                     original_symbol: EntitySymbol::Submodule(
                                         SubmoduleSymbol {
                                             path: `mnist_classifier::major`,
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 17,
@@ -746,7 +746,7 @@ Ok(
                                     path: EntityPath::Module(
                                         `mnist_classifier::major`,
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
@@ -756,7 +756,7 @@ Ok(
                             path: EntityPath::Module(
                                 `mnist_classifier::major`,
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -766,7 +766,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `MnistLabel`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -780,7 +780,7 @@ Ok(
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist::MnistLabel`, `Enum`),
                                                     ),
-                                                    visibility: Visibility::Pub,
+                                                    visibility: Scope::Pub,
                                                     ast_idx: 10,
                                                     ident_token: IdentToken {
                                                         ident: `MnistLabel`,
@@ -795,7 +795,7 @@ Ok(
                                                     TypePath(`mnist::MnistLabel`, `Enum`),
                                                 ),
                                             ),
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 24,
@@ -807,7 +807,7 @@ Ok(
                                             TypePath(`mnist::MnistLabel`, `Enum`),
                                         ),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
@@ -819,7 +819,7 @@ Ok(
                                     TypePath(`mnist::MnistLabel`, `Enum`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -829,7 +829,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `is_six`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -839,9 +839,9 @@ Ok(
                                     original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
                                             path: ModuleItemPath::Form(
-                                                FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             ),
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier::digits`,
                                             ),
                                             ast_idx: 52,
@@ -855,10 +855,10 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                                         ),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 11,
@@ -867,10 +867,10 @@ Ok(
                             ),
                             path: EntityPath::ModuleItem(
                                 ModuleItemPath::Form(
-                                    FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -880,7 +880,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `is_zero`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -890,9 +890,9 @@ Ok(
                                     original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
                                             path: ModuleItemPath::Form(
-                                                FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             ),
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier::digits`,
                                             ),
                                             ast_idx: 28,
@@ -906,10 +906,10 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                         ),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 12,
@@ -918,10 +918,10 @@ Ok(
                             ),
                             path: EntityPath::ModuleItem(
                                 ModuleItemPath::Form(
-                                    FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -931,7 +931,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `is_two`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -941,9 +941,9 @@ Ok(
                                     original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
                                             path: ModuleItemPath::Form(
-                                                FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
+                                                FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
                                             ),
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier::digits`,
                                             ),
                                             ast_idx: 54,
@@ -957,10 +957,10 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
+                                            FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
                                         ),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 13,
@@ -969,10 +969,10 @@ Ok(
                             ),
                             path: EntityPath::ModuleItem(
                                 ModuleItemPath::Form(
-                                    FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
+                                    FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -982,7 +982,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `is_three`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -992,9 +992,9 @@ Ok(
                                     original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
                                             path: ModuleItemPath::Form(
-                                                FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                                FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                                             ),
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier::digits`,
                                             ),
                                             ast_idx: 29,
@@ -1008,10 +1008,10 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                            FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                                         ),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 14,
@@ -1020,10 +1020,10 @@ Ok(
                             ),
                             path: EntityPath::ModuleItem(
                                 ModuleItemPath::Form(
-                                    FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                    FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -1033,7 +1033,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `is_five`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -1043,9 +1043,9 @@ Ok(
                                     original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
                                             path: ModuleItemPath::Form(
-                                                FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
+                                                FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                                             ),
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier::digits`,
                                             ),
                                             ast_idx: 2,
@@ -1059,10 +1059,10 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
+                                            FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                                         ),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 15,
@@ -1071,10 +1071,10 @@ Ok(
                             ),
                             path: EntityPath::ModuleItem(
                                 ModuleItemPath::Form(
-                                    FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
+                                    FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -1084,7 +1084,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `is_seven`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -1094,9 +1094,9 @@ Ok(
                                     original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
                                             path: ModuleItemPath::Form(
-                                                FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                                                FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                             ),
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier::digits`,
                                             ),
                                             ast_idx: 45,
@@ -1110,10 +1110,10 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                                            FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                         ),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 16,
@@ -1122,10 +1122,10 @@ Ok(
                             ),
                             path: EntityPath::ModuleItem(
                                 ModuleItemPath::Form(
-                                    FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                                    FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -1135,7 +1135,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `is_nine`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -1145,9 +1145,9 @@ Ok(
                                     original_symbol: EntitySymbol::ModuleItem(
                                         ModuleItemSymbol {
                                             path: ModuleItemPath::Form(
-                                                FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                                                FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                                             ),
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier::digits`,
                                             ),
                                             ast_idx: 38,
@@ -1161,10 +1161,10 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                                            FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                                         ),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 18,
@@ -1173,10 +1173,10 @@ Ok(
                             ),
                             path: EntityPath::ModuleItem(
                                 ModuleItemPath::Form(
-                                    FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                                    FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -1186,7 +1186,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `connected_components`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -1198,9 +1198,9 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                                                        FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
                                                     ),
-                                                    visibility: Visibility::Pub,
+                                                    visibility: Scope::Pub,
                                                     ast_idx: 19,
                                                     ident_token: IdentToken {
                                                         ident: `connected_components`,
@@ -1212,10 +1212,10 @@ Ok(
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                                                    FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
                                                 ),
                                             ),
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 18,
@@ -1224,10 +1224,10 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                                            FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
                                         ),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
@@ -1236,10 +1236,10 @@ Ok(
                             ),
                             path: EntityPath::ModuleItem(
                                 ModuleItemPath::Form(
-                                    FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                                    FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -1249,7 +1249,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `major_connected_component`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -1261,9 +1261,9 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                        FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                     ),
-                                                    visibility: Visibility::Pub,
+                                                    visibility: Scope::Pub,
                                                     ast_idx: 20,
                                                     ident_token: IdentToken {
                                                         ident: `major_connected_component`,
@@ -1275,10 +1275,10 @@ Ok(
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                 ),
                                             ),
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 18,
@@ -1287,10 +1287,10 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         ),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
@@ -1299,10 +1299,10 @@ Ok(
                             ),
                             path: EntityPath::ModuleItem(
                                 ModuleItemPath::Form(
-                                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -1312,7 +1312,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `ignored_connected_components_row_span_sum_sum`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -1324,9 +1324,9 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                                                        FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                                     ),
-                                                    visibility: Visibility::Pub,
+                                                    visibility: Scope::Pub,
                                                     ast_idx: 21,
                                                     ident_token: IdentToken {
                                                         ident: `ignored_connected_components_row_span_sum_sum`,
@@ -1338,10 +1338,10 @@ Ok(
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                                                    FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                                 ),
                                             ),
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 18,
@@ -1350,10 +1350,10 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                                            FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                         ),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
@@ -1362,10 +1362,10 @@ Ok(
                             ),
                             path: EntityPath::ModuleItem(
                                 ModuleItemPath::Form(
-                                    FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                                    FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -1375,7 +1375,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `major_raw_contours`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -1387,9 +1387,9 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
+                                                        FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
                                                     ),
-                                                    visibility: Visibility::Pub,
+                                                    visibility: Scope::Pub,
                                                     ast_idx: 22,
                                                     ident_token: IdentToken {
                                                         ident: `major_raw_contours`,
@@ -1401,10 +1401,10 @@ Ok(
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
+                                                    FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
                                                 ),
                                             ),
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 18,
@@ -1413,10 +1413,10 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
+                                            FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
                                         ),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
@@ -1425,10 +1425,10 @@ Ok(
                             ),
                             path: EntityPath::ModuleItem(
                                 ModuleItemPath::Form(
-                                    FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
+                                    FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -1438,7 +1438,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `major_raw_contour`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -1450,9 +1450,9 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                                                        FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
                                                     ),
-                                                    visibility: Visibility::Pub,
+                                                    visibility: Scope::Pub,
                                                     ast_idx: 23,
                                                     ident_token: IdentToken {
                                                         ident: `major_raw_contour`,
@@ -1464,10 +1464,10 @@ Ok(
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                                                    FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
                                                 ),
                                             ),
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 18,
@@ -1476,10 +1476,10 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                                            FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
                                         ),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
@@ -1488,10 +1488,10 @@ Ok(
                             ),
                             path: EntityPath::ModuleItem(
                                 ModuleItemPath::Form(
-                                    FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                                    FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -1501,7 +1501,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `major_line_segment_sketch`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -1513,9 +1513,9 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                                                        FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                                     ),
-                                                    visibility: Visibility::Pub,
+                                                    visibility: Scope::Pub,
                                                     ast_idx: 24,
                                                     ident_token: IdentToken {
                                                         ident: `major_line_segment_sketch`,
@@ -1527,10 +1527,10 @@ Ok(
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                                                    FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                                 ),
                                             ),
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 18,
@@ -1539,10 +1539,10 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                                            FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                         ),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
@@ -1551,10 +1551,10 @@ Ok(
                             ),
                             path: EntityPath::ModuleItem(
                                 ModuleItemPath::Form(
-                                    FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                                    FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -1564,7 +1564,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `major_concave_components`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -1576,9 +1576,9 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                                        FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                     ),
-                                                    visibility: Visibility::Pub,
+                                                    visibility: Scope::Pub,
                                                     ast_idx: 25,
                                                     ident_token: IdentToken {
                                                         ident: `major_concave_components`,
@@ -1590,10 +1590,10 @@ Ok(
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                 ),
                                             ),
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 18,
@@ -1602,10 +1602,10 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                            FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                         ),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
@@ -1614,10 +1614,10 @@ Ok(
                             ),
                             path: EntityPath::ModuleItem(
                                 ModuleItemPath::Form(
-                                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -1627,7 +1627,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `FermiMatchResult`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -1641,7 +1641,7 @@ Ok(
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                                     ),
-                                                    visibility: Visibility::Pub,
+                                                    visibility: Scope::Pub,
                                                     ast_idx: 22,
                                                     ident_token: IdentToken {
                                                         ident: `FermiMatchResult`,
@@ -1656,7 +1656,7 @@ Ok(
                                                     TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                                 ),
                                             ),
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 20,
@@ -1668,7 +1668,7 @@ Ok(
                                             TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                         ),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
@@ -1680,7 +1680,7 @@ Ok(
                                     TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -1690,7 +1690,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `fermi_match`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -1702,9 +1702,9 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                        FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                                     ),
-                                                    visibility: Visibility::Pub,
+                                                    visibility: Scope::Pub,
                                                     ast_idx: 24,
                                                     ident_token: IdentToken {
                                                         ident: `fermi_match`,
@@ -1716,10 +1716,10 @@ Ok(
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                                 ),
                                             ),
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 20,
@@ -1728,10 +1728,10 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                         ),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
@@ -1740,10 +1740,10 @@ Ok(
                             ),
                             path: EntityPath::ModuleItem(
                                 ModuleItemPath::Form(
-                                    FormPath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -1753,7 +1753,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `RawContour`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -1767,7 +1767,7 @@ Ok(
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                     ),
-                                                    visibility: Visibility::Pub,
+                                                    visibility: Scope::Pub,
                                                     ast_idx: 203,
                                                     ident_token: IdentToken {
                                                         ident: `RawContour`,
@@ -1782,7 +1782,7 @@ Ok(
                                                     TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                 ),
                                             ),
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 21,
@@ -1794,7 +1794,7 @@ Ok(
                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                         ),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
@@ -1806,7 +1806,7 @@ Ok(
                                     TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -1816,7 +1816,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `find_raw_contours`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -1828,9 +1828,9 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                        FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                                     ),
-                                                    visibility: Visibility::Pub,
+                                                    visibility: Scope::Pub,
                                                     ast_idx: 214,
                                                     ident_token: IdentToken {
                                                         ident: `find_raw_contours`,
@@ -1842,10 +1842,10 @@ Ok(
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                                 ),
                                             ),
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 21,
@@ -1854,10 +1854,10 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                         ),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
@@ -1866,10 +1866,10 @@ Ok(
                             ),
                             path: EntityPath::ModuleItem(
                                 ModuleItemPath::Form(
-                                    FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
+                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -1879,7 +1879,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `LineSegmentStroke`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -1893,7 +1893,7 @@ Ok(
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                     ),
-                                                    visibility: Visibility::Pub,
+                                                    visibility: Scope::Pub,
                                                     ast_idx: 169,
                                                     ident_token: IdentToken {
                                                         ident: `LineSegmentStroke`,
@@ -1908,7 +1908,7 @@ Ok(
                                                     TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                 ),
                                             ),
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 22,
@@ -1920,7 +1920,7 @@ Ok(
                                             TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                         ),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
@@ -1932,7 +1932,7 @@ Ok(
                                     TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -1942,7 +1942,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `LineSegmentSketch`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -1956,7 +1956,7 @@ Ok(
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                     ),
-                                                    visibility: Visibility::Pub,
+                                                    visibility: Scope::Pub,
                                                     ast_idx: 171,
                                                     ident_token: IdentToken {
                                                         ident: `LineSegmentSketch`,
@@ -1971,7 +1971,7 @@ Ok(
                                                     TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                 ),
                                             ),
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 22,
@@ -1983,7 +1983,7 @@ Ok(
                                             TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                         ),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
@@ -1995,7 +1995,7 @@ Ok(
                                     TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -2005,7 +2005,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `ConcaveComponent`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -2021,7 +2021,7 @@ Ok(
                                                             path: ModuleItemPath::Type(
                                                                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                             ),
-                                                            visibility: Visibility::Pub,
+                                                            visibility: Scope::Pub,
                                                             ast_idx: 74,
                                                             ident_token: IdentToken {
                                                                 ident: `ConcaveComponent`,
@@ -2036,7 +2036,7 @@ Ok(
                                                             TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         ),
                                                     ),
-                                                    visibility: Visibility::Pub,
+                                                    visibility: Scope::Pub,
                                                     ast_idx: 163,
                                                     use_expr_idx: 0,
                                                 },
@@ -2046,7 +2046,7 @@ Ok(
                                                     TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                 ),
                                             ),
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 22,
@@ -2058,7 +2058,7 @@ Ok(
                                             TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                         ),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
@@ -2070,7 +2070,7 @@ Ok(
                                     TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -2080,7 +2080,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `find_concave_components`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -2094,9 +2094,9 @@ Ok(
                                                     original_symbol: EntitySymbol::ModuleItem(
                                                         ModuleItemSymbol {
                                                             path: ModuleItemPath::Form(
-                                                                FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                                FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                                             ),
-                                                            visibility: Visibility::Pub,
+                                                            visibility: Scope::Pub,
                                                             ast_idx: 76,
                                                             ident_token: IdentToken {
                                                                 ident: `find_concave_components`,
@@ -2108,20 +2108,20 @@ Ok(
                                                     ),
                                                     path: EntityPath::ModuleItem(
                                                         ModuleItemPath::Form(
-                                                            FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                                         ),
                                                     ),
-                                                    visibility: Visibility::Pub,
+                                                    visibility: Scope::Pub,
                                                     ast_idx: 163,
                                                     use_expr_idx: 0,
                                                 },
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                                 ),
                                             ),
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 22,
@@ -2130,10 +2130,10 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                         ),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
@@ -2142,10 +2142,10 @@ Ok(
                             ),
                             path: EntityPath::ModuleItem(
                                 ModuleItemPath::Form(
-                                    FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -2155,7 +2155,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `LineSegment`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -2171,7 +2171,7 @@ Ok(
                                                             path: ModuleItemPath::Type(
                                                                 TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                             ),
-                                                            visibility: Visibility::Pub,
+                                                            visibility: Scope::Pub,
                                                             ast_idx: 16,
                                                             ident_token: IdentToken {
                                                                 ident: `LineSegment`,
@@ -2186,7 +2186,7 @@ Ok(
                                                             TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                         ),
                                                     ),
-                                                    visibility: Visibility::Pub,
+                                                    visibility: Scope::Pub,
                                                     ast_idx: 165,
                                                     use_expr_idx: 4,
                                                 },
@@ -2196,7 +2196,7 @@ Ok(
                                                     TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                 ),
                                             ),
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 22,
@@ -2208,7 +2208,7 @@ Ok(
                                             TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                         ),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
@@ -2220,7 +2220,7 @@ Ok(
                                     TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -2230,7 +2230,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `ConnectedComponentDistribution`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -2244,7 +2244,7 @@ Ok(
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                                     ),
-                                                    visibility: Visibility::Pub,
+                                                    visibility: Scope::Pub,
                                                     ast_idx: 120,
                                                     ident_token: IdentToken {
                                                         ident: `ConnectedComponentDistribution`,
@@ -2259,7 +2259,7 @@ Ok(
                                                     TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                                 ),
                                             ),
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 23,
@@ -2271,7 +2271,7 @@ Ok(
                                             TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                         ),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
@@ -2283,7 +2283,7 @@ Ok(
                                     TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -2293,7 +2293,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `EffHoles`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -2307,7 +2307,7 @@ Ok(
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                                     ),
-                                                    visibility: Visibility::Pub,
+                                                    visibility: Scope::Pub,
                                                     ast_idx: 121,
                                                     ident_token: IdentToken {
                                                         ident: `EffHoles`,
@@ -2322,7 +2322,7 @@ Ok(
                                                     TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                                 ),
                                             ),
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 23,
@@ -2334,7 +2334,7 @@ Ok(
                                             TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                         ),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
@@ -2346,7 +2346,7 @@ Ok(
                                     TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -2356,7 +2356,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `ConnectedComponent`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -2370,7 +2370,7 @@ Ok(
                                                     path: ModuleItemPath::Type(
                                                         TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                     ),
-                                                    visibility: Visibility::Pub,
+                                                    visibility: Scope::Pub,
                                                     ast_idx: 123,
                                                     ident_token: IdentToken {
                                                         ident: `ConnectedComponent`,
@@ -2385,7 +2385,7 @@ Ok(
                                                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                 ),
                                             ),
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 23,
@@ -2397,7 +2397,7 @@ Ok(
                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                         ),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
@@ -2409,7 +2409,7 @@ Ok(
                                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -2419,7 +2419,7 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `find_connected_components`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     symbol: EntitySymbol::Use(
@@ -2431,9 +2431,9 @@ Ok(
                                             original_symbol: EntitySymbol::ModuleItem(
                                                 ModuleItemSymbol {
                                                     path: ModuleItemPath::Form(
-                                                        FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                        FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                                                     ),
-                                                    visibility: Visibility::Pub,
+                                                    visibility: Scope::Pub,
                                                     ast_idx: 126,
                                                     ident_token: IdentToken {
                                                         ident: `find_connected_components`,
@@ -2445,10 +2445,10 @@ Ok(
                                             ),
                                             path: EntityPath::ModuleItem(
                                                 ModuleItemPath::Form(
-                                                    FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                                                 ),
                                             ),
-                                            visibility: Visibility::PubUnder(
+                                            visibility: Scope::PubUnder(
                                                 `mnist_classifier`,
                                             ),
                                             ast_idx: 23,
@@ -2457,10 +2457,10 @@ Ok(
                                     ),
                                     path: EntityPath::ModuleItem(
                                         ModuleItemPath::Form(
-                                            FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                            FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                                         ),
                                     ),
-                                    visibility: Visibility::PubUnder(
+                                    visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
                                     ast_idx: 19,
@@ -2469,10 +2469,10 @@ Ok(
                             ),
                             path: EntityPath::ModuleItem(
                                 ModuleItemPath::Form(
-                                    FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                                 ),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
                             ),
                             ast_idx: 17,
@@ -2488,7 +2488,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 17,
                     use_expr_idx: 1,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     variant: UseExprRuleVariant::Parent {
@@ -2522,7 +2522,7 @@ Ok(
                     },
                     ast_idx: 17,
                     use_expr_idx: 0,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::digits::eight`,
                     ),
                     progress: 47,
