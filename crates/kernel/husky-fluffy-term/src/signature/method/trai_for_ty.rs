@@ -7,5 +7,8 @@ pub(super) fn direct_trai_for_ty_method_card(
     ident: Ident,
     available_traits: &[TraitPath],
 ) -> FluffyCardResult<Option<FluffyMethodCard>> {
-    todo!()
+    // ad hoc
+    Ok(None)
+    // p!(ident.debug(engine.db()));
+    // todo!()
 }

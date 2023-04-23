@@ -8,7 +8,7 @@ impl<'a> ExprTypeEngine<'a> {
     pub(super) fn expr_ty_info_variant(
         &self,
         expr_idx: ExprIdx,
-    ) -> ExprTypeResultRef<&ExprTypeInfoVariant> {
+    ) -> ExprTypeResultRef<&ExprDisambiguation> {
         self.expr_ty_infos[expr_idx].variant()
     }
 

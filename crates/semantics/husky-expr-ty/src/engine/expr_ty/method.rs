@@ -9,7 +9,7 @@ impl<'a> ExprTypeEngine<'a> {
         ident_token: IdentToken,
         implicit_arguments: Option<&ImplicitArgumentList>,
         nonself_arguments: ExprIdxRange,
-    ) -> ExprTypeResult<(ExprTypeInfoVariant, ExprTypeResult<FluffyTerm>)> {
+    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         let Some(self_expr_ty) =
             self.infer_new_expr_ty( self_argument, ExpectAnyOriginal, )
             else {

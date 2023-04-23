@@ -89,10 +89,10 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         expr_idx: ExprIdx,
         expr_ty_expectation: &impl ExpectFluffyTerm,
-    ) -> ExprTypeResult<(ExprTypeInfoVariant, ExprTypeResult<FluffyTerm>)> {
+    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         match self.expr_region_data[expr_idx] {
             Expr::Literal(literal_token_idx) => Ok((
-                ExprTypeInfoVariant::Trivial,
+                ExprDisambiguation::Trivial,
                 self.calc_literal_expr_ty(expr_idx, literal_token_idx, expr_ty_expectation),
             )),
             Expr::EntityPath {
@@ -104,7 +104,7 @@ impl<'a> ExprTypeEngine<'a> {
                 inherited_symbol_idx,
                 ..
             } => Ok((
-                ExprTypeInfoVariant::Trivial,
+                ExprDisambiguation::Trivial,
                 match self
                     .symbol_tys
                     .inherited_symbol_map()
@@ -120,7 +120,7 @@ impl<'a> ExprTypeEngine<'a> {
                 current_symbol_kind,
                 ..
             } => Ok((
-                ExprTypeInfoVariant::Trivial,
+                ExprDisambiguation::Trivial,
                 self.get_current_symbol_ty(expr_idx, current_symbol_idx),
             )),
             Expr::FrameVarDecl {
@@ -130,7 +130,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ..
             } => todo!(),
             Expr::SelfType(_) => Ok((
-                ExprTypeInfoVariant::Trivial,
+                ExprDisambiguation::Trivial,
                 match self.self_ty {
                     Some(self_ty) => match self_ty.ty_unchecked(self.db)? {
                         Left(self_ty_ty) => Ok(self_ty_ty.into()),
@@ -140,7 +140,7 @@ impl<'a> ExprTypeEngine<'a> {
                 },
             )),
             Expr::SelfValue(_) => Ok((
-                ExprTypeInfoVariant::Trivial,
+                ExprDisambiguation::Trivial,
                 match self.self_ty {
                     Some(self_ty) => Ok(self_ty.into()), // todo: impl binding
                     None => Err(DerivedExprTypeError::SelfTypeNotInferredForSelfValue.into()),
@@ -153,7 +153,7 @@ impl<'a> ExprTypeEngine<'a> {
                 opr_token_idx,
                 ..
             } => Ok((
-                ExprTypeInfoVariant::Trivial,
+                ExprDisambiguation::Trivial,
                 self.calc_binary_expr_ty(expr_idx, lopd, opr, ropd),
             )),
             Expr::Be {
@@ -171,7 +171,7 @@ impl<'a> ExprTypeEngine<'a> {
                     None => (),
                 };
                 Ok((
-                    ExprTypeInfoVariant::Trivial,
+                    ExprDisambiguation::Trivial,
                     Ok(self.term_menu.bool_ty_ontology().into()),
                 ))
             }
@@ -179,7 +179,7 @@ impl<'a> ExprTypeEngine<'a> {
                 self.calc_prefix_expr_ty(opr, opd, expr_ty_expectation.final_destination(self))
             }
             Expr::Suffix { opd, opr, .. } => Ok((
-                ExprTypeInfoVariant::Trivial,
+                ExprDisambiguation::Trivial,
                 self.calc_suffix_expr_ty(opd, opr),
             )),
             Expr::ExplicitApplicationOrRitchieCall {
@@ -220,12 +220,12 @@ impl<'a> ExprTypeEngine<'a> {
                 expr_ty_expectation.final_destination(self),
             ),
             Expr::Bracketed { item, .. } => Ok((
-                ExprTypeInfoVariant::Trivial,
+                ExprDisambiguation::Trivial,
                 self.infer_new_expr_ty(item, expr_ty_expectation.clone())
                     .ok_or(DerivedExprTypeError::BracketedItemTypeError.into()),
             )),
             Expr::Unit { .. } => Ok((
-                ExprTypeInfoVariant::Trivial,
+                ExprDisambiguation::Trivial,
                 Ok(self.term_menu.unit_ty_ontology().into()),
             )),
             Expr::NewTuple { items, .. } => todo!(),
@@ -316,7 +316,7 @@ impl<'a> ExprTypeEngine<'a> {
             }
             Expr::BoxColonList { .. } => todo!(),
             Expr::Block { stmts } => Ok((
-                ExprTypeInfoVariant::Trivial,
+                ExprDisambiguation::Trivial,
                 self.infer_new_block(stmts, expr_ty_expectation.clone())
                     .ok_or(DerivedExprTypeError::BlockTypeError.into()),
             )),
@@ -328,7 +328,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         path: Option<EntityPath>,
         expr_ty_expectation: &impl ExpectFluffyTerm,
-    ) -> ExprTypeResult<(ExprTypeInfoVariant, ExprTypeResult<FluffyTerm>)> {
+    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         let disambiguation = expr_ty_expectation.disambiguate_ty_path(self);
         Ok((
             disambiguation.into(),
@@ -346,7 +346,7 @@ impl<'a> ExprTypeEngine<'a> {
         expr_ty_expectation: &impl ExpectFluffyTerm,
         implicit_arguments: &Option<ImplicitArgumentList>,
         items: &idx_arena::ArenaIdxRange<Expr>,
-    ) -> ExprTypeResult<(ExprTypeInfoVariant, ExprTypeResult<FluffyTerm>)> {
+    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         let Some(expectation_ok) = self.infer_new_expr_ty_for_outcome(
             function,
             ExpectEqsFunctionType::new(expr_ty_expectation.final_destination(self)),
@@ -370,7 +370,7 @@ impl<'a> ExprTypeEngine<'a> {
                     *items,
                 );
                 Ok((
-                    ExprTypeInfoVariant::ExplicitApplicationOrRitchieCallDisambiguation(
+                    ExprDisambiguation::ExplicitApplicationOrRitchieCall(
                         ApplicationOrRitchieCallExprDisambiguation::RitchieCall,
                     ),
                     Ok(expectation_ok.return_ty()),
@@ -385,7 +385,7 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: ExprIdx,
         owner: ExprIdx,
         indices: ExprIdxRange,
-    ) -> ExprTypeResult<(ExprTypeInfoVariant, ExprTypeResult<FluffyTerm>)> {
+    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         let Some(owner_ty) = self.infer_new_expr_ty(
             owner,
             ExpectAnyOriginal,
@@ -403,9 +403,9 @@ impl<'a> ExprTypeEngine<'a> {
         function: ExprIdx,
         argument: ExprIdx,
         final_destination: FinalDestination,
-    ) -> ExprTypeResult<(ExprTypeInfoVariant, ExprTypeResult<FluffyTerm>)> {
+    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         Ok((
-            ExprTypeInfoVariant::Trivial,
+            ExprDisambiguation::Trivial,
             self.calc_explicit_application_expr_ty(function, argument, final_destination),
         ))
     }

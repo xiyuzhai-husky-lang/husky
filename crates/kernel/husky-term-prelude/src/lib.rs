@@ -7,6 +7,7 @@ mod entity_path;
 mod error;
 mod literal;
 mod modifier;
+mod signature;
 mod universe;
 
 pub use self::category::*;
@@ -17,6 +18,7 @@ pub use self::entity_path::*;
 pub use self::error::*;
 pub use self::literal::*;
 pub use self::modifier::*;
+pub use self::signature::*;
 pub use self::universe::*;
 
 use husky_entity_path::*;

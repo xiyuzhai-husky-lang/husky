@@ -31,10 +31,10 @@ impl FluffyTerm {
         self,
         ident: Ident,
         available_traits: &[TraitPath],
-    ) -> FluffyTypeResult<
+    ) -> FluffyTermResult<
         Option<(
             FluffyTraitForTypeMethodDisambiguation,
-            FluffyTypeResult<FluffyTerm>,
+            FluffyTermResult<FluffyTerm>,
         )>,
     > {
         for trai in available_traits {

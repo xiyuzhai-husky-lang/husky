@@ -6,6 +6,9 @@ use self::ty_memo::*;
 use super::*;
 use husky_word::Ident;
 
+#[salsa::interned(db = FluffyTermDb, jar = FluffyTermJar)]
+pub struct FluffyFieldSignature {}
+
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
 pub struct FluffyFieldCard {

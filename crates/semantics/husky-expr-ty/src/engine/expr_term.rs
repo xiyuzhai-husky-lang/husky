@@ -115,17 +115,13 @@ impl<'a> ExprTypeEngine<'a> {
                         .expr_ty_info_variant(expr_idx)
                         .map_err(|_| DerivedExprTermError::AmbiguousTypePath)?
                     {
-                        ExprTypeInfoVariant::TypePathDisambiguation(disambiguation) => {
-                            Ok(match disambiguation {
-                                TypePathDisambiguation::Ontology => {
-                                    TermEntityPath::TypeOntology(path)
-                                }
-                                TypePathDisambiguation::Constructor => {
-                                    TermEntityPath::TypeConstructor(path)
-                                }
+                        ExprDisambiguation::TypePath(disambiguation) => Ok(match disambiguation {
+                            TypePathDisambiguation::Ontology => TermEntityPath::TypeOntology(path),
+                            TypePathDisambiguation::Constructor => {
+                                TermEntityPath::TypeConstructor(path)
                             }
-                            .into())
                         }
+                        .into()),
                         _ => unreachable!(),
                     },
                     ModuleItemPath::Trait(_) => todo!(),

@@ -5,7 +5,7 @@ pub(super) fn direct_regular_field_card(
     signature: TypeDeclarativeSignatureTemplate,
     arguments: &[FluffyTerm],
     ident: Ident,
-) -> Result<Option<FluffyFieldCard>, FluffyCardError> {
+) -> Result<Option<FluffyFieldCard>, FluffySignatureError> {
     match signature {
         TypeDeclarativeSignatureTemplate::Enum(_) => todo!(),
         TypeDeclarativeSignatureTemplate::RegularStruct(signature) => {
@@ -21,6 +21,14 @@ pub(super) fn direct_regular_field_card(
     }
 }
 
+// impl AsFluffySignatureTemplate for RegularStructTypeDeclarativeSignatureTemplate {
+//     type FluffySignature = F;
+
+//     fn fluffy_signature(self, engine: &mut impl FluffyTermEngine) -> Self::FluffySignature {
+//         todo!()
+//     }
+// }
+
 fn regular_struct_direct_regular_field_card(
     engine: &mut impl FluffyTermEngine,
     signature: RegularStructTypeDeclarativeSignatureTemplate,
@@ -33,8 +41,8 @@ fn regular_struct_direct_regular_field_card(
     if implicit_parameters.len() != arguments.len() {
         todo!()
     }
-    let Some(field) = fields.iter().find(|field|field.ident()==ident) else {
+    let Some(field) = fields.iter().find(|field| field.ident() == ident) else {
         return Ok(None)
     };
-    todo!()
+    Ok(Some(todo!()))
 }

@@ -7,13 +7,13 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub struct ExprTypeInfo {
-    variant_and_ty_result: ExprTypeResult<(ExprTypeInfoVariant, ExprTypeResult<FluffyTerm>)>,
+    variant_and_ty_result: ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)>,
     expectation_rule_idx: OptionFluffyTermExpectationIdx,
 }
 
 impl ExprTypeInfo {
     pub(crate) fn new(
-        ty_result: ExprTypeResult<(ExprTypeInfoVariant, ExprTypeResult<FluffyTerm>)>,
+        ty_result: ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)>,
         expectation_rule_idx: OptionFluffyTermExpectationIdx,
     ) -> Self {
         Self {
@@ -26,7 +26,7 @@ impl ExprTypeInfo {
         Ok(*self.variant_and_ty_result.as_ref()?.1.as_ref()?)
     }
 
-    pub fn variant(&self) -> ExprTypeResultRef<&ExprTypeInfoVariant> {
+    pub fn variant(&self) -> ExprTypeResultRef<&ExprDisambiguation> {
         Ok(&self.variant_and_ty_result.as_ref()?.0)
     }
 }
