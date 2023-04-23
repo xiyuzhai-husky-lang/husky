@@ -5,7 +5,7 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `Nat`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `natural_number_game`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
@@ -13,7 +13,7 @@ Ok(
                             path: ModuleItemPath::Type(
                                 TypePath(`natural_number_game::Nat`, `Inductive`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `natural_number_game`,
                             ),
                             ast_idx: 5,
@@ -28,7 +28,7 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `OddNat`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `natural_number_game`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
@@ -36,7 +36,7 @@ Ok(
                             path: ModuleItemPath::Type(
                                 TypePath(`natural_number_game::OddNat`, `Structure`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `natural_number_game`,
                             ),
                             ast_idx: 9,
@@ -51,7 +51,7 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `EvenNat`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `natural_number_game`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
@@ -59,7 +59,7 @@ Ok(
                             path: ModuleItemPath::Type(
                                 TypePath(`natural_number_game::EvenNat`, `Structure`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `natural_number_game`,
                             ),
                             ast_idx: 10,

@@ -43,7 +43,8 @@ impl HasDecl for TypeItemPath {
     type Decl = TypeItemDecl;
 
     fn decl<'a>(self, db: &'a dyn DeclDb) -> DeclResultRef<'a, Self::Decl> {
-        todo!("deprecated")
+        Err(&DeclError::Original(OriginalDeclError::Deprecated))
+        // todo!("deprecated")
         // self.parent_ty(db)
         //     .item_decls(db)
         //     .map_err(|_| todo!())?

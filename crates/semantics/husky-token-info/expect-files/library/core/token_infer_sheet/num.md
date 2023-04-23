@@ -23,7 +23,7 @@ Ok(
                     original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `core::ops`,
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 5,
                             ident_token: IdentToken {
                                 ident: `ops`,
@@ -47,7 +47,7 @@ Ok(
                             path: ModuleItemPath::Trait(
                                 TraitPath(`core::ops::Add`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 26,
                             ident_token: IdentToken {
                                 ident: `Add`,

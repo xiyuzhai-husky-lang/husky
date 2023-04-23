@@ -17,11 +17,6 @@ DiagnosticSheet {
                 range: [16:9, 16:20),
             },
             Diagnostic {
-                message: "Syntax Error: unterminated list",
-                severity: Error,
-                range: [31:67, 31:68),
-            },
-            Diagnostic {
                 message: "Syntax Error: unrecognized identifier",
                 severity: Error,
                 range: [32:13, 32:24),
@@ -47,9 +42,24 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [11:24, 11:41),
+            },
+            Diagnostic {
                 message: "Type Error: TodoSuffix",
                 severity: Error,
                 range: [16:9, 21:11),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [22:29, 22:55),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [26:22, 26:47),
             },
             Diagnostic {
                 message: "Type Error: NoSuchField",

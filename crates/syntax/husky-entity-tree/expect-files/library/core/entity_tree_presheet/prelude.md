@@ -9,7 +9,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 0,
                     use_expr_idx: 2,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Crate(
                             CrateToken {
@@ -28,7 +28,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 1,
                     use_expr_idx: 5,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Crate(
                             CrateToken {
@@ -47,7 +47,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 2,
                     use_expr_idx: 8,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Crate(
                             CrateToken {
@@ -66,7 +66,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 3,
                     use_expr_idx: 11,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Crate(
                             CrateToken {
@@ -85,7 +85,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 4,
                     use_expr_idx: 14,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Crate(
                             CrateToken {
@@ -104,7 +104,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 5,
                     use_expr_idx: 17,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Crate(
                             CrateToken {
@@ -123,7 +123,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 6,
                     use_expr_idx: 20,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     variant: UseExprRuleVariant::Parent {
                         parent_name_token: NameToken::Crate(
                             CrateToken {

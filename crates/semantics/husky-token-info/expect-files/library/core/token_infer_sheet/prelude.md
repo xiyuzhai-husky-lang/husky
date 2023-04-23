@@ -24,7 +24,7 @@ Ok(
                     original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `core::basic`,
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 0,
                             ident_token: IdentToken {
                                 ident: `basic`,
@@ -61,7 +61,7 @@ Ok(
                     original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `core::num`,
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 4,
                             ident_token: IdentToken {
                                 ident: `num`,
@@ -98,7 +98,7 @@ Ok(
                     original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `core::raw_bits`,
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 7,
                             ident_token: IdentToken {
                                 ident: `raw_bits`,
@@ -135,7 +135,7 @@ Ok(
                     original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `core::fmt`,
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 8,
                             ident_token: IdentToken {
                                 ident: `fmt`,
@@ -172,7 +172,7 @@ Ok(
                     original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `core::marker`,
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 10,
                             ident_token: IdentToken {
                                 ident: `marker`,
@@ -209,7 +209,7 @@ Ok(
                     original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `core::clone`,
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 9,
                             ident_token: IdentToken {
                                 ident: `clone`,
@@ -246,7 +246,7 @@ Ok(
                     original_symbol: EntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `core::cmp`,
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 12,
                             ident_token: IdentToken {
                                 ident: `cmp`,

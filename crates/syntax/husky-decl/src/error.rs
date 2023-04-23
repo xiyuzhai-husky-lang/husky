@@ -3,6 +3,7 @@ use husky_entity_tree::EntityTreeError;
 use husky_expr::OriginalExprError;
 use husky_token::*;
 use husky_vfs::VfsError;
+use original_error::OriginalError;
 use parsec::*;
 use thiserror::Error;
 
@@ -54,6 +55,8 @@ pub enum OriginalDeclError {
     NoSuchItem,
     #[error("{0}")]
     Expr(#[from] OriginalDeclExprError),
+    #[error("Deprecated")]
+    Deprecated,
 }
 
 impl OriginalError for OriginalDeclError {

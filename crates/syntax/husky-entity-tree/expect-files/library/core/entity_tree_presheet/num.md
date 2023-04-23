@@ -5,13 +5,13 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `i8`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`core::num::i8`, `Extern`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 31,
                             ident_token: IdentToken {
                                 ident: `i8`,
@@ -24,13 +24,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `i16`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`core::num::i16`, `Extern`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 36,
                             ident_token: IdentToken {
                                 ident: `i16`,
@@ -43,13 +43,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `i32`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`core::num::i32`, `Extern`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 41,
                             ident_token: IdentToken {
                                 ident: `i32`,
@@ -62,13 +62,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `i64`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`core::num::i64`, `Extern`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 46,
                             ident_token: IdentToken {
                                 ident: `i64`,
@@ -81,13 +81,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `i128`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`core::num::i128`, `Extern`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 51,
                             ident_token: IdentToken {
                                 ident: `i128`,
@@ -100,13 +100,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `isize`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`core::num::isize`, `Extern`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 56,
                             ident_token: IdentToken {
                                 ident: `isize`,
@@ -119,13 +119,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `u8`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`core::num::u8`, `Extern`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 61,
                             ident_token: IdentToken {
                                 ident: `u8`,
@@ -138,13 +138,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `u16`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`core::num::u16`, `Extern`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 66,
                             ident_token: IdentToken {
                                 ident: `u16`,
@@ -157,13 +157,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `u32`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`core::num::u32`, `Extern`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 71,
                             ident_token: IdentToken {
                                 ident: `u32`,
@@ -176,13 +176,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `u64`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`core::num::u64`, `Extern`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 76,
                             ident_token: IdentToken {
                                 ident: `u64`,
@@ -195,13 +195,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `u128`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`core::num::u128`, `Extern`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 81,
                             ident_token: IdentToken {
                                 ident: `u128`,
@@ -214,13 +214,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `usize`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`core::num::usize`, `Extern`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 86,
                             ident_token: IdentToken {
                                 ident: `usize`,
@@ -233,13 +233,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `f32`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`core::num::f32`, `Extern`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 91,
                             ident_token: IdentToken {
                                 ident: `f32`,
@@ -252,13 +252,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `f64`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`core::num::f64`, `Extern`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 96,
                             ident_token: IdentToken {
                                 ident: `f64`,
@@ -276,7 +276,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 28,
                     use_expr_idx: 2,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `core::num`,
                     ),
                     variant: UseExprRuleVariant::Parent {

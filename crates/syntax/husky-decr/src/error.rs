@@ -2,7 +2,7 @@ use husky_entity_tree::EntityTreeError;
 use husky_expr::ExprError;
 use husky_token::{TokenError, TokenIdx};
 use husky_vfs::VfsError;
-use parsec::OriginalError;
+use original_error::OriginalError;
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq)]

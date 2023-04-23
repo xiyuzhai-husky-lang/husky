@@ -45,17 +45,19 @@ impl<'a> ExprTypeEngine<'a> {
                 parameter_ty,
                 return_ty,
             } => todo!(),
-            FluffyTermData::Hole(_, _) => todo!(),
+            FluffyTermData::Hole(hole_kind, _) | FluffyTermData::PlaceHole { hole_kind, .. } => {
+                match hole_kind {
+                    HoleKind::UnspecifiedIntegerType | HoleKind::UnspecifiedFloatType => {
+                        Ok(lopd_ty)
+                    }
+                    HoleKind::ImplicitType => todo!(),
+                }
+            }
             FluffyTermData::Category(_) => todo!(),
             FluffyTermData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,
                 return_ty,
-            } => todo!(),
-            FluffyTermData::PlaceHole {
-                place,
-                hole_kind,
-                hole,
             } => todo!(),
         }
     }

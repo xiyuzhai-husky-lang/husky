@@ -5,13 +5,13 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `ConnectedComponentDistribution`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 120,
                             ident_token: IdentToken {
                                 ident: `ConnectedComponentDistribution`,
@@ -24,13 +24,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `EffHoles`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 121,
                             ident_token: IdentToken {
                                 ident: `EffHoles`,
@@ -43,15 +43,15 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `hole_tmpl`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::connected_component`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
+                                FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
                             ast_idx: 122,
@@ -66,13 +66,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `ConnectedComponent`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Type(
                                 TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 123,
                             ident_token: IdentToken {
                                 ident: `ConnectedComponent`,
@@ -85,15 +85,15 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `horizontal_extend`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::connected_component`,
                     ),
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
+                                FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
                             ),
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier::connected_component`,
                             ),
                             ast_idx: 125,
@@ -108,13 +108,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `find_connected_components`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 126,
                             ident_token: IdentToken {
                                 ident: `find_connected_components`,
@@ -132,7 +132,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 118,
                     use_expr_idx: 2,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::connected_component`,
                     ),
                     variant: UseExprRuleVariant::Parent {
@@ -153,7 +153,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 119,
                     use_expr_idx: 4,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::connected_component`,
                     ),
                     variant: UseExprRuleVariant::Parent {

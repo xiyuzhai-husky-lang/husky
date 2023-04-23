@@ -24,7 +24,8 @@ use husky_entity_tree::{
 use husky_token::Token;
 use husky_token::TokenStream;
 use list::*;
-use parsec::{OriginalError, StreamParser};
+use original_error::OriginalError;
+use parsec::StreamParser;
 use resolve::*;
 use salsa::DebugWithDb;
 use std::ops::ControlFlow;

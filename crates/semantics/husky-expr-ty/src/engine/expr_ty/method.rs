@@ -21,9 +21,14 @@ impl<'a> ExprTypeEngine<'a> {
                 }
                 return Err(DerivedExprTypeError::MethodOwnerTypeNotInferred.into())
             };
-        let (disambiguation, ty_result) =
-            self_expr_ty.method_ty(self, ident_token.ident(), /* ad hoc */ &[])?;
-        Ok((disambiguation.into(), ty_result.map_err(Into::into)))
+        let disambiguation = self_expr_ty
+            .method_ty(self, ident_token.ident(), /* ad hoc */ &[])
+            .into_result_or(OriginalExprTypeError::NoMethodForType {
+                self_expr_ty,
+                ident_token,
+            })?;
+        todo!()
+        // Ok((disambiguation.into(), todo!()))
         // let self_expr_ty_unravelled = self_expr_ty.unravel_borrow(self);
         // let ty_method_card = match self_expr_ty_unravelled {
         //     FluffyTerm::EtherealTerm(self_expr_ty_unravelled) => {

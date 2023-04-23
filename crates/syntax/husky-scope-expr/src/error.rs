@@ -1,5 +1,5 @@
 use husky_token::{TokenError, TokenIdx};
-use parsec::OriginalError;
+use original_error::OriginalError;
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq)]

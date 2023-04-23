@@ -221,7 +221,8 @@ impl ExpectImplicitlyConvertible {
                 place,
                 hole_kind,
                 hole,
-            } => todo!(),
+            } => None, // adhoc
+                       // todo!(),
         }
     }
 
@@ -334,21 +335,18 @@ impl ExpectImplicitlyConvertible {
                     actions: smallvec![],
                 })
             }
-            FluffyTermData::Hole(_, _) => {
-                todo!()
-                //     match level {
-                //     FluffyTermResolveLevel::Weak => None,
-                //     FluffyTermResolveLevel::Strong => Some(FluffyTermExpectationEffect {
-                //         result: Ok(FluffyTermExpectationOutcome::ImplicitlyConvertible(
-                //             ImplicitConversion::None,
-                //         )),
-                //         actions: smallvec![FluffyTermResolveAction::SubstituteHole {
-                //             hole,
-                //             substitution: self.expected,
-                //         }],
-                //     }),
-                // }
-            }
+            FluffyTermData::Hole(_, hole) => match level {
+                FluffyTermResolveLevel::Weak => None,
+                FluffyTermResolveLevel::Strong => Some(FluffyTermExpectationEffect {
+                    result: Ok(FluffyTermExpectationOutcome::ImplicitlyConvertible(
+                        ImplicitConversion::Trivial,
+                    )),
+                    actions: smallvec![FluffyTermResolveAction::FillHole {
+                        hole,
+                        term: self.parameter_contracted_ty.ty(), // ad hoc
+                    }],
+                }),
+            },
             _ => {
                 p!(
                     expectee.data_inner(db, fluffy_terms).debug(db),

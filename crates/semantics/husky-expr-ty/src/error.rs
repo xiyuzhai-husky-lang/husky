@@ -9,6 +9,7 @@ use husky_entity_path::EntityPathError;
 use husky_ethereal_term::TermError;
 use husky_expr::ExprIdx;
 use husky_token::IdentToken;
+use original_error::OriginalError;
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq)]
@@ -64,13 +65,17 @@ pub enum OriginalExprTypeError {
     NoSuchField,
     #[error("no such method")]
     NoMethodForType {
-        self_expr_ty_unravelled: FluffyTerm,
+        self_expr_ty: FluffyTerm,
         ident_token: IdentToken,
     },
     #[error("TodoIndexOrComposeWithList")]
     TodoIndexOrComposeWithList,
     #[error("TodoMemo")]
     TodoMemo,
+}
+
+impl OriginalError for OriginalExprTypeError {
+    type Error = ExprTypeError;
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]

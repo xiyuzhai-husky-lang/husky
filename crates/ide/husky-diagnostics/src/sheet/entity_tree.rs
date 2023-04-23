@@ -1,4 +1,6 @@
-use husky_entity_tree::{EntityTreeError, OriginalEntityTreeError, UseExprRuleState};
+use husky_entity_tree::{
+    EntityTreeError, IllFormedImplBlock, OriginalEntityTreeError, UseExprRuleState,
+};
 
 use super::*;
 
@@ -22,8 +24,8 @@ pub(crate) fn entity_tree_diagnostic_sheet(
                 EntityTreeError::Derived(_) => (),
             }
         }
-        for _ in entity_tree_sheet.all_ill_formed_impl_blocks() {
-            todo!()
+        for ill_formed_impl_block in entity_tree_sheet.all_ill_formed_impl_blocks() {
+            diagnostics.push(ill_formed_impl_block.to_diagnostic(&ctx))
         }
     }
     // todo
@@ -67,5 +69,22 @@ impl Diagnose for OriginalEntityTreeError {
             OriginalEntityTreeError::ExpectIdentAfterKeyword => todo!(),
             OriginalEntityTreeError::InvalidTypePath(_) => todo!(),
         }
+    }
+}
+
+impl Diagnose for IllFormedImplBlock {
+    type Context<'a> = SheetDiagnosticsContext<'a>;
+
+    fn message(&self, db: &Self::Context<'_>) -> String {
+        "IllFormedImplBlock".to_string()
+    }
+
+    fn severity(&self) -> DiagnosticSeverity {
+        DiagnosticSeverity::Error
+    }
+
+    fn range(&self, ctx: &Self::Context<'_>) -> TextRange {
+        ctx.ranged_token_sheet()
+            .tokens_text_range(ctx.ast_token_idx_range_sheet()[self.ast_idx(ctx.db())])
     }
 }

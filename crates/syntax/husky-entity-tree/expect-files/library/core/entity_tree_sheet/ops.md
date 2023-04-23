@@ -5,13 +5,13 @@ Ok(
             [
                 EntitySymbolEntry {
                     ident: `Add`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Trait(
                                 TraitPath(`core::ops::Add`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 26,
                             ident_token: IdentToken {
                                 ident: `Add`,
@@ -24,13 +24,13 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `AddAssign`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Trait(
                                 TraitPath(`core::ops::AddAssign`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 28,
                             ident_token: IdentToken {
                                 ident: `AddAssign`,
@@ -43,13 +43,13 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `BitAnd`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Trait(
                                 TraitPath(`core::ops::BitAnd`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 30,
                             ident_token: IdentToken {
                                 ident: `BitAnd`,
@@ -62,13 +62,13 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `BitAndAssign`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Trait(
                                 TraitPath(`core::ops::BitAndAssign`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 32,
                             ident_token: IdentToken {
                                 ident: `BitAndAssign`,
@@ -81,13 +81,13 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `BitOr`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Trait(
                                 TraitPath(`core::ops::BitOr`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 34,
                             ident_token: IdentToken {
                                 ident: `BitOr`,
@@ -100,13 +100,13 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `BitOrAssign`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Trait(
                                 TraitPath(`core::ops::BitOrAssign`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 36,
                             ident_token: IdentToken {
                                 ident: `BitOrAssign`,
@@ -119,13 +119,13 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `BitXor`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Trait(
                                 TraitPath(`core::ops::BitXor`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 38,
                             ident_token: IdentToken {
                                 ident: `BitXor`,
@@ -138,13 +138,13 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `BitXorAssign`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Trait(
                                 TraitPath(`core::ops::BitXorAssign`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 40,
                             ident_token: IdentToken {
                                 ident: `BitXorAssign`,
@@ -157,13 +157,13 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `Div`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Trait(
                                 TraitPath(`core::ops::Div`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 42,
                             ident_token: IdentToken {
                                 ident: `Div`,
@@ -176,13 +176,13 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `DivAssign`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Trait(
                                 TraitPath(`core::ops::DivAssign`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 44,
                             ident_token: IdentToken {
                                 ident: `DivAssign`,
@@ -195,13 +195,13 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `Mul`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Trait(
                                 TraitPath(`core::ops::Mul`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 46,
                             ident_token: IdentToken {
                                 ident: `Mul`,
@@ -214,13 +214,13 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `MulAssign`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Trait(
                                 TraitPath(`core::ops::MulAssign`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 48,
                             ident_token: IdentToken {
                                 ident: `MulAssign`,
@@ -233,13 +233,13 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `Neg`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Trait(
                                 TraitPath(`core::ops::Neg`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 50,
                             ident_token: IdentToken {
                                 ident: `Neg`,
@@ -252,13 +252,13 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `Not`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Trait(
                                 TraitPath(`core::ops::Not`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 52,
                             ident_token: IdentToken {
                                 ident: `Not`,
@@ -271,13 +271,13 @@ Ok(
                 },
                 EntitySymbolEntry {
                     ident: `Sub`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: EntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Trait(
                                 TraitPath(`core::ops::Sub`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 54,
                             ident_token: IdentToken {
                                 ident: `Sub`,

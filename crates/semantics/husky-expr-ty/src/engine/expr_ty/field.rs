@@ -10,14 +10,9 @@ impl<'a> ExprTypeEngine<'a> {
         let Some(owner_ty) = self.infer_new_expr_ty(owner, ExpectAnyOriginal,  )else {
             return Err(DerivedExprTypeError::FieldOwnerTypeNotInferred.into())
         };
-        let Some(disambiguation) = owner_ty.field_disambiguation(
-            self,
-            ident_token.ident(),
-            /* ad hoc: traits */
-            &[]
-        ).into_result()? else {
-            todo!()
-        };
+        let disambiguation = owner_ty
+            .field_disambiguation(self, ident_token.ident(), /* ad hoc: traits */ &[])
+            .into_result_or(OriginalExprTypeError::NoSuchField)?;
         Ok((disambiguation.into(), todo!()))
     }
 }

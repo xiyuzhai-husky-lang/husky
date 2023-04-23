@@ -9,6 +9,7 @@ thiserror = "1.0.37"
 either = "1.8.1"
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
+original-error = { path = "../../abstraction/original-error" }
 parsec = { path = "../../abstraction/parsec" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }

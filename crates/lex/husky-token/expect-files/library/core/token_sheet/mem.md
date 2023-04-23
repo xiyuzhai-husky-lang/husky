@@ -18,7 +18,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Pattern(
+                Keyword::Modifier(
                     Covariant,
                 ),
             ),
@@ -31,7 +31,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Pattern(
+                Keyword::Modifier(
                     Covariant,
                 ),
             ),
@@ -65,7 +65,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Pattern(
+                Keyword::Modifier(
                     Covariant,
                 ),
             ),
@@ -78,7 +78,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Pattern(
+                Keyword::Modifier(
                     Invariant,
                 ),
             ),
@@ -112,7 +112,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Pattern(
+                Keyword::Modifier(
                     Covariant,
                 ),
             ),

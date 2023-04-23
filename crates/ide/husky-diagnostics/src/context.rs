@@ -34,6 +34,10 @@ impl<'a> SheetDiagnosticsContext<'a> {
     pub(crate) fn ranged_token_sheet(&self) -> &RangedTokenSheet {
         self.ranged_token_sheet
     }
+
+    pub(crate) fn ast_token_idx_range_sheet(&self) -> &AstTokenIdxRangeSheet {
+        self.ast_token_idx_range_sheet
+    }
 }
 
 pub(crate) struct RegionDiagnosticsContext<'a> {

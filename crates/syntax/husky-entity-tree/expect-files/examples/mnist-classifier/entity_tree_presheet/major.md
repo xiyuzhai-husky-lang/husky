@@ -5,13 +5,13 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `connected_components`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
+                                FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 19,
                             ident_token: IdentToken {
                                 ident: `connected_components`,
@@ -24,13 +24,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `major_connected_component`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 20,
                             ident_token: IdentToken {
                                 ident: `major_connected_component`,
@@ -43,13 +43,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `ignored_connected_components_row_span_sum_sum`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                                FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 21,
                             ident_token: IdentToken {
                                 ident: `ignored_connected_components_row_span_sum_sum`,
@@ -62,13 +62,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `major_raw_contours`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
+                                FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 22,
                             ident_token: IdentToken {
                                 ident: `major_raw_contours`,
@@ -81,13 +81,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `major_raw_contour`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                                FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 23,
                             ident_token: IdentToken {
                                 ident: `major_raw_contour`,
@@ -100,13 +100,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `major_line_segment_sketch`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                                FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 24,
                             ident_token: IdentToken {
                                 ident: `major_line_segment_sketch`,
@@ -119,13 +119,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `major_concave_components`,
-                    visibility: Visibility::Pub,
+                    visibility: Scope::Pub,
                     symbol: NativeEntitySymbol::ModuleItem(
                         ModuleItemSymbol {
                             path: ModuleItemPath::Form(
-                                FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                             ),
-                            visibility: Visibility::Pub,
+                            visibility: Scope::Pub,
                             ast_idx: 25,
                             ident_token: IdentToken {
                                 ident: `major_concave_components`,
@@ -143,7 +143,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 18,
                     use_expr_idx: 1,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier::major`,
                     ),
                     variant: UseExprRuleVariant::Parent {

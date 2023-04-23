@@ -5,13 +5,13 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `connected_component`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier`,
                     ),
                     symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::connected_component`,
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
                             ast_idx: 11,
@@ -26,13 +26,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `raw_contour`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier`,
                     ),
                     symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::raw_contour`,
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
                             ast_idx: 12,
@@ -47,13 +47,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `geom2d`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier`,
                     ),
                     symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::geom2d`,
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
                             ast_idx: 13,
@@ -68,13 +68,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `line_segment_sketch`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier`,
                     ),
                     symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::line_segment_sketch`,
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
                             ast_idx: 14,
@@ -89,13 +89,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `fermi`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier`,
                     ),
                     symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::fermi`,
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
                             ast_idx: 15,
@@ -110,13 +110,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `digits`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier`,
                     ),
                     symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::digits`,
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
                             ast_idx: 16,
@@ -131,13 +131,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `major`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier`,
                     ),
                     symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `mnist_classifier::major`,
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `mnist_classifier`,
                             ),
                             ast_idx: 17,
@@ -157,7 +157,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 18,
                     use_expr_idx: 2,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier`,
                     ),
                     variant: UseExprRuleVariant::Parent {
@@ -178,7 +178,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 19,
                     use_expr_idx: 5,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier`,
                     ),
                     variant: UseExprRuleVariant::Parent {
@@ -199,7 +199,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 20,
                     use_expr_idx: 8,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier`,
                     ),
                     variant: UseExprRuleVariant::Parent {
@@ -220,7 +220,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 21,
                     use_expr_idx: 11,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier`,
                     ),
                     variant: UseExprRuleVariant::Parent {
@@ -241,7 +241,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 22,
                     use_expr_idx: 14,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier`,
                     ),
                     variant: UseExprRuleVariant::Parent {
@@ -262,7 +262,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 23,
                     use_expr_idx: 17,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier`,
                     ),
                     variant: UseExprRuleVariant::Parent {
@@ -283,7 +283,7 @@ Ok(
                 UseExprRule {
                     ast_idx: 24,
                     use_expr_idx: 19,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `mnist_classifier`,
                     ),
                     variant: UseExprRuleVariant::Parent {

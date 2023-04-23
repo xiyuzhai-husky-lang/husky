@@ -5,13 +5,13 @@ Ok(
             [
                 NativeEntitySymbolEntry {
                     ident: `prelude`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `std`,
                     ),
                     symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `std::prelude`,
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `std`,
                             ),
                             ast_idx: 0,
@@ -26,13 +26,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `logic`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `std`,
                     ),
                     symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `std::logic`,
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `std`,
                             ),
                             ast_idx: 1,
@@ -47,13 +47,13 @@ Ok(
                 },
                 NativeEntitySymbolEntry {
                     ident: `ops`,
-                    visibility: Visibility::PubUnder(
+                    visibility: Scope::PubUnder(
                         `std`,
                     ),
                     symbol: NativeEntitySymbol::Submodule(
                         SubmoduleSymbol {
                             path: `std::ops`,
-                            visibility: Visibility::PubUnder(
+                            visibility: Scope::PubUnder(
                                 `std`,
                             ),
                             ast_idx: 2,

@@ -48,19 +48,94 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Type Error: no method named `sqrt` for type `LocalTerm::Resolved(Term(`TypeOntology(core::num::f32)`))`",
+                message: "Type Error: NoSuchField",
                 severity: Error,
-                range: [64:31, 64:35),
+                range: [64:14, 64:17),
             },
             Diagnostic {
-                message: "Type Error: no method named `sqrt` for type `LocalTerm::Resolved(Term(`TypeOntology(core::num::f32)`))`",
+                message: "Type Error: NoSuchField",
                 severity: Error,
-                range: [72:31, 72:35),
+                range: [64:18, 64:21),
             },
             Diagnostic {
-                message: "Type Error: no method named `ilen` for type `LocalTerm::Resolved(Term(`TypeOntology(core::list::List) TypeOntology(mnist_classifier::geom2d::Point2d)`))`",
+                message: "Type Error: NoSuchField",
                 severity: Error,
-                range: [82:23, 82:27),
+                range: [64:22, 64:25),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [64:26, 64:29),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [67:17, 67:20),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [68:18, 68:21),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [69:14, 69:17),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [69:22, 69:25),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [72:14, 72:17),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [72:18, 72:21),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [72:22, 72:25),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [72:26, 72:29),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [75:18, 75:21),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [76:17, 76:20),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [77:14, 77:17),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [77:22, 77:25),
+            },
+            Diagnostic {
+                message: "Type Error: no method named `displacement` for type `FluffyTerm::Solid(SolidTerm(0))`",
+                severity: Error,
+                range: [81:21, 81:33),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [82:13, 82:22),
             },
             Diagnostic {
                 message: "Type Error: TodoSuffix",
@@ -68,14 +143,29 @@ DiagnosticSheet {
                 range: [85:9, 85:14),
             },
             Diagnostic {
+                message: "Type Error: no method named `displacement` for type `FluffyTerm::Solid(SolidTerm(0))`",
+                severity: Error,
+                range: [86:17, 86:29),
+            },
+            Diagnostic {
                 message: "Type Error: TodoSuffix",
                 severity: Error,
                 range: [107:9, 107:14),
             },
             Diagnostic {
-                message: "Type Error: no method named `ilen` for type `LocalTerm::Resolved(Term(`TypeOntology(core::list::List) TypeOntology(mnist_classifier::geom2d::Point2d)`))`",
+                message: "Type Error: no method named `displacement` for type `FluffyTerm::Solid(SolidTerm(0))`",
                 severity: Error,
-                range: [115:37, 115:41),
+                range: [108:17, 108:29),
+            },
+            Diagnostic {
+                message: "Type Error: no method named `displacement` for type `FluffyTerm::Solid(SolidTerm(0))`",
+                severity: Error,
+                range: [114:22, 114:34),
+            },
+            Diagnostic {
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [115:27, 115:36),
             },
             Diagnostic {
                 message: "Type Error: TodoSuffix",
@@ -83,34 +173,49 @@ DiagnosticSheet {
                 range: [117:9, 117:16),
             },
             Diagnostic {
+                message: "Type Error: no method named `displacement` for type `FluffyTerm::Solid(SolidTerm(0))`",
+                severity: Error,
+                range: [118:18, 118:30),
+            },
+            Diagnostic {
+                message: "Type Error: no method named `displacement` for type `FluffyTerm::Solid(SolidTerm(0))`",
+                severity: Error,
+                range: [125:21, 125:33),
+            },
+            Diagnostic {
                 message: "Type Error: TodoSuffix",
                 severity: Error,
                 range: [145:13, 145:20),
             },
             Diagnostic {
-                message: "Type Error: no method named `ilen` for type `LocalTerm::Resolved(Term(`TypeOntology(core::list::List) TypeOntology(mnist_classifier::geom2d::Point2d)`))`",
+                message: "Type Error: NoSuchField",
                 severity: Error,
-                range: [158:33, 158:37),
+                range: [158:23, 158:32),
             },
             Diagnostic {
-                message: "Type Error: no method named `ilen` for type `LocalTerm::Resolved(Term(`TypeOntology(core::list::List) TypeOntology(mnist_classifier::geom2d::Point2d)`))`",
+                message: "Type Error: NoSuchField",
                 severity: Error,
-                range: [168:35, 168:39),
+                range: [168:25, 168:34),
             },
             Diagnostic {
-                message: "Type Error: no method named `ilen` for type `LocalTerm::Resolved(Term(`TypeOntology(core::list::List) TypeOntology(mnist_classifier::geom2d::Point2d)`))`",
+                message: "Type Error: NoSuchField",
                 severity: Error,
-                range: [190:23, 190:27),
+                range: [186:35, 186:44),
             },
             Diagnostic {
-                message: "OriginalLocalTermExpectationError::Todo",
+                message: "Type Error: NoSuchField",
+                severity: Error,
+                range: [190:13, 190:22),
+            },
+            Diagnostic {
+                message: "OriginalFluffyTermExpectationError::Todo",
                 severity: Error,
                 range: [155:29, 155:31),
             },
             Diagnostic {
-                message: "Type Error: no method named `cyclic_slice` for type `LocalTerm::Resolved(Term(`TypeOntology(core::list::List) TypeOntology(mnist_classifier::geom2d::Point2d)`))`",
+                message: "Type Error: NoSuchField",
                 severity: Error,
-                range: [23:37, 23:49),
+                range: [23:27, 23:36),
             },
         ],
     },

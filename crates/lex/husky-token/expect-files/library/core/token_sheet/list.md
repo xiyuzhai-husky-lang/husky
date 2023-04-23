@@ -18,7 +18,7 @@ Ok(
                 ),
             ),
             Token::Keyword(
-                Keyword::Pattern(
+                Keyword::Modifier(
                     Covariant,
                 ),
             ),

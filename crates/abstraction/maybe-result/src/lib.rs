@@ -1,8 +1,9 @@
 #![feature(try_trait_v2)]
 
-use std::convert::Infallible;
-
 pub use MaybeResult::*;
+
+use original_error::OriginalError;
+use std::convert::Infallible;
 
 /// composition of option and result
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy)]
@@ -88,17 +89,29 @@ impl<T, E> MaybeResult<T, E> {
     /// ```
     /// use maybe_result::*;
     /// let a: MaybeResult<i32, ()> = JustOk(1);
-    /// assert_eq!(a.into_result(), Ok(Some(1)));
+    /// assert_eq!(a.into_result_option(), Ok(Some(1)));
     /// let b: MaybeResult<i32, ()> = JustErr(());
-    /// assert_eq!(b.into_result(), Err(()));
+    /// assert_eq!(b.into_result_option(), Err(()));
     /// let c: MaybeResult<i32, ()> = Nothing;
-    /// assert_eq!(c.into_result(), Ok(None));
+    /// assert_eq!(c.into_result_option(), Ok(None));
     /// ```
-    pub fn into_result(self) -> Result<Option<T>, E> {
+    pub fn into_result_option(self) -> Result<Option<T>, E> {
         match self {
             JustOk(t) => Ok(Some(t)),
             JustErr(e) => Err(e),
             Nothing => Ok(None),
+        }
+    }
+
+    pub fn into_result_or<OE>(self, nothing_e: OE) -> Result<T, <OE as OriginalError>::Error>
+    where
+        OE: OriginalError,
+        E: Into<<OE as OriginalError>::Error>,
+    {
+        match self {
+            JustOk(t) => Ok(t),
+            JustErr(e) => Err(e.into()),
+            Nothing => Err(nothing_e.into()),
         }
     }
 
