@@ -43,7 +43,7 @@ impl RawContour:
         contour_len += (a.x - b.x).abs() + (a.y - b.y).abs()
         return contour_len
 
-    fn displacement(start: i32, end: i32) -> Vector2d:
+    pub fn displacement(start: i32, end: i32) -> Vector2d:
         let N = self.points.ilen()
         let ct_start = self.points[start%N]
         let ct_end = self.points[end%N]

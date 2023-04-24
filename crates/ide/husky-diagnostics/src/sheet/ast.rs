@@ -162,14 +162,30 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             OriginalAstError::VisibilityExprError(_) => {
                 format!("Syntax Error: VisibilityExprError")
             }
-            OriginalAstError::UnexpectedMemoFieldInsideForm => todo!(),
-            OriginalAstError::UnexpectedStmtInsideModule => todo!(),
-            OriginalAstError::ExpectedTraitForTypeItems(_) => todo!(),
-            OriginalAstError::ExpectedTypeItems(_) => todo!(),
-            OriginalAstError::ExpectedTypeVariants(_) => todo!(),
-            OriginalAstError::ExpectedIdentForTypeVariant(_) => todo!(),
-            OriginalAstError::ExpectedFormBodyForConfig(_) => todo!(),
-            OriginalAstError::ExpectedFormBodyForMain(_) => todo!(),
+            OriginalAstError::UnexpectedMemoFieldInsideForm => {
+                format!("Syntax Error: UnexpectedMemoFieldInsideForm")
+            }
+            OriginalAstError::UnexpectedStmtInsideModule => {
+                format!("Syntax Error: UnexpectedStmtInsideModule")
+            }
+            OriginalAstError::ExpectedTraitForTypeItems(_) => {
+                format!("Syntax Error: ExpectedTraitForTypeItems")
+            }
+            OriginalAstError::ExpectedTypeItems(_) => {
+                format!("Syntax Error: ExpectedTypeItems")
+            }
+            OriginalAstError::ExpectedTypeVariants(_) => {
+                format!("Syntax Error: ExpectedTypeVariants")
+            }
+            OriginalAstError::ExpectedIdentForTypeVariant(_) => {
+                format!("Syntax Error: ExpectedIdentForTypeVariant")
+            }
+            OriginalAstError::ExpectedFormBodyForConfig(_) => {
+                format!("Syntax Error: ExpectedFormBodyForConfig")
+            }
+            OriginalAstError::ExpectedFormBodyForMain(_) => {
+                format!("Syntax Error: ExpectedFormBodyForMain")
+            }
         }
     }
 

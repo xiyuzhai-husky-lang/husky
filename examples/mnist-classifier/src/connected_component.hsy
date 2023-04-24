@@ -132,7 +132,7 @@ pub fn find_connected_components(img: BinaryImage28) -> []ConnectedComponent:
             let mut mask = BinaryImage28()
             mask[j] = horizontal_extend(a, 1r32 << shift)
             let mut flag = false
-            while !flag :
+            while !flag:
                 flag = true
                 let mut i = j
                 forext i < 30 - 1:

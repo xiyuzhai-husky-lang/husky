@@ -923,6 +923,7 @@ Ok(
                 expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::Entity(
                 Some(
                     EntityPath::AssociatedItem(
