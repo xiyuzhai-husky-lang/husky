@@ -1,4 +1,5 @@
 use either::*;
+use maybe_result::*;
 use relative_path::{RelativePath, RelativePathBuf};
 use smallvec::{Array, SmallVec};
 use std::{
@@ -272,6 +273,26 @@ where
                 .debug_tuple("Err")
                 .field(&e.debug_with(db, level.parallel()))
                 .finish(),
+        }
+    }
+}
+
+impl<Db: ?Sized, T, E> DebugWithDb<Db> for MaybeResult<T, E>
+where
+    T: DebugWithDb<Db>,
+    E: DebugWithDb<Db>,
+{
+    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db, level: DebugFormatLevel) -> fmt::Result {
+        match self {
+            JustOk(t) => f
+                .debug_tuple("JustOk")
+                .field(&t.debug_with(db, level.parallel()))
+                .finish(),
+            JustErr(e) => f
+                .debug_tuple("JustErr")
+                .field(&e.debug_with(db, level.parallel()))
+                .finish(),
+            Nothing => f.write_str("Nothing"),
         }
     }
 }

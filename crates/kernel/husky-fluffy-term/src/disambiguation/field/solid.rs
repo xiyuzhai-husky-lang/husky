@@ -22,23 +22,11 @@ impl SolidTerm {
                 base_ty_term,
             } => match base_ty_term {
                 Some(base_ty_term) => {
-                    let disambiguation =
-                        ethereal_ty_field_disambiguation(engine.db(), *base_ty_term, ident)?;
                     indirections.push(FluffyFieldIndirection::Place(*place));
-                    indirections.extend(disambiguation.indirections.iter().copied());
-                    todo!()
-                    // match place {
-                    //     Place::Const => todo!(),
-                    //     Place::StackPure { location } => todo!(),
-                    //     Place::ImmutableStackOwned { location } => todo!(),
-                    //     Place::MutableStackOwned { location } => todo!(),
-                    //     Place::Transient => todo!(),
-                    //     Place::Ref { guard } => todo!(),
-                    //     Place::RefMut { guard } => todo!(),
-                    //     Place::Leashed => todo!(),
-                    //     Place::Todo => todo!(),
-                    // }
-                    // Ok(Some((todo!(), todo!())))
+                    JustOk(
+                        ethereal_ty_field_disambiguation(engine.db(), *base_ty_term, ident)?
+                            .merge(indirections),
+                    )
                 }
                 None => todo!(),
             },
