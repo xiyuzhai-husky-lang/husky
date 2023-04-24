@@ -54,6 +54,25 @@ fn ethereal_ty_field_disambiguation_aux<'a>(
     ident: Ident,
     mut indirections: SmallVec<[FluffyFieldIndirection; 2]>,
 ) -> FluffyTermMaybeResult<FluffyFieldDisambiguation> {
-    let templates = ty_path.ty_method_ethereal_signature_templates(db, ident)?;
+    let Some(templates) = ty_path
+        .ty_method_ethereal_signature_templates(db, ident)
+        .into_result_option()? else {
+        match ty_path.refine(db) {
+            Right(PreludeTypePath::Borrow(borrow_ty_path)) => match borrow_ty_path {
+                PreludeBorrowTypePath::Ref => todo!(),
+                PreludeBorrowTypePath::RefMut => todo!(),
+                PreludeBorrowTypePath::Leash => {
+                    indirections.push(FluffyFieldIndirection::Leash);
+                    if arguments.len() != 1 {
+                        todo!()
+                    }
+                    return JustOk(ethereal_ty_field_disambiguation(db, arguments[0], ident)?.merge(indirections))
+                },
+            },
+            // ad hoc
+            // needs to consider `Deref` `DerefMut` `Carrier`
+            _ => return Nothing
+        }
+    };
     todo!()
 }

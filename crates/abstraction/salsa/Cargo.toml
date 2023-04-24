@@ -21,6 +21,7 @@ smallvec = "1.10.0"
 upcast = { path = "../../abstraction/upcast" }
 salsa-macros = { path = "../../abstraction/salsa-macros" }
 vec-like = { path = "../../abstraction/vec-like" }
+maybe-result = { path = "../../abstraction/maybe-result" }
 
 [dev-dependencies]
 expect-test = "1.4.0"
