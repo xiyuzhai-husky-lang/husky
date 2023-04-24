@@ -337,14 +337,14 @@ Ok(
                         33,
                     ),
                     visibility_expr: VisibilityExpr {
-                        visibility: PubUnder(
-                            ModulePath(
-                                Id {
-                                    value: 43,
-                                },
-                            ),
-                        ),
-                        variant: Protected,
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    329,
+                                ),
+                            },
+                        },
                     },
                     entity_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
@@ -354,12 +354,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `displacement`,
                         token_idx: TokenIdx(
-                            330,
+                            331,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        331,
+                        332,
                     ),
                     block: AssociatedItem {
                         body: Some(
@@ -378,7 +378,7 @@ Ok(
                     error: AstError::Original(
                         OriginalAstError::ExpectedIdent(
                             TokenIdx(
-                                382,
+                                383,
                             ),
                         ),
                     ),
@@ -401,17 +401,17 @@ Ok(
                     },
                     vertical_token: VerticalToken(
                         TokenIdx(
-                            395,
+                            396,
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `Up`,
                         token_idx: TokenIdx(
-                            396,
+                            397,
                         ),
                     },
                     state_after: TokenIdx(
-                        397,
+                        398,
                     ),
                 },
                 Ast::TypeVariant {
@@ -424,17 +424,17 @@ Ok(
                     },
                     vertical_token: VerticalToken(
                         TokenIdx(
-                            397,
+                            398,
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `Left`,
                         token_idx: TokenIdx(
-                            398,
+                            399,
                         ),
                     },
                     state_after: TokenIdx(
-                        399,
+                        400,
                     ),
                 },
                 Ast::TypeVariant {
@@ -447,17 +447,17 @@ Ok(
                     },
                     vertical_token: VerticalToken(
                         TokenIdx(
-                            399,
+                            400,
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `Down`,
                         token_idx: TokenIdx(
-                            400,
+                            401,
                         ),
                     },
                     state_after: TokenIdx(
-                        401,
+                        402,
                     ),
                 },
                 Ast::TypeVariant {
@@ -470,17 +470,17 @@ Ok(
                     },
                     vertical_token: VerticalToken(
                         TokenIdx(
-                            401,
+                            402,
                         ),
                     ),
                     ident_token: IdentToken {
                         ident: `Right`,
                         token_idx: TokenIdx(
-                            402,
+                            403,
                         ),
                     },
                     state_after: TokenIdx(
-                        403,
+                        404,
                     ),
                 },
                 Ast::BasicStmtOrBranch {
@@ -1764,12 +1764,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `Direction`,
                         token_idx: TokenIdx(
-                            394,
+                            395,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        395,
+                        396,
                     ),
                     block: Type {
                         path: TypePath(
@@ -1809,12 +1809,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `get_pixel_pair`,
                         token_idx: TokenIdx(
-                            404,
+                            405,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        405,
+                        406,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -1854,12 +1854,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `get_pixel_to_the_left`,
                         token_idx: TokenIdx(
-                            429,
+                            430,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        430,
+                        431,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -1899,12 +1899,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `get_pixel_to_the_right`,
                         token_idx: TokenIdx(
-                            450,
+                            451,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        451,
+                        452,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -1944,12 +1944,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `get_inward_direction`,
                         token_idx: TokenIdx(
-                            475,
+                            476,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        476,
+                        477,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -1989,12 +1989,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `get_angle_change`,
                         token_idx: TokenIdx(
-                            621,
+                            622,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        622,
+                        623,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -2034,12 +2034,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `get_outward_direction`,
                         token_idx: TokenIdx(
-                            685,
+                            686,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        686,
+                        687,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -2079,12 +2079,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `StreakCache`,
                         token_idx: TokenIdx(
-                            912,
+                            913,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        913,
+                        914,
                     ),
                     block: Type {
                         path: TypePath(
@@ -2118,12 +2118,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `get_concave_middle_point`,
                         token_idx: TokenIdx(
-                            924,
+                            925,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        925,
+                        926,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -2149,7 +2149,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    988,
+                                    989,
                                 ),
                             },
                         },
@@ -2163,12 +2163,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `find_raw_contours`,
                         token_idx: TokenIdx(
-                            990,
+                            991,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        991,
+                        992,
                     ),
                     block: Form {
                         path: FugitivePath(
