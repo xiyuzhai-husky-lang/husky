@@ -2,16 +2,16 @@
     Ok(
         Signature::Type(
             TypeDeclarativeSignatureTemplate::RegularStruct(
-                RegularStructTypeDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                RegularStructDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                     fields: [
-                        RegularStructFieldSignature {
+                        RegularStructFieldDeclarativeSignatureTemplate {
                             ident: `contour`,
                             ty: DeclarativeTerm(`~ mnist_classifier::raw_contour::RawContour`),
                         },
-                        RegularStructFieldSignature {
+                        RegularStructFieldDeclarativeSignatureTemplate {
                             ident: `strokes`,
                             ty: DeclarativeTerm(`[] mnist_classifier::line_segment_sketch::LineSegmentStroke`),
                         },
@@ -24,7 +24,7 @@
         Signature::Form(
             FugitiveDeclarativeSignatureTemplate::Fn(
                 FnDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                     parameters: ExplicitParameterDeclarativeSignatureTemplates {
@@ -64,7 +64,7 @@
         Signature::Form(
             FugitiveDeclarativeSignatureTemplate::Fn(
                 FnDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                     parameters: ExplicitParameterDeclarativeSignatureTemplates {
@@ -104,7 +104,7 @@
         Signature::Form(
             FugitiveDeclarativeSignatureTemplate::Fn(
                 FnDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                     parameters: ExplicitParameterDeclarativeSignatureTemplates {
@@ -154,7 +154,7 @@
         Signature::Form(
             FugitiveDeclarativeSignatureTemplate::Fn(
                 FnDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                     parameters: ExplicitParameterDeclarativeSignatureTemplates {
@@ -216,7 +216,7 @@
         Signature::Form(
             FugitiveDeclarativeSignatureTemplate::Fn(
                 FnDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                     parameters: ExplicitParameterDeclarativeSignatureTemplates {
@@ -254,7 +254,7 @@
         Signature::ImplBlock(
             ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                 TypeImplBlockDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                     ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
@@ -267,7 +267,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::AssociatedFn(
                     TypeAssociatedFnDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
                         parameters: ExplicitParameterDeclarativeSignatureTemplates {
@@ -319,7 +319,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -347,7 +347,7 @@
         Signature::ImplBlock(
             ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                 TypeImplBlockDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                     ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
@@ -382,7 +382,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::AssociatedFn(
                     TypeAssociatedFnDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
                         parameters: ExplicitParameterDeclarativeSignatureTemplates {

@@ -32,7 +32,7 @@ pub(crate) fn associated_item_declarative_signature_from_decl(
         }
         AssociatedItemDecl::TraitForTypeItem(decl) => {
             trai_for_ty_associated_item_declarative_signature_from_decl(db, decl).map(|s| s.into())
-        } // TypeDecl::Enum(decl) => enum_ty_declarative_signature_template(db, decl).into(),
+        } // TypeDecl::Enum(decl) => enum_declarative_signature_template(db, decl).into(),
     }
 }
 
@@ -40,7 +40,7 @@ impl AssociatedItemDeclarativeSignatureTemplate {
     pub fn implicit_parameters(
         self,
         db: &dyn DeclarativeSignatureDb,
-    ) -> &[ImplicitParameterSignature] {
+    ) -> &[ImplicitParameterDeclarativeSignature] {
         match self {
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(decl) => {
                 decl.implicit_parameters(db)

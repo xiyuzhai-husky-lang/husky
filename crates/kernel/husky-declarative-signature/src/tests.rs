@@ -89,8 +89,7 @@ fn menu_ty_declarative_signature_templates_works() {
     // Iterate over the type paths and assert that they are Ok
     for ty_path in ty_paths {
         let ty_decl = ty_path.decl(&db).unwrap();
-        let ty_declarative_signature_template =
-            db.ty_declarative_signature_template_from_decl(ty_decl);
+        let ty_declarative_signature_template = db.ty_declarative_signature_template(ty_decl);
 
         assert!(
             ty_declarative_signature_template.is_ok(),

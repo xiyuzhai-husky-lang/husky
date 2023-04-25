@@ -3,9 +3,9 @@
         Signature::Form(
             FugitiveDeclarativeSignatureTemplate::Fn(
                 FnDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [
-                            ImplicitParameterSignature {
+                            ImplicitParameterDeclarativeSignature {
                                 annotated_variance: None,
                                 symbol: DeclarativeTermSymbol(
                                     Id {
@@ -39,9 +39,9 @@
         Signature::Form(
             FugitiveDeclarativeSignatureTemplate::Fn(
                 FnDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [
-                            ImplicitParameterSignature {
+                            ImplicitParameterDeclarativeSignature {
                                 annotated_variance: None,
                                 symbol: DeclarativeTermSymbol(
                                     Id {
@@ -99,9 +99,9 @@
         Signature::Form(
             FugitiveDeclarativeSignatureTemplate::Fn(
                 FnDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [
-                            ImplicitParameterSignature {
+                            ImplicitParameterDeclarativeSignature {
                                 annotated_variance: None,
                                 symbol: DeclarativeTermSymbol(
                                     Id {

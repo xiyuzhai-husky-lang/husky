@@ -17,8 +17,8 @@ impl From<EtherealSignatureError> for FluffySignatureError {
 
 pub type FluffyCardResult<T> = Result<T, FluffySignatureError>;
 
-impl From<TermError> for FluffySignatureError {
-    fn from(value: TermError) -> Self {
+impl From<EtherealTermError> for FluffySignatureError {
+    fn from(value: EtherealTermError) -> Self {
         todo!()
     }
 }

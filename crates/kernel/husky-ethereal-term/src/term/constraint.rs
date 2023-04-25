@@ -19,11 +19,11 @@ impl EtherealTermTraitConstraint {
         db: &dyn EtherealTermDb,
         valid_term: DeclarativeTermTraitConstraint,
         term_ty_expectation: TermTypeExpectation,
-    ) -> TermResult<Self> {
+    ) -> EtherealTermResult<Self> {
         todo!()
     }
 
-    pub(super) fn check(self, db: &dyn EtherealTermDb) -> TermResult<()> {
+    pub(super) fn check(self, db: &dyn EtherealTermDb) -> EtherealTermResult<()> {
         todo!()
     }
 

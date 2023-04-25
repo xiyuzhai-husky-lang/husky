@@ -2,8 +2,8 @@
     Ok(
         Signature::Type(
             TypeDeclarativeSignatureTemplate::Extern(
-                ExternTypeDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                ExternDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                 },
@@ -13,8 +13,8 @@
     Ok(
         Signature::Type(
             TypeDeclarativeSignatureTemplate::Extern(
-                ExternTypeDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                ExternDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                 },

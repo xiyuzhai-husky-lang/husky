@@ -6,18 +6,18 @@ use husky_token::VarianceToken;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct ImplicitParameterSignature {
+pub struct ImplicitParameterDeclarativeSignature {
     annotated_variance: Option<Variance>,
     symbol: DeclarativeTermSymbol,
     traits: Vec<DeclarativeTerm>,
 }
 
-impl ImplicitParameterSignature {
+impl ImplicitParameterDeclarativeSignature {
     fn from_decl(
         parameter_decl: &ImplicitParameterDecl,
         region: &DeclarativeTermRegion,
         declarative_term_menu: &DeclarativeTermMenu,
-    ) -> ImplicitParameterSignature {
+    ) -> ImplicitParameterDeclarativeSignature {
         let pattern = &parameter_decl.pattern();
         let symbol = pattern.symbol();
         let annotated_variance = pattern.annotated_variance_token().map(|t| match t {
@@ -27,7 +27,7 @@ impl ImplicitParameterSignature {
         });
         match parameter_decl.pattern().variant() {
             ImplicitParameterDeclPatternVariant::Type0 { .. } => {
-                ImplicitParameterSignature {
+                ImplicitParameterDeclarativeSignature {
                     symbol: region
                         .current_symbol_term(symbol)
                         .expect("not none")
@@ -40,7 +40,7 @@ impl ImplicitParameterSignature {
             }
             ImplicitParameterDeclPatternVariant::Constant { .. } => todo!(),
             ImplicitParameterDeclPatternVariant::Lifetime { .. } => {
-                ImplicitParameterSignature {
+                ImplicitParameterDeclarativeSignature {
                     symbol: region
                         .current_symbol_term(symbol)
                         .expect("not none")
@@ -73,11 +73,11 @@ impl ImplicitParameterSignature {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct ImplicitParameterDeclarativeSignatureTemplates {
-    data: Vec<ImplicitParameterSignature>,
+pub struct ImplicitParameterDeclarativeSignatures {
+    data: Vec<ImplicitParameterDeclarativeSignature>,
 }
 
-impl ImplicitParameterDeclarativeSignatureTemplates {
+impl ImplicitParameterDeclarativeSignatures {
     pub(crate) fn from_decl(
         implicit_parameters: &[ImplicitParameterDecl],
         declarative_term_region: &DeclarativeTermRegion,
@@ -87,7 +87,7 @@ impl ImplicitParameterDeclarativeSignatureTemplates {
             data: implicit_parameters
                 .iter()
                 .map(|parameter| {
-                    ImplicitParameterSignature::from_decl(
+                    ImplicitParameterDeclarativeSignature::from_decl(
                         parameter,
                         declarative_term_region,
                         declarative_term_menu,
@@ -97,13 +97,13 @@ impl ImplicitParameterDeclarativeSignatureTemplates {
         }
     }
 
-    pub fn decls(&self) -> &[ImplicitParameterSignature] {
+    pub fn data(&self) -> &[ImplicitParameterDeclarativeSignature] {
         self.data.as_ref()
     }
 }
 
-impl std::ops::Deref for ImplicitParameterDeclarativeSignatureTemplates {
-    type Target = [ImplicitParameterSignature];
+impl std::ops::Deref for ImplicitParameterDeclarativeSignatures {
+    type Target = [ImplicitParameterDeclarativeSignature];
 
     fn deref(&self) -> &Self::Target {
         &self.data

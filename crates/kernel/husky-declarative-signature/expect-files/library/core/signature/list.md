@@ -2,10 +2,10 @@
     Ok(
         Signature::Type(
             TypeDeclarativeSignatureTemplate::Extern(
-                ExternTypeDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                ExternDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [
-                            ImplicitParameterSignature {
+                            ImplicitParameterDeclarativeSignature {
                                 annotated_variance: Some(
                                     Covariant,
                                 ),
@@ -26,9 +26,9 @@
         Signature::ImplBlock(
             ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                 TypeImplBlockDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [
-                            ImplicitParameterSignature {
+                            ImplicitParameterDeclarativeSignature {
                                 annotated_variance: None,
                                 symbol: DeclarativeTermSymbol(
                                     Id {
@@ -49,7 +49,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {

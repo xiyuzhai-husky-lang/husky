@@ -10,7 +10,7 @@ pub fn ty_constructor_path_declarative_ty(
         Ok(decl) => decl,
         Err(_) => return Err(DerivedDeclarativeTypeError::TypeConstructorDeclError.into()),
     };
-    let signature = match db.ty_declarative_signature_template_from_decl(decl) {
+    let signature = match db.ty_declarative_signature_template(decl) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedDeclarativeTypeError::SignatureError.into()),
     };
@@ -38,7 +38,7 @@ fn regular_struct_ty_constructor_path_declarative_ty(
     db: &dyn DeclarativeTypeDb,
     path: TypePath,
     variances: &[Variance],
-    signature: RegularStructTypeDeclarativeSignatureTemplate,
+    signature: RegularStructDeclarativeSignatureTemplate,
 ) -> DeclarativeTerm {
     let implicit_parameters = &signature.implicit_parameters(db);
     let self_ty = construct_self_ty(db, path, implicit_parameters);
@@ -46,7 +46,7 @@ fn regular_struct_ty_constructor_path_declarative_ty(
         .fields(db)
         .iter()
         .copied()
-        .map(RegularStructFieldSignature::into_ritchie_parameter_contracted_ty)
+        .map(RegularStructFieldDeclarativeSignatureTemplate::into_ritchie_parameter_contracted_ty)
         .collect();
     let constructor_ty =
         DeclarativeTermRitchie::new(db, TermRitchieKind::FnType, parameter_tys, self_ty);
@@ -62,7 +62,7 @@ fn regular_struct_ty_constructor_path_declarative_ty(
 fn construct_self_ty(
     db: &dyn DeclarativeTypeDb,
     path: TypePath,
-    implicit_parameters: &[ImplicitParameterSignature],
+    implicit_parameters: &[ImplicitParameterDeclarativeSignature],
 ) -> DeclarativeTerm {
     let mut self_ty: DeclarativeTerm = path.into();
     for implicit_parameter in implicit_parameters {

@@ -13,12 +13,12 @@ impl HasDeclarativeSignatureTemplate for DeriveDecr {
         self,
         db: &dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
-        derive_decr_declarative_signature(db, self)
+        derive_decr_declarative_signature_template(db, self)
     }
 }
 
 #[salsa::tracked(jar = DeclarativeSignatureJar)]
-pub fn derive_decr_declarative_signature(
+pub fn derive_decr_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     decr: DeriveDecr,
 ) -> DeclarativeSignatureResult<DeriveDecrDeclarativeSignatureTemplate> {

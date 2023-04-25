@@ -70,22 +70,17 @@ pub enum EtherealTerm {
 }
 
 impl EtherealTerm {
-    pub fn from_raw(
+    pub fn ty_from_raw(
         db: &dyn EtherealTermDb,
         raw_term: DeclarativeTerm,
-        term_ty_expectation: TermTypeExpectation,
-    ) -> TermResult<Self> {
-        Self::from_declarative(db, raw_term, term_ty_expectation)
-    }
-
-    pub fn ty_from_raw(db: &dyn EtherealTermDb, raw_term: DeclarativeTerm) -> TermResult<Self> {
-        Self::from_raw(db, raw_term, TermTypeExpectation::FinalDestinationEqsSort)
+    ) -> EtherealTermResult<Self> {
+        Self::from_declarative(db, raw_term, TermTypeExpectation::FinalDestinationEqsSort)
     }
 
     pub fn ty_from_declarative(
         db: &dyn EtherealTermDb,
         raw_term: DeclarativeTerm,
-    ) -> TermResult<Self> {
+    ) -> EtherealTermResult<Self> {
         Self::from_declarative(db, raw_term, TermTypeExpectation::FinalDestinationEqsSort)
     }
 
@@ -93,7 +88,7 @@ impl EtherealTerm {
         db: &dyn EtherealTermDb,
         raw_term: DeclarativeTerm,
         term_ty_expectation: TermTypeExpectation,
-    ) -> TermResult<Self> {
+    ) -> EtherealTermResult<Self> {
         Ok(match raw_term {
             DeclarativeTerm::Literal(literal) => {
                 match literal {
@@ -117,10 +112,12 @@ impl EtherealTerm {
                         if path_expected == path {
                             TermEntityPath::TypeConstructor(path).into()
                         } else {
-                            return Err(TermError::ExpectFinalDestinationEqsNonSortTypePath {
-                                path_expected,
-                                path,
-                            });
+                            return Err(
+                                EtherealTermError::ExpectFinalDestinationEqsNonSortTypePath {
+                                    path_expected,
+                                    path,
+                                },
+                            );
                         }
                     }
                     TermTypeExpectation::Any => TermEntityPath::TypeConstructor(path).into(),
@@ -234,7 +231,7 @@ pub(crate) fn term_from_raw_term_explicit_application_or_ritchie_call_unchecked(
     db: &dyn EtherealTermDb,
     raw_term: DeclarativeTermExplicitApplicationOrRitchieCall,
     term_ty_expectation: TermTypeExpectation,
-) -> TermResult<EtherealTerm> {
+) -> EtherealTermResult<EtherealTerm> {
     let function = EtherealTerm::from_declarative(db, raw_term.function(db), term_ty_expectation)?;
     match function.raw_ty(db)? {
         RawType::Declarative(declarative_ty) => match declarative_ty {
@@ -278,7 +275,7 @@ pub(crate) fn term_from_raw_term_list_unchecked(
     db: &dyn EtherealTermDb,
     raw_term_list: DeclarativeTermList,
     term_ty_expectation: TermTypeExpectation,
-) -> TermResult<EtherealTerm> {
+) -> EtherealTermResult<EtherealTerm> {
     match term_ty_expectation {
         TermTypeExpectation::FinalDestinationEqsSort => {
             let term_menu = db.term_menu(raw_term_list.toolchain(db));

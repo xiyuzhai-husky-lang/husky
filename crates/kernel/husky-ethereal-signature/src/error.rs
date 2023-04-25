@@ -2,11 +2,18 @@ use crate::*;
 use husky_declarative_signature::DeclarativeSignatureError;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum EtherealSignatureError {}
+pub enum EtherealSignatureError {
+    TermError,
+}
 
 impl From<DeclarativeSignatureError> for EtherealSignatureError {
-    fn from(value: DeclarativeSignatureError) -> Self {
+    fn from(e: DeclarativeSignatureError) -> Self {
         todo!()
+    }
+}
+impl From<EtherealTermError> for EtherealSignatureError {
+    fn from(e: EtherealTermError) -> Self {
+        EtherealSignatureError::TermError
     }
 }
 

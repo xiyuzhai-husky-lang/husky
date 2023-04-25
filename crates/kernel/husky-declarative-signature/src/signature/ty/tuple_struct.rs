@@ -5,14 +5,14 @@ use super::*;
 pub struct TupleStructTypeDeclarativeSignature {}
 
 #[salsa::tracked(jar = DeclarativeSignatureJar)]
-pub fn tuple_struct_ty_declarative_signature_template(
+pub fn tuple_struct_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     decl: TupleStructTypeDecl,
-) -> DeclarativeSignatureResult<TupleStructTypeDeclarativeSignatureTemplate> {
+) -> DeclarativeSignatureResult<TupleStructDeclarativeSignatureTemplate> {
     let expr_region = decl.expr_region(db);
     let _declarative_term_region = declarative_term_region(db, expr_region);
     let _declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
-    Ok(TupleStructTypeDeclarativeSignatureTemplate::new(
+    Ok(TupleStructDeclarativeSignatureTemplate::new(
         db,
         // ImplicitParameterDeclarativeSignatureTemplates::from_decl(decl.implicit_parameters(db), declarative_term_region),
         todo!(),
@@ -21,14 +21,14 @@ pub fn tuple_struct_ty_declarative_signature_template(
 }
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
-pub struct TupleStructTypeDeclarativeSignatureTemplate {
+pub struct TupleStructDeclarativeSignatureTemplate {
     #[return_ref]
-    pub implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates,
+    pub implicit_parameters: ImplicitParameterDeclarativeSignatures,
     #[return_ref]
     pub fields: Vec<TupleStructFieldSignature>,
 }
 
-impl TupleStructTypeDeclarativeSignatureTemplate {}
+impl TupleStructDeclarativeSignatureTemplate {}
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct TupleStructFieldSignature {

@@ -13,7 +13,7 @@ impl EtherealTermVariable {
     pub(crate) fn from_declarative(
         db: &dyn EtherealTermDb,
         variable: DeclarativeTermVariable,
-    ) -> TermResult<Self> {
+    ) -> EtherealTermResult<Self> {
         let ty = variable.ty(db)?;
         let ty =
             EtherealTerm::from_declarative(db, ty, TermTypeExpectation::FinalDestinationEqsSort)?;

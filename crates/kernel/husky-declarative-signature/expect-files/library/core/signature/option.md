@@ -2,10 +2,10 @@
     Ok(
         Signature::Type(
             TypeDeclarativeSignatureTemplate::Enum(
-                EnumTypeDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                EnumDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [
-                            ImplicitParameterSignature {
+                            ImplicitParameterDeclarativeSignature {
                                 annotated_variance: None,
                                 symbol: DeclarativeTermSymbol(
                                     Id {

@@ -7,7 +7,11 @@ use husky_entity_tree::TraitForTypeImplBlock;
 use smallvec::SmallVec;
 
 impl EtherealTerm {
-    pub fn satisfies_trai(self, db: &dyn EtherealTermDb, trai: EtherealTerm) -> TermResult<bool> {
+    pub fn satisfies_trai(
+        self,
+        db: &dyn EtherealTermDb,
+        trai: EtherealTerm,
+    ) -> EtherealTermResult<bool> {
         Ok(self.trai_satisfiction(db, trai)?.is_some())
     }
 
@@ -15,7 +19,7 @@ impl EtherealTerm {
         self,
         db: &'a dyn EtherealTermDb,
         trai: EtherealTerm,
-    ) -> TermResult<Option<&'a TraitForTypeImplTemplate>> {
+    ) -> EtherealTermResult<Option<&'a TraitForTypeImplTemplate>> {
         let Some(trai_path) = trai.leading_trai_path(db) else {
             todo!()
         };
@@ -46,19 +50,19 @@ impl EtherealTerm {
         Ok(None)
     }
 
-    pub fn is_ty_clonable(self, db: &dyn EtherealTermDb) -> TermResult<bool> {
+    pub fn is_ty_clonable(self, db: &dyn EtherealTermDb) -> EtherealTermResult<bool> {
         let Some(term_menu) = self.term_menu(db) else {
             return Ok(false);
         };
         self.satisfies_trai(db, term_menu.clone_trai())
     }
-    pub fn is_ty_copyable(self, db: &dyn EtherealTermDb) -> TermResult<bool> {
+    pub fn is_ty_copyable(self, db: &dyn EtherealTermDb) -> EtherealTermResult<bool> {
         let Some(term_menu) = self.term_menu(db) else {
             return Ok(false);
         };
         self.satisfies_trai(db, term_menu.copy_trai())
     }
-    pub fn is_ty_defaultable(self, db: &dyn EtherealTermDb) -> TermResult<bool> {
+    pub fn is_ty_defaultable(self, db: &dyn EtherealTermDb) -> EtherealTermResult<bool> {
         let Some(term_menu) = self.term_menu(db) else {
             return Ok(false);
         };
@@ -69,7 +73,7 @@ impl EtherealTerm {
 pub(crate) fn trai_side_trai_for_ty_impl_block_templates<'a>(
     db: &'a dyn EtherealTermDb,
     trai_path: TraitPath,
-) -> TermResult<&'a [TraitForTypeImplTemplate]> {
+) -> EtherealTermResult<&'a [TraitForTypeImplTemplate]> {
     match trai_side_trai_for_ty_impl_blocks_aux(db, trai_path) {
         Ok(impl_blocks) => Ok(impl_blocks),
         Err(e) => Err(e.clone()),
@@ -80,7 +84,7 @@ pub(crate) fn trai_side_trai_for_ty_impl_block_templates<'a>(
 pub(crate) fn trai_side_trai_for_ty_impl_blocks_aux<'a>(
     db: &'a dyn EtherealTermDb,
     trai_path: TraitPath,
-) -> TermResult<SmallVec<[TraitForTypeImplTemplate; 2]>> {
+) -> EtherealTermResult<SmallVec<[TraitForTypeImplTemplate; 2]>> {
     db.entity_tree_bundle(trai_path.crate_path(db))?
         .trai_for_ty_impl_blocks_filtered_by_trai_path(db, trai_path)
         .map(|impl_block| impl_block.template(db))
@@ -92,7 +96,7 @@ pub(crate) fn ty_side_trai_for_ty_impl_block_templates<'a>(
     db: &'a dyn EtherealTermDb,
     trai_path: TraitPath,
     ty_path: TypePath,
-) -> TermResult<&'a [TraitForTypeImplTemplate]> {
+) -> EtherealTermResult<&'a [TraitForTypeImplTemplate]> {
     match ty_side_trai_for_ty_impl_blocks_aux(db, ty_path) {
         Ok(templates) => Ok(templates),
         Err(e) => Err(e.clone()),
@@ -103,7 +107,7 @@ pub(crate) fn ty_side_trai_for_ty_impl_block_templates<'a>(
 pub(crate) fn ty_side_trai_for_ty_impl_blocks_aux<'a>(
     db: &'a dyn EtherealTermDb,
     ty_path: TypePath,
-) -> TermResult<Vec<TraitForTypeImplTemplate>> {
+) -> EtherealTermResult<Vec<TraitForTypeImplTemplate>> {
     let mut templates = vec![];
     for decr in ty_path.decrs(db)?.iter().copied() {
         TraitForTypeImplTemplate::collect_from_decr(db, ty_path, decr, &mut templates)?
@@ -125,7 +129,7 @@ fn search_among_impl_blocks<'a>(
     trai: EtherealTerm,
     ty: EtherealTerm,
     impl_block_templates: &'a [TraitForTypeImplTemplate],
-) -> TermResult<Option<&'a TraitForTypeImplTemplate>> {
+) -> EtherealTermResult<Option<&'a TraitForTypeImplTemplate>> {
     for template in impl_block_templates.iter() {
         if trai == template.trai() && ty == template.ty() {
             return Ok(Some(template));

@@ -6,7 +6,7 @@ pub use self::term::*;
 
 use crate::*;
 use husky_entity_path::EntityPathError;
-use husky_ethereal_term::TermError;
+use husky_ethereal_term::EtherealTermError;
 use husky_expr::ExprIdx;
 use husky_token::IdentToken;
 use original_error::OriginalError;
@@ -20,15 +20,15 @@ pub enum ExprTypeError {
     Derived(#[from] DerivedExprTypeError),
 }
 
-impl From<TermError> for ExprTypeError {
-    fn from(e: TermError) -> Self {
+impl From<EtherealTermError> for ExprTypeError {
+    fn from(e: EtherealTermError) -> Self {
         ExprTypeError::Derived(e.into())
     }
 }
 
 impl From<FluffyTermError> for ExprTypeError {
     fn from(e: FluffyTermError) -> Self {
-        todo!()
+        ExprTypeError::Derived(e.into())
     }
 }
 
@@ -81,11 +81,11 @@ impl OriginalError for OriginalExprTypeError {
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum DerivedExprTypeError {
     #[error("field type error {0}")]
-    FieldTypeTermError(TermError),
+    FieldTypeTermError(EtherealTermError),
     #[error("type method type error {0}")]
-    TypeMethodTypeError(TermError),
+    TypeMethodTypeError(EtherealTermError),
     #[error("type call type error {0}")]
-    TypeCallTypeError(TermError),
+    TypeCallTypeError(EtherealTermError),
     #[error("type info error")]
     TypeInfoError,
     #[error("expr error")]
@@ -113,7 +113,7 @@ pub enum DerivedExprTypeError {
     #[error("term symbol type error")]
     TermSymbolTypeError,
     #[error("type error {0}")]
-    TypeError(#[from] TermError),
+    TypeError(#[from] EtherealTermError),
     #[error("bracketed item type error")]
     BracketedItemTypeError,
     #[error("current symbol type error")]
@@ -139,7 +139,7 @@ pub enum DerivedExprTypeError {
     #[error("cannot disambiguate list expression")]
     AmbiguateListExpr,
     #[error("form path type error {0}")]
-    FugitivePathTypeError(TermError),
+    FugitivePathTypeError(EtherealTermError),
     #[error("ambiguous type path")]
     AmbiguousTypePath,
     #[error("explicit application function type not inferred")]
@@ -152,6 +152,8 @@ pub enum DerivedExprTypeError {
     BitNotOperandTypeNotInferred,
     #[error("BinaryShiftRightOperandTypeNotInferred")]
     BinaryShiftRightOperandTypeNotInferred,
+    #[error("Fluffy term error")]
+    FluffyTermError(#[from] FluffyTermError),
 }
 
 pub type ExprTypeResult<T> = Result<T, ExprTypeError>;

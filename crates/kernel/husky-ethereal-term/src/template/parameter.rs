@@ -30,8 +30,8 @@ impl TemplateParameter {
 impl TemplateParameters {
     fn new(
         db: &dyn EtherealTermDb,
-        implicit_parameters: &[ImplicitParameterSignature],
-    ) -> TermResult<Self> {
+        implicit_parameters: &[ImplicitParameterDeclarativeSignature],
+    ) -> EtherealTermResult<Self> {
         Ok(Self::new_inner(
             db,
             implicit_parameters
@@ -47,23 +47,32 @@ impl TemplateParameters {
                     })
                 })
                 .rev()
-                .collect::<TermResult<SmallVec<_>>>()?,
+                .collect::<EtherealTermResult<SmallVec<_>>>()?,
         ))
     }
 }
 
 pub(crate) trait HasTemplateParameters: Copy {
-    fn template_parameters<'a>(self, db: &'a dyn EtherealTermDb) -> TermResult<TemplateParameters>;
+    fn template_parameters<'a>(
+        self,
+        db: &'a dyn EtherealTermDb,
+    ) -> EtherealTermResult<TemplateParameters>;
 }
 
 impl HasTemplateParameters for TraitForTypeImplBlockDeclarativeSignatureTemplate {
-    fn template_parameters<'a>(self, db: &'a dyn EtherealTermDb) -> TermResult<TemplateParameters> {
+    fn template_parameters<'a>(
+        self,
+        db: &'a dyn EtherealTermDb,
+    ) -> EtherealTermResult<TemplateParameters> {
         TemplateParameters::new(db, self.implicit_parameters(db))
     }
 }
 
 impl HasTemplateParameters for TypePath {
-    fn template_parameters<'a>(self, db: &'a dyn EtherealTermDb) -> TermResult<TemplateParameters> {
+    fn template_parameters<'a>(
+        self,
+        db: &'a dyn EtherealTermDb,
+    ) -> EtherealTermResult<TemplateParameters> {
         ty_path_template_parameters(db, self)
     }
 }
@@ -72,7 +81,7 @@ impl HasTemplateParameters for TypePath {
 pub(crate) fn ty_path_template_parameters(
     db: &dyn EtherealTermDb,
     path: TypePath,
-) -> TermResult<TemplateParameters> {
+) -> EtherealTermResult<TemplateParameters> {
     TemplateParameters::new(
         db,
         path.declarative_signature_template(db)?

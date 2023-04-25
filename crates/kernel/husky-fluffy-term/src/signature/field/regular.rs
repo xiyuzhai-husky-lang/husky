@@ -21,7 +21,7 @@ pub(super) fn direct_regular_field_card(
     }
 }
 
-// impl AsFluffySignatureTemplate for RegularStructTypeDeclarativeSignatureTemplate {
+// impl AsFluffySignatureTemplate for RegularStructDeclarativeSignatureTemplate {
 //     type FluffySignature = F;
 
 //     fn fluffy_signature(self, engine: &mut impl FluffyTermEngine) -> Self::FluffySignature {
@@ -31,7 +31,7 @@ pub(super) fn direct_regular_field_card(
 
 fn regular_struct_direct_regular_field_card(
     engine: &mut impl FluffyTermEngine,
-    signature: RegularStructTypeDeclarativeSignatureTemplate,
+    signature: RegularStructDeclarativeSignatureTemplate,
     arguments: &[FluffyTerm],
     ident: Ident,
 ) -> FluffyCardResult<Option<FluffyFieldCard>> {

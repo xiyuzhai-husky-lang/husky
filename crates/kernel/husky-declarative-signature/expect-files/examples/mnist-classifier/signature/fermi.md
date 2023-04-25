@@ -2,16 +2,16 @@
     Ok(
         Signature::Type(
             TypeDeclarativeSignatureTemplate::RegularStruct(
-                RegularStructTypeDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                RegularStructDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                     fields: [
-                        RegularStructFieldSignature {
+                        RegularStructFieldDeclarativeSignatureTemplate {
                             ident: `matches`,
                             ty: DeclarativeTerm(`[] core::option::Option ~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                         },
-                        RegularStructFieldSignature {
+                        RegularStructFieldDeclarativeSignatureTemplate {
                             ident: `others`,
                             ty: DeclarativeTerm(`[] ~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                         },
@@ -24,7 +24,7 @@
         Signature::Form(
             FugitiveDeclarativeSignatureTemplate::Fn(
                 FnDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                     parameters: ExplicitParameterDeclarativeSignatureTemplates {
@@ -60,7 +60,7 @@
         Signature::ImplBlock(
             ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                 TypeImplBlockDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                     ty: DeclarativeTerm(`mnist_classifier::fermi::FermiMatchResult`),

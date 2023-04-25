@@ -13,11 +13,11 @@ pub trait EtherealTermDb: DbWithJar<EtherealTermJar> + DeclarativeTypeDb + DecrD
     //     &self,
     //     path: TypePath,
     //     disambiguation: TypePathDisambiguation,
-    // ) -> TermResult<EtherealTerm>;
-    // fn trai_path_ty(&self, trai_path: TraitPath) -> TermResult<EtherealTerm>;
-    // fn form_path_ty(&self, form_path: FugitivePath) -> TermResult<EtherealTerm>;
-    // fn ty_method_card(&self, ty: EtherealTerm, ident: Ident) -> TermResult<Option<TypeMethodFnCard>>;
-    // fn field_ty(&self, ty: EtherealTerm, ident: Ident) -> TermResult<Option<EtherealTerm>>;
+    // ) -> EtherealTermResult<EtherealTerm>;
+    // fn trai_path_ty(&self, trai_path: TraitPath) -> EtherealTermResult<EtherealTerm>;
+    // fn form_path_ty(&self, form_path: FugitivePath) -> EtherealTermResult<EtherealTerm>;
+    // fn ty_method_card(&self, ty: EtherealTerm, ident: Ident) -> EtherealTermResult<Option<TypeMethodFnCard>>;
+    // fn field_ty(&self, ty: EtherealTerm, ident: Ident) -> EtherealTermResult<Option<EtherealTerm>>;
 }
 
 impl<Db> EtherealTermDb for Db
@@ -32,23 +32,23 @@ where
     //     &self,
     //     path: TypePath,
     //     disambiguation: TypePathDisambiguation,
-    // ) -> TermResult<EtherealTerm> {
+    // ) -> EtherealTermResult<EtherealTerm> {
     //     ty_path_ty(self, path, disambiguation)
     // }
 
-    // fn trai_path_ty(&self, trai_path: TraitPath) -> TermResult<EtherealTerm> {
+    // fn trai_path_ty(&self, trai_path: TraitPath) -> EtherealTermResult<EtherealTerm> {
     //     trai_path_ty_unchecked(self, trai_path)?.checked(self)
     // }
 
-    // fn form_path_ty(&self, form_path: FugitivePath) -> TermResult<EtherealTerm> {
+    // fn form_path_ty(&self, form_path: FugitivePath) -> EtherealTermResult<EtherealTerm> {
     //     form_path_ty_unchecked(self, form_path)?.checked(self)
     // }
 
-    // fn ty_method_card(&self, ty: EtherealTerm, ident: Ident) -> TermResult<Option<TypeMethodFnCard>> {
+    // fn ty_method_card(&self, ty: EtherealTerm, ident: Ident) -> EtherealTermResult<Option<TypeMethodFnCard>> {
     //     ty_method_card(self, ty, ident)
     // }
 
-    // fn field_ty(&self, ty: EtherealTerm, ident: Ident) -> TermResult<Option<EtherealTerm>> {
+    // fn field_ty(&self, ty: EtherealTerm, ident: Ident) -> EtherealTermResult<Option<EtherealTerm>> {
     //     field_ty(self, ty, ident)
     // }
 }

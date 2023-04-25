@@ -6,7 +6,7 @@ impl EtherealTerm {
         self,
         db: &dyn EtherealTermDb,
         other_ty: Either<Self, PreludeTypePath>,
-    ) -> TermResult<bool> {
+    ) -> EtherealTermResult<bool> {
         match other_ty {
             Left(other_ty) if other_ty == self => Ok(true),
             Left(other_ty) => {

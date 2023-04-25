@@ -10,7 +10,7 @@ use thiserror::Error;
 
 #[derive(Error, Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = EtherealTermDb)]
-pub enum TermError {
+pub enum EtherealTermError {
     #[error("EtherealTerm Error: term is not reduced")]
     TermIsNotReduced,
     #[error("EtherealTerm Error: term is not type")]
@@ -53,47 +53,46 @@ pub enum TermError {
     NoSuchMethod,
 }
 
-impl From<EntityPathError> for TermError {
+impl From<EntityPathError> for EtherealTermError {
     fn from(_value: EntityPathError) -> Self {
-        TermError::EntityPathError
+        EtherealTermError::EntityPathError
     }
 }
 
-impl From<&EntityPathError> for TermError {
+impl From<&EntityPathError> for EtherealTermError {
     fn from(_value: &EntityPathError) -> Self {
-        TermError::EntityPathError
+        EtherealTermError::EntityPathError
     }
 }
 
-impl From<EntityTreeError> for TermError {
+impl From<EntityTreeError> for EtherealTermError {
     fn from(value: EntityTreeError) -> Self {
         todo!()
     }
 }
 
-impl From<&EntityTreeBundleError> for TermError {
+impl From<&EntityTreeBundleError> for EtherealTermError {
     fn from(value: &EntityTreeBundleError) -> Self {
         todo!()
     }
 }
 
-impl From<&DeclExprError> for TermError {
+impl From<&DeclExprError> for EtherealTermError {
     fn from(value: &DeclExprError) -> Self {
         todo!()
     }
 }
 
-impl From<EntityTreeBundleError> for TermError {
+impl From<EntityTreeBundleError> for EtherealTermError {
     fn from(value: EntityTreeBundleError) -> Self {
         todo!()
     }
 }
 
-impl From<&DecrError> for TermError {
+impl From<&DecrError> for EtherealTermError {
     fn from(value: &DecrError) -> Self {
         todo!()
     }
 }
 
-pub type TermResult<T> = Result<T, TermError>;
-pub type TermResultArc<T> = Result<Arc<T>, TermError>;
+pub type EtherealTermResult<T> = Result<T, EtherealTermError>;

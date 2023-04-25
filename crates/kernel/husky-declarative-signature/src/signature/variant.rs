@@ -25,7 +25,7 @@ pub(crate) fn variant_signature_template_from_decl(
         TypeVariantDecl::Props(_) => todo!(),
         TypeVariantDecl::Unit(_) => todo!(),
         TypeVariantDecl::Tuple(_) => todo!(),
-        // TypeDecl::Enum(decl) => enum_ty_declarative_signature_template(db, decl).into(),
+        // TypeDecl::Enum(decl) => enum_declarative_signature_template(db, decl).into(),
     }
 }
 

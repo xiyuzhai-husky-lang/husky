@@ -7,6 +7,7 @@ pub(crate) use self::hollow::*;
 pub(crate) use self::solid::*;
 
 use super::*;
+use husky_ethereal_signature::FieldEtherealSignature;
 use husky_word::Ident;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -14,7 +15,17 @@ use husky_word::Ident;
 pub struct FluffyFieldDisambiguation {
     indirections: SmallVec<[FluffyFieldIndirection; 2]>,
     ty_path: TypePath,
-    signature: FieldSignature<FluffyTerm>,
+    signature: FieldFluffySignature,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = FluffyTermDb)]
+pub struct FieldFluffySignature {}
+
+impl From<FieldEtherealSignature> for FieldFluffySignature {
+    fn from(signature: FieldEtherealSignature) -> Self {
+        FieldFluffySignature {}
+    }
 }
 
 impl FluffyFieldDisambiguation {

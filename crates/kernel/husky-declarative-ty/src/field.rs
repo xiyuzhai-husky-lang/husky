@@ -11,7 +11,7 @@ pub fn ty_path_field_declarative_ty(
         Ok(decl) => decl,
         Err(_) => return Err(DerivedDeclarativeTypeError::TypePathFieldDeclError.into()),
     };
-    let signature = match db.ty_declarative_signature_template_from_decl(decl) {
+    let signature = match db.ty_declarative_signature_template(decl) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedDeclarativeTypeError::SignatureError.into()),
     };

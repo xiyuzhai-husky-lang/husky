@@ -39,14 +39,16 @@ pub(crate) fn trai_associated_item_declarative_signature_from_decl(
 ) -> DeclarativeSignatureResult<TraitItemDeclarativeSignatureTemplate> {
     match decl {
         TraitItemDecl::AssociatedFn(decl) => {
-            trai_associated_form_fn_declarative_signature(db, decl).map(Into::into)
+            trai_associated_form_fn_declarative_signature_template(db, decl).map(Into::into)
         }
-        TraitItemDecl::MethodFn(decl) => trai_method_fn_signature(db, decl).map(Into::into),
+        TraitItemDecl::MethodFn(decl) => {
+            trai_method_fn_declarative_signature_template(db, decl).map(Into::into)
+        }
         TraitItemDecl::AssociatedType(decl) => {
             trai_associated_ty_declarative_signature_template(db, decl).map(Into::into)
         }
         TraitItemDecl::AssociatedVal(decl) => {
-            trai_associated_val_declarative_signature(db, decl).map(Into::into)
+            trai_associated_val_declarative_signature_template(db, decl).map(Into::into)
         }
     }
 }
@@ -55,7 +57,7 @@ impl TraitItemDeclarativeSignatureTemplate {
     pub fn implicit_parameters(
         self,
         _db: &dyn DeclarativeSignatureDb,
-    ) -> &[ImplicitParameterSignature] {
+    ) -> &[ImplicitParameterDeclarativeSignature] {
         match self {
             TraitItemDeclarativeSignatureTemplate::AssociatedFn(_) => todo!(),
             TraitItemDeclarativeSignatureTemplate::MethodFn(_) => todo!(),
