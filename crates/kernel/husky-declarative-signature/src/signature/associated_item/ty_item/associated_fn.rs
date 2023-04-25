@@ -3,7 +3,7 @@ use crate::*;
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct TypeAssociatedFnDeclarativeSignatureTemplate {
     #[return_ref]
-    pub implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates,
+    pub implicit_parameters: ImplicitParameterDeclarativeSignatures,
     #[return_ref]
     pub parameters: ExplicitParameterDeclarativeSignatureTemplates,
     pub return_ty: DeclarativeTerm,
@@ -29,7 +29,7 @@ pub(crate) fn ty_associated_fn_declarative_signature_template(
     let expr_region_data = expr_region.data(db);
     let declarative_term_region = declarative_term_region(db, expr_region);
     let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
-    let implicit_parameters = ImplicitParameterDeclarativeSignatureTemplates::from_decl(
+    let implicit_parameters = ImplicitParameterDeclarativeSignatures::from_decl(
         decl.implicit_parameters(db),
         declarative_term_region,
         declarative_term_menu,

@@ -1,15 +1,17 @@
 use crate::*;
 use husky_ethereal_signature::EtherealSignatureError;
+use thiserror::Error;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
 pub enum FluffyTermError {
+    #[error("todo")]
     Todo,
 }
 
 impl From<EtherealSignatureError> for FluffyTermError {
     fn from(value: EtherealSignatureError) -> Self {
-        todo!()
+        FluffyTermError::Todo
     }
 }
 

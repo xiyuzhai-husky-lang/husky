@@ -2,16 +2,16 @@
     Ok(
         Signature::Type(
             TypeDeclarativeSignatureTemplate::RegularStruct(
-                RegularStructTypeDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                RegularStructDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                     fields: [
-                        RegularStructFieldSignature {
+                        RegularStructFieldDeclarativeSignatureTemplate {
                             ident: `cc`,
                             ty: DeclarativeTerm(`core::mem::Ref mnist_classifier::connected_component::ConnectedComponent`),
                         },
-                        RegularStructFieldSignature {
+                        RegularStructFieldDeclarativeSignatureTemplate {
                             ident: `points`,
                             ty: DeclarativeTerm(`[] mnist_classifier::geom2d::Point2d`),
                         },
@@ -23,8 +23,8 @@
     Ok(
         Signature::Type(
             TypeDeclarativeSignatureTemplate::Enum(
-                EnumTypeDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                EnumDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                 },
@@ -35,47 +35,7 @@
         Signature::Form(
             FugitiveDeclarativeSignatureTemplate::Fn(
                 FnDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
-                        data: [],
-                    },
-                    parameters: ExplicitParameterDeclarativeSignatureTemplates {
-                        parameters: [
-                            ExplicitParameterSignature {
-                                contract: Pure,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 56,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
-                            ExplicitParameterSignature {
-                                contract: Pure,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 44,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
-                        ],
-                    },
-                    return_ty: DeclarativeTerm(`core::raw_bits::r32`),
-                },
-            ),
-        ),
-    ),
-    Ok(
-        Signature::Form(
-            FugitiveDeclarativeSignatureTemplate::Fn(
-                FnDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                     parameters: ExplicitParameterDeclarativeSignatureTemplates {
@@ -115,7 +75,7 @@
         Signature::Form(
             FugitiveDeclarativeSignatureTemplate::Fn(
                 FnDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                     parameters: ExplicitParameterDeclarativeSignatureTemplates {
@@ -155,7 +115,47 @@
         Signature::Form(
             FugitiveDeclarativeSignatureTemplate::Fn(
                 FnDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                        data: [],
+                    },
+                    parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                        parameters: [
+                            ExplicitParameterSignature {
+                                contract: Pure,
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 56,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                            ExplicitParameterSignature {
+                                contract: Pure,
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 44,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ],
+                    },
+                    return_ty: DeclarativeTerm(`core::raw_bits::r32`),
+                },
+            ),
+        ),
+    ),
+    Ok(
+        Signature::Form(
+            FugitiveDeclarativeSignatureTemplate::Fn(
+                FnDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                     parameters: ExplicitParameterDeclarativeSignatureTemplates {
@@ -207,7 +207,7 @@
         Signature::Form(
             FugitiveDeclarativeSignatureTemplate::Fn(
                 FnDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                     parameters: ExplicitParameterDeclarativeSignatureTemplates {
@@ -247,7 +247,7 @@
         Signature::Form(
             FugitiveDeclarativeSignatureTemplate::Fn(
                 FnDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                     parameters: ExplicitParameterDeclarativeSignatureTemplates {
@@ -310,16 +310,16 @@
     Ok(
         Signature::Type(
             TypeDeclarativeSignatureTemplate::RegularStruct(
-                RegularStructTypeDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                RegularStructDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                     fields: [
-                        RegularStructFieldSignature {
+                        RegularStructFieldDeclarativeSignatureTemplate {
                             ident: `prev1`,
                             ty: DeclarativeTerm(`core::num::i32`),
                         },
-                        RegularStructFieldSignature {
+                        RegularStructFieldDeclarativeSignatureTemplate {
                             ident: `prev2`,
                             ty: DeclarativeTerm(`core::num::i32`),
                         },
@@ -332,7 +332,7 @@
         Signature::Form(
             FugitiveDeclarativeSignatureTemplate::Fn(
                 FnDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                     parameters: ExplicitParameterDeclarativeSignatureTemplates {
@@ -358,7 +358,7 @@
         Signature::Form(
             FugitiveDeclarativeSignatureTemplate::Fn(
                 FnDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                     parameters: ExplicitParameterDeclarativeSignatureTemplates {
@@ -384,7 +384,7 @@
         Signature::ImplBlock(
             ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                 TypeImplBlockDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                     ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
@@ -441,7 +441,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {

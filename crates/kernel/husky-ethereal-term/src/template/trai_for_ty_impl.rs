@@ -24,7 +24,7 @@ impl TraitForTypeImplTemplate {
         path: TypePath,
         decr: Decr,
         cards: &mut Vec<Self>,
-    ) -> TermResult<()> {
+    ) -> EtherealTermResult<()> {
         let template_parameters = path.template_parameters(db)?;
         let template_parameters_data = template_parameters.data(db);
         match decr {
@@ -35,7 +35,7 @@ impl TraitForTypeImplTemplate {
                         template_parameters,
                         trai_path: trai
                             .leading_trai_path(db)
-                            .ok_or(TermError::ExpectTraitForDeriveArgument)?,
+                            .ok_or(EtherealTermError::ExpectTraitForDeriveArgument)?,
                         ty_path: Some(path),
                         trai: TemplateTerm::new(db, trai, template_parameters_data),
                         ty: TemplateTerm::self_ty(db, path, template_parameters_data),
@@ -72,7 +72,7 @@ impl TraitForTypeImplTemplate {
 pub(crate) fn trai_for_type_impl_template_from_impl_block(
     db: &dyn EtherealTermDb,
     impl_block: TraitForTypeImplBlock,
-) -> TermResult<TraitForTypeImplTemplate> {
+) -> EtherealTermResult<TraitForTypeImplTemplate> {
     let signature = impl_block.declarative_signature_template(db)?;
     let template_parameters = signature.template_parameters(db)?;
     let template_parameters_data = template_parameters.data(db);
@@ -91,7 +91,7 @@ pub(crate) fn trai_for_type_impl_template_from_impl_block(
 impl HasTemplate for TraitForTypeImplBlock {
     type Template = TraitForTypeImplTemplate;
 
-    fn template(self, db: &dyn EtherealTermDb) -> TermResult<Self::Template> {
+    fn template(self, db: &dyn EtherealTermDb) -> EtherealTermResult<Self::Template> {
         trai_for_type_impl_template_from_impl_block(db, self)
     }
 }

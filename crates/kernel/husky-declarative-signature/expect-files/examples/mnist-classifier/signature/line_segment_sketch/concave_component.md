@@ -8,7 +8,7 @@
         Signature::Form(
             FugitiveDeclarativeSignatureTemplate::Fn(
                 FnDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                     parameters: ExplicitParameterDeclarativeSignatureTemplates {
@@ -34,7 +34,7 @@
         Signature::ImplBlock(
             ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                 TypeImplBlockDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                     ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
@@ -113,7 +113,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -142,7 +142,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -171,7 +171,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -200,7 +200,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -229,7 +229,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -258,7 +258,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {

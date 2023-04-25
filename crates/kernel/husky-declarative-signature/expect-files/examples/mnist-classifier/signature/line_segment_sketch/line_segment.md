@@ -2,16 +2,16 @@
     Ok(
         Signature::Type(
             TypeDeclarativeSignatureTemplate::RegularStruct(
-                RegularStructTypeDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                RegularStructDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                     fields: [
-                        RegularStructFieldSignature {
+                        RegularStructFieldDeclarativeSignatureTemplate {
                             ident: `start`,
                             ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
                         },
-                        RegularStructFieldSignature {
+                        RegularStructFieldDeclarativeSignatureTemplate {
                             ident: `end`,
                             ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
                         },
@@ -24,7 +24,7 @@
         Signature::ImplBlock(
             ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                 TypeImplBlockDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                     ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
@@ -37,7 +37,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -66,7 +66,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {

@@ -2,10 +2,10 @@
     Ok(
         Signature::Type(
             TypeDeclarativeSignatureTemplate::Extern(
-                ExternTypeDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                ExternDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [
-                            ImplicitParameterSignature {
+                            ImplicitParameterDeclarativeSignature {
                                 annotated_variance: Some(
                                     Covariant,
                                 ),
@@ -16,7 +16,7 @@
                                 ),
                                 traits: [],
                             },
-                            ImplicitParameterSignature {
+                            ImplicitParameterDeclarativeSignature {
                                 annotated_variance: Some(
                                     Covariant,
                                 ),
@@ -36,10 +36,10 @@
     Ok(
         Signature::Type(
             TypeDeclarativeSignatureTemplate::Extern(
-                ExternTypeDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                ExternDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [
-                            ImplicitParameterSignature {
+                            ImplicitParameterDeclarativeSignature {
                                 annotated_variance: Some(
                                     Covariant,
                                 ),
@@ -50,7 +50,7 @@
                                 ),
                                 traits: [],
                             },
-                            ImplicitParameterSignature {
+                            ImplicitParameterDeclarativeSignature {
                                 annotated_variance: Some(
                                     Invariant,
                                 ),
@@ -70,10 +70,10 @@
     Ok(
         Signature::Type(
             TypeDeclarativeSignatureTemplate::Extern(
-                ExternTypeDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                ExternDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [
-                            ImplicitParameterSignature {
+                            ImplicitParameterDeclarativeSignature {
                                 annotated_variance: Some(
                                     Covariant,
                                 ),

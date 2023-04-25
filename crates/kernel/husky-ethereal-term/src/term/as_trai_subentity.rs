@@ -21,7 +21,7 @@ impl EtherealTermAsTraitSubentity {
         db: &dyn EtherealTermDb,
         valid_term: DeclarativeTermAsTraitSubentity,
         term_ty_expectation: TermTypeExpectation,
-    ) -> TermResult<Self> {
+    ) -> EtherealTermResult<Self> {
         todo!()
     }
 

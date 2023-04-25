@@ -43,7 +43,7 @@ impl EtherealTermApplication {
         db: &dyn EtherealTermDb,
         function: EtherealTerm,
         argument: EtherealTerm,
-    ) -> TermResult<EtherealTerm> {
+    ) -> EtherealTermResult<EtherealTerm> {
         let (function_parameter_ty_total_number_of_curry_parameters, argument_expectation) = {
             match function.raw_ty(db)? {
                 RawType::Declarative(DeclarativeTerm::Curry(function_declarative_ty)) => {
@@ -90,12 +90,15 @@ impl EtherealTermApplication {
         db: &dyn EtherealTermDb,
         raw_term_application: DeclarativeTermExplicitApplication,
         term_ty_expectation: TermTypeExpectation,
-    ) -> TermResult<EtherealTerm> {
+    ) -> EtherealTermResult<EtherealTerm> {
         // todo: implicit arguments
         term_uncheck_from_raw_term_application(db, raw_term_application, term_ty_expectation)
     }
 
-    pub(crate) fn declarative_ty(self, db: &dyn EtherealTermDb) -> TermResult<DeclarativeTerm> {
+    pub(crate) fn declarative_ty(
+        self,
+        db: &dyn EtherealTermDb,
+    ) -> EtherealTermResult<DeclarativeTerm> {
         term_application_declarative_ty(db, self)
     }
 
@@ -116,7 +119,7 @@ pub(crate) fn term_uncheck_from_raw_term_application(
     db: &dyn EtherealTermDb,
     raw_term_application: DeclarativeTermExplicitApplication,
     declarative_ty_expectation: TermTypeExpectation,
-) -> TermResult<EtherealTerm> {
+) -> EtherealTermResult<EtherealTerm> {
     // todo: implicit arguments
     term_uncheck_from_raw_term_application_aux(
         db,
@@ -136,7 +139,7 @@ pub(crate) fn term_uncheck_from_raw_term_application_aux(
     function: EtherealTerm,
     argument: DeclarativeTerm,
     declarative_ty_expectation: TermTypeExpectation,
-) -> TermResult<EtherealTerm> {
+) -> EtherealTermResult<EtherealTerm> {
     // todo: implicit arguments
     let (function_parameter_ty_total_number_of_curry_parameters, argument_expectation) = {
         match function.raw_ty(db)? {
@@ -203,7 +206,7 @@ pub(crate) fn parameter_ty_raw_term_application_to_argument_ty_expectation(
 pub(crate) fn term_application_declarative_ty(
     db: &dyn EtherealTermDb,
     term_application: EtherealTermApplication,
-) -> TermResult<DeclarativeTerm> {
+) -> EtherealTermResult<DeclarativeTerm> {
     let function = term_application.function(db);
     let argument = term_application.argument(db);
     let function_declarative_ty = match function.raw_ty(db)? {
@@ -220,7 +223,10 @@ pub(crate) fn term_application_declarative_ty(
 }
 
 impl EtherealTerm {
-    fn ty_total_number_of_curry_parameters(self, db: &dyn EtherealTermDb) -> TermResult<u8> {
+    fn ty_total_number_of_curry_parameters(
+        self,
+        db: &dyn EtherealTermDb,
+    ) -> EtherealTermResult<u8> {
         Ok(match self.raw_ty(db)? {
             RawType::Declarative(ty) => ty.total_number_of_curry_parameters(db),
             RawType::Ethereal(ty) => ty.total_number_of_curry_parameters(db),

@@ -12,7 +12,7 @@ impl HasDeclarativeSignatureTemplate for ValDecl {
         self,
         db: &dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
-        var_signature(db, self)
+        val_declarative_signature_template(db, self)
     }
 }
 
@@ -21,13 +21,13 @@ impl ValDeclarativeSignatureTemplate {
     pub fn implicit_parameters(
         self,
         db: &dyn DeclarativeSignatureDb,
-    ) -> &[ImplicitParameterSignature] {
+    ) -> &[ImplicitParameterDeclarativeSignature] {
         &[]
     }
 }
 
 #[salsa::tracked(jar = DeclarativeSignatureJar)]
-pub fn var_signature(
+pub fn val_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     decl: ValDecl,
 ) -> DeclarativeSignatureResult<ValDeclarativeSignatureTemplate> {

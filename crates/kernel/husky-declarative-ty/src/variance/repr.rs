@@ -57,7 +57,7 @@ pub(crate) fn ty_entity_variance_reprs(
         Ok(decl) => decl,
         Err(_) => return Err(DerivedVarianceError::DeclError.into()),
     };
-    let signature = match db.ty_declarative_signature_template_from_decl(decl) {
+    let signature = match db.ty_declarative_signature_template(decl) {
         Ok(signature) => signature,
         Err(_) => return Err(DerivedVarianceError::SignatureError.into()),
     };

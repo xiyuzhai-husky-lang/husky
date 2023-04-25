@@ -7,7 +7,7 @@ pub trait DeclarativeSignatureDb:
     salsa::DbWithJar<DeclarativeSignatureJar> + DecrDb + DeclarativeTermDb
 {
     fn declarative_term_region(&self, expr_region: ExprRegion) -> &DeclarativeTermRegion;
-    fn ty_declarative_signature_template_from_decl(
+    fn ty_declarative_signature_template(
         &self,
         decl: TypeDecl,
     ) -> DeclarativeSignatureResult<TypeDeclarativeSignatureTemplate>;
@@ -25,11 +25,11 @@ where
         declarative_term_region(self, expr_region)
     }
 
-    fn ty_declarative_signature_template_from_decl(
+    fn ty_declarative_signature_template(
         &self,
         decl: TypeDecl,
     ) -> DeclarativeSignatureResult<TypeDeclarativeSignatureTemplate> {
-        ty_declarative_signature_template_from_decl(self, decl)
+        ty_declarative_signature_template(self, decl)
     }
 
     fn trai_declarative_signature(

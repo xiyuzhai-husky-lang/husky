@@ -45,7 +45,7 @@ impl TypeItemDeclarativeSignatureTemplate {
     pub fn implicit_parameters(
         self,
         db: &dyn DeclarativeSignatureDb,
-    ) -> &[ImplicitParameterSignature] {
+    ) -> &[ImplicitParameterDeclarativeSignature] {
         match self {
             TypeItemDeclarativeSignatureTemplate::AssociatedFn(signature) => {
                 signature.implicit_parameters(db)
@@ -99,15 +99,17 @@ pub(crate) fn ty_item_declarative_signature_from_decl(
             ty_associated_fn_declarative_signature_template(db, decl).map(Into::into)
         }
         TypeItemDecl::MethodFn(decl) => {
-            ty_method_fn_declarative_signature(db, decl).map(Into::into)
+            ty_method_fn_declarative_signature_template(db, decl).map(Into::into)
         }
         TypeItemDecl::AssociatedType(decl) => {
-            ty_associated_ty_declarative_signature_template_from_decl(db, decl).map(Into::into)
+            ty_associated_ty_declarative_signature_template(db, decl).map(Into::into)
         }
         TypeItemDecl::AssociatedVal(decl) => {
             ty_associated_val_declarative_signature_template(db, decl).map(Into::into)
         }
-        TypeItemDecl::MemoizedField(decl) => ty_memo_signature(db, decl).map(Into::into),
+        TypeItemDecl::MemoizedField(decl) => {
+            ty_memoized_field_declarative_signature_template(db, decl).map(Into::into)
+        }
     }
 }
 

@@ -9,8 +9,8 @@ pub enum ExprTermError {
     Derived(#[from] DerivedExprTermError),
 }
 
-impl From<TermError> for ExprTermError {
-    fn from(value: TermError) -> Self {
+impl From<EtherealTermError> for ExprTermError {
+    fn from(value: EtherealTermError) -> Self {
         todo!()
     }
 }
@@ -36,13 +36,13 @@ pub enum DerivedExprTermError {
     #[error("AmbiguousTilde")]
     AmbiguousTilde,
     #[error("TildeApplicationTermError")]
-    TildeApplicationTerm(TermError),
+    TildeApplicationTerm(EtherealTermError),
     #[error("TypePathTypeError")]
     TypePathTypeError,
     #[error("OptionApplicationTermError")]
-    OptionApplicationTerm(TermError),
+    OptionApplicationTerm(EtherealTermError),
     #[error("ExplicitApplicationTerm")]
-    ExplicitApplicationTerm(TermError),
+    ExplicitApplicationTerm(EtherealTermError),
     #[error("ExplicitApplicationFunctionTermNotInferred")]
     ExplicitApplicationFunctionTermNotInferred,
     #[error("ExplicitApplicationArgumentTermNotInferred")]

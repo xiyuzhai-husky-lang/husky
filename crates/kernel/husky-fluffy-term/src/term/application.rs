@@ -7,7 +7,7 @@ impl FluffyTerm {
         expr_idx: ExprIdx,
         function: impl Into<NestedFluffyTerm>,
         argument: impl Into<NestedFluffyTerm>,
-    ) -> TermResult<Self> {
+    ) -> EtherealTermResult<Self> {
         let db = engine.db();
         let function = function.into();
         let argument = argument.into();
@@ -94,7 +94,7 @@ impl FluffyTerm {
         engine: &mut impl FluffyTermEngine,
         expr_idx: ExprIdx,
         ty: FluffyTerm,
-    ) -> TermResult<Self> {
+    ) -> EtherealTermResult<Self> {
         let function: FluffyTerm = engine.term_menu().leash_ty_ontology().into();
         Self::new_application(engine, expr_idx, function, ty)
     }

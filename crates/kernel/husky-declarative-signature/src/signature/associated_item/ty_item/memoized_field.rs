@@ -1,7 +1,7 @@
 use crate::*;
 
 #[salsa::tracked(jar = DeclarativeSignatureJar)]
-pub(crate) fn ty_memo_signature(
+pub(crate) fn ty_memoized_field_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     decl: TypeMemoizedFieldDecl,
 ) -> DeclarativeSignatureResult<TypeMemoizedFieldDeclarativeSignatureTemplate> {

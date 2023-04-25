@@ -22,7 +22,7 @@ impl SymbolType {
         engine: &mut impl FluffyTermEngine,
         current_symbol_idx: CurrentSymbolIdx,
         signature: SymbolSignature,
-    ) -> TermResult<Self> {
+    ) -> EtherealTermResult<Self> {
         let ty = EtherealTerm::ty_from_raw(engine.db(), signature.ty()?)?;
         Ok(Self::new(engine, current_symbol_idx, ty.into()))
     }

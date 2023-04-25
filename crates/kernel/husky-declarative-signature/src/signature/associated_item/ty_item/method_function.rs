@@ -5,7 +5,7 @@ use husky_entity_tree::{ImplBlock, ImplBlockId};
 pub struct TypeMethodFunctionDeclarativeSignatureTemplate {
     // todo: formal method, method that is not a function pointer
     #[return_ref]
-    pub implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates,
+    pub implicit_parameters: ImplicitParameterDeclarativeSignatures,
     #[return_ref]
     pub self_parameter: ExplicitParameterSignature,
     #[return_ref]
@@ -36,7 +36,7 @@ pub fn ty_method_function_declarative_signature_template(
         }
     };
     let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
-    let implicit_parameters = ImplicitParameterDeclarativeSignatureTemplates::from_decl(
+    let implicit_parameters = ImplicitParameterDeclarativeSignatures::from_decl(
         decl.implicit_parameters(db),
         declarative_term_region,
         declarative_term_menu,

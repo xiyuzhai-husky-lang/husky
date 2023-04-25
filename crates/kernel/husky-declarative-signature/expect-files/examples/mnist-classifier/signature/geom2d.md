@@ -2,16 +2,16 @@
     Ok(
         Signature::Type(
             TypeDeclarativeSignatureTemplate::RegularStruct(
-                RegularStructTypeDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                RegularStructDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                     fields: [
-                        RegularStructFieldSignature {
+                        RegularStructFieldDeclarativeSignatureTemplate {
                             ident: `x`,
                             ty: DeclarativeTerm(`core::num::f32`),
                         },
-                        RegularStructFieldSignature {
+                        RegularStructFieldDeclarativeSignatureTemplate {
                             ident: `y`,
                             ty: DeclarativeTerm(`core::num::f32`),
                         },
@@ -23,16 +23,16 @@
     Ok(
         Signature::Type(
             TypeDeclarativeSignatureTemplate::RegularStruct(
-                RegularStructTypeDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                RegularStructDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                     fields: [
-                        RegularStructFieldSignature {
+                        RegularStructFieldDeclarativeSignatureTemplate {
                             ident: `x`,
                             ty: DeclarativeTerm(`core::num::f32`),
                         },
-                        RegularStructFieldSignature {
+                        RegularStructFieldDeclarativeSignatureTemplate {
                             ident: `y`,
                             ty: DeclarativeTerm(`core::num::f32`),
                         },
@@ -44,16 +44,16 @@
     Ok(
         Signature::Type(
             TypeDeclarativeSignatureTemplate::RegularStruct(
-                RegularStructTypeDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                RegularStructDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                     fields: [
-                        RegularStructFieldSignature {
+                        RegularStructFieldDeclarativeSignatureTemplate {
                             ident: `x`,
                             ty: DeclarativeTerm(`core::num::f32`),
                         },
-                        RegularStructFieldSignature {
+                        RegularStructFieldDeclarativeSignatureTemplate {
                             ident: `y`,
                             ty: DeclarativeTerm(`core::num::f32`),
                         },
@@ -65,16 +65,16 @@
     Ok(
         Signature::Type(
             TypeDeclarativeSignatureTemplate::RegularStruct(
-                RegularStructTypeDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                RegularStructDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                     fields: [
-                        RegularStructFieldSignature {
+                        RegularStructFieldDeclarativeSignatureTemplate {
                             ident: `min`,
                             ty: DeclarativeTerm(`core::num::f32`),
                         },
-                        RegularStructFieldSignature {
+                        RegularStructFieldDeclarativeSignatureTemplate {
                             ident: `max`,
                             ty: DeclarativeTerm(`core::num::f32`),
                         },
@@ -86,16 +86,16 @@
     Ok(
         Signature::Type(
             TypeDeclarativeSignatureTemplate::RegularStruct(
-                RegularStructTypeDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                RegularStructDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                     fields: [
-                        RegularStructFieldSignature {
+                        RegularStructFieldDeclarativeSignatureTemplate {
                             ident: `xrange`,
                             ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
                         },
-                        RegularStructFieldSignature {
+                        RegularStructFieldDeclarativeSignatureTemplate {
                             ident: `yrange`,
                             ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
                         },
@@ -107,16 +107,16 @@
     Ok(
         Signature::Type(
             TypeDeclarativeSignatureTemplate::RegularStruct(
-                RegularStructTypeDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                RegularStructDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                     fields: [
-                        RegularStructFieldSignature {
+                        RegularStructFieldDeclarativeSignatureTemplate {
                             ident: `xrange`,
                             ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
                         },
-                        RegularStructFieldSignature {
+                        RegularStructFieldDeclarativeSignatureTemplate {
                             ident: `yrange`,
                             ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
                         },
@@ -129,7 +129,7 @@
         Signature::ImplBlock(
             ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                 TypeImplBlockDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                     ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
@@ -142,7 +142,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::AssociatedFn(
                     TypeAssociatedFnDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
                         parameters: ExplicitParameterDeclarativeSignatureTemplates {
@@ -184,7 +184,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -213,7 +213,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -255,7 +255,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -284,7 +284,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -325,7 +325,7 @@
         Signature::ImplBlock(
             ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                 TypeImplBlockDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                     ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
@@ -338,7 +338,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -367,7 +367,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -409,7 +409,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -438,7 +438,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -480,7 +480,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -522,7 +522,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -564,7 +564,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -606,7 +606,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -659,7 +659,7 @@
         Signature::ImplBlock(
             ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                 TypeImplBlockDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                     ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
@@ -672,7 +672,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -714,7 +714,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -756,7 +756,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -785,7 +785,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -814,7 +814,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -843,7 +843,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -871,7 +871,7 @@
         Signature::ImplBlock(
             ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                 TypeImplBlockDeclarativeSignatureTemplate {
-                    implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
                     ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
@@ -884,7 +884,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -913,7 +913,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -942,7 +942,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {
@@ -971,7 +971,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
                         self_parameter: ExplicitParameterSignature {

@@ -6,7 +6,7 @@ use crate::*;
 pub struct TypeMethodFnDeclarativeSignatureTemplate {
     // todo: formal method, method that is not a function pointer
     #[return_ref]
-    pub implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates,
+    pub implicit_parameters: ImplicitParameterDeclarativeSignatures,
     #[return_ref]
     pub self_parameter: ExplicitParameterSignature,
     #[return_ref]
@@ -21,12 +21,12 @@ impl HasDeclarativeSignatureTemplate for TypeMethodFnDecl {
         self,
         db: &dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
-        ty_method_fn_declarative_signature(db, self)
+        ty_method_fn_declarative_signature_template(db, self)
     }
 }
 
 #[salsa::tracked(jar = DeclarativeSignatureJar)]
-pub fn ty_method_fn_declarative_signature(
+pub fn ty_method_fn_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     decl: TypeMethodFnDecl,
 ) -> DeclarativeSignatureResult<TypeMethodFnDeclarativeSignatureTemplate> {
@@ -48,7 +48,7 @@ pub fn ty_method_fn_declarative_signature(
         }
     };
     let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
-    let implicit_parameters = ImplicitParameterDeclarativeSignatureTemplates::from_decl(
+    let implicit_parameters = ImplicitParameterDeclarativeSignatures::from_decl(
         decl.implicit_parameters(db),
         declarative_term_region,
         declarative_term_menu,

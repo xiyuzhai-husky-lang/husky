@@ -27,7 +27,7 @@ impl EtherealTermRitchie {
         ritchie_kind: TermRitchieKind,
         parameter_tys: impl IntoIterator<Item = TermRitchieParameterContractedType>,
         return_ty: EtherealTerm,
-    ) -> TermResult<EtherealTermRitchie> {
+    ) -> EtherealTermResult<EtherealTermRitchie> {
         todo!("check_application_validity(db, function, argument, shift)?");
         Ok(Self::new_unchecked(
             db,
@@ -64,9 +64,9 @@ impl EtherealTermRitchie {
         ritchie_kind: TermRitchieKind,
         parameter_tys: impl IntoIterator<Item = Result<TermRitchieParameterContractedType, E>>,
         return_ty: EtherealTerm,
-    ) -> TermResult<EtherealTermRitchie>
+    ) -> EtherealTermResult<EtherealTermRitchie>
     where
-        TermError: From<E>,
+        EtherealTermError: From<E>,
     {
         Ok(Self::new_inner(
             db,
@@ -74,7 +74,7 @@ impl EtherealTermRitchie {
             parameter_tys
                 .into_iter()
                 .map(|parameter_contracted_ty| Ok(parameter_contracted_ty?.reduce(db)))
-                .collect::<TermResult<Vec<_>>>()?,
+                .collect::<EtherealTermResult<Vec<_>>>()?,
             return_ty.reduce(db),
         ))
     }
@@ -87,7 +87,7 @@ impl EtherealTermRitchie {
     pub(crate) fn from_declarative(
         db: &dyn EtherealTermDb,
         raw_term_ritchie: DeclarativeTermRitchie,
-    ) -> TermResult<Self> {
+    ) -> EtherealTermResult<Self> {
         term_ritchie_from_declarative(db, raw_term_ritchie)
     }
 
@@ -117,22 +117,21 @@ impl EtherealTermRitchie {
 pub(crate) fn term_ritchie_from_declarative(
     db: &dyn EtherealTermDb,
     raw_term_ritchie: DeclarativeTermRitchie,
-) -> TermResult<EtherealTermRitchie> {
+) -> EtherealTermResult<EtherealTermRitchie> {
     let t = |raw_term| {
         EtherealTerm::from_declarative(db, raw_term, TermTypeExpectation::FinalDestinationEqsSort)
     };
     EtherealTermRitchie::new_unchecked2(
         db,
         raw_term_ritchie.ritchie_kind(db),
-        raw_term_ritchie
-            .parameter_tys(db)
-            .iter()
-            .map(|parameter_contracted_ty| -> TermResult<_> {
+        raw_term_ritchie.parameter_tys(db).iter().map(
+            |parameter_contracted_ty| -> EtherealTermResult<_> {
                 Ok(TermRitchieParameterContractedType {
                     contract: parameter_contracted_ty.contract(),
                     ty: t(parameter_contracted_ty.ty())?,
                 })
-            }),
+            },
+        ),
         t(raw_term_ritchie.return_ty(db))?,
     )
 }

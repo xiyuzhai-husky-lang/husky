@@ -77,29 +77,9 @@ DiagnosticSheet {
                 range: [15:9, 19:11),
             },
             Diagnostic {
-                message: "Type Error: NoSuchField",
-                severity: Error,
-                range: [26:24, 26:47),
-            },
-            Diagnostic {
-                message: "Type Error: NoSuchField",
-                severity: Error,
-                range: [27:22, 27:45),
-            },
-            Diagnostic {
-                message: "Type Error: NoSuchField",
-                severity: Error,
-                range: [28:19, 28:42),
-            },
-            Diagnostic {
                 message: "Type Error: TodoSuffix",
                 severity: Error,
                 range: [31:13, 35:15),
-            },
-            Diagnostic {
-                message: "Type Error: NoSuchField",
-                severity: Error,
-                range: [39:17, 39:37),
             },
             Diagnostic {
                 message: "Type Error: TodoSuffix",

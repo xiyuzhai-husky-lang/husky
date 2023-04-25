@@ -48,11 +48,6 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Type Error: NoSuchField",
-                severity: Error,
-                range: [16:15, 16:29),
-            },
-            Diagnostic {
                 message: "Type Error: no method named `push` for type `FluffyTerm::Solid(SolidTerm(0))`",
                 severity: Error,
                 range: [34:17, 34:21),

@@ -21,7 +21,7 @@ impl EtherealTermSubentity {
         db: &dyn EtherealTermDb,
         valid_term: DeclarativeTermSubentity,
         term_ty_expectation: TermTypeExpectation,
-    ) -> TermResult<EtherealTerm> {
+    ) -> EtherealTermResult<EtherealTerm> {
         todo!()
     }
 

@@ -6,7 +6,7 @@ pub struct TraitMethodFnDeclarativeSignatureTemplate {
 }
 
 #[salsa::tracked(jar = DeclarativeSignatureJar)]
-pub(crate) fn trai_method_fn_signature(
+pub(crate) fn trai_method_fn_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     decl: TraitMethodFnDecl,
 ) -> DeclarativeSignatureResult<TraitMethodFnDeclarativeSignatureTemplate> {

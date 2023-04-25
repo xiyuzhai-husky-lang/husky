@@ -19,7 +19,7 @@ impl EtherealTermAbstraction {
         db: &dyn EtherealTermDb,
         precise_term: DeclarativeTermAbstraction,
         term_ty_expectation: TermTypeExpectation,
-    ) -> TermResult<Self> {
+    ) -> EtherealTermResult<Self> {
         todo!()
     }
 

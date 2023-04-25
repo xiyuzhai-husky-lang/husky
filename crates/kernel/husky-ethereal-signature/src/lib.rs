@@ -1,12 +1,14 @@
 #![feature(trait_upcasting)]
 mod db;
 mod error;
+mod parameter;
 mod signature;
 
 pub use self::db::*;
 pub use self::error::*;
 pub use self::signature::*;
 
+use self::parameter::*;
 use husky_entity_path::*;
 use husky_ethereal_term::*;
 use husky_word::*;
@@ -20,4 +22,15 @@ pub struct EtherealSignatureJar(
     TypeMethodFnEtherealSignatureTemplate,
     ty_method_fn_ethereal_signature_template,
     TypeMethodFunctionEtherealSignatureTemplate,
+    // ty
+    EnumEtherealSignatureTemplate,
+    enum_ethereal_signature_template,
+    ExternEtherealSignatureTemplate,
+    InductiveEtherealSignatureTemplate,
+    RecordEtherealSignatureTemplate,
+    RegularStructEtherealSignatureTemplate,
+    StructureEtherealSignatureTemplate,
+    TupleStructEtherealSignatureTemplate,
+    UnionEtherealSignatureTemplate,
+    UnitStructEtherealSignatureTemplate,
 );

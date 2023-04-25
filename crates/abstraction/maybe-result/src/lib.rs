@@ -53,8 +53,14 @@ where
     fn from_residual(residual: Result<Infallible, E1>) -> Self {
         match residual {
             Ok(_) => unreachable!(),
-            Err(_) => todo!(),
+            Err(e) => JustErr(e.into()),
         }
+    }
+}
+
+impl<T, E> std::ops::FromResidual<Option<Infallible>> for MaybeResult<T, E> {
+    fn from_residual(residual: Option<Infallible>) -> Self {
+        Nothing
     }
 }
 

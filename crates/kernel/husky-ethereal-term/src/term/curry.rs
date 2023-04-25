@@ -29,7 +29,7 @@ impl EtherealTermCurry {
     pub(crate) fn from_declarative(
         db: &dyn EtherealTermDb,
         raw_term_curry: DeclarativeTermCurry,
-    ) -> TermResult<Self> {
+    ) -> EtherealTermResult<Self> {
         term_curry_from_declarative(db, raw_term_curry)
     }
 
@@ -72,7 +72,7 @@ impl EtherealTermCurry {
 pub(crate) fn term_curry_from_declarative(
     db: &dyn EtherealTermDb,
     raw_term_curry: DeclarativeTermCurry,
-) -> TermResult<EtherealTermCurry> {
+) -> EtherealTermResult<EtherealTermCurry> {
     let t = |declarative_ty| {
         EtherealTerm::from_declarative(
             db,

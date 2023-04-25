@@ -29,7 +29,7 @@ pub(crate) fn trai_for_ty_associated_item_declarative_signature_from_decl(
             trai_for_ty_associated_fn_declarative_signature_template(db, decl).map(Into::into)
         }
         TraitForTypeItemDecl::MethodFn(decl) => {
-            trai_for_ty_method_fn_signature(db, decl).map(Into::into)
+            trai_for_ty_method_fn_declarative_signature_template(db, decl).map(Into::into)
         }
         TraitForTypeItemDecl::AssociatedType(decl) => {
             trai_for_ty_associated_ty_declarative_signature_template(db, decl).map(Into::into)
@@ -44,7 +44,7 @@ impl TraitForTypeItemDeclarativeSignatureTemplate {
     pub fn implicit_parameters(
         self,
         _db: &dyn DeclarativeSignatureDb,
-    ) -> &[ImplicitParameterSignature] {
+    ) -> &[ImplicitParameterDeclarativeSignature] {
         match self {
             TraitForTypeItemDeclarativeSignatureTemplate::AssociatedFn(_) => todo!(),
             TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(_) => todo!(),

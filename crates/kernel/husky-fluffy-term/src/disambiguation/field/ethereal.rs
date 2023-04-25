@@ -1,4 +1,4 @@
-use husky_ethereal_signature::HasTypeMethodEtherealSignatures;
+use husky_ethereal_signature::{HasRegularFieldEtherealSignature, HasTypeMethodEtherealSignatures};
 
 use super::*;
 
@@ -54,25 +54,36 @@ fn ethereal_ty_field_disambiguation_aux<'a>(
     ident: Ident,
     mut indirections: SmallVec<[FluffyFieldIndirection; 2]>,
 ) -> FluffyTermMaybeResult<FluffyFieldDisambiguation> {
-    let Some(templates) = ty_path
-        .ty_method_ethereal_signature_templates(db, ident)
-        .into_result_option()? else {
-        match ty_path.refine(db) {
-            Right(PreludeTypePath::Borrow(borrow_ty_path)) => match borrow_ty_path {
-                PreludeBorrowTypePath::Ref => todo!(),
-                PreludeBorrowTypePath::RefMut => todo!(),
-                PreludeBorrowTypePath::Leash => {
-                    indirections.push(FluffyFieldIndirection::Leash);
-                    if arguments.len() != 1 {
-                        todo!()
-                    }
-                    return JustOk(ethereal_ty_field_disambiguation(db, arguments[0], ident)?.merge(indirections))
-                },
-            },
-            // ad hoc
-            // needs to consider `Deref` `DerefMut` `Carrier`
-            _ => return Nothing
-        }
+    match ty_path.refine(db) {
+        Right(PreludeTypePath::Borrow(borrow_ty_path)) => match borrow_ty_path {
+            PreludeBorrowTypePath::Ref => todo!(),
+            PreludeBorrowTypePath::RefMut => todo!(),
+            PreludeBorrowTypePath::Leash => {
+                indirections.push(FluffyFieldIndirection::Leash);
+                if arguments.len() != 1 {
+                    todo!()
+                }
+                return JustOk(
+                    ethereal_ty_field_disambiguation(db, arguments[0], ident)?.merge(indirections),
+                );
+            }
+        },
+        _ => (),
+    }
+    if let Some(field_ethereal_signature) = ty_path
+        .regular_field_ethereal_signature(db, arguments, ident)
+        .into_result_option()?
+    {
+        return JustOk(FluffyFieldDisambiguation {
+            indirections,
+            ty_path,
+            signature: field_ethereal_signature.into(),
+        });
     };
-    todo!()
+    if indirections.contains(&FluffyFieldIndirection::Leash) {
+        todo!()
+    }
+    // ad hoc
+    // needs to consider `Deref` `DerefMut` `Carrier`
+    Nothing
 }

@@ -5,16 +5,16 @@ use super::*;
 pub struct ExternTypeDeclarativeSignature {}
 
 #[salsa::tracked(jar = DeclarativeSignatureJar)]
-pub fn alien_ty_declarative_signature_template(
+pub fn extern_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     decl: ExternTypeDecl,
-) -> DeclarativeSignatureResult<ExternTypeDeclarativeSignatureTemplate> {
+) -> DeclarativeSignatureResult<ExternDeclarativeSignatureTemplate> {
     let expr_region = decl.expr_region(db);
     let declarative_term_region = declarative_term_region(db, expr_region);
     let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
-    Ok(ExternTypeDeclarativeSignatureTemplate::new(
+    Ok(ExternDeclarativeSignatureTemplate::new(
         db,
-        ImplicitParameterDeclarativeSignatureTemplates::from_decl(
+        ImplicitParameterDeclarativeSignatures::from_decl(
             decl.implicit_parameters(db),
             &declarative_term_region,
             declarative_term_menu,
@@ -23,9 +23,9 @@ pub fn alien_ty_declarative_signature_template(
 }
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
-pub struct ExternTypeDeclarativeSignatureTemplate {
+pub struct ExternDeclarativeSignatureTemplate {
     #[return_ref]
-    pub implicit_parameters: ImplicitParameterDeclarativeSignatureTemplates,
+    pub implicit_parameters: ImplicitParameterDeclarativeSignatures,
 }
 
-impl ExternTypeDeclarativeSignatureTemplate {}
+impl ExternDeclarativeSignatureTemplate {}

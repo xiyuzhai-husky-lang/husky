@@ -1,22 +1,22 @@
-mod enum_ty;
-mod extern_ty;
-mod inductive_ty;
-mod record_ty;
-mod regular_struct_ty;
-mod structure_ty;
-mod tuple_struct_ty;
-mod union_ty;
-mod unit_struct_ty;
+mod r#enum;
+mod r#extern;
+mod inductive;
+mod record;
+mod regular_struct;
+mod structure;
+mod tuple_struct;
+mod union;
+mod unit_struct;
 
-pub use self::enum_ty::*;
-pub use self::extern_ty::*;
-pub use self::inductive_ty::*;
-pub use self::record_ty::*;
-pub use self::regular_struct_ty::*;
-pub use self::structure_ty::*;
-pub use self::tuple_struct_ty::*;
-pub use self::union_ty::*;
-pub use self::unit_struct_ty::*;
+pub use self::inductive::*;
+pub use self::r#enum::*;
+pub use self::r#extern::*;
+pub use self::record::*;
+pub use self::regular_struct::*;
+pub use self::structure::*;
+pub use self::tuple_struct::*;
+pub use self::union::*;
+pub use self::unit_struct::*;
 
 use super::*;
 
@@ -24,7 +24,7 @@ use super::*;
 #[salsa::derive_debug_with_db(db = DeclarativeSignatureDb)]
 pub enum TypeDeclarativeSignature {
     Enum(EnumTypeDeclarativeSignature),
-    RegularStruct(RegularStructTypeDeclarativeSignature),
+    RegularStruct(RegularStructDeclarativeSignature),
     UnitStruct(UnitStructTypeDeclarativeSignature),
     TupleStruct(TupleStructTypeDeclarativeSignature),
     Record(RecordTypeDeclarativeSignature),
@@ -38,22 +38,22 @@ pub enum TypeDeclarativeSignature {
 #[salsa::derive_debug_with_db(db = DeclarativeSignatureDb)]
 #[enum_class::from_variants]
 pub enum TypeDeclarativeSignatureTemplate {
-    Enum(EnumTypeDeclarativeSignatureTemplate),
-    RegularStruct(RegularStructTypeDeclarativeSignatureTemplate),
-    UnitStruct(UnitStructTypeDeclarativeSignatureTemplate),
-    TupleStruct(TupleStructTypeDeclarativeSignatureTemplate),
-    Record(RecordTypeDeclarativeSignatureTemplate),
-    Inductive(InductiveTypeDeclarativeSignatureTemplate),
-    Structure(StructureTypeDeclarativeSignatureTemplate),
-    Extern(ExternTypeDeclarativeSignatureTemplate),
-    Union(UnionTypeDeclarativeSignatureTemplate),
+    Enum(EnumDeclarativeSignatureTemplate),
+    RegularStruct(RegularStructDeclarativeSignatureTemplate),
+    UnitStruct(UnitStructDeclarativeSignatureTemplate),
+    TupleStruct(TupleStructDeclarativeSignatureTemplate),
+    Record(RecordDeclarativeSignatureTemplate),
+    Inductive(InductiveDeclarativeSignatureTemplate),
+    Structure(StructureDeclarativeSignatureTemplate),
+    Extern(ExternDeclarativeSignatureTemplate),
+    Union(UnionDeclarativeSignatureTemplate),
 }
 
 impl TypeDeclarativeSignatureTemplate {
     pub fn implicit_parameters(
         self,
         db: &dyn DeclarativeSignatureDb,
-    ) -> &[ImplicitParameterSignature] {
+    ) -> &[ImplicitParameterDeclarativeSignature] {
         match self {
             TypeDeclarativeSignatureTemplate::Enum(decl) => decl.implicit_parameters(db),
             TypeDeclarativeSignatureTemplate::UnitStruct(decl) => decl.implicit_parameters(db),
@@ -76,35 +76,33 @@ impl HasDeclarativeSignatureTemplate for TypePath {
         self,
         db: &dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
-        ty_declarative_signature_template_from_decl(db, self.decl(db)?)
+        ty_declarative_signature_template(db, self.decl(db)?)
     }
 }
 
-pub(crate) fn ty_declarative_signature_template_from_decl(
+pub(crate) fn ty_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     decl: TypeDecl,
 ) -> DeclarativeSignatureResult<TypeDeclarativeSignatureTemplate> {
     match decl {
-        TypeDecl::Enum(decl) => enum_ty_declarative_signature_template(db, decl).map(Into::into),
+        TypeDecl::Enum(decl) => enum_declarative_signature_template(db, decl).map(Into::into),
         TypeDecl::RegularStruct(decl) => {
-            regular_struct_ty_declarative_signature_template(db, decl).map(Into::into)
+            regular_struct_declarative_signature_template(db, decl).map(Into::into)
         }
         TypeDecl::UnitStruct(decl) => {
-            unit_struct_ty_declarative_signature_template(db, decl).map(Into::into)
+            unit_struct_declarative_signature_template(db, decl).map(Into::into)
         }
         TypeDecl::TupleStruct(decl) => {
-            tuple_struct_ty_declarative_signature_template(db, decl).map(Into::into)
+            tuple_struct_declarative_signature_template(db, decl).map(Into::into)
         }
-        TypeDecl::Record(decl) => {
-            record_ty_declarative_signature_template(db, decl).map(Into::into)
-        }
+        TypeDecl::Record(decl) => record_declarative_signature_template(db, decl).map(Into::into),
         TypeDecl::Inductive(decl) => {
-            inductive_ty_declarative_signature_template(db, decl).map(Into::into)
+            inductive_declarative_signature_template(db, decl).map(Into::into)
         }
         TypeDecl::Structure(decl) => {
-            structure_ty_declarative_signature_template(db, decl).map(Into::into)
+            structure_declarative_signature_template(db, decl).map(Into::into)
         }
-        TypeDecl::Extern(decl) => alien_ty_declarative_signature_template(db, decl).map(Into::into),
-        TypeDecl::Union(decl) => union_ty_declarative_signature_template(db, decl).map(Into::into),
+        TypeDecl::Extern(decl) => extern_declarative_signature_template(db, decl).map(Into::into),
+        TypeDecl::Union(decl) => union_declarative_signature_template(db, decl).map(Into::into),
     }
 }

@@ -191,10 +191,10 @@ pub enum DerivedFluffyTermExpectationError {
     #[error("{term:?} {error}")]
     TermTypeError {
         term: EtherealTerm,
-        error: TermError,
+        error: EtherealTermError,
     },
     #[error("{0}")]
-    Type(#[from] TermError),
+    Type(#[from] EtherealTermError),
     #[error("target substitution failure")]
     TargetSubstitutionFailure,
     #[error("duplication")]
@@ -202,7 +202,10 @@ pub enum DerivedFluffyTermExpectationError {
     #[error("unresolved local term")]
     UnresolvedLocalTerm,
     #[error("type path {ty_path:?} type error {error}")]
-    TypePathTypeError { ty_path: TypePath, error: TermError },
+    TypePathTypeError {
+        ty_path: TypePath,
+        error: EtherealTermError,
+    },
 }
 
 impl ExpectationResolveProgress {

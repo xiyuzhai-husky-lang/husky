@@ -4,11 +4,11 @@ use husky_ty_expectation::TypePathDisambiguation;
 use husky_vfs::Toolchain;
 
 pub trait HasType: Copy {
-    fn ty(self, db: &dyn EtherealTermDb) -> TermResult<EtherealTerm>;
+    fn ty(self, db: &dyn EtherealTermDb) -> EtherealTermResult<EtherealTerm>;
 }
 
 pub trait HasTypeGivenToolchain: Copy {
-    fn ty(self, db: &dyn EtherealTermDb, toolchain: Toolchain) -> TermResult<EtherealTerm>;
+    fn ty(self, db: &dyn EtherealTermDb, toolchain: Toolchain) -> EtherealTermResult<EtherealTerm>;
 }
 
 pub trait HasTypeGivenDisambiguation: Copy {
@@ -16,7 +16,7 @@ pub trait HasTypeGivenDisambiguation: Copy {
         self,
         db: &dyn EtherealTermDb,
         disambiguation: TypePathDisambiguation,
-    ) -> TermResult<EtherealTerm>;
+    ) -> EtherealTermResult<EtherealTerm>;
 }
 
 impl HasTypeGivenDisambiguation for EntityPath {
@@ -24,7 +24,7 @@ impl HasTypeGivenDisambiguation for EntityPath {
         self,
         db: &dyn EtherealTermDb,
         disambiguation: TypePathDisambiguation,
-    ) -> TermResult<EtherealTerm> {
+    ) -> EtherealTermResult<EtherealTerm> {
         match self {
             EntityPath::Module(path) => Ok(db.term_menu(path.toolchain(db)).module_ty_ontology()),
             EntityPath::ModuleItem(path) => path.ty(db, disambiguation),
@@ -39,7 +39,7 @@ impl HasTypeGivenDisambiguation for ModuleItemPath {
         self,
         db: &dyn EtherealTermDb,
         disambiguation: TypePathDisambiguation,
-    ) -> TermResult<EtherealTerm> {
+    ) -> EtherealTermResult<EtherealTerm> {
         match self {
             ModuleItemPath::Type(path) => path.ty(db, disambiguation),
             ModuleItemPath::Trait(path) => path.ty(db),
@@ -49,13 +49,13 @@ impl HasTypeGivenDisambiguation for ModuleItemPath {
 }
 
 impl HasType for TraitPath {
-    fn ty(self, db: &dyn EtherealTermDb) -> TermResult<EtherealTerm> {
+    fn ty(self, db: &dyn EtherealTermDb) -> EtherealTermResult<EtherealTerm> {
         EtherealTerm::ty_from_raw(db, trai_path_declarative_ty(db, self)?)
     }
 }
 
 impl HasType for FugitivePath {
-    fn ty(self, db: &dyn EtherealTermDb) -> TermResult<EtherealTerm> {
+    fn ty(self, db: &dyn EtherealTermDb) -> EtherealTermResult<EtherealTerm> {
         EtherealTerm::ty_from_raw(db, form_path_declarative_ty(db, self)?)
     }
 }
@@ -65,7 +65,7 @@ impl HasTypeGivenDisambiguation for TypePath {
         self,
         db: &dyn EtherealTermDb,
         disambiguation: TypePathDisambiguation,
-    ) -> TermResult<EtherealTerm> {
+    ) -> EtherealTermResult<EtherealTerm> {
         match disambiguation {
             TypePathDisambiguation::Ontology => {
                 EtherealTerm::ty_from_raw(db, ty_ontology_path_declarative_ty(db, self)?)
@@ -78,7 +78,7 @@ impl HasTypeGivenDisambiguation for TypePath {
 }
 
 impl HasType for AssociatedItemPath {
-    fn ty(self, db: &dyn EtherealTermDb) -> TermResult<EtherealTerm> {
+    fn ty(self, db: &dyn EtherealTermDb) -> EtherealTermResult<EtherealTerm> {
         match self {
             AssociatedItemPath::TypeItem(path) => path.ty(db),
             AssociatedItemPath::TraitItem(path) => path.ty(db),
@@ -88,31 +88,31 @@ impl HasType for AssociatedItemPath {
 }
 
 impl HasType for TypeItemPath {
-    fn ty(self, db: &dyn EtherealTermDb) -> TermResult<EtherealTerm> {
+    fn ty(self, db: &dyn EtherealTermDb) -> EtherealTermResult<EtherealTerm> {
         EtherealTerm::ty_from_declarative(db, self.declarative_ty(db)?)
     }
 }
 
 impl HasType for TraitItemPath {
-    fn ty(self, db: &dyn EtherealTermDb) -> TermResult<EtherealTerm> {
+    fn ty(self, db: &dyn EtherealTermDb) -> EtherealTermResult<EtherealTerm> {
         todo!()
     }
 }
 
 impl HasType for TraitForTypeItemPath {
-    fn ty(self, db: &dyn EtherealTermDb) -> TermResult<EtherealTerm> {
+    fn ty(self, db: &dyn EtherealTermDb) -> EtherealTermResult<EtherealTerm> {
         todo!()
     }
 }
 
 impl HasType for TypeVariantPath {
-    fn ty(self, db: &dyn EtherealTermDb) -> TermResult<EtherealTerm> {
+    fn ty(self, db: &dyn EtherealTermDb) -> EtherealTermResult<EtherealTerm> {
         EtherealTerm::ty_from_raw(db, ty_variant_path_declarative_ty(db, self)?)
     }
 }
 
 impl HasTypeGivenToolchain for EtherealTerm {
-    fn ty(self, db: &dyn EtherealTermDb, toolchain: Toolchain) -> TermResult<EtherealTerm> {
+    fn ty(self, db: &dyn EtherealTermDb, toolchain: Toolchain) -> EtherealTermResult<EtherealTerm> {
         todo!()
         // self.ty_unchecked(db)?.checked(db)
     }
@@ -129,7 +129,7 @@ impl EtherealTerm {
     pub fn ty_unchecked(
         self,
         db: &dyn EtherealTermDb,
-    ) -> TermResult<Either<EtherealTerm, PreludeTypePath>> {
+    ) -> EtherealTermResult<Either<EtherealTerm, PreludeTypePath>> {
         Ok(match self.raw_ty(db)? {
             RawType::Declarative(declarative_ty) => Left(EtherealTerm::from_declarative(
                 db,
@@ -141,7 +141,7 @@ impl EtherealTerm {
         })
     }
 
-    pub fn raw_ty(self, db: &dyn EtherealTermDb) -> TermResult<RawType> {
+    pub fn raw_ty(self, db: &dyn EtherealTermDb) -> EtherealTermResult<RawType> {
         Ok(match self {
             EtherealTerm::Literal(literal) => RawType::Prelude(literal.ty()),
             EtherealTerm::Symbol(symbol) => RawType::Ethereal(symbol.ty(db)),
