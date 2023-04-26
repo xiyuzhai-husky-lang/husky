@@ -6,7 +6,7 @@ impl SolidTerm {
         engine: &mut impl FluffyTermEngine,
         ident: Ident,
         available_traits: &[TraitPath],
-        mut indirections: SmallVec<[FluffyFieldIndirection; 2]>,
+        mut indirections: SmallVec<[FluffyIndirection; 2]>,
     ) -> FluffyTermMaybeResult<FluffyFieldDisambiguation> {
         match self.data(engine) {
             SolidTermData::TypeOntology {
@@ -22,7 +22,7 @@ impl SolidTerm {
                 base_ty_term,
             } => match base_ty_term {
                 Some(base_ty_term) => {
-                    indirections.push(FluffyFieldIndirection::Place(*place));
+                    indirections.push(FluffyIndirection::Place(*place));
                     JustOk(
                         ethereal_ty_field_disambiguation(engine.db(), *base_ty_term, ident)?
                             .merge(indirections),
