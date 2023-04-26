@@ -540,12 +540,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `upmost`,
                         token_idx: TokenIdx(
-                            502,
+                            503,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        503,
+                        504,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -585,12 +585,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `downmost`,
                         token_idx: TokenIdx(
-                            531,
+                            532,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        532,
+                        533,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -630,12 +630,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `hat`,
                         token_idx: TokenIdx(
-                            565,
+                            566,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        566,
+                        567,
                     ),
                     block: Form {
                         path: FugitivePath(

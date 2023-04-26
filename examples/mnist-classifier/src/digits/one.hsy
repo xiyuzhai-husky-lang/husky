@@ -34,7 +34,7 @@ pub val is_one: ?MnistLabel =:
                 simp_one_match.angle_change_norm.abs()
             )?
             require 2.0 * major_connected_component.lower_mass - major_connected_component.upper_mass < 52.0
-            MnistLabel::One
+            return MnistLabel::One
         let downmost_number_of_strokes = downmost.strokes.end - downmost.strokes.start
         require one_fermi_match.norm < 1.0
         narrow_down(

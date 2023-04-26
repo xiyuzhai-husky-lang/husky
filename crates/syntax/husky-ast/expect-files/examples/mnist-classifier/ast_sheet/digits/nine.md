@@ -416,12 +416,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `downmost`,
                         token_idx: TokenIdx(
-                            210,
+                            211,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        211,
+                        212,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -461,12 +461,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `big_cc`,
                         token_idx: TokenIdx(
-                            239,
+                            240,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        240,
+                        241,
                     ),
                     block: Form {
                         path: FugitivePath(

@@ -20,7 +20,7 @@ Ok(
             ),
             end_line: 42,
             end_character: Some(
-                25,
+                32,
             ),
             kind: Some(
                 Region,

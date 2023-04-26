@@ -19,12 +19,6 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "type path mismatch: expect core::basic::unit, but got mnist::MnistLabel instead",
-                severity: Error,
-                range: [86:9, 86:25),
-            },
-        ],
+        diagnostics: [],
     },
 }

@@ -40,7 +40,7 @@ pub(super) val is_seven: ?MnistLabel =:
             let end_tangent = simple_seven_match.matches[0].end_tangent()
             let a = end_tangent.y
             require a < -7.0
-        MnistLabel::Seven
+        return MnistLabel::Seven
     if simple_match_norm < 4.0:
         let upper_excess = major_connected_component.upper_mass - major_connected_component.lower_mass
         require upper_excess > 10.
