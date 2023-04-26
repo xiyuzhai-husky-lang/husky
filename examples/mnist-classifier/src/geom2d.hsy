@@ -82,7 +82,7 @@ pub struct ClosedRange {
     max: f32,
 }
 
-impl CloseRange:
+impl ClosedRange:
     fn relative_range(other: ClosedRange) -> ClosedRange:
         assert self.max > self.min
         let span = self.max - self.min

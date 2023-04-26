@@ -2440,7 +2440,7 @@ Ok(
                 Keyword::Impl,
             ),
             Token::Ident(
-                `CloseRange`,
+                `ClosedRange`,
             ),
             Token::Punctuation(
                 Punctuation(

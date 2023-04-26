@@ -210,7 +210,7 @@ Ok(
                                             19,
                                         ),
                                     },
-                                    ty_expr: 10,
+                                    ty_expr: 11,
                                     body: Type(
                                         TypeItems {
                                             ast_idx_range: ArenaIdxRange(
@@ -389,7 +389,7 @@ Ok(
                                                         19,
                                                     ),
                                                 },
-                                                ty_expr: 10,
+                                                ty_expr: 11,
                                                 body: Type(
                                                     TypeItems {
                                                         ast_idx_range: ArenaIdxRange(
@@ -685,7 +685,7 @@ Ok(
                                                         19,
                                                     ),
                                                 },
-                                                ty_expr: 10,
+                                                ty_expr: 11,
                                                 body: Type(
                                                     TypeItems {
                                                         ast_idx_range: ArenaIdxRange(

@@ -400,7 +400,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 507;\n\ntoken_line_group_idx = 52\n\ntoken = Token::Ident(\n    `ClosedRange`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 507;\n\ntoken_line_group_idx = 52\n\ntoken = Token::Ident(\n    `ClosedRange`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::ModuleItem(\n            ModuleItemPath::Type(\n                TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),\n            ),\n        ),\n    ),\n    None,\n);\n\n\n",
                             },
                         ),
                         range: Some(

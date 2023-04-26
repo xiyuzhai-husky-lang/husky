@@ -234,7 +234,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::AtEq,
+                    PunctuationMapped::DeriveAssign,
                 ),
             ),
             Token::Ident(
@@ -307,7 +307,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::AtEq,
+                    PunctuationMapped::DeriveAssign,
                 ),
             ),
             Token::Ident(

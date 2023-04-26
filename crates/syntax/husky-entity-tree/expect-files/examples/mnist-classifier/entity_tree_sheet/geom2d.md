@@ -166,36 +166,26 @@ Ok(
                     ),
                 },
             ),
-            ImplBlock::IllFormed(
-                IllFormedImplBlock {
-                    id: IllFormedImplBlockId {
-                        module: `mnist_classifier::geom2d`,
+            ImplBlock::Type(
+                TypeImplBlock {
+                    id: TypeImplBlockId {
+                        module_path: `mnist_classifier::geom2d`,
+                        ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                         disambiguator: 0,
                     },
+                    ast_idx: 84,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             499,
                         ),
                     },
-                    ast_idx: 84,
+                    ty_expr: 4,
                     body: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 56..58,
                             ),
                         },
-                    ),
-                    ill_form: ImplBlockIllForm::MajorPath(
-                        MajorPathExprError::Original(
-                            OriginalMajorPathExprError::UnrecognizedIdent(
-                                IdentToken {
-                                    ident: `CloseRange`,
-                                    token_idx: TokenIdx(
-                                        500,
-                                    ),
-                                },
-                            ),
-                        ),
                     ),
                 },
             ),
@@ -212,7 +202,7 @@ Ok(
                             609,
                         ),
                     },
-                    ty_expr: 4,
+                    ty_expr: 5,
                     body: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
@@ -235,7 +225,7 @@ Ok(
                             743,
                         ),
                     },
-                    ty_expr: 5,
+                    ty_expr: 6,
                     body: Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
