@@ -58,7 +58,6 @@ pub(crate) fn word_to_ident(db: &dyn WordDb, word: Word) -> Option<Ident> {
     Ident::from_borrowed(db, word.data(db))
 }
 
-#[non_exhaustive]
 pub enum IdentCase {
     SingleCapital,
     AllCapital,

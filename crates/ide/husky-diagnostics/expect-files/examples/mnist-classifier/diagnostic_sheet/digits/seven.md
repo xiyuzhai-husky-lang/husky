@@ -23,11 +23,6 @@ DiagnosticSheet {
             Diagnostic {
                 message: "type path mismatch: expect core::basic::unit, but got mnist::MnistLabel instead",
                 severity: Error,
-                range: [43:9, 43:26),
-            },
-            Diagnostic {
-                message: "type path mismatch: expect core::basic::unit, but got mnist::MnistLabel instead",
-                severity: Error,
                 range: [47:9, 47:26),
             },
         ],

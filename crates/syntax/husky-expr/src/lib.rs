@@ -65,7 +65,7 @@ impl BaseEntityPathInclination {
             }
             IdentCase::AllCapital => BaseEntityPathInclination::GlobalValue,
             IdentCase::SnakeCase => BaseEntityPathInclination::FunctionOrLocalValue,
-            _ => todo!(),
+            IdentCase::CamelCase => BaseEntityPathInclination::TypeOrVariant,
         }
     }
 }

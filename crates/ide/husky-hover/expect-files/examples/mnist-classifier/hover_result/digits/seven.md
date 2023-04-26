@@ -550,18 +550,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 252;\n\ntoken_line_group_idx = 35\n\ntoken = Token::Keyword(\n    Keyword::Stmt(\n        If,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 252;\n\ntoken_line_group_idx = 34\n\ntoken = Token::Ident(\n    `Seven`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::TypeVariant(\n            TypeVariantPath {\n                ty_path: TypePath(`mnist::MnistLabel`, `Enum`),\n                ident: `Seven`,\n            },\n        ),\n    ),\n    None,\n);\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
-                                    line: 43,
-                                    character: 4,
+                                    line: 42,
+                                    character: 27,
                                 },
                                 end: Position {
-                                    line: 43,
-                                    character: 6,
+                                    line: 42,
+                                    character: 32,
                                 },
                             },
                         ),
@@ -580,18 +580,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 266;\n\ntoken_line_group_idx = 36\n\ntoken = Token::Ident(\n    `lower_mass`,\n);\n\ntoken_info = TokenInfo::Field;\n\n\n",
+                                value: "\ntoken_idx = 266;\n\ntoken_line_group_idx = 36\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Dot,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 44,
-                                    character: 92,
+                                    character: 91,
                                 },
                                 end: Position {
                                     line: 44,
-                                    character: 102,
+                                    character: 92,
                                 },
                             },
                         ),
@@ -610,18 +610,48 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 280;\n\ntoken_line_group_idx = 39\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Ket(\n            Box,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 280;\n\ntoken_line_group_idx = 39\n\ntoken = Token::Literal(\n    Literal::Integer(\n        Unspecified,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 47,
-                                    character: 41,
+                                    character: 40,
                                 },
                                 end: Position {
                                     line: 47,
-                                    character: 42,
+                                    character: 41,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                294,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "\ntoken_idx = 294;\n\ntoken_line_group_idx = 42\n\ntoken = Token::Ident(\n    `Seven`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::TypeVariant(\n            TypeVariantPath {\n                ty_path: TypePath(`mnist::MnistLabel`, `Enum`),\n                ident: `Seven`,\n            },\n        ),\n    ),\n    None,\n);\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 50,
+                                    character: 16,
+                                },
+                                end: Position {
+                                    line: 50,
+                                    character: 21,
                                 },
                             },
                         ),

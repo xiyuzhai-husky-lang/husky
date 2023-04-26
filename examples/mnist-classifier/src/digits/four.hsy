@@ -83,7 +83,7 @@ val is_four: ?MnistLabel =:
 
         require a < 22.0
         require a > 9.0
-        MnistLabel::Four
+        return MnistLabel::Four
     
 
     // narrow_down(
