@@ -16,7 +16,7 @@ pub(super) val is_zero: ?MnistLabel =:
         require connected_components.ilen() == 1
         let c = open_one_match.matches[0].displacement().norm()
         require c < 5.5
-        MnistLabel::Zero
+        return MnistLabel::Zero
     let simp_zero_match = fermi_match(major_concave_components, [])
     narrow_down(
         MnistLabel::Zero,
