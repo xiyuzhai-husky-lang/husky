@@ -11,7 +11,7 @@ use husky_ethereal_signature::FieldEtherealSignature;
 use husky_word::Ident;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = FluffyTermDb)]
+// #[salsa::derive_debug_with_db(db = FluffyTermDb)]
 pub struct FluffyFieldDisambiguation {
     indirections: SmallVec<[FluffyFieldIndirection; 2]>,
     ty_path: TypePath,
@@ -20,11 +20,25 @@ pub struct FluffyFieldDisambiguation {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
-pub struct FieldFluffySignature {}
+pub struct FieldFluffySignature {
+    ty: FluffyTerm,
+}
+
+impl FieldFluffySignature {
+    pub fn ty(self) -> FluffyTerm {
+        // match self {
+        //     FieldEtherealSignature::RegularStruct(_) => todo!(),
+        // }
+        self.ty
+    }
+}
 
 impl From<FieldEtherealSignature> for FieldFluffySignature {
     fn from(signature: FieldEtherealSignature) -> Self {
-        FieldFluffySignature {}
+        // ad hoc
+        FieldFluffySignature {
+            ty: signature.ty().into(),
+        }
     }
 }
 
@@ -36,6 +50,18 @@ impl FluffyFieldDisambiguation {
             ty_path: self.ty_path,
             signature: self.signature,
         }
+    }
+
+    pub fn indirections(&self) -> &SmallVec<[FluffyFieldIndirection; 2]> {
+        &self.indirections
+    }
+
+    pub fn ty_path(&self) -> TypePath {
+        self.ty_path
+    }
+
+    pub fn signature(&self) -> FieldFluffySignature {
+        self.signature
     }
 }
 

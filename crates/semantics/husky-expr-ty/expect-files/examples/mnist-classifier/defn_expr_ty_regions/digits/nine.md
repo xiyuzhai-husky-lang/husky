@@ -570,8 +570,10 @@
             },
             ExprTypeInfo {
                 variant_and_ty_result: Err(
-                    Original(
-                        NoSuchField,
+                    Derived(
+                        FluffyTermError(
+                            Todo,
+                        ),
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -924,8 +926,10 @@
             },
             ExprTypeInfo {
                 variant_and_ty_result: Err(
-                    Original(
-                        NoSuchField,
+                    Derived(
+                        FluffyTermError(
+                            Todo,
+                        ),
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -1014,8 +1018,10 @@
             },
             ExprTypeInfo {
                 variant_and_ty_result: Err(
-                    Original(
-                        NoSuchField,
+                    Derived(
+                        FluffyTermError(
+                            Todo,
+                        ),
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -1140,8 +1146,10 @@
             },
             ExprTypeInfo {
                 variant_and_ty_result: Err(
-                    Original(
-                        NoSuchField,
+                    Derived(
+                        FluffyTermError(
+                            Todo,
+                        ),
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -1373,8 +1381,10 @@
             },
             ExprTypeInfo {
                 variant_and_ty_result: Err(
-                    Original(
-                        NoSuchField,
+                    Derived(
+                        FluffyTermError(
+                            Todo,
+                        ),
                     ),
                 ),
                 expectation_rule_idx: None,

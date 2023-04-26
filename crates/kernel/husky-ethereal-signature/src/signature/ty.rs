@@ -127,3 +127,11 @@ impl HasRegularFieldEtherealSignature for TypeEtherealSignatureTemplate {
 pub enum FieldEtherealSignature {
     RegularStruct(RegularStructFieldEtherealSignature),
 }
+
+impl FieldEtherealSignature {
+    pub fn ty(self) -> EtherealTerm {
+        match self {
+            FieldEtherealSignature::RegularStruct(signature) => signature.ty(),
+        }
+    }
+}
