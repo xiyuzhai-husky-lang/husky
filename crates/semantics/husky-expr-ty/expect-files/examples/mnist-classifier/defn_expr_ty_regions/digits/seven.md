@@ -3515,40 +3515,10 @@
                                     ),
                                 ),
                             ),
-                            data: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
-                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
-                                        contract: Pure,
-                                        ty: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 33,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                    },
-                                },
+                            data: AnyDerived(
+                                ExpectAnyDerived,
                             ),
-                            resolve_progress: Resolved(
-                                Err(
-                                    Original(
-                                        TypePathMismatch {
-                                            expected_path: TypePath(
-                                                Id {
-                                                    value: 33,
-                                                },
-                                            ),
-                                            expectee_path: TypePath(
-                                                Id {
-                                                    value: 88,
-                                                },
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            ),
+                            resolve_progress: Unresolved,
                         },
                         ExpectationEntry {
                             src: ExpectationSource {
