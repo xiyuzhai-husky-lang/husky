@@ -10,6 +10,7 @@ mod nested;
 mod progress;
 mod region;
 mod resolve;
+mod signature;
 mod substitution;
 mod term;
 #[cfg(test)]
@@ -28,6 +29,7 @@ pub use self::resolve::*;
 pub use self::substitution::*;
 pub use self::term::*;
 
+pub(crate) use self::signature::*;
 #[cfg(test)]
 pub(crate) use self::tests::*;
 
@@ -39,9 +41,9 @@ use husky_ethereal_term::*;
 use husky_expr::*;
 use husky_print_utils::p;
 use husky_term_prelude::*;
+use maybe_result::*;
 use salsa::DebugWithDb as _;
 use smallvec::*;
-use maybe_result::*;
 
 #[salsa::jar(db = FluffyTermDb)]
 pub struct FluffyTermJar(
@@ -49,4 +51,6 @@ pub struct FluffyTermJar(
     term_application_fluffy_data,
     ethereal_ty_ontology_path_ty_field_disambiguation,
     ethereal_term_application_ty_field_disambiguation,
+    ethereal_ty_ontology_path_ty_method_disambiguation,
+    ethereal_term_application_ty_method_disambiguation,
 );

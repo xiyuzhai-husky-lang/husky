@@ -13,7 +13,7 @@ use husky_word::Ident;
 #[derive(Debug, PartialEq, Eq)]
 // #[salsa::derive_debug_with_db(db = FluffyTermDb)]
 pub struct FluffyFieldDisambiguation {
-    indirections: SmallVec<[FluffyFieldIndirection; 2]>,
+    indirections: SmallVec<[FluffyIndirection; 2]>,
     ty_path: TypePath,
     signature: FieldFluffySignature,
 }
@@ -43,7 +43,7 @@ impl From<FieldEtherealSignature> for FieldFluffySignature {
 }
 
 impl FluffyFieldDisambiguation {
-    fn merge(&self, mut indirections: SmallVec<[FluffyFieldIndirection; 2]>) -> Self {
+    fn merge(&self, mut indirections: SmallVec<[FluffyIndirection; 2]>) -> Self {
         indirections.extend(self.indirections.iter().copied());
         Self {
             indirections,
@@ -52,7 +52,7 @@ impl FluffyFieldDisambiguation {
         }
     }
 
-    pub fn indirections(&self) -> &SmallVec<[FluffyFieldIndirection; 2]> {
+    pub fn indirections(&self) -> &SmallVec<[FluffyIndirection; 2]> {
         &self.indirections
     }
 
@@ -81,7 +81,7 @@ impl FluffyTerm {
         engine: &mut impl FluffyTermEngine,
         ident: Ident,
         available_traits: &[TraitPath],
-        mut indirections: SmallVec<[FluffyFieldIndirection; 2]>,
+        mut indirections: SmallVec<[FluffyIndirection; 2]>,
     ) -> FluffyTermMaybeResult<FluffyFieldDisambiguation> {
         match self.nested() {
             NestedFluffyTerm::Ethereal(term) => JustOk(
@@ -93,10 +93,4 @@ impl FluffyTerm {
             NestedFluffyTerm::Hollow(term) => todo!(),
         }
     }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum FluffyFieldIndirection {
-    Place(Place),
-    Leash,
 }

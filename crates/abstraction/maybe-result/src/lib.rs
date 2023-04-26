@@ -1,3 +1,4 @@
+#![feature(try_trait_v2_residual)]
 #![feature(try_trait_v2)]
 
 pub use MaybeResult::*;
@@ -89,6 +90,16 @@ fn maybe_result_works() {
     );
 }
 
+impl<T, E> From<Result<T, Option<E>>> for MaybeResult<T, E> {
+    fn from(value: Result<T, Option<E>>) -> Self {
+        match value {
+            Ok(t) => JustOk(t),
+            Err(Some(e)) => JustErr(e),
+            Err(None) => Nothing,
+        }
+    }
+}
+
 impl<T, E> MaybeResult<T, E> {
     /// convert into `Result<Option<T>, E>`
     ///
@@ -106,6 +117,13 @@ impl<T, E> MaybeResult<T, E> {
             JustOk(t) => Ok(Some(t)),
             JustErr(e) => Err(e),
             Nothing => Ok(None),
+        }
+    }
+    pub fn into_result(self) -> Result<T, Option<E>> {
+        match self {
+            JustOk(t) => Ok(t),
+            JustErr(e) => Err(Some(e)),
+            Nothing => Err(None),
         }
     }
 
@@ -130,5 +148,22 @@ impl<T, E> MaybeResult<T, E> {
             JustErr(e) => JustErr(*e),
             Nothing => Nothing,
         }
+    }
+}
+
+impl<T, E> std::ops::Residual<T> for MaybeResult<Infallible, E> {
+    type TryType = MaybeResult<T, E>;
+}
+
+impl<A, E, V> FromIterator<MaybeResult<A, E>> for MaybeResult<V, E>
+where
+    V: FromIterator<A>,
+{
+    #[inline(always)]
+    fn from_iter<T: IntoIterator<Item = MaybeResult<A, E>>>(iter: T) -> Self {
+        iter.into_iter()
+            .map(MaybeResult::into_result)
+            .collect::<Result<V, Option<E>>>()
+            .into()
     }
 }

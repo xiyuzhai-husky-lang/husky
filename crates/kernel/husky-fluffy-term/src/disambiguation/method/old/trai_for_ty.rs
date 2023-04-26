@@ -2,14 +2,14 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct FluffyTraitForTypeMethodDisambiguation {
-    indirections: SmallVec<[FluffyMethodIndirection; 2]>,
+    indirections: SmallVec<[FluffyIndirection; 2]>,
     ty_path: TypePath,
     trai_path: TraitPath,
     trai: FluffyTerm,
 }
 
 impl FluffyTraitForTypeMethodDisambiguation {
-    pub fn indirections(&self) -> &[FluffyMethodIndirection] {
+    pub fn indirections(&self) -> &[FluffyIndirection] {
         &self.indirections
     }
 

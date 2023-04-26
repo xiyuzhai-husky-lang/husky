@@ -14,44 +14,48 @@ pub(crate) use self::solid::*;
 // pub use self::ty::*;
 
 use super::*;
+use husky_ethereal_signature::EtherealMethodSignature;
 use husky_word::Ident;
 
 impl FluffyTerm {
-    pub fn method_ty(
+    pub fn method_disambiguation(
         self,
         engine: &mut impl FluffyTermEngine,
         ident: Ident,
         available_traits: &[TraitPath],
     ) -> FluffyTermMaybeResult<FluffyMethodDisambiguation> {
-        // let Some(card) = self.method_card(engine, ident, available_traits)? else {
-        //     Err(OriginalFluffyTermError::NoSuchMethod)?
-        // };
-        // todo!()
-        // ad hoc
-        Nothing
+        self.method_disambiguation_aux(engine, ident, available_traits, smallvec![])
+    }
+
+    fn method_disambiguation_aux(
+        self,
+        engine: &mut impl FluffyTermEngine,
+        ident: Ident,
+        available_traits: &[TraitPath],
+        mut indirections: SmallVec<[FluffyIndirection; 2]>,
+    ) -> FluffyTermMaybeResult<FluffyMethodDisambiguation> {
+        match self.nested() {
+            NestedFluffyTerm::Ethereal(term) => todo!(),
+            NestedFluffyTerm::Solid(term) => {
+                term.method_disambiguation_aux(engine, ident, available_traits, indirections)
+            }
+            NestedFluffyTerm::Hollow(term) => todo!(),
+        }
+    }
+}
+
+pub type FluffyMethodDisambiguation = FluffyMemberDisambiguation<FluffyMethodSignature>;
+
+impl From<EtherealMethodSignature> for FluffyMethodSignature {
+    fn from(value: EtherealMethodSignature) -> Self {
+        todo!()
     }
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[enum_class::from_variants]
-pub enum FluffyMethodDisambiguation {
-    Type(FluffyTypeMethodDisambiguation),
-    TraitForType(FluffyTraitForTypeMethodDisambiguation),
-}
-
-#[derive(Debug, PartialEq, Eq)]
-pub struct FluffyTypeMethodDisambiguation {
-    indirections: SmallVec<[FluffyMethodIndirection; 2]>,
-    ty_path: TypePath,
-}
-
-#[derive(Debug, PartialEq, Eq)]
 pub struct FluffyTraitForTypeMethodDisambiguation {
-    indirections: SmallVec<[FluffyMethodIndirection; 2]>,
+    indirections: SmallVec<[FluffyIndirection; 2]>,
     ty_path: TypePath,
     trai_path: TraitPath,
     trai: FluffyTerm,
 }
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum FluffyMethodIndirection {}

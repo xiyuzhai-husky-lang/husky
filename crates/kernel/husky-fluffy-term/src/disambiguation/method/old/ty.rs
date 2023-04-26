@@ -2,12 +2,12 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct FluffyTypeMethodDisambiguation {
-    indirections: SmallVec<[FluffyMethodIndirection; 2]>,
+    indirections: SmallVec<[FluffyIndirection; 2]>,
     ty_path: TypePath,
 }
 
 impl FluffyTypeMethodDisambiguation {
-    pub fn indirections(&self) -> &[FluffyMethodIndirection] {
+    pub fn indirections(&self) -> &[FluffyIndirection] {
         &self.indirections
     }
 
@@ -40,7 +40,7 @@ impl FluffyTerm {
         self,
         engine: &mut impl FluffyTermEngine,
         ident: Ident,
-        indirections: &mut SmallVec<[FluffyMethodIndirection; 2]>,
+        indirections: &mut SmallVec<[FluffyIndirection; 2]>,
     ) -> FluffyTermResult<Option<(TypePath, FluffyTermResult<FluffyTerm>)>> {
         match self.data(engine) {
             FluffyTermData::Literal(_) => todo!(),
