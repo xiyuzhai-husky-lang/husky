@@ -3554,36 +3554,36 @@ Ok(
                                                 Expr::Field {
                                                     owner: 52,
                                                     dot_token_idx: TokenIdx(
-                                                        277,
+                                                        278,
                                                     ),
                                                     ident_token: IdentToken {
                                                         ident: `matches`,
                                                         token_idx: TokenIdx(
-                                                            278,
+                                                            279,
                                                         ),
                                                     },
                                                 },
                                                 Expr::Literal(
                                                     TokenIdx(
-                                                        280,
+                                                        281,
                                                     ),
                                                 ),
                                                 Expr::IndexOrCompositionWithList {
                                                     owner: 53,
                                                     lbox_token_idx: TokenIdx(
-                                                        279,
+                                                        280,
                                                     ),
                                                     items: ArenaIdxRange(
                                                         54..55,
                                                     ),
                                                     rbox_token_idx: TokenIdx(
-                                                        281,
+                                                        282,
                                                     ),
                                                 },
                                                 Expr::Be {
                                                     src: 55,
                                                     be_token_idx: TokenIdx(
-                                                        282,
+                                                        283,
                                                     ),
                                                     target: Ok(
                                                         BeVariablesPattern {
@@ -3607,18 +3607,18 @@ Ok(
                                                 Expr::Field {
                                                     owner: 57,
                                                     dot_token_idx: TokenIdx(
-                                                        288,
+                                                        289,
                                                     ),
                                                     ident_token: IdentToken {
                                                         ident: `others`,
                                                         token_idx: TokenIdx(
-                                                            289,
+                                                            290,
                                                         ),
                                                     },
                                                 },
                                                 Expr::Literal(
                                                     TokenIdx(
-                                                        291,
+                                                        292,
                                                     ),
                                                 ),
                                                 Expr::EntityPath {
@@ -3799,7 +3799,7 @@ Ok(
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        272,
+                                                        273,
                                                     ),
                                                     ident: `MnistLabel`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -3812,14 +3812,14 @@ Ok(
                                                     parent: 13,
                                                     scope_resolution_token: ScopeResolutionToken(
                                                         TokenIdx(
-                                                            273,
+                                                            274,
                                                         ),
                                                     ),
                                                     ident_token: Ok(
                                                         IdentToken {
                                                             ident: `Seven`,
                                                             token_idx: TokenIdx(
-                                                                274,
+                                                                275,
                                                             ),
                                                         },
                                                     ),
@@ -3834,7 +3834,7 @@ Ok(
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        276,
+                                                        277,
                                                     ),
                                                     ident: `special_seven_match`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -3845,7 +3845,7 @@ Ok(
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        287,
+                                                        288,
                                                     ),
                                                     ident: `special_seven_match`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -3856,7 +3856,7 @@ Ok(
                                                 },
                                                 EntityPathExpr::Root {
                                                     token_idx: TokenIdx(
-                                                        292,
+                                                        293,
                                                     ),
                                                     ident: `MnistLabel`,
                                                     entity_path: EntityPath::ModuleItem(
@@ -3869,14 +3869,14 @@ Ok(
                                                     parent: 17,
                                                     scope_resolution_token: ScopeResolutionToken(
                                                         TokenIdx(
-                                                            293,
+                                                            294,
                                                         ),
                                                     ),
                                                     ident_token: Ok(
                                                         IdentToken {
                                                             ident: `Seven`,
                                                             token_idx: TokenIdx(
-                                                                294,
+                                                                295,
                                                             ),
                                                         },
                                                     ),
@@ -4077,8 +4077,15 @@ Ok(
                                                         50,
                                                     ),
                                                 },
-                                                Stmt::Eval {
-                                                    expr_idx: 51,
+                                                Stmt::Return {
+                                                    return_token: ReturnToken {
+                                                        token_idx: TokenIdx(
+                                                            272,
+                                                        ),
+                                                    },
+                                                    result: Ok(
+                                                        51,
+                                                    ),
                                                 },
                                                 Stmt::Require {
                                                     require_token: RequireToken {
@@ -4208,7 +4215,7 @@ Ok(
                                                 Stmt::Require {
                                                     require_token: RequireToken {
                                                         token_idx: TokenIdx(
-                                                            275,
+                                                            276,
                                                         ),
                                                     },
                                                     condition: Ok(
@@ -4218,7 +4225,7 @@ Ok(
                                                 Stmt::Let {
                                                     let_token: LetToken {
                                                         token_idx: TokenIdx(
-                                                            284,
+                                                            285,
                                                         ),
                                                     },
                                                     let_variable_pattern: Ok(
@@ -4236,7 +4243,7 @@ Ok(
                                                     assign_token: Ok(
                                                         EqToken(
                                                             TokenIdx(
-                                                                286,
+                                                                287,
                                                             ),
                                                         ),
                                                     ),
@@ -4247,7 +4254,7 @@ Ok(
                                                 Stmt::Require {
                                                     require_token: RequireToken {
                                                         token_idx: TokenIdx(
-                                                            290,
+                                                            291,
                                                         ),
                                                     },
                                                     condition: Ok(
@@ -4348,7 +4355,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `some`,
                                                             token_idx: TokenIdx(
-                                                                283,
+                                                                284,
                                                             ),
                                                         },
                                                     },
@@ -4357,7 +4364,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `others`,
                                                             token_idx: TokenIdx(
-                                                                285,
+                                                                286,
                                                             ),
                                                         },
                                                     },
@@ -4526,7 +4533,7 @@ Ok(
                                                         access_end: Some(
                                                             TokenIdxRangeEnd(
                                                                 TokenIdx(
-                                                                    295,
+                                                                    296,
                                                                 ),
                                                             ),
                                                         ),
@@ -4543,7 +4550,7 @@ Ok(
                                                         access_end: Some(
                                                             TokenIdxRangeEnd(
                                                                 TokenIdx(
-                                                                    295,
+                                                                    296,
                                                                 ),
                                                             ),
                                                         ),
@@ -4560,7 +4567,7 @@ Ok(
                                                         access_end: Some(
                                                             TokenIdxRangeEnd(
                                                                 TokenIdx(
-                                                                    295,
+                                                                    296,
                                                                 ),
                                                             ),
                                                         ),
@@ -4577,7 +4584,7 @@ Ok(
                                                         access_end: Some(
                                                             TokenIdxRangeEnd(
                                                                 TokenIdx(
-                                                                    295,
+                                                                    296,
                                                                 ),
                                                             ),
                                                         ),
@@ -4662,7 +4669,7 @@ Ok(
                                                         access_end: Some(
                                                             TokenIdxRangeEnd(
                                                                 TokenIdx(
-                                                                    275,
+                                                                    276,
                                                                 ),
                                                             ),
                                                         ),
@@ -4674,12 +4681,12 @@ Ok(
                                                     CurrentSymbol {
                                                         modifier: Pure,
                                                         access_start: TokenIdx(
-                                                            284,
+                                                            285,
                                                         ),
                                                         access_end: Some(
                                                             TokenIdxRangeEnd(
                                                                 TokenIdx(
-                                                                    295,
+                                                                    296,
                                                                 ),
                                                             ),
                                                         ),
@@ -4691,12 +4698,12 @@ Ok(
                                                     CurrentSymbol {
                                                         modifier: Pure,
                                                         access_start: TokenIdx(
-                                                            286,
+                                                            287,
                                                         ),
                                                         access_end: Some(
                                                             TokenIdxRangeEnd(
                                                                 TokenIdx(
-                                                                    295,
+                                                                    296,
                                                                 ),
                                                             ),
                                                         ),

@@ -535,12 +535,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `upmost`,
                         token_idx: TokenIdx(
-                            303,
+                            305,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        304,
+                        306,
                     ),
                     block: Form {
                         path: FugitivePath(
@@ -580,12 +580,12 @@ Ok(
                     ident_token: IdentToken {
                         ident: `bottom1`,
                         token_idx: TokenIdx(
-                            332,
+                            334,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenIdx(
-                        333,
+                        335,
                     ),
                     block: Form {
                         path: FugitivePath(

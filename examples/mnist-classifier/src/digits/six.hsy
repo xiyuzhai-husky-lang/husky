@@ -47,8 +47,8 @@ pub(super) val is_six: ?MnistLabel =:
             major_connected_component.top_k_row_span_sum(6),
         )?
         if rel_upmost_match_end.x < 0.7:
-            MnistLabel::Six
-        MnistLabel::Six
+            return MnistLabel::Six
+        return MnistLabel::Six
     // narrow_down: filter the data that satisfy the given features. 
     narrow_down(
         MnistLabel::Six,

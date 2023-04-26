@@ -33,7 +33,7 @@ Ok(
             ),
             end_line: 46,
             end_character: Some(
-                25,
+                32,
             ),
             kind: Some(
                 Region,

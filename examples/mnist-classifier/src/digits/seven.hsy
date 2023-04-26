@@ -44,7 +44,7 @@ pub(super) val is_seven: ?MnistLabel =:
     if simple_match_norm < 4.0:
         let upper_excess = major_connected_component.upper_mass - major_connected_component.lower_mass
         require upper_excess > 10.
-        MnistLabel::Seven
+        return MnistLabel::Seven
     require special_seven_match.matches[0] be some
     let others = special_seven_match.others
     require false

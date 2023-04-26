@@ -1257,6 +1257,11 @@ Ok(
                     Unspecified,
                 ),
             ),
+            Token::Keyword(
+                Keyword::Stmt(
+                    Return,
+                ),
+            ),
             Token::Ident(
                 `MnistLabel`,
             ),
@@ -1399,10 +1404,10 @@ Ok(
             258,
             268,
             272,
-            275,
-            284,
-            290,
-            292,
+            276,
+            285,
+            291,
+            293,
         ],
         indents: [
             0,

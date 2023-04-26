@@ -610,18 +610,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 280;\n\ntoken_line_group_idx = 39\n\ntoken = Token::Literal(\n    Literal::Integer(\n        Unspecified,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 280;\n\ntoken_line_group_idx = 39\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Bra(\n            Box,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 47,
-                                    character: 40,
+                                    character: 39,
                                 },
                                 end: Position {
                                     line: 47,
-                                    character: 41,
+                                    character: 40,
                                 },
                             },
                         ),
@@ -640,18 +640,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 294;\n\ntoken_line_group_idx = 42\n\ntoken = Token::Ident(\n    `Seven`,\n);\n\ntoken_info = TokenInfo::Entity(\n    Some(\n        EntityPath::TypeVariant(\n            TypeVariantPath {\n                ty_path: TypePath(`mnist::MnistLabel`, `Enum`),\n                ident: `Seven`,\n            },\n        ),\n    ),\n    None,\n);\n\n\n",
+                                value: "\ntoken_idx = 294;\n\ntoken_line_group_idx = 42\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Binary(\n            ScopeResolution,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 50,
-                                    character: 16,
+                                    character: 14,
                                 },
                                 end: Position {
                                     line: 50,
-                                    character: 21,
+                                    character: 16,
                                 },
                             },
                         ),
