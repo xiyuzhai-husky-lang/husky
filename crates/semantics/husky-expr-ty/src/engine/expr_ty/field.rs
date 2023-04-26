@@ -13,6 +13,7 @@ impl<'a> ExprTypeEngine<'a> {
         let disambiguation = owner_ty
             .field_disambiguation(self, ident_token.ident(), /* ad hoc: traits */ &[])
             .into_result_or(OriginalExprTypeError::NoSuchField)?;
-        Ok((disambiguation.into(), todo!()))
+        let expr_ty = disambiguation.signature().ty();
+        Ok((disambiguation.into(), Ok(expr_ty)))
     }
 }

@@ -110,3 +110,13 @@ pub struct RegularStructFieldEtherealSignature {
     ident: Ident,
     ty: EtherealTerm,
 }
+
+impl RegularStructFieldEtherealSignature {
+    pub fn ident(&self) -> Ident {
+        self.ident
+    }
+
+    pub fn ty(&self) -> EtherealTerm {
+        self.ty
+    }
+}
