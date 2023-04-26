@@ -662,6 +662,102 @@
                     implicit_parameters: ImplicitParameterDeclarativeSignatures {
                         data: [],
                     },
+                    ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
+                },
+            ),
+        ),
+    ),
+    Ok(
+        Signature::AssociatedItem(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MethodFn(
+                    TypeMethodFnDeclarativeSignatureTemplate {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                            data: [],
+                        },
+                        self_parameter: ExplicitParameterSignature {
+                            contract: Pure,
+                            ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 79,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            parameters: [
+                                ExplicitParameterSignature {
+                                    contract: Pure,
+                                    ty: EntityPath(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 79,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                        return_ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
+                    },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        Signature::AssociatedItem(
+            AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                TypeItemDeclarativeSignatureTemplate::MethodFn(
+                    TypeMethodFnDeclarativeSignatureTemplate {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                            data: [],
+                        },
+                        self_parameter: ExplicitParameterSignature {
+                            contract: Pure,
+                            ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 79,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                        nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            parameters: [
+                                ExplicitParameterSignature {
+                                    contract: Pure,
+                                    ty: EntityPath(
+                                        Type(
+                                            TypePath(
+                                                Id {
+                                                    value: 54,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                        return_ty: DeclarativeTerm(`core::num::f32`),
+                    },
+                ),
+            ),
+        ),
+    ),
+    Ok(
+        Signature::ImplBlock(
+            ImplBlockDeclarativeSignatureTemplate::TypeImpl(
+                TypeImplBlockDeclarativeSignatureTemplate {
+                    implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                        data: [],
+                    },
                     ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                 },
             ),

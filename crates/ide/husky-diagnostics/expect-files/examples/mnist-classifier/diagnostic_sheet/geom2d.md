@@ -1,13 +1,7 @@
 DiagnosticSheet {
     [salsa id]: 35,
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "IllFormedImplBlock",
-                severity: Error,
-                range: [85:1, 98:30),
-            },
-        ],
+        diagnostics: [],
     },
     token_diagnostic_sheet: TokenDiagnosticSheet {
         diagnostics: [],

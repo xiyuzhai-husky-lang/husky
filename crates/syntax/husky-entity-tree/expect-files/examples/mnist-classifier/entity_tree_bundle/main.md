@@ -4979,36 +4979,26 @@ Ok(
                             ),
                         },
                     ),
-                    ImplBlock::IllFormed(
-                        IllFormedImplBlock {
-                            id: IllFormedImplBlockId {
-                                module: `mnist_classifier::geom2d`,
+                    ImplBlock::Type(
+                        TypeImplBlock {
+                            id: TypeImplBlockId {
+                                module_path: `mnist_classifier::geom2d`,
+                                ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                 disambiguator: 0,
                             },
+                            ast_idx: 84,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     499,
                                 ),
                             },
-                            ast_idx: 84,
+                            ty_expr: 4,
                             body: Type(
                                 TypeItems {
                                     ast_idx_range: ArenaIdxRange(
                                         56..58,
                                     ),
                                 },
-                            ),
-                            ill_form: ImplBlockIllForm::MajorPath(
-                                MajorPathExprError::Original(
-                                    OriginalMajorPathExprError::UnrecognizedIdent(
-                                        IdentToken {
-                                            ident: `CloseRange`,
-                                            token_idx: TokenIdx(
-                                                500,
-                                            ),
-                                        },
-                                    ),
-                                ),
                             ),
                         },
                     ),
@@ -5025,7 +5015,7 @@ Ok(
                                     609,
                                 ),
                             },
-                            ty_expr: 4,
+                            ty_expr: 5,
                             body: Type(
                                 TypeItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -5048,7 +5038,7 @@ Ok(
                                     743,
                                 ),
                             },
-                            ty_expr: 5,
+                            ty_expr: 6,
                             body: Type(
                                 TypeItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -5662,7 +5652,7 @@ Ok(
                                     81,
                                 ),
                             },
-                            ty_expr: 6,
+                            ty_expr: 7,
                             body: Type(
                                 TypeItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -5685,7 +5675,7 @@ Ok(
                                     175,
                                 ),
                             },
-                            ty_expr: 7,
+                            ty_expr: 8,
                             body: Type(
                                 TypeItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -7974,7 +7964,7 @@ Ok(
                                     49,
                                 ),
                             },
-                            ty_expr: 8,
+                            ty_expr: 9,
                             body: Type(
                                 TypeItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -9346,7 +9336,7 @@ Ok(
                                     22,
                                 ),
                             },
-                            ty_expr: 9,
+                            ty_expr: 10,
                             body: Type(
                                 TypeItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -10874,7 +10864,7 @@ Ok(
                                     19,
                                 ),
                             },
-                            ty_expr: 10,
+                            ty_expr: 11,
                             body: Type(
                                 TypeItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -12291,7 +12281,7 @@ Ok(
                                     24,
                                 ),
                             },
-                            ty_expr: 11,
+                            ty_expr: 12,
                             body: Type(
                                 TypeItems {
                                     ast_idx_range: ArenaIdxRange(
@@ -42124,6 +42114,19 @@ Ok(
                     entity_path: EntityPath::ModuleItem(
                         ModuleItemPath::Type(
                             TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                        ),
+                    ),
+                },
+                MajorPathExpr::Root {
+                    ident_token: IdentToken {
+                        ident: `ClosedRange`,
+                        token_idx: TokenIdx(
+                            500,
+                        ),
+                    },
+                    entity_path: EntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                         ),
                     ),
                 },

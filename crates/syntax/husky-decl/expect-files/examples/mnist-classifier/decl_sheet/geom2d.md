@@ -6073,16 +6073,897 @@ Ok(
             ),
             (
                 DeclRegionPath::ImplBlock(
-                    ImplBlockId::IllFormed(
-                        IllFormedImplBlockId {
-                            module: `mnist_classifier::geom2d`,
+                    ImplBlockId::Type(
+                        TypeImplBlockId {
+                            module_path: `mnist_classifier::geom2d`,
+                            ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                             disambiguator: 0,
                         },
                     ),
                 ),
-                Err(
-                    DeclError::Derived(
-                        DerivedDeclError::ImplErr,
+                Ok(
+                    Decl::ImplBlock(
+                        ImplBlockDecl::Type(
+                            TypeImplBlockDecl {
+                                ast_idx: 84,
+                                impl_block: TypeImplBlock {
+                                    id: TypeImplBlockId {
+                                        module_path: `mnist_classifier::geom2d`,
+                                        ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                    ast_idx: 84,
+                                    impl_token: ImplToken {
+                                        token_idx: TokenIdx(
+                                            499,
+                                        ),
+                                    },
+                                    ty_expr: 4,
+                                    body: Type(
+                                        TypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                56..58,
+                                            ),
+                                        },
+                                    ),
+                                },
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        499,
+                                    ),
+                                },
+                                implicit_parameter_decl_list: None,
+                                ty_expr: TypeExpr {
+                                    expr: 0,
+                                },
+                                eol_colon: EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            501,
+                                        ),
+                                    },
+                                ),
+                                expr_region: ExprRegion {
+                                    data: ExprRegionData {
+                                        parent: None,
+                                        path: RegionPath::Decl(
+                                            DeclRegionPath::ImplBlock(
+                                                ImplBlockId::Type(
+                                                    TypeImplBlockId {
+                                                        module_path: `mnist_classifier::geom2d`,
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        expr_arena: Arena {
+                                            data: [
+                                                Expr::EntityPath {
+                                                    entity_path_expr: 0,
+                                                    path: Some(
+                                                        EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        entity_path_expr_arena: Arena {
+                                            data: [
+                                                EntityPathExpr::Root {
+                                                    token_idx: TokenIdx(
+                                                        500,
+                                                    ),
+                                                    ident: `ClosedRange`,
+                                                    entity_path: EntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
+                                        },
+                                        stmt_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_contracts: ArenaMap {
+                                                data: [],
+                                            },
+                                            pattern_infos: [],
+                                            pattern_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_symbol_maps: [],
+                                            pattern_symbol_modifiers: ArenaMap {
+                                                data: [],
+                                            },
+                                        },
+                                        symbol_region: SymbolRegion {
+                                            inherited_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            current_symbol_arena: Arena {
+                                                data: [],
+                                            },
+                                            allow_self_type: True,
+                                            allow_self_value: False,
+                                            pattern_ty_constraints: [],
+                                        },
+                                        roots: [
+                                            ExprRoot {
+                                                kind: SelfType,
+                                                expr: 0,
+                                            },
+                                        ],
+                                    },
+                                },
+                            },
+                        ),
+                    ),
+                ),
+            ),
+            (
+                DeclRegionPath::AssociatedItem(
+                    AssociatedItemId {
+                        impl_block_id: ImplBlockId::Type(
+                            TypeImplBlockId {
+                                module_path: `mnist_classifier::geom2d`,
+                                ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                disambiguator: 0,
+                            },
+                        ),
+                        ident: `relative_range`,
+                    },
+                ),
+                Ok(
+                    Decl::AssociatedItem(
+                        AssociatedItemDecl::TypeItem(
+                            TypeItemDecl::MethodFn(
+                                TypeMethodFnDecl {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module_path: `mnist_classifier::geom2d`,
+                                                ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `relative_range`,
+                                    },
+                                    path: Some(
+                                        TypeItemPath {
+                                            parent_ty: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                            ident: `relative_range`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                    associated_item: AssociatedItem {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module_path: `mnist_classifier::geom2d`,
+                                                    ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                            ident: `relative_range`,
+                                        },
+                                        path: Some(
+                                            AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    parent_ty: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                    ident: `relative_range`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
+                                        ),
+                                        impl_block: ImplBlock::Type(
+                                            TypeImplBlock {
+                                                id: TypeImplBlockId {
+                                                    module_path: `mnist_classifier::geom2d`,
+                                                    ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                                ast_idx: 84,
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        499,
+                                                    ),
+                                                },
+                                                ty_expr: 4,
+                                                body: Type(
+                                                    TypeItems {
+                                                        ast_idx_range: ArenaIdxRange(
+                                                            56..58,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                        ast_idx: 56,
+                                        ident: `relative_range`,
+                                        associated_item_kind: TypeItem(
+                                            MethodFn,
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `mnist_classifier::geom2d`,
+                                        ),
+                                        is_generic: false,
+                                    },
+                                    ast_idx: 56,
+                                    expr_region: ExprRegion {
+                                        data: ExprRegionData {
+                                            parent: Some(
+                                                ExprRegion {
+                                                    data: ExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            DeclRegionPath::ImplBlock(
+                                                                ImplBlockId::Type(
+                                                                    TypeImplBlockId {
+                                                                        module_path: `mnist_classifier::geom2d`,
+                                                                        ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 0,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        entity_path_expr_arena: Arena {
+                                                            data: [
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        500,
+                                                                    ),
+                                                                    ident: `ClosedRange`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: PatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            ExprRoot {
+                                                                kind: SelfType,
+                                                                expr: 0,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                DeclRegionPath::AssociatedItem(
+                                                    AssociatedItemId {
+                                                        impl_block_id: ImplBlockId::Type(
+                                                            TypeImplBlockId {
+                                                                module_path: `mnist_classifier::geom2d`,
+                                                                ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        ident: `relative_range`,
+                                                    },
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 0,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 1,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            entity_path_expr_arena: Arena {
+                                                data: [
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            507,
+                                                        ),
+                                                        ident: `ClosedRange`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            510,
+                                                        ),
+                                                        ident: `ClosedRange`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [
+                                                        PatternExpr::Ident {
+                                                            modifier_keyword_group: None,
+                                                            ident_token: IdentToken {
+                                                                ident: `other`,
+                                                                token_idx: TokenIdx(
+                                                                    505,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [
+                                                        Pure,
+                                                    ],
+                                                },
+                                                pattern_infos: [
+                                                    Parameter,
+                                                ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        PatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                    ],
+                                                },
+                                                pattern_symbol_maps: [
+                                                    [
+                                                        (
+                                                            `other`,
+                                                            0,
+                                                        ),
+                                                    ],
+                                                ],
+                                                pattern_symbol_modifiers: ArenaMap {
+                                                    data: [
+                                                        Pure,
+                                                    ],
+                                                },
+                                            },
+                                            symbol_region: SymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [
+                                                        CurrentSymbol {
+                                                            modifier: Pure,
+                                                            access_start: TokenIdx(
+                                                                506,
+                                                            ),
+                                                            access_end: None,
+                                                            variant: CurrentSymbolVariant::ExplicitParameter {
+                                                                ident: `other`,
+                                                                pattern_symbol_idx: 0,
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [
+                                                    (
+                                                        ExplicitParameter {
+                                                            pattern_expr: 0,
+                                                            ty: 0,
+                                                        },
+                                                        ArenaIdxRange(
+                                                            0..1,
+                                                        ),
+                                                    ),
+                                                ],
+                                            },
+                                            roots: [
+                                                ExprRoot {
+                                                    kind: ReturnType,
+                                                    expr: 1,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                    implicit_parameter_decl_list: None,
+                                    explicit_parameter_decl_list: ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                504,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        506,
+                                                    ),
+                                                ),
+                                                ty: 0,
+                                            },
+                                        ],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                508,
+                                            ),
+                                        ),
+                                    },
+                                    curry_token: Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                509,
+                                            ),
+                                        ),
+                                    ),
+                                    return_ty: Some(
+                                        ReturnTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                    eol_colon: EolToken::Colon(
+                                        EolColonToken {
+                                            token_idx: TokenIdx(
+                                                511,
+                                            ),
+                                        },
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+            (
+                DeclRegionPath::AssociatedItem(
+                    AssociatedItemId {
+                        impl_block_id: ImplBlockId::Type(
+                            TypeImplBlockId {
+                                module_path: `mnist_classifier::geom2d`,
+                                ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                disambiguator: 0,
+                            },
+                        ),
+                        ident: `relative_point`,
+                    },
+                ),
+                Ok(
+                    Decl::AssociatedItem(
+                        AssociatedItemDecl::TypeItem(
+                            TypeItemDecl::MethodFn(
+                                TypeMethodFnDecl {
+                                    id: AssociatedItemId {
+                                        impl_block_id: ImplBlockId::Type(
+                                            TypeImplBlockId {
+                                                module_path: `mnist_classifier::geom2d`,
+                                                ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                        ident: `relative_point`,
+                                    },
+                                    path: Some(
+                                        TypeItemPath {
+                                            parent_ty: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                            ident: `relative_point`,
+                                            item_kind: MethodFn,
+                                        },
+                                    ),
+                                    associated_item: AssociatedItem {
+                                        id: AssociatedItemId {
+                                            impl_block_id: ImplBlockId::Type(
+                                                TypeImplBlockId {
+                                                    module_path: `mnist_classifier::geom2d`,
+                                                    ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                            ident: `relative_point`,
+                                        },
+                                        path: Some(
+                                            AssociatedItemPath::TypeItem(
+                                                TypeItemPath {
+                                                    parent_ty: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                    ident: `relative_point`,
+                                                    item_kind: MethodFn,
+                                                },
+                                            ),
+                                        ),
+                                        impl_block: ImplBlock::Type(
+                                            TypeImplBlock {
+                                                id: TypeImplBlockId {
+                                                    module_path: `mnist_classifier::geom2d`,
+                                                    ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                                ast_idx: 84,
+                                                impl_token: ImplToken {
+                                                    token_idx: TokenIdx(
+                                                        499,
+                                                    ),
+                                                },
+                                                ty_expr: 4,
+                                                body: Type(
+                                                    TypeItems {
+                                                        ast_idx_range: ArenaIdxRange(
+                                                            56..58,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                        ast_idx: 57,
+                                        ident: `relative_point`,
+                                        associated_item_kind: TypeItem(
+                                            MethodFn,
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `mnist_classifier::geom2d`,
+                                        ),
+                                        is_generic: false,
+                                    },
+                                    ast_idx: 57,
+                                    expr_region: ExprRegion {
+                                        data: ExprRegionData {
+                                            parent: Some(
+                                                ExprRegion {
+                                                    data: ExprRegionData {
+                                                        parent: None,
+                                                        path: RegionPath::Decl(
+                                                            DeclRegionPath::ImplBlock(
+                                                                ImplBlockId::Type(
+                                                                    TypeImplBlockId {
+                                                                        module_path: `mnist_classifier::geom2d`,
+                                                                        ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        expr_arena: Arena {
+                                                            data: [
+                                                                Expr::EntityPath {
+                                                                    entity_path_expr: 0,
+                                                                    path: Some(
+                                                                        EntityPath::ModuleItem(
+                                                                            ModuleItemPath::Type(
+                                                                                TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                                            ),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        entity_path_expr_arena: Arena {
+                                                            data: [
+                                                                EntityPathExpr::Root {
+                                                                    token_idx: TokenIdx(
+                                                                        500,
+                                                                    ),
+                                                                    ident: `ClosedRange`,
+                                                                    entity_path: EntityPath::ModuleItem(
+                                                                        ModuleItemPath::Type(
+                                                                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ],
+                                                        },
+                                                        stmt_arena: Arena {
+                                                            data: [],
+                                                        },
+                                                        pattern_expr_region: PatternExprRegion {
+                                                            pattern_expr_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_expr_contracts: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                            pattern_infos: [],
+                                                            pattern_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            pattern_symbol_maps: [],
+                                                            pattern_symbol_modifiers: ArenaMap {
+                                                                data: [],
+                                                            },
+                                                        },
+                                                        symbol_region: SymbolRegion {
+                                                            inherited_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            current_symbol_arena: Arena {
+                                                                data: [],
+                                                            },
+                                                            allow_self_type: True,
+                                                            allow_self_value: False,
+                                                            pattern_ty_constraints: [],
+                                                        },
+                                                        roots: [
+                                                            ExprRoot {
+                                                                kind: SelfType,
+                                                                expr: 0,
+                                                            },
+                                                        ],
+                                                    },
+                                                },
+                                            ),
+                                            path: RegionPath::Decl(
+                                                DeclRegionPath::AssociatedItem(
+                                                    AssociatedItemId {
+                                                        impl_block_id: ImplBlockId::Type(
+                                                            TypeImplBlockId {
+                                                                module_path: `mnist_classifier::geom2d`,
+                                                                ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        ident: `relative_point`,
+                                                    },
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 0,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    Expr::EntityPath {
+                                                        entity_path_expr: 1,
+                                                        path: Some(
+                                                            EntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            entity_path_expr_arena: Arena {
+                                                data: [
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            570,
+                                                        ),
+                                                        ident: `f32`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    EntityPathExpr::Root {
+                                                        token_idx: TokenIdx(
+                                                            573,
+                                                        ),
+                                                        ident: `f32`,
+                                                        entity_path: EntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [
+                                                        PatternExpr::Ident {
+                                                            modifier_keyword_group: None,
+                                                            ident_token: IdentToken {
+                                                                ident: `v`,
+                                                                token_idx: TokenIdx(
+                                                                    568,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [
+                                                        Pure,
+                                                    ],
+                                                },
+                                                pattern_infos: [
+                                                    Parameter,
+                                                ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        PatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                    ],
+                                                },
+                                                pattern_symbol_maps: [
+                                                    [
+                                                        (
+                                                            `v`,
+                                                            0,
+                                                        ),
+                                                    ],
+                                                ],
+                                                pattern_symbol_modifiers: ArenaMap {
+                                                    data: [
+                                                        Pure,
+                                                    ],
+                                                },
+                                            },
+                                            symbol_region: SymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [
+                                                        CurrentSymbol {
+                                                            modifier: Pure,
+                                                            access_start: TokenIdx(
+                                                                569,
+                                                            ),
+                                                            access_end: None,
+                                                            variant: CurrentSymbolVariant::ExplicitParameter {
+                                                                ident: `v`,
+                                                                pattern_symbol_idx: 0,
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                allow_self_type: True,
+                                                allow_self_value: True,
+                                                pattern_ty_constraints: [
+                                                    (
+                                                        ExplicitParameter {
+                                                            pattern_expr: 0,
+                                                            ty: 0,
+                                                        },
+                                                        ArenaIdxRange(
+                                                            0..1,
+                                                        ),
+                                                    ),
+                                                ],
+                                            },
+                                            roots: [
+                                                ExprRoot {
+                                                    kind: ReturnType,
+                                                    expr: 1,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                    implicit_parameter_decl_list: None,
+                                    explicit_parameter_decl_list: ExplicitParameterDeclList {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                567,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        regular_parameters: [
+                                            RegularParameterDeclPattern {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        569,
+                                                    ),
+                                                ),
+                                                ty: 0,
+                                            },
+                                        ],
+                                        commas: [],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                571,
+                                            ),
+                                        ),
+                                    },
+                                    curry_token: Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                572,
+                                            ),
+                                        ),
+                                    ),
+                                    return_ty: Some(
+                                        ReturnTypeExpr {
+                                            expr: 1,
+                                        },
+                                    ),
+                                    eol_colon: EolToken::Colon(
+                                        EolColonToken {
+                                            token_idx: TokenIdx(
+                                                574,
+                                            ),
+                                        },
+                                    ),
+                                },
+                            ),
+                        ),
                     ),
                 ),
             ),
@@ -6113,7 +6994,7 @@ Ok(
                                             609,
                                         ),
                                     },
-                                    ty_expr: 4,
+                                    ty_expr: 5,
                                     body: Type(
                                         TypeItems {
                                             ast_idx_range: ArenaIdxRange(
@@ -6292,7 +7173,7 @@ Ok(
                                                         609,
                                                     ),
                                                 },
-                                                ty_expr: 4,
+                                                ty_expr: 5,
                                                 body: Type(
                                                     TypeItems {
                                                         ast_idx_range: ArenaIdxRange(
@@ -6671,7 +7552,7 @@ Ok(
                                                         609,
                                                     ),
                                                 },
-                                                ty_expr: 4,
+                                                ty_expr: 5,
                                                 body: Type(
                                                     TypeItems {
                                                         ast_idx_range: ArenaIdxRange(
@@ -7050,7 +7931,7 @@ Ok(
                                                         609,
                                                     ),
                                                 },
-                                                ty_expr: 4,
+                                                ty_expr: 5,
                                                 body: Type(
                                                     TypeItems {
                                                         ast_idx_range: ArenaIdxRange(
@@ -7346,7 +8227,7 @@ Ok(
                                                         609,
                                                     ),
                                                 },
-                                                ty_expr: 4,
+                                                ty_expr: 5,
                                                 body: Type(
                                                     TypeItems {
                                                         ast_idx_range: ArenaIdxRange(
@@ -7642,7 +8523,7 @@ Ok(
                                                         609,
                                                     ),
                                                 },
-                                                ty_expr: 4,
+                                                ty_expr: 5,
                                                 body: Type(
                                                     TypeItems {
                                                         ast_idx_range: ArenaIdxRange(
@@ -7938,7 +8819,7 @@ Ok(
                                                         609,
                                                     ),
                                                 },
-                                                ty_expr: 4,
+                                                ty_expr: 5,
                                                 body: Type(
                                                     TypeItems {
                                                         ast_idx_range: ArenaIdxRange(
@@ -8193,7 +9074,7 @@ Ok(
                                             743,
                                         ),
                                     },
-                                    ty_expr: 5,
+                                    ty_expr: 6,
                                     body: Type(
                                         TypeItems {
                                             ast_idx_range: ArenaIdxRange(
@@ -8372,7 +9253,7 @@ Ok(
                                                         743,
                                                     ),
                                                 },
-                                                ty_expr: 5,
+                                                ty_expr: 6,
                                                 body: Type(
                                                     TypeItems {
                                                         ast_idx_range: ArenaIdxRange(
@@ -8668,7 +9549,7 @@ Ok(
                                                         743,
                                                     ),
                                                 },
-                                                ty_expr: 5,
+                                                ty_expr: 6,
                                                 body: Type(
                                                     TypeItems {
                                                         ast_idx_range: ArenaIdxRange(
@@ -8964,7 +9845,7 @@ Ok(
                                                         743,
                                                     ),
                                                 },
-                                                ty_expr: 5,
+                                                ty_expr: 6,
                                                 body: Type(
                                                     TypeItems {
                                                         ast_idx_range: ArenaIdxRange(
@@ -9260,7 +10141,7 @@ Ok(
                                                         743,
                                                     ),
                                                 },
-                                                ty_expr: 5,
+                                                ty_expr: 6,
                                                 body: Type(
                                                     TypeItems {
                                                         ast_idx_range: ArenaIdxRange(
