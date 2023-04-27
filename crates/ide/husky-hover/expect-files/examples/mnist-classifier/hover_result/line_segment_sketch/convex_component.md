@@ -760,7 +760,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "Other\ntoken_idx = 25;\n\ntoken_line_group_idx = 3\n\ntoken = Token::Keyword(\n    Keyword::Visual,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 25;\n\ntoken_line_group_idx = 3\n\ntoken = Token::Ident(\n    `visual`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(

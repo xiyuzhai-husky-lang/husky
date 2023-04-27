@@ -2,7 +2,7 @@ use crate::*;
 use husky_ast::{AstIdx, AstTokenIdxRangeSheet};
 use husky_expr::{ExprIdx, ExprRangeRegion, ExprRegion, ExprRegionData};
 use husky_expr_ty::*;
-use husky_token::{TokenGroupIdx, TokenIdxRange};
+use husky_token::{TokenGroupIdx, TokenIdx, TokenIdxRange};
 
 pub(crate) struct SheetDiagnosticsContext<'a> {
     db: &'a dyn DiagnosticsDb,
@@ -31,8 +31,8 @@ impl<'a> SheetDiagnosticsContext<'a> {
         self.token_sheet_data
     }
 
-    pub(crate) fn ranged_token_sheet(&self) -> &RangedTokenSheet {
-        self.ranged_token_sheet
+    pub(crate) fn token_text_range(&self, token_idx: TokenIdx) -> TextRange {
+        self.ranged_token_sheet.token_text_range(token_idx)
     }
 
     pub(crate) fn ast_token_idx_range_sheet(&self) -> &AstTokenIdxRangeSheet {
@@ -48,7 +48,7 @@ impl<'a> SheetDiagnosticsContext<'a> {
         let token_idx_range = self
             .token_sheet_data()
             .token_group_token_idx_range(token_group_idx);
-        self.ranged_token_sheet().tokens_text_range(token_idx_range)
+        self.ranged_token_sheet.tokens_text_range(token_idx_range)
     }
 }
 

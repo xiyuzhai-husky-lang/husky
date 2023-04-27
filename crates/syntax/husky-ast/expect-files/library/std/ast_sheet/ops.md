@@ -10,7 +10,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 19,
+                                    value: 20,
                                 },
                             ),
                         ),
@@ -43,7 +43,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 19,
+                                    value: 20,
                                 },
                             ),
                         ),
@@ -81,7 +81,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 19,
+                                    value: 20,
                                 },
                             ),
                         ),
@@ -104,7 +104,7 @@ Ok(
                     block: Trait {
                         path: TraitPath(
                             Id {
-                                value: 24,
+                                value: 25,
                             },
                         ),
                         items: Some(

@@ -269,7 +269,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 38,
+                                    value: 39,
                                 },
                             ),
                         ),
@@ -308,7 +308,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 38,
+                                    value: 39,
                                 },
                             ),
                         ),
@@ -347,7 +347,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 38,
+                                    value: 39,
                                 },
                             ),
                         ),
@@ -386,7 +386,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 38,
+                                    value: 39,
                                 },
                             ),
                         ),
@@ -425,7 +425,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 38,
+                                    value: 39,
                                 },
                             ),
                         ),
@@ -464,7 +464,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 38,
+                                    value: 39,
                                 },
                             ),
                         ),
@@ -503,7 +503,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 38,
+                                    value: 39,
                                 },
                             ),
                         ),
@@ -542,7 +542,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 38,
+                                    value: 39,
                                 },
                             ),
                         ),
@@ -581,7 +581,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 38,
+                                    value: 39,
                                 },
                             ),
                         ),
@@ -620,7 +620,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 38,
+                                    value: 39,
                                 },
                             ),
                         ),
@@ -659,7 +659,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 38,
+                                    value: 39,
                                 },
                             ),
                         ),
@@ -698,7 +698,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 38,
+                                    value: 39,
                                 },
                             ),
                         ),
@@ -734,11 +734,7 @@ Ok(
                         57,
                     ),
                     error: AstError::Original(
-                        OriginalAstError::ExpectedIdent(
-                            TokenIdx(
-                                518,
-                            ),
-                        ),
+                        OriginalAstError::UnexpectedStmtInsideImplBlock,
                     ),
                 },
                 Ast::Err {
@@ -878,7 +874,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 38,
+                                    value: 39,
                                 },
                             ),
                         ),
@@ -894,7 +890,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 38,
+                                    value: 39,
                                 },
                             ),
                         ),
@@ -910,7 +906,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 38,
+                                    value: 39,
                                 },
                             ),
                         ),
@@ -926,7 +922,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 38,
+                                    value: 39,
                                 },
                             ),
                         ),
@@ -942,7 +938,7 @@ Ok(
                         visibility: PubUnder(
                             ModulePath(
                                 Id {
-                                    value: 38,
+                                    value: 39,
                                 },
                             ),
                         ),

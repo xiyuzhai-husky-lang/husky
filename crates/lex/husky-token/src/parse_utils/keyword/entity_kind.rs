@@ -12,8 +12,8 @@ pub enum EntityKindKeywordGroup {
     StaticFn(StaticToken, FormFnToken),
     // `static const fn`
     StaticConstFn(StaticToken, ConstToken, FormFnToken),
-    // `var`
-    Val(VarToken),
+    // `val`
+    Val(ValToken),
     // `gn`
     Gn(GnToken),
     //
@@ -23,7 +23,6 @@ pub enum EntityKindKeywordGroup {
     // Type
     Type(TypeToken),
     Trait(TraitToken),
-    Visual(VisualToken),
     Memo(MemoToken),
 }
 
@@ -110,11 +109,11 @@ pub struct MemoToken {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct VarToken {
+pub struct ValToken {
     token_idx: TokenIdx,
 }
 
-impl VarToken {
+impl ValToken {
     pub fn token_idx(&self) -> TokenIdx {
         self.token_idx
     }
@@ -127,11 +126,6 @@ pub struct ModToken {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct GnToken {
-    token_idx: TokenIdx,
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct VisualToken {
     token_idx: TokenIdx,
 }
 
@@ -164,7 +158,7 @@ where
                     Ok(Some(EntityKindKeywordGroup::Type(TypeToken { token_idx })))
                 }
                 FormKeyword::Const => todo!(),
-                FormKeyword::Val => Ok(Some(EntityKindKeywordGroup::Val(VarToken { token_idx }))),
+                FormKeyword::Val => Ok(Some(EntityKindKeywordGroup::Val(ValToken { token_idx }))),
                 FormKeyword::Gn => Ok(Some(EntityKindKeywordGroup::Gn(GnToken { token_idx }))),
                 FormKeyword::Constexpr => todo!(),
                 FormKeyword::Memo => {
@@ -180,9 +174,6 @@ where
             Keyword::Stmt(_) => todo!(),
             Keyword::Main => Ok(None),
             Keyword::Mod => Ok(Some(EntityKindKeywordGroup::Mod(ModToken { token_idx }))),
-            Keyword::Visual => Ok(Some(EntityKindKeywordGroup::Visual(VisualToken {
-                token_idx,
-            }))),
             Keyword::Trait => Ok(Some(EntityKindKeywordGroup::Trait(TraitToken {
                 token_idx,
             }))),

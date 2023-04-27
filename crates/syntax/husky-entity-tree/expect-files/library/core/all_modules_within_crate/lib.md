@@ -15,4 +15,5 @@
     `core::cmp`,
     `core::str`,
     `core::option`,
+    `core::visual`,
 ]

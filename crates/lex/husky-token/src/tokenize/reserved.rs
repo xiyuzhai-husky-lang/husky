@@ -17,7 +17,6 @@ pub(crate) fn reserved_words(_db: &dyn TokenDb) -> VecPairMap<&'static str, Pret
         Keyword::Mod,
         Keyword::Trait,
         Keyword::Impl,
-        Keyword::Visual,
         ConfigKeyword::Task,
         TypeEntityKeyword::Extern,
         TypeEntityKeyword::Struct,

@@ -1,11 +1,11 @@
 DiagnosticSheet {
-    [salsa id]: 40,
+    [salsa id]: 41,
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "IllFormedImplBlock",
+                message: "unrecognized identifier `Visualize`",
                 severity: Error,
-                range: [20:1, 22:58),
+                range: [20:6, 20:15),
             },
         ],
     },
@@ -15,9 +15,9 @@ DiagnosticSheet {
     ast_diagnostic_sheet: AstDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Syntax Error: expected identifier",
+                message: "Syntax Error: unexpected stmt inside impl",
                 severity: Error,
-                range: [61:11, 61:12),
+                range: [61:5, 61:12),
             },
             Diagnostic {
                 message: "Syntax Error: excessive indent",

@@ -1,8 +1,9 @@
-use husky_entity_tree::{
-    EntityTreeError, IllFormedImplBlock, OriginalEntityTreeError, UseExprRuleState,
-};
-
 use super::*;
+use husky_entity_tree::{
+    EntityTreeError, IllFormedImplBlock, ImplBlockIllForm, MajorPathExprError,
+    OriginalEntityTreeError, OriginalMajorPathExprError, UseExprRuleState,
+};
+use salsa::DebugWithDb;
 
 #[salsa::tracked(db = DiagnosticsDb, jar = DiagnosticsJar)]
 pub struct EntityTreeDiagnosticSheet {
@@ -59,13 +60,13 @@ impl Diagnose for OriginalEntityTreeError {
     fn range(&self, ctx: &Self::Context<'_>) -> TextRange {
         match self {
             OriginalEntityTreeError::UnresolvedIdent(ident_token)
-            | OriginalEntityTreeError::SymbolExistsButNotAccessible(ident_token) => ctx
-                .ranged_token_sheet()
-                .token_text_range(ident_token.token_idx()),
+            | OriginalEntityTreeError::SymbolExistsButNotAccessible(ident_token) => {
+                ctx.token_text_range(ident_token.token_idx())
+            }
             OriginalEntityTreeError::NoSubentity => todo!(),
-            OriginalEntityTreeError::EntitySymbolAlreadyDefined { old, new } => ctx
-                .ranged_token_sheet()
-                .token_text_range(new.ident_token(ctx.db()).token_idx()),
+            OriginalEntityTreeError::EntitySymbolAlreadyDefined { old, new } => {
+                ctx.token_text_range(new.ident_token(ctx.db()).token_idx())
+            }
             OriginalEntityTreeError::ExpectIdentAfterKeyword => todo!(),
             OriginalEntityTreeError::InvalidTypePath(_) => todo!(),
         }
@@ -75,8 +76,27 @@ impl Diagnose for OriginalEntityTreeError {
 impl Diagnose for IllFormedImplBlock {
     type Context<'a> = SheetDiagnosticsContext<'a>;
 
-    fn message(&self, db: &Self::Context<'_>) -> String {
-        "IllFormedImplBlock".to_string()
+    fn message(&self, ctx: &Self::Context<'_>) -> String {
+        match self.ill_form(ctx.db()) {
+            ImplBlockIllForm::UnmatchedAngleBras => todo!(),
+            ImplBlockIllForm::Token(_) => todo!(),
+            ImplBlockIllForm::MajorPath(e) => match e {
+                MajorPathExprError::Original(e) => match e {
+                    OriginalMajorPathExprError::UnrecognizedIdent(ident_token) => {
+                        format!(
+                            "unrecognized identifier `{}`",
+                            ident_token.ident().data(ctx.db())
+                        )
+                    }
+                    OriginalMajorPathExprError::ExpectIdent(_) => todo!(),
+                },
+                MajorPathExprError::Derived(_) => todo!(),
+            },
+            ImplBlockIllForm::MissingForKeyword => format!("missing `for` keyword"),
+            ImplBlockIllForm::ExpectTypePathAfterForKeyword => {
+                format!("expect type path after `for` keyword")
+            }
+        }
     }
 
     fn severity(&self) -> DiagnosticSeverity {
@@ -84,6 +104,20 @@ impl Diagnose for IllFormedImplBlock {
     }
 
     fn range(&self, ctx: &Self::Context<'_>) -> TextRange {
-        ctx.ast_text_range(self.ast_idx(ctx.db()))
+        match self.ill_form(ctx.db()) {
+            ImplBlockIllForm::UnmatchedAngleBras => todo!(),
+            ImplBlockIllForm::Token(_) => todo!(),
+            ImplBlockIllForm::MajorPath(e) => match e {
+                MajorPathExprError::Original(e) => match e {
+                    OriginalMajorPathExprError::UnrecognizedIdent(ident_token) => {
+                        ctx.token_text_range(ident_token.token_idx())
+                    }
+                    OriginalMajorPathExprError::ExpectIdent(_) => todo!(),
+                },
+                MajorPathExprError::Derived(_) => todo!(),
+            },
+            ImplBlockIllForm::MissingForKeyword => todo!(),
+            ImplBlockIllForm::ExpectTypePathAfterForKeyword => todo!(),
+        }
     }
 }

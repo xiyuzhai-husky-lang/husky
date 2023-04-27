@@ -105,7 +105,7 @@ impl ImplBlock {
                             module_path,
                             ast_idx,
                             body,
-                            ImplBlockIllForm::ExpectTypePathAfterFor,
+                            ImplBlockIllForm::ExpectTypePathAfterForKeyword,
                         )
                         .into();
                     }
@@ -117,7 +117,7 @@ impl ImplBlock {
                             module_path,
                             ast_idx,
                             body,
-                            ImplBlockIllForm::MissingFor,
+                            ImplBlockIllForm::MissingForKeyword,
                         )
                         .into();
                     }

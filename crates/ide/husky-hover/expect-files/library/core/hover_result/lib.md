@@ -690,5 +690,35 @@ Ok(
                 },
             ),
         ),
+        (
+            TokenIdx(
+                46,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "Other\ntoken_idx = 46;\n\ntoken_line_group_idx = 15\n\ntoken = Token::Keyword(\n    Keyword::Mod,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 15,
+                                    character: 4,
+                                },
+                                end: Position {
+                                    line: 15,
+                                    character: 7,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
     ],
 )

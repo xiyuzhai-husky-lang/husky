@@ -132,15 +132,12 @@ impl<'a> AstParser<'a> {
                     token_group_idx,
                     body: self.parse_expected(OriginalAstError::ExpectedFormBodyForConfig)?,
                 },
-                Keyword::Mod
-                | Keyword::Form(_)
-                | Keyword::Visual
-                | Keyword::Trait
-                | Keyword::TypeEntity(_) => self.parse_defn::<C>(
-                    token_group_idx,
-                    VisibilityExpr::new_protected(self.module_path),
-                    None,
-                ),
+                Keyword::Mod | Keyword::Form(_) | Keyword::Trait | Keyword::TypeEntity(_) => self
+                    .parse_defn::<C>(
+                        token_group_idx,
+                        VisibilityExpr::new_protected(self.module_path),
+                        None,
+                    ),
                 Keyword::Impl => Ast::ImplBlock {
                     token_group_idx,
                     items: if self.is_trai_impl(token_group_idx) {

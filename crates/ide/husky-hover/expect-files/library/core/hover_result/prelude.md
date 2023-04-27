@@ -70,7 +70,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 4;\n\ntoken_line_group_idx = 0\n\ntoken = Token::Ident(\n    `basic`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 1,\n    rule_idx: UseExprRuleIdx(\n        7,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: EntitySymbol::Submodule(\n            SubmoduleSymbol {\n                path: `core::basic`,\n                visibility: Scope::Pub,\n                ast_idx: 0,\n                ident_token: IdentToken {\n                    ident: `basic`,\n                    token_idx: TokenIdx(\n                        2,\n                    ),\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 4;\n\ntoken_line_group_idx = 0\n\ntoken = Token::Ident(\n    `basic`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 1,\n    rule_idx: UseExprRuleIdx(\n        8,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: EntitySymbol::Submodule(\n            SubmoduleSymbol {\n                path: `core::basic`,\n                visibility: Scope::Pub,\n                ast_idx: 0,\n                ident_token: IdentToken {\n                    ident: `basic`,\n                    token_idx: TokenIdx(\n                        2,\n                    ),\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -280,7 +280,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 18;\n\ntoken_line_group_idx = 2\n\ntoken = Token::Ident(\n    `raw_bits`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 7,\n    rule_idx: UseExprRuleIdx(\n        9,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: EntitySymbol::Submodule(\n            SubmoduleSymbol {\n                path: `core::raw_bits`,\n                visibility: Scope::Pub,\n                ast_idx: 7,\n                ident_token: IdentToken {\n                    ident: `raw_bits`,\n                    token_idx: TokenIdx(\n                        23,\n                    ),\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 18;\n\ntoken_line_group_idx = 2\n\ntoken = Token::Ident(\n    `raw_bits`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 7,\n    rule_idx: UseExprRuleIdx(\n        10,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: EntitySymbol::Submodule(\n            SubmoduleSymbol {\n                path: `core::raw_bits`,\n                visibility: Scope::Pub,\n                ast_idx: 7,\n                ident_token: IdentToken {\n                    ident: `raw_bits`,\n                    token_idx: TokenIdx(\n                        23,\n                    ),\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -490,7 +490,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 32;\n\ntoken_line_group_idx = 4\n\ntoken = Token::Ident(\n    `marker`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 13,\n    rule_idx: UseExprRuleIdx(\n        11,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: EntitySymbol::Submodule(\n            SubmoduleSymbol {\n                path: `core::marker`,\n                visibility: Scope::Pub,\n                ast_idx: 10,\n                ident_token: IdentToken {\n                    ident: `marker`,\n                    token_idx: TokenIdx(\n                        32,\n                    ),\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 32;\n\ntoken_line_group_idx = 4\n\ntoken = Token::Ident(\n    `visual`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 13,\n    rule_idx: UseExprRuleIdx(\n        12,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: EntitySymbol::Submodule(\n            SubmoduleSymbol {\n                path: `core::visual`,\n                visibility: Scope::Pub,\n                ast_idx: 15,\n                ident_token: IdentToken {\n                    ident: `visual`,\n                    token_idx: TokenIdx(\n                        47,\n                    ),\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -617,11 +617,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 5,
-                                    character: 20,
+                                    character: 21,
                                 },
                                 end: Position {
                                     line: 5,
-                                    character: 22,
+                                    character: 23,
                                 },
                             },
                         ),
@@ -700,7 +700,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 46;\n\ntoken_line_group_idx = 6\n\ntoken = Token::Ident(\n    `cmp`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 19,\n    rule_idx: UseExprRuleIdx(\n        13,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: EntitySymbol::Submodule(\n            SubmoduleSymbol {\n                path: `core::cmp`,\n                visibility: Scope::Pub,\n                ast_idx: 12,\n                ident_token: IdentToken {\n                    ident: `cmp`,\n                    token_idx: TokenIdx(\n                        38,\n                    ),\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
+                                value: "\ntoken_idx = 46;\n\ntoken_line_group_idx = 6\n\ntoken = Token::Ident(\n    `clone`,\n);\n\ntoken_info = TokenInfo::UseExpr {\n    use_expr_idx: 19,\n    rule_idx: UseExprRuleIdx(\n        14,\n    ),\n    state: UseExprRuleState::Resolved {\n        original_symbol: EntitySymbol::Submodule(\n            SubmoduleSymbol {\n                path: `core::clone`,\n                visibility: Scope::Pub,\n                ast_idx: 9,\n                ident_token: IdentToken {\n                    ident: `clone`,\n                    token_idx: TokenIdx(\n                        29,\n                    ),\n                },\n            },\n        ),\n    },\n};\n\nuse\n",
                             },
                         ),
                         range: Some(
@@ -711,7 +711,7 @@ Ok(
                                 },
                                 end: Position {
                                     line: 6,
-                                    character: 18,
+                                    character: 20,
                                 },
                             },
                         ),
@@ -737,11 +737,101 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 6,
-                                    character: 20,
+                                    character: 22,
                                 },
                                 end: Position {
                                     line: 6,
-                                    character: 21,
+                                    character: 23,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                50,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "Other\ntoken_idx = 50;\n\ntoken_line_group_idx = 7\n\ntoken = Token::Keyword(\n    Keyword::Use,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 7,
+                                    character: 4,
+                                },
+                                end: Position {
+                                    line: 7,
+                                    character: 7,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                52,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "\ntoken_idx = 52;\n\ntoken_line_group_idx = 7\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Binary(\n            ScopeResolution,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 7,
+                                    character: 13,
+                                },
+                                end: Position {
+                                    line: 7,
+                                    character: 15,
+                                },
+                            },
+                        ),
+                    },
+                    actions: [],
+                },
+            ),
+        ),
+        (
+            TokenIdx(
+                54,
+            ),
+            Some(
+                HoverResult {
+                    hover: Hover {
+                        contents: Markup(
+                            MarkupContent {
+                                kind: Markdown,
+                                value: "\ntoken_idx = 54;\n\ntoken_line_group_idx = 7\n\ntoken = Token::Punctuation(\n    Punctuation(\n        PunctuationMapped::Binary(\n            ScopeResolution,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                            },
+                        ),
+                        range: Some(
+                            Range {
+                                start: Position {
+                                    line: 7,
+                                    character: 18,
+                                },
+                                end: Position {
+                                    line: 7,
+                                    character: 20,
                                 },
                             },
                         ),

@@ -32,7 +32,6 @@ impl NormalAstChildren for TypeItems {
             }
             EntityKindKeywordGroup::Type(_) => todo!(),
             EntityKindKeywordGroup::Trait(_) => todo!(),
-            EntityKindKeywordGroup::Visual(_) => todo!(),
             EntityKindKeywordGroup::Val(_) => TypeItemKind::AssociatedVal,
             EntityKindKeywordGroup::Memo(_) => TypeItemKind::MemoizedField,
         };

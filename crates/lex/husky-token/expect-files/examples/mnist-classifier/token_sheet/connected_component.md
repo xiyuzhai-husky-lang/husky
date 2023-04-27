@@ -2629,8 +2629,8 @@ Ok(
             Token::Ident(
                 `f32`,
             ),
-            Token::Keyword(
-                Keyword::Visual,
+            Token::Ident(
+                `visual`,
             ),
             Token::Punctuation(
                 Punctuation(

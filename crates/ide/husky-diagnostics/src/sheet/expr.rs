@@ -241,7 +241,7 @@ impl Diagnose for OriginalExprError {
             }
             | OriginalExprError::ExpectedExprBeforeDot {
                 dot_token_idx: token_idx,
-            } => ctx.ranged_token_sheet().token_text_range(*token_idx),
+            } => ctx.token_text_range(*token_idx),
             OriginalExprError::ExpectBlock(_) => todo!(),
         }
     }
@@ -279,7 +279,7 @@ impl Diagnose for OriginalEntityPathExprError {
             OriginalEntityPathExprError::EntityTree {
                 token_idx,
                 error: _,
-            } => ctx.ranged_token_sheet().token_text_range(*token_idx),
+            } => ctx.token_text_range(*token_idx),
             OriginalEntityPathExprError::ExpectIdentAfterScopeResolution(_) => todo!(),
         }
     }
