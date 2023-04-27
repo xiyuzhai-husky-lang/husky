@@ -170,6 +170,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        self_ty: DeclarativeTerm(`core::num::i8`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
@@ -266,6 +267,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        self_ty: DeclarativeTerm(`core::num::i16`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
@@ -362,6 +364,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        self_ty: DeclarativeTerm(`core::num::i32`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
@@ -458,6 +461,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        self_ty: DeclarativeTerm(`core::num::i64`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
@@ -554,6 +558,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        self_ty: DeclarativeTerm(`core::num::i128`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
@@ -650,6 +655,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        self_ty: DeclarativeTerm(`core::num::isize`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
@@ -746,6 +752,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        self_ty: DeclarativeTerm(`core::num::u8`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
@@ -842,6 +849,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        self_ty: DeclarativeTerm(`core::num::u16`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
@@ -938,6 +946,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        self_ty: DeclarativeTerm(`core::num::u32`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
@@ -1034,6 +1043,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        self_ty: DeclarativeTerm(`core::num::u64`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
@@ -1130,6 +1140,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        self_ty: DeclarativeTerm(`core::num::u128`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
@@ -1226,6 +1237,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        self_ty: DeclarativeTerm(`core::num::usize`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
@@ -1322,6 +1334,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        self_ty: DeclarativeTerm(`core::num::f32`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
@@ -1418,6 +1431,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        self_ty: DeclarativeTerm(`core::num::f64`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },

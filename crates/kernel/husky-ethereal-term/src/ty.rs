@@ -50,13 +50,13 @@ impl HasTypeGivenDisambiguation for ModuleItemPath {
 
 impl HasType for TraitPath {
     fn ty(self, db: &dyn EtherealTermDb) -> EtherealTermResult<EtherealTerm> {
-        EtherealTerm::ty_from_raw(db, trai_path_declarative_ty(db, self)?)
+        EtherealTerm::ty_from_declarative(db, trai_path_declarative_ty(db, self)?)
     }
 }
 
 impl HasType for FugitivePath {
     fn ty(self, db: &dyn EtherealTermDb) -> EtherealTermResult<EtherealTerm> {
-        EtherealTerm::ty_from_raw(db, form_path_declarative_ty(db, self)?)
+        EtherealTerm::ty_from_declarative(db, form_path_declarative_ty(db, self)?)
     }
 }
 
@@ -68,10 +68,10 @@ impl HasTypeGivenDisambiguation for TypePath {
     ) -> EtherealTermResult<EtherealTerm> {
         match disambiguation {
             TypePathDisambiguation::Ontology => {
-                EtherealTerm::ty_from_raw(db, ty_ontology_path_declarative_ty(db, self)?)
+                EtherealTerm::ty_from_declarative(db, ty_ontology_path_declarative_ty(db, self)?)
             }
             TypePathDisambiguation::Constructor => {
-                EtherealTerm::ty_from_raw(db, ty_constructor_path_declarative_ty(db, self)?)
+                EtherealTerm::ty_from_declarative(db, ty_constructor_path_declarative_ty(db, self)?)
             }
         }
     }
@@ -107,7 +107,7 @@ impl HasType for TraitForTypeItemPath {
 
 impl HasType for TypeVariantPath {
     fn ty(self, db: &dyn EtherealTermDb) -> EtherealTermResult<EtherealTerm> {
-        EtherealTerm::ty_from_raw(db, ty_variant_path_declarative_ty(db, self)?)
+        EtherealTerm::ty_from_declarative(db, ty_variant_path_declarative_ty(db, self)?)
     }
 }
 

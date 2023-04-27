@@ -14,10 +14,10 @@ pub struct FluffyMethodFnSignature {}
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FluffyMethodFunctionSignature {}
 
-pub(crate) fn method_fluffy_signature(
+pub(crate) fn ty_method_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     db: &dyn FluffyTermDb,
     ty_path: TypePath,
-    ty_template_arguments: impl Iterator<Item = FluffyTerm> + Clone,
+    ty_template_arguments: &[Term],
     method_template_arguments: &[FluffyTerm],
     ident: Ident,
 ) -> FluffyTermMaybeResult<FluffyMethodSignature> {
@@ -25,9 +25,10 @@ pub(crate) fn method_fluffy_signature(
     match templates {
         TypeMethodEtherealSignatureTemplates::MethodFn(templates) => {
             for template in templates {
-                if let JustOk(signature) = method_fn_fluffy_signature(
+                if let JustOk(signature) = ty_method_fn_fluffy_signature(
+                    db,
                     template,
-                    ty_template_arguments.clone(),
+                    ty_template_arguments,
                     method_template_arguments,
                 ) {
                     return JustOk(signature.into());
@@ -37,9 +38,10 @@ pub(crate) fn method_fluffy_signature(
         }
         TypeMethodEtherealSignatureTemplates::MethodFunction(templates) => {
             for template in templates {
-                if let JustOk(signature) = method_function_fluffy_signature(
+                if let JustOk(signature) = ty_method_function_fluffy_signature(
+                    db,
                     template,
-                    ty_template_arguments.clone(),
+                    ty_template_arguments,
                     method_template_arguments,
                 ) {
                     return JustOk(signature.into());
@@ -50,17 +52,35 @@ pub(crate) fn method_fluffy_signature(
     }
 }
 
-fn method_fn_fluffy_signature(
+fn ty_method_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
+    db: &dyn FluffyTermDb,
     template: &TypeMethodFnEtherealSignatureTemplate,
-    ty_template_arguments: impl Iterator<Item = FluffyTerm>,
+    ty_template_arguments: &[Term],
     method_template_arguments: &[FluffyTerm],
 ) -> FluffyTermMaybeResult<FluffyMethodFnSignature> {
-    todo!()
+    let self_ty_application_expansion = template.self_ty(db).application_expansion(db);
+    if self_ty_application_expansion.arguments(db).len() != ty_template_arguments.len() {
+        todo!()
+    }
+    let mut instantiator = Instantiator::default();
+    // initialize pattern matcher
+    for (src, dst) in std::iter::zip(
+        self_ty_application_expansion.arguments(db).iter().copied(),
+        ty_template_arguments.iter().copied(),
+    ) {
+        let dst: FluffyTerm = dst.into();
+        todo!()
+    }
+    for _ in method_template_arguments {
+        todo!()
+    }
+    JustOk(FluffyMethodFnSignature {})
 }
 
-fn method_function_fluffy_signature(
+fn ty_method_function_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
+    db: &dyn FluffyTermDb,
     template: &TypeMethodFunctionEtherealSignatureTemplate,
-    ty_template_arguments: impl Iterator<Item = FluffyTerm>,
+    ty_template_arguments: &[Term],
     method_template_arguments: &[FluffyTerm],
 ) -> FluffyTermMaybeResult<FluffyMethodFnSignature> {
     todo!()

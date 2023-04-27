@@ -4,6 +4,11 @@ use crate::*;
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct TypeMethodFnDeclarativeSignatureTemplate {
+    /// the term for `Self`
+    /// not necessarily equal to the type of `self`
+    ///
+    /// we don't use self_ty_arguments because it's not determined for declarative terms
+    pub self_ty: DeclarativeTerm,
     // todo: formal method, method that is not a function pointer
     #[return_ref]
     pub implicit_parameters: ImplicitParameterDeclarativeSignatures,
@@ -33,20 +38,15 @@ pub fn ty_method_fn_declarative_signature_template(
     let expr_region = decl.expr_region(db);
     let expr_region_data = expr_region.data(db);
     let declarative_term_region = declarative_term_region(db, expr_region);
-    let self_parameter = {
-        let impl_block = decl.associated_item(db).impl_block(db);
-        let contract = match decl.self_parameter(db) {
-            Some(self_parameter) => todo!(),
-            None => Contract::Pure,
-        };
-        match impl_block {
-            ImplBlock::Type(impl_block) => ExplicitParameterSignature::new(
-                contract,
-                impl_block.declarative_signature_template(db)?.ty(db),
-            ),
-            _ => unreachable!(),
-        }
+    let ImplBlock::Type(impl_block) = decl.associated_item(db).impl_block(db) else {
+        unreachable!()
     };
+    let self_ty = impl_block.declarative_signature_template(db)?.ty(db);
+    let contract = match decl.self_parameter(db) {
+        Some(self_parameter) => todo!(),
+        None => Contract::Pure,
+    };
+    let self_parameter = ExplicitParameterSignature::new(contract, self_ty);
     let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
     let implicit_parameters = ImplicitParameterDeclarativeSignatures::from_decl(
         decl.implicit_parameters(db),
@@ -64,6 +64,7 @@ pub fn ty_method_fn_declarative_signature_template(
     };
     Ok(TypeMethodFnDeclarativeSignatureTemplate::new(
         db,
+        self_ty,
         implicit_parameters,
         self_parameter,
         nonself_regular_parameters,

@@ -17,7 +17,9 @@ pub struct TypeMethodFunctionDeclarativeSignatureTemplate {
 pub fn ty_method_function_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     decl: TypeMethodFnDecl,
-) -> DeclarativeSignatureResult<TypeMethodFnDeclarativeSignatureTemplate> {
+) -> DeclarativeSignatureResult<TypeMethodFunctionDeclarativeSignatureTemplate> {
+    // todo: overhaul
+    // the following is blindly copied from method fn
     let expr_region = decl.expr_region(db);
     let expr_region_data = expr_region.data(db);
     let declarative_term_region = declarative_term_region(db, expr_region);
@@ -50,7 +52,7 @@ pub fn ty_method_function_declarative_signature_template(
         Some(return_ty) => declarative_term_region.expr_term(return_ty.expr())?,
         None => declarative_term_menu.unit(),
     };
-    Ok(TypeMethodFnDeclarativeSignatureTemplate::new(
+    Ok(TypeMethodFunctionDeclarativeSignatureTemplate::new(
         db,
         implicit_parameters,
         self_parameter,

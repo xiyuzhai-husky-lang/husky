@@ -70,13 +70,6 @@ pub enum EtherealTerm {
 }
 
 impl EtherealTerm {
-    pub fn ty_from_raw(
-        db: &dyn EtherealTermDb,
-        raw_term: DeclarativeTerm,
-    ) -> EtherealTermResult<Self> {
-        Self::from_declarative(db, raw_term, TermTypeExpectation::FinalDestinationEqsSort)
-    }
-
     pub fn ty_from_declarative(
         db: &dyn EtherealTermDb,
         raw_term: DeclarativeTerm,
@@ -170,8 +163,12 @@ impl EtherealTerm {
                 }
                 TermTypeExpectation::Any => todo!(),
             },
-            DeclarativeTerm::List(raw_term_list) => {
-                term_from_raw_term_list_unchecked(db, raw_term_list, term_ty_expectation)?
+            DeclarativeTerm::List(declarative_term_list) => {
+                term_from_declarative_term_list_unchecked(
+                    db,
+                    declarative_term_list,
+                    term_ty_expectation,
+                )?
             }
         })
     }
@@ -271,15 +268,15 @@ pub(crate) fn term_from_raw_term_explicit_application_or_ritchie_call_unchecked(
 }
 
 #[salsa::tracked(jar = EtherealTermJar)]
-pub(crate) fn term_from_raw_term_list_unchecked(
+pub(crate) fn term_from_declarative_term_list_unchecked(
     db: &dyn EtherealTermDb,
-    raw_term_list: DeclarativeTermList,
+    declarative_term_list: DeclarativeTermList,
     term_ty_expectation: TermTypeExpectation,
 ) -> EtherealTermResult<EtherealTerm> {
     match term_ty_expectation {
         TermTypeExpectation::FinalDestinationEqsSort => {
-            let term_menu = db.term_menu(raw_term_list.toolchain(db));
-            let items = raw_term_list.items(db);
+            let term_menu = db.term_menu(declarative_term_list.toolchain(db));
+            let items = declarative_term_list.items(db);
             match items.len() {
                 0 => Ok(term_menu.list_ty_ontology()),
                 _ => todo!(),
