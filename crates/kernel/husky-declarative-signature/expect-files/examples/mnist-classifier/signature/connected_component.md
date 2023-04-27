@@ -226,6 +226,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        self_ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
@@ -268,6 +269,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        self_ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },

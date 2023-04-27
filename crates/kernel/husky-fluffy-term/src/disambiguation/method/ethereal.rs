@@ -70,14 +70,8 @@ fn ethereal_ty_method_disambiguation_aux<'a>(
         },
         _ => (),
     }
-    if let Some(signature) = method_fluffy_signature(
-        db,
-        ty_path,
-        arguments.iter().copied().map(Into::into),
-        &[],
-        ident,
-    )
-    .into_result_option()?
+    if let Some(signature) =
+        ty_method_fluffy_signature(db, ty_path, arguments, &[], ident).into_result_option()?
     {
         return JustOk(FluffyMemberDisambiguation {
             indirections,

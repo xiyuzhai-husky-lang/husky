@@ -441,6 +441,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        self_ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },

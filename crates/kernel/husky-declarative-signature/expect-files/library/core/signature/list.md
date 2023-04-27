@@ -49,6 +49,7 @@
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                 TypeItemDeclarativeSignatureTemplate::MethodFn(
                     TypeMethodFnDeclarativeSignatureTemplate {
+                        self_ty: DeclarativeTerm(`core::list::List t`),
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },

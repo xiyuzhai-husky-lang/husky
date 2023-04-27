@@ -84,7 +84,7 @@ pub struct EtherealTermJar(
     term_menu,
     // other
     term_from_raw_term_explicit_application_or_ritchie_call_unchecked,
-    term_from_raw_term_list_unchecked,
+    term_from_declarative_term_list_unchecked,
     utils::curry_term_toolchain,
     utils::application_term_toolchain,
     utils::ritchie_term_toolchain,

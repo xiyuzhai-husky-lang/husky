@@ -23,7 +23,7 @@ impl SymbolType {
         current_symbol_idx: CurrentSymbolIdx,
         signature: SymbolSignature,
     ) -> EtherealTermResult<Self> {
-        let ty = EtherealTerm::ty_from_raw(engine.db(), signature.ty()?)?;
+        let ty = EtherealTerm::ty_from_declarative(engine.db(), signature.ty()?)?;
         Ok(Self::new(engine, current_symbol_idx, ty.into()))
     }
 

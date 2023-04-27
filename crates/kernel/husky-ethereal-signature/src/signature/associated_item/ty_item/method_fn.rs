@@ -1,7 +1,9 @@
 use super::*;
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
-pub struct TypeMethodFnEtherealSignatureTemplate {}
+pub struct TypeMethodFnEtherealSignatureTemplate {
+    pub self_ty: EtherealTerm,
+}
 
 impl HasEtherealSignatureTemplate for TypeMethodFnDeclarativeSignatureTemplate {
     type EtherealSignatureTemplate = TypeMethodFnEtherealSignatureTemplate;
@@ -10,7 +12,8 @@ impl HasEtherealSignatureTemplate for TypeMethodFnDeclarativeSignatureTemplate {
         self,
         db: &dyn EtherealSignatureDb,
     ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
-        Ok(TypeMethodFnEtherealSignatureTemplate::new(db))
+        let self_ty = EtherealTerm::ty_from_declarative(db, self.self_ty(db))?;
+        Ok(TypeMethodFnEtherealSignatureTemplate::new(db, self_ty))
     }
 }
 
