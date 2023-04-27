@@ -3,7 +3,10 @@
 # If you are using rust stable, remove the "-Zshare-generics=y" below.
 [target.x86_64-unknown-linux-gnu]
 linker = "clang"
-rustflags = ["-Awarnings", "-Clink-arg=-fuse-ld=lld", "-Zshare-generics=y"]
+# rustflags = ["-Awarnings", "-Clink-arg=-fuse-ld=lld", "-Zshare-generics=y"]
+# following instructions on https://github.com/rui314/mold to install mold
+# use g++-10 instead of c++ in the cmake flag
+rustflags = ["-Awarnings", "-Clink-arg=-fuse-ld=mold", "-Zshare-generics=y"]
 
 # NOTE: you must manually install https://github.com/michaeleisel/zld on mac. you can easily do this with the "brew" package manager:
 # `brew install michaeleisel/zld/zld`
