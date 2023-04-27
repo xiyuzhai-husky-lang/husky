@@ -12,8 +12,8 @@
                         data: [],
                     },
                     parameters: ExplicitParameterDeclarativeSignatureTemplates {
-                        parameters: [
-                            ExplicitParameterSignature {
+                        data: [
+                            ExplicitParameterDeclarativeSignatureTemplate {
                                 contract: Pure,
                                 ty: ExplicitApplication(
                                     DeclarativeTermExplicitApplication(
@@ -117,7 +117,7 @@
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
-                        self_parameter: ExplicitParameterSignature {
+                        self_parameter: ExplicitParameterDeclarativeSignatureTemplate {
                             contract: Pure,
                             ty: EntityPath(
                                 Type(
@@ -130,7 +130,7 @@
                             ),
                         },
                         nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
-                            parameters: [],
+                            data: [],
                         },
                         return_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
                     },
@@ -147,7 +147,7 @@
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
-                        self_parameter: ExplicitParameterSignature {
+                        self_parameter: ExplicitParameterDeclarativeSignatureTemplate {
                             contract: Pure,
                             ty: EntityPath(
                                 Type(
@@ -160,7 +160,7 @@
                             ),
                         },
                         nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
-                            parameters: [],
+                            data: [],
                         },
                         return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
                     },
@@ -177,7 +177,7 @@
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
-                        self_parameter: ExplicitParameterSignature {
+                        self_parameter: ExplicitParameterDeclarativeSignatureTemplate {
                             contract: Pure,
                             ty: EntityPath(
                                 Type(
@@ -190,7 +190,7 @@
                             ),
                         },
                         nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
-                            parameters: [],
+                            data: [],
                         },
                         return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
                     },
@@ -207,7 +207,7 @@
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
-                        self_parameter: ExplicitParameterSignature {
+                        self_parameter: ExplicitParameterDeclarativeSignatureTemplate {
                             contract: Pure,
                             ty: EntityPath(
                                 Type(
@@ -220,7 +220,7 @@
                             ),
                         },
                         nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
-                            parameters: [],
+                            data: [],
                         },
                         return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                     },
@@ -237,7 +237,7 @@
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
-                        self_parameter: ExplicitParameterSignature {
+                        self_parameter: ExplicitParameterDeclarativeSignatureTemplate {
                             contract: Pure,
                             ty: EntityPath(
                                 Type(
@@ -250,7 +250,7 @@
                             ),
                         },
                         nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
-                            parameters: [],
+                            data: [],
                         },
                         return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                     },
@@ -267,7 +267,7 @@
                         implicit_parameters: ImplicitParameterDeclarativeSignatures {
                             data: [],
                         },
-                        self_parameter: ExplicitParameterSignature {
+                        self_parameter: ExplicitParameterDeclarativeSignatureTemplate {
                             contract: Pure,
                             ty: EntityPath(
                                 Type(
@@ -280,7 +280,7 @@
                             ),
                         },
                         nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
-                            parameters: [],
+                            data: [],
                         },
                         return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                     },

@@ -43,11 +43,6 @@ DiagnosticSheet {
                 range: [101:74, 101:83),
             },
             Diagnostic {
-                message: "Type Error: no method named `ilen` for type `FluffyTerm::Solid(SolidTerm(0))`",
-                severity: Error,
-                range: [161:20, 161:24),
-            },
-            Diagnostic {
                 message: "Type Error: TodoIndexOrComposeWithList",
                 severity: Error,
                 range: [162:14, 162:25),

@@ -19,12 +19,6 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Type Error: no method named `norm` for type `FluffyTerm::Solid(SolidTerm(0))`",
-                severity: Error,
-                range: [68:32, 68:36),
-            },
-        ],
+        diagnostics: [],
     },
 }

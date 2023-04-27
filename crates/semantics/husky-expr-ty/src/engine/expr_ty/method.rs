@@ -27,7 +27,18 @@ impl<'a> ExprTypeEngine<'a> {
                 self_expr_ty,
                 ident_token,
             })?;
-        todo!()
+        let return_ty = match disambiguation.signature() {
+            FluffyMethodSignature::MethodFn(signature) => {
+                self.calc_ritchie_call_nonself_arguments_expr_ty(
+                    expr_idx,
+                    signature.nonself_parameter_contracted_tys(),
+                    nonself_arguments,
+                );
+                signature.return_ty()
+            }
+            FluffyMethodSignature::MethodFunction(signature) => todo!(),
+        };
+        Ok((disambiguation.into(), Ok(return_ty)))
         // Ok((disambiguation.into(), todo!()))
         // let self_expr_ty_unravelled = self_expr_ty.unravel_borrow(self);
         // let ty_method_card = match self_expr_ty_unravelled {

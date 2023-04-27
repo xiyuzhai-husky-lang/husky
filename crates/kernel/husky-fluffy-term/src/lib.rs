@@ -6,6 +6,7 @@ mod disambiguation;
 mod engine;
 mod error;
 mod expectation;
+mod instantiator;
 mod nested;
 mod progress;
 mod region;
@@ -26,6 +27,7 @@ pub use self::expectation::*;
 pub use self::progress::*;
 pub use self::region::*;
 pub use self::resolve::*;
+pub use self::signature::*;
 pub use self::substitution::*;
 pub use self::term::*;
 
@@ -33,6 +35,7 @@ pub(crate) use self::signature::*;
 #[cfg(test)]
 pub(crate) use self::tests::*;
 
+use self::instantiator::*;
 use self::nested::*;
 use either::*;
 use husky_declarative_signature::*;
@@ -51,6 +54,4 @@ pub struct FluffyTermJar(
     term_application_fluffy_data,
     ethereal_ty_ontology_path_ty_field_disambiguation,
     ethereal_term_application_ty_field_disambiguation,
-    ethereal_ty_ontology_path_ty_method_disambiguation,
-    ethereal_term_application_ty_method_disambiguation,
 );

@@ -72,9 +72,13 @@ pub enum EtherealTerm {
 impl EtherealTerm {
     pub fn ty_from_declarative(
         db: &dyn EtherealTermDb,
-        raw_term: DeclarativeTerm,
+        declarative_term: DeclarativeTerm,
     ) -> EtherealTermResult<Self> {
-        Self::from_declarative(db, raw_term, TermTypeExpectation::FinalDestinationEqsSort)
+        Self::from_declarative(
+            db,
+            declarative_term,
+            TermTypeExpectation::FinalDestinationEqsSort,
+        )
     }
 
     pub(crate) fn from_declarative(

@@ -35,7 +35,9 @@ impl FluffyTerm {
         mut indirections: SmallVec<[FluffyIndirection; 2]>,
     ) -> FluffyTermMaybeResult<FluffyMethodDisambiguation> {
         match self.nested() {
-            NestedFluffyTerm::Ethereal(term) => todo!(),
+            NestedFluffyTerm::Ethereal(term) => {
+                ethereal_ty_method_disambiguation(engine, term, ident)
+            }
             NestedFluffyTerm::Solid(term) => {
                 term.method_disambiguation_aux(engine, ident, available_traits, indirections)
             }

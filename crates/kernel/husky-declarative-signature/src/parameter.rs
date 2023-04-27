@@ -111,12 +111,12 @@ impl std::ops::Deref for ImplicitParameterDeclarativeSignatures {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct ExplicitParameterSignature {
+pub struct ExplicitParameterDeclarativeSignatureTemplate {
     contract: Contract,
     ty: DeclarativeTerm,
 }
 
-impl ExplicitParameterSignature {
+impl ExplicitParameterDeclarativeSignatureTemplate {
     pub fn into_ritchie_parameter_contracted_ty(
         self,
     ) -> DeclarativeTermRitchieParameterContractedType {
@@ -124,7 +124,7 @@ impl ExplicitParameterSignature {
     }
 }
 
-impl ExplicitParameterSignature {
+impl ExplicitParameterDeclarativeSignatureTemplate {
     pub(crate) fn new(contract: Contract, ty: DeclarativeTerm) -> Self {
         Self { contract, ty }
     }
@@ -140,14 +140,14 @@ impl ExplicitParameterSignature {
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct ExplicitParameterDeclarativeSignatureTemplates {
-    parameters: Vec<ExplicitParameterSignature>,
+    data: SmallVec<[ExplicitParameterDeclarativeSignatureTemplate; 4]>,
 }
 
 impl std::ops::Deref for ExplicitParameterDeclarativeSignatureTemplates {
-    type Target = [ExplicitParameterSignature];
+    type Target = [ExplicitParameterDeclarativeSignatureTemplate];
 
     fn deref(&self) -> &Self::Target {
-        &self.parameters
+        &self.data
     }
 }
 
@@ -158,7 +158,7 @@ impl ExplicitParameterDeclarativeSignatureTemplates {
         signature_region: &DeclarativeTermRegion,
     ) -> DeclarativeSignatureResult<Self> {
         Ok(Self {
-            parameters: parameters
+            data: parameters
                 .iter()
                 .enumerate()
                 .map(|(i, parameter)| {
@@ -174,12 +174,12 @@ impl ExplicitParameterDeclarativeSignatureTemplates {
                             )
                         }
                     };
-                    Ok(ExplicitParameterSignature::new(
+                    Ok(ExplicitParameterDeclarativeSignatureTemplate::new(
                         expr_region_data.pattern_contract(parameter.pattern()),
                         ty,
                     ))
                 })
-                .collect::<Result<Vec<ExplicitParameterSignature>, DeclarativeSignatureError>>()?,
+                .collect::<DeclarativeSignatureResult<_>>()?,
         })
     }
 }

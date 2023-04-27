@@ -5771,30 +5771,58 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Original(
-                        NoMethodForType {
-                            self_expr_ty: Solid(
-                                SolidTerm(
-                                    0,
+                variant_and_ty_result: Ok(
+                    (
+                        Method(
+                            FluffyMemberDisambiguation {
+                                indirections: [
+                                    Place(
+                                        StackPure {
+                                            location: StackLocationIdx(
+                                                LocalSymbolIdx(
+                                                    0,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 78,
+                                    },
                                 ),
-                            ),
-                            ident_token: IdentToken {
-                                ident: Ident(
-                                    Word(
+                                signature: MethodFn(
+                                    FluffyMethodFnSignature {
+                                        nonself_parameter_contracted_tys: [],
+                                        return_ty: EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 54,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            },
+                        ),
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
                                         Id {
-                                            value: 315,
+                                            value: 54,
                                         },
                                     ),
                                 ),
-                                token_idx: TokenIdx(
-                                    416,
-                                ),
-                            },
-                        },
+                            ),
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    3,
+                ),
             },
             ExprTypeInfo {
                 variant_and_ty_result: Ok(
@@ -5823,7 +5851,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    3,
+                    4,
                 ),
             },
             ExprTypeInfo {
@@ -5844,7 +5872,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    4,
+                    5,
                 ),
             },
             ExprTypeInfo {
@@ -5874,7 +5902,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    5,
+                    6,
                 ),
             },
             ExprTypeInfo {
@@ -5977,7 +6005,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    6,
+                    7,
                 ),
             },
             ExprTypeInfo {
@@ -6015,7 +6043,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    7,
+                    8,
                 ),
             },
             ExprTypeInfo {
@@ -6045,7 +6073,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    8,
+                    9,
                 ),
             },
             ExprTypeInfo {
@@ -6066,7 +6094,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    9,
+                    10,
                 ),
             },
             ExprTypeInfo {
@@ -6083,7 +6111,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    10,
+                    11,
                 ),
             },
             ExprTypeInfo {
@@ -6098,23 +6126,6 @@
                                             value: 54,
                                         },
                                     ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    11,
-                ),
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Hollow(
-                                HollowTerm(
-                                    5,
                                 ),
                             ),
                         ),
@@ -6145,6 +6156,23 @@
                 variant_and_ty_result: Ok(
                     (
                         Trivial,
+                        Ok(
+                            Hollow(
+                                HollowTerm(
+                                    5,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    14,
+                ),
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
                         Err(
                             Derived(
                                 SelfTypeNotInferredForSelfValue,
@@ -6168,7 +6196,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    15,
+                    16,
                 ),
             },
             ExprTypeInfo {
@@ -6197,7 +6225,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    14,
+                    15,
                 ),
             },
             ExprTypeInfo {
@@ -6218,7 +6246,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    16,
+                    17,
                 ),
             },
             ExprTypeInfo {
@@ -6252,7 +6280,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    17,
+                    18,
                 ),
             },
             ExprTypeInfo {
@@ -6281,7 +6309,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    18,
+                    19,
                 ),
             },
             ExprTypeInfo {
@@ -6311,7 +6339,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    19,
+                    20,
                 ),
             },
             ExprTypeInfo {
@@ -6341,7 +6369,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    20,
+                    21,
                 ),
             },
             ExprTypeInfo {
@@ -6375,7 +6403,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    21,
+                    22,
                 ),
             },
         ],
@@ -6681,6 +6709,25 @@
                             expectee: Solid(
                                 SolidTerm(
                                     0,
+                                ),
+                            ),
+                            data: AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            resolve_progress: Unresolved,
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 6,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 54,
+                                        },
+                                    ),
                                 ),
                             ),
                             data: AnyOriginal(

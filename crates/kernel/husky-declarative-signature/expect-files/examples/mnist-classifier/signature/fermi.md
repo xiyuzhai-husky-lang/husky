@@ -28,8 +28,8 @@
                         data: [],
                     },
                     parameters: ExplicitParameterDeclarativeSignatureTemplates {
-                        parameters: [
-                            ExplicitParameterSignature {
+                        data: [
+                            ExplicitParameterDeclarativeSignatureTemplate {
                                 contract: Pure,
                                 ty: ExplicitApplication(
                                     DeclarativeTermExplicitApplication(
@@ -39,7 +39,7 @@
                                     ),
                                 ),
                             },
-                            ExplicitParameterSignature {
+                            ExplicitParameterDeclarativeSignatureTemplate {
                                 contract: Pure,
                                 ty: ExplicitApplicationOrRitchieCall(
                                     DeclarativeTermExplicitApplicationOrRitchieCall(

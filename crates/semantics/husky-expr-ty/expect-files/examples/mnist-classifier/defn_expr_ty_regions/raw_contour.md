@@ -3907,39 +3907,50 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Original(
-                        NoMethodForType {
-                            self_expr_ty: Solid(
-                                SolidTerm(
-                                    0,
-                                ),
-                            ),
-                            ident_token: IdentToken {
-                                ident: Ident(
-                                    Word(
-                                        Id {
-                                            value: 95,
-                                        },
-                                    ),
-                                ),
-                                token_idx: TokenIdx(
-                                    941,
-                                ),
-                            },
-                        },
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
                 variant_and_ty_result: Ok(
                     (
-                        Trivial,
+                        Method(
+                            FluffyMemberDisambiguation {
+                                indirections: [
+                                    Place(
+                                        StackPure {
+                                            location: StackLocationIdx(
+                                                LocalSymbolIdx(
+                                                    0,
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 57,
+                                    },
+                                ),
+                                signature: MethodFn(
+                                    FluffyMethodFnSignature {
+                                        nonself_parameter_contracted_tys: [],
+                                        return_ty: EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    Id {
+                                                        value: 44,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            },
+                        ),
                         Ok(
-                            Solid(
-                                SolidTerm(
-                                    0,
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 44,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -3948,14 +3959,6 @@
                 expectation_rule_idx: Some(
                     1,
                 ),
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Original(
-                        TodoIndexOrComposeWithList,
-                    ),
-                ),
-                expectation_rule_idx: None,
             },
             ExprTypeInfo {
                 variant_and_ty_result: Ok(
@@ -3985,15 +3988,11 @@
             ExprTypeInfo {
                 variant_and_ty_result: Ok(
                     (
-                        TypePath(
-                            Constructor,
-                        ),
+                        Trivial,
                         Ok(
-                            Ritchie(
-                                EtherealTermRitchie(
-                                    Id {
-                                        value: 5,
-                                    },
+                            Solid(
+                                SolidTerm(
+                                    0,
                                 ),
                             ),
                         ),
@@ -4004,43 +4003,9 @@
                 ),
             },
             ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
                 variant_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
+                    Original(
+                        TodoIndexOrComposeWithList,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -4048,37 +4013,15 @@
             ExprTypeInfo {
                 variant_and_ty_result: Ok(
                     (
-                        Trivial,
-                        Err(
-                            Derived(
-                                BinaryOperationLeftOperandTypeNotInferred,
-                            ),
+                        TypePath(
+                            Constructor,
                         ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                BracketedItemTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                variant_and_ty_result: Ok(
-                    (
-                        Trivial,
                         Ok(
-                            Hollow(
-                                HollowTerm(
-                                    0,
+                            Ritchie(
+                                EtherealTermRitchie(
+                                    Id {
+                                        value: 5,
+                                    },
                                 ),
                             ),
                         ),
@@ -4163,7 +4106,7 @@
                         Ok(
                             Hollow(
                                 HollowTerm(
-                                    1,
+                                    0,
                                 ),
                             ),
                         ),
@@ -4171,6 +4114,91 @@
                 ),
                 expectation_rule_idx: Some(
                     5,
+                ),
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Err(
+                    Derived(
+                        FieldOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                BinaryOperationLeftOperandTypeNotInferred,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                BracketedItemTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                variant_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Hollow(
+                                HollowTerm(
+                                    1,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    6,
                 ),
             },
             ExprTypeInfo {
@@ -4219,7 +4247,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    6,
+                    7,
                 ),
             },
             ExprTypeInfo {
@@ -4240,7 +4268,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    7,
+                    8,
                 ),
             },
         ],
@@ -4343,7 +4371,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 14,
+                                                value: 15,
                                             },
                                         ),
                                     ),
@@ -4364,6 +4392,25 @@
                             expectee: Solid(
                                 SolidTerm(
                                     0,
+                                ),
+                            ),
+                            data: AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            resolve_progress: Unresolved,
+                        },
+                        ExpectationEntry {
+                            src: ExpectationSource {
+                                expr_idx: 1,
+                                kind: Expr,
+                            },
+                            expectee: EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 44,
+                                        },
+                                    ),
                                 ),
                             ),
                             data: AnyOriginal(
@@ -5333,7 +5380,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 14,
+                                        value: 15,
                                     },
                                 ),
                             ),
@@ -9373,7 +9420,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 14,
+                                                value: 15,
                                             },
                                         ),
                                     ),
@@ -9728,7 +9775,7 @@
                             expectee: Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 14,
+                                        value: 15,
                                     },
                                 ),
                             ),
@@ -9739,7 +9786,7 @@
                                         ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 14,
+                                                    value: 15,
                                                 },
                                             ),
                                         ),
@@ -11061,7 +11108,7 @@
                                                         ty: Application(
                                                             EtherealTermApplication(
                                                                 Id {
-                                                                    value: 14,
+                                                                    value: 15,
                                                                 },
                                                             ),
                                                         ),
@@ -11090,7 +11137,7 @@
                                         ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 14,
+                                                    value: 15,
                                                 },
                                             ),
                                         ),
